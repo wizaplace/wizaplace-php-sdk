@@ -20,6 +20,7 @@ pipeline {
                     },
                     'test': {
                         sh 'make test'
+                        junit 'phpunit-result.xml'
                     }
                 )
             }
