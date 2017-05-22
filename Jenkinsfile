@@ -14,7 +14,7 @@ pipeline {
                 parallel(
                     'lint': {
                         sh 'make lint'
-                    }
+                    },
                     'test': {
                         sh 'make test'
                     }
