@@ -1,0 +1,82 @@
+<?php
+/**
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
+
+namespace Wizaplace\Catalog;
+
+use Wizaplace\Image\Image;
+
+class CatalogCategory
+{
+    /** @var  int */
+    private $id;
+    /** @var  int */
+    private $parentId;
+    /** @var  string */
+    private $name;
+    /** @var  string */
+    private $description;
+    /** @var  string */
+    private $slug;
+    /** @var  Image */
+    private $image;
+    /** @var  int */
+    private $position;
+    /** @var  int */
+    private $productCount;
+
+    public function __construct(array $data)
+    {
+        $this->id = $data['id'];
+        $this->parentId = $data['parentId'];
+        $this->name = $data['name'];
+        $this->description = $data['description'];
+        $this->slug = $data['slug'];
+        $this->image = $data['image'];
+        $this->position = $data['position'];
+        $this->productCount = $data['productCount'];
+    }
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    public function getParentId(): int
+    {
+        return $this->parentId;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    public function getImage(): Image
+    {
+        return $this->image;
+    }
+
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
+    public function getProductCount(): int
+    {
+        return $this->productCount;
+    }
+}

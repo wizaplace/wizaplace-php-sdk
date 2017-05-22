@@ -1,0 +1,27 @@
+{
+    "name": "wizaplace/sdk",
+    "description": "Wizaplace's PHP SDK",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Wizaplace",
+            "email": "dev@wizaplace.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1",
+        "guzzlehttp/guzzle": "^6.2",
+        "guzzlehttp/psr7": "^1.4"
+    },
+    "autoload": {
+        "psr-4": {"Wizaplace\\": "src/"}
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "wizaplace/php-coding-standard": "^1.0",
+        "m6web/coke": "^2.2"
+    },
+    "autoload-dev": {
+        "psr-4": { "Wizaplace\\Tests\\": "tests/" }
+    }
+}

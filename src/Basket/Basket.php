@@ -1,0 +1,105 @@
+<?php
+/**
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
+ */
+
+namespace Wizaplace\Basket;
+
+class Basket
+{
+    /** @var string */
+    private $id;
+
+    /** @var array */
+    private $coupons;
+
+    /** @var BasketCompanyGroup[] */
+    private $companyGroups;
+
+    /** @var float */
+    private $subtotal;
+
+    /** @var float */
+    private $totalDiscount;
+
+    /** @var float */
+    private $totalShipping;
+
+    /** @var float */
+    private $totalTax;
+
+    /** @var float */
+    private $total;
+
+    /** @var int */
+    private $totalQuantity;
+
+    public function __construct(array $data)
+    {
+        $this->id = $data['id'];
+        $this->coupons = $data['coupons'];
+        $this->subtotal = $data['subtotal'];
+        $this->totalDiscount = $data['totalDiscount'];
+        $this->totalShipping = $data['totalShipping'];
+        $this->totalTax = $data['totalTax'];
+        $this->total = $data['total'];
+        $this->totalQuantity = $data['totalQuantity'];
+
+        $this->companyGroups = array_map(
+            function ($companyGroup) {
+                return new BasketCompanyGroup($companyGroup);
+            },
+            $data['companyGroups']
+        );
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    public function getCoupons(): array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @return BasketCompanyGroup[]
+     */
+    public function getCompanyGroups(): array
+    {
+        return $this->companyGroups;
+    }
+
+    public function getSubtotal(): float
+    {
+        return $this->subtotal;
+    }
+
+    public function getTotalDiscount(): float
+    {
+        return $this->totalDiscount;
+    }
+
+    public function getTotalShipping(): float
+    {
+        return $this->totalShipping;
+    }
+
+    public function getTotalTax(): float
+    {
+        return $this->totalTax;
+    }
+
+    public function getTotal(): float
+    {
+        return $this->total;
+    }
+
+    public function getTotalQuantity(): int
+    {
+        return $this->totalQuantity;
+    }
+}
