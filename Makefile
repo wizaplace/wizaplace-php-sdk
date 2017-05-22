@@ -1,7 +1,7 @@
 all: install lint test
 
 install:
-	composer install
+	composer install --dev --no-interaction --no-progress
 
 lint:
 	./vendor/bin/coke
