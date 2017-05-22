@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('setup') {
             steps {
+                sh 'env'
                 sh 'make install'
             }
         }
