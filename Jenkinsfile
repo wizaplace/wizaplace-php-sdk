@@ -1,6 +1,8 @@
 pipeline {
     agent {
-        dockerfile true
+        dockerfile {
+            args '-v /composer/cache'
+        }
     }
 
     stages {
