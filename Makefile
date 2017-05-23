@@ -1,6 +1,6 @@
 
 
-all: install lint test
+all: install lint stan test
 
 install:
 ifndef BUILD_ID
@@ -16,6 +16,12 @@ else
 	./vendor/bin/coke --report-junit=coke-result.xml
 endif
 
+stan:
+ifndef BUILD_ID
+	./vendor/bin/phpstan analyse -c phpstan.neon -l 4 src tests
+else
+	./vendor/bin/phpstan --no-interaction analyse -c phpstan.neon -l 4 src tests
+endif
 
 test:
 ifndef BUILD_ID
@@ -24,4 +30,4 @@ else
 	./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit-result.xml
 endif
 
-.PHONY: all install lint test
+.PHONY: all install lint stan test

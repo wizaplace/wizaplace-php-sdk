@@ -59,7 +59,7 @@ class Product
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'];
+        $this->id = (string) $data['id'];
         $this->code = $data['code'];
         $this->supplierReference = $data['supplierReference'];
         $this->name = $data['name'];
@@ -67,7 +67,7 @@ class Product
         $this->shortDescription = $data['shortDescription'];
         $this->description = $data['description'];
         $this->slug = $data['slug'];
-        $this->minPrice = $data['minPrice'];
+        $this->minPrice = (float) $data['minPrice'];
         $this->attributes = array_map(
             function (array $attributeData) {
                 return new ProductAttribute($attributeData);
@@ -104,7 +104,7 @@ class Product
 
     public function getId(): string
     {
-        return (string) $this->id;
+        return $this->id;
     }
 
     public function getCode(): string
@@ -144,7 +144,7 @@ class Product
 
     public function getMinPrice(): float
     {
-        return (float) $this->minPrice;
+        return $this->minPrice;
     }
 
     /**

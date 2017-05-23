@@ -47,7 +47,7 @@ class UserService extends AbstractService
         try {
             $user = new User($this->get("/users/{$id}", [], $apiKey));
         } catch (\Exception $e) {
-            if ($e->getCode() === \Symfony\Component\HttpFoundation\Response::HTTP_NOT_FOUND) {
+            if ($e->getCode() === 404) {
                 throw new NotFound($e->getMessage());
             }
             throw $e;
