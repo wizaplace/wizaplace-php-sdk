@@ -19,6 +19,9 @@ pipeline {
                         sh 'make lint'
                         junit 'coke-result.xml'
                     },
+                    'stan': {
+                        sh 'make stan'
+                    },
                     'test': {
                         sh 'make test'
                         junit 'phpunit-result.xml'
