@@ -2,12 +2,6 @@
     "name": "wizaplace/sdk",
     "description": "Wizaplace's PHP SDK",
     "type": "library",
-    "authors": [
-        {
-            "name": "Wizaplace",
-            "email": "dev@wizaplace.com"
-        }
-    ],
     "require": {
         "php": ">=7.1",
         "guzzlehttp/guzzle": "^6.2",
