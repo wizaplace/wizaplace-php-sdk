@@ -17,6 +17,7 @@ pipeline {
                 parallel(
                     'lint': {
                         sh 'make lint'
+                        junit 'coke-result.xml'
                     },
                     'test': {
                         sh 'make test'
