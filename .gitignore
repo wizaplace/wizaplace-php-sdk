@@ -1,3 +1,4 @@
 /vendor/
 phpunit-result.xml
 coke-result.xml
+clover.xml

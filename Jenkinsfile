@@ -25,6 +25,11 @@ pipeline {
                     'test': {
                         sh 'make test'
                         junit 'phpunit-result.xml'
+                        step([
+                            $class: 'CloverPublisher',
+                            cloverReportDir: './',
+                            cloverReportFileName: 'clover.xml'
+                        ])
                     }
                 )
             }
