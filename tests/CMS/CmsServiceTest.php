@@ -32,14 +32,16 @@ class CmsServiceTest extends ApiTest
                 'test-category-slug',
                 'test-attribute-variant-slug',
                 'test-cms-page-slug',
+                'test-company-slug',
                 '404-does-not-exist',
             ]);
 
-            $this->assertCount(5, $slugTargets);
+            $this->assertCount(6, $slugTargets);
             foreach ([
                 'test-product-slug' => ObjectType::PRODUCT(),
                 'test-category-slug' => ObjectType::CATEGORY(),
                 'test-attribute-variant-slug' => ObjectType::ATTRIBUTE_VARIANT(),
+                'test-company-slug' => ObjectType::COMPANY(),
                 'test-cms-page-slug' => ObjectType::CMS_PAGE(),
             ] as $key => $objectType) {
                 $this->assertArrayHasKey($key, $slugTargets);
