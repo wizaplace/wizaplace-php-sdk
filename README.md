@@ -2,7 +2,9 @@
 
 ## Install
 
-`composer require wizaplace/sdk`
+```
+composer require wizaplace/sdk
+```
 
 ## Running linters and tests
 
