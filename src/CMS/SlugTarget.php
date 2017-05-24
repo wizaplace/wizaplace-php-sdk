@@ -22,7 +22,7 @@ class SlugTarget
 
     public function __construct(ObjectType $objectType, int $objectId)
     {
-        if ($objectType != ObjectType::REDIRECT() && $objectId < 1) {
+        if ($objectId < 1) {
             throw new \InvalidArgumentException("object ID has to be strictly positive, got $objectId");
         }
         $this->objectId = $objectId;
