@@ -12,7 +12,7 @@ composer require wizaplace/sdk
 
 ```bash
 docker build -t wizaplace-php-sdk-env .
-docker run --rm -v $(pwd):/app -v ~/.cache/composer:/composer/cache -u $(id -u):$(id -g) --network=host wizaplace-php-sdk-env
+docker run --rm -v $(pwd):/app wizaplace-php-sdk-env
 ```
 
 ### Without Docker
