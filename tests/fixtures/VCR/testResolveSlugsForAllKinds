@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=test-product-slug&slugs%5B1%5D=test-category-slug&slugs%5B2%5D=test-attribute-variant-slug&slugs%5B3%5D=test-cms-page-slug&slugs%5B4%5D=404-does-not-exist'
+        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=test-product-slug&slugs%5B1%5D=test-category-slug&slugs%5B2%5D=test-attribute-variant-slug&slugs%5B3%5D=test-cms-page-slug&slugs%5B4%5D=test-company-slug&slugs%5B5%5D=404-does-not-exist'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -14,11 +14,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 24 May 2017 12:21:38 GMT'
+            Date: 'Wed, 24 May 2017 12:45:17 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a166b3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a166b3'
-            Content-Length: '217'
+            X-Debug-Token: e4f65e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4f65e'
+            Content-Length: '265'
             Content-Type: application/json
-        body: '{"test-attribute-variant-slug":{"type":"attribute_variant","id":"5"},"test-category-slug":{"type":"category","id":"7"},"test-cms-page-slug":{"type":"cms_page","id":"9"},"test-product-slug":{"type":"product","id":"1"}}'
+        body: '{"test-attribute-variant-slug":{"type":"attribute_variant","id":"5"},"test-category-slug":{"type":"category","id":"7"},"test-cms-page-slug":{"type":"cms_page","id":"9"},"test-company-slug":{"type":"company","id":"1"},"test-product-slug":{"type":"product","id":"1"}}'
