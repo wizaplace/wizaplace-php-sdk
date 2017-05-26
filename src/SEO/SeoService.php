@@ -6,11 +6,11 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\CMS;
+namespace Wizaplace\SEO;
 
 use Wizaplace\AbstractService;
 
-class CmsService extends AbstractService
+class SeoService extends AbstractService
 {
     /**
      * @param string[] $slugs
@@ -31,7 +31,7 @@ class CmsService extends AbstractService
             if (!isset($rawResults[$slug])) {
                 $results[$slug] = null;
             } else {
-                $results[$slug] = new SlugTarget(new ObjectType($rawResults[$slug]['type']), (int) $rawResults[$slug]['id']);
+                $results[$slug] = new SlugTarget(new SlugTargetType($rawResults[$slug]['type']), (int) $rawResults[$slug]['id']);
             }
         }
 

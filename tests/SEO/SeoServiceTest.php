@@ -6,16 +6,16 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\CMS;
+namespace Wizaplace\Tests\SEO;
 
 use FR3D\SwaggerAssertions\PhpUnit\Psr7AssertsTrait;
 use VCR\VCR;
-use Wizaplace\CMS\CmsService;
-use Wizaplace\CMS\ObjectType;
-use Wizaplace\CMS\SlugTarget;
+use Wizaplace\SEO\SeoService;
+use Wizaplace\SEO\SlugTargetType;
+use Wizaplace\SEO\SlugTarget;
 use Wizaplace\Tests\ApiTest;
 
-class CmsServiceTest extends ApiTest
+class SeoServiceTest extends ApiTest
 {
     use Psr7AssertsTrait;
 
@@ -25,7 +25,7 @@ class CmsServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new CmsService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
 
             $slugTargets = $cmsService->resolveSlugs([
                 'test-product-slug',
@@ -38,11 +38,11 @@ class CmsServiceTest extends ApiTest
 
             $this->assertCount(6, $slugTargets);
             foreach ([
-                'test-product-slug' => ObjectType::PRODUCT(),
-                'test-category-slug' => ObjectType::CATEGORY(),
-                'test-attribute-variant-slug' => ObjectType::ATTRIBUTE_VARIANT(),
-                'test-company-slug' => ObjectType::COMPANY(),
-                'test-cms-page-slug' => ObjectType::CMS_PAGE(),
+                'test-product-slug' => SlugTargetType::PRODUCT(),
+                'test-category-slug' => SlugTargetType::CATEGORY(),
+                'test-attribute-variant-slug' => SlugTargetType::ATTRIBUTE_VARIANT(),
+                'test-company-slug' => SlugTargetType::COMPANY(),
+                'test-cms-page-slug' => SlugTargetType::CMS_PAGE(),
             ] as $key => $objectType) {
                 $this->assertArrayHasKey($key, $slugTargets);
                 $this->assertInstanceOf(SlugTarget::class, $slugTargets[$key], "for slug $key");
@@ -58,7 +58,7 @@ class CmsServiceTest extends ApiTest
 
     public function testResolveEmptySlugs()
     {
-        $cmsService = new CmsService(self::getApiBaseUrl(), $this->getGuzzleClient());
+        $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
         $result = $cmsService->resolveSlugs([]);
         $this->assertEmpty($result);
     }
@@ -69,12 +69,12 @@ class CmsServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new CmsService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
 
             $slugTarget = $cmsService->resolveSlug('test-product-slug');
 
             $this->assertNotNull($slugTarget);
-            $this->assertEquals(ObjectType::PRODUCT(), $slugTarget->getObjectType());
+            $this->assertEquals(SlugTargetType::PRODUCT(), $slugTarget->getObjectType());
         } finally {
             VCR::turnOff();
         }
@@ -86,7 +86,7 @@ class CmsServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new CmsService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
 
             $slugTarget = $cmsService->resolveSlug('404-does-not-exist');
 

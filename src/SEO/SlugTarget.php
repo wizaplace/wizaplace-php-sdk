@@ -6,12 +6,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\CMS;
+namespace Wizaplace\SEO;
 
 class SlugTarget
 {
     /**
-     * @var ObjectType
+     * @var SlugTargetType
      */
     private $objectType;
 
@@ -20,7 +20,7 @@ class SlugTarget
      */
     private $objectId;
 
-    public function __construct(ObjectType $objectType, int $objectId)
+    public function __construct(SlugTargetType $objectType, int $objectId)
     {
         if ($objectId < 1) {
             throw new \InvalidArgumentException("object ID has to be strictly positive, got $objectId");
@@ -30,7 +30,7 @@ class SlugTarget
         $this->objectType = $objectType;
     }
 
-    public function getObjectType(): ObjectType
+    public function getObjectType(): SlugTargetType
     {
         return $this->objectType;
     }
