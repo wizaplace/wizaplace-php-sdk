@@ -1,0 +1,24 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=test-product-slug'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.52.1 PHP/7.1.5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 24 May 2017 12:45:17 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 143cda
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/143cda'
+            Content-Length: '49'
+            Content-Type: application/json
+        body: '{"test-product-slug":{"type":"product","id":"1"}}'
