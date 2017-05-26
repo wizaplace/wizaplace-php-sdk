@@ -47,13 +47,13 @@ class ProductSummary
 
     public function __construct(array $data)
     {
-        $this->productId = $data['productId'];
-        $this->name = $data['name'];
-        $this->subtitle = $data['subtitle'];
+        $this->productId = (string) $data['productId'];
+        $this->name = (string) $data['name'];
+        $this->subtitle = (string) $data['subtitle'];
         $this->minimumPrice = $data['minimumPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         $this->isAvailable = $data['isAvailable'];
-        $this->url = $data['url'];
+        $this->url = (string) $data['url'];
         $this->createdAt = new \DateTime();
         $this->createdAt->setTimestamp($data['createdAt']);
         $this->updatedAt = new \DateTime();
