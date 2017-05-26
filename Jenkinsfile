@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            args '-v /composer'
+            args '-v composer-cache:/composer'
         }
     }
 
