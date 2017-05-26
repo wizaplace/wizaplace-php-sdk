@@ -16,15 +16,12 @@ class SlugTarget
     private $objectType;
 
     /**
-     * @var int
+     * @var string
      */
     private $objectId;
 
-    public function __construct(SlugTargetType $objectType, int $objectId)
+    public function __construct(SlugTargetType $objectType, string $objectId)
     {
-        if ($objectId < 1) {
-            throw new \InvalidArgumentException("object ID has to be strictly positive, got $objectId");
-        }
         $this->objectId = $objectId;
 
         $this->objectType = $objectType;
@@ -35,7 +32,7 @@ class SlugTarget
         return $this->objectType;
     }
 
-    public function getObjectId(): int
+    public function getObjectId(): string
     {
         return $this->objectId;
     }
