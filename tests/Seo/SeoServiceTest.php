@@ -36,7 +36,7 @@ class SeoServiceTest extends ApiTest
                 '404-does-not-exist',
             ]);
 
-            $this->assertCount(6, $slugTargets);
+            $this->assertCount(5, $slugTargets);
             foreach ([
                 'test-product-slug' => SlugTargetType::PRODUCT(),
                 'test-category-slug' => SlugTargetType::CATEGORY(),
@@ -49,8 +49,7 @@ class SeoServiceTest extends ApiTest
                 $this->assertEquals($objectType, $slugTargets[$key]->getObjectType());
             }
 
-            $this->assertArrayHasKey('404-does-not-exist', $slugTargets);
-            $this->assertNull($slugTargets['404-does-not-exist']);
+            $this->assertArrayNotHasKey('404-does-not-exist', $slugTargets);
         } finally {
             VCR::turnOff();
         }
