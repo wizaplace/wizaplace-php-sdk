@@ -11,8 +11,7 @@ composer require wizaplace/sdk
 ### With Docker
 
 ```bash
-docker build -t wizaplace-php-sdk-env .
-docker run --rm -v $(pwd):/app wizaplace-php-sdk-env
+./docker-make all
 ```
 
 ### Without Docker
