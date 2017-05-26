@@ -6,18 +6,18 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\CMS;
+namespace Wizaplace\SEO;
 
 use MyCLabs\Enum\Enum;
 
 /**
- * @method static ObjectType PRODUCT()
- * @method static ObjectType CATEGORY()
- * @method static ObjectType ATTRIBUTE_VARIANT()
- * @method static ObjectType COMPANY()
- * @method static ObjectType CMS_PAGE()
+ * @method static SlugTargetType PRODUCT()
+ * @method static SlugTargetType CATEGORY()
+ * @method static SlugTargetType ATTRIBUTE_VARIANT()
+ * @method static SlugTargetType COMPANY()
+ * @method static SlugTargetType CMS_PAGE()
  */
-class ObjectType extends Enum
+class SlugTargetType extends Enum
 {
     private const PRODUCT = 'product';
     private const CATEGORY = 'category';
