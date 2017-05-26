@@ -21,6 +21,7 @@ RUN curl -s -f -L -o /tmp/installer.php https://raw.githubusercontent.com/compos
  && rm /tmp/installer.php \
  && composer --ansi --version --no-interaction
 
+RUN apt-get update && apt-get install -y unzip git
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 
 VOLUME /app
