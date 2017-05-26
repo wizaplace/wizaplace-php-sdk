@@ -6,13 +6,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\SEO;
+namespace Wizaplace\Tests\Seo;
 
 use FR3D\SwaggerAssertions\PhpUnit\Psr7AssertsTrait;
 use VCR\VCR;
-use Wizaplace\SEO\SeoService;
-use Wizaplace\SEO\SlugTargetType;
-use Wizaplace\SEO\SlugTarget;
+use Wizaplace\Seo\SeoService;
+use Wizaplace\Seo\SlugTargetType;
+use Wizaplace\Seo\SlugTarget;
 use Wizaplace\Tests\ApiTest;
 
 class SeoServiceTest extends ApiTest
