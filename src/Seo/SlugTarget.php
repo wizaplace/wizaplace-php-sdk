@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Seo;
 
+/**
+ * SlugTarget indicates which object is referenced by a slug.
+ */
 class SlugTarget
 {
     /**
