@@ -13,6 +13,7 @@ use Wizaplace\AbstractService;
 class SeoService extends AbstractService
 {
     /**
+     * Takes several slugs and retrieves their targets.
      * @param string[] $slugs
      * @return (?SlugTarget)[] slug => ?SlugTarget
      */
@@ -38,6 +39,9 @@ class SeoService extends AbstractService
         return $results;
     }
 
+    /**
+     * Retrieves the target of one slug.
+     */
     public function resolveSlug(string $slug): ?SlugTarget
     {
         return $this->resolveSlugs([$slug])[$slug] ?? null;
