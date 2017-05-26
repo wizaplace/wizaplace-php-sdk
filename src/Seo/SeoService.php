@@ -15,7 +15,7 @@ class SeoService extends AbstractService
     /**
      * Takes several slugs and retrieves their targets.
      * @param string[] $slugs
-     * @return (?SlugTarget)[] slug => ?SlugTarget
+     * @return (?SlugTarget)[] a map with this format: [slug => ?SlugTarget]
      */
     public function resolveSlugs(array $slugs): array
     {
