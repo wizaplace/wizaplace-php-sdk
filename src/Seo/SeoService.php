@@ -31,7 +31,7 @@ class SeoService extends AbstractService
             if (!isset($rawResults[$slug])) {
                 $results[$slug] = null;
             } else {
-                $results[$slug] = new SlugTarget(new SlugTargetType($rawResults[$slug]['type']), (int) $rawResults[$slug]['id']);
+                $results[$slug] = new SlugTarget(new SlugTargetType($rawResults[$slug]['type']), (string) $rawResults[$slug]['id']);
             }
         }
 
