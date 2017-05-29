@@ -34,7 +34,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $response = $this->client->request('POST', $this->baseUrl."/basket/{$basketId}/add", [
+            $response = $this->client->request('POST', "basket/{$basketId}/add", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
@@ -58,7 +58,7 @@ class BasketService extends AbstractService
      */
     public function getBasket(string $basketId): Basket
     {
-        $response = $this->client->request('GET', $this->baseUrl."/basket/{$basketId}");
+        $response = $this->client->request('GET', "basket/{$basketId}");
 
         return new Basket(json_decode($response->getBody()->getContents(), true));
     }
@@ -75,7 +75,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $this->client->request('POST', $this->baseUrl."/basket/{$basketId}/remove", [
+            $this->client->request('POST', "basket/{$basketId}/remove", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                 ],
@@ -120,7 +120,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $response = $this->client->request('POST', $this->baseUrl."/basket/{$basketId}/modify", [
+            $response = $this->client->request('POST', "basket/{$basketId}/modify", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
@@ -141,7 +141,7 @@ class BasketService extends AbstractService
 
     public function create(): string
     {
-        $response = $this->client->request('POST', $this->baseUrl."/basket");
+        $response = $this->client->request('POST', "basket");
 
         return json_decode($response->getBody()->getContents(), true);
     }
@@ -153,7 +153,7 @@ class BasketService extends AbstractService
     public function addCoupon(string $basketId, string $coupon)
     {
         try {
-            $this->post("/basket/{$basketId}/coupons/{$coupon}");
+            $this->post("basket/{$basketId}/coupons/{$coupon}");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -173,7 +173,7 @@ class BasketService extends AbstractService
     public function removeCoupon(string $basketId, string $coupon)
     {
         try {
-            $this->post("/basket/{$basketId}/coupons/{$coupon}");
+            $this->post("basket/{$basketId}/coupons/{$coupon}");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -192,7 +192,7 @@ class BasketService extends AbstractService
     public function getPayments(string $basketId): array
     {
         try {
-            $payments = $this->get("/basket/{$basketId}/payments");
+            $payments = $this->get("basket/{$basketId}/payments");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -213,7 +213,7 @@ class BasketService extends AbstractService
     {
         try {
             $result = $this->post(
-                "/basket/{$basketId}/order",
+                "basket/{$basketId}/order",
                 [
                     'form_params' => [
                         'paymentId' => $paymentId,

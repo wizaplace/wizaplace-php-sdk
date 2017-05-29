@@ -16,38 +16,29 @@ abstract class AbstractService
     /** @var  Client */
     protected $client;
 
-    /** @var string */
-    protected $baseUrl;
-
-    public function __construct(string $baseUrl, Client $client)
+    public function __construct(Client $client)
     {
-        $this->baseUrl = $baseUrl;
         $this->client = $client;
     }
 
-    /**
-     * @return mixed
-     */
     protected function get(string $endpoint, array $options = [], ApiKey $apiKey = null)
     {
         $options = $this->addAuth($options, $apiKey);
 
         return json_decode(
-            $this->client->get($this->baseUrl.$endpoint, $options)
+            $this->client->get($endpoint, $options)
                 ->getBody()
                 ->getContents(),
             true
         );
     }
-    /**
-     * @return mixed
-     */
+
     protected function post(string $endpoint, array $options = [], ApiKey $apiKey = null)
     {
         $options = $this->addAuth($options, $apiKey);
 
         return json_decode(
-            $this->client->post($this->baseUrl.$endpoint, $options)
+            $this->client->post($endpoint, $options)
                 ->getBody()
                 ->getContents(),
             true
@@ -59,7 +50,7 @@ abstract class AbstractService
         $options = $this->addAuth($options, $apiKey);
 
         return json_decode(
-            $this->client->put($this->baseUrl.$endpoint, $options)
+            $this->client->put($endpoint, $options)
                 ->getBody()
                 ->getContents(),
             true
@@ -71,7 +62,7 @@ abstract class AbstractService
         $options = $this->addAuth($options, $apiKey);
 
         return json_decode(
-            $this->client->delete($this->baseUrl.$endpoint, $options)
+            $this->client->delete($endpoint, $options)
                 ->getBody()
                 ->getContents(),
             true

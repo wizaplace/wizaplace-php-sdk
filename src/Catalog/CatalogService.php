@@ -15,7 +15,7 @@ class CatalogService extends AbstractService
 {
     public function getProductById(int $id) : Product
     {
-        $response = $this->client->request('GET', $this->baseUrl."/catalog/products/{$id}");
+        $response = $this->client->request('GET', "catalog/products/{$id}");
 
         return new Product(json_decode($response->getBody()->getContents(), true));
     }
@@ -25,7 +25,7 @@ class CatalogService extends AbstractService
      */
     public function getCategoryTree():array
     {
-        $categoryTree = $this->get('/catalog/categories/tree');
+        $categoryTree = $this->get('catalog/categories/tree');
 
         return array_map(
             function ($tree) {
@@ -37,7 +37,7 @@ class CatalogService extends AbstractService
 
     public function getCategory(int $id): CatalogCategory
     {
-        $category = $this->get("/catalog/categories/{$id}");
+        $category = $this->get("catalog/categories/{$id}");
 
         return new CatalogCategory($category);
     }
@@ -45,7 +45,7 @@ class CatalogService extends AbstractService
     public function search($query = '', $filters = [], $sorting = [], $resultsPerPage = 12, $page = 1): SearchResult
     {
         $results = $this->get(
-            '/catalog/search/products',
+            'catalog/search/products',
             [
                 'query' => [
                     'filters' => $filters,
