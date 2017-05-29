@@ -51,7 +51,7 @@ class CatalogService extends AbstractService
         return new CatalogCategory($category);
     }
 
-    public function search($query = '', $filters = [], $sorting = [], $resultsPerPage = 12, $page = 1): SearchResult
+    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult
     {
         $results = $this->get(
             'catalog/search/products',

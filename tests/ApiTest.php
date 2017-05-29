@@ -13,6 +13,8 @@ use FR3D\SwaggerAssertions\SchemaManager;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
+use JsonSchema\Constraints\Constraint;
+use JsonSchema\Validator;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 use VCR\VCR;
@@ -28,7 +30,7 @@ abstract class ApiTest extends TestCase
     /**
      * @var array[]
      */
-    private static $historyContainer = [];
+    protected static $historyContainer = [];
 
     public static function getApiBaseUrl(): string
     {
@@ -85,5 +87,10 @@ abstract class ApiTest extends TestCase
             self::$historyContainer = [];
         }
         parent::tearDown();
+    }
+
+    protected function getValidator(): Validator
+    {
+        return new Validator(Constraint::CHECK_MODE_TYPE_CAST);
     }
 }
