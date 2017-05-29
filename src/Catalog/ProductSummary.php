@@ -44,6 +44,8 @@ class ProductSummary
     private $attributes;
     /** @var SearchCategoryPath[] */
     private $categoryPath;
+    /** @var string */
+    private $slug;
 
     public function __construct(array $data)
     {
@@ -75,6 +77,7 @@ class ProductSummary
             },
             $data['categoryPath']
         );
+        $this->slug = (string) $data['slug'];
     }
 
     public function getId(): string

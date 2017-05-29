@@ -8,16 +8,25 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Exception\NotFound;
 
 class CatalogService extends AbstractService
 {
     public function getProductById(int $id) : Product
     {
-        $response = $this->client->request('GET', "catalog/products/{$id}");
+        try {
+            $response = $this->get("catalog/products/{$id}");
+        } catch (ClientException $exception) {
+            if ($exception->getCode() === 404) {
+                throw new NotFound("Product #{$id} not found.", 404, $exception);
+            } else {
+                throw $exception;
+            }
+        }
 
-        return new Product(json_decode($response->getBody()->getContents(), true));
+        return new Product($response);
     }
 
     /**

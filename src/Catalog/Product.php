@@ -67,7 +67,7 @@ class Product
         $this->url = $data['url'];
         $this->shortDescription = $data['shortDescription'];
         $this->description = $data['description'];
-        $this->slug = $data['slug'];
+        $this->slug = (string) $data['slug'];
         $this->minPrice = (float) $data['minPrice'];
         $this->attributes = array_map(
             function (array $attributeData) {

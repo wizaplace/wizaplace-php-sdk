@@ -77,10 +77,13 @@ abstract class ApiTest extends TestCase
 
     protected function tearDown(): void
     {
-        foreach (self::$historyContainer as $transaction) {
-            $this->assertResponseAndRequestMatch($transaction['response'], $transaction['request'], self::$schemaManager);
+        try {
+            foreach (self::$historyContainer as $transaction) {
+                $this->assertResponseAndRequestMatch($transaction['response'], $transaction['request'], self::$schemaManager);
+            }
+        } finally {
+            self::$historyContainer = [];
         }
-        self::$historyContainer = [];
         parent::tearDown();
     }
 }

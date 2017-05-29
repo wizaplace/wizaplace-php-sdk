@@ -1,0 +1,24 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/404'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.4-1+deb.sury.org~xenial+1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Mon, 29 May 2017 10:22:29 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 77c2d5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77c2d5'
+            Content-Length: '31'
+            Content-Type: application/json
+        body: '{"message":"Product not found"}'
