@@ -42,7 +42,7 @@ class ProductSummary
     private $condition;
     /** @var SearchProductAttribute[] */
     private $attributes;
-    /** @var SearchCategoryPath[] */
+    /** @var ProductCategory[] */
     private $categoryPath;
     /** @var string */
     private $slug;
