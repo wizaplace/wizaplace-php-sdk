@@ -191,6 +191,16 @@ class Product
     }
 
     /**
+     * @return string[]
+     */
+    public function getCategorySlugs(): array
+    {
+        return array_map(function (ProductCategory $category) : string {
+            return $category->getSlug();
+        }, $this->categoryPath);
+    }
+
+    /**
      * @return array
      */
     public function getDeclinations(): array
