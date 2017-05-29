@@ -174,4 +174,9 @@ class ProductSummary
     {
         return $this->categoryPath;
     }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
 }
