@@ -135,10 +135,7 @@ class ProductSummary
         return $this->affiliateLink;
     }
 
-    /**
-     * @return null|Image
-     */
-    public function getMainImage()
+    public function getMainImage(): ?Image
     {
         return $this->mainImage;
     }
