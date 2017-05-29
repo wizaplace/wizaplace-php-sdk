@@ -30,7 +30,7 @@ class CatalogService extends AbstractService
     }
 
     /**
-     * @return CatalogCategoryTree[]
+     * @return CategoryTree[]
      */
     public function getCategoryTree():array
     {
@@ -38,17 +38,17 @@ class CatalogService extends AbstractService
 
         return array_map(
             function ($tree) {
-                return new CatalogCategoryTree($tree);
+                return new CategoryTree($tree);
             },
             $categoryTree
         );
     }
 
-    public function getCategory(int $id): CatalogCategory
+    public function getCategory(int $id): Category
     {
         $category = $this->get("catalog/categories/{$id}");
 
-        return new CatalogCategory($category);
+        return new Category($category);
     }
 
     public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult

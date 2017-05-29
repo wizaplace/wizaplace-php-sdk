@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class CatalogCategory
+class Category
 {
     /** @var int */
     private $id;
