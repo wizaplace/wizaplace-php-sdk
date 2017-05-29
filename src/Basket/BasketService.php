@@ -173,7 +173,7 @@ class BasketService extends AbstractService
     public function removeCoupon(string $basketId, string $coupon)
     {
         try {
-            $this->post("basket/{$basketId}/coupons/{$coupon}");
+            $this->delete("basket/{$basketId}/coupons/{$coupon}");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
