@@ -10,9 +10,9 @@ namespace Wizaplace\Catalog;
 
 class CatalogCategoryTree
 {
-    /** @var  CatalogCategory */
+    /** @var CatalogCategory */
     private $category;
-    /** @var  CatalogCategoryTree[] */
+    /** @var CatalogCategoryTree[] */
     private $children;
 
     public function __construct(array $data)

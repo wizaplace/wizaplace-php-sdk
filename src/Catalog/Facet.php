@@ -10,13 +10,13 @@ namespace Wizaplace\Catalog;
 
 class Facet
 {
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $label;
-    /** @var  bool */
+    /** @var bool */
     private $isNumeric;
-    /** @var  array */
+    /** @var array */
     private $values;
 
     public function __construct(array $data)

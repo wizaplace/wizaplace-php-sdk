@@ -12,25 +12,25 @@ use Wizaplace\Image\Image;
 
 class Declination
 {
-    /** @var  string */
+    /** @var string */
     private $code;
 
-    /** @var  string */
+    /** @var string */
     private $supplierReference;
 
     /** @var float */
     private $price;
 
-    /** @var  float */
+    /** @var float */
     private $priceWithTaxes;
 
-    /** @var  float */
+    /** @var float */
     private $priceWithoutVat;
 
-    /** @var  float */
+    /** @var float */
     private $vat;
 
-    /** @var  float */
+    /** @var float */
     private $greenTax;
 
     /** @var float */

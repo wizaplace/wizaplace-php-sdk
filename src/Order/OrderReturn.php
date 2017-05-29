@@ -10,17 +10,17 @@ namespace Wizaplace\Order;
 
 class OrderReturn
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  int */
+    /** @var int */
     private $orderId;
-    /** @var  int */
+    /** @var int */
     private $userId;
-    /** @var  \DateTime */
+    /** @var \DateTime */
     private $timestamp;
-    /** @var  string */
+    /** @var string */
     private $comments;
-    /** @var  string */
+    /** @var string */
     private $status;
     /** @var ReturnItem[] */
     private $items;

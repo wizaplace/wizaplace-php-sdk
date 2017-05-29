@@ -12,11 +12,11 @@ use Wizaplace\Pagination;
 
 class SearchResult
 {
-    /** @var  ProductSummary[] */
+    /** @var ProductSummary[] */
     private $products;
-    /** @var  Pagination */
+    /** @var Pagination */
     private $pagination;
-    /** @var  Facet[] */
+    /** @var Facet[] */
     private $facets;
 
     public function __construct(array $data)

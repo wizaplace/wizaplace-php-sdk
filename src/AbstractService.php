@@ -13,7 +13,7 @@ use Wizaplace\User\ApiKey;
 
 abstract class AbstractService
 {
-    /** @var  Client */
+    /** @var Client */
     protected $client;
 
     public function __construct(Client $client)

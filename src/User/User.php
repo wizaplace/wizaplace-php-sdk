@@ -10,7 +10,7 @@ namespace Wizaplace\User;
 
 class User
 {
-    /** @var  int */
+    /** @var int */
     private $id;
     /** @var string */
     private $email;
@@ -20,7 +20,7 @@ class User
     private $lastname;
     /** @var array */
     private $billingAddress;
-    /** @var  array */
+    /** @var array */
     private $shippingAddress;
 
     public function __construct(array $data)

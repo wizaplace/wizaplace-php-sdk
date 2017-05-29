@@ -10,23 +10,23 @@ namespace Wizaplace\Order;
 
 class Order
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  int */
+    /** @var int */
     private $companyId;
-    /** @var  float */
+    /** @var float */
     private $total;
-    /** @var  float */
+    /** @var float */
     private $subtotal;
-    /** @var  \DateTime */
+    /** @var \DateTime */
     private $timestamp;
-    /** @var  string */
+    /** @var string */
     private $status;
-    /** @var  string */
+    /** @var string */
     private $shippingName;
-    /** @var  ShippingAddress */
+    /** @var ShippingAddress */
     private $shippingAddress;
-    /** @var  OrderItem[] */
+    /** @var OrderItem[] */
     private $orderItem;
 
     /**

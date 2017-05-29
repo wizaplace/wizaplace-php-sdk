@@ -14,35 +14,35 @@ class ProductSummary
 {
     /** @var string  */
     private $productId;
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $subtitle;
-    /** @var  float */
+    /** @var float */
     private $minimumPrice;
-    /** @var  float|null */
+    /** @var float|null */
     private $crossedOutPrice;
-    /** @var  bool */
+    /** @var bool */
     private $isAvailable;
-    /** @var  string */
+    /** @var string */
     private $url;
-    /** @var  \DateTime */
+    /** @var \DateTime */
     private $createdAt;
-    /** @var  \DateTime */
+    /** @var \DateTime */
     private $updatedAt;
-    /** @var  int */
+    /** @var int */
     private $declinationCount;
-    /** @var  string|null */
+    /** @var string|null */
     private $affiliateLink;
-    /** @var  Image|null */
+    /** @var Image|null */
     private $mainImage;
-    /** @var  float|null */
+    /** @var float|null */
     private $averageRating;
-    /** @var  array */
+    /** @var array */
     private $condition;
-    /** @var  SearchProductAttribute[] */
+    /** @var SearchProductAttribute[] */
     private $attributes;
-    /** @var  SearchCategoryPath[] */
+    /** @var SearchCategoryPath[] */
     private $categoryPath;
 
     public function __construct(array $data)

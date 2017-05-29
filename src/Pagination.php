@@ -11,13 +11,13 @@ namespace Wizaplace;
 class Pagination
 {
 
-    /** @var  int */
+    /** @var int */
     private $page;
-    /** @var  int */
+    /** @var int */
     private $nbResults;
-    /** @var  int */
+    /** @var int */
     private $nbPages;
-    /** @var  int */
+    /** @var int */
     private $resultsPerPage;
 
     public function __construct(array $data)

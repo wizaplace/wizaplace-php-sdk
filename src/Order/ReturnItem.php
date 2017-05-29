@@ -10,15 +10,15 @@ namespace Wizaplace\Order;
 
 class ReturnItem
 {
-    /** @var  string */
+    /** @var string */
     private $declinationId;
-    /** @var  string */
+    /** @var string */
     private $product;
-    /** @var  float */
+    /** @var float */
     private $price;
-    /** @var  int */
+    /** @var int */
     private $reason;
-    /** @var  int */
+    /** @var int */
     private $amount;
 
     public function __construct(array $data)

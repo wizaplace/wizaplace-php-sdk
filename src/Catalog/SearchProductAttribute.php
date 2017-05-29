@@ -10,13 +10,13 @@ namespace Wizaplace\Catalog;
 
 class SearchProductAttribute
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $slug;
-    /** @var  array */
+    /** @var array */
     private $values;
 
     public function __construct($data)

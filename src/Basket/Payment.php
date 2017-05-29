@@ -12,15 +12,15 @@ use Wizaplace\Image\Image;
 
 class Payment
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $description;
-    /** @var  int */
+    /** @var int */
     private $position;
-    /** @var  Image */
+    /** @var Image */
     private $image;
 
 

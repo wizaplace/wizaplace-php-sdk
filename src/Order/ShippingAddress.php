@@ -10,19 +10,19 @@ namespace Wizaplace\Order;
 
 class ShippingAddress
 {
-    /** @var  string */
+    /** @var string */
     private $firstname;
-    /** @var  string */
+    /** @var string */
     private $lastname;
-    /** @var  string */
+    /** @var string */
     private $address;
-    /** @var  string */
+    /** @var string */
     private $address2;
-    /** @var  string */
+    /** @var string */
     private $city;
-    /** @var  string */
+    /** @var string */
     private $zipcode;
-    /** @var  string */
+    /** @var string */
     private $country;
 
     public function __construct(array $data)

@@ -10,52 +10,52 @@ namespace Wizaplace\Catalog;
 
 class Product
 {
-    /** @var  string */
+    /** @var string */
     private $id;
 
-    /** @var  string */
+    /** @var string */
     private $code;
 
     /** @var string */
     private $supplierReference;
 
-    /** @var  string */
+    /** @var string */
     private $name;
 
-    /** @var  string */
+    /** @var string */
     private $url;
 
-    /** @var  string */
+    /** @var string */
     private $shortDescription;
 
-    /** @var  string */
+    /** @var string */
     private $description;
 
-    /** @var  string */
+    /** @var string */
     private $slug;
 
-    /** @var  float */
+    /** @var float */
     private $minPrice;
 
-    /** @var  ProductAttribute[] */
+    /** @var ProductAttribute[] */
     private $attributes;
 
-    /** @var  \DateTime */
+    /** @var \DateTime */
     private $creationDate;
 
-    /** @var  bool */
+    /** @var bool */
     private $isTransactional;
 
-    /** @var  Shipping[] */
+    /** @var Shipping[] */
     private $shippings;
 
-    /** @var  Company[] */
+    /** @var Company[] */
     private $companies;
 
-    /** @var  array */
+    /** @var array */
     private $categoryPath;
 
-    /** @var  array */
+    /** @var array */
     private $declinations;
 
     public function __construct(array $data)

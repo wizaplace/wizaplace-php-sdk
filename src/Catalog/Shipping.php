@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 class Shipping
 {
-    /** @var  string */
+    /** @var string */
     private $name;
 
     /** @var string|null */

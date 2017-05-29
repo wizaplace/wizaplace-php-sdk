@@ -10,13 +10,13 @@ namespace Wizaplace\Catalog;
 
 class ProductAttribute
 {
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string[] */
+    /** @var string[] */
     private $value;
-    /** @var  ProductAttribute[] */
+    /** @var ProductAttribute[] */
     private $children;
-    /** @var  string[] */
+    /** @var string[] */
     private $imageUrls;
 
     public function __construct(array $data)

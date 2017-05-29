@@ -10,11 +10,11 @@ namespace Wizaplace\Catalog;
 
 class SearchCategoryPath
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $slug;
 
     public function __construct($data)

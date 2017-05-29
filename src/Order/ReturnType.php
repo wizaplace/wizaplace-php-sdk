@@ -10,11 +10,11 @@ namespace Wizaplace\Order;
 
 class ReturnType
 {
-    /** @var  int */
+    /** @var int */
     private $id;
     /** @var int */
     private $position;
-    /** @var  string */
+    /** @var string */
     private $name;
 
     public function __construct(int $id, int $position, string $name)

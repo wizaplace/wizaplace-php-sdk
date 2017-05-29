@@ -10,11 +10,11 @@ namespace Wizaplace\Basket;
 
 class PaymentInformation
 {
-    /** @var  array */
+    /** @var array */
     private $orders;
-    /** @var  string */
+    /** @var string */
     private $redirectUrl;
-    /** @var  string */
+    /** @var string */
     private $html;
 
     public function __construct(array $data)

@@ -12,21 +12,21 @@ use Wizaplace\Image\Image;
 
 class CatalogCategory
 {
-    /** @var  int */
+    /** @var int */
     private $id;
-    /** @var  int */
+    /** @var int */
     private $parentId;
-    /** @var  string */
+    /** @var string */
     private $name;
-    /** @var  string */
+    /** @var string */
     private $description;
-    /** @var  string */
+    /** @var string */
     private $slug;
-    /** @var  Image */
+    /** @var Image */
     private $image;
-    /** @var  int */
+    /** @var int */
     private $position;
-    /** @var  int */
+    /** @var int */
     private $productCount;
 
     public function __construct(array $data)

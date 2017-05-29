@@ -13,7 +13,7 @@ class ApiKey
     /** @var int */
     private $id;
 
-    /** @var  string */
+    /** @var string */
     private $key;
 
     public function __construct(array $data)
