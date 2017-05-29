@@ -67,7 +67,7 @@ class CatalogServiceTest extends ApiTest
             // @TODO: more assertions
         } finally {
             VCR::turnOff();
-            static::$historyContainer = []; // @FIXME: small hack due to fr3d/swagger-assertions not properly checking URL query non-string types.
+            static::$historyContainer = []; // @FIXME: small hack due to fr3d/swagger-assertions not properly checking URL query non-string types (https://github.com/Maks3w/SwaggerAssertions/issues/30).
         }
     }
 }
