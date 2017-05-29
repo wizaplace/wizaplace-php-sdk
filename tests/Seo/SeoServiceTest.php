@@ -25,9 +25,9 @@ class SeoServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $seoService = new SeoService($this->getGuzzleClient());
 
-            $slugTargets = $cmsService->resolveSlugs([
+            $slugTargets = $seoService->resolveSlugs([
                 'test-product-slug',
                 'test-category-slug',
                 'test-attribute-variant-slug',
@@ -58,8 +58,8 @@ class SeoServiceTest extends ApiTest
 
     public function testResolveEmptySlugs()
     {
-        $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
-        $result = $cmsService->resolveSlugs([]);
+        $seoService = new SeoService($this->getGuzzleClient());
+        $result = $seoService->resolveSlugs([]);
         $this->assertEmpty($result);
     }
 
@@ -69,9 +69,9 @@ class SeoServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $seoService = new SeoService($this->getGuzzleClient());
 
-            $slugTarget = $cmsService->resolveSlug('test-product-slug');
+            $slugTarget = $seoService->resolveSlug('test-product-slug');
 
             $this->assertNotNull($slugTarget);
             $this->assertEquals(SlugTargetType::PRODUCT(), $slugTarget->getObjectType());
@@ -86,9 +86,9 @@ class SeoServiceTest extends ApiTest
             VCR::turnOn();
             VCR::insertCassette($this->getName());
 
-            $cmsService = new SeoService(self::getApiBaseUrl(), $this->getGuzzleClient());
+            $seoService = new SeoService($this->getGuzzleClient());
 
-            $slugTarget = $cmsService->resolveSlug('404-does-not-exist');
+            $slugTarget = $seoService->resolveSlug('404-does-not-exist');
 
             $this->assertNull($slugTarget);
         } finally {

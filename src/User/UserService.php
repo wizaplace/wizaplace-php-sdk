@@ -24,7 +24,7 @@ class UserService extends AbstractService
         try {
             $response = $this->client->request(
                 'GET',
-                $this->baseUrl.'/users/authenticate',
+                'users/authenticate',
                 [
                     'auth' => [$email, $password],
                 ]
@@ -46,7 +46,7 @@ class UserService extends AbstractService
     public function getProfileFromId(int $id, ApiKey $apiKey): User
     {
         try {
-            $user = new User($this->get("/users/{$id}", [], $apiKey));
+            $user = new User($this->get("users/{$id}", [], $apiKey));
         } catch (\Exception $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound($e->getMessage());
@@ -60,7 +60,7 @@ class UserService extends AbstractService
     public function updateUser(User $user, ApiKey $apiKey)
     {
         $this->put(
-            '/users/'.$user->getId(),
+            'users/'.$user->getId(),
             [
                 'form_params' => [
                     'email' => $user->getEmail(),
@@ -75,7 +75,7 @@ class UserService extends AbstractService
     public function updateUserAdresses(User $user, ApiKey $apiKey)
     {
         $this->put(
-            '/users/'.$user->getId().'/addresses',
+            'users/'.$user->getId().'/addresses',
             [
                 'form_params' => [
                     'billing' => $user->getBillingAddress(),
@@ -95,7 +95,7 @@ class UserService extends AbstractService
 
         try {
             $userData = $this->post(
-                '/users',
+                'users',
                 [
                     'form_params' => [
                         'email' => $email,
@@ -119,7 +119,7 @@ class UserService extends AbstractService
     {
         // On attend une 204 donc pas de retour
         $this->post(
-            '/users/password/recover',
+            'users/password/recover',
             [
                 'form_params' => [
                     'email' => $email,

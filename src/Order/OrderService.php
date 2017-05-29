@@ -15,7 +15,7 @@ class OrderService extends AbstractService
 {
     public function getOrders(ApiKey $apiKey): array
     {
-        $datas = $this->get('/user/orders', [], $apiKey);
+        $datas = $this->get('user/orders', [], $apiKey);
         $orders = array_map(function ($orderData) {
             return new Order($orderData);
         }, $datas);
@@ -25,12 +25,12 @@ class OrderService extends AbstractService
 
     public function getOrder(int $orderId, ApiKey $apiKey): Order
     {
-        return new Order($this->get('/user/orders/'.$orderId, [], $apiKey));
+        return new Order($this->get('user/orders/'.$orderId, [], $apiKey));
     }
 
     public function getOrderReturn(int $returnId, ApiKey $apiKey): OrderReturn
     {
-        return new OrderReturn($this->get("/user/returns/{$returnId}", [], $apiKey));
+        return new OrderReturn($this->get("user/returns/{$returnId}", [], $apiKey));
     }
 
     /**
@@ -38,7 +38,7 @@ class OrderService extends AbstractService
      */
     public function getOrderReturns(ApiKey $apiKey): array
     {
-        $data = $this->get("/user/returns", [], $apiKey);
+        $data = $this->get("user/returns", [], $apiKey);
         $orderReturns = array_map(
             function ($orderReturn) {
                 return new OrderReturn($orderReturn);
@@ -56,7 +56,7 @@ class OrderService extends AbstractService
     {
         $returnTypes = array_map(
             ['Wizaplace\Order\ReturnType', 'fromApiData'],
-            $this->get('/orders/returns/types')
+            $this->get('orders/returns/types')
         );
 
         return $returnTypes;
@@ -78,7 +78,7 @@ class OrderService extends AbstractService
         );
 
         return $this->post(
-            "/user/orders/{$orderId}/returns",
+            "user/orders/{$orderId}/returns",
             [
                 "form_params" => [
                     'userId' => $apiKey->getId(),
