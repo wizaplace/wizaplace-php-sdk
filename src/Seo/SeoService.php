@@ -10,11 +10,11 @@ namespace Wizaplace\Seo;
 
 use Wizaplace\AbstractService;
 
-// All slugs should fully match this regexp
-const SLUG_REGEXP = '[a-z0-9][a-z0-9-\.]*';
-
 class SeoService extends AbstractService
 {
+    // All slugs should fully match this regexp
+    public const SLUG_REGEXP = '[a-z0-9][a-z0-9-\.]*';
+
     /**
      * Takes several slugs and retrieves their targets.
      * @param string[] $slugs
