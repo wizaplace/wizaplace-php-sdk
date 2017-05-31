@@ -40,6 +40,9 @@ class Menu
         return $this->name;
     }
 
+    /**
+     * @return MenuItem[]
+     */
     public function getItems(): array
     {
         return $this->items;
