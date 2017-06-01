@@ -1,7 +1,7 @@
 pipeline {
     agent {
         dockerfile {
-            args '-v composer-cache:/composer'
+            args '-v composer_wizaplace-php-sdk_cache:/composer'
         }
     }
 
