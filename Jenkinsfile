@@ -28,15 +28,28 @@ pipeline {
             }
             post {
                 failure {
-                    violationsToGitHubRecorder {
-                        config {
-                            violationConfigs {
-                                violationConfig {
-                                    reporter("CHECKSTYLE")
-                                    pattern(".*/coke-checkstyle\\.xml\$")
-                                }
-                            }
-                        }
+                    withCredentials([string(credentialsId: '8ffb1dc7-4858-4c4a-ac9e-0a1d655a3b59', variable: 'GITHUB_TOKEN')]) {
+                        step([
+                            $class: 'ViolationsToGitHubRecorder',
+                            config: [
+                                gitHubUrl: 'https://api.github.com/',
+                                repositoryOwner: 'wizaplace',
+                                repositoryName: 'wizaplace-php-sdk',
+                                pullRequestId: '29',
+                                useOAuth2Token: true,
+                                oAuth2Token: "$GITHUB_TOKEN",
+                                useUsernamePassword: false,
+                                useUsernamePasswordCredentials: false,
+                                usernamePasswordCredentialsId: '',
+                                createCommentWithAllSingleFileComments: true,
+                                createSingleFileComments: true,
+                                commentOnlyChangedContent: true,
+                                minSeverity: 'INFO',
+                                violationConfigs: [
+                                    [ pattern: '.*/coke-checkstyle/.*\\.xml$', reporter: 'CHECKSTYLE' ],
+                                ]
+                            ]
+                        ])
                     }
                 }
                 always {
