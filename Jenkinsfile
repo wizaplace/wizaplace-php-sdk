@@ -23,16 +23,15 @@ pipeline {
                         sh 'make stan'
                     },
                     'test': {
-                        sh 'make test'
-                        post {
-                            always {
-                                junit 'phpunit-result.xml'
-                                step([
-                                    $class: 'CloverPublisher',
-                                    cloverReportDir: './',
-                                    cloverReportFileName: 'clover.xml'
-                                ])
-                            }
+                        try {
+                            sh 'make test'
+                        } finally {
+                            junit 'phpunit-result.xml'
+                            step([
+                                $class: 'CloverPublisher',
+                                cloverReportDir: './',
+                                cloverReportFileName: 'clover.xml'
+                            ])
                         }
                     }
                 )
