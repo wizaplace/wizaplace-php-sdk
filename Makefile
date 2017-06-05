@@ -13,7 +13,7 @@ lint:
 ifndef BUILD_ID
 	./vendor/bin/coke
 else
-	./vendor/bin/coke --report-junit=coke-result.xml --report-full --report-checkstyle=coke-checkstyle.xml
+	./vendor/bin/coke --report-full --report-checkstyle=coke-checkstyle.xml
 endif
 
 stan:

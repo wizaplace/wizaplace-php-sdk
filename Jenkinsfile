@@ -27,7 +27,7 @@ pipeline {
                 )
             }
             post {
-                failure {
+                always {
                     withCredentials([string(credentialsId: 'e18082c0-a95c-4c22-9bf5-803fd091c764', variable: 'GITHUB_TOKEN')]) {
                         step([
                             $class: 'ViolationsToGitHubRecorder',
@@ -51,9 +51,6 @@ pipeline {
                             ]
                         ])
                     }
-                }
-                always {
-                    junit 'coke-result.xml'
                     junit 'phpunit-result.xml'
                     step([
                         $class: 'CloverPublisher',
