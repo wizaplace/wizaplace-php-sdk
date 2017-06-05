@@ -26,6 +26,18 @@ pipeline {
                     }
                 )
             }
+            publishers {
+              violationsToGitHubRecorder {
+               config {
+                violationConfigs {
+                 violationConfig {
+                  reporter("CHECKSTYLE")
+                  pattern(".*/coke-checkstyle\\.xml\$")
+                 }
+                }
+               }
+              }
+             }
             post {
                 always {
                     junit 'coke-result.xml'
