@@ -26,19 +26,19 @@ pipeline {
                     }
                 )
             }
-            publishers {
-              violationsToGitHubRecorder {
-               config {
-                violationConfigs {
-                 violationConfig {
-                  reporter("CHECKSTYLE")
-                  pattern(".*/coke-checkstyle\\.xml\$")
-                 }
-                }
-               }
-              }
-             }
             post {
+                failure {
+                    violationsToGitHubRecorder {
+                        config {
+                            violationConfigs {
+                                violationConfig {
+                                    reporter("CHECKSTYLE")
+                                    pattern(".*/coke-checkstyle\\.xml\$")
+                                }
+                            }
+                        }
+                    }
+                }
                 always {
                     junit 'coke-result.xml'
                     junit 'phpunit-result.xml'
