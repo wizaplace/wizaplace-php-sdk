@@ -46,7 +46,7 @@ pipeline {
                                 commentOnlyChangedContent: true,
                                 minSeverity: 'INFO',
                                 violationConfigs: [
-                                    [ pattern: '.*/coke-checkstyle/.*\\.xml$', reporter: 'CHECKSTYLE' ],
+                                    [ pattern: '.*/coke-checkstyle\\.xml$', reporter: 'CHECKSTYLE' ],
                                 ]
                             ]
                         ])
