@@ -25,7 +25,8 @@ pipeline {
                     'test': {
                         try {
                             sh 'make test'
-                        } finally {
+                        }
+                        finally {
                             junit 'phpunit-result.xml'
                             step([
                                 $class: 'CloverPublisher',
