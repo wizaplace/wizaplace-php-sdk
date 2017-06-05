@@ -28,7 +28,7 @@ pipeline {
             }
             post {
                 failure {
-                    withCredentials([string(credentialsId: '8ffb1dc7-4858-4c4a-ac9e-0a1d655a3b59', variable: 'GITHUB_TOKEN')]) {
+                    withCredentials([string(credentialsId: 'e18082c0-a95c-4c22-9bf5-803fd091c764', variable: 'GITHUB_TOKEN')]) {
                         step([
                             $class: 'ViolationsToGitHubRecorder',
                             config: [
