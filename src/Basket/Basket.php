@@ -103,5 +103,4 @@ class Basket
     {
         return $this->totalQuantity;
     }
-
 }
