@@ -17,21 +17,25 @@ pipeline {
                 parallel(
                     'lint': {
                         sh 'make lint'
-                        junit 'coke-result.xml'
                     },
                     'stan': {
                         sh 'make stan'
                     },
                     'test': {
                         sh 'make test'
-                        junit 'phpunit-result.xml'
-                        step([
-                            $class: 'CloverPublisher',
-                            cloverReportDir: './',
-                            cloverReportFileName: 'clover.xml'
-                        ])
                     }
                 )
+            }
+            post {
+                always {
+                    junit 'coke-result.xml'
+                    junit 'phpunit-result.xml'
+                    step([
+                        $class: 'CloverPublisher',
+                        cloverReportDir: './',
+                        cloverReportFileName: 'clover.xml'
+                    ])
+                }
             }
         }
     }
