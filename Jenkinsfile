@@ -35,7 +35,7 @@ pipeline {
                                 gitHubUrl: 'https://api.github.com/',
                                 repositoryOwner: 'wizaplace',
                                 repositoryName: 'wizaplace-php-sdk',
-                                pullRequestId: CHANGE_ID,
+                                pullRequestId: "${env.CHANGE_ID}",
                                 useOAuth2Token: true,
                                 oAuth2Token: "$GITHUB_TOKEN",
                                 useUsernamePassword: false,
