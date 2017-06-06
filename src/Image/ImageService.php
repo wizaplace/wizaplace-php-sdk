@@ -19,6 +19,6 @@ class ImageService extends AbstractService
 
         $apiBaseUrl = rtrim((string) $this->client->getConfig('base_uri'), '/');
 
-        return "{$apiBaseUrl}image/${imageId}?${query}";
+        return "{$apiBaseUrl}/image/${imageId}?${query}";
     }
 }
