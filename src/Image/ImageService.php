@@ -17,8 +17,8 @@ class ImageService extends AbstractService
     {
         $query = http_build_query(array_filter(['w' => $width, 'h' => $height]));
 
-        $baseUrl = rtrim((string) $this->client->getConfig('base_uri'), '/');
+        $apiBaseUrl = rtrim((string) $this->client->getConfig('base_uri'), '/');
 
-        return "{$baseUrl}/image/${imageId}?${query}";
+        return "{$apiBaseUrl}/image/${imageId}?${query}";
     }
 }
