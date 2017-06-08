@@ -76,7 +76,7 @@ abstract class AbstractService
 
         if (JSON_ERROR_NONE !== json_last_error()) {
             $last = json_last_error();
-            $message = 'Unable to parse JSON data: ' . json_last_error_msg();
+            $message = 'Unable to parse JSON data: '.json_last_error_msg();
             throw new JsonDecodingError($message, $last);
         }
 
