@@ -39,21 +39,6 @@ abstract class ApiTest extends TestCase
     {
         parent::setUpBeforeClass();
 
-        VCR::configure()->setCassettePath(__DIR__.'/fixtures/VCR/');
-        VCR::configure()->setMode(VCR::MODE_ONCE);
-        VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
-            ->addRequestMatcher('headers_custom_matcher', function (\VCR\Request $first, \VCR\Request $second) {
-                $headersBags = [$first->getHeaders(), $second->getHeaders()];
-
-                foreach ($headersBags as &$headers) {
-                    // Remove flaky headers that we don't care about
-                    unset($headers['User-Agent']);
-                }
-
-                return $headersBags[0] == $headersBags[1];
-            })
-            ->enableRequestMatchers(array('method', 'url', 'query_string', 'body', 'post_fields', 'headers_custom_matcher'));
-
         VCR::turnOn();
         VCR::insertCassette('Swagger-schema');
         $schemaStr = file_get_contents(self::getApiBaseUrl().'doc/schema.yml');
