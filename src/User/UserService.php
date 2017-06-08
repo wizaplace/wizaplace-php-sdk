@@ -8,8 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\User;
 
-use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 
@@ -36,7 +34,7 @@ class UserService extends AbstractService
             throw $e;
         }
 
-        return new ApiKey(json_decode($response->getBody()->getContents(), true));
+        return new ApiKey($this->jsonDecode($response->getBody()->getContents(), true));
     }
 
     /**

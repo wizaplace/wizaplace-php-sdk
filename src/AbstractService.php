@@ -66,7 +66,7 @@ abstract class AbstractService
         );
     }
 
-    private function jsonDecode(string $json)
+    protected function jsonDecode(string $json)
     {
         $result = json_decode($json, true);
         if (is_null($result)) {
