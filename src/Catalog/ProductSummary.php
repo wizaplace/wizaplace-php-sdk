@@ -42,7 +42,7 @@ class ProductSummary
     private $condition;
     /** @var SearchProductAttribute[] */
     private $attributes;
-    /** @var SearchCategoryPath[] */
+    /** @var ProductCategory[] */
     private $categoryPath;
     /** @var string */
     private $slug;
@@ -72,8 +72,8 @@ class ProductSummary
             $data['attributes']
         );
         $this->categoryPath = array_map(
-            function ($categoryPath) {
-                return new SearchCategoryPath($categoryPath);
+            function (array $category) {
+                return new ProductCategory($category);
             },
             $data['categoryPath']
         );
@@ -165,7 +165,7 @@ class ProductSummary
     }
 
     /**
-     * @return SearchCategoryPath[]
+     * @return ProductCategory[]
      */
     public function getCategoryPath(): array
     {
