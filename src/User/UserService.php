@@ -34,7 +34,7 @@ class UserService extends AbstractService
             throw $e;
         }
 
-        return new ApiKey($this->jsonDecode($response->getBody()->getContents(), true));
+        return new ApiKey($this->jsonDecode($response->getBody()->getContents()));
     }
 
     /**

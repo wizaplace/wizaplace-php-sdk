@@ -50,7 +50,7 @@ class BasketService extends AbstractService
             throw $ex;
         }
 
-        return $this->jsonDecode($response->getBody()->getContents(), true)['quantity'];
+        return $this->jsonDecode($response->getBody()->getContents())['quantity'];
     }
 
     /**
@@ -60,7 +60,7 @@ class BasketService extends AbstractService
     {
         $response = $this->client->request('GET', "basket/{$basketId}");
 
-        return new Basket($this->jsonDecode($response->getBody()->getContents(), true));
+        return new Basket($this->jsonDecode($response->getBody()->getContents()));
     }
 
     /**
@@ -136,14 +136,14 @@ class BasketService extends AbstractService
             throw $ex;
         }
 
-        return $this->jsonDecode($response->getBody()->getContents(), true)['quantity'];
+        return $this->jsonDecode($response->getBody()->getContents())['quantity'];
     }
 
     public function create(): string
     {
         $response = $this->client->request('POST', "basket");
 
-        return $this->jsonDecode($response->getBody()->getContents(), true);
+        return $this->jsonDecode($response->getBody()->getContents());
     }
 
     /**
