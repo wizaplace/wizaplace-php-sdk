@@ -72,10 +72,6 @@ abstract class AbstractService
      */
     protected function jsonDecode(string $json, bool $assoc = true, int $depth = 512, int $options = 0)
     {
-        if ($json === '' || $json === null) {
-            return null;
-        }
-
         $data = \json_decode($json, $assoc, $depth, $options);
 
         $lastJsonError = json_last_error();

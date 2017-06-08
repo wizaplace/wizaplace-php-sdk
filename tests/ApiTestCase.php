@@ -17,7 +17,7 @@ use PHPUnit\Framework\TestCase;
 use Symfony\Component\Yaml\Yaml;
 use VCR\VCR;
 
-abstract class ApiTest extends TestCase
+abstract class ApiTestCase extends TestCase
 {
     use Psr7AssertsTrait;
     /**
@@ -40,7 +40,7 @@ abstract class ApiTest extends TestCase
         parent::setUpBeforeClass();
 
         VCR::turnOn();
-        VCR::insertCassette('Swagger-schema');
+        VCR::insertCassette('Swagger-schema.yml');
         $schemaStr = file_get_contents(self::getApiBaseUrl().'doc/schema.yml');
         VCR::turnOff();
         $schemaStdObject = Yaml::parse($schemaStr, Yaml::PARSE_OBJECT | Yaml::PARSE_OBJECT_FOR_MAP);
@@ -60,8 +60,18 @@ abstract class ApiTest extends TestCase
         ]);
     }
 
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        VCR::turnOn();
+        $cassette = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
+        VCR::insertCassette($cassette);
+    }
+
     protected function tearDown(): void
     {
+        VCR::turnOff();
         try {
             foreach (self::$historyContainer as $transaction) {
                 $this->assertResponseAndRequestMatch($transaction['response'], $transaction['request'], self::$schemaManager);
