@@ -66,7 +66,11 @@ abstract class AbstractService
         );
     }
 
-    protected function jsonDecode(string $json, $assoc = true, $depth = 512, $options = 0)
+    /**
+     * Does the same as json_decode(), but with proper error handling
+     * @see \json_decode()
+     */
+    protected function jsonDecode(string $json, bool $assoc = true, int $depth = 512, int $options = 0)
     {
         if ($json === '' || $json === null) {
             return null;
@@ -74,16 +78,18 @@ abstract class AbstractService
 
         $data = \json_decode($json, $assoc, $depth, $options);
 
-        if (JSON_ERROR_NONE !== json_last_error()) {
-            $last = json_last_error();
-            $message = 'Unable to parse JSON data: '.json_last_error_msg();
-            throw new JsonDecodingError($message, $last);
+        $lastJsonError = json_last_error();
+        if (JSON_ERROR_NONE !== $lastJsonError) {
+            throw new JsonDecodingError(
+                'Unable to parse JSON data: '.json_last_error_msg(),
+                $lastJsonError
+            );
         }
 
         return $data;
     }
 
-    private function addAuth(array $options, ?ApiKey $apiKey):array
+    private function addAuth(array $options, ?ApiKey $apiKey): array
     {
         if ($apiKey) {
             $options['headers']['Authorization'] = 'token '.$apiKey->getKey();
