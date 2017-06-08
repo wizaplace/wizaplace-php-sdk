@@ -66,17 +66,21 @@ abstract class AbstractService
         );
     }
 
-    protected function jsonDecode(string $json)
+    protected function jsonDecode(string $json, $assoc = true, $depth = 512, $options = 0)
     {
-        $result = json_decode($json, true);
-        if (is_null($result)) {
-            $jsonLastErrorCode = json_last_error();
-            if ($jsonLastErrorCode !== JSON_ERROR_NONE) {
-                throw new JsonDecodingError(json_last_error_msg(), $jsonLastErrorCode);
-            }
+        if ($json === '' || $json === null) {
+            return null;
         }
 
-        return $result;
+        $data = \json_decode($json, $assoc, $depth, $options);
+
+        if (JSON_ERROR_NONE !== json_last_error()) {
+            $last = json_last_error();
+            $message = 'Unable to parse JSON data: '.json_last_error_msg();
+            throw new JsonDecodingError($message, $last);
+        }
+
+        return $data;
     }
 
     private function addAuth(array $options, ?ApiKey $apiKey):array
