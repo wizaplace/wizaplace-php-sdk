@@ -23,6 +23,13 @@ class CmsService extends AbstractService
         return array_map([$this, 'convertNestedArraysToMenu'], $results);
     }
 
+    public function getPage($pageId) : array
+    {
+        $page = $this->get('cms/page/'.$pageId);
+
+        return $page;
+    }
+
     private function convertNestedArraysToMenu(array $menuData): Menu
     {
         $items = array_map([$this, 'convertArrayToMenuItem'], $menuData['items']);

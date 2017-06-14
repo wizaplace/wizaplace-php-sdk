@@ -24,4 +24,25 @@ class CmsServiceTest extends ApiTestCase
 
         $this->assertNotEmpty($firstMenu->getItems());
     }
+
+    public function testGetPage()
+    {
+        $cmsService = new CmsService($this->getGuzzleClient());
+        $page = $cmsService->getPage(4);
+
+        $this->assertNotEmpty($page);
+
+        $this->assertEquals(
+            [
+                'id' => 4,
+                'name' => 'Contact',
+                'content'   => '',
+                'meta_keywords' => '',
+                'meta_description'  =>  '',
+                'seo_title' => '',
+                'slug'  => 'contact',
+            ],
+            $page
+        );
+    }
 }
