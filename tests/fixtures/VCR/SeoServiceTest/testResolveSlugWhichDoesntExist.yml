@@ -1,0 +1,24 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=404-does-not-exist'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 15 Jun 2017 07:13:50 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: c9cdf8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c9cdf8'
+            Content-Length: '2'
+            Content-Type: application/json
+        body: '{}'
