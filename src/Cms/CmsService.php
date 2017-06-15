@@ -23,9 +23,19 @@ class CmsService extends AbstractService
         return array_map([$this, 'convertNestedArraysToMenu'], $results);
     }
 
-    public function getPage($pageId) : array
+    public function getPage(int $pageId) : Page
     {
-        $page = $this->get('cms/page/'.$pageId);
+        $data = $this->get('cms/page/'.$pageId);
+
+        $page = new Page(
+            $data['id'],
+            $data['title'],
+            $data['content'],
+            $data['metaTitle'],
+            $data['metaDescription'],
+            $data['metaKeywords'],
+            $data['slug']
+        );
 
         return $page;
     }
