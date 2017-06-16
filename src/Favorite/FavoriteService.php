@@ -14,7 +14,7 @@ use Wizaplace\User\ApiKey;
 
 class FavoriteService extends AbstractService
 {
-    public function isFavorite(ApiKey $apiKey, int $productId)
+    public function isFavorite(ApiKey $apiKey, int $productId) : bool
     {
         $results = $this->get('favorites/declinations', [], $apiKey);
         $isFavorite = false;

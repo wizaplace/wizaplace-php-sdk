@@ -14,11 +14,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 09:53:16 GMT'
+            Date: 'Fri, 16 Jun 2017 12:57:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 4b6f41
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b6f41'
+            X-Debug-Token: 3fa2f9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3fa2f9'
             Content-Length: '844'
             Content-Type: application/json
-        body: '{"results":[{"productId":1,"name":"optio corporis similique voluptatum","slug":"test-product-slug","minimumPrice":20,"crossedOutPrice":null,"isAvailable":true,"createdAt":1497606516,"updatedAt":1497606516,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"url":"\/informatique\/test-product-slug.html","subtitle":"","averageRating":null,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}]}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gorie","values":{"3":{"label":"Informatique","count":"1"}},"isNumeric":false},{"name":1,"label":"color","values":{"2":{"label":"blue","count":0},"1":{"label":"red","count":0},"3":{"label":"test attribute variant slug","count":0}},"isNumeric":false}]}'
+        body: '{"results":[{"productId":1,"name":"optio corporis similique voluptatum","slug":"test-product-slug","minimumPrice":20,"crossedOutPrice":null,"isAvailable":true,"createdAt":1497616326,"updatedAt":1497616326,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"url":"\/informatique\/test-product-slug.html","subtitle":"","averageRating":null,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}]}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gorie","values":{"3":{"label":"Informatique","count":"1"}},"isNumeric":false},{"name":1,"label":"color","values":{"2":{"label":"blue","count":0},"1":{"label":"red","count":0},"3":{"label":"test attribute variant slug","count":0}},"isNumeric":false}]}'

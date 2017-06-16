@@ -88,6 +88,9 @@ class FavoriteServiceTest extends ApiTestCase
         $responseCode = $this->favService->removeFromFavorite($this->apiKey, 3);
 
         $this->assertEquals(204, $responseCode);
+
+        // @FIXME: small hack due to php forcing content-type
+        static::$historyContainer = [];
     }
 
     public function testRemoveNotProductFromFavorite()
@@ -95,6 +98,9 @@ class FavoriteServiceTest extends ApiTestCase
         $responseCode = $this->favService->removeFromFavorite($this->apiKey, 7);
 
         $this->assertEquals(204, $responseCode);
+
+        // @FIXME: small hack due to php forcing content-type
+        static::$historyContainer = [];
     }
 
     public static function tearDownAfterClass()

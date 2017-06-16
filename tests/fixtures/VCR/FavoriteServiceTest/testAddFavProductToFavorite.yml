@@ -15,14 +15,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 09:53:19 GMT'
+            Date: 'Fri, 16 Jun 2017 12:57:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 87ca30
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/87ca30'
+            X-Debug-Token: 3ec778
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ec778'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"e2A1YtATGkYfETYUGSZVwu7o6Qn2VQmsej+rkRKc"}'
+        body: '{"id":2,"apiKey":"MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw"}'
 -
     request:
         method: PUT
@@ -32,7 +32,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
-            Authorization: 'token e2A1YtATGkYfETYUGSZVwu7o6Qn2VQmsej+rkRKc'
+            Authorization: 'token MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw'
             Accept: null
     response:
         status:
@@ -40,11 +40,11 @@
             code: '409'
             message: Conflict
         headers:
-            Date: 'Fri, 16 Jun 2017 09:53:19 GMT'
+            Date: 'Fri, 16 Jun 2017 12:57:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ec6e9f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec6e9f'
+            X-Debug-Token: 393ef9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/393ef9'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
