@@ -15,14 +15,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 13:12:11 GMT'
+            Date: 'Fri, 16 Jun 2017 14:52:39 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 87493f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/87493f'
+            X-Debug-Token: 6f329f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f329f'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw"}'
+        body: '{"id":2,"apiKey":"0kpbrlEfQil71gCZWljf7zYq1FsqGgkCuUdxgLW7"}'
 -
     request:
         method: GET
@@ -31,7 +31,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
-            Authorization: 'token MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw'
+            Authorization: 'token 0kpbrlEfQil71gCZWljf7zYq1FsqGgkCuUdxgLW7'
             Accept: null
     response:
         status:
@@ -39,11 +39,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 13:12:11 GMT'
+            Date: 'Fri, 16 Jun 2017 14:52:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e33d96
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e33d96'
+            X-Debug-Token: '365938'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/365938'
             Content-Length: '25'
             Content-Type: application/json
         body: '["1_0","2_0","3_0","4_0"]'

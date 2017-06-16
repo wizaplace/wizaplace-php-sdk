@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Favorite;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
+use GuzzleHttp\Middleware;
 use Wizaplace\Favorite\FavoriteService;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\ApiKey;
@@ -29,10 +32,10 @@ class FavoriteServiceTest extends ApiTestCase
     {
         parent::setUpBeforeClass();
 
-        $userService = new UserService(self::getGuzzleClient());
+        $userService = new UserService(self::createGuzzleClient());
         $apiKey = $userService->authenticate('admin@wizaplace.com', 'password');
 
-        $favService = new FavoriteService(self::getGuzzleClient());
+        $favService = new FavoriteService(self::createGuzzleClient());
 
         $favService->addToFavorite($apiKey, 1);
         $favService->addToFavorite($apiKey, 2);
@@ -100,13 +103,26 @@ class FavoriteServiceTest extends ApiTestCase
     public static function tearDownAfterClass()
     {
         parent::tearDownAfterClass();
-        $userService = new UserService(self::getGuzzleClient());
+        $userService = new UserService(self::createGuzzleClient());
         $apiKey = $userService->authenticate('admin@wizaplace.com', 'password');
 
-        $favService = new FavoriteService(self::getGuzzleClient());
+        $favService = new FavoriteService(self::createGuzzleClient());
         $favService->removeFromFavorite($apiKey, 1);
         $favService->removeFromFavorite($apiKey, 2);
         $favService->removeFromFavorite($apiKey, 3);
         $favService->removeFromFavorite($apiKey, 4);
+    }
+
+    private static function createGuzzleClient()
+    {
+        $historyMiddleware = Middleware::history(self::$historyContainer);
+
+        $handlerStack = HandlerStack::create();
+        $handlerStack->push($historyMiddleware);
+
+        return new Client([
+            'handler' => $handlerStack,
+            'base_uri' => self::getApiBaseUrl(),
+        ]);
     }
 }

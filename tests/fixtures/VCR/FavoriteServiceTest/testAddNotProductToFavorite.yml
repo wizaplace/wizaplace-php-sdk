@@ -15,14 +15,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 13:12:10 GMT'
+            Date: 'Fri, 16 Jun 2017 14:52:38 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 126ed2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/126ed2'
+            X-Debug-Token: d50a5a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d50a5a'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw"}'
+        body: '{"id":2,"apiKey":"0kpbrlEfQil71gCZWljf7zYq1FsqGgkCuUdxgLW7"}'
 -
     request:
         method: PUT
@@ -32,7 +32,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
-            Authorization: 'token MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw'
+            Authorization: 'token 0kpbrlEfQil71gCZWljf7zYq1FsqGgkCuUdxgLW7'
             Accept: null
     response:
         status:
@@ -40,11 +40,11 @@
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Fri, 16 Jun 2017 13:12:10 GMT'
+            Date: 'Fri, 16 Jun 2017 14:52:39 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a6133b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6133b'
+            X-Debug-Token: 1c7f4d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c7f4d'
             Content-Length: '2'
             Connection: close
             Content-Type: application/json
