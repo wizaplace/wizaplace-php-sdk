@@ -46,8 +46,5 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(1, $product->getId());
         $this->assertEquals('test-product-slug', $product->getSlug());
         // @TODO: more assertions
-
-        // @FIXME: small hack due to fr3d/swagger-assertions not properly checking URL query non-string types (https://github.com/Maks3w/SwaggerAssertions/issues/30).
-        static::$historyContainer = [];
     }
 }
