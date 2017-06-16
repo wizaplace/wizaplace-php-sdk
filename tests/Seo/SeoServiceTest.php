@@ -8,7 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Seo;
 
-use FR3D\SwaggerAssertions\PhpUnit\Psr7AssertsTrait;
 use Wizaplace\Seo\SeoService;
 use Wizaplace\Seo\SlugTarget;
 use Wizaplace\Seo\SlugTargetType;
@@ -16,8 +15,6 @@ use Wizaplace\Tests\ApiTestCase;
 
 class SeoServiceTest extends ApiTestCase
 {
-    use Psr7AssertsTrait;
-
     public function testResolveSlugsForAllKinds()
     {
         $seoService = new SeoService($this->getGuzzleClient());

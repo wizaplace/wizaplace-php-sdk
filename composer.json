@@ -17,7 +17,6 @@
         "m6web/coke": "^2.2",
         "phpstan/phpstan": "^0.7.0",
         "phpstan/phpstan-guzzle": "^0.7.0",
-        "fr3d/swagger-assertions": "^0.8.1",
         "php-vcr/php-vcr": "^1.3",
         "symfony/yaml": "^3.2"
     },
