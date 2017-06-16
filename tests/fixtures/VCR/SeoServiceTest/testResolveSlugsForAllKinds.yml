@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.52.1 PHP/7.1.5'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
             Accept: null
     response:
         status:
@@ -14,11 +14,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 24 May 2017 12:45:17 GMT'
+            Date: 'Fri, 16 Jun 2017 14:26:17 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e4f65e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4f65e'
-            Content-Length: '265'
+            X-Debug-Token: a94328
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a94328'
+            Content-Length: '266'
             Content-Type: application/json
-        body: '{"test-attribute-variant-slug":{"type":"attribute_variant","id":"5"},"test-category-slug":{"type":"category","id":"7"},"test-cms-page-slug":{"type":"cms_page","id":"9"},"test-company-slug":{"type":"company","id":"1"},"test-product-slug":{"type":"product","id":"1"}}'
+        body: '{"test-attribute-variant-slug":{"type":"attribute_variant","id":"3"},"test-category-slug":{"type":"category","id":"5"},"test-cms-page-slug":{"type":"cms_page","id":"31"},"test-company-slug":{"type":"company","id":"3"},"test-product-slug":{"type":"product","id":"1"}}'

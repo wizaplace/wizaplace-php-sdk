@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.4-1+deb.sury.org~xenial+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
             Accept: null
     response:
         status:
@@ -14,11 +14,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 29 May 2017 10:22:29 GMT'
+            Date: 'Fri, 16 Jun 2017 14:26:16 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 77c2d5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77c2d5'
+            X-Debug-Token: 6ae3e0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6ae3e0'
             Content-Length: '31'
             Content-Type: application/json
         body: '{"message":"Product not found"}'
