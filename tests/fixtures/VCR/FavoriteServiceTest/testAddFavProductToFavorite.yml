@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 12:57:42 GMT'
+            Date: 'Fri, 16 Jun 2017 13:12:10 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 3ec778
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ec778'
+            X-Debug-Token: '963e13'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/963e13'
             Content-Length: '60'
             Content-Type: application/json
         body: '{"id":2,"apiKey":"MdxnlnepirwkOk+ayLIAWDRFk4B8DFLGhv0iQyBw"}'
@@ -40,11 +40,11 @@
             code: '409'
             message: Conflict
         headers:
-            Date: 'Fri, 16 Jun 2017 12:57:42 GMT'
+            Date: 'Fri, 16 Jun 2017 13:12:10 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 393ef9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/393ef9'
+            X-Debug-Token: bb2d0b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb2d0b'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'

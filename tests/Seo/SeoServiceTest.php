@@ -43,9 +43,6 @@ class SeoServiceTest extends ApiTestCase
 
         $this->assertArrayHasKey('404-does-not-exist', $slugTargets);
         $this->assertNull($slugTargets['404-does-not-exist']);
-
-        // @FIXME: small hack due to php forcing content-type
-        static::$historyContainer = [];
     }
 
     public function testResolveEmptySlugs()
