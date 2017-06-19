@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 19 Jun 2017 08:44:11 GMT'
+            Date: 'Mon, 19 Jun 2017 09:00:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6e17f8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e17f8'
+            X-Debug-Token: 77eda5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77eda5'
             Content-Length: '60'
             Content-Type: application/json
         body: '{"id":2,"apiKey":"eoh4vr5r3tPXPRr7+DdjWtUv4H8klWKO8K0ZQsi1"}'
@@ -42,11 +42,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 19 Jun 2017 08:44:11 GMT'
+            Date: 'Mon, 19 Jun 2017 09:00:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0af55d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0af55d'
+            X-Debug-Token: 2d3778
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2d3778'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -68,11 +68,11 @@
             code: '409'
             message: Conflict
         headers:
-            Date: 'Mon, 19 Jun 2017 08:44:11 GMT'
+            Date: 'Mon, 19 Jun 2017 09:01:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '222026'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/222026'
+            X-Debug-Token: 1cdb53
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1cdb53'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -93,11 +93,11 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 19 Jun 2017 08:44:12 GMT'
+            Date: 'Mon, 19 Jun 2017 09:01:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '7e8356'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e8356'
+            X-Debug-Token: 1fc334
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1fc334'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
@@ -117,10 +117,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 19 Jun 2017 08:44:12 GMT'
+            Date: 'Mon, 19 Jun 2017 09:01:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ad95e6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ad95e6'
+            X-Debug-Token: 20bb10
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/20bb10'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

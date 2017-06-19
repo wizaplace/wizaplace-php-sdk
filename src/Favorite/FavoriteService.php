@@ -33,7 +33,7 @@ class FavoriteService extends AbstractService
         return $isFavorite;
     }
 
-    public function addToFavorite(ApiKey $apiKey, int $productId) : bool
+    public function addToFavorite(ApiKey $apiKey, int $productId) : void
     {
         try {
             $this->put('favorites/declinations/'.$productId, [], $apiKey);
@@ -51,18 +51,10 @@ class FavoriteService extends AbstractService
                     throw new \Exception($message, $code);
             }
         }
-
-        return true;
     }
 
-    public function removeFromFavorite($apiKey, int $productId) : bool
+    public function removeFromFavorite(ApiKey $apiKey, int $productId) : void
     {
-        try {
-            $this->delete('favorites/declinations/'.$productId, [], $apiKey);
-        } catch (ClientException $ex) {
-            throw new \Exception($ex->getMessage(), $ex->getCode());
-        }
-
-        return true;
+        $this->delete('favorites/declinations/'.$productId, [], $apiKey);
     }
 }
