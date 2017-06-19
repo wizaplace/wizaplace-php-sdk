@@ -8,7 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Favorite;
 
-use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistantDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
@@ -39,16 +38,15 @@ class FavoriteService extends AbstractService
             $this->put('favorites/declinations/'.$productId, [], $apiKey);
         } catch (\Exception $e) {
             $code = $e->getCode();
-            $message = $e->getMessage();
             switch ($code) {
-                case 400:
-                    throw new CannotFavoriteDisabledOrInexistantDeclination($message, $code);
+                case CannotFavoriteDisabledOrInexistantDeclination::HTTP_ERROR_CODE:
+                    throw new CannotFavoriteDisabledOrInexistantDeclination($productId, $e);
                     break;
-                case 409:
-                    throw new FavoriteAlreadyExist($message, $code);
+                case FavoriteAlreadyExist::HTTP_ERROR_CODE:
+                    throw new FavoriteAlreadyExist($productId, $e);
                     break;
                 default:
-                    throw new \Exception($message, $code);
+                    throw $e;
             }
         }
     }
