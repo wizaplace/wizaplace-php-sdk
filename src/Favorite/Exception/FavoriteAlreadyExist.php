@@ -15,5 +15,4 @@ class FavoriteAlreadyExist extends \Exception
     {
         parent::__construct("Product #{$productId} is already a favorite", self::HTTP_ERROR_CODE, $previous);
     }
-
 }
