@@ -12,6 +12,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
+use Psr\Http\Message\RequestInterface;
 use VCR\VCR;
 
 abstract class ApiTestCase extends TestCase
@@ -20,6 +21,8 @@ abstract class ApiTestCase extends TestCase
      * @var array[]
      */
     protected static $historyContainer = [];
+
+    private $requestIndex = 0;
 
     public static function getApiBaseUrl(): string
     {
@@ -32,6 +35,15 @@ abstract class ApiTestCase extends TestCase
 
         $handlerStack = HandlerStack::create();
         $handlerStack->push($historyMiddleware);
+        $i = &$this->requestIndex;
+        $handlerStack->push(function (callable $handler) use (&$i) {
+            return function (RequestInterface $request, array $options) use ($handler, &$i) {
+                $request = $request->withHeader('VCR-index', $i);
+                $i++;
+
+                return $handler($request, $options);
+            };
+        });
 
         return new Client([
             'handler' => $handlerStack,
@@ -43,6 +55,7 @@ abstract class ApiTestCase extends TestCase
     {
         parent::setUp();
 
+        $this->requestIndex = 0;
         VCR::turnOn();
         $cassette = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
         VCR::insertCassette($cassette);
