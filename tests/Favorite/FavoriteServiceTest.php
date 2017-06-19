@@ -42,7 +42,7 @@ class FavoriteServiceTest extends ApiTestCase
     {
         $this->favService->addToFavorite($this->apiKey, 2);
 
-        $this->assertEquals(true, $this->favService->isFavorite($this->apiKey, 2));
+        $this->assertTrue($this->favService->isFavorite($this->apiKey, 2));
     }
 
     public function testAddFavProductToFavorite()
@@ -63,21 +63,21 @@ class FavoriteServiceTest extends ApiTestCase
     {
         $isFavorite = $this->favService->isFavorite($this->apiKey, 3);
 
-        $this->assertEquals(false, $isFavorite);
+        $this->assertFalse($isFavorite);
     }
 
     public function testIsFavorite()
     {
         $isFavorite = $this->favService->isFavorite($this->apiKey, 1);
 
-        $this->assertEquals(true, $isFavorite);
+        $this->assertTrue($isFavorite);
     }
 
     public function testRemoveProductFromFavorite()
     {
         $this->favService->removeFromFavorite($this->apiKey, 1);
 
-        $this->assertEquals(false, $this->favService->isFavorite($this->apiKey, 1));
+        $this->assertFalse($this->favService->isFavorite($this->apiKey, 1));
     }
 
     public function tearDown() :void
