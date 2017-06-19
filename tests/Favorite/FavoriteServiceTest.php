@@ -82,8 +82,8 @@ class FavoriteServiceTest extends ApiTestCase
 
     public function tearDown() :void
     {
-        parent::tearDown();
         $this->favService->removeFromFavorite($this->apiKey, 1);
         $this->favService->removeFromFavorite($this->apiKey, 2);
+        parent::tearDown();
     }
 }
