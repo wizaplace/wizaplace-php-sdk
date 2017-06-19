@@ -56,7 +56,7 @@ class FavoriteServiceTest extends ApiTestCase
     {
         $this->expectException(CannotFavoriteDisabledOrInexistantDeclination::class);
 
-        $this->favService->addToFavorite($this->apiKey, 4);
+        $this->favService->addToFavorite($this->apiKey, 404);
     }
 
     public function testIsNotFavorite()
