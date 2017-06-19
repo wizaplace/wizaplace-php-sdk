@@ -9,7 +9,7 @@ namespace Wizaplace\Favorite\Exception;
 
 class CannotFavoriteDisabledOrInexistantDeclination extends \Exception
 {
-    public const HTTP_ERROR_CODE = 409;
+    public const HTTP_ERROR_CODE = 400;
 
     public function __construct(int $productId, \Throwable $previous = null)
     {
