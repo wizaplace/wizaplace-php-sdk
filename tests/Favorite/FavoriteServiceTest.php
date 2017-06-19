@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Favorite;
 
-use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistantDeclination;
+use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\Favorite\FavoriteService;
 use Wizaplace\Tests\ApiTestCase;
@@ -54,7 +54,7 @@ class FavoriteServiceTest extends ApiTestCase
 
     public function testAddNotProductToFavorite()
     {
-        $this->expectException(CannotFavoriteDisabledOrInexistantDeclination::class);
+        $this->expectException(CannotFavoriteDisabledOrInexistentDeclination::class);
 
         $this->favService->addToFavorite($this->apiKey, 4);
     }

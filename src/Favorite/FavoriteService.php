@@ -9,7 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Favorite;
 
 use Wizaplace\AbstractService;
-use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistantDeclination;
+use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\User\ApiKey;
 
@@ -39,8 +39,8 @@ class FavoriteService extends AbstractService
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
-                case CannotFavoriteDisabledOrInexistantDeclination::HTTP_ERROR_CODE:
-                    throw new CannotFavoriteDisabledOrInexistantDeclination($productId, $e);
+                case CannotFavoriteDisabledOrInexistentDeclination::HTTP_ERROR_CODE:
+                    throw new CannotFavoriteDisabledOrInexistentDeclination($productId, $e);
                     break;
                 case FavoriteAlreadyExist::HTTP_ERROR_CODE:
                     throw new FavoriteAlreadyExist($productId, $e);
