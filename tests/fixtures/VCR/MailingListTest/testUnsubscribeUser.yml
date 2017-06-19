@@ -1,0 +1,71 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/mailinglists/2/subscriptions/user@wizaplace.com'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 19 Jun 2017 14:55:11 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 6539fc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6539fc'
+            Content-Length: '0'
+            Content-Type: application/json
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/mailinglists/1/subscriptions/user@wizaplace.com'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Mon, 19 Jun 2017 14:55:12 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 3dca96
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3dca96'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/mailinglists/2/subscriptions/user@wizaplace.com'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Mon, 19 Jun 2017 14:55:12 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: '808341'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/808341'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
