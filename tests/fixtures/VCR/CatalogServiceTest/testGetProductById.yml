@@ -6,7 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.4-1+deb.sury.org~xenial+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.3'
+            VCR-index: '0'
             Accept: null
     response:
         status:
@@ -14,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 29 May 2017 10:16:16 GMT'
+            Date: 'Mon, 19 Jun 2017 08:23:06 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b7e981
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7e981'
-            Content-Length: '737'
+            X-Debug-Token: fe3646
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe3646'
+            Content-Length: '748'
             Content-Type: application/json
-        body: '{"id":1,"code":"3985699059188","supplierReference":"","name":"optio corporis similique voluptatum","url":"http:\/\/wizaplace.loc\/informatique\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":40,"greenTax":0,"isTransactional":true,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":1,"name":"Marchand de test"}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"declinations":[{"code":"3985699059188","supplierReference":"","price":40,"originalPrice":40,"crossedOutPrice":451,"prices":{"priceWithTaxes":40,"priceWithoutVat":39.18,"vat":0.82},"greenTax":0,"amount":43,"affiliateLink":null,"images":[]}],"attributes":[]}'
+        body: '{"id":1,"code":"6086375420678","supplierReference":"","name":"optio corporis similique voluptatum","url":"http:\/\/wizaplace.loc\/informatique\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":20,"greenTax":0,"isTransactional":true,"weight":1.23,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":4,"name":"Test company"}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"declinations":[{"code":"6086375420678","supplierReference":"","price":20,"originalPrice":20,"crossedOutPrice":null,"prices":{"priceWithTaxes":20,"priceWithoutVat":19.59,"vat":0.41},"greenTax":0,"amount":15,"affiliateLink":null,"images":[]}],"attributes":[]}'
