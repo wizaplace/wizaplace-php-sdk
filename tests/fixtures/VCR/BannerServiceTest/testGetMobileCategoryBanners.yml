@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/cms/banners'
+        url: 'http://wizaplace.loc/api/v1/cms/banners/category/3?device=mobile'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 19 Jun 2017 11:49:30 GMT'
+            Date: 'Mon, 19 Jun 2017 11:49:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e75cb0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e75cb0'
-            Content-Length: '168'
+            X-Debug-Token: 506ae1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/506ae1'
+            Content-Length: '86'
             Content-Type: application/json
-        body: '[{"link":"http:\/\/url-de-test.com","shouldOpenInNewWindow":true,"image":{"id":3}},{"link":"http:\/\/url-de-test-2.com","shouldOpenInNewWindow":false,"image":{"id":4}}]'
+        body: '[{"link":"http:\/\/url-de-test-3.com","shouldOpenInNewWindow":false,"image":{"id":5}}]'
