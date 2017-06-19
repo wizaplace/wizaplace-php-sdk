@@ -5,7 +5,7 @@
  * @license     Proprietary
  */
 
-namespace Wizaplace\tests\Cms;
+namespace Wizaplace\Tests\Cms;
 
 use Wizaplace\Cms\BannerService;
 use Wizaplace\Tests\ApiTestCase;
