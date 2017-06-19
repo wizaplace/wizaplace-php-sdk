@@ -6,7 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.3'
+            VCR-index: '0'
             Accept: null
     response:
         status:
@@ -14,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 19 Jun 2017 08:14:31 GMT'
+            Date: 'Mon, 19 Jun 2017 08:23:07 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6d80f5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d80f5'
+            X-Debug-Token: 1ac8ca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1ac8ca'
             Content-Length: '2'
             Content-Type: application/json
         body: '{}'
