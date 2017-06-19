@@ -10,6 +10,8 @@ namespace Wizaplace\Favorite;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistantDeclination;
+use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\User\ApiKey;
 
 class FavoriteService extends AbstractService
@@ -31,31 +33,36 @@ class FavoriteService extends AbstractService
         return $isFavorite;
     }
 
-    public function addToFavorite(ApiKey $apiKey, int $productId) : int
+    public function addToFavorite(ApiKey $apiKey, int $productId) : bool
     {
         try {
             $this->put('favorites/declinations/'.$productId, [], $apiKey);
         } catch (\Exception $e) {
             $code = $e->getCode();
-        }
-        if (!isset($code)) {
-            $code = 201;
+            $message = $e->getMessage();
+            switch ($code) {
+                case 400:
+                    throw new CannotFavoriteDisabledOrInexistantDeclination($message, $code);
+                    break;
+                case 409:
+                    throw new FavoriteAlreadyExist($message, $code);
+                    break;
+                default:
+                    throw new \Exception($message, $code);
+            }
         }
 
-        return $code;
+        return true;
     }
 
-    public function removeFromFavorite($apiKey, int $productId) : int
+    public function removeFromFavorite($apiKey, int $productId) : bool
     {
         try {
-            $code = $this->delete('favorites/declinations/'.$productId, [], $apiKey);
+            $this->delete('favorites/declinations/'.$productId, [], $apiKey);
         } catch (ClientException $ex) {
-            $code = $ex->getResponse()->getStatusCode();
-        }
-        if (!isset($code)) {
-            $code = 204;
+            throw new \Exception($ex->getMessage(), $ex->getCode());
         }
 
-        return $code;
+        return true;
     }
 }

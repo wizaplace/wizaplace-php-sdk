@@ -14,11 +14,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Jun 2017 14:52:35 GMT'
+            Date: 'Mon, 19 Jun 2017 08:14:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: d9fe19
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9fe19'
+            X-Debug-Token: bb9c47
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb9c47'
             Content-Length: '748'
             Content-Type: application/json
         body: '{"id":1,"code":"6086375420678","supplierReference":"","name":"optio corporis similique voluptatum","url":"http:\/\/wizaplace.loc\/informatique\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":20,"greenTax":0,"isTransactional":true,"weight":1.23,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":4,"name":"Test company"}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"declinations":[{"code":"6086375420678","supplierReference":"","price":20,"originalPrice":20,"crossedOutPrice":null,"prices":{"priceWithTaxes":20,"priceWithoutVat":19.59,"vat":0.41},"greenTax":0,"amount":15,"affiliateLink":null,"images":[]}],"attributes":[]}'

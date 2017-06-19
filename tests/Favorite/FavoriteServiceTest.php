@@ -8,6 +8,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Favorite;
 
+use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistantDeclination;
+use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\Favorite\FavoriteService;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\ApiKey;
@@ -34,57 +36,48 @@ class FavoriteServiceTest extends ApiTestCase
         $this->favService = new FavoriteService($this->getGuzzleClient());
 
         $this->favService->addToFavorite($this->apiKey, 1);
-        $this->favService->addToFavorite($this->apiKey, 2);
-        $this->favService->addToFavorite($this->apiKey, 3);
     }
 
     public function testAddProductToFavorite()
     {
-        $responseCode = $this->favService->addToFavorite($this->apiKey, 4);
+        $response = $this->favService->addToFavorite($this->apiKey, 2);
 
-        $this->assertEquals(201, $responseCode);
+        $this->assertEquals(true, $response);
     }
 
     public function testAddFavProductToFavorite()
     {
-        $responseCode = $this->favService->addToFavorite($this->apiKey, 1);
+        $this->expectException(FavoriteAlreadyExist::class);
 
-        $this->assertEquals(409, $responseCode);
+        $this->favService->addToFavorite($this->apiKey, 1);
     }
 
     public function testAddNotProductToFavorite()
     {
-        $responseCode = $this->favService->addToFavorite($this->apiKey, 7);
+        $this->expectException(CannotFavoriteDisabledOrInexistantDeclination::class);
 
-        $this->assertEquals(400, $responseCode);
+        $this->favService->addToFavorite($this->apiKey, 4);
     }
 
     public function testIsNotFavorite()
     {
-        $isFavorite = $this->favService->isFavorite($this->apiKey, 5);
+        $isFavorite = $this->favService->isFavorite($this->apiKey, 3);
 
         $this->assertEquals(false, $isFavorite);
     }
 
     public function testIsFavorite()
     {
-        $isFavorite = $this->favService->isFavorite($this->apiKey, 2);
+        $isFavorite = $this->favService->isFavorite($this->apiKey, 1);
 
         $this->assertEquals(true, $isFavorite);
     }
 
     public function testRemoveProductFromFavorite()
     {
-        $responseCode = $this->favService->removeFromFavorite($this->apiKey, 3);
+        $response = $this->favService->removeFromFavorite($this->apiKey, 1);
 
-        $this->assertEquals(204, $responseCode);
-    }
-
-    public function testRemoveNotProductFromFavorite()
-    {
-        $responseCode = $this->favService->removeFromFavorite($this->apiKey, 7);
-
-        $this->assertEquals(204, $responseCode);
+        $this->assertEquals(true, $response);
     }
 
     public function tearDown() :void
@@ -92,7 +85,5 @@ class FavoriteServiceTest extends ApiTestCase
         parent::tearDown();
         $this->favService->removeFromFavorite($this->apiKey, 1);
         $this->favService->removeFromFavorite($this->apiKey, 2);
-        $this->favService->removeFromFavorite($this->apiKey, 3);
-        $this->favService->removeFromFavorite($this->apiKey, 4);
     }
 }
