@@ -49,11 +49,15 @@ class TranslationService extends AbstractService
 
     private static function getPrimaryLanguage(string $locale): string
     {
-        $primaryLanguage = \locale_get_primary_language($locale);
-        if (is_null($primaryLanguage)) {
-            throw new \InvalidArgumentException("Invalid locale '{$locale}'");
+        if (function_exists('\locale_get_primary_language')) {
+            $primaryLanguage = \locale_get_primary_language($locale);
+            if (is_null($primaryLanguage)) {
+                throw new \InvalidArgumentException("Invalid locale '{$locale}'");
+            }
+
+            return $primaryLanguage;
         }
 
-        return $primaryLanguage;
+        return strtolower(substr($locale, 0, 2));
     }
 }
