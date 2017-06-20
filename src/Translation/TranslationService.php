@@ -20,7 +20,6 @@ class TranslationService extends AbstractService
      */
     public function pushXliffCatalog(ApiKey $apiKey, $xliffCatalog, string $locale)
     {
-        $locale = $this->getPrimaryLanguage($locale);
         $options = $this->addAuth(
             [
                 RequestOptions::HEADERS => [
@@ -36,7 +35,6 @@ class TranslationService extends AbstractService
 
     public function getXliffCatalog(string $locale): StreamInterface
     {
-        $locale = $this->getPrimaryLanguage($locale);
         $options = [
             RequestOptions::HEADERS => [
                 "Accept" => "application/x-xliff+xml",
@@ -45,19 +43,5 @@ class TranslationService extends AbstractService
         $response = $this->client->request("GET", "translations/front/".$locale, $options);
 
         return $response->getBody();
-    }
-
-    private static function getPrimaryLanguage(string $locale): string
-    {
-        if (function_exists('\locale_get_primary_language')) {
-            $primaryLanguage = \locale_get_primary_language($locale);
-            if (is_null($primaryLanguage)) {
-                throw new \InvalidArgumentException("Invalid locale '{$locale}'");
-            }
-
-            return $primaryLanguage;
-        }
-
-        return strtolower(substr($locale, 0, 2));
     }
 }
