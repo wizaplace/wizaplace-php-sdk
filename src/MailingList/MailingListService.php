@@ -30,7 +30,7 @@ class MailingListService extends AbstractService
     public function subscribeToMailingList(int $mailingListId, string $email)
     {
         try {
-            $this->post('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+            $this->client->post('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
         } catch (ServerException $e) {
             throw new UserAlreadySubscribed();
         }
@@ -38,10 +38,6 @@ class MailingListService extends AbstractService
 
     public function unsubscribeFromMailingList(int $mailingListId, string $email)
     {
-        try {
-            $this->delete('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
-        } catch (\Exception $e) {
-
-        }
+        $this->client->delete('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
     }
 }

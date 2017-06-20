@@ -13,22 +13,20 @@
     response:
         status:
             http_version: '1.1'
-            code: '500'
-            message: 'Internal Server Error'
+            code: '201'
+            message: Created
         headers:
-            Date: 'Mon, 19 Jun 2017 14:55:09 GMT'
+            Date: 'Tue, 20 Jun 2017 10:13:37 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a00b81
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a00b81'
-            Content-Length: '105'
-            Connection: close
+            X-Debug-Token: '348913'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/348913'
+            Content-Length: '0'
             Content-Type: application/json
-        body: '{"code":500,"message":"The given email address has already subscribed to the mailing list","errors":null}'
 -
     request:
-        method: DELETE
-        url: 'http://wizaplace.loc/api/v1/mailinglists/1/subscriptions/user@wizaplace.com'
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/mailinglists'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -38,20 +36,21 @@
     response:
         status:
             http_version: '1.1'
-            code: '204'
-            message: 'No Content'
+            code: '200'
+            message: OK
         headers:
-            Date: 'Mon, 19 Jun 2017 14:55:10 GMT'
+            Date: 'Tue, 20 Jun 2017 10:13:37 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f0ca45
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0ca45'
-            Content-Length: '0'
-            Content-Type: 'text/html; charset=UTF-8'
+            X-Debug-Token: 03ceb8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/03ceb8'
+            Content-Length: '59'
+            Content-Type: application/json
+        body: '[{"id":1,"name":"Newsletter"},{"id":2,"name":"mailerList"}]'
 -
     request:
         method: DELETE
-        url: 'http://wizaplace.loc/api/v1/mailinglists/2/subscriptions/user@wizaplace.com'
+        url: 'http://wizaplace.loc/api/v1/mailinglists/1/subscriptions/user@wizaplace.com'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -64,10 +63,33 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 19 Jun 2017 14:55:10 GMT'
+            Date: 'Tue, 20 Jun 2017 10:13:37 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 60fd8b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/60fd8b'
+            X-Debug-Token: fc6261
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc6261'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/mailinglists/2/subscriptions/user@wizaplace.com'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Tue, 20 Jun 2017 10:13:37 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: a47012
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a47012'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
