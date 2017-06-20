@@ -17,7 +17,7 @@ class FavoriteService extends AbstractService
 {
     public function isFavorite(ApiKey $apiKey, int $productId) : bool
     {
-        $results = $this->get('favorites/declinations', [], $apiKey);
+        $results = $this->get('user/favorites/declinations', [], $apiKey);
         $isFavorite = false;
         if (!empty($results)) {
             foreach ($results as $result) {
@@ -35,7 +35,7 @@ class FavoriteService extends AbstractService
     public function addToFavorite(ApiKey $apiKey, int $productId) : void
     {
         try {
-            $this->put('favorites/declinations/'.$productId, [], $apiKey);
+            $this->put('user/favorites/declinations/'.$productId, [], $apiKey);
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
@@ -53,6 +53,6 @@ class FavoriteService extends AbstractService
 
     public function removeFromFavorite(ApiKey $apiKey, int $productId) : void
     {
-        $this->delete('favorites/declinations/'.$productId, [], $apiKey);
+        $this->delete('user/favorites/declinations/'.$productId, [], $apiKey);
     }
 }
