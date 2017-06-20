@@ -85,7 +85,7 @@ abstract class AbstractService
         return $data;
     }
 
-    private function addAuth(array $options, ?ApiKey $apiKey): array
+    protected function addAuth(array $options, ?ApiKey $apiKey): array
     {
         if ($apiKey) {
             $options['headers']['Authorization'] = 'token '.$apiKey->getKey();
