@@ -76,4 +76,12 @@ class BannerServiceTest extends ApiTestCase
 
         $this->assertEmpty($banners);
     }
+
+    public function testGetNonExistentCategoryBanners()
+    {
+        $cmsService = new BannerService($this->getGuzzleClient());
+        $banners = $cmsService->getCategoriesBanners(404);
+
+        $this->assertEmpty($banners);
+    }
 }
