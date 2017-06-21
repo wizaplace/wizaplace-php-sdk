@@ -30,7 +30,7 @@ class TranslationService extends AbstractService
             ],
             $apiKey
         );
-        $this->client->request("POST", "translations/front/".$locale, $options);
+        $this->client->post("translations/front/".$locale, $options);
     }
 
     public function getXliffCatalog(string $locale): StreamInterface
@@ -40,7 +40,7 @@ class TranslationService extends AbstractService
                 "Accept" => "application/x-xliff+xml",
             ],
         ];
-        $response = $this->client->request("GET", "translations/front/".$locale, $options);
+        $response = $this->client->get("translations/front/".$locale, $options);
 
         return $response->getBody();
     }
