@@ -1,0 +1,25 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners?device=mobile'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 19 Jun 2017 11:49:36 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: bd50a7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd50a7'
+            Content-Length: '83'
+            Content-Type: application/json
+        body: '[{"link":"http:\/\/url-de-test.com","shouldOpenInNewWindow":true,"image":{"id":3}}]'
