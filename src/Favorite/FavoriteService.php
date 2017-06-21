@@ -35,7 +35,7 @@ class FavoriteService extends AbstractService
     public function addToFavorite(ApiKey $apiKey, int $productId) : void
     {
         try {
-            $this->put('user/favorites/declinations/'.$productId, [], $apiKey);
+            $this->post('user/favorites/declinations/'.$productId, [], $apiKey);
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
