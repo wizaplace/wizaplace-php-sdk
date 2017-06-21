@@ -8,10 +8,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Cms;
 
+use Psr\Http\Message\UriInterface;
+
 class Banner
 {
     /**
-     * @var string
+     * @var UriInterface
      */
     private $link;
 
@@ -26,7 +28,7 @@ class Banner
     private $imageId;
 
     public function __construct(
-        string $link,
+        UriInterface $link,
         bool $shouldOpenInNewWindow,
         int $imageId
     ) {
@@ -35,7 +37,7 @@ class Banner
         $this->imageId = $imageId;
     }
 
-    public function getLink(): string
+    public function getLink(): UriInterface
     {
         return $this->link;
     }

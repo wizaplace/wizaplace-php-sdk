@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Cms;
 
+use GuzzleHttp\Psr7\Uri;
 use Wizaplace\AbstractService;
 
 class BannerService extends AbstractService
@@ -40,7 +41,7 @@ class BannerService extends AbstractService
     {
         $banners = [];
         foreach ($results as $result) {
-            $banner = new Banner($result['link'], $result['shouldOpenInNewWindow'], $result['image']['id']);
+            $banner = new Banner(new Uri((string) $result['link']), $result['shouldOpenInNewWindow'], $result['image']['id']);
             $banners[] = $banner;
         }
 
