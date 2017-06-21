@@ -12,7 +12,10 @@ use Wizaplace\AbstractService;
 
 class BannerService extends AbstractService
 {
-    public function getHomepageBanners(string $device = null)
+    /**
+     * @return Banner[]
+     */
+    public function getHomepageBanners(?string $device = null): array
     {
 
         $results = (null !== $device) ? $this->get('cms/banners?device='.$device) : $this->get('cms/banners');
@@ -20,14 +23,20 @@ class BannerService extends AbstractService
         return $this->buildBannersArray($results);
     }
 
-    public function getCategoriesBanners(int $categoryId, string $device = null)
+    /**
+     * @return Banner[]
+     */
+    public function getCategoriesBanners(int $categoryId, ?string $device = null): array
     {
         $results = (null !== $device) ? $this->get('cms/banners/category/'.$categoryId.'?device='.$device) : $this->get('cms/banners/category/'.$categoryId);
 
         return $this->buildBannersArray($results);
     }
 
-    private function buildBannersArray(array $results)
+    /**
+     * @return Banner[]
+     */
+    private function buildBannersArray(array $results): array
     {
         $banners = [];
         foreach ($results as $result) {
