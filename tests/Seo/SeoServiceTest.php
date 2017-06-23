@@ -17,7 +17,7 @@ class SeoServiceTest extends ApiTestCase
 {
     public function testResolveSlugsForAllKinds()
     {
-        $seoService = new SeoService($this->getGuzzleClient());
+        $seoService = $this->buildSeoService();
 
         $slugTargets = $seoService->resolveSlugs([
             'test-product-slug',
@@ -47,14 +47,14 @@ class SeoServiceTest extends ApiTestCase
 
     public function testResolveEmptySlugs()
     {
-        $seoService = new SeoService($this->getGuzzleClient());
+        $seoService = $this->buildSeoService();
         $result = $seoService->resolveSlugs([]);
         $this->assertEmpty($result);
     }
 
     public function testResolveProductSlug()
     {
-        $seoService = new SeoService($this->getGuzzleClient());
+        $seoService = $this->buildSeoService();
 
         $slugTarget = $seoService->resolveSlug('test-product-slug');
 
@@ -64,10 +64,15 @@ class SeoServiceTest extends ApiTestCase
 
     public function testResolveSlugWhichDoesntExist()
     {
-        $seoService = new SeoService($this->getGuzzleClient());
+        $seoService = $this->buildSeoService();
 
         $slugTarget = $seoService->resolveSlug('404-does-not-exist');
 
         $this->assertNull($slugTarget);
+    }
+
+    private function buildSeoService(): SeoService
+    {
+        return $this->buildServicesFactory()->seoService();
     }
 }

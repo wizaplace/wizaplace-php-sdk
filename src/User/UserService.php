@@ -8,46 +8,49 @@ declare(strict_types = 1);
 
 namespace Wizaplace\User;
 
-use Wizaplace\AbstractService;
+use GuzzleHttp\Exception\ClientException;
+use Wizaplace\ApiClientInjection;
 use Wizaplace\Exception\NotFound;
 
-class UserService extends AbstractService
+class UserService
 {
-
+    use ApiClientInjection;
     /**
      * @throws BadCredentials
      */
     public function authenticate(string $email, string $password): ApiKey
     {
         try {
-            $response = $this->client->request(
-                'GET',
+            $apiKeyData = $this->client->get(
                 'users/authenticate',
                 [
                     'auth' => [$email, $password],
                 ]
             );
-        } catch (\Exception $e) {
+        } catch (ClientException $e) {
             if ($e->getCode() === 401) {
                 throw new BadCredentials();
             }
             throw $e;
         }
 
-        return new ApiKey($this->jsonDecode($response->getBody()->getContents()));
+        $apiKey = new ApiKey($apiKeyData);
+        $this->client->setApiKey($apiKey);
+
+        return $apiKey;
     }
 
     /**
      * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait
      * consulter le profile de quelqu'un d'autre.
      */
-    public function getProfileFromId(int $id, ApiKey $apiKey): User
+    public function getProfileFromId(int $id): User
     {
         try {
-            $user = new User($this->get("users/{$id}", [], $apiKey));
-        } catch (\Exception $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound($e->getMessage());
+            $user = new User($this->client->get("users/{$id}", []));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("User profile #{$id} not found", $e);
             }
             throw $e;
         }
@@ -55,9 +58,9 @@ class UserService extends AbstractService
         return $user;
     }
 
-    public function updateUser(User $user, ApiKey $apiKey)
+    public function updateUser(User $user)
     {
-        $this->put(
+        $this->client->put(
             'users/'.$user->getId(),
             [
                 'form_params' => [
@@ -65,22 +68,20 @@ class UserService extends AbstractService
                     'firstName' => $user->getFirstname(),
                     'lastName' => $user->getLastname(),
                 ],
-            ],
-            $apiKey
+            ]
         );
     }
 
-    public function updateUserAdresses(User $user, ApiKey $apiKey)
+    public function updateUserAdresses(User $user)
     {
-        $this->put(
+        $this->client->put(
             'users/'.$user->getId().'/addresses',
             [
                 'form_params' => [
                     'billing' => $user->getBillingAddress(),
                     'shipping' => $user->getShippingAddress(),
                 ],
-            ],
-            $apiKey
+            ]
         );
     }
 
@@ -92,7 +93,7 @@ class UserService extends AbstractService
     ): int {
 
         try {
-            $userData = $this->post(
+            $userData = $this->client->post(
                 'users',
                 [
                     'form_params' => [
@@ -116,7 +117,7 @@ class UserService extends AbstractService
     public function recoverPassword(string $email)
     {
         // On attend une 204 donc pas de retour
-        $this->post(
+        $this->client->post(
             'users/password/recover',
             [
                 'form_params' => [

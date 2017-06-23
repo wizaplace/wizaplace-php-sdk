@@ -16,7 +16,7 @@ class CatalogServiceTest extends ApiTestCase
 {
     public function testGetProductById()
     {
-        $catalogService = new CatalogService($this->getGuzzleClient());
+        $catalogService = $this->buildCatalogService();
 
         $product = $catalogService->getProductById(1);
 
@@ -27,7 +27,7 @@ class CatalogServiceTest extends ApiTestCase
 
     public function testGetNonExistingProductById()
     {
-        $catalogService = new CatalogService($this->getGuzzleClient());
+        $catalogService = $this->buildCatalogService();
 
         $this->expectException(NotFound::class);
         $catalogService->getProductById(404);
@@ -35,7 +35,7 @@ class CatalogServiceTest extends ApiTestCase
 
     public function testSearchOneProductByName()
     {
-        $catalogService = new CatalogService($this->getGuzzleClient());
+        $catalogService = $this->buildCatalogService();
 
         $result = $catalogService->search('optio corporis similique voluptatum');
 
@@ -46,5 +46,10 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(1, $product->getId());
         $this->assertEquals('test-product-slug', $product->getSlug());
         // @TODO: more assertions
+    }
+
+    private function buildCatalogService(): CatalogService
+    {
+        return $this->buildServicesFactory()->catalogService();
     }
 }

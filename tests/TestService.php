@@ -8,15 +8,17 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests;
 
-use Wizaplace\AbstractService;
+use Wizaplace\ApiClientInjection;
 
 /**
  * Dummy service, here to test generic features not tied to any specific service
  */
-class TestService extends AbstractService
+class TestService
 {
+    use ApiClientInjection;
+
     public function getTest()
     {
-        return $this->get('/test');
+        return $this->client->get('/test');
     }
 }

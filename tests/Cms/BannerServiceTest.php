@@ -15,7 +15,7 @@ class BannerServiceTest extends ApiTestCase
 {
     public function testGetHomepageBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners();
 
         $this->assertEquals(2, count($banners));
@@ -25,7 +25,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetMobileHomepageBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('mobile');
 
         $this->assertEquals(1, count($banners));
@@ -34,7 +34,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetDesktopHomepageBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('desktop');
 
         $this->assertEquals(1, count($banners));
@@ -43,7 +43,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetCategoryBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3);
 
         $this->assertEquals(2, count($banners));
@@ -53,7 +53,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetMobileCategoryBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'mobile');
 
         $this->assertEquals(1, count($banners));
@@ -62,7 +62,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetDesktopCategoryBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'desktop');
 
         $this->assertEquals(1, count($banners));
@@ -71,7 +71,7 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetEmptyCategoryBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(1);
 
         $this->assertEmpty($banners);
@@ -79,9 +79,14 @@ class BannerServiceTest extends ApiTestCase
 
     public function testGetNonExistentCategoryBanners()
     {
-        $cmsService = new BannerService($this->getGuzzleClient());
+        $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(404);
 
         $this->assertEmpty($banners);
+    }
+
+    private function buildBannerService(): BannerService
+    {
+        return $this->buildServicesFactory()->bannerService();
     }
 }

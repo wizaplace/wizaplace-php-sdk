@@ -6,6 +6,16 @@
 composer require wizaplace/sdk
 ```
 
+## Usage
+
+Here is a small example:
+
+```php
+$factory = \Wizaplace\ServicesFactory::fromApiBaseUrl("http://wizaplace.loc/api/v1/");
+$catalogService = $factory->catalogService();
+var_dump($catalogService->search());
+```
+
 ## Running linters and tests
 
 ### With Docker

@@ -8,10 +8,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Seo;
 
-use Wizaplace\AbstractService;
+use Wizaplace\ApiClientInjection;
 
-class SeoService extends AbstractService
+class SeoService
 {
+    use ApiClientInjection;
+
     // All slugs should fully match this regexp
     public const SLUG_REGEXP = '[a-z0-9][a-z0-9-\.]*';
 
@@ -28,7 +30,7 @@ class SeoService extends AbstractService
 
         $slugs = array_map('strval', $slugs);
 
-        $rawResults = $this->get('seo/slugs', ['query' => ['slugs' => $slugs]]);
+        $rawResults = $this->client->get('seo/slugs', ['query' => ['slugs' => $slugs]]);
 
         $results = [];
         foreach ($slugs as $slug) {

@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 23 Jun 2017 08:13:36 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 94f138
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/94f138'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"+HctUar07MWW1iXYIuD\/PQ4OOgsRh6bugkCKqYav"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token +HctUar07MWW1iXYIuD/PQ4OOgsRh6bugkCKqYav'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 23 Jun 2017 08:13:37 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: dcfe5c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dcfe5c'
+            Content-Length: '2'
+            Content-Type: application/json
+        body: '[]'

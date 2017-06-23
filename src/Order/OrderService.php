@@ -8,14 +8,15 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-use Wizaplace\AbstractService;
-use Wizaplace\User\ApiKey;
+use Wizaplace\ApiClientInjection;
 
-class OrderService extends AbstractService
+class OrderService
 {
-    public function getOrders(ApiKey $apiKey): array
+    use ApiClientInjection;
+
+    public function getOrders(): array
     {
-        $datas = $this->get('user/orders', [], $apiKey);
+        $datas = $this->client->get('user/orders', []);
         $orders = array_map(function ($orderData) {
             return new Order($orderData);
         }, $datas);
@@ -23,22 +24,22 @@ class OrderService extends AbstractService
         return $orders;
     }
 
-    public function getOrder(int $orderId, ApiKey $apiKey): Order
+    public function getOrder(int $orderId): Order
     {
-        return new Order($this->get('user/orders/'.$orderId, [], $apiKey));
+        return new Order($this->client->get('user/orders/'.$orderId, []));
     }
 
-    public function getOrderReturn(int $returnId, ApiKey $apiKey): OrderReturn
+    public function getOrderReturn(int $returnId): OrderReturn
     {
-        return new OrderReturn($this->get("user/returns/{$returnId}", [], $apiKey));
+        return new OrderReturn($this->client->get("user/returns/{$returnId}", []));
     }
 
     /**
      * @return OrderReturn[]
      */
-    public function getOrderReturns(ApiKey $apiKey): array
+    public function getOrderReturns(): array
     {
-        $data = $this->get("user/returns", [], $apiKey);
+        $data = $this->client->get("user/returns", []);
         $orderReturns = array_map(
             function ($orderReturn) {
                 return new OrderReturn($orderReturn);
@@ -56,7 +57,7 @@ class OrderService extends AbstractService
     {
         $returnTypes = array_map(
             ['Wizaplace\Order\ReturnType', 'fromApiData'],
-            $this->get('orders/returns/types')
+            $this->client->get('orders/returns/types')
         );
 
         return $returnTypes;
@@ -64,7 +65,7 @@ class OrderService extends AbstractService
     /**
      * @return int returnId
      */
-    public function createOrderReturn(int $orderId, string $comments, array $items, ApiKey $apiKey): int
+    public function createOrderReturn(int $orderId, string $comments, array $items): int
     {
         $items = array_map(
             function (ReturnItem $item) {
@@ -77,16 +78,15 @@ class OrderService extends AbstractService
             $items
         );
 
-        return $this->post(
+        return $this->client->post(
             "user/orders/{$orderId}/returns",
             [
                 "form_params" => [
-                    'userId' => $apiKey->getId(),
+                    'userId' => $this->client->getApiKey()->getId(),
                     'comments' => $comments,
                     'items' => $items,
                 ],
-            ],
-            $apiKey
+            ]
         )['returnId'];
     }
 }
