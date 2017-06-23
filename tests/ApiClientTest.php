@@ -10,17 +10,15 @@ namespace Wizaplace\Tests\User;
 
 use Wizaplace\Order\OrderService;
 use Wizaplace\Tests\ApiTestCase;
-use Wizaplace\User\UserService;
 
-class UserServiceTest extends ApiTestCase
+class ApiClientTest extends ApiTestCase
 {
     public function testAuthentication()
     {
         $apiClient = $this->buildApiClient();
-        $userService = new UserService($apiClient);
         $orderService = new OrderService($apiClient);
 
-        $apiKey = $userService->authenticate("admin@wizaplace.com", "password");
+        $apiKey = $apiClient->authenticate("admin@wizaplace.com", "password");
         $this->assertNotNull($apiKey);
 
         // Test an authenticated call.

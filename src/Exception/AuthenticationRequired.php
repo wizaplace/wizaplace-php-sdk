@@ -10,11 +10,9 @@ namespace Wizaplace\Exception;
 
 use Throwable;
 use Wizaplace\ApiClient;
-use Wizaplace\User\UserService;
 
 /**
- * @see UserService::authenticate()
- * @see ApiClient::setApiKey()
+ * @see ApiClient::authenticate()
  */
 class AuthenticationRequired extends \Exception
 {

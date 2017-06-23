@@ -6,8 +6,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\User;
+namespace Wizaplace\Authentication;
 
+use Wizaplace\ApiClient;
+
+/**
+ * @see ApiClient::authenticate()
+ */
 class ApiKey
 {
     /** @var int */

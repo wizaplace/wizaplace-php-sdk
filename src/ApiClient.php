@@ -12,21 +12,47 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Wizaplace\Authentication\ApiKey;
+use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Exception\AuthenticationRequired;
 use Wizaplace\Exception\JsonDecodingError;
-use Wizaplace\User\ApiKey;
 
 final class ApiClient
 {
     /** @var Client */
-    private $client;
+    private $httpClient;
 
     /** @var null|ApiKey */
     private $apiKey;
 
     public function __construct(Client $client)
     {
-        $this->client = $client;
+        $this->httpClient = $client;
+    }
+
+    /**
+     * @throws BadCredentials
+     */
+    public function authenticate(string $email, string $password): ApiKey
+    {
+        try {
+            $apiKeyData = $this->get(
+                'users/authenticate',
+                [
+                    'auth' => [$email, $password],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getCode() === 401) {
+                throw new BadCredentials($e);
+            }
+            throw $e;
+        }
+
+        $apiKey = new ApiKey($apiKeyData);
+        $this->setApiKey($apiKey);
+
+        return $apiKey;
     }
 
     public function setApiKey(?ApiKey $apiKey = null): void
@@ -81,7 +107,7 @@ final class ApiClient
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
         try {
-            return $this->client->request($method, $uri, $this->addAuth($options));
+            return $this->httpClient->request($method, $uri, $this->addAuth($options));
         } catch (ClientException $e) {
             if (is_null($this->apiKey) && $e->getResponse()->getStatusCode() === 401) {
                 throw new AuthenticationRequired($e);
@@ -93,7 +119,7 @@ final class ApiClient
 
     public function getBaseUri(): ?UriInterface
     {
-        return $this->client->getConfig('base_uri');
+        return $this->httpClient->getConfig('base_uri');
     }
 
     /**

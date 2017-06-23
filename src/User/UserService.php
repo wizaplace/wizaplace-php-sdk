@@ -15,31 +15,6 @@ use Wizaplace\Exception\NotFound;
 class UserService extends AbstractService
 {
     /**
-     * @throws BadCredentials
-     */
-    public function authenticate(string $email, string $password): ApiKey
-    {
-        try {
-            $apiKeyData = $this->client->get(
-                'users/authenticate',
-                [
-                    'auth' => [$email, $password],
-                ]
-            );
-        } catch (ClientException $e) {
-            if ($e->getCode() === 401) {
-                throw new BadCredentials();
-            }
-            throw $e;
-        }
-
-        $apiKey = new ApiKey($apiKeyData);
-        $this->client->setApiKey($apiKey);
-
-        return $apiKey;
-    }
-
-    /**
      * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait
      * consulter le profile de quelqu'un d'autre.
      */
