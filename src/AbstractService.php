@@ -11,7 +11,7 @@ namespace Wizaplace;
 /**
  * Convenience trait for all services which only need to have an ApiClient injected.
  */
-trait ApiClientInjection
+abstract class AbstractService
 {
     /** @var ApiClient $client */
     protected $client;

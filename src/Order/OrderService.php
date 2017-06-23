@@ -8,12 +8,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 
-class OrderService
+class OrderService extends AbstractService
 {
-    use ApiClientInjection;
-
     public function getOrders(): array
     {
         $datas = $this->client->get('user/orders', []);

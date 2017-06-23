@@ -73,6 +73,6 @@ class SeoServiceTest extends ApiTestCase
 
     private function buildSeoService(): SeoService
     {
-        return $this->buildServicesFactory()->seoService();
+        return new SeoService($this->buildApiClient());
     }
 }

@@ -9,12 +9,11 @@ declare(strict_types = 1);
 namespace Wizaplace\User;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 
-class UserService
+class UserService extends AbstractService
 {
-    use ApiClientInjection;
     /**
      * @throws BadCredentials
      */

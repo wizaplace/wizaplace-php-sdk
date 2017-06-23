@@ -9,12 +9,10 @@ declare(strict_types = 1);
 namespace Wizaplace\Cms;
 
 use GuzzleHttp\Psr7\Uri;
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 
-class BannerService
+class BannerService extends AbstractService
 {
-    use ApiClientInjection;
-
     /**
      * @return Banner[]
      */

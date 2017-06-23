@@ -9,13 +9,11 @@ declare(strict_types = 1);
 namespace Wizaplace\Catalog;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 
-class CatalogService
+class CatalogService extends AbstractService
 {
-    use ApiClientInjection;
-
     public function getProductById(int $id) : Product
     {
         try {

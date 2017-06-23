@@ -8,12 +8,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Seo;
 
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 
-class SeoService
+class SeoService extends AbstractService
 {
-    use ApiClientInjection;
-
     // All slugs should fully match this regexp
     public const SLUG_REGEXP = '[a-z0-9][a-z0-9-\.]*';
 

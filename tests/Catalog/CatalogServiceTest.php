@@ -50,6 +50,6 @@ class CatalogServiceTest extends ApiTestCase
 
     private function buildCatalogService(): CatalogService
     {
-        return $this->buildServicesFactory()->catalogService();
+        return new CatalogService($this->buildApiClient());
     }
 }

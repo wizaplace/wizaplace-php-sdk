@@ -9,17 +9,15 @@ declare(strict_types = 1);
 namespace Wizaplace\Basket;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\ApiClientInjection;
+use Wizaplace\AbstractService;
 use Wizaplace\Basket\Exception\BadQuantity;
 use Wizaplace\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Exception\SomeParametersAreInvalid;
 
-class BasketService
+class BasketService extends AbstractService
 {
-    use ApiClientInjection;
-
     /**
      * Add a product to a basket
      *

@@ -39,6 +39,6 @@ class CmsServiceTest extends ApiTestCase
 
     private function buildCmsService(): CmsService
     {
-        return $this->buildServicesFactory()->cmsService();
+        return new CmsService($this->buildApiClient());
     }
 }

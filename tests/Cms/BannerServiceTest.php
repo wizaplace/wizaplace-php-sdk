@@ -87,6 +87,6 @@ class BannerServiceTest extends ApiTestCase
 
     private function buildBannerService(): BannerService
     {
-        return $this->buildServicesFactory()->bannerService();
+        return new BannerService($this->buildApiClient());
     }
 }
