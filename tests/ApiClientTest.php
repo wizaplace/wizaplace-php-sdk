@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests;
 
+use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Order\OrderService;
 
 class ApiClientTest extends ApiTestCase
@@ -23,5 +24,13 @@ class ApiClientTest extends ApiTestCase
         // Test an authenticated call.
         // If the authentication did not "register" properly, we will get an exception and the test will fail.
         $orderService->getOrders();
+    }
+
+    public function testBadCredentialsAuthentication()
+    {
+        $apiClient = $this->buildApiClient();
+
+        $this->expectException(BadCredentials::class);
+        $apiClient->authenticate("admin@wizaplace.com", "wrongPassword");
     }
 }

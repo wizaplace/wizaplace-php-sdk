@@ -117,15 +117,7 @@ final class ApiClient
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
-        try {
-            return $this->httpClient->request($method, $uri, $this->addAuth($options));
-        } catch (ClientException $e) {
-            if (is_null($this->apiKey) && $e->getResponse()->getStatusCode() === 401) {
-                throw new AuthenticationRequired($e);
-            } else {
-                throw $e;
-            }
-        }
+        return $this->httpClient->request($method, $uri, $this->addAuth($options));
     }
 
     public function getBaseUri(): ?UriInterface
