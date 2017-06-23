@@ -23,6 +23,4 @@ class UserServiceTest extends ApiTestCase
         // If the authentication did not "register" properly, we will get an exception and the test will fail.
         $servicesFactory->orderService()->getOrders();
     }
-
-
 }
