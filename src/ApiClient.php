@@ -113,7 +113,6 @@ final class ApiClient
 
     /**
      * @param $uri string|UriInterface
-     * @throws AuthenticationRequired
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
