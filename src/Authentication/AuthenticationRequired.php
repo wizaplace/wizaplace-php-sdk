@@ -6,7 +6,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Exception;
+namespace Wizaplace\Authentication;
 
 use Throwable;
 use Wizaplace\ApiClient;

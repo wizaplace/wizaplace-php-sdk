@@ -10,6 +10,7 @@ namespace Wizaplace\Basket;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Basket\Exception\BadQuantity;
 use Wizaplace\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\Basket\Exception\CouponNotInTheBasket;
@@ -183,9 +184,11 @@ class BasketService extends AbstractService
     /**
      * @return Payment[]
      * @throws NotFound
+     * @throws AuthenticationRequired
      */
     public function getPayments(string $basketId): array
     {
+        $this->client->mustBeAuthenticated();
         try {
             $payments = $this->client->get("basket/{$basketId}/payments");
         } catch (ClientException $ex) {
@@ -204,8 +207,12 @@ class BasketService extends AbstractService
         return $payments;
     }
 
+    /**
+     * @throws AuthenticationRequired
+     */
     public function checkout(string $basketId, int $paymentId, bool $acceptTerms): PaymentInformation
     {
+        $this->client->mustBeAuthenticated();
         try {
             $result = $this->client->post(
                 "basket/{$basketId}/order",

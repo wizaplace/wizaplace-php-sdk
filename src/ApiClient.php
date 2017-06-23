@@ -13,8 +13,8 @@ use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\Authentication\ApiKey;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Authentication\BadCredentials;
-use Wizaplace\Exception\AuthenticationRequired;
 use Wizaplace\Exception\JsonDecodingError;
 
 final class ApiClient
@@ -65,6 +65,16 @@ final class ApiClient
         return $this->apiKey;
     }
 
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function mustBeAuthenticated(): void
+    {
+        if (is_null($this->getApiKey())) {
+            throw new AuthenticationRequired();
+        }
+    }
+
     public function get(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -103,6 +113,7 @@ final class ApiClient
 
     /**
      * @param $uri string|UriInterface
+     * @throws AuthenticationRequired
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
@@ -143,7 +154,7 @@ final class ApiClient
 
     private function addAuth(array $options): array
     {
-        if ($this->apiKey) {
+        if (!is_null($this->apiKey)) {
             $options['headers']['Authorization'] = 'token '.$this->apiKey->getKey();
         }
 

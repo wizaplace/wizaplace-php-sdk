@@ -10,6 +10,7 @@ namespace Wizaplace\User;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Exception\NotFound;
 
 class UserService extends AbstractService
@@ -17,9 +18,12 @@ class UserService extends AbstractService
     /**
      * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait
      * consulter le profile de quelqu'un d'autre.
+     * @throws AuthenticationRequired
+     * @throws NotFound
      */
     public function getProfileFromId(int $id): User
     {
+        $this->client->mustBeAuthenticated();
         try {
             $user = new User($this->client->get("users/{$id}", []));
         } catch (ClientException $e) {
@@ -32,8 +36,12 @@ class UserService extends AbstractService
         return $user;
     }
 
+    /**
+     * @throws AuthenticationRequired
+     */
     public function updateUser(User $user)
     {
+        $this->client->mustBeAuthenticated();
         $this->client->put(
             'users/'.$user->getId(),
             [
@@ -46,8 +54,12 @@ class UserService extends AbstractService
         );
     }
 
+    /**
+     * @throws AuthenticationRequired
+     */
     public function updateUserAdresses(User $user)
     {
+        $this->client->mustBeAuthenticated();
         $this->client->put(
             'users/'.$user->getId().'/addresses',
             [
