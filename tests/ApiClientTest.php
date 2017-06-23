@@ -6,10 +6,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\User;
+namespace Wizaplace\Tests;
 
 use Wizaplace\Order\OrderService;
-use Wizaplace\Tests\ApiTestCase;
 
 class ApiClientTest extends ApiTestCase
 {
