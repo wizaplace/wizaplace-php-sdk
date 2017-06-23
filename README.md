@@ -8,13 +8,7 @@ composer require wizaplace/sdk
 
 ## Usage
 
-Here is a small example:
-
-```php
-$factory = \Wizaplace\ServicesFactory::fromApiBaseUrl("http://wizaplace.loc/api/v1/");
-$catalogService = $factory->catalogService();
-var_dump($catalogService->search());
-```
+You can find some small examples there: [\Wizaplace\Tests\ExampleTest](./tests/ExampleTest.php)
 
 ## Running linters and tests
 
