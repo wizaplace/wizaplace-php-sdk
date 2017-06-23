@@ -8,9 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace;
 
-/**
- * Convenience trait for all services which only need to have an ApiClient injected.
- */
 abstract class AbstractService
 {
     /** @var ApiClient $client */
