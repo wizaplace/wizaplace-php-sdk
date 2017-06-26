@@ -9,13 +9,17 @@ declare(strict_types = 1);
 namespace Wizaplace\Order;
 
 use Wizaplace\AbstractService;
-use Wizaplace\User\ApiKey;
+use Wizaplace\Authentication\AuthenticationRequired;
 
 class OrderService extends AbstractService
 {
-    public function getOrders(ApiKey $apiKey): array
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function getOrders(): array
     {
-        $datas = $this->get('user/orders', [], $apiKey);
+        $this->client->mustBeAuthenticated();
+        $datas = $this->client->get('user/orders', []);
         $orders = array_map(function ($orderData) {
             return new Order($orderData);
         }, $datas);
@@ -23,22 +27,34 @@ class OrderService extends AbstractService
         return $orders;
     }
 
-    public function getOrder(int $orderId, ApiKey $apiKey): Order
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function getOrder(int $orderId): Order
     {
-        return new Order($this->get('user/orders/'.$orderId, [], $apiKey));
+        $this->client->mustBeAuthenticated();
+
+        return new Order($this->client->get('user/orders/'.$orderId, []));
     }
 
-    public function getOrderReturn(int $returnId, ApiKey $apiKey): OrderReturn
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function getOrderReturn(int $returnId): OrderReturn
     {
-        return new OrderReturn($this->get("user/returns/{$returnId}", [], $apiKey));
+        $this->client->mustBeAuthenticated();
+
+        return new OrderReturn($this->client->get("user/returns/{$returnId}", []));
     }
 
     /**
      * @return OrderReturn[]
+     * @throws AuthenticationRequired
      */
-    public function getOrderReturns(ApiKey $apiKey): array
+    public function getOrderReturns(): array
     {
-        $data = $this->get("user/returns", [], $apiKey);
+        $this->client->mustBeAuthenticated();
+        $data = $this->client->get("user/returns", []);
         $orderReturns = array_map(
             function ($orderReturn) {
                 return new OrderReturn($orderReturn);
@@ -56,16 +72,19 @@ class OrderService extends AbstractService
     {
         $returnTypes = array_map(
             ['Wizaplace\Order\ReturnType', 'fromApiData'],
-            $this->get('orders/returns/types')
+            $this->client->get('orders/returns/types')
         );
 
         return $returnTypes;
     }
+
     /**
      * @return int returnId
+     * @throws AuthenticationRequired
      */
-    public function createOrderReturn(int $orderId, string $comments, array $items, ApiKey $apiKey): int
+    public function createOrderReturn(int $orderId, string $comments, array $items): int
     {
+        $this->client->mustBeAuthenticated();
         $items = array_map(
             function (ReturnItem $item) {
                 return [
@@ -77,16 +96,15 @@ class OrderService extends AbstractService
             $items
         );
 
-        return $this->post(
+        return $this->client->post(
             "user/orders/{$orderId}/returns",
             [
                 "form_params" => [
-                    'userId' => $apiKey->getId(),
+                    'userId' => $this->client->getApiKey()->getId(),
                     'comments' => $comments,
                     'items' => $items,
                 ],
-            ],
-            $apiKey
+            ]
         )['returnId'];
     }
 }

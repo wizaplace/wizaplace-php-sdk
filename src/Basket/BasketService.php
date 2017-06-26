@@ -10,12 +10,12 @@ namespace Wizaplace\Basket;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Basket\Exception\BadQuantity;
 use Wizaplace\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Exception\SomeParametersAreInvalid;
-use Wizaplace\User\ApiKey;
 
 class BasketService extends AbstractService
 {
@@ -34,7 +34,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $response = $this->client->request('POST', "basket/{$basketId}/add", [
+            $responseData = $this->client->post("basket/{$basketId}/add", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
@@ -44,13 +44,13 @@ class BasketService extends AbstractService
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             }
 
             throw $ex;
         }
 
-        return $this->jsonDecode($response->getBody()->getContents())['quantity'];
+        return $responseData['quantity'];
     }
 
     /**
@@ -58,9 +58,7 @@ class BasketService extends AbstractService
      */
     public function getBasket(string $basketId): Basket
     {
-        $response = $this->client->request('GET', "basket/{$basketId}");
-
-        return new Basket($this->jsonDecode($response->getBody()->getContents()));
+        return new Basket($this->client->get("basket/{$basketId}"));
     }
 
     /**
@@ -75,7 +73,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $this->client->request('POST', "basket/{$basketId}/remove", [
+            $this->client->post("basket/{$basketId}/remove", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                 ],
@@ -84,7 +82,7 @@ class BasketService extends AbstractService
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             }
 
             throw $ex;
@@ -120,7 +118,7 @@ class BasketService extends AbstractService
         }
 
         try {
-            $response = $this->client->request('POST', "basket/{$basketId}/modify", [
+            $responseData = $this->client->post("basket/{$basketId}/modify", [
                 'form_params' => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
@@ -130,20 +128,18 @@ class BasketService extends AbstractService
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             }
 
             throw $ex;
         }
 
-        return $this->jsonDecode($response->getBody()->getContents())['quantity'];
+        return $responseData['quantity'];
     }
 
     public function create(): string
     {
-        $response = $this->client->request('POST', "basket");
-
-        return $this->jsonDecode($response->getBody()->getContents());
+        return $this->client->post('POST', "basket");
     }
 
     /**
@@ -153,12 +149,12 @@ class BasketService extends AbstractService
     public function addCoupon(string $basketId, string $coupon)
     {
         try {
-            $this->post("basket/{$basketId}/coupons/{$coupon}");
+            $this->client->post("basket/{$basketId}/coupons/{$coupon}");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             } elseif (409 == $code) {
                 throw new CouponAlreadyPresent('Coupon exist', $code, $ex);
             }
@@ -173,7 +169,7 @@ class BasketService extends AbstractService
     public function removeCoupon(string $basketId, string $coupon)
     {
         try {
-            $this->delete("basket/{$basketId}/coupons/{$coupon}");
+            $this->client->delete("basket/{$basketId}/coupons/{$coupon}");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -188,16 +184,18 @@ class BasketService extends AbstractService
     /**
      * @return Payment[]
      * @throws NotFound
+     * @throws AuthenticationRequired
      */
     public function getPayments(string $basketId): array
     {
+        $this->client->mustBeAuthenticated();
         try {
-            $payments = $this->get("basket/{$basketId}/payments");
+            $payments = $this->client->get("basket/{$basketId}/payments");
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             }
 
             throw $ex;
@@ -209,24 +207,27 @@ class BasketService extends AbstractService
         return $payments;
     }
 
-    public function checkout(string $basketId, int $paymentId, bool $acceptTerms, ApiKey $apiKey = null): PaymentInformation
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function checkout(string $basketId, int $paymentId, bool $acceptTerms): PaymentInformation
     {
+        $this->client->mustBeAuthenticated();
         try {
-            $result = $this->post(
+            $result = $this->client->post(
                 "basket/{$basketId}/order",
                 [
                     'form_params' => [
                         'paymentId' => $paymentId,
                         "acceptTermsAndConditions" => $acceptTerms,
                     ],
-                ],
-                $apiKey
+                ]
             );
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $code, $ex);
+                throw new NotFound('Basket not found', $ex);
             } elseif (400 === $code) {
                 throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
             }

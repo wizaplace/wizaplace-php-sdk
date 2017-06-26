@@ -17,10 +17,10 @@ class CatalogService extends AbstractService
     public function getProductById(int $id) : Product
     {
         try {
-            $response = $this->get("catalog/products/{$id}");
+            $response = $this->client->get("catalog/products/{$id}");
         } catch (ClientException $exception) {
-            if ($exception->getCode() === 404) {
-                throw new NotFound("Product #{$id} not found.", 404, $exception);
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Product #{$id} not found.", $exception);
             } else {
                 throw $exception;
             }
@@ -34,7 +34,7 @@ class CatalogService extends AbstractService
      */
     public function getCategoryTree():array
     {
-        $categoryTree = $this->get('catalog/categories/tree');
+        $categoryTree = $this->client->get('catalog/categories/tree');
 
         return array_map(
             function ($tree) {
@@ -46,14 +46,14 @@ class CatalogService extends AbstractService
 
     public function getCategory(int $id): Category
     {
-        $category = $this->get("catalog/categories/{$id}");
+        $category = $this->client->get("catalog/categories/{$id}");
 
         return new Category($category);
     }
 
     public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult
     {
-        $results = $this->get(
+        $results = $this->client->get(
             'catalog/search/products',
             [
                 'query' => [
