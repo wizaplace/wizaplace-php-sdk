@@ -22,68 +22,67 @@ class FavoriteServiceTest extends ApiTestCase
      */
     private $favService;
 
-    /**
-     * @var ApiKey
-     */
-    private $apiKey;
-
     public function setUp(): void
     {
         parent::setUp();
-        $userService = new UserService($this->getGuzzleClient());
-        $this->apiKey = $userService->authenticate('admin@wizaplace.com', 'password');
+        $this->favService = $this->buildFavoriteService();
 
-        $this->favService = new FavoriteService($this->getGuzzleClient());
-
-        $this->favService->addDeclinationToUserFavorites($this->apiKey, 1);
+        $this->favService->addDeclinationToUserFavorites(1);
     }
 
     public function testAddProductToFavorite()
     {
-        $this->favService->addDeclinationToUserFavorites($this->apiKey, 2);
+        $this->favService->addDeclinationToUserFavorites(2);
 
-        $this->assertTrue($this->favService->isInFavorites($this->apiKey, 2));
+        $this->assertTrue($this->favService->isInFavorites(2));
     }
 
     public function testAddFavProductToFavorite()
     {
         $this->expectException(FavoriteAlreadyExist::class);
 
-        $this->favService->addDeclinationToUserFavorites($this->apiKey, 1);
+        $this->favService->addDeclinationToUserFavorites(1);
     }
 
     public function testAddNotProductToFavorite()
     {
         $this->expectException(CannotFavoriteDisabledOrInexistentDeclination::class);
 
-        $this->favService->addDeclinationToUserFavorites($this->apiKey, 404);
+        $this->favService->addDeclinationToUserFavorites(404);
     }
 
     public function testIsNotFavorite()
     {
-        $isFavorite = $this->favService->isInFavorites($this->apiKey, 3);
+        $isFavorite = $this->favService->isInFavorites(3);
 
         $this->assertFalse($isFavorite);
     }
 
     public function testIsFavorite()
     {
-        $isFavorite = $this->favService->isInFavorites($this->apiKey, 1);
+        $isFavorite = $this->favService->isInFavorites(1);
 
         $this->assertTrue($isFavorite);
     }
 
     public function testRemoveProductFromFavorite()
     {
-        $this->favService->removeDeclinationToUserFavorites($this->apiKey, 1);
+        $this->favService->removeDeclinationToUserFavorites(1);
 
-        $this->assertFalse($this->favService->isInFavorites($this->apiKey, 1));
+        $this->assertFalse($this->favService->isInFavorites(1));
     }
 
     public function tearDown() :void
     {
-        $this->favService->removeDeclinationToUserFavorites($this->apiKey, 1);
-        $this->favService->removeDeclinationToUserFavorites($this->apiKey, 2);
+        $this->favService->removeDeclinationToUserFavorites(1);
+        $this->favService->removeDeclinationToUserFavorites(2);
         parent::tearDown();
+    }
+
+    private function buildFavoriteService(): FavoriteService
+    {
+        $client = $this->buildApiClient();
+        $client->authenticate('admin@wizaplace.com', 'password');
+        return new FavoriteService($client);
     }
 }

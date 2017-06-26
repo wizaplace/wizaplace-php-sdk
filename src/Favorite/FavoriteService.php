@@ -9,15 +9,19 @@ declare(strict_types = 1);
 namespace Wizaplace\Favorite;
 
 use Wizaplace\AbstractService;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
-use Wizaplace\User\ApiKey;
 
 class FavoriteService extends AbstractService
 {
-    public function isInFavorites(ApiKey $apiKey, int $declinationId) : bool
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function isInFavorites(int $declinationId) : bool
     {
-        $results = $this->get('user/favorites/declinations', [], $apiKey);
+        $this->client->mustBeAuthenticated();
+        $results = $this->client->get('user/favorites/declinations', []);
         $isInFavorites = false;
         if (!empty($results)) {
             foreach ($results as $result) {
@@ -33,13 +37,15 @@ class FavoriteService extends AbstractService
     }
 
     /**
+     * @throws AuthenticationRequired
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(ApiKey $apiKey, int $declinationId) : void
+    public function addDeclinationToUserFavorites(int $declinationId) : void
     {
+        $this->client->mustBeAuthenticated();
         try {
-            $this->post('user/favorites/declinations/'.$declinationId, [], $apiKey);
+            $this->client->rawRequest('post', 'user/favorites/declinations/'.$declinationId);
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
@@ -55,8 +61,12 @@ class FavoriteService extends AbstractService
         }
     }
 
-    public function removeDeclinationToUserFavorites(ApiKey $apiKey, int $declinationId) : void
+    /**
+     * @throws AuthenticationRequired
+     */
+    public function removeDeclinationToUserFavorites(int $declinationId) : void
     {
-        $this->delete('user/favorites/declinations/'.$declinationId, [], $apiKey);
+        $this->client->mustBeAuthenticated();
+        $this->client->rawRequest('delete', 'user/favorites/declinations/'.$declinationId);
     }
 }
