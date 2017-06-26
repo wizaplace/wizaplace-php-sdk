@@ -210,7 +210,7 @@ class BasketService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function checkout(string $basketId, int $paymentId, bool $acceptTerms): PaymentInformation
+    public function checkout(string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -220,6 +220,7 @@ class BasketService extends AbstractService
                     'form_params' => [
                         'paymentId' => $paymentId,
                         "acceptTermsAndConditions" => $acceptTerms,
+                        'redirectUrl' => $redirectUrl,
                     ],
                 ]
             );
