@@ -83,6 +83,7 @@ class FavoriteServiceTest extends ApiTestCase
     {
         $client = $this->buildApiClient();
         $client->authenticate('admin@wizaplace.com', 'password');
+
         return new FavoriteService($client);
     }
 }
