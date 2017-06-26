@@ -13,6 +13,7 @@ use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
+use Wizaplace\ApiClient;
 use Wizaplace\Exception\JsonDecodingError;
 
 class AbstractServiceTest extends TestCase
@@ -28,6 +29,6 @@ class AbstractServiceTest extends TestCase
 
         // We want a proper exception, not a fatal error nor a silent fail.
         $this->expectException(JsonDecodingError::class);
-        (new TestService($client))->getTest();
+        (new TestService(new ApiClient($client)))->getTest();
     }
 }

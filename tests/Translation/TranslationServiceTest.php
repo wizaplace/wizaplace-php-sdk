@@ -16,8 +16,8 @@ class TranslationServiceTest extends ApiTestCase
 {
     public function testPushXliffCatalog()
     {
-        $client = $this->getGuzzleClient();
-        $apiKey = (new UserService($client))->authenticate("admin@wizaplace.com", "password");
+        $client = $this->buildApiClient();
+        $client->authenticate("admin@wizaplace.com", "password");
 
         $xliff = <<<XLIFF
 <?xml version="1.0" encoding="utf-8"?>
@@ -38,7 +38,7 @@ class TranslationServiceTest extends ApiTestCase
 XLIFF;
 
         $translationService = new TranslationService($client);
-        $translationService->pushXliffCatalog($apiKey, $xliff, 'fr');
+        $translationService->pushXliffCatalog($xliff, 'fr');
         $catalog = $translationService->getXliffCatalog('fr');
 
         $this->assertEquals($catalog->__toString(), $xliff);

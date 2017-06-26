@@ -11,25 +11,25 @@ namespace Wizaplace\Translation;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\StreamInterface;
 use Wizaplace\AbstractService;
+use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\User\ApiKey;
 
 class TranslationService extends AbstractService
 {
     /**
      * @param string|StreamInterface $xliffCatalog
+     * @throws AuthenticationRequired
      */
-    public function pushXliffCatalog(ApiKey $apiKey, $xliffCatalog, string $locale)
+    public function pushXliffCatalog($xliffCatalog, string $locale)
     {
-        $options = $this->addAuth(
-            [
-                RequestOptions::HEADERS => [
-                    "Content-Type" => "application/x-xliff+xml",
-                ],
-                RequestOptions::HTTP_ERRORS => true,
-                RequestOptions::BODY => $xliffCatalog,
+        $this->client->mustBeAuthenticated();
+        $options = [
+            RequestOptions::HEADERS => [
+                "Content-Type" => "application/x-xliff+xml",
             ],
-            $apiKey
-        );
+            RequestOptions::HTTP_ERRORS => true,
+            RequestOptions::BODY => $xliffCatalog,
+        ];
         $this->client->post("translations/front/".$locale, $options);
     }
 
@@ -40,7 +40,7 @@ class TranslationService extends AbstractService
                 "Accept" => "application/x-xliff+xml",
             ],
         ];
-        $response = $this->client->get("translations/front/".$locale, $options);
+        $response = $this->client->rawRequest("GET", "translations/front/".$locale, $options);
 
         return $response->getBody();
     }

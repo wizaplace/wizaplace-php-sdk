@@ -17,6 +17,6 @@ class TestService extends AbstractService
 {
     public function getTest()
     {
-        return $this->get('/test');
+        return $this->client->get('/test');
     }
 }
