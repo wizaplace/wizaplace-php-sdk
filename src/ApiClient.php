@@ -43,7 +43,7 @@ final class ApiClient
                 ]
             );
         } catch (ClientException $e) {
-            if ($e->getCode() === 401) {
+            if ($e->getResponse()->getStatusCode() === 401) {
                 throw new BadCredentials($e);
             }
             throw $e;

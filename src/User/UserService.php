@@ -90,8 +90,8 @@ class UserService extends AbstractService
                     ],
                 ]
             );
-        } catch (\Exception $e) {
-            if ($e->getCode() === 409) {
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 409) {
                 throw new UserAlreadyExists();
             }
             throw $e;
