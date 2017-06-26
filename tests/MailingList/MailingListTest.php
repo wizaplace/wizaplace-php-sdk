@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\MailingList;
 
+use Wizaplace\MailingList\Exception\MailingListDoesNotExist;
 use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
 use Wizaplace\MailingList\MailingList;
 use Wizaplace\MailingList\MailingListService;
@@ -24,43 +25,50 @@ class MailingListTest extends ApiTestCase
     {
         parent::setUp();
         $this->mlService = new MailingListService($this->getGuzzleClient());
-        $this->mlService->subscribeToMailingList(2, 'user@wizaplace.com');
     }
 
     public function testGetMailingList()
     {
-        $mailingLists = $this->mlService->getMailingList();
-
+        $mailingLists = $this->mlService->getMailingLists();
         foreach ($mailingLists as $mailingList) {
             $this->assertInstanceOf(MailingList::class, $mailingList);
         }
+
+        $this->assertEquals(1, count($mailingLists));
     }
 
-    public function testSubscribeUserToMailingList()
+    public function testSubscribe()
     {
-        $this->mlService->subscribeToMailingList(1, 'user@wizaplace.com');
+        $this->mlService->subscribe(1, 'user@wizaplace.com');
 
-        $this->assertCount(2, static::$historyContainer);
+        $this->assertCount(1, static::$historyContainer);
+
+        $this->mlService->unsubscribe(1, 'user@wizaplace.com');
     }
 
-    public function testSubscribeAlreadySubscribedUserToMailingList()
+    public function testSubscribeAlreadySubscribed()
     {
         $this->expectException(UserAlreadySubscribed::class);
 
-        $this->mlService->subscribeToMailingList(2, 'user@wizaplace.com');
+        $this->mlService->subscribe(1, 'admin@wizaplace.com');
+        $this->mlService->subscribe(1, 'admin@wizaplace.com');
+
+        $this->mlService->unsubscribe(1, 'admin@wizaplace.com');
     }
 
-    public function testUnsubscribeUser()
+    public function testUnsubscribe()
     {
-        $this->mlService->unsubscribeFromMailingList(1, 'user@wizaplace.com');
+        $this->mlService->subscribe(1, 'user@wizaplace.com');
+
+        $this->mlService->unsubscribe(1, 'user@wizaplace.com');
 
         $this->assertCount(2, static::$historyContainer);
     }
 
-    public function tearDown(): void
+    public function testSubscribeToNotAList()
     {
-        $this->mlService->unsubscribeFromMailingList(1, 'user@wizaplace.com');
-        $this->mlService->unsubscribeFromMailingList(2, 'user@wizaplace.com');
-        parent::tearDown();
+        $this->expectException(MailingListDoesNotExist::class);
+
+        $this->mlService->subscribe(2, 'user@wizaplace.com');
     }
 }
