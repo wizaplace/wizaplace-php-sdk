@@ -24,7 +24,7 @@ class MailingListTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->mlService = new MailingListService($this->getGuzzleClient());
+        $this->mlService = $this->buildMailingListService();
     }
 
     public function testGetMailingList()
@@ -70,5 +70,10 @@ class MailingListTest extends ApiTestCase
         $this->expectException(MailingListDoesNotExist::class);
 
         $this->mlService->subscribe(2, 'user@wizaplace.com');
+    }
+
+    private function buildMailingListService(): MailingListService
+    {
+        return new MailingListService($this->buildApiClient());
     }
 }

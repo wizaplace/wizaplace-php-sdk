@@ -25,7 +25,7 @@ class MailingListService extends AbstractService
      */
     public function getMailingLists(): array
     {
-        $mailingLists = $this->get('mailinglists');
+        $mailingLists = $this->client->get('mailinglists');
         $lists = [];
 
         foreach ($mailingLists as $mailingList) {
@@ -41,7 +41,7 @@ class MailingListService extends AbstractService
     public function subscribe(int $mailingListId, string $email)
     {
         try {
-            $this->client->post('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+            $this->client->rawRequest('post', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
         } catch (ClientException $e) {
             switch ($e->getCode()) {
                 case 404:
@@ -58,6 +58,6 @@ class MailingListService extends AbstractService
 
     public function unsubscribe(int $mailingListId, string $email)
     {
-        $this->client->delete('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+        $this->client->rawRequest('delete', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
     }
 }
