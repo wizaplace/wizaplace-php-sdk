@@ -130,6 +130,10 @@ final class ApiClient
      */
     private function jsonDecode(string $json, bool $assoc = true, int $depth = 512, int $options = 0)
     {
+        if (empty($json)) {
+            return null;
+        }
+
         $data = \json_decode($json, $assoc, $depth, $options);
 
         $lastJsonError = json_last_error();
