@@ -44,11 +44,11 @@ class MailingListService extends AbstractService
             $this->client->post('mailinglists/'.$mailingListId.'/subscriptions/'.$email);
         } catch (ClientException $e) {
             switch ($e->getCode()) {
-                case 400:
-                    throw new UserAlreadySubscribed();
-                    break;
                 case 404:
                     throw new MailingListDoesNotExist();
+                    break;
+                case 409:
+                    throw new UserAlreadySubscribed();
                     break;
                 default:
                     break;
