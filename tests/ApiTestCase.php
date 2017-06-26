@@ -14,6 +14,7 @@ use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use VCR\VCR;
+use Wizaplace\ApiClient;
 
 abstract class ApiTestCase extends TestCase
 {
@@ -29,7 +30,7 @@ abstract class ApiTestCase extends TestCase
         return 'http://wizaplace.loc/api/v1/';
     }
 
-    public function getGuzzleClient(): Client
+    public function buildApiClient(): ApiClient
     {
         $historyMiddleware = Middleware::history(self::$historyContainer);
 
@@ -45,10 +46,10 @@ abstract class ApiTestCase extends TestCase
             };
         });
 
-        return new Client([
+        return new ApiClient(new Client([
             'handler' => $handlerStack,
             'base_uri' => self::getApiBaseUrl(),
-        ]);
+        ]));
     }
 
     protected function setUp(): void
