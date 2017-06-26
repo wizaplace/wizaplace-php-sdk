@@ -28,7 +28,7 @@ class SeoService extends AbstractService
 
         $slugs = array_map('strval', $slugs);
 
-        $rawResults = $this->get('seo/slugs', ['query' => ['slugs' => $slugs]]);
+        $rawResults = $this->client->get('seo/slugs', ['query' => ['slugs' => $slugs]]);
 
         $results = [];
         foreach ($slugs as $slug) {

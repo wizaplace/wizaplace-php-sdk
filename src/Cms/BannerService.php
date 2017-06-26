@@ -19,7 +19,7 @@ class BannerService extends AbstractService
     public function getHomepageBanners(?string $device = null): array
     {
 
-        $results = (null !== $device) ? $this->get('cms/banners?device='.$device) : $this->get('cms/banners');
+        $results = (null !== $device) ? $this->client->get('cms/banners?device='.$device) : $this->client->get('cms/banners');
 
         return $this->buildBannersArray($results);
     }
@@ -29,7 +29,7 @@ class BannerService extends AbstractService
      */
     public function getCategoriesBanners(int $categoryId, ?string $device = null): array
     {
-        $results = (null !== $device) ? $this->get('cms/banners/category/'.$categoryId.'?device='.$device) : $this->get('cms/banners/category/'.$categoryId);
+        $results = (null !== $device) ? $this->client->get('cms/banners/category/'.$categoryId.'?device='.$device) : $this->client->get('cms/banners/category/'.$categoryId);
 
         return $this->buildBannersArray($results);
     }
