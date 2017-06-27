@@ -1,0 +1,78 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.3'
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 26 Jun 2017 08:28:59 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 25ee71
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/25ee71'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"3HWr1kmPJU4x7Tvd7TMLyQECK1iSTN\/7Y3gp1+6s"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/translations/front/fr'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.3'
+            Content-Type: application/x-xliff+xml
+            Authorization: 'token 3HWr1kmPJU4x7Tvd7TMLyQECK1iSTN/7Y3gp1+6s'
+            VCR-index: '1'
+            Accept: null
+        body: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<xliff xmlns=\"urn:oasis:names:tc:xliff:document:1.2\" version=\"1.2\">\n  <file source-language=\"fr\" target-language=\"fr\" datatype=\"plaintext\" original=\"file.ext\">\n    <header>\n      <tool tool-id=\"symfony\" tool-name=\"Symfony\"/>\n    </header>\n    <body>\n      <trans-unit id=\"83218ac34c1834c26781fe4bde918ee4\" resname=\"Welcome\">\n        <source>Welcome</source>\n        <target>Bonjour</target>\n      </trans-unit>\n    </body>\n  </file>\n</xliff>\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Mon, 26 Jun 2017 08:29:03 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 9a7d83
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a7d83'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/translations/front/fr'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.3'
+            Accept: application/x-xliff+xml
+            Authorization: 'token 3HWr1kmPJU4x7Tvd7TMLyQECK1iSTN/7Y3gp1+6s'
+            VCR-index: '2'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 26 Jun 2017 08:29:03 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 6f227a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f227a'
+            Content-Length: '481'
+            Content-Type: application/x-xliff+xml
+        body: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<xliff xmlns=\"urn:oasis:names:tc:xliff:document:1.2\" version=\"1.2\">\n  <file source-language=\"fr\" target-language=\"fr\" datatype=\"plaintext\" original=\"file.ext\">\n    <header>\n      <tool tool-id=\"symfony\" tool-name=\"Symfony\"/>\n    </header>\n    <body>\n      <trans-unit id=\"83218ac34c1834c26781fe4bde918ee4\" resname=\"Welcome\">\n        <source>Welcome</source>\n        <target>Bonjour</target>\n      </trans-unit>\n    </body>\n  </file>\n</xliff>\n"
