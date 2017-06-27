@@ -9,9 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\MailingList;
 
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Exception\ServerException;
 use Wizaplace\AbstractService;
-use Wizaplace\Exception\NotFound;
 use Wizaplace\MailingList\Exception\MailingListDoesNotExist;
 use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
 
@@ -43,12 +41,12 @@ class MailingListService extends AbstractService
         try {
             $this->client->rawRequest('post', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
         } catch (ClientException $e) {
-            switch ($e->getCode()) {
+            switch ($e->getResponse()->getStatusCode()) {
                 case 404:
-                    throw new MailingListDoesNotExist();
+                    throw new MailingListDoesNotExist("Mailing list #{$mailingListId} does not exist", $e);
                     break;
                 case 409:
-                    throw new UserAlreadySubscribed();
+                    throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
                     break;
                 default:
                     break;
