@@ -208,6 +208,14 @@ class BasketService extends AbstractService
     }
 
     /**
+     * Checkout the basket to create an order.
+     *
+     * @param int $paymentId ID of the payment method to use (see getPayments())
+     * @param bool $acceptTerms Whether the user accepts the terms and conditions or not
+     *                          (should be true else the order cannot be created)
+     * @param string $redirectUrl URL to redirect to when the payment is made
+     *                          (usually the order confirmation page)
+     *
      * @throws AuthenticationRequired
      */
     public function checkout(string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
