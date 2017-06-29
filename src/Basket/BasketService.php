@@ -137,9 +137,12 @@ class BasketService extends AbstractService
         return $responseData['quantity'];
     }
 
+    /**
+     * @return string created basket's ID
+     */
     public function create(): string
     {
-        return $this->client->post('POST', "basket");
+        return (string) $this->client->post("basket");
     }
 
     /**
