@@ -11,9 +11,18 @@ namespace Wizaplace\Order;
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 
+/**
+ * This service helps retrieve and manage orders that already exist.
+ *
+ * If you want to *create* an order, you need to use the BasketService.
+ */
 class OrderService extends AbstractService
 {
     /**
+     * List the orders of the current user.
+     *
+     * @return Order[]
+     *
      * @throws AuthenticationRequired
      */
     public function getOrders(): array
@@ -28,6 +37,8 @@ class OrderService extends AbstractService
     }
 
     /**
+     * Returns the order matching the given ID.
+     *
      * @throws AuthenticationRequired
      */
     public function getOrder(int $orderId): Order
@@ -48,7 +59,10 @@ class OrderService extends AbstractService
     }
 
     /**
+     * Lists all the order returns that were created by the current user.
+     *
      * @return OrderReturn[]
+     *
      * @throws AuthenticationRequired
      */
     public function getOrderReturns(): array
@@ -66,6 +80,8 @@ class OrderService extends AbstractService
     }
 
     /**
+     * Returns all the return types that can be used to return an order.
+     *
      * @return ReturnType[]
      */
     public function getReturnTypes(): array
@@ -79,7 +95,17 @@ class OrderService extends AbstractService
     }
 
     /**
-     * @return int returnId
+     * Return an order.
+     *
+     * This method expects the list of items to return in the given order. A buyer can return
+     * the whole order or only specific items.
+     *
+     * @param int $orderId ID of the order to return.
+     * @param string $comments Buyer's comments on why they are returning the order.
+     * @param array $items List of items of the order to return.
+     *
+     * @return int ID of the created return.
+     *
      * @throws AuthenticationRequired
      */
     public function createOrderReturn(int $orderId, string $comments, array $items): int

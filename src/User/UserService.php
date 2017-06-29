@@ -37,6 +37,8 @@ class UserService extends AbstractService
     }
 
     /**
+     * Update the information of a user profile.
+     *
      * @throws AuthenticationRequired
      */
     public function updateUser(User $user)
@@ -55,6 +57,8 @@ class UserService extends AbstractService
     }
 
     /**
+     * Update the user's addresses.
+     *
      * @throws AuthenticationRequired
      */
     public function updateUserAdresses(User $user)
@@ -71,13 +75,19 @@ class UserService extends AbstractService
         );
     }
 
+    /**
+     * Register to create a user account.
+     *
+     * @return int ID of the created user.
+     *
+     * @throws UserAlreadyExists The email address is already used by a user account.
+     */
     public function register(
         string $email,
         string $password,
         string $firstName = '',
         string $lastName = ''
     ): int {
-
         try {
             $userData = $this->client->post(
                 'users',

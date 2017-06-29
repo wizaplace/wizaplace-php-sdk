@@ -13,9 +13,14 @@ use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 
+/**
+ * This service helps managing the favorite products of a user.
+ */
 class FavoriteService extends AbstractService
 {
     /**
+     * Check whether a product is in the user's favorites.
+     *
      * @throws AuthenticationRequired
      */
     public function isInFavorites(int $declinationId) : bool
