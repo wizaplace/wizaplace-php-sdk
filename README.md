@@ -1,4 +1,4 @@
-# Wizaplace's PHP SDK
+PHP SDK for the Wizaplace e-commerce API: https://sandbox.wizaplace.com/api/v1/doc/
 
 ## Install
 
