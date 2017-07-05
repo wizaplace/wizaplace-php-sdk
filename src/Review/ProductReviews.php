@@ -13,7 +13,7 @@ class ProductReviews
     /**
      * @var ProductReview[]
      */
-    private $reviews;
+    private $reviews = [];
 
     /**
      * @return ProductReview[]
