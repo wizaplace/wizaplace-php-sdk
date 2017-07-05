@@ -10,6 +10,8 @@ namespace Wizaplace\tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Review\CompanyReview;
+use Wizaplace\Review\ProductReview;
 use Wizaplace\Review\ReviewService;
 use Wizaplace\Tests\ApiTestCase;
 
@@ -26,37 +28,42 @@ class ReviewServiceTest extends ApiTestCase
         $this->rs = $this->buildReviewService();
     }
 
-    public function testGetReviewOnProduct()
+    public function testListReviewsFromProduct()
     {
-        $review = $this->rs->getProductReview(1);
+        $productReviews = $this->rs->getProductReviews(1);
 
-        $this->assertEquals('Administrateur Wizaplace', $review->getAuthor());
+        /** @var ProductReview $productReview */
+        foreach ($productReviews->getReviews() as $productReview) {
+            $this->assertEquals('Administrateur Wizaplace', $productReview->getAuthor());
+            $this->assertAttributeGreaterThanOrEqual(1, 'rating', $productReview);
+            $this->assertAttributeLessThanOrEqual(5, 'rating', $productReview);
+        }
     }
 
-    public function testGetInexistantReviewOnProduct()
+    public function testListInexistantReviewFromProduct()
     {
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('This product has no reviews');
 
-        $this->rs->getProductReview(2);
+        $this->rs->getProductReviews(2);
     }
 
-    public function testGetReviewOnInexistantProduct()
+    public function testListReviewsOnInexistantProduct()
     {
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('This product has not been found');
 
-        $this->rs->getProductReview(404);
+        $this->rs->getProductReviews(404);
     }
 
-    public function testAddReviewOnProduct()
+    public function testAddReviewToProduct()
     {
         $this->rs->addProductReview(2, 'fake-author', 'this is a test review', 4);
 
         $this->assertCount(2, static::$historyContainer);
     }
 
-    public function testAddReviewOnInvalidProduct()
+    public function testAddReviewOnInexistantProduct()
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
@@ -64,10 +71,44 @@ class ReviewServiceTest extends ApiTestCase
         $this->rs->addProductReview(404, 'fake-author', 'this is a test review', 4);
     }
 
+    public function testListReviewsFromCompany()
+    {
+        $reviews = $this->rs->getCompanyReviews(1);
+
+        /** @var CompanyReview $companyReview */
+        foreach ($reviews->getReviews() as $companyReview) {
+            $this->assertEquals('Paul Martin', $companyReview->getUserName());
+            $this->assertEquals(2, $companyReview->getRating());
+        }
+    }
+
+    public function testListInexistantReviewFromCompany()
+    {
+        $this->expectException(NotFound::class);
+        $this->expectExceptionMessage('This company has no reviews');
+
+        $this->rs->getCompanyReviews(2);
+    }
+
+    public function testAddReviewToCompany()
+    {
+        $this->rs->addCompanyReview(1, 'testcreview', 1);
+
+        $this->assertCount(2, static::$historyContainer);
+    }
+
+    public function testAddReviewOnInexistantCompany()
+    {
+        $this->expectException(ClientException::class);
+        $this->expectExceptionCode(404);
+
+        $this->rs->addCompanyReview(404, 'this is a test review', 2);
+    }
+
     private function buildReviewService(): ReviewService
     {
         $client = $this->buildApiClient();
-        $client->authenticate('admin@wizaplace.com', 'password');
+        $client->authenticate('user@wizaplace.com', 'password');
 
         return new ReviewService($client);
     }

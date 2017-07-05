@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 05 Jul 2017 13:15:33 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: ce5073
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce5073'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/1/reviews'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            Authorization: 'token g12xYXF9zMC/NL4aCu0bcan6RoduiMOoFb9ZHB5s'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 05 Jul 2017 13:15:33 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 84c0ce
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/84c0ce'
+            Content-Length: '223'
+            Content-Type: application/json
+        body: '[{"author":"Administrateur Wizaplace","message":"this is a test message","postedAt":"1499260193","rating":4},{"author":"Administrateur Wizaplace","message":"this is a test message again","postedAt":"1499260193","rating":1}]'

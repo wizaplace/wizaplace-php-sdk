@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Review;
 
-class Review
+class ProductReview
 {
     /**
      * @var string
