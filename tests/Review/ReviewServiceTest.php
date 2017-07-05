@@ -10,8 +10,6 @@ namespace Wizaplace\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\Exception\NotFound;
-use Wizaplace\Review\CompanyReview;
-use Wizaplace\Review\ProductReview;
 use Wizaplace\Review\ReviewService;
 use Wizaplace\Tests\ApiTestCase;
 
@@ -32,7 +30,6 @@ class ReviewServiceTest extends ApiTestCase
     {
         $productReviews = $this->rs->getProductReviews(1);
 
-        /** @var ProductReview $productReview */
         foreach ($productReviews->getReviews() as $productReview) {
             $this->assertEquals('Administrateur Wizaplace', $productReview->getAuthor());
             $this->assertAttributeGreaterThanOrEqual(1, 'rating', $productReview);
@@ -75,7 +72,6 @@ class ReviewServiceTest extends ApiTestCase
     {
         $reviews = $this->rs->getCompanyReviews(1);
 
-        /** @var CompanyReview $companyReview */
         foreach ($reviews->getReviews() as $companyReview) {
             $this->assertEquals('Paul Martin', $companyReview->getUserName());
             $this->assertEquals(2, $companyReview->getRating());

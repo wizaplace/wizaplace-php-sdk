@@ -49,7 +49,7 @@ class ReviewService extends AbstractService
         $this->client->post('catalog/products/'.$productId.'/reviews', $options);
     }
 
-    public function getCompanyReviews(int $companyId)
+    public function getCompanyReviews(int $companyId): CompanyReviews
     {
         try {
             $reviews = $this->client->get('catalog/companies/'.$companyId.'/reviews');
@@ -70,7 +70,7 @@ class ReviewService extends AbstractService
         }
     }
 
-    public function addCompanyReview(int $companyId, string $message, int $rating)
+    public function addCompanyReview(int $companyId, string $message, int $rating): void
     {
         $review = json_encode(['message' => $message, 'rating' => $rating]);
 
@@ -84,7 +84,7 @@ class ReviewService extends AbstractService
         $this->client->post('catalog/companies/'.$companyId.'/reviews', $options);
     }
 
-    private function createProductReview(array $review)
+    private function createProductReview(array $review): ProductReview
     {
         return new ProductReview(
             $review['author'],
@@ -94,7 +94,7 @@ class ReviewService extends AbstractService
         );
     }
 
-    private function createCompanyReview(array $review)
+    private function createCompanyReview(array $review): CompanyReview
     {
         return new CompanyReview(
             $review['threadId'],

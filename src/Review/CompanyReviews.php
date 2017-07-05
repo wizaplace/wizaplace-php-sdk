@@ -16,9 +16,9 @@ class CompanyReviews
     private $averageRating;
 
     /**
-     * @var array
+     * @var CompanyReview[]
      */
-    private $reviews;
+    private $reviews = [];
 
     public function __construct(int $averageRating)
     {
@@ -30,15 +30,16 @@ class CompanyReviews
         return $this->averageRating;
     }
 
-    public function getReviews(): ?array
+    /**
+     * @return CompanyReview[]
+     */
+    public function getReviews(): array
     {
         return $this->reviews;
     }
 
-    public function addReview(CompanyReview $companyReview): CompanyReviews
+    public function addReview(CompanyReview $companyReview): void
     {
         $this->reviews[] = $companyReview;
-
-        return $this;
     }
 }

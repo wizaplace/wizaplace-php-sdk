@@ -11,11 +11,14 @@ namespace Wizaplace\Review;
 class ProductReviews
 {
     /**
-     * @var
+     * @var ProductReview[]
      */
     private $reviews;
 
-    public function getReviews(): ?array
+    /**
+     * @return ProductReview[]
+     */
+    public function getReviews(): array
     {
         return $this->reviews;
     }
