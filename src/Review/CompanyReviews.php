@@ -7,7 +7,6 @@
 
 namespace Wizaplace\Review;
 
-
 class CompanyReviews
 {
     /**

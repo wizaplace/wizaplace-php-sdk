@@ -22,6 +22,7 @@ class ProductReviews
     public function addReview(ProductReview $productReview): ProductReviews
     {
         $this->reviews[] = $productReview;
+
         return $this;
     }
 }

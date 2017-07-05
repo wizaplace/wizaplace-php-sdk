@@ -23,7 +23,7 @@ class ReviewService extends AbstractService
         }
 
         $productReviews = new ProductReviews();
-        foreach ($reviews as $review){
+        foreach ($reviews as $review) {
             $productReview = $this->createProductReview($review);
             $productReviews->addReview($productReview);
         }
@@ -35,7 +35,7 @@ class ReviewService extends AbstractService
         }
     }
 
-    public function addProductReview(int $productId, string $author ,string $message, int $rating) : void
+    public function addProductReview(int $productId, string $author, string $message, int $rating) : void
     {
         $review = json_encode(['author' => $author, 'message' => $message, 'rating' => $rating]);
 
@@ -43,7 +43,7 @@ class ReviewService extends AbstractService
             RequestOptions::HEADERS => [
                 "Content-Type" => "application/json",
             ],
-            RequestOptions::BODY => $review
+            RequestOptions::BODY => $review,
         ];
 
         $this->client->post('catalog/products/'.$productId.'/reviews', $options);
@@ -63,6 +63,7 @@ class ReviewService extends AbstractService
                 $companyReview = $this->createCompanyReview($review);
                 $companyReviews->addReview($companyReview);
             }
+
             return $companyReviews;
         } else {
             throw new NotFound('This company has no reviews');
@@ -77,7 +78,7 @@ class ReviewService extends AbstractService
             RequestOptions::HEADERS => [
                 "Content-Type" => "application/json",
             ],
-            RequestOptions::BODY => $review
+            RequestOptions::BODY => $review,
         ];
 
         $this->client->post('catalog/companies/'.$companyId.'/reviews', $options);
