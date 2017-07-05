@@ -93,7 +93,7 @@ class ReviewService extends AbstractService
         return new ProductReview(
             $review['author'],
             $review['message'],
-            (int) $review['postedAt'],
+            $review['postedAt'],
             $review['rating']
         );
     }

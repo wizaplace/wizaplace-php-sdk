@@ -21,7 +21,7 @@ class ProductReview
     private $message;
 
     /**
-     * @var integer
+     * @var \DateTimeImmutable
      */
     private $postedAt;
 
@@ -33,12 +33,12 @@ class ProductReview
     public function __construct(
         string $author,
         string $message,
-        int $postedAt,
+        string $postedAt,
         int $rating
     ) {
         $this->author = $author;
         $this->message = $message;
-        $this->postedAt = $postedAt;
+        $this->postedAt = new \DateTimeImmutable("@$postedAt");
         $this->rating = $rating;
     }
 
@@ -54,8 +54,7 @@ class ProductReview
 
     public function getPostedAt(): \DateTimeImmutable
     {
-        $datetime = new \DateTimeImmutable;
-        return $datetime->setTimestamp($this->postedAt);
+        return $this->postedAt;
     }
 
     public function getRating(): int

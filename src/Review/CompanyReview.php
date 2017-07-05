@@ -46,7 +46,7 @@ class CompanyReview
     private $status;
 
     /**
-     * @var int
+     * @var \DateTimeImmutable
      */
     private $createdAt;
 
@@ -67,7 +67,7 @@ class CompanyReview
         $this->message = $message;
         $this->rating = $rating;
         $this->status = $status;
-        $this->createdAt = (int) $createdAt;
+        $this->createdAt = new \DateTimeImmutable("@$createdAt");
     }
 
     public function getThreadId(): int
@@ -107,7 +107,6 @@ class CompanyReview
 
     public function getCreatedAt(): \DateTimeImmutable
     {
-        $datetime = new \DateTimeImmutable;
-        return $datetime->setTimestamp($this->createdAt);
+        return $this->createdAt;
     }
 }
