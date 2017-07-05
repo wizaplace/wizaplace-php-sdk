@@ -39,10 +39,8 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListInexistantReviewFromProduct()
     {
-        $this->expectException(NotFound::class);
-        $this->expectExceptionMessage('This product has no reviews');
-
-        $this->rs->getProductReviews(2);
+        $reviews = $this->rs->getProductReviews(2);
+        $this->assertEmpty($reviews);
     }
 
     public function testListReviewsOnInexistantProduct()
@@ -80,10 +78,9 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListInexistantReviewFromCompany()
     {
-        $this->expectException(NotFound::class);
-        $this->expectExceptionMessage('This company has no reviews');
+        $reviews = $this->rs->getCompanyReviews(2);
 
-        $this->rs->getCompanyReviews(2);
+        $this->assertEmpty($reviews);
     }
 
     public function testAddReviewToCompany()

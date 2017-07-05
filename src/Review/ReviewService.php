@@ -32,11 +32,7 @@ class ReviewService extends AbstractService
             $productReviews[] = $productReview;
         }
 
-        if (!empty($productReviews)) {
-            return $productReviews;
-        } else {
-            throw new NotFound('This product has no reviews');
-        }
+        return $productReviews;
     }
 
     public function addProductReview(int $productId, string $author, string $message, int $rating) : void
@@ -53,7 +49,7 @@ class ReviewService extends AbstractService
         $this->client->post('catalog/products/'.$productId.'/reviews', $options);
     }
 
-    public function getCompanyReviews(int $companyId): CompanyReviews
+    public function getCompanyReviews(int $companyId): ?CompanyReviews
     {
         try {
             $reviews = $this->client->get('catalog/companies/'.$companyId.'/reviews');
@@ -70,7 +66,7 @@ class ReviewService extends AbstractService
 
             return $companyReviews;
         } else {
-            throw new NotFound('This company has no reviews');
+            return null;
         }
     }
 

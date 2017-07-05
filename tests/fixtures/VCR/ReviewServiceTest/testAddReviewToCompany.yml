@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 13:19:30 GMT'
+            Date: 'Wed, 05 Jul 2017 14:46:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e85446
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e85446'
+            X-Debug-Token: a12928
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a12928'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 05 Jul 2017 13:19:30 GMT'
+            Date: 'Wed, 05 Jul 2017 14:46:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1aeab7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1aeab7'
+            X-Debug-Token: 6f83cd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f83cd'
             Content-Length: '154'
             Content-Type: application/json
-        body: '{"threadId":14,"user":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"testcreview","rating":1,"status":"D","createdAt":"1499260770"}'
+        body: '{"threadId":14,"user":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"testcreview","rating":1,"status":"D","createdAt":"1499266003"}'

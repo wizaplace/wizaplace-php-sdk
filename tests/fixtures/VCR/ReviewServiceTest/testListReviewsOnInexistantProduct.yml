@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 13:19:27 GMT'
+            Date: 'Wed, 05 Jul 2017 14:46:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 4b942c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b942c'
+            X-Debug-Token: c3ced7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3ced7'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
@@ -41,11 +41,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Wed, 05 Jul 2017 13:19:27 GMT'
+            Date: 'Wed, 05 Jul 2017 14:46:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e48bcc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e48bcc'
+            X-Debug-Token: 4b0463
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b0463'
             Content-Length: '2'
             Content-Type: application/json
         body: '{}'
