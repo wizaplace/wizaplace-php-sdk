@@ -6,7 +6,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\tests\Review;
+namespace Wizaplace\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\Exception\NotFound;
