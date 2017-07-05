@@ -11,7 +11,7 @@ namespace Wizaplace\Review;
 class CompanyReviews
 {
     /**
-     * @var int|null
+     * @var int
      */
     private $averageRating;
 
@@ -20,7 +20,7 @@ class CompanyReviews
      */
     private $reviews;
 
-    public function __construct(?int $averageRating)
+    public function __construct(int $averageRating)
     {
         $this->averageRating = $averageRating;
     }

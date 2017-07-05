@@ -21,16 +21,13 @@ class ReviewService extends AbstractService
         } catch (\Exception $e) {
             throw new NotFound('This product has not been found');
         }
+
         $productReviews = new ProductReviews();
         foreach ($reviews as $review){
-            $productReview = new ProductReview(
-                $review['author'],
-                $review['message'],
-                (int) $review['postedAt'],
-                $review['rating']
-            );
+            $productReview = $this->createProductReview($review);
             $productReviews->addReview($productReview);
         }
+
         if (!empty($productReviews->getReviews())) {
             return $productReviews;
         } else {
@@ -59,10 +56,11 @@ class ReviewService extends AbstractService
         } catch (\Exception $e) {
             throw new NotFound('This company has not been found');
         }
+
         if ($reviews['averageRating'] !== null) {
             $companyReviews = new CompanyReviews($reviews['averageRating']);
             foreach ($reviews['_embedded'] as $review) {
-                $companyReview = $this->createProductReview($review);
+                $companyReview = $this->createCompanyReview($review);
                 $companyReviews->addReview($companyReview);
             }
             return $companyReviews;
@@ -86,6 +84,16 @@ class ReviewService extends AbstractService
     }
 
     private function createProductReview(array $review)
+    {
+        return new ProductReview(
+            $review['author'],
+            $review['message'],
+            (int) $review['postedAt'],
+            $review['rating']
+        );
+    }
+
+    private function createCompanyReview(array $review)
     {
         return new CompanyReview(
             $review['threadId'],

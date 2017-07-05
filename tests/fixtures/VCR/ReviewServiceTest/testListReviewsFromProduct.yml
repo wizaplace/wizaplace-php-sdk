@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 13:15:33 GMT'
+            Date: 'Wed, 05 Jul 2017 13:19:26 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ce5073
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce5073'
+            X-Debug-Token: a71719
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a71719'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 13:15:33 GMT'
+            Date: 'Wed, 05 Jul 2017 13:19:26 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 84c0ce
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/84c0ce'
+            X-Debug-Token: bca294
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bca294'
             Content-Length: '223'
             Content-Type: application/json
         body: '[{"author":"Administrateur Wizaplace","message":"this is a test message","postedAt":"1499260193","rating":4},{"author":"Administrateur Wizaplace","message":"this is a test message again","postedAt":"1499260193","rating":1}]'
