@@ -30,7 +30,7 @@ class ReviewServiceTest extends ApiTestCase
     {
         $productReviews = $this->rs->getProductReviews(1);
 
-        foreach ($productReviews->getReviews() as $productReview) {
+        foreach ($productReviews as $productReview) {
             $this->assertEquals('Administrateur Wizaplace', $productReview->getAuthor());
             $this->assertAttributeGreaterThanOrEqual(1, 'rating', $productReview);
             $this->assertAttributeLessThanOrEqual(5, 'rating', $productReview);

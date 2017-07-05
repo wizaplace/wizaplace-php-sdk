@@ -52,9 +52,10 @@ class ProductReview
         return $this->message;
     }
 
-    public function getPostedAt(): int
+    public function getPostedAt(): \DateTimeImmutable
     {
-        return $this->postedAt;
+        $datetime = new \DateTimeImmutable;
+        return $datetime->setTimestamp($this->postedAt);
     }
 
     public function getRating(): int

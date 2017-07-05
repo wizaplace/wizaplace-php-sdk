@@ -14,7 +14,11 @@ use Wizaplace\Exception\NotFound;
 
 class ReviewService extends AbstractService
 {
-    public function getProductReviews(int $productId) : ProductReviews
+    /**
+     * @return ProductReview[]
+     * @throws NotFound
+     */
+    public function getProductReviews(int $productId): array
     {
         try {
              $reviews = $this->client->get('catalog/products/'.$productId.'/reviews');
@@ -22,13 +26,13 @@ class ReviewService extends AbstractService
             throw new NotFound('This product has not been found');
         }
 
-        $productReviews = new ProductReviews();
+        $productReviews = [];
         foreach ($reviews as $review) {
             $productReview = $this->createProductReview($review);
-            $productReviews->addReview($productReview);
+            $productReviews[] = $productReview;
         }
 
-        if (!empty($productReviews->getReviews())) {
+        if (!empty($productReviews)) {
             return $productReviews;
         } else {
             throw new NotFound('This product has no reviews');
