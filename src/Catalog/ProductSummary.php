@@ -56,8 +56,8 @@ class ProductSummary
         $this->crossedOutPrice = $data['crossedOutPrice'];
         $this->isAvailable = $data['isAvailable'];
         $this->url = (string) $data['url'];
-        $this->createdAt = (new \DateTimeImmutable())->setTimestamp($data['createdAt']);
-        $this->updatedAt = (new \DateTimeImmutable())->setTimestamp($data['updatedAt']);
+        $this->createdAt = new \DateTimeImmutable("@{$data['createdAt']}");
+        $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
