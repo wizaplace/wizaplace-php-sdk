@@ -12,6 +12,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
+use PHPUnit\Runner\BaseTestRunner;
 use Psr\Http\Message\RequestInterface;
 use VCR\VCR;
 use Wizaplace\ApiClient;
@@ -24,6 +25,10 @@ abstract class ApiTestCase extends TestCase
     protected static $historyContainer = [];
 
     private $requestIndex = 0;
+
+    private $currentCassettePath;
+
+    private $cassetteIsNew = false;
 
     public static function getApiBaseUrl(): string
     {
@@ -57,14 +62,21 @@ abstract class ApiTestCase extends TestCase
         parent::setUp();
 
         $this->requestIndex = 0;
+        $this->currentCassettePath = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
+        $this->cassetteIsNew = !file_exists(VCR::configure()->getCassettePath().'/'.$this->currentCassettePath);
         VCR::turnOn();
-        $cassette = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
-        VCR::insertCassette($cassette);
+        VCR::insertCassette($this->currentCassettePath);
     }
 
     protected function tearDown(): void
     {
         VCR::turnOff();
+        if ($this->cassetteIsNew && ($this->getStatus() !== BaseTestRunner::STATUS_PASSED)) {
+            // We don't want to register a new K7 for a failing test
+            unlink(VCR::configure()->getCassettePath().'/'.$this->currentCassettePath);
+        }
+        $this->currentCassettePath = null;
+        $this->cassetteIsNew = false;
         self::$historyContainer = [];
         parent::tearDown();
     }
