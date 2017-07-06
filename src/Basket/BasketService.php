@@ -258,6 +258,18 @@ class BasketService extends AbstractService
     }
 
     /**
+     * @param array $selections a map of BasketShippingGroup ids to Shipping ids
+     */
+    public function selectShippings(string $basketId, array $selections): void
+    {
+        $this->client->post("basket/$basketId/shippings", [
+            'json' => [
+                'shippingGroups' => $selections,
+            ],
+        ]);
+    }
+
+    /**
      * Checkout the basket to create an order.
      *
      * @param int $paymentId ID of the payment method to use (see getPayments())
