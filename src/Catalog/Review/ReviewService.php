@@ -10,6 +10,25 @@ namespace Wizaplace\Catalog\Review;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 
+/**
+ * This service helps getting and creating reviews for products or companies
+ *
+ * Example :
+ *
+ *      // Get a product reviews
+ *      $productReviews = $reviewService->getProductReviews($productId);
+ *
+ *      // Create a product review with form data $formData
+ *      $reviewService->reviewProduct($productId, $formData['author'], $formData['message'], $formData['rating']);
+ *
+ *      // Get a company reviews
+ *      $companyReviews = $reviewService->getCompanyReviews($companyId);
+ *
+ *      // Create a company review with form data $formData, only users who have purchased once from the company are
+ *      able to post a review.
+ *      TODO: Add an API to check if the user is able to review a company
+ *      $reviewService->reviewCompany($companyId, $formData['message'], $formData['rating']);
+ */
 class ReviewService extends AbstractService
 {
     /**
