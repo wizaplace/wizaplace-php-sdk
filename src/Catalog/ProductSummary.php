@@ -26,9 +26,9 @@ class ProductSummary
     private $isAvailable;
     /** @var string */
     private $url;
-    /** @var \DateTime */
+    /** @var \DateTimeImmutable */
     private $createdAt;
-    /** @var \DateTime */
+    /** @var \DateTimeImmutable */
     private $updatedAt;
     /** @var int */
     private $declinationCount;
@@ -56,10 +56,8 @@ class ProductSummary
         $this->crossedOutPrice = $data['crossedOutPrice'];
         $this->isAvailable = $data['isAvailable'];
         $this->url = (string) $data['url'];
-        $this->createdAt = new \DateTime();
-        $this->createdAt->setTimestamp($data['createdAt']);
-        $this->updatedAt = new \DateTime();
-        $this->updatedAt->setTimestamp($data['updatedAt']);
+        $this->createdAt = new \DateTimeImmutable("@{$data['createdAt']}");
+        $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
@@ -115,12 +113,12 @@ class ProductSummary
         return $this->url;
     }
 
-    public function getCreatedAt(): \DateTime
+    public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): \DateTime
+    public function getUpdatedAt(): \DateTimeImmutable
     {
         return $this->updatedAt;
     }
