@@ -10,7 +10,7 @@ namespace Wizaplace\Basket;
 
 class BasketShippingGroup
 {
-    /** @var string */
+    /** @var int */
     private $id;
 
     /** @var BasketItem[] */
@@ -21,7 +21,7 @@ class BasketShippingGroup
 
     public function __construct(array $data)
     {
-        //$this->id = $data['id'];
+        $this->id = (int) $data['id'];
 
         $this->items = array_map(
             function ($item) {
@@ -38,7 +38,7 @@ class BasketShippingGroup
         );
     }
 
-    public function getId(): string
+    public function getId(): int
     {
         return $this->id;
     }
