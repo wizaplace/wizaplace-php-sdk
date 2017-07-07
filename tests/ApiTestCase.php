@@ -25,6 +25,8 @@ abstract class ApiTestCase extends TestCase
 
     private $requestIndex = 0;
 
+    private $cassetteName = null;
+
     public static function getApiBaseUrl(): string
     {
         return 'http://wizaplace.loc/api/v1/';
@@ -57,14 +59,34 @@ abstract class ApiTestCase extends TestCase
         parent::setUp();
 
         $this->requestIndex = 0;
+        $this->cassetteName = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
         VCR::turnOn();
-        $cassette = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
-        VCR::insertCassette($cassette);
+        VCR::insertCassette($this->cassetteName);
     }
+
+    protected function runTest()
+    {
+        try {
+            return parent::runTest();
+        } catch (\LogicException $e) {
+            if (strpos($e->getMessage(), 'request does not match a previously recorded request') !== false) {
+                /* @see \VCR\Videorecorder::handleRequest */
+                unlink(__DIR__.'/fixtures/VCR/'.$this->cassetteName);
+                throw new \Exception(
+                    "VCR fixtures did not match the requests made during the tests.\nFixtures got deleted, re-run the test to re-populate them.",
+                    $e->getCode(),
+                    $e
+                );
+            }
+            throw $e;
+        }
+    }
+
 
     protected function tearDown(): void
     {
         VCR::turnOff();
+        $this->cassetteName = null;
         self::$historyContainer = [];
         parent::tearDown();
     }
