@@ -40,7 +40,7 @@ class Product
     /** @var ProductAttribute[] */
     private $attributes;
 
-    /** @var \DateTime */
+    /** @var \DateTimeImmutable */
     private $creationDate;
 
     /** @var bool */
@@ -75,7 +75,7 @@ class Product
             },
             $data['attributes']
         );
-        $this->creationDate = new \DateTime($data['creationDate'] ?? '-6days');
+        $this->creationDate = new \DateTimeImmutable($data['creationDate'] ?? '-6days');
         $this->isTransactional = $data['isTransactional'];
         $this->shippings = array_map(
             function ($shippingData) {
@@ -156,7 +156,7 @@ class Product
         return $this->attributes;
     }
 
-    public function getCreationDate(): \DateTime
+    public function getCreationDate(): \DateTimeImmutable
     {
         return $this->creationDate;
     }
