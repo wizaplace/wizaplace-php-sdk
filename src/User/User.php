@@ -25,10 +25,10 @@ class User
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'];
-        $this->email = $data['email'];
-        $this->firstname = $data['firstName'];
-        $this->lastname = $data['lastName'];
+        $this->id = (int) $data['id'];
+        $this->email = (string) $data['email'];
+        $this->firstname = (string) $data['firstName'];
+        $this->lastname = (string) $data['lastName'];
         $this->billingAddress = $data['addresses']['billing'];
         $this->shippingAddress = $data['addresses']['shipping'];
     }

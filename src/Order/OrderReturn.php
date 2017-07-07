@@ -16,7 +16,7 @@ class OrderReturn
     private $orderId;
     /** @var int */
     private $userId;
-    /** @var \DateTime */
+    /** @var \DateTimeImmutable */
     private $timestamp;
     /** @var string */
     private $comments;
@@ -30,7 +30,7 @@ class OrderReturn
         $this->id = $data['id'];
         $this->orderId = $data['orderId'];
         $this->userId = $data['userId'];
-        $this->timestamp = new \DateTime($data['timestamp']);
+        $this->timestamp = new \DateTimeImmutable($data['timestamp']);
         $this->comments = $data['comments'];
         $this->status = $data['status'];
         $this->items = array_map(function ($item) {
@@ -53,7 +53,7 @@ class OrderReturn
         return $this->id;
     }
 
-    public function getTimestamp(): \DateTime
+    public function getTimestamp(): \DateTimeImmutable
     {
         return $this->timestamp;
     }
