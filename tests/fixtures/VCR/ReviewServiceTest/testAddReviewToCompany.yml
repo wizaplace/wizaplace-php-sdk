@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 14:46:43 GMT'
+            Date: 'Fri, 07 Jul 2017 09:25:01 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a12928
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a12928'
+            X-Debug-Token: 7e11cb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e11cb'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
+        body: '{"id":3,"apiKey":"ZQe38\/tfyfpaBPQXE0duRVNOAhXyrgWXWcU3Dp3X"}'
 -
     request:
         method: POST
@@ -34,21 +34,21 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
             Content-Type: application/json
-            Authorization: 'token g12xYXF9zMC/NL4aCu0bcan6RoduiMOoFb9ZHB5s'
+            Authorization: 'token ZQe38/tfyfpaBPQXE0duRVNOAhXyrgWXWcU3Dp3X'
             VCR-index: '1'
             Accept: null
-        body: '{"message":"testcreview","rating":1}'
+        body: '{"message":"test company review","rating":1}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 05 Jul 2017 14:46:43 GMT'
+            Date: 'Fri, 07 Jul 2017 09:25:01 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6f83cd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f83cd'
-            Content-Length: '154'
+            X-Debug-Token: 8f5916
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8f5916'
+            Content-Length: '136'
             Content-Type: application/json
-        body: '{"threadId":14,"user":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"testcreview","rating":1,"status":"D","createdAt":"1499266003"}'
+        body: '{"author":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"test company review","rating":1,"postedAt":"1499419501"}'

@@ -10,7 +10,7 @@ namespace Wizaplace\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\Exception\NotFound;
-use Wizaplace\Review\ReviewService;
+use Wizaplace\Catalog\Review\ReviewService;
 use Wizaplace\Tests\ApiTestCase;
 
 class ReviewServiceTest extends ApiTestCase
@@ -53,7 +53,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToProduct()
     {
-        $this->rs->addProductReview(2, 'fake-author', 'this is a test review', 4);
+        $this->rs->reviewProduct(2, 'fake-author', 'this is a test review', 4);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -63,15 +63,15 @@ class ReviewServiceTest extends ApiTestCase
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
 
-        $this->rs->addProductReview(404, 'fake-author', 'this is a test review', 4);
+        $this->rs->reviewProduct(404, 'fake-author', 'this is a test review', 4);
     }
 
     public function testListReviewsFromCompany()
     {
         $reviews = $this->rs->getCompanyReviews(1);
 
-        foreach ($reviews->getReviews() as $companyReview) {
-            $this->assertEquals('Paul Martin', $companyReview->getUserName());
+        foreach ($reviews as $companyReview) {
+            $this->assertEquals('Paul Martin', $companyReview->getAuthorName());
             $this->assertEquals(2, $companyReview->getRating());
         }
     }
@@ -85,7 +85,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToCompany()
     {
-        $this->rs->addCompanyReview(1, 'testcreview', 1);
+        $this->rs->reviewCompany(1, 'test company review', 1);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -95,7 +95,7 @@ class ReviewServiceTest extends ApiTestCase
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
 
-        $this->rs->addCompanyReview(404, 'this is a test review', 2);
+        $this->rs->reviewCompany(404, 'test company review', 2);
     }
 
     private function buildReviewService(): ReviewService

@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 14:46:42 GMT'
+            Date: 'Fri, 07 Jul 2017 09:24:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b2670c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b2670c'
+            X-Debug-Token: 50ccd5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/50ccd5'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"g12xYXF9zMC\/NL4aCu0bcan6RoduiMOoFb9ZHB5s"}'
+        body: '{"id":3,"apiKey":"ZQe38\/tfyfpaBPQXE0duRVNOAhXyrgWXWcU3Dp3X"}'
 -
     request:
         method: GET
@@ -32,7 +32,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
-            Authorization: 'token g12xYXF9zMC/NL4aCu0bcan6RoduiMOoFb9ZHB5s'
+            Authorization: 'token ZQe38/tfyfpaBPQXE0duRVNOAhXyrgWXWcU3Dp3X'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 05 Jul 2017 14:46:42 GMT'
+            Date: 'Fri, 07 Jul 2017 09:25:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 7bc3f6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7bc3f6'
-            Content-Length: '198'
+            X-Debug-Token: cea097
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cea097'
+            Content-Length: '172'
             Content-Type: application/json
-        body: '{"averageRating":2,"_embedded":[{"threadId":14,"user":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"this is a test review","rating":2,"status":"A","createdAt":"1499260198"}]}'
+        body: '{"averageRating":2,"_embedded":[{"author":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"this is a test review","rating":2,"postedAt":"1499418058"}]}'
