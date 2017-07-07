@@ -26,6 +26,16 @@ use Wizaplace\Exception\SomeParametersAreInvalid;
  *     $basketId = $basketService->create();
  *     $basketService->addProductToBasket($basketId, <product ID>, 2);
  *
+ *     // Select the shipping methods
+ *     $basket = $basketService->getBasket($basketId);
+ *     $shippings = [];
+ *     foreach ($basket->getCompanyGroups() as $companyGroup) {
+ *         foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+ *             $shippings[$shippingGroup->getId()] = <let the user select the shipping from $shippingGroup->getShippings()>
+ *         }
+ *     }
+ *     $basketService->selectShippings($basketId, $shippings);
+ *
  *     // Select a payment method
  *     $availablePayments = $basketService->getPayments();
  *     $selectedPaymentId = <let the user select the payment from the available payments>
