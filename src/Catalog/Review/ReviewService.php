@@ -57,6 +57,7 @@ class ReviewService extends AbstractService
             foreach ($reviews['_embedded'] as $review) {
                 $companyReviews[] = $this->createCompanyReview($review);
             }
+
             return $companyReviews;
         } else {
             return null;
