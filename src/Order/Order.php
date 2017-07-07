@@ -18,7 +18,7 @@ class Order
     private $total;
     /** @var float */
     private $subtotal;
-    /** @var \DateTime */
+    /** @var \DateTimeImmutable */
     private $timestamp;
     /** @var string */
     private $status;
@@ -29,25 +29,13 @@ class Order
     /** @var OrderItem[] */
     private $orderItem;
 
-    /**
-     * Order constructor.
-     * @param int $id
-     * @param int $companyId
-     * @param float $total
-     * @param float $subtotal
-     * @param \DateTime $timestamp
-     * @param string $status
-     * @param string $shippingName
-     * @param ShippingAddress $shippingAddress
-     * @param OrderItem[] $orderItem
-     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
         $this->companyId = $data['companyId'];
         $this->total = $data['total'];
         $this->subtotal = $data['subtotal'];
-        $this->timestamp = new \DateTime('@'.$data['timestamp']);
+        $this->timestamp = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->status = $data['status'];
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
@@ -76,7 +64,7 @@ class Order
         return $this->subtotal;
     }
 
-    public function getTimestamp(): \DateTime
+    public function getTimestamp(): \DateTimeImmutable
     {
         return $this->timestamp;
     }
