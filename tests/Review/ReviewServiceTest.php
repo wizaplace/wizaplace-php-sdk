@@ -31,7 +31,7 @@ class ReviewServiceTest extends ApiTestCase
         $productReviews = $this->rs->getProductReviews(1);
 
         foreach ($productReviews as $productReview) {
-            $this->assertEquals('Administrateur Wizaplace', $productReview->getAuthor());
+            $this->assertEquals('Administrateur Wizaplace', $productReview->getReviewAuthor()->getName());
             $this->assertAttributeGreaterThanOrEqual(1, 'rating', $productReview);
             $this->assertAttributeLessThanOrEqual(5, 'rating', $productReview);
         }
@@ -68,10 +68,10 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListReviewsFromCompany()
     {
-        $reviews = $this->rs->getCompanyReviews(1);
+        $reviews = $this->rs->getCompanyReviews(4);
 
         foreach ($reviews as $companyReview) {
-            $this->assertEquals('Paul Martin', $companyReview->getAuthorName());
+            $this->assertEquals('Paul Martin', $companyReview->getReviewAuthor()->getName());
             $this->assertEquals(2, $companyReview->getRating());
         }
     }
@@ -85,7 +85,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToCompany()
     {
-        $this->rs->reviewCompany(1, 'test company review', 1);
+        $this->rs->reviewCompany(4, 'test company review', 1);
 
         $this->assertCount(2, static::$historyContainer);
     }

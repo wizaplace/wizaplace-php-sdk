@@ -11,19 +11,9 @@ namespace Wizaplace\Catalog\Review;
 class CompanyReview
 {
     /**
-     * @var null|int
+     * @var ReviewAuthor
      */
-    private $authorId;
-
-    /**
-     * @var string
-     */
-    private $authorName;
-
-    /**
-     * @var null|string
-     */
-    private $authorEmail;
+    private $reviewAuthor;
 
     /**
      * @var string
@@ -41,34 +31,20 @@ class CompanyReview
     private $postedAt;
 
     public function __construct(
-        ?int $authorId,
-        string $authorName,
-        ?string $authorEmail,
+        ReviewAuthor $reviewAuthor,
         string $message,
         int $rating,
         string $postedAt
     ) {
-        $this->authorId = $authorId;
-        $this->authorName = $authorName;
-        $this->authorEmail = $authorEmail;
+        $this->reviewAuthor = $reviewAuthor;
         $this->message = $message;
         $this->rating = $rating;
         $this->postedAt = new \DateTimeImmutable("@$postedAt");
     }
 
-    public function getAuthorId(): ?int
+    public function getReviewAuthor(): ReviewAuthor
     {
-        return $this->authorId;
-    }
-
-    public function getAuthorName(): string
-    {
-        return $this->authorName;
-    }
-
-    public function getAuthorEmail(): ?string
-    {
-        return $this->authorEmail;
+        return $this->reviewAuthor;
     }
 
     public function getMessage(): string

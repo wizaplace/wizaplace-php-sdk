@@ -11,9 +11,9 @@ namespace Wizaplace\Catalog\Review;
 class ProductReview
 {
     /**
-     * @var string
+     * @var ReviewAuthor
      */
-    private $author;
+    private $reviewAuthor;
 
     /**
      * @var string
@@ -31,20 +31,20 @@ class ProductReview
     private $rating;
 
     public function __construct(
-        string $author,
+        ReviewAuthor $reviewAuthor,
         string $message,
         string $postedAt,
         int $rating
     ) {
-        $this->author = $author;
+        $this->reviewAuthor = $reviewAuthor;
         $this->message = $message;
         $this->postedAt = new \DateTimeImmutable("@$postedAt");
         $this->rating = $rating;
     }
 
-    public function getAuthor(): string
+    public function getReviewAuthor(): ReviewAuthor
     {
-        return $this->author;
+        return $this->reviewAuthor;
     }
 
     public function getMessage(): string

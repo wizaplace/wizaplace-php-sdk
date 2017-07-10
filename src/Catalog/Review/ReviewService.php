@@ -4,6 +4,7 @@
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+declare(strict_types = 1);
 
 namespace Wizaplace\Catalog\Review;
 
@@ -63,7 +64,7 @@ class ReviewService extends AbstractService
      * @return CompanyReview[]
      * @throws NotFound
      */
-    public function getCompanyReviews(int $companyId): ?array
+    public function getCompanyReviews(int $companyId): array
     {
         try {
             $reviews = $this->client->get('catalog/companies/'.$companyId.'/reviews');
@@ -76,11 +77,9 @@ class ReviewService extends AbstractService
             foreach ($reviews['_embedded'] as $review) {
                 $companyReviews[] = $this->createCompanyReview($review);
             }
-
-            return $companyReviews;
-        } else {
-            return null;
         }
+
+        return $companyReviews;
     }
 
     public function reviewCompany(int $companyId, string $message, int $rating): void
@@ -92,8 +91,8 @@ class ReviewService extends AbstractService
 
     private function createProductReview(array $review): ProductReview
     {
-        return new ProductReview(
-            $review['author'],
+        return new ProductReview( //TODO: Refactorer pour mettre le createReviewAuthor et le reviewAuthor sur les products
+            $this->createReviewAuthor($review['author']),
             $review['message'],
             $review['postedAt'],
             $review['rating']
@@ -103,12 +102,15 @@ class ReviewService extends AbstractService
     private function createCompanyReview(array $review): CompanyReview
     {
         return new CompanyReview(
-            $review['author']['id'],
-            $review['author']['name'],
-            $review['author']['email'],
+            $this->createReviewAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']),
             $review['message'],
             $review['rating'],
             $review['postedAt']
         );
+    }
+
+    private function createReviewAuthor(string $name, ?int $id = null, ?string $email = null): ReviewAuthor
+    {
+        return new ReviewAuthor($name, $id, $email);
     }
 }
