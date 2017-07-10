@@ -49,8 +49,7 @@ class ReviewService extends AbstractService
 
         $productReviews = [];
         foreach ($reviews as $review) {
-            $productReview = $this->createReview($review);
-            $productReviews[] = $productReview;
+            $productReviews[] = $this->createReview($review);
         }
 
         return $productReviews;
