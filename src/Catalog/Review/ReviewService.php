@@ -97,6 +97,7 @@ class ReviewService extends AbstractService
         } else { // else it's a productReview
             $author = $this->createReviewAuthor($review['author']);
         }
+
         return new Review(
             $author,
             $review['message'],
