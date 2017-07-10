@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog\Review;
 
+use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 
@@ -43,8 +44,11 @@ class ReviewService extends AbstractService
     {
         try {
             $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
-        } catch (\Exception $e) {
-            throw new NotFound('This product has not been found');
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound('This product has not been found');
+            }
+            throw $e;
         }
 
         $productReviews = [];
@@ -57,7 +61,11 @@ class ReviewService extends AbstractService
 
     public function reviewProduct(int $productId, string $author, string $message, int $rating) : void
     {
-        $review = ['author' => $author, 'message' => $message, 'rating' => $rating];
+        $review = [
+            'author' => $author,
+            'message' => $message,
+            'rating' => $rating
+        ];
 
         $this->client->post(sprintf(self::PRODUCT_ENDPOINT, $productId), ['json' => $review]);
     }
