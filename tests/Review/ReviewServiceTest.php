@@ -18,17 +18,17 @@ class ReviewServiceTest extends ApiTestCase
     /**
      * @var $rs ReviewService
      */
-    private $rs;
+    private $reviewService;
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->rs = $this->buildReviewService();
+        $this->reviewService = $this->buildReviewService();
     }
 
     public function testListReviewsFromProduct()
     {
-        $reviews = $this->rs->getProductReviews(1);
+        $reviews = $this->reviewService->getProductReviews(1);
 
         foreach ($reviews as $review) {
             $this->assertEquals('Administrateur Wizaplace', $review->getAuthor()->getName());
@@ -41,7 +41,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListInexistantReviewFromProduct()
     {
-        $reviews = $this->rs->getProductReviews(2);
+        $reviews = $this->reviewService->getProductReviews(2);
         $this->assertEmpty($reviews);
     }
 
@@ -50,12 +50,12 @@ class ReviewServiceTest extends ApiTestCase
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('This product has not been found');
 
-        $this->rs->getProductReviews(404);
+        $this->reviewService->getProductReviews(404);
     }
 
     public function testAddReviewToProduct()
     {
-        $this->rs->reviewProduct(2, 'fake-author', 'this is a test review', 4);
+        $this->reviewService->reviewProduct(2, 'fake-author', 'this is a test review', 4);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -65,12 +65,12 @@ class ReviewServiceTest extends ApiTestCase
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
 
-        $this->rs->reviewProduct(404, 'fake-author', 'this is a test review', 4);
+        $this->reviewService->reviewProduct(404, 'fake-author', 'this is a test review', 4);
     }
 
     public function testListReviewsFromCompany()
     {
-        $reviews = $this->rs->getCompanyReviews(4);
+        $reviews = $this->reviewService->getCompanyReviews(4);
 
         foreach ($reviews as $review) {
             $this->assertEquals('Paul Martin', $review->getAuthor()->getName());
@@ -84,14 +84,14 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListInexistantReviewFromCompany()
     {
-        $reviews = $this->rs->getCompanyReviews(2);
+        $reviews = $this->reviewService->getCompanyReviews(2);
 
         $this->assertEmpty($reviews);
     }
 
     public function testAddReviewToCompany()
     {
-        $this->rs->reviewCompany(4, 'test company review', 1);
+        $this->reviewService->reviewCompany(4, 'test company review', 1);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -101,7 +101,7 @@ class ReviewServiceTest extends ApiTestCase
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
 
-        $this->rs->reviewCompany(404, 'test company review', 2);
+        $this->reviewService->reviewCompany(404, 'test company review', 2);
     }
 
     private function buildReviewService(): ReviewService
