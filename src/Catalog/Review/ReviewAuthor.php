@@ -46,6 +46,4 @@ class ReviewAuthor
     {
         return $this->email;
     }
-
-
 }
