@@ -91,7 +91,7 @@ class ReviewService extends AbstractService
 
     private function createProductReview(array $review): ProductReview
     {
-        return new ProductReview( //TODO: Refactorer pour mettre le createReviewAuthor et le reviewAuthor sur les products
+        return new ProductReview(
             $this->createReviewAuthor($review['author']),
             $review['message'],
             $review['postedAt'],
