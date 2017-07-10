@@ -42,7 +42,7 @@ class Review
         $this->rating = $rating;
     }
 
-    public function getauthor(): Author
+    public function getAuthor(): Author
     {
         return $this->author;
     }
