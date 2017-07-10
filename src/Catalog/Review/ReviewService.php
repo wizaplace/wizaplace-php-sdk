@@ -93,9 +93,9 @@ class ReviewService extends AbstractService
     {
         if (is_array($review['author'])) {
             //if $review['author'] is an array, then it's a companyReview
-            $author = $this->createReviewAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']);
+            $author = $this->createAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']);
         } else { // else it's a productReview
-            $author = $this->createReviewAuthor($review['author']);
+            $author = $this->createAuthor($review['author']);
         }
 
         return new Review(
@@ -106,8 +106,8 @@ class ReviewService extends AbstractService
         );
     }
 
-    private function createReviewAuthor(string $name, ?int $id = null, ?string $email = null): ReviewAuthor
+    private function createAuthor(string $name, ?int $id = null, ?string $email = null): Author
     {
-        return new ReviewAuthor($name, $id, $email);
+        return new Author($name, $id, $email);
     }
 }

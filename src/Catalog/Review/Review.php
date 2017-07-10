@@ -11,7 +11,7 @@ namespace Wizaplace\Catalog\Review;
 class Review
 {
     /**
-     * @var ReviewAuthor
+     * @var Author
      */
     private $author;
 
@@ -31,7 +31,7 @@ class Review
     private $rating;
 
     public function __construct(
-        ReviewAuthor $author,
+        Author $author,
         string $message,
         string $postedAt,
         int $rating
@@ -42,7 +42,7 @@ class Review
         $this->rating = $rating;
     }
 
-    public function getauthor(): ReviewAuthor
+    public function getauthor(): Author
     {
         return $this->author;
     }

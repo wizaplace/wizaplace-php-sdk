@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog\Review;
 
-class ReviewAuthor
+class Author
 {
     /**
      * @var string
