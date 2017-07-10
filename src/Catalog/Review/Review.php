@@ -31,7 +31,7 @@ class Review
     private $rating;
 
     public function __construct(
-        reviewAuthor $author,
+        ReviewAuthor $author,
         string $message,
         string $postedAt,
         int $rating
@@ -42,7 +42,7 @@ class Review
         $this->rating = $rating;
     }
 
-    public function getauthor(): reviewAuthor
+    public function getauthor(): ReviewAuthor
     {
         return $this->author;
     }
