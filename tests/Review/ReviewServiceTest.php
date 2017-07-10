@@ -32,6 +32,8 @@ class ReviewServiceTest extends ApiTestCase
 
         foreach ($reviews as $review) {
             $this->assertEquals('Administrateur Wizaplace', $review->getAuthor()->getName());
+            $this->assertInternalType('string', $review->getMessage());
+            $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
             $this->assertAttributeGreaterThanOrEqual(1, 'rating', $review);
             $this->assertAttributeLessThanOrEqual(5, 'rating', $review);
         }
@@ -72,6 +74,10 @@ class ReviewServiceTest extends ApiTestCase
 
         foreach ($reviews as $review) {
             $this->assertEquals('Paul Martin', $review->getAuthor()->getName());
+            $this->assertEquals(3, $review->getAuthor()->getId());
+            $this->assertEquals('user@wizaplace.com', $review->getAuthor()->getEmail());
+            $this->assertEquals('this is a test review', $review->getMessage());
+            $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
             $this->assertEquals(2, $review->getRating());
         }
     }
