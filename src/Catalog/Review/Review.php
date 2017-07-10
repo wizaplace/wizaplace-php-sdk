@@ -38,7 +38,7 @@ class Review
     ) {
         $this->author = $author;
         $this->message = $message;
-        $this->postedAt = new \DateTimeImmutable("@$postedAt");
+        $this->postedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $postedAt);
         $this->rating = $rating;
     }
 
