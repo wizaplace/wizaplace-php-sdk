@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 10 Jul 2017 13:46:05 GMT'
+            Date: 'Mon, 10 Jul 2017 14:04:50 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e2657b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e2657b'
+            X-Debug-Token: 3a42ca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3a42ca'
             Content-Length: '60'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"9Gg7MItVkb01UBnF2MQzTo71X7tyDAwj8RwTPTZs"}'
@@ -44,11 +44,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 10 Jul 2017 13:46:05 GMT'
+            Date: 'Mon, 10 Jul 2017 14:04:50 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ddeadc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ddeadc'
+            X-Debug-Token: 779eaa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/779eaa'
             Content-Length: '47'
             Content-Type: application/json
         body: '{"message":"Product \u0022404\u0022 not found"}'

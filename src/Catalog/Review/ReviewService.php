@@ -32,6 +32,9 @@ use Wizaplace\Exception\NotFound;
  */
 class ReviewService extends AbstractService
 {
+    const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
+    const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
+
     /**
      * @return Review[]
      * @throws NotFound
@@ -39,7 +42,7 @@ class ReviewService extends AbstractService
     public function getProductReviews(int $productId): array
     {
         try {
-            $reviews = $this->client->get('catalog/products/'.$productId.'/reviews');
+            $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
         } catch (\Exception $e) {
             throw new NotFound('This product has not been found');
         }
@@ -57,7 +60,7 @@ class ReviewService extends AbstractService
     {
         $review = ['author' => $author, 'message' => $message, 'rating' => $rating];
 
-        $this->client->post('catalog/products/'.$productId.'/reviews', ['json' => $review]);
+        $this->client->post(sprintf(self::PRODUCT_ENDPOINT, $productId), ['json' => $review]);
     }
 
     /**
@@ -67,7 +70,7 @@ class ReviewService extends AbstractService
     public function getCompanyReviews(int $companyId): array
     {
         try {
-            $reviews = $this->client->get('catalog/companies/'.$companyId.'/reviews');
+            $reviews = $this->client->get(sprintf(self::COMPANY_ENDPOINT, $companyId));
         } catch (\Exception $e) {
             throw new NotFound('This company has not been found');
         }
@@ -86,7 +89,7 @@ class ReviewService extends AbstractService
     {
         $review = ['message' => $message, 'rating' => $rating];
 
-        $this->client->post('catalog/companies/'.$companyId.'/reviews', ['json' => $review]);
+        $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), ['json' => $review]);
     }
 
     private function createReview(array $review): Review
