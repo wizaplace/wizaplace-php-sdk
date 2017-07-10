@@ -33,7 +33,7 @@ use Wizaplace\Exception\NotFound;
 class ReviewService extends AbstractService
 {
     /**
-     * @return ProductReview[]
+     * @return Review[]
      * @throws NotFound
      */
     public function getProductReviews(int $productId): array
@@ -46,7 +46,7 @@ class ReviewService extends AbstractService
 
         $productReviews = [];
         foreach ($reviews as $review) {
-            $productReview = $this->createProductReview($review);
+            $productReview = $this->createReview($review);
             $productReviews[] = $productReview;
         }
 
@@ -61,7 +61,7 @@ class ReviewService extends AbstractService
     }
 
     /**
-     * @return CompanyReview[]
+     * @return Review[]
      * @throws NotFound
      */
     public function getCompanyReviews(int $companyId): array
@@ -75,7 +75,7 @@ class ReviewService extends AbstractService
         $companyReviews = [];
         if (!empty($reviews['_embedded'])) {
             foreach ($reviews['_embedded'] as $review) {
-                $companyReviews[] = $this->createCompanyReview($review);
+                $companyReviews[] = $this->createReview($review);
             }
         }
 
@@ -89,23 +89,19 @@ class ReviewService extends AbstractService
         $this->client->post('catalog/companies/'.$companyId.'/reviews', ['json' => $review]);
     }
 
-    private function createProductReview(array $review): ProductReview
+    private function createReview(array $review): Review
     {
-        return new ProductReview(
-            $this->createReviewAuthor($review['author']),
+        if (is_array($review['author'])) {
+            //if $review['author'] is an array, then it's a companyReview
+            $author = $this->createReviewAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']);
+        } else { // else it's a productReview
+            $author = $this->createReviewAuthor($review['author']);
+        }
+        return new Review(
+            $author,
             $review['message'],
             $review['postedAt'],
             $review['rating']
-        );
-    }
-
-    private function createCompanyReview(array $review): CompanyReview
-    {
-        return new CompanyReview(
-            $this->createReviewAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']),
-            $review['message'],
-            $review['rating'],
-            $review['postedAt']
         );
     }
 

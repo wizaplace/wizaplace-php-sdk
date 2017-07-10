@@ -8,12 +8,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog\Review;
 
-class CompanyReview
+class Review
 {
     /**
      * @var ReviewAuthor
      */
-    private $reviewAuthor;
+    private $author;
 
     /**
      * @var string
@@ -21,30 +21,30 @@ class CompanyReview
     private $message;
 
     /**
-     * @var int
-     */
-    private $rating;
-
-    /**
      * @var \DateTimeImmutable
      */
     private $postedAt;
 
+    /**
+     * @var int
+     */
+    private $rating;
+
     public function __construct(
-        ReviewAuthor $reviewAuthor,
+        reviewAuthor $author,
         string $message,
-        int $rating,
-        string $postedAt
+        string $postedAt,
+        int $rating
     ) {
-        $this->reviewAuthor = $reviewAuthor;
+        $this->author = $author;
         $this->message = $message;
-        $this->rating = $rating;
         $this->postedAt = new \DateTimeImmutable("@$postedAt");
+        $this->rating = $rating;
     }
 
-    public function getReviewAuthor(): ReviewAuthor
+    public function getauthor(): reviewAuthor
     {
-        return $this->reviewAuthor;
+        return $this->author;
     }
 
     public function getMessage(): string
@@ -52,13 +52,13 @@ class CompanyReview
         return $this->message;
     }
 
-    public function getRating(): int
-    {
-        return $this->rating;
-    }
-
     public function getPostedAt(): \DateTimeImmutable
     {
         return $this->postedAt;
+    }
+
+    public function getRating(): int
+    {
+        return $this->rating;
     }
 }
