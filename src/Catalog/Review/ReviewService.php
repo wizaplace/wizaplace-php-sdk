@@ -32,8 +32,8 @@ use Wizaplace\Exception\NotFound;
  */
 class ReviewService extends AbstractService
 {
-    const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
-    const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
+    private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
+    private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
 
     /**
      * @return Review[]
