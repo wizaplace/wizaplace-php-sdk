@@ -46,7 +46,7 @@ class ReviewService extends AbstractService
             $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
-                throw new NotFound('This product has not been found');
+                throw new NotFound('This product has not been found', $e);
             }
             throw $e;
         }
@@ -80,7 +80,7 @@ class ReviewService extends AbstractService
             $reviews = $this->client->get(sprintf(self::COMPANY_ENDPOINT, $companyId));
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
-                throw new NotFound('This company has not been found');
+                throw new NotFound('This company has not been found', $e);
             }
             throw $e;
         }
