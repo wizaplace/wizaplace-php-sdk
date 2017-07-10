@@ -64,7 +64,7 @@ class ReviewService extends AbstractService
         $review = [
             'author' => $author,
             'message' => $message,
-            'rating' => $rating
+            'rating' => $rating,
         ];
 
         $this->client->post(sprintf(self::PRODUCT_ENDPOINT, $productId), ['json' => $review]);
@@ -78,8 +78,11 @@ class ReviewService extends AbstractService
     {
         try {
             $reviews = $this->client->get(sprintf(self::COMPANY_ENDPOINT, $companyId));
-        } catch (\Exception $e) {
-            throw new NotFound('This company has not been found');
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound('This company has not been found');
+            }
+            throw $e;
         }
 
         $companyReviews = [];
