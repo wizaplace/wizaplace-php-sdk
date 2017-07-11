@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 10 Jul 2017 14:04:52 GMT'
+            Date: 'Tue, 11 Jul 2017 13:15:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e297e2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e297e2'
-            Content-Length: '60'
+            X-Debug-Token: d46068
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d46068'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"9Gg7MItVkb01UBnF2MQzTo71X7tyDAwj8RwTPTZs"}'
+        body: '{"id":3,"apiKey":"qLtkH+Vcy0z\/6nUGB0XFdyoIdvRBQdtmssPsuZTS"}'
 -
     request:
         method: POST
@@ -32,9 +32,9 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.5'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token 9Gg7MItVkb01UBnF2MQzTo71X7tyDAwj8RwTPTZs'
+            Authorization: 'token qLtkH+Vcy0z/6nUGB0XFdyoIdvRBQdtmssPsuZTS'
             VCR-index: '1'
             Accept: null
         body: '{"message":"test company review","rating":2}'
@@ -44,11 +44,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 10 Jul 2017 14:04:53 GMT'
+            Date: 'Tue, 11 Jul 2017 13:15:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 472c97
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/472c97'
+            X-Debug-Token: 962b85
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/962b85'
             Content-Length: '47'
             Content-Type: application/json
         body: '{"message":"Company \u0022404\u0022 not found"}'
