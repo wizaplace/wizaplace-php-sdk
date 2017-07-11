@@ -25,6 +25,27 @@ class CatalogServiceTest extends ApiTestCase
         // @TODO: more assertions
     }
 
+    public function testGetProductWithComplexAttributes()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById(6);
+
+        $this->assertEquals(6, $product->getId());
+        $this->assertEquals('test-product-complex-attributes', $product->getSlug());
+
+        $attributes = $product->getAttributes();
+
+        // Check attributes group
+        $this->assertCount(9, $attributes);
+        $attributesGroup = $attributes[2];
+        $this->assertEquals('Groupe attributs', $attributesGroup->getName());
+        $this->assertNull($attributesGroup->getValue());
+        $this->assertCount(3, $attributesGroup->getChildren());
+
+        // @TODO: more assertions
+    }
+
     public function testGetNonExistingProductById()
     {
         $catalogService = $this->buildCatalogService();

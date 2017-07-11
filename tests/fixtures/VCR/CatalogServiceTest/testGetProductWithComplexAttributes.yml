@@ -1,0 +1,25 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 11 Jul 2017 09:08:51 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 9cdb81
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9cdb81'
+            Content-Length: '2482'
+            Content-Type: application/json
+        body: '{"id":6,"code":"6699913780143","supplierReference":"","name":"Test Product Complex Attributes","url":"http:\/\/wizaplace.loc\/test-category-slug\/test-product-complex-attributes.html","shortDescription":"","description":"","slug":"test-product-complex-attributes","minPrice":20,"greenTax":0,"isTransactional":true,"weight":1.23,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":9,"name":"Test company"}],"categoryPath":[{"id":5,"name":"Test Category Slug","slug":"test-category-slug"}],"declinations":[{"code":"6699913780143","supplierReference":"","price":20,"originalPrice":20,"crossedOutPrice":null,"prices":{"priceWithTaxes":20,"priceWithoutVat":19.59,"vat":0.41},"greenTax":0,"amount":15,"affiliateLink":null,"images":[]}],"attributes":[{"name":"Commentaire","value":"Commentaire #12M%M_\u00b009\u00a3*\/.?","children":[],"subfeatures":[],"imageUrls":[]},{"name":"Couleur","value":["Blanc","Rouge"],"children":[],"subfeatures":[],"imageUrls":[]},{"name":"Groupe attributs","value":null,"children":[{"name":"Compl\u00e9ment adresse","value":"Compl\u00e9ment d\u0027adresse pour la stepo","children":[],"subfeatures":[],"imageUrls":[]},{"name":"Couleur secondaire","value":["Orange"],"children":[],"subfeatures":[],"imageUrls":[]},{"name":"Pointure","value":["44"],"children":[],"subfeatures":[],"imageUrls":[]}],"subfeatures":[{"name":"Compl\u00e9ment adresse","value":"Compl\u00e9ment d\u0027adresse pour la stepo","children":[],"subfeatures":[],"imageUrls":[]},{"name":"Couleur secondaire","value":["Orange"],"children":[],"subfeatures":[],"imageUrls":[]},{"name":"Pointure","value":["44"],"children":[],"subfeatures":[],"imageUrls":[]}],"imageUrls":[]},{"name":"Taille","value":["M"],"children":[],"subfeatures":[],"imageUrls":[]},{"name":"Free attribute multiple","value":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"children":[],"subfeatures":[],"imageUrls":null},{"name":"Free attribute simple","value":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"children":[],"subfeatures":[],"imageUrls":null},{"name":"Free attribute simple mais en tableau","value":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"children":[],"subfeatures":[],"imageUrls":null},{"name":"Free attribute integer ?","value":[92254094],"children":[],"subfeatures":[],"imageUrls":null},{"name":"Free attribute integer mais en tableau","value":["la m\u00eame histoire par ici"],"children":[],"subfeatures":[],"imageUrls":null}]}'
