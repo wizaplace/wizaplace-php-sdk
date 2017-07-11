@@ -8,15 +8,13 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-use Wizaplace\Catalog\Company;
-
 class BasketCompanyGroup
 {
     /** @var string */
     private $id;
 
-    /** @var Company */
-    private $company;
+    /** @var BasketCompany */
+    private $basketCompany;
 
     /** @var BasketShippingGroup[] */
     private $shippingGroups;
@@ -24,7 +22,7 @@ class BasketCompanyGroup
     public function __construct(array $data)
     {
         //$this->id = $data['id'];
-        $this->company = new Company($data['company']);
+        $this->basketCompany = new BasketCompany($data['basketCompany']);
 
         $this->shippingGroups = array_map(
             function ($shippingGroup) {
@@ -39,9 +37,9 @@ class BasketCompanyGroup
         return $this->id;
     }
 
-    public function getCompany(): Company
+    public function getBasketCompany(): BasketCompany
     {
-        return $this->company;
+        return $this->basketCompany;
     }
 
     /**
