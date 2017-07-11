@@ -21,11 +21,11 @@ class ProductAttribute
 
     public function __construct(array $data)
     {
-        $this->name = $data['name'];
+        $this->name = (string) $data['name'];
         $this->value = $data['value'];
         $this->imageUrls = $data['imageUrls'];
         $this->children = array_map(
-            function ($childrenData) {
+            function (array $childrenData) : self {
                 return new self($childrenData);
             },
             $data['children']
@@ -45,7 +45,7 @@ class ProductAttribute
         return $this->name;
     }
 
-    public function getValue(): array
+    public function getValue(): ?array
     {
         return $this->value;
     }
