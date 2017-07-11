@@ -29,9 +29,9 @@ class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $product = $catalogService->getProductById(6);
+        $product = $catalogService->getProductById(7);
 
-        $this->assertEquals(6, $product->getId());
+        $this->assertEquals(7, $product->getId());
         $this->assertEquals('test-product-complex-attributes', $product->getSlug());
 
         $attributes = $product->getAttributes();
