@@ -27,26 +27,25 @@ class CompanyDetail
     /** @var string */
     private $slug;
 
-    /** @var Image */
+    /** @var null|Image */
     private $image;
 
-    /** @var Location */
+    /** @var null|Location */
     private $location;
 
     public function __construct($data)
     {
-        //image & location can be null right now, setting those to default value if they are null
-        $image = (isset($data['image'])) ? $data['image'] : [];
-        $latitude = (isset($data['location']['latitude'])) ? $data['location']['latitude'] : 0;
-        $longitude = (isset($data['location']['longitude'])) ? $data['location']['longitude'] : 0;
-
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->description = $data['description'];
         $this->professional = $data['professional'];
         $this->slug = $data['slug'];
-        $this->image = new Image($image);
-        $this->location = new Location($latitude, $longitude);
+        $this->image = ($data['image'] !== null) ? new Image($data['image']) : null;
+        if ($data['location'] !== null) {
+            $this->location = new Location($data['location']['latitude'], $data['location']['longitude']);
+        } else {
+            $this->location = null;
+        }
     }
 
     public function getId(): int
@@ -74,12 +73,12 @@ class CompanyDetail
         return $this->slug;
     }
 
-    public function getImage(): Image
+    public function getImage(): ?Image
     {
         return $this->image;
     }
 
-    public function getLocation(): Location
+    public function getLocation(): ?Location
     {
         return $this->location;
     }
