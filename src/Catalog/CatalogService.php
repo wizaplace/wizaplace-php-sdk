@@ -68,4 +68,19 @@ class CatalogService extends AbstractService
 
         return new SearchResult($results);
     }
+
+    public function getCompanyById(int $id): Company
+    {
+        try {
+            $response = $this->client->get("catalog/companies/{$id}");
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Company #{$id} not found.", $exception);
+            } else {
+                throw $exception;
+            }
+        }
+
+        return new Company($response);
+    }
 }
