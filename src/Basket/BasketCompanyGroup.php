@@ -22,7 +22,7 @@ class BasketCompanyGroup
     public function __construct(array $data)
     {
         //$this->id = $data['id'];
-        $this->basketCompany = new BasketCompany($data['basketCompany']);
+        $this->basketCompany = new BasketCompany($data['company']);
 
         $this->shippingGroups = array_map(
             function ($shippingGroup) {
