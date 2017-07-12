@@ -69,6 +69,20 @@ class CatalogServiceTest extends ApiTestCase
         // @TODO: more assertions
     }
 
+    public function testGetCompanyById()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $company = $catalogService->getCompanyById(1);
+
+        $this->assertEquals(1, $company->getId());
+        $this->assertEquals('Marchand de test', $company->getName());
+        $this->assertEquals('marchand-de-test', $company->getSlug());
+        $this->assertEquals('Marchand de test', $company->getDescription());
+        $this->assertEquals(false, $company->isProfessional());
+        $this->assertEquals(null, $company->getLocation());
+    }
+
     private function buildCatalogService(): CatalogService
     {
         return new CatalogService($this->buildApiClient());
