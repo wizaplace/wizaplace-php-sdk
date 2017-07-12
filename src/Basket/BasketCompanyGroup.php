@@ -37,7 +37,7 @@ class BasketCompanyGroup
         return $this->id;
     }
 
-    public function getBasketCompany(): BasketCompany
+    public function getCompany(): BasketCompany
     {
         return $this->basketCompany;
     }
