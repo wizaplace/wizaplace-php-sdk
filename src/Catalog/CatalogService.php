@@ -69,7 +69,7 @@ class CatalogService extends AbstractService
         return new SearchResult($results);
     }
 
-    public function getCompanyById(int $id): Company
+    public function getCompanyById(int $id): CompanyDetail
     {
         try {
             $response = $this->client->get("catalog/companies/{$id}");
@@ -81,6 +81,6 @@ class CatalogService extends AbstractService
             }
         }
 
-        return new Company($response);
+        return new CompanyDetail($response);
     }
 }
