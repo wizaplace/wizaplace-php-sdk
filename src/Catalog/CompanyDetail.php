@@ -33,7 +33,7 @@ class CompanyDetail
     /** @var null|Location */
     private $location;
 
-    public function __construct($data)
+    public function __construct(array $data)
     {
         $this->id = (int) $data['id'];
         $this->name = (string) $data['name'];
