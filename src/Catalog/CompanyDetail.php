@@ -35,11 +35,11 @@ class CompanyDetail
 
     public function __construct($data)
     {
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->description = $data['description'];
-        $this->professional = $data['professional'];
-        $this->slug = $data['slug'];
+        $this->id = (int) $data['id'];
+        $this->name = (string) $data['name'];
+        $this->description = (string) $data['description'];
+        $this->professional = (bool) $data['professional'];
+        $this->slug = (string) $data['slug'];
         $this->image = ($data['image'] !== null) ? new Image($data['image']) : null;
         if ($data['location'] !== null) {
             $this->location = new Location($data['location']['latitude'], $data['location']['longitude']);
