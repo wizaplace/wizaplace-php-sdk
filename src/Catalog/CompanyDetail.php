@@ -33,6 +33,9 @@ class CompanyDetail
     /** @var null|Location */
     private $location;
 
+    /** @var null|integer */
+    private $averageRating;
+
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];
@@ -46,6 +49,7 @@ class CompanyDetail
         } else {
             $this->location = null;
         }
+        $this->averageRating = $data['averageRating'];
     }
 
     public function getId(): int
@@ -81,5 +85,10 @@ class CompanyDetail
     public function getLocation(): ?Location
     {
         return $this->location;
+    }
+
+    public function getAverageRating(): ?int
+    {
+        return $this->averageRating;
     }
 }
