@@ -12,7 +12,7 @@ class ProductAttribute
 {
     /** @var string */
     private $name;
-    /** @var string[] */
+    /** @var null|string|array */
     private $value;
     /** @var ProductAttribute[] */
     private $children;
@@ -23,7 +23,7 @@ class ProductAttribute
     {
         $this->name = (string) $data['name'];
         $this->value = $data['value'];
-        $this->imageUrls = $data['imageUrls'];
+        $this->imageUrls = $data['imageUrls'] ?? [];
         $this->children = array_map(
             function (array $childrenData) : self {
                 return new self($childrenData);
@@ -45,7 +45,10 @@ class ProductAttribute
         return $this->name;
     }
 
-    public function getValue(): ?array
+    /**
+     * @return null|string|array
+     */
+    public function getValue()
     {
         return $this->value;
     }
