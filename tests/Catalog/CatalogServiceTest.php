@@ -77,6 +77,13 @@ class CatalogServiceTest extends ApiTestCase
         $product = $products[0];
         $this->assertEquals(1, $product->getId());
         $this->assertEquals('test-product-slug', $product->getSlug());
+
+        $pagination = $result->getPagination();
+        $this->assertEquals(1, $pagination->getNbPages());
+        $this->assertEquals(1, $pagination->getNbResults());
+        $this->assertEquals(1, $pagination->getPage());
+        $this->assertEquals(12, $pagination->getResultsPerPage());
+
         // @TODO: more assertions
     }
 
