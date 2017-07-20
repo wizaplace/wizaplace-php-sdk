@@ -9,10 +9,61 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Basket;
 
 use Wizaplace\Basket\BasketService;
+use Wizaplace\Order\OrderService;
 use Wizaplace\Tests\ApiTestCase;
 
+/**
+ * @see BasketService
+ */
 class BasketServiceTest extends ApiTestCase
 {
+    public function testFullCheckout()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+
+        $basketService = new BasketService($apiClient);
+        $orderService = new OrderService($apiClient);
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
+        $this->assertEquals(1, $newQuantity);
+
+        $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
+        $this->assertEquals(2, $newQuantity);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $shippings = [];
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $availableShippings = $shippingGroup->getShippings();
+                $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
+            }
+        }
+        $basketService->selectShippings($basketId, $shippings);
+
+        $availablePayments = $basketService->getPayments($basketId);
+        $selectedPayment = reset($availablePayments)->getId();
+        $redirectUrl = 'https://demo.loc/order/confirm';
+
+        $paymentInformation = $basketService->checkout($basketId, $selectedPayment, true, $redirectUrl);
+        $orders = $paymentInformation->getOrders();
+        $this->assertCount(1, $orders);
+
+        $order = $orderService->getOrder($orders[0]['id']);
+        $this->assertEquals($orders[0]['id'], $order->getId());
+        $this->assertCount(1, $order->getOrderItem());
+        $this->assertEquals('TNT Express', $order->getShippingName());
+        $this->assertEquals('STANDBY_BILLING', $order->getStatus());
+        $this->assertEquals(40.0, $order->getTotal());
+        $this->assertEquals(40.0, $order->getSubtotal());
+        $this->assertEquals('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
+    }
+
     public function testCreatingABasket()
     {
         $basketService = $this->buildAuthenticatedBasketService();
