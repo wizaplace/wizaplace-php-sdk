@@ -43,6 +43,17 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertNull($attributesGroup->getValue());
         $this->assertCount(3, $attributesGroup->getChildren());
 
+        // Bulk checks on all attributes
+        foreach ($attributes as $attribute) {
+            $value = $attribute->getValue();
+            if (!is_null($value) && !is_string($value) && !is_array($value)) {
+                throw new \TypeError('\Wizaplace\Catalog\ProductAttribute::getValue must return null, a string, or an array. Got '.var_export($value, true));
+            }
+            $this->assertNotEmpty($attribute->getName());
+            $attribute->getChildren();
+            $attribute->getImageUrls();
+        }
+
         // @TODO: more assertions
     }
 
