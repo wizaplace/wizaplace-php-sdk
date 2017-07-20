@@ -23,7 +23,7 @@ class UserServiceTest extends ApiTestCase
         $userService = new UserService($client);
 
         // create new user
-        $userId = (int) $userService->register($userEmail, $userPassword);
+        $userId = $userService->register($userEmail, $userPassword);
 
         // authenticate with newly created user
         $client->authenticate($userEmail, $userPassword);
