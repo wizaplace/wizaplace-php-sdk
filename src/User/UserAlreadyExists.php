@@ -8,6 +8,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\User;
 
+use Throwable;
+
 class UserAlreadyExists extends \Exception
 {
+    public function __construct(Throwable $previous = null)
+    {
+        parent::__construct("User already exists", 409, $previous);
+    }
 }
