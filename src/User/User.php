@@ -29,8 +29,8 @@ class User
         $this->email = (string) $data['email'];
         $this->firstname = (string) $data['firstName'];
         $this->lastname = (string) $data['lastName'];
-        $this->billingAddress = $data['addresses']['billing'];
-        $this->shippingAddress = $data['addresses']['shipping'];
+        $this->billingAddress = $data['addresses']['billing'] ?? null;
+        $this->shippingAddress = $data['addresses']['shipping'] ?? null;
     }
 
     public function getId(): int
