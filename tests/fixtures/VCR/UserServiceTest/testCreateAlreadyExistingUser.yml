@@ -1,0 +1,28 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/x-www-form-urlencoded
+            VCR-index: '0'
+            Accept: null
+        body: 'email=user%40wizaplace.com&password=whatever&firstName=&lastName='
+    response:
+        status:
+            http_version: '1.1'
+            code: '409'
+            message: Conflict
+        headers:
+            Date: 'Thu, 20 Jul 2017 15:16:05 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: cf1f41
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf1f41'
+            Content-Length: '26'
+            Content-Type: application/json
+        body: '"The user already exists."'

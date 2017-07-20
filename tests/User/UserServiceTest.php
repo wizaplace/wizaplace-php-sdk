@@ -8,8 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\User;
 
-use Wizaplace\User\UserService;
 use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\User\UserAlreadyExists;
+use Wizaplace\User\UserService;
 
 class UserServiceTest extends ApiTestCase
 {
@@ -32,5 +33,15 @@ class UserServiceTest extends ApiTestCase
 
         $this->assertNotNull($user, 'User exists');
         $this->assertEquals($user->getEmail(), $userEmail);
+    }
+
+    public function testCreateAlreadyExistingUser()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create already existing user
+        $this->expectException(UserAlreadyExists::class);
+        $userService->register('user@wizaplace.com', 'whatever');
     }
 }
