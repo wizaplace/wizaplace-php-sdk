@@ -18,7 +18,6 @@ class UserServiceTest extends ApiTestCase
         $userEmail = 'user@example.com';
         $userPassword = 'password';
 
-        // authenticate
         $client = $this->buildApiClient();
         $userService = new UserService($client);
 
