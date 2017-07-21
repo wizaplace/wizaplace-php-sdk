@@ -30,7 +30,7 @@ class ReturnItem
         $this->amount = $data['amount'];
     }
 
-    public function getProduct(): string
+    public function getProductName(): string
     {
         return $this->product;
     }

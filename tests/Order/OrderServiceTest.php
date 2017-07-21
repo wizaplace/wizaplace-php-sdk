@@ -10,10 +10,54 @@ namespace Wizaplace\Tests\Order;
 
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Order\OrderService;
+use Wizaplace\Order\ReturnItem;
 use Wizaplace\Tests\ApiTestCase;
 
+/**
+ * @see OrderService
+ */
 class OrderServiceTest extends ApiTestCase
 {
+    public function testGetOrder()
+    {
+        $order = $this->buildOrderService()->getOrder(1);
+
+        $this->assertEquals(1, $order->getId());
+    }
+
+    public function testCreateOrderReturn()
+    {
+        $orderService = $this->buildOrderService();
+
+        $returnId = $orderService->createOrderReturn(1, "Broken on arrival", [
+            new ReturnItem([
+                'declinationId' => '1_0',
+                'reason' => 1,
+                'amount' => 1,
+                // the following fields are unused but required...
+                'product' => 'IDK',
+                'price' => -1,
+            ]),
+        ]);
+        $this->assertGreaterThan(0, $returnId);
+
+        $return = $orderService->getOrderReturn($returnId);
+        $this->assertEquals($returnId, $return->getId());
+        $this->assertEquals(1, $return->getOrderId());
+        $this->assertEquals('R', $return->getStatus());
+        $this->assertEquals('Broken on arrival', $return->getComments());
+        $this->assertGreaterThan(1500000000, $return->getCreatedAt()->getTimestamp());
+        $returnItems = $return->getItems();
+        $this->assertCount(1, $returnItems);
+        /** @var ReturnItem $returnItem */
+        $returnItem = reset($returnItems);
+        $this->assertEquals(1, $returnItem->getAmount());
+        $this->assertEquals('1_0', $returnItem->getDeclinationId());
+        $this->assertEquals(20.0, $returnItem->getPrice());
+        $this->assertEquals('optio corporis similique voluptatum', $returnItem->getProductName());
+        $this->assertEquals(1, $returnItem->getReason());
+    }
+
     public function testGetOrdersWithoutAuthentication()
     {
         $this->expectException(AuthenticationRequired::class);
@@ -42,6 +86,14 @@ class OrderServiceTest extends ApiTestCase
     {
         $this->expectException(AuthenticationRequired::class);
         $this->buildOrderServiceWithoutAuthentication()->createOrderReturn(1, "", []);
+    }
+
+    private function buildOrderService(): OrderService
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+
+        return new OrderService($apiClient);
     }
 
     private function buildOrderServiceWithoutAuthentication(): OrderService

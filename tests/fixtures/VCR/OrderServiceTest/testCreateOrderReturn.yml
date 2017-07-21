@@ -1,0 +1,79 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 21 Jul 2017 07:22:39 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: ee6c5b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ee6c5b'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"RzTfKOJ8qqh106tEZfhLphDOMQuQhouOtnyfe4Vp"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/user/orders/1/returns'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/x-www-form-urlencoded
+            Authorization: 'token RzTfKOJ8qqh106tEZfhLphDOMQuQhouOtnyfe4Vp'
+            VCR-index: '1'
+            Accept: null
+        body: 'userId=3&comments=Broken+on+arrival&items%5B0%5D%5BdeclinationId%5D=1_0&items%5B0%5D%5Breason%5D=1&items%5B0%5D%5Bamount%5D=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 21 Jul 2017 07:22:39 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 51d17f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/51d17f'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"returnId":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/returns/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token RzTfKOJ8qqh106tEZfhLphDOMQuQhouOtnyfe4Vp'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 21 Jul 2017 07:22:39 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: c8714e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c8714e'
+            Content-Length: '243'
+            Content-Type: application/json
+        body: '{"id":1,"orderId":1,"userId":3,"createdAt":"2017-07-21T09:22:39+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"optio corporis similique voluptatum","price":20,"amount":1,"reason":1}}}'
