@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Jul 2017 15:32:44 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 6916ea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6916ea'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"9Kdz42kfNPxkZM\/PzQYDgqaHjQveJGYRDYsadYpy"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token 9Kdz42kfNPxkZM/PzQYDgqaHjQveJGYRDYsadYpy'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Jul 2017 15:32:44 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: a194ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a194ed'
+            Content-Length: '635'
+            Content-Type: application/json
+        body: '{"id":1,"basketId":"3c3a0d90-0f6a-4362-a048-37f0f9e85d1b","companyId":4,"total":20,"taxTotal":0.41,"subtotal":20,"timestamp":1500559589,"status":"STANDBY_BILLING","shippingName":"TNT Express","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"optio corporis similique voluptatum","productCode":"6086375420678","price":20,"amount":1}]}'

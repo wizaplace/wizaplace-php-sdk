@@ -17,7 +17,7 @@ class OrderReturn
     /** @var int */
     private $userId;
     /** @var \DateTimeImmutable */
-    private $timestamp;
+    private $createdAt;
     /** @var string */
     private $comments;
     /** @var string */
@@ -30,10 +30,13 @@ class OrderReturn
         $this->id = $data['id'];
         $this->orderId = $data['orderId'];
         $this->userId = $data['userId'];
-        $this->timestamp = new \DateTimeImmutable($data['timestamp']);
+        $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']);
         $this->comments = $data['comments'];
         $this->status = $data['status'];
-        $this->items = array_map(function ($item) {
+        $this->items = array_map(function (array $item) : ReturnItem {
+            $item['productName'] = $item['product'];
+            unset($item['product']);
+
             return new ReturnItem($item);
         }, $data['items']);
     }
@@ -53,9 +56,9 @@ class OrderReturn
         return $this->id;
     }
 
-    public function getTimestamp(): \DateTimeImmutable
+    public function getCreatedAt(): \DateTimeImmutable
     {
-        return $this->timestamp;
+        return $this->createdAt;
     }
 
     public function getComments(): string

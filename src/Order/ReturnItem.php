@@ -13,7 +13,7 @@ class ReturnItem
     /** @var string */
     private $declinationId;
     /** @var string */
-    private $product;
+    private $productName;
     /** @var float */
     private $price;
     /** @var int */
@@ -23,16 +23,16 @@ class ReturnItem
 
     public function __construct(array $data)
     {
-        $this->declinationId = $data['declinationId'];
-        $this->product = $data['product'];
+        $this->declinationId = (string) $data['declinationId'];
+        $this->productName = (string) $data['productName'];
         $this->price = $data['price'];
         $this->reason = $data['reason'];
         $this->amount = $data['amount'];
     }
 
-    public function getProduct(): string
+    public function getProductName(): string
     {
-        return $this->product;
+        return $this->productName;
     }
 
     public function getPrice(): float

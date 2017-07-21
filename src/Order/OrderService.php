@@ -55,7 +55,7 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return new OrderReturn($this->client->get("user/returns/{$returnId}", []));
+        return new OrderReturn($this->client->get("user/orders/returns/{$returnId}", []));
     }
 
     /**
