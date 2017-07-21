@@ -35,7 +35,7 @@ class OrderServiceTest extends ApiTestCase
                 'reason' => 1,
                 'amount' => 1,
                 // the following fields are unused but required...
-                'product' => 'IDK',
+                'productName' => 'IDK',
                 'price' => -1,
             ]),
         ]);
