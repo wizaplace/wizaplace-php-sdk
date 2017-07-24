@@ -18,9 +18,9 @@ endif
 
 stan:
 ifndef BUILD_ID
-	./vendor/bin/phpstan analyse -c phpstan.neon -l 5 src tests
+	./vendor/bin/phpstan analyse -l 5 src tests
 else
-	./vendor/bin/phpstan --no-interaction analyse -c phpstan.neon -l 5 src tests
+	./vendor/bin/phpstan --no-interaction analyse -l 5 src tests
 endif
 
 test:
