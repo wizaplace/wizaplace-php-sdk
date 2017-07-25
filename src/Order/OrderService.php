@@ -80,18 +80,16 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Returns all the return types that can be used to return an order.
+     * Returns all the return reasons that can be used to return an order.
      *
-     * @return ReturnType[]
+     * @return ReturnReason[]
      */
-    public function getReturnTypes(): array
+    public function getReturnReasons(): array
     {
-        $returnTypes = array_map(
-            ['Wizaplace\Order\ReturnType', 'fromApiData'],
-            $this->client->get('orders/returns/types')
+        return array_map(
+            ['Wizaplace\Order\ReturnReason', 'fromApiData'],
+            $this->client->get('orders/returns/reasons')
         );
-
-        return $returnTypes;
     }
 
     /**
