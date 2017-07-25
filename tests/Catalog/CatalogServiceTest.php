@@ -22,7 +22,20 @@ class CatalogServiceTest extends ApiTestCase
 
         $this->assertEquals(1, $product->getId());
         $this->assertEquals('test-product-slug', $product->getSlug());
-        // @TODO: more assertions
+        $this->assertEquals('optio corporis similique voluptatum', $product->getName());
+        $this->assertEquals('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(1, $product->getCategoryPath());
+        $this->assertCount(1, $product->getCategorySlugs());
+        $this->assertEquals('6086375420678', $product->getCode());
+        $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
+        $this->assertEquals('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
+        $this->assertEquals(20, $product->getMinPrice());
+        $this->assertCount(1, $product->getCompanies());
+        $this->assertCount(1, $product->getShippings());
+        $this->assertEquals('', $product->getShortDescription());
+        $this->assertEquals('', $product->getSupplierReference());
     }
 
     public function testGetProductWithComplexAttributes()
