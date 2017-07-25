@@ -142,6 +142,8 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('Test company', $company->getName());
         $this->assertEquals('test-company', $company->getSlug());
         $this->assertEquals('Test company', $company->getDescription());
+        $this->assertEquals('40 rue Laure Diebold', $company->getAdress());
+        $this->assertEquals('01 02 03 04 05', $company->getPhoneNumber());
         $this->assertEquals(true, $company->isProfessional());
         $this->assertEquals(null, $company->getLocation());
         $this->assertEquals(2, $company->getAverageRating());
