@@ -26,11 +26,13 @@ class Payment
 
     public function __construct(array $data)
     {
-        $this->id = $data['id'];
-        $this->name = $data['name'];
-        $this->description = $data['description'];
-        $this->position = $data['position'];
-        $this->image = $data['image'];
+        $this->id = (int) $data['id'];
+        $this->name = (string) $data['name'];
+        $this->description = (string) $data['description'];
+        $this->position = (int) $data['position'];
+        if (isset($data['image'])) {
+            $this->image = new Image($data['image']);
+        }
     }
 
     public function getId(): int
@@ -53,7 +55,7 @@ class Payment
         return $this->position;
     }
 
-    public function getImage(): Image
+    public function getImage(): ?Image
     {
         return $this->image;
     }

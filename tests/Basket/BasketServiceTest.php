@@ -60,6 +60,14 @@ class BasketServiceTest extends ApiTestCase
         $basketService->selectShippings($basketId, $shippings);
 
         $availablePayments = $basketService->getPayments($basketId);
+        foreach ($availablePayments as $availablePayment) {
+            // Here we mostly check the payments were properly unserialized
+            $availablePayment->getImage();
+            $availablePayment->getDescription();
+            $this->assertNotEmpty($availablePayment->getName());
+            $this->assertGreaterThan(0, $availablePayment->getId());
+            $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());
+        }
         $selectedPayment = reset($availablePayments)->getId();
         $redirectUrl = 'https://demo.loc/order/confirm';
 
