@@ -12,6 +12,9 @@ use Wizaplace\Catalog\CatalogService;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
+/**
+ * @see CatalogService
+ */
 class CatalogServiceTest extends ApiTestCase
 {
     public function testGetProductById()
@@ -27,7 +30,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getDeclinations());
         $this->assertCount(0, $product->getAttributes());
         $this->assertCount(1, $product->getCategoryPath());
-        $this->assertCount(1, $product->getCategorySlugs());
+        $this->assertEquals(['informatique'], $product->getCategorySlugs());
         $this->assertEquals('6086375420678', $product->getCode());
         $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
         $this->assertEquals('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
@@ -36,6 +39,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getShippings());
         $this->assertEquals('', $product->getShortDescription());
         $this->assertEquals('', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
     }
 
     public function testGetProductWithComplexAttributes()
@@ -90,14 +94,29 @@ class CatalogServiceTest extends ApiTestCase
         $product = $products[0];
         $this->assertEquals(1, $product->getId());
         $this->assertEquals('test-product-slug', $product->getSlug());
+        $this->assertTrue($product->isAvailable());
+        $this->assertGreaterThan(1400000000, $product->getCreatedAt()->getTimestamp());
+        $this->assertEquals(3, $product->getAverageRating());
+        $this->assertEquals('optio corporis similique voluptatum', $product->getName());
+        $this->assertEquals(['N'], $product->getCondition());
+        $this->assertEquals(1, $product->getDeclinationCount());
+        $this->assertEquals('', $product->getSubtitle());
+        $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getUpdatedAt()->getTimestamp());
+        $this->assertEquals('', $product->getAffiliateLink());
+        $this->assertEquals('/informatique/test-product-slug.html', $product->getUrl());
+        $this->assertEquals(['informatique'], $product->getCategorySlugs());
+        $this->assertCount(1, $product->getCategoryPath());
+        $this->assertNull($product->getMainImage());
+        $this->assertEquals(20, $product->getMinimumPrice());
+        $this->assertNull($product->getCrossedOutPrice());
+        $this->assertCount(0, $product->getAttributes());
+
 
         $pagination = $result->getPagination();
         $this->assertEquals(1, $pagination->getNbPages());
         $this->assertEquals(1, $pagination->getNbResults());
         $this->assertEquals(1, $pagination->getPage());
         $this->assertEquals(12, $pagination->getResultsPerPage());
-
-        // @TODO: more assertions
     }
 
     public function testGetCompanyById()

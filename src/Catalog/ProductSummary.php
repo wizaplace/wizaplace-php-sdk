@@ -147,6 +147,7 @@ class ProductSummary
     }
 
     /**
+     * @TODO: document
      * @return array
      */
     public function getCondition(): array
