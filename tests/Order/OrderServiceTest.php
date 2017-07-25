@@ -88,6 +88,16 @@ class OrderServiceTest extends ApiTestCase
         $this->buildOrderServiceWithoutAuthentication()->createOrderReturn(1, "", []);
     }
 
+    public function testGetReturnReasons()
+    {
+        $returnTypes = $this->buildOrderServiceWithoutAuthentication()->getReturnReasons();
+        $this->assertCount(7, $returnTypes);
+
+        $this->assertEquals(3, $returnTypes[0]->getId());
+        $this->assertEquals('Colis arrivé en mauvais état, endommagé', $returnTypes[0]->getName());
+        $this->assertEquals(10, $returnTypes[0]->getPosition());
+    }
+
     private function buildOrderService(): OrderService
     {
         $apiClient = $this->buildApiClient();

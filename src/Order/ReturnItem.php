@@ -45,6 +45,10 @@ class ReturnItem
         return $this->declinationId;
     }
 
+    /**
+     * @see \Wizaplace\Order\OrderService::getReturnReasons
+     * @return int the reason's ID
+     */
     public function getReason(): int
     {
         return $this->reason;
