@@ -42,6 +42,19 @@ class BasketServiceTest extends ApiTestCase
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
+
+                foreach ($shippingGroup->getItems() as $basketItem) {
+                    // Here we mostly check the items were properly unserialized
+                    $this->assertGreaterThan(0, $basketItem->getProductId());
+                    $this->assertGreaterThan(0, $basketItem->getQuantity());
+                    $this->assertNotEmpty($basketItem->getProductName());
+                    $this->assertNotEmpty($basketItem->getProductUrl());
+                    $this->assertNotEmpty($basketItem->getDeclinationId());
+                    $this->assertGreaterThan(0, $basketItem->getIndividualPrice());
+                    $this->assertGreaterThanOrEqual($basketItem->getIndividualPrice(), $basketItem->getTotal());
+                    $basketItem->getMainImage();
+                    $basketItem->getCrossedOutPrice();
+                }
             }
         }
         $basketService->selectShippings($basketId, $shippings);
