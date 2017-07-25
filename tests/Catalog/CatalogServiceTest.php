@@ -117,6 +117,19 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(1, $pagination->getNbResults());
         $this->assertEquals(1, $pagination->getPage());
         $this->assertEquals(12, $pagination->getResultsPerPage());
+
+        $facets = $result->getFacets();
+        $this->assertCount(9, $facets);
+        $this->assertEquals('categories', $facets[0]->getName());
+        $this->assertEquals('Catégorie', $facets[0]->getLabel());
+        $this->assertEquals([
+            3 => [
+            'label' => 'Informatique',
+            'count' => '1',
+            'position' => 0,
+            ],
+        ], $facets[0]->getValues());
+        $this->assertFalse($facets[0]->isIsNumeric());
     }
 
     public function testGetCompanyById()
