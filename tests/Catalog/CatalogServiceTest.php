@@ -40,6 +40,9 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('', $product->getShortDescription());
         $this->assertEquals('', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
+        $this->assertEquals(0, $product->getGreenTax());
+        $this->assertEquals(1.23, $product->getWeight());
+        $this->assertEquals(3, $product->getAverageRating());
     }
 
     public function testGetProductWithComplexAttributes()
@@ -50,6 +53,9 @@ class CatalogServiceTest extends ApiTestCase
 
         $this->assertEquals(7, $product->getId());
         $this->assertEquals('test-product-complex-attributes', $product->getSlug());
+        $this->assertEquals(1.23, $product->getWeight());
+        $this->assertEquals(0, $product->getGreenTax());
+        $this->assertEquals(null, $product->getAverageRating());
 
         $attributes = $product->getAttributes();
 

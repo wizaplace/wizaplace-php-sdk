@@ -37,6 +37,9 @@ class Product
     /** @var float */
     private $minPrice;
 
+    /** @var float */
+    private $greenTax;
+
     /** @var ProductAttribute[] */
     private $attributes;
 
@@ -45,6 +48,12 @@ class Product
 
     /** @var bool */
     private $isTransactional;
+
+    /** @var float */
+    private $weight;
+
+    /** @var null|float */
+    private $averageRating;
 
     /** @var Shipping[] */
     private $shippings;
@@ -69,6 +78,7 @@ class Product
         $this->description = $data['description'];
         $this->slug = (string) $data['slug'];
         $this->minPrice = (float) $data['minPrice'];
+        $this->greenTax = (float) $data['greenTax'];
         $this->attributes = array_map(
             function (array $attributeData) {
                 return new ProductAttribute($attributeData);
@@ -77,6 +87,10 @@ class Product
         );
         $this->creationDate = new \DateTimeImmutable($data['creationDate'] ?? '-6days');
         $this->isTransactional = $data['isTransactional'];
+        $this->weight = $data['weight'];
+        if (isset($data['averageRating'])) {
+            $this->averageRating = $data['averageRating'];
+        }
         $this->shippings = array_map(
             function ($shippingData) {
                 return new Shipping($shippingData);
@@ -148,6 +162,11 @@ class Product
         return $this->minPrice;
     }
 
+    public function getGreenTax(): float
+    {
+        return $this->greenTax;
+    }
+
     /**
      * @return ProductAttribute[]
      */
@@ -164,6 +183,16 @@ class Product
     public function isTransactional(): bool
     {
         return $this->isTransactional;
+    }
+
+    public function getWeight(): float
+    {
+        return $this->weight;
+    }
+
+    public function getAverageRating(): ?float
+    {
+        return $this->averageRating;
     }
 
     /**
