@@ -75,7 +75,7 @@ class CompanyDetail
         return $this->description;
     }
 
-    public function getAdress(): string
+    public function getAddress(): string
     {
         return $this->address;
     }
