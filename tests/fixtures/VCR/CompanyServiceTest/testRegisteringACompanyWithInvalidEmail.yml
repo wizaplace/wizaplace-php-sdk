@@ -1,0 +1,55 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 27 Jul 2017 08:04:32 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: c6804c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6804c'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/json
+            Authorization: 'token 7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"ACME Test Inc","email":"acme@@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Date: 'Thu, 27 Jul 2017 08:04:33 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: c90f8d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c90f8d'
+            Content-Length: '74'
+            Connection: close
+            Content-Type: application/json
+        body: '{"message":"Failed to create company: L\u0027adresse email est invalide."}'
