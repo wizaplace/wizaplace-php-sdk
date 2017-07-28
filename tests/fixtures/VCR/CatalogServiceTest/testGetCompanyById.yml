@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/4'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/5'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 25 Jul 2017 16:07:16 GMT'
+            Date: 'Fri, 28 Jul 2017 13:28:39 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6c926a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c926a'
+            X-Debug-Token: 924fde
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/924fde'
             Content-Length: '212'
             Content-Type: application/json
-        body: '{"id":4,"name":"Test company","description":"Test company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"test-company","image":null,"location":null,"averageRating":2}'
+        body: '{"id":5,"name":"Test company","description":"Test company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"test-company","image":null,"location":null,"averageRating":2}'

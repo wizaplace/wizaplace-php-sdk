@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 11 Jul 2017 13:15:37 GMT'
+            Date: 'Fri, 28 Jul 2017 13:27:50 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2d0334
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2d0334'
+            X-Debug-Token: fe6561
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe6561'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"qLtkH+Vcy0z\/6nUGB0XFdyoIdvRBQdtmssPsuZTS"}'
+        body: '{"id":3,"apiKey":"hpt4f\/yARWTUYzeVgNkXjU9Q8Yud3nHd987Omylj"}'
 -
     request:
         method: POST
@@ -32,22 +32,22 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token qLtkH+Vcy0z/6nUGB0XFdyoIdvRBQdtmssPsuZTS'
+            Authorization: 'token hpt4f/yARWTUYzeVgNkXjU9Q8Yud3nHd987Omylj'
             VCR-index: '1'
             Accept: null
-        body: '{"author":"fake-author","message":"this is a test review","rating":4}'
+        body: '{"author":"fake-author","message":"this is a test review","rating":5}'
     response:
         status:
             http_version: '1.1'
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 11 Jul 2017 13:15:37 GMT'
+            Date: 'Fri, 28 Jul 2017 13:27:51 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 34bca5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/34bca5'
+            X-Debug-Token: f31347
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f31347'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
