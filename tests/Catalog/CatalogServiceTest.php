@@ -155,6 +155,23 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(2, $company->getAverageRating());
     }
 
+    public function testGetC2cCompanyById()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $company = $catalogService->getCompanyById(4);
+
+        $this->assertEquals(4, $company->getId());
+        $this->assertEquals('C2C company', $company->getName());
+        $this->assertEquals('c2c-company', $company->getSlug());
+        $this->assertEquals('C2C company', $company->getDescription());
+        $this->assertEquals('', $company->getAddress());
+        $this->assertEquals('', $company->getPhoneNumber());
+        $this->assertEquals(false, $company->isProfessional());
+        $this->assertEquals(null, $company->getLocation());
+        $this->assertEquals(null, $company->getAverageRating());
+    }
+
     public function testGetCategory()
     {
         $category = $this->buildCatalogService()->getCategory(2);
