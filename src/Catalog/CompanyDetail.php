@@ -21,6 +21,12 @@ class CompanyDetail
     /** @var string */
     private $description;
 
+    /** @var string */
+    private $address;
+
+    /** @var string */
+    private $phoneNumber;
+
     /** @var boolean */
     private $professional;
 
@@ -41,6 +47,8 @@ class CompanyDetail
         $this->id = (int) $data['id'];
         $this->name = (string) $data['name'];
         $this->description = (string) $data['description'];
+        $this->address = (string) $data['address'];
+        $this->phoneNumber = (string) $data['phoneNumber'];
         $this->professional = (bool) $data['professional'];
         $this->slug = (string) $data['slug'];
         $this->image = ($data['image'] !== null) ? new Image($data['image']) : null;
@@ -65,6 +73,16 @@ class CompanyDetail
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function getAddress(): string
+    {
+        return $this->address;
+    }
+
+    public function getPhoneNumber(): string
+    {
+        return $this->phoneNumber;
     }
 
     public function isProfessional(): bool

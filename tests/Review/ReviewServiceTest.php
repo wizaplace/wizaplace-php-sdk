@@ -55,7 +55,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToProduct()
     {
-        $this->reviewService->reviewProduct(2, 'fake-author', 'this is a test review', 4);
+        $this->reviewService->reviewProduct(2, 'fake-author', 'this is a test review', 5);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -70,7 +70,7 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testListReviewsFromCompany()
     {
-        $reviews = $this->reviewService->getCompanyReviews(4);
+        $reviews = $this->reviewService->getCompanyReviews(5);
 
         foreach ($reviews as $review) {
             $this->assertEquals('Paul Martin', $review->getAuthor()->getName());
