@@ -205,22 +205,22 @@ class CatalogServiceTest extends ApiTestCase
                 'variants' => [
                     [
                         'id' => 1,
-                        'name' => '13'
+                        'name' => '13',
                     ],
                     [
                         'id' => 2,
-                        'name' => '15'
+                        'name' => '15',
                     ],
                     [
                         'id' => 3,
-                        'name' => '17'
+                        'name' => '17',
                     ],
                     [
                         'id' => 4,
-                        'name' => '21'
+                        'name' => '21',
                     ],
                 ],
-            ]
+            ],
         ];
 
         $this->assertEquals(2, $product->getId());
