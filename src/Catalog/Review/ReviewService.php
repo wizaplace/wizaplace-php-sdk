@@ -105,12 +105,16 @@ class ReviewService extends AbstractService
         $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), ['json' => $review]);
     }
 
-    public function assertUserCanReviewCompany(int $companyId): bool
+    public function canUserCanReviewCompany(int $companyId): bool
     {
         try {
             $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $companyId));
-        } catch (\Exception $e) {
-            return false;
+        } catch (ClientException $e) {
+            if ($e->getCode() == 401) {
+                return false;
+            } else {
+                throw $e;
+            }
         }
 
         return true;

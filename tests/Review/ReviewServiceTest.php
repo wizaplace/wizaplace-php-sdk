@@ -106,14 +106,14 @@ class ReviewServiceTest extends ApiTestCase
 
     public function testUserCanReviewCompany()
     {
-        $response = $this->reviewService->assertUserCanReviewCompany(5);
+        $response = $this->reviewService->canUserCanReviewCompany(5);
 
         $this->assertTrue($response);
     }
 
     public function testUserCannotReviewCompany()
     {
-        $response = $this->reviewService->assertUserCanReviewCompany(1);
+        $response = $this->reviewService->canUserCanReviewCompany(1);
 
         $this->assertFalse($response);
     }
