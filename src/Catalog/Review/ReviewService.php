@@ -26,15 +26,18 @@ use Wizaplace\Exception\NotFound;
  *      // Get a company reviews
  *      $companyReviews = $reviewService->getCompanyReviews($companyId);
  *
+ *      //Check the ability of the user to review company
+ *      $reviewService->canUserReviewCompany($companyId);
+ *
  *      // Create a company review with form data $formData, only users who have purchased once from the company are
  *      able to post a review.
- *      TODO: Add an API to check if the user is able to review a company
  *      $reviewService->reviewCompany($companyId, $formData['message'], $formData['rating']);
  */
 class ReviewService extends AbstractService
 {
     private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
     private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
+    private const AUTHORIZATION_ENDPOINT = "catalog/companies/%s/reviews/authorized";
 
     /**
      * @return Review[]
@@ -100,6 +103,21 @@ class ReviewService extends AbstractService
         $review = ['message' => $message, 'rating' => $rating];
 
         $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), ['json' => $review]);
+    }
+
+    public function canUserReviewCompany(int $companyId): bool
+    {
+        try {
+            $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $companyId));
+        } catch (ClientException $e) {
+            if ($e->getCode() == 401) {
+                return false;
+            } else {
+                throw $e;
+            }
+        }
+
+        return true;
     }
 
     private function createReview(array $review): Review
