@@ -104,7 +104,7 @@ class ReviewService extends AbstractService
 
     public function assertUserCanReviewCompany(int $companyId): bool
     {
-        try{
+        try {
             $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $companyId));
         } catch (\Exception $e) {
             return false;
