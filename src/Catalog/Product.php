@@ -67,6 +67,9 @@ class Product
     /** @var array */
     private $declinations;
 
+    /** @var array */
+    private $options;
+
     public function __construct(array $data)
     {
         $this->id = (string) $data['id'];
@@ -115,6 +118,7 @@ class Product
             },
             $data['declinations']
         );
+        $this->options = $data['options'];
     }
 
     public function getId(): string
@@ -235,5 +239,10 @@ class Product
     public function getDeclinations(): array
     {
         return $this->declinations;
+    }
+
+    public function getOptions(): array
+    {
+        return $this->options;
     }
 }

@@ -193,6 +193,40 @@ class CatalogServiceTest extends ApiTestCase
         // @TODO: more assertions
     }
 
+    public function testGetProductWithOptions()
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById(2);
+
+        $expectedOptions = [
+            [
+                'id' => 7,
+                'name' => 'size',
+                'variants' => [
+                    [
+                        'id' => 1,
+                        'name' => '13'
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => '15'
+                    ],
+                    [
+                        'id' => 3,
+                        'name' => '17'
+                    ],
+                    [
+                        'id' => 4,
+                        'name' => '21'
+                    ],
+                ],
+            ]
+        ];
+
+        $this->assertEquals(2, $product->getId());
+        $this->assertEquals($expectedOptions, $product->getOptions());
+    }
+
     private function buildCatalogService(): CatalogService
     {
         return new CatalogService($this->buildApiClient());

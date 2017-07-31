@@ -1,0 +1,25 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 31 Jul 2017 09:30:46 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 8821d8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8821d8'
+            Content-Length: '1528'
+            Content-Type: application/json
+        body: '{"id":2,"code":"0832868764141","supplierReference":"","name":"\u00c9cran","url":"http:\/\/wizaplace.loc\/informatique\/ecran.html","shortDescription":"","description":"","slug":"ecran","minPrice":15.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":6,"name":"Test company"}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"declinations":[{"code":"size_13","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":8,"affiliateLink":null,"images":[]},{"code":"size_15","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"code":"size_17","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"code":"size_21","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]}],"attributes":[],"options":[{"id":7,"name":"size","variants":[{"id":1,"name":"13"},{"id":2,"name":"15"},{"id":3,"name":"17"},{"id":4,"name":"21"}]}]}'
