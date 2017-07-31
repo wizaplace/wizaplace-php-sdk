@@ -29,6 +29,9 @@ use Wizaplace\Exception\NotFound;
  *      // Create a company review with form data $formData, only users who have purchased once from the company are
  *      able to post a review.
  *      $reviewService->reviewCompany($companyId, $formData['message'], $formData['rating']);
+ *
+ *      //Check the ability of the user to review company
+ *      $reviewService->assertUserCanReviewCompany($companyId);
  */
 class ReviewService extends AbstractService
 {
