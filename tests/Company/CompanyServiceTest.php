@@ -9,6 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Psr7\Stream;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Company\CompanyRegistration;
 use Wizaplace\Company\CompanyService;
@@ -86,6 +87,52 @@ class CompanyServiceTest extends ApiTestCase
     {
         $this->expectException(AuthenticationRequired::class);
         (new CompanyService($this->buildApiClient()))->register(new CompanyRegistration('doesntmatter', 'really'));
+    }
+
+    public function testUploadingRegistrationFiles()
+    {
+        $companyRegistration = new CompanyRegistration('ACM3 Test Inc', 'acme3@example.com');
+        $companyService = $this->buildUserCompanyService();
+
+        $company = $companyService->register($companyRegistration);
+        $this->assertGreaterThan(0, $company->getId());
+
+        $files = [
+            'rib' => __DIR__.'/../fixtures/files/minimal.pdf',
+            'idCard' => fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r'),
+            'addressProof' => new Stream(fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r')),
+        ];
+        $results = $companyService->uploadRegistrationFiles($company->getId(), $files);
+
+        $this->assertCount(count($files), $results);
+        foreach ($files as $name => $file) {
+            $this->assertArrayHasKey($name, $results);
+
+            $this->assertTrue($results[$name]->isSuccess());
+            $this->assertNull($results[$name]->getErrorMessage());
+        }
+    }
+
+    public function testUploadingBadExtensionRegistrationFiles()
+    {
+        $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
+        $companyService = $this->buildUserCompanyService();
+
+        $company = $companyService->register($companyRegistration);
+        $this->assertGreaterThan(0, $company->getId());
+
+        $files = [
+            'rib' => __DIR__.'/../fixtures/files/dummy.txt',
+        ];
+        $results = $companyService->uploadRegistrationFiles($company->getId(), $files);
+
+        $this->assertCount(count($files), $results);
+        foreach ($files as $name => $file) {
+            $this->assertArrayHasKey($name, $results);
+
+            $this->assertFalse($results[$name]->isSuccess());
+            $this->assertEquals('Invalid file', $results[$name]->getErrorMessage());
+        }
     }
 
     private function buildUserCompanyService(): CompanyService

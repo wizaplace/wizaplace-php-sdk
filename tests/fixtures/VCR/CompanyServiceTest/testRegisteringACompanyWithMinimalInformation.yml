@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 27 Jul 2017 08:04:32 GMT'
+            Date: 'Thu, 27 Jul 2017 14:38:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ad1090
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ad1090'
-            Content-Length: '60'
+            X-Debug-Token: f43657
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f43657'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU"}'
+        body: '{"id":3,"apiKey":"AhjZ4+k+oxB1k39T1Om4WlXHT9+dMNykAp\/NSDlL"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token 7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU'
+            Authorization: 'token AhjZ4+k+oxB1k39T1Om4WlXHT9+dMNykAp/NSDlL'
             VCR-index: '1'
             Accept: null
         body: '{"name":"ACME Test Inc","email":"acme@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 27 Jul 2017 08:04:32 GMT'
+            Date: 'Thu, 27 Jul 2017 14:38:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 82d4d1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/82d4d1'
+            X-Debug-Token: d5487c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5487c'
             Content-Length: '265'
             Content-Type: application/json
         body: '{"id":11,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":""}'

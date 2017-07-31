@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 27 Jul 2017 08:04:33 GMT'
+            Date: 'Thu, 27 Jul 2017 14:38:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1bf082
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bf082'
-            Content-Length: '60'
+            X-Debug-Token: 86d20a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/86d20a'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU"}'
+        body: '{"id":3,"apiKey":"AhjZ4+k+oxB1k39T1Om4WlXHT9+dMNykAp\/NSDlL"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token 7+r8LZcKOlIYpjFu0OBHqk7Jp9XUPPRnxpiOR+uU'
+            Authorization: 'token AhjZ4+k+oxB1k39T1Om4WlXHT9+dMNykAp/NSDlL'
             VCR-index: '1'
             Accept: null
         body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
@@ -44,11 +44,11 @@
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Thu, 27 Jul 2017 08:04:33 GMT'
+            Date: 'Thu, 27 Jul 2017 14:38:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '9e9894'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e9894'
+            X-Debug-Token: 2f3e58
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2f3e58'
             Content-Length: '98'
             Connection: close
             Content-Type: application/json
