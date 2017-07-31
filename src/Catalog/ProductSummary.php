@@ -46,6 +46,8 @@ class ProductSummary
     private $categoryPath;
     /** @var string */
     private $slug;
+    /** @var CompanySummary[] */
+    private $companies;
 
     public function __construct(array $data)
     {
@@ -76,6 +78,14 @@ class ProductSummary
             $data['categoryPath']
         );
         $this->slug = (string) $data['slug'];
+        $this->companies = array_map(function (array $companyData) : CompanySummary {
+            return new CompanySummary(
+                $companyData['id'],
+                $companyData['name'],
+                $companyData['slug'],
+                isset($companyData['image']) ? new Image($companyData['image']) : null
+            );
+        }, $data['companies'] ?? []);
     }
 
     public function getId(): string
@@ -184,5 +194,13 @@ class ProductSummary
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    /**
+     * @return CompanySummary[]
+     */
+    public function getCompanies(): array
+    {
+        return $this->companies;
     }
 }
