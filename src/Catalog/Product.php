@@ -64,10 +64,10 @@ class Product
     /** @var array */
     private $categoryPath;
 
-    /** @var array */
+    /** @var Declination[] */
     private $declinations;
 
-    /** @var array */
+    /** @var Option[] */
     private $options;
 
     public function __construct(array $data)
@@ -118,7 +118,12 @@ class Product
             },
             $data['declinations']
         );
-        $this->options = $data['options'];
+        $this->options = array_map(
+            function ($option) {
+                return new Option($option);
+            },
+            $data['options']
+        );
     }
 
     public function getId(): string
@@ -234,13 +239,16 @@ class Product
     }
 
     /**
-     * @return array
+     * @return Declination[]
      */
     public function getDeclinations(): array
     {
         return $this->declinations;
     }
 
+    /**
+     * @return Option[]
+     */
     public function getOptions(): array
     {
         return $this->options;

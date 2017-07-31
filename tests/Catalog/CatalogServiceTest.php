@@ -9,6 +9,8 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\CatalogService;
+use Wizaplace\Catalog\Declination;
+use Wizaplace\Catalog\Option;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
@@ -198,32 +200,60 @@ class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById(2);
 
-        $expectedOptions = [
-            [
-                'id' => 7,
-                'name' => 'size',
-                'variants' => [
-                    [
-                        'id' => 1,
-                        'name' => '13',
-                    ],
-                    [
-                        'id' => 2,
-                        'name' => '15',
-                    ],
-                    [
-                        'id' => 3,
-                        'name' => '17',
-                    ],
-                    [
-                        'id' => 4,
-                        'name' => '21',
-                    ],
+        $ids = ['2_7_1', '2_7_2', '2_7_3', '2_7_4'];
+        $codes = ['size_13', 'size_15', 'size_17', 'size_21'];
+
+        $expectedDeclinations = [];
+
+        for ($i = 0; $i < 4; $i++) {
+            $expectedDeclinations[] = new Declination([
+                'id' => $ids[$i],
+                'code' => $codes[$i],
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]);
+        }
+
+        $expectedOption = [
+            'id' => 7,
+            'name' => 'size',
+            'variants' => [
+                [
+                    'id' => 1,
+                    'name' => '13',
+                ],
+                [
+                    'id' => 2,
+                    'name' => '15',
+                ],
+                [
+                    'id' => 3,
+                    'name' => '17',
+                ],
+                [
+                    'id' => 4,
+                    'name' => '21',
                 ],
             ],
         ];
 
+        $expectedOptions = [
+            new Option($expectedOption)
+        ];
+
         $this->assertEquals(2, $product->getId());
+        $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
     }
 
