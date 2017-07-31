@@ -104,6 +104,20 @@ class ReviewServiceTest extends ApiTestCase
         $this->reviewService->reviewCompany(404, 'test company review', 2);
     }
 
+    public function testUserCanReviewCompany()
+    {
+        $response = $this->reviewService->assertUserCanReviewCompany(5);
+
+        $this->assertTrue($response);
+    }
+
+    public function testUserCannotReviewCompany()
+    {
+        $response = $this->reviewService->assertUserCanReviewCompany(1);
+
+        $this->assertFalse($response);
+    }
+
     private function buildReviewService(): ReviewService
     {
         $client = $this->buildApiClient();
