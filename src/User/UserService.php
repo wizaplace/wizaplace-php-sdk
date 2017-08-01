@@ -122,4 +122,14 @@ class UserService extends AbstractService
             ]
         );
     }
+
+    public function changePassword(int $userId, string $newPassword)
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->put("users/$userId/password", [
+            'json' => [
+                'password' => $newPassword,
+            ],
+        ]);
+    }
 }
