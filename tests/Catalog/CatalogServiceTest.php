@@ -199,6 +199,17 @@ class CatalogServiceTest extends ApiTestCase
         // @TODO: more assertions
     }
 
+    public function testGetAttributeVariant()
+    {
+        $variant = $this->buildCatalogService()->getAttributeVariant(3);
+
+        $this->assertEquals(3, $variant->getId());
+        $this->assertEquals(1, $variant->getAttributeId());
+        $this->assertEquals('Rouge', $variant->getName());
+        $this->assertEquals('rouge', $variant->getSlug());
+        $this->assertNull($variant->getImage());
+    }
+
     private function buildCatalogService(): CatalogService
     {
         return new CatalogService($this->buildApiClient());
