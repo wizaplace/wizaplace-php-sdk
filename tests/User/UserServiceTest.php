@@ -8,10 +8,15 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\User;
 
+use Wizaplace\Authentication\AuthenticationRequired;
+use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\UserAlreadyExists;
 use Wizaplace\User\UserService;
 
+/**
+ * @see UserService
+ */
 class UserServiceTest extends ApiTestCase
 {
     public function testCreateUser()
@@ -43,5 +48,32 @@ class UserServiceTest extends ApiTestCase
         // create already existing user
         $this->expectException(UserAlreadyExists::class);
         $userService->register('user@wizaplace.com', 'whatever');
+    }
+
+    public function testChangePassword()
+    {
+        $userEmail = 'user1236@example.com';
+        $userPassword = 'password';
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        $userService->changePassword($userId, 'hunter2');
+
+        $this->assertNotEmpty($client->authenticate($userEmail, 'hunter2'));
+        $this->expectException(BadCredentials::class);
+        $this->assertNotEmpty($client->authenticate($userEmail, $userPassword));
+    }
+
+    public function testChangePasswordAnonymously()
+    {
+        $this->expectException(AuthenticationRequired::class);
+        (new UserService($this->buildApiClient()))->changePassword(1, 'hunter2');
     }
 }
