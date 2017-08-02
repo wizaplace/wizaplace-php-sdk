@@ -17,7 +17,8 @@ class OptionVariant
     /** @var string */
     private $name;
 
-    public function __construct(array $data) {
+    public function __construct(array $data)
+    {
         $this->id = $data['id'];
         $this->name = $data['name'];
     }

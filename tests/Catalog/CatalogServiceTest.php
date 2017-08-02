@@ -266,7 +266,7 @@ class CatalogServiceTest extends ApiTestCase
         ];
 
         $expectedOptions = [
-            new Option($expectedOption)
+            new Option($expectedOption),
         ];
 
         $this->assertEquals(2, $product->getId());
@@ -561,7 +561,7 @@ class CatalogServiceTest extends ApiTestCase
 
         $expectedOptions = [
             new Option($expectedOption1),
-            new Option($expectedOption2)
+            new Option($expectedOption2),
         ];
 
         $this->assertEquals(3, $product->getId());

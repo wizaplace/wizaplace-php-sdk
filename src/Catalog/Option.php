@@ -20,7 +20,8 @@ class Option
     /** @var OptionVariant[] */
     private $variants;
 
-    public function __construct(array $data) {
+    public function __construct(array $data)
+    {
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->variants = array_map(
@@ -31,7 +32,7 @@ class Option
         );
 
         //Tri du JSON par VariantId (string)
-        usort($this->variants, function(OptionVariant $a, OptionVariant $b) {
+        usort($this->variants, function (OptionVariant $a, OptionVariant $b) {
             return $a->getId() > $b->getId();
         });
     }

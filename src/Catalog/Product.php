@@ -121,7 +121,7 @@ class Product
             $data['declinations']
         );
         //Tri du JSON par DeclinationId (string)
-        usort($this->declinations, function(Declination $a, Declination $b) {
+        usort($this->declinations, function (Declination $a, Declination $b) {
             if (strlen($a->getId()) == strlen($b->getId())) {
                 return ($a->getId() > $b->getId()) ? 1 : -1;
             } else {
@@ -136,7 +136,7 @@ class Product
         );
 
         //Tri du JSON par OptionId (string)
-        usort($this->options, function(Option $a, Option $b) {
+        usort($this->options, function (Option $a, Option $b) {
             return $a->getId() > $b->getId();
         });
     }
