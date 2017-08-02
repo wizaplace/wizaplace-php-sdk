@@ -118,6 +118,12 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(20, $product->getMinimumPrice());
         $this->assertNull($product->getCrossedOutPrice());
         $this->assertCount(0, $product->getAttributes());
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertEquals('Test company', $companies[0]->getName());
+        $this->assertEquals('test-company', $companies[0]->getSlug());
+        $this->assertEquals(5, $companies[0]->getId());
+        $this->assertNull($companies[0]->getImage());
 
 
         $pagination = $result->getPagination();
@@ -127,7 +133,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(12, $pagination->getResultsPerPage());
 
         $facets = $result->getFacets();
-        $this->assertCount(9, $facets);
+        $this->assertCount(8, $facets);
         $this->assertEquals('categories', $facets[0]->getName());
         $this->assertEquals('Catégorie', $facets[0]->getLabel());
         $this->assertEquals([
@@ -193,6 +199,17 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(2, $firstCateogry->getId());
         $this->assertEquals('categorie-principale', $firstCateogry->getSlug());
         // @TODO: more assertions
+    }
+
+    public function testGetAttributeVariant()
+    {
+        $variant = $this->buildCatalogService()->getAttributeVariant(3);
+
+        $this->assertEquals(3, $variant->getId());
+        $this->assertEquals(1, $variant->getAttributeId());
+        $this->assertEquals('Rouge', $variant->getName());
+        $this->assertEquals('rouge', $variant->getSlug());
+        $this->assertNull($variant->getImage());
     }
 
     public function testGetProductWithOptions()
