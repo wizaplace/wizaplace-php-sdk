@@ -11,6 +11,7 @@ namespace Wizaplace\Catalog;
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Image\Image;
 
 class CatalogService extends AbstractService
 {
@@ -82,5 +83,18 @@ class CatalogService extends AbstractService
         }
 
         return new CompanyDetail($response);
+    }
+
+    public function getAttributeVariant(int $variantId): AttributeVariant
+    {
+        $variantData = $this->client->get("catalog/attributes/variants/$variantId");
+
+        return new AttributeVariant(
+            $variantData['id'],
+            $variantData['attributeId'],
+            $variantData['name'],
+            $variantData['slug'],
+            isset($variantData['image']) ? new Image($variantData['image']) : null
+        );
     }
 }
