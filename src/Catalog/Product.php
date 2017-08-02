@@ -284,9 +284,6 @@ class Product
         throw new NotFound('Declination '.$declinationId.' was not found.');
     }
 
-    /**
-     * @param OptionVariant[] $optionVariants
-     */
     public function getDeclinationFromOptions(array $optionVariants): Declination
     {
         $delinationId = $this->getId();
