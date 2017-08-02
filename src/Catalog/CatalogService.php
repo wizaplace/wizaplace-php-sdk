@@ -85,9 +85,40 @@ class CatalogService extends AbstractService
         return new CompanyDetail($response);
     }
 
+    /**
+     * @return Attribute[]
+     */
+    public function getAttributes(): array
+    {
+        $attributesData = $this->client->get("catalog/attributes");
+
+        return array_map([$this, 'unserializeAttribute'], $attributesData);
+    }
+
+    public function getAttribute(int $attributeId): Attribute
+    {
+        try {
+            $attributeData = $this->client->get("catalog/attributes/$attributeId");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Attribute #$attributeId not found", $e);
+            }
+            throw $e;
+        }
+
+        return $this->unserializeAttribute($attributeData);
+    }
+
     public function getAttributeVariant(int $variantId): AttributeVariant
     {
-        $variantData = $this->client->get("catalog/attributes/variants/$variantId");
+        try {
+            $variantData = $this->client->get("catalog/attributes/variants/$variantId");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Attribute Variant #$variantId not found", $e);
+            }
+            throw $e;
+        }
 
         return new AttributeVariant(
             $variantData['id'],
@@ -95,6 +126,17 @@ class CatalogService extends AbstractService
             $variantData['name'],
             $variantData['slug'],
             isset($variantData['image']) ? new Image($variantData['image']) : null
+        );
+    }
+
+    private function unserializeAttribute(array $attributeData): Attribute
+    {
+        return new Attribute(
+            $attributeData['id'],
+            $attributeData['name'],
+            new AttributeType($attributeData['type']),
+            $attributeData['position'],
+            $attributeData['parentId'] ?? null
         );
     }
 }
