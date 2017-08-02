@@ -29,6 +29,11 @@ class Option
             },
             $data['variants']
         );
+
+        //Tri du JSON par VariantId (string)
+        usort($this->variants, function(OptionVariant $a, OptionVariant $b) {
+            return $a->getId() > $b->getId();
+        });
     }
 
     public function getId(): int

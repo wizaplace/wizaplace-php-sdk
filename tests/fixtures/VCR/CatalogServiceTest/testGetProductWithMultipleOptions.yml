@@ -1,0 +1,25 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 01 Aug 2017 14:05:07 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 3efd3e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3efd3e'
+            Content-Length: '4063'
+            Content-Type: application/json
+        body: '{"id":3,"code":"1438900263352","supplierReference":"","name":"Souris","url":"http:\/\/wizaplace.loc\/informatique\/souris.html","shortDescription":"","description":"","slug":"souris","minPrice":15.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":7,"name":"Test company"}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"declinations":[{"id":"3_10_10","code":"connectivity_wired","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_10_9","code":"connectivity_wireless","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_9_5","code":"color_white","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_9_8","code":"color_red","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_9_6","code":"color_black","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_9_7","code":"color_blue","supplierReference":"","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"affiliateLink":null,"images":[]},{"id":"3_9_5_10_9","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_6_10_9","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_7_10_9","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_8_10_9","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_5_10_10","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_6_10_10","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_7_10_10","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]},{"id":"3_9_8_10_10","code":"1438900263352","supplierReference":"","price":0,"originalPrice":0,"crossedOutPrice":null,"prices":{"priceWithTaxes":0,"priceWithoutVat":0,"vat":0},"greenTax":0,"amount":0,"affiliateLink":null,"images":[]}],"attributes":[],"options":[{"id":10,"name":"connectivity","variants":[{"id":10,"name":"wired"},{"id":9,"name":"wireless"}]},{"id":9,"name":"color","variants":[{"id":5,"name":"white"},{"id":8,"name":"red"},{"id":6,"name":"black"},{"id":7,"name":"blue"}]}]}'

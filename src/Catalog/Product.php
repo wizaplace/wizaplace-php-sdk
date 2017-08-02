@@ -8,6 +8,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
+use Wizaplace\Exception\NotFound;
+
 class Product
 {
     /** @var string */
@@ -118,12 +120,25 @@ class Product
             },
             $data['declinations']
         );
+        //Tri du JSON par DeclinationId (string)
+        usort($this->declinations, function(Declination $a, Declination $b) {
+            if (strlen($a->getId()) == strlen($b->getId())) {
+                return ($a->getId() > $b->getId()) ? 1 : -1;
+            } else {
+                return (strlen($a->getId()) > strlen($b->getId())) ? 1 : -1;
+            }
+        });
         $this->options = array_map(
             function ($option) {
                 return new Option($option);
             },
             $data['options']
         );
+
+        //Tri du JSON par OptionId (string)
+        usort($this->options, function(Option $a, Option $b) {
+            return $a->getId() > $b->getId();
+        });
     }
 
     public function getId(): string
@@ -252,5 +267,42 @@ class Product
     public function getOptions(): array
     {
         return $this->options;
+    }
+
+    /**
+     * @throws NotFound
+     */
+    public function getDeclination(string $declinationId): Declination
+    {
+        $declinations = $this->getDeclinations();
+        foreach ($declinations as $declination) {
+            if ($declination->getId() === $declinationId) {
+                return $declination;
+            }
+        }
+
+        throw new NotFound('Declination '.$declinationId.' was not found.');
+    }
+
+    /**
+     * @param OptionVariant[] $optionVariants
+     */
+    public function getDeclinationFromOptions(array $optionVariants): Declination
+    {
+        $delinationId = $this->getId();
+        $options = $this->getOptions();
+        foreach ($optionVariants as $optionVariant) {
+            foreach ($options as $option) {
+                if ($option->getId() == $optionVariant['optionId']) {
+                    foreach ($option->getVariants() as $variant) {
+                        if ($variant->getId() == $optionVariant['variantId']) {
+                            $delinationId .= '_'.$option->getId().'_'.$variant->getId();
+                        }
+                    }
+                }
+            }
+        }
+
+        return $this->getDeclination($delinationId);
     }
 }

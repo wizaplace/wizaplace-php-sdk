@@ -255,6 +255,306 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(2, $product->getId());
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([['optionId' => '7', 'variantId' => '1']]));
+    }
+
+    public function testGetProductWithMultipleOptions()
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById(3);
+
+        $expectedDeclinations = [
+            new Declination([
+                'id' => '3_9_5',
+                'code' => 'color_white',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_6',
+                'code' => 'color_black',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_7',
+                'code' => 'color_blue',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_8',
+                'code' => 'color_red',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_10_9',
+                'code' => 'connectivity_wireless',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_10_10',
+                'code' => 'connectivity_wired',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_5_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_6_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_7_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_8_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_5_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_6_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_7_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+            new Declination([
+                'id' => '3_9_8_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+            ]),
+        ];
+
+        $expectedOption1 = [
+            'id' => 9,
+            'name' => 'color',
+            'variants' => [
+                [
+                    'id' => 5,
+                    'name' => 'white',
+                ],
+                [
+                    'id' => 6,
+                    'name' => 'black',
+                ],
+                [
+                    'id' => 7,
+                    'name' => 'blue',
+                ],
+                [
+                    'id' => 8,
+                    'name' => 'red',
+                ],
+            ],
+        ];
+
+        $expectedOption2 = [
+            'id' => 10,
+            'name' => 'connectivity',
+            'variants' => [
+                [
+                    'id' => 9,
+                    'name' => 'wireless',
+                ],
+                [
+                    'id' => 10,
+                    'name' => 'wired',
+                ],
+            ],
+        ];
+
+        $expectedOptions = [
+            new Option($expectedOption1),
+            new Option($expectedOption2)
+        ];
+
+        $this->assertEquals(3, $product->getId());
+        $this->assertEquals($expectedDeclinations, $product->getDeclinations());
+        $this->assertEquals($expectedOptions, $product->getOptions());
+        $this->assertEquals($expectedDeclinations[6], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '5'], ['optionId' => '10', 'variantId' => '9']]));
+        $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '6'], ['optionId' => '10', 'variantId' => '9']]));
+        $this->assertEquals($expectedDeclinations[8], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '7'], ['optionId' => '10', 'variantId' => '9']]));
+        $this->assertEquals($expectedDeclinations[9], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '8'], ['optionId' => '10', 'variantId' => '9']]));
+        $this->assertEquals($expectedDeclinations[10], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '5'], ['optionId' => '10', 'variantId' => '10']]));
     }
 
     private function buildCatalogService(): CatalogService

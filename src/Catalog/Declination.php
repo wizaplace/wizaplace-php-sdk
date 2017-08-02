@@ -12,7 +12,7 @@ use Wizaplace\Image\Image;
 
 class Declination
 {
-    /** @var int */
+    /** @var string */
     private $id;
 
     /** @var string */
@@ -74,7 +74,7 @@ class Declination
         );
     }
 
-    public function getId(): int
+    public function getId(): string
     {
         return $this->id;
     }
