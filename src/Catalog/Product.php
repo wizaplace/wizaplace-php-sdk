@@ -122,7 +122,7 @@ class Product
         );
         //Tri du JSON par DeclinationId (string)
         usort($this->declinations, function (Declination $a, Declination $b) : int {
-            return strcmp($a->getId(), $b->getId());
+            return strnatcmp($a->getId(), $b->getId());
         });
         $this->options = array_map(
             function (array $option) : Option {
@@ -131,9 +131,9 @@ class Product
             $data['options']
         );
 
-        //Tri du JSON par OptionId (string)
+        //Tri du JSON par OptionId (int)
         usort($this->options, function (Option $a, Option $b) : int {
-            return strcmp($a->getId(), $b->getId());
+            return $a->getId() <=> $b->getId();
         });
     }
 

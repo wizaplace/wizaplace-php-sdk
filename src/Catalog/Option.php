@@ -31,9 +31,9 @@ class Option
             $data['variants']
         );
 
-        //Tri du JSON par VariantId (string)
+        //Tri du JSON par VariantId (int)
         usort($this->variants, function (OptionVariant $a, OptionVariant $b) : int {
-            return strcmp($a->getId(), $b->getId());
+            return $a->getId() <=> $b->getId();
         });
     }
 
