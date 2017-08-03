@@ -40,6 +40,8 @@ class BasketServiceTest extends ApiTestCase
         $shippings = [];
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $this->assertGreaterThan(0, $shippingGroup->getId());
+
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
 
@@ -72,6 +74,11 @@ class BasketServiceTest extends ApiTestCase
         $redirectUrl = 'https://demo.loc/order/confirm';
 
         $paymentInformation = $basketService->checkout($basketId, $selectedPayment, true, $redirectUrl);
+
+        // @TODO : check that the two following values are normal
+        $this->assertEquals('', $paymentInformation->getHtml());
+        $this->assertEquals('', $paymentInformation->getRedirectUrl());
+
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
 
@@ -117,6 +124,10 @@ class BasketServiceTest extends ApiTestCase
 
         $shippings = $shippingGroups[0]->getShippings();
         $this->assertCount(2, $shippings);
+        $this->assertEquals('Colissmo', $shippings[1]->getName());
+        // @TODO : insert some real data in the fixtures
+        $this->assertEquals(0.0, $shippings[1]->getPrice());
+        $this->assertEquals('', $shippings[1]->getDeliveryTime());
 
         $this->assertTrue($shippings[0]->isSelected());
         $this->assertFalse($shippings[1]->isSelected());
