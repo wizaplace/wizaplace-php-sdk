@@ -10,10 +10,13 @@ namespace Wizaplace\Discussion;
 
 class Message
 {
-    private $content;
-
+    /** @var string */
     private $author;
 
+    /** @var string */
+    private $content;
+
+    /** @var string */
     private $date;
 
     public function __construct(array $data)
@@ -21,5 +24,20 @@ class Message
         $this->author = $data['author'];
         $this->content = $data['content'];
         $this->date = $data['date'];
+    }
+
+    public function getAuthor(): string
+    {
+        return $this->author;
+    }
+
+    public function getContent(): string
+    {
+        return $this->content;
+    }
+
+    public function getDate(): string
+    {
+        return $this->date;
     }
 }

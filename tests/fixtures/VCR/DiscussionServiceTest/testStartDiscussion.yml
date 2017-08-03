@@ -1,0 +1,54 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 02 Aug 2017 15:39:21 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: adc0e8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/adc0e8'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"vexT\/x9wzWvZfVaaPayAcp5CnvGRsQHTe+8IX0QF"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/json
+            Authorization: 'token vexT/x9wzWvZfVaaPayAcp5CnvGRsQHTe+8IX0QF'
+            VCR-index: '1'
+            Accept: null
+        body: '{"productId":1}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Wed, 02 Aug 2017 15:39:24 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: f73f00
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f73f00'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"message":""}'
