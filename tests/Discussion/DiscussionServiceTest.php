@@ -7,7 +7,7 @@
 declare(strict_types = 1);
 
 
-namespace Wizaplace\tests\Discussion;
+namespace Wizaplace\Tests\Discussion;
 
 use Wizaplace\Discussion\Discussion;
 use Wizaplace\Discussion\DiscussionService;
