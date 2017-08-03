@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-class FiledUploadResult
+class FileUploadResult
 {
     /** @var null|string */
     private $errorMessage;

@@ -47,7 +47,7 @@ class CompanyService extends AbstractService
 
     /**
      * @param string[]|resource[]|StreamInterface[] $files
-     * @return FiledUploadResult[]
+     * @return FileUploadResult[]
      */
     public function uploadRegistrationFiles(int $companyId, array $files): array
     {
@@ -80,7 +80,7 @@ class CompanyService extends AbstractService
         ]);
 
         return array_map(function (array $data) {
-            return new FiledUploadResult($data['error'] ?? null);
+            return new FileUploadResult($data['error'] ?? null);
         }, $responseData);
     }
 }
