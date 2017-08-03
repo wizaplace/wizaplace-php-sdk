@@ -50,6 +50,27 @@ class UserServiceTest extends ApiTestCase
         $userService->register('user@wizaplace.com', 'whatever');
     }
 
+    public function testRecoverPassword()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userEmail = 'user1237@example.com';
+        $userPassword = 'password';
+        $userService->register($userEmail, $userPassword);
+
+
+        $this->assertNull($userService->recoverPassword($userEmail));
+    }
+
+    public function testRecoverPasswordForNonExistingEmail()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $this->assertNull($userService->recoverPassword('404@example.com'));
+    }
+
     public function testChangePassword()
     {
         $userEmail = 'user1236@example.com';
