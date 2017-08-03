@@ -37,7 +37,34 @@ class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertNotNull($user, 'User exists');
-        $this->assertEquals($user->getEmail(), $userEmail);
+        $this->assertEquals($userEmail, $user->getEmail());
+        $this->assertEquals($userId, $user->getId());
+        $this->assertEquals('', $user->getFirstname());
+        $this->assertEquals('', $user->getLastname());
+        $this->assertEquals([
+            38 => null,
+            'firstname' => '',
+            'lastname' => '',
+            40 => null,
+            'phone' => '',
+            'address' => '',
+            'address_2' => '',
+            'zipcode' => '',
+            'city' => '',
+            'country' => 'FR',
+        ], $user->getShippingAddress());
+        $this->assertEquals([
+            37 => null,
+            'firstname' => '',
+            'lastname' => '',
+            39 => null,
+            'phone' => '',
+            'address' => '',
+            'address_2' => '',
+            'zipcode' => '',
+            'city' => '',
+            'country' => 'FR',
+        ], $user->getBillingAddress());
     }
 
     public function testCreateAlreadyExistingUser()
