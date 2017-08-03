@@ -8,7 +8,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Discussion;
 
+use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
+use Wizaplace\Exception\NotFound;
+use Wizaplace\Exception\SomeParametersAreInvalid;
 
 class DiscussionService extends AbstractService
 {
@@ -17,26 +20,57 @@ class DiscussionService extends AbstractService
      */
     public function getDiscussions(): array
     {
-        $discussions = $this->client->get('discussions');
+        $discussions = array_map(function ($discussionData){
+            return new Discussion($discussionData);
+        }, $this->client->get('discussions'));
 
-        return array_map(function ($discussionData) {
-            new Discussion($discussionData);
-        }, $discussions);
+        return $discussions;
     }
 
-    public function getDiscussion(int $discutionId): Discussion
+    public function getDiscussion(int $discussionId): Discussion
     {
-        return new Discussion($this->client->get('discussions/'.$discutionId));
+        try {
+            return new Discussion($this->client->get('discussions/'.$discussionId));
+        } catch (ClientException $e) {
+            throw new NotFound('The discussion '.$discussionId.' was not found.');
+        }
     }
 
     public function startDiscussion(int $productId): Discussion
     {
         try {
             $discussionData = $this->client->post('discussions', ['json' => ['productId' => $productId]]);
-        } catch (\Exception $e) {
-            throw $e;
-        }
 
-        return new Discussion($discussionData);
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            throw new SomeParametersAreInvalid();
+        }
+    }
+
+    /**
+     * @return Message[]
+     */
+    public function getMessages(int $discussionId): array
+    {
+        try {
+            $messages = $this->client->get('discussions/'.$discussionId.'/messages');
+
+            return array_map(function($messageData){
+                return new Message($messageData);
+            }, $messages);
+        } catch (ClientException $e) {
+            throw new NotFound('The discussion '.$discussionId.' was not found.');
+        }
+    }
+
+    public function postMessage(int $discussionId, string $content): Message
+    {
+        try {
+            $messageData = $this->client->post('discussions/'.$discussionId.'/messages', ['json' => ['content' => $content]]);
+
+            return new Message($messageData);
+        } catch (ClientException $e) {
+            throw new SomeParametersAreInvalid();
+        }
     }
 }

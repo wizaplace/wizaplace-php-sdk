@@ -10,25 +10,25 @@ namespace Wizaplace\Discussion;
 
 class Message
 {
-    /** @var string */
-    private $author;
+    /** @var int */
+    private $authorId;
 
     /** @var string */
     private $content;
 
-    /** @var string */
+    /** @var \DateTimeImmutable */
     private $date;
 
     public function __construct(array $data)
     {
-        $this->author = $data['author'];
+        $this->authorId = $data['author'];
         $this->content = $data['content'];
-        $this->date = $data['date'];
+        $this->date = new \DateTimeImmutable($data['date']);
     }
 
-    public function getAuthor(): string
+    public function getAuthorId(): int
     {
-        return $this->author;
+        return $this->authorId;
     }
 
     public function getContent(): string
@@ -36,7 +36,7 @@ class Message
         return $this->content;
     }
 
-    public function getDate(): string
+    public function getDate(): \DateTimeImmutable
     {
         return $this->date;
     }

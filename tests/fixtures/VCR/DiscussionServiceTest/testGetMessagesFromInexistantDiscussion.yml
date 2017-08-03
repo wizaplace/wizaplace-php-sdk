@@ -16,39 +16,36 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 03 Aug 2017 15:14:18 GMT'
+            Date: 'Thu, 03 Aug 2017 15:14:06 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5ce1bc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ce1bc'
+            X-Debug-Token: 48bad6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48bad6'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"yD+WnrTz3mYohMGNPjQ4h\/dfvm+yMPuNjouGYyz4"}'
 -
     request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/discussions'
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/2/messages'
         headers:
             Host: wizaplace.loc
-            Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Content-Type: application/json
             Authorization: 'token yD+WnrTz3mYohMGNPjQ4h/dfvm+yMPuNjouGYyz4'
             VCR-index: '1'
             Accept: null
-        body: '{"productId":1}'
     response:
         status:
             http_version: '1.1'
-            code: '201'
-            message: Created
+            code: '404'
+            message: 'Not Found'
         headers:
-            Date: 'Thu, 03 Aug 2017 15:14:18 GMT'
+            Date: 'Thu, 03 Aug 2017 15:14:10 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '831305'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/831305'
-            Content-Length: '131'
+            X-Debug-Token: bb77db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb77db'
+            Content-Length: '48'
             Content-Type: application/json
-        body: '{"id":1,"recipient":"Test company","productId":1,"title":"A propos du produit optio corporis similique voluptatum","unreadCount":0}'
+        body: '{"message":"Discussion \u00222\u0022 not found"}'

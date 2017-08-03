@@ -31,7 +31,7 @@ class Discussion
 
         $this->recipient = $data['recipient'];
 
-        $this->productId = $data['productId'];
+        $this->productId = (int) $data['productId'];
 
         $this->title = $data['title'];
 
