@@ -9,11 +9,13 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
-use GuzzleHttp\Psr7\Stream;
+use PHPUnit_Framework_MockObject_MockObject;
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Company\CompanyRegistration;
 use Wizaplace\Company\CompanyService;
 use Wizaplace\Tests\ApiTestCase;
+use function GuzzleHttp\Psr7\stream_for;
 
 /**
  * @see CompanyService
@@ -38,7 +40,10 @@ class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setSlug('acme-inc');
         $companyRegistration->setUrl('https://acme.example.com/');
 
-        $company = $this->buildUserCompanyService()->register($companyRegistration);
+        $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
+        $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
+
+        [$company, $fileUploadResults] = $this->buildUserCompanyService()->register($companyRegistration);
         $this->assertGreaterThan(0, $company->getId());
         $this->assertEquals('acme-inc', $company->getSlug());
         $this->assertEquals('acme2@example.com', $company->getEmail());
@@ -55,13 +60,19 @@ class CompanyServiceTest extends ApiTestCase
         $this->assertEquals('69009', $companyRegistration->getZipcode());
         $this->assertEquals('732 829 320 00074', $companyRegistration->getSiretNumber());
         $this->assertEquals('https://acme.example.com/', $companyRegistration->getUrl());
+
+        $this->assertCount(2, $fileUploadResults);
+        $this->assertTrue($fileUploadResults['rib']->isSuccess());
+        $this->assertNull($fileUploadResults['rib']->getErrorMessage());
+        $this->assertTrue($fileUploadResults['idCard']->isSuccess());
+        $this->assertNull($fileUploadResults['idCard']->getErrorMessage());
     }
 
     public function testRegisteringACompanyWithMinimalInformation()
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
-        $company = $this->buildUserCompanyService()->register($companyRegistration);
+        [$company, ] = $this->buildUserCompanyService()->register($companyRegistration);
         $this->assertGreaterThan(0, $company->getId());
         $this->assertStringStartsWith('acme-test-inc', $company->getSlug());
         $this->assertEquals('acme@example.com', $company->getEmail());
@@ -89,50 +100,19 @@ class CompanyServiceTest extends ApiTestCase
         (new CompanyService($this->buildApiClient()))->register(new CompanyRegistration('doesntmatter', 'really'));
     }
 
-    public function testUploadingRegistrationFiles()
-    {
-        $companyRegistration = new CompanyRegistration('ACM3 Test Inc', 'acme3@example.com');
-        $companyService = $this->buildUserCompanyService();
-
-        $company = $companyService->register($companyRegistration);
-        $this->assertGreaterThan(0, $company->getId());
-
-        $files = [
-            'rib' => __DIR__.'/../fixtures/files/minimal.pdf',
-            'idCard' => fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r'),
-            'addressProof' => new Stream(fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r')),
-        ];
-        $results = $companyService->uploadRegistrationFiles($company->getId(), $files);
-
-        $this->assertCount(count($files), $results);
-        foreach ($files as $name => $file) {
-            $this->assertArrayHasKey($name, $results);
-
-            $this->assertTrue($results[$name]->isSuccess());
-            $this->assertNull($results[$name]->getErrorMessage());
-        }
-    }
-
     public function testUploadingBadExtensionRegistrationFiles()
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
+        $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
         $companyService = $this->buildUserCompanyService();
 
-        $company = $companyService->register($companyRegistration);
+        [$company, $fileUploadResults] = $companyService->register($companyRegistration);
         $this->assertGreaterThan(0, $company->getId());
 
-        $files = [
-            'rib' => __DIR__.'/../fixtures/files/dummy.txt',
-        ];
-        $results = $companyService->uploadRegistrationFiles($company->getId(), $files);
 
-        $this->assertCount(count($files), $results);
-        foreach ($files as $name => $file) {
-            $this->assertArrayHasKey($name, $results);
-
-            $this->assertFalse($results[$name]->isSuccess());
-            $this->assertEquals('Invalid file', $results[$name]->getErrorMessage());
-        }
+        $this->assertCount(1, $fileUploadResults);
+        $this->assertFalse($fileUploadResults['rib']->isSuccess());
+        $this->assertEquals('Invalid file', $fileUploadResults['rib']->getErrorMessage());
     }
 
     private function buildUserCompanyService(): CompanyService
@@ -141,5 +121,17 @@ class CompanyServiceTest extends ApiTestCase
         $apiClient->authenticate('user@wizaplace.com', 'password');
 
         return new CompanyService($apiClient);
+    }
+
+    private function mockUploadedFile(string $filename): UploadedFileInterface
+    {
+        $path = __DIR__.'/../fixtures/files/'.$filename;
+
+        /** @var UploadedFileInterface|PHPUnit_Framework_MockObject_MockObject $file */
+        $file = $this->createMock(UploadedFileInterface::class);
+        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
+        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
+
+        return $file;
     }
 }

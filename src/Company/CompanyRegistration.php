@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
+use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UploadedFileInterface;
+
 class CompanyRegistration
 {
     /** @var string */
@@ -58,6 +61,12 @@ class CompanyRegistration
     /** @var null|string */
     private $slug;
 
+    /**
+     * @var array
+     * @see \Wizaplace\Company\CompanyRegistration::addFile
+     */
+    private $files = [];
+
     public function __construct(string $name, string $email)
     {
         $this->name = $name;
@@ -70,7 +79,7 @@ class CompanyRegistration
         return $this->name;
     }
 
-    public function setName(string $name)
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -80,7 +89,7 @@ class CompanyRegistration
         return $this->email;
     }
 
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
@@ -90,7 +99,7 @@ class CompanyRegistration
         return $this->description;
     }
 
-    public function setDescription(?string $description)
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }
@@ -100,7 +109,7 @@ class CompanyRegistration
         return $this->zipcode;
     }
 
-    public function setZipcode(?string $zipcode)
+    public function setZipcode(?string $zipcode): void
     {
         $this->zipcode = $zipcode;
     }
@@ -110,7 +119,7 @@ class CompanyRegistration
         return $this->address;
     }
 
-    public function setAddress(?string $address)
+    public function setAddress(?string $address): void
     {
         $this->address = $address;
     }
@@ -120,7 +129,7 @@ class CompanyRegistration
         return $this->city;
     }
 
-    public function setCity(?string $city)
+    public function setCity(?string $city): void
     {
         $this->city = $city;
     }
@@ -130,7 +139,7 @@ class CompanyRegistration
         return $this->country;
     }
 
-    public function setCountry(?string $country)
+    public function setCountry(?string $country): void
     {
         $this->country = $country;
     }
@@ -140,7 +149,7 @@ class CompanyRegistration
         return $this->phoneNumber;
     }
 
-    public function setPhoneNumber(?string $phoneNumber)
+    public function setPhoneNumber(?string $phoneNumber): void
     {
         $this->phoneNumber = $phoneNumber;
     }
@@ -150,7 +159,7 @@ class CompanyRegistration
         return $this->fax;
     }
 
-    public function setFax(?string $fax)
+    public function setFax(?string $fax): void
     {
         $this->fax = $fax;
     }
@@ -160,7 +169,7 @@ class CompanyRegistration
         return $this->url;
     }
 
-    public function setUrl(?string $url)
+    public function setUrl(?string $url): void
     {
         $this->url = $url;
     }
@@ -170,7 +179,7 @@ class CompanyRegistration
         return $this->legalStatus;
     }
 
-    public function setLegalStatus(?string $legalStatus)
+    public function setLegalStatus(?string $legalStatus): void
     {
         $this->legalStatus = $legalStatus;
     }
@@ -180,7 +189,7 @@ class CompanyRegistration
         return $this->siretNumber;
     }
 
-    public function setSiretNumber(?string $siretNumber)
+    public function setSiretNumber(?string $siretNumber): void
     {
         $this->siretNumber = $siretNumber;
     }
@@ -190,7 +199,7 @@ class CompanyRegistration
         return $this->vatNumber;
     }
 
-    public function setVatNumber(?string $vatNumber)
+    public function setVatNumber(?string $vatNumber): void
     {
         $this->vatNumber = $vatNumber;
     }
@@ -200,7 +209,7 @@ class CompanyRegistration
         return $this->capital;
     }
 
-    public function setCapital(?string $capital)
+    public function setCapital(?string $capital): void
     {
         $this->capital = $capital;
     }
@@ -210,7 +219,7 @@ class CompanyRegistration
         return $this->rcs;
     }
 
-    public function setRcs(?string $rcs)
+    public function setRcs(?string $rcs): void
     {
         $this->rcs = $rcs;
     }
@@ -220,8 +229,31 @@ class CompanyRegistration
         return $this->slug;
     }
 
-    public function setSlug(?string $slug)
+    public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function addUploadedFile(string $name, UploadedFileInterface $file): void
+    {
+        $this->addFile(
+            $name,
+            $file->getStream(),
+            $file->getClientFilename()
+        );
+    }
+
+    public function getFiles(): array
+    {
+        return $this->files;
+    }
+
+    private function addFile(string $name, StreamInterface $contents, string $filename): void
+    {
+        $this->files[$name] = [
+            'name' => $name,
+            'contents' => $contents,
+            'filename' => $filename,
+        ];
     }
 }
