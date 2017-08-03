@@ -50,6 +50,30 @@ class UserServiceTest extends ApiTestCase
         $userService->register('user@wizaplace.com', 'whatever');
     }
 
+    public function testUpdateUser()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user42@example.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('user42@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        $this->assertEquals('user42@example.com', $user->getEmail());
+        $this->assertEquals('Jean', $user->getFirstname());
+        $this->assertEquals('Paul', $user->getLastname());
+
+        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules');
+
+        $client->authenticate('user43@example.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        $this->assertEquals('user43@example.com', $user->getEmail());
+        $this->assertEquals('Jacques', $user->getFirstname());
+        $this->assertEquals('Jules', $user->getLastname());
+    }
+
     public function testRecoverPassword()
     {
         $client = $this->buildApiClient();
