@@ -19,7 +19,7 @@ class DiscussionService extends AbstractService
     {
         $discussions = $this->client->get('discussions');
 
-        return array_map(function($discussionData){
+        return array_map(function ($discussionData) {
             new Discussion($discussionData);
         }, $discussions);
     }
