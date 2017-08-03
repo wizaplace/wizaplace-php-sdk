@@ -21,6 +21,8 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
 
         $boundaryHeaderStart = 'multipart/form-data; boundary=';
         foreach ($headersBags as &$headers) {
+            // Replace the random multipart boundary,
+            // so requests with different boundaries in headers still match each other
             if (strpos($headers['Content-Type'] ?? '', $boundaryHeaderStart) === 0) {
                 $headers['Content-Type'] = $boundaryHeaderStart.'fakeBoundary';
             }
@@ -40,6 +42,8 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
 
         $boundaryHeaderStart = 'multipart/form-data; boundary=';
         foreach ($data as &$requestData) {
+            // Replace the random multipart boundary,
+            // so requests with different boundaries in body still match each other
             if (strpos($requestData['Content-Type'], $boundaryHeaderStart) === 0) {
                 $boundary = substr($requestData['Content-Type'], strlen($boundaryHeaderStart));
                 $requestData['body'] = str_replace('--'.$boundary, '--fakeBoundary', $requestData['body']);
