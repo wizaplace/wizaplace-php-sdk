@@ -9,6 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Company;
 
 use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 
@@ -46,8 +47,8 @@ class CompanyService extends AbstractService
     }
 
     /**
-     * @param string[]|resource[]|StreamInterface[] $files
-     * @return FileUploadResult[]
+     * @param string[]|resource[]|StreamInterface[]|UploadedFileInterface[] $files
+     * @return FileUploadResult[] a map of result by file.
      */
     public function uploadRegistrationFiles(int $companyId, array $files): array
     {
@@ -64,6 +65,9 @@ class CompanyService extends AbstractService
             } elseif ($file instanceof StreamInterface) {
                 $filename = $file->getMetadata('uri');
                 $contents = $file;
+            } elseif ($file instanceof UploadedFileInterface) {
+                $filename = $file->getClientFilename();
+                $contents = $file->getStream();
             } else {
                 throw new \TypeError('$file must be a string, a resource, or a StreamInterface');
             }
