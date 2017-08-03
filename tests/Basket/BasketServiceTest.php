@@ -40,6 +40,8 @@ class BasketServiceTest extends ApiTestCase
         $shippings = [];
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $this->assertGreaterThan(0, $shippingGroup->getId());
+
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
 
