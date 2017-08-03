@@ -32,12 +32,14 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $discussion = $this->discussionService->startDiscussion(1);
 
-        $expectedDiscussion = new Discussion([
-            'id' => 1,
-            'recipient' => 'Test company',
-            'productId' => 1,
-            'title' => 'A propos du produit optio corporis similique voluptatum',
-            'unreadCount' => 0]
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 1,
+                'recipient' => 'Test company',
+                'productId' => 1,
+                'title' => 'A propos du produit optio corporis similique voluptatum',
+                'unreadCount' => 0,
+            ]
         );
 
         $this->assertEquals($expectedDiscussion, $discussion);
@@ -48,12 +50,14 @@ class DiscussionServiceTest extends ApiTestCase
         $discussions = $this->discussionService->getDiscussions();
 
         $expectedDiscussions = [
-            new Discussion([
-                'id' => 1,
-                'recipient' => 'Test company',
-                'productId' => 1,
-                'title' => 'A propos du produit optio corporis similique voluptatum',
-                'unreadCount' => 0]
+            new Discussion(
+                [
+                    'id' => 1,
+                    'recipient' => 'Test company',
+                    'productId' => 1,
+                    'title' => 'A propos du produit optio corporis similique voluptatum',
+                    'unreadCount' => 0,
+                ]
             ),
         ];
 
@@ -64,12 +68,14 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $discussion = $this->discussionService->getDiscussion(1);
 
-        $expectedDiscussion = new Discussion([
+        $expectedDiscussion = new Discussion(
+            [
                 'id' => 1,
                 'recipient' => 'Test company',
                 'productId' => 1,
                 'title' => 'A propos du produit optio corporis similique voluptatum',
-                'unreadCount' => 0]
+                'unreadCount' => 0,
+            ]
         );
 
         $this->assertEquals($expectedDiscussion, $discussion);
@@ -106,11 +112,13 @@ class DiscussionServiceTest extends ApiTestCase
 
         $date = new \DateTimeImmutable();
 
-        $expectedMessage = new Message([
-            'author' => 3,
-            'content' => 'This is a test message',
-            'date' => $date->format(DATE_RFC3339)
-        ]);
+        $expectedMessage = new Message(
+            [
+                'author' => 3,
+                'content' => 'This is a test message',
+                'date' => $date->format(DATE_RFC3339),
+            ]
+        );
 
         $this->assertEquals($expectedMessage->getAuthorId(), $message->getAuthorId());
         $this->assertEquals($expectedMessage->getContent(), $message->getContent());
