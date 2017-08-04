@@ -43,7 +43,9 @@ class CompanyServiceTest extends ApiTestCase
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
 
-        [$company, $fileUploadResults] = $this->buildUserCompanyService()->register($companyRegistration);
+        $result = $this->buildUserCompanyService()->register($companyRegistration);
+
+        $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
         $this->assertEquals('acme-inc', $company->getSlug());
         $this->assertEquals('acme2@example.com', $company->getEmail());
@@ -61,18 +63,19 @@ class CompanyServiceTest extends ApiTestCase
         $this->assertEquals('732 829 320 00074', $companyRegistration->getSiretNumber());
         $this->assertEquals('https://acme.example.com/', $companyRegistration->getUrl());
 
-        $this->assertCount(2, $fileUploadResults);
-        $this->assertTrue($fileUploadResults['rib']->isSuccess());
-        $this->assertNull($fileUploadResults['rib']->getErrorMessage());
-        $this->assertTrue($fileUploadResults['idCard']->isSuccess());
-        $this->assertNull($fileUploadResults['idCard']->getErrorMessage());
+        $this->assertTrue($result->getFileUploadResult('rib')->isSuccess());
+        $this->assertNull($result->getFileUploadResult('rib')->getErrorMessage());
+        $this->assertTrue($result->getFileUploadResult('idCard')->isSuccess());
+        $this->assertNull($result->getFileUploadResult('idCard')->getErrorMessage());
     }
 
     public function testRegisteringACompanyWithMinimalInformation()
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
-        [$company, ] = $this->buildUserCompanyService()->register($companyRegistration);
+        $result = $this->buildUserCompanyService()->register($companyRegistration);
+
+        $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
         $this->assertStringStartsWith('acme-test-inc', $company->getSlug());
         $this->assertEquals('acme@example.com', $company->getEmail());
@@ -106,13 +109,11 @@ class CompanyServiceTest extends ApiTestCase
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
         $companyService = $this->buildUserCompanyService();
 
-        [$company, $fileUploadResults] = $companyService->register($companyRegistration);
-        $this->assertGreaterThan(0, $company->getId());
+        $result = $companyService->register($companyRegistration);
+        $this->assertGreaterThan(0, $result->getCompany()->getId());
 
-
-        $this->assertCount(1, $fileUploadResults);
-        $this->assertFalse($fileUploadResults['rib']->isSuccess());
-        $this->assertEquals('Invalid file', $fileUploadResults['rib']->getErrorMessage());
+        $this->assertFalse($result->getFileUploadResult('rib')->isSuccess());
+        $this->assertEquals('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
     }
 
     private function buildUserCompanyService(): CompanyService

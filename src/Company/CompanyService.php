@@ -15,9 +15,8 @@ class CompanyService extends AbstractService
 {
     /**
      * @throws AuthenticationRequired
-     * @return [Company, FileUploadResult[]]
      */
-    public function register(CompanyRegistration $companyRegistration): array
+    public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
@@ -44,7 +43,10 @@ class CompanyService extends AbstractService
 
         $company = new Company($responseData);
 
-        return [$company, $this->uploadRegistrationFiles($company->getId(), $companyRegistration->getFiles())];
+        $fileUploadResults = $this->uploadRegistrationFiles($company->getId(), $companyRegistration->getFiles());
+
+
+        return new CompanyRegistrationResult($company, $fileUploadResults);
     }
 
     /**
