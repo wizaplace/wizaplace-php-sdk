@@ -10,9 +10,6 @@ namespace Wizaplace\Basket;
 
 class BasketCompanyGroup
 {
-    /** @var string */
-    private $id;
-
     /** @var BasketCompany */
     private $basketCompany;
 
@@ -21,7 +18,6 @@ class BasketCompanyGroup
 
     public function __construct(array $data)
     {
-        //$this->id = $data['id'];
         $this->basketCompany = new BasketCompany($data['company']);
 
         $this->shippingGroups = array_map(
@@ -30,11 +26,6 @@ class BasketCompanyGroup
             },
             $data['shippingGroups']
         );
-    }
-
-    public function getId(): string
-    {
-        return $this->id;
     }
 
     public function getCompany(): BasketCompany
