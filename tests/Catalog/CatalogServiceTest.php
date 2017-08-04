@@ -189,6 +189,7 @@ class CatalogServiceTest extends ApiTestCase
     {
         $category = $this->buildCatalogService()->getCategory(2);
         $this->assertEquals(2, $category->getId());
+        $this->assertNull($category->getParentId());
         $this->assertEquals('Catégorie principale', $category->getName());
         $this->assertEquals('categorie-principale', $category->getSlug());
         $this->assertEquals('', $category->getDescription());
