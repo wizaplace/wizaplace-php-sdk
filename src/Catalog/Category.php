@@ -14,7 +14,7 @@ class Category
 {
     /** @var int */
     private $id;
-    /** @var int */
+    /** @var null|int */
     private $parentId;
     /** @var string */
     private $name;
@@ -46,7 +46,7 @@ class Category
         return $this->id;
     }
 
-    public function getParentId(): int
+    public function getParentId(): ?int
     {
         return $this->parentId;
     }
