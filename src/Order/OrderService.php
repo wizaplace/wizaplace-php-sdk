@@ -98,35 +98,21 @@ class OrderService extends AbstractService
      * This method expects the list of items to return in the given order. A buyer can return
      * the whole order or only specific items.
      *
-     * @param int $orderId ID of the order to return.
-     * @param string $comments Buyer's comments on why they are returning the order.
-     * @param array $items List of items of the order to return.
-     *
      * @return int ID of the created return.
      *
      * @throws AuthenticationRequired
      */
-    public function createOrderReturn(int $orderId, string $comments, array $items): int
+    public function createOrderReturn(OrderReturnCreation $creationCommand): int
     {
         $this->client->mustBeAuthenticated();
-        $items = array_map(
-            function (ReturnItem $item) {
-                return [
-                    'declinationId' => $item->getDeclinationId(),
-                    'reason' => $item->getReason(),
-                    'amount' => $item->getAmount(),
-                ];
-            },
-            $items
-        );
 
         return $this->client->post(
-            "user/orders/{$orderId}/returns",
+            "user/orders/{$creationCommand->getOrderId()}/returns",
             [
                 "form_params" => [
                     'userId' => $this->client->getApiKey()->getId(),
-                    'comments' => $comments,
-                    'items' => $items,
+                    'comments' => $creationCommand->getComments(),
+                    'items' => $creationCommand->getItems(),
                 ],
             ]
         )['returnId'];
