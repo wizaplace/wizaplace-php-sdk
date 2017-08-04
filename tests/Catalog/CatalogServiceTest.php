@@ -183,7 +183,11 @@ class CatalogServiceTest extends ApiTestCase
     {
         $category = $this->buildCatalogService()->getCategory(2);
         $this->assertEquals(2, $category->getId());
+        $this->assertEquals('Catégorie principale', $category->getName());
         $this->assertEquals('categorie-principale', $category->getSlug());
+        $this->assertEquals('', $category->getDescription());
+        $this->assertEquals(10, $category->getPosition());
+        $this->assertEquals(0, $category->getProductCount());
 
         // @TODO: more assertions
     }
@@ -193,11 +197,24 @@ class CatalogServiceTest extends ApiTestCase
         $categoryTree = $this->buildCatalogService()->getCategoryTree();
         $this->assertCount(3, $categoryTree);
 
-        $firstCateogry = $categoryTree[0]->getCategory();
+        $firstCategory = $categoryTree[0]->getCategory();
 
-        $this->assertEquals(2, $firstCateogry->getId());
-        $this->assertEquals('categorie-principale', $firstCateogry->getSlug());
-        // @TODO: more assertions
+        $this->assertEquals(2, $firstCategory->getId());
+        $this->assertEquals('Catégorie principale', $firstCategory->getName());
+        $this->assertEquals('categorie-principale', $firstCategory->getSlug());
+        $this->assertEquals('', $firstCategory->getDescription());
+        $this->assertEquals(10, $firstCategory->getPosition());
+        $this->assertEquals(0, $firstCategory->getProductCount());
+
+        $childrenTrees = $categoryTree[1]->getChildren();
+        $this->assertCount(1, $childrenTrees);
+        $childCategory = $childrenTrees[0]->getCategory();
+        $this->assertEquals(4, $childCategory->getId());
+        $this->assertEquals('Écrans', $childCategory->getName());
+        $this->assertEquals('ecrans', $childCategory->getSlug());
+        $this->assertEquals('', $childCategory->getDescription());
+        $this->assertEquals(0, $childCategory->getPosition());
+        $this->assertEquals(2, $childCategory->getProductCount());
     }
 
     public function testGetAttributes()

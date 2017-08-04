@@ -87,12 +87,21 @@ class BasketServiceTest extends ApiTestCase
 
         $order = $orderService->getOrder($orders[0]['id']);
         $this->assertEquals($orders[0]['id'], $order->getId());
-        $this->assertCount(1, $order->getOrderItem());
+        $this->assertEquals(4, $order->getCompanyId());
         $this->assertEquals('TNT Express', $order->getShippingName());
         $this->assertEquals('STANDBY_BILLING', $order->getStatus());
+        $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
         $this->assertEquals(40.0, $order->getTotal());
         $this->assertEquals(40.0, $order->getSubtotal());
         $this->assertEquals('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
+
+        $orderItems = $order->getOrderItem();
+        $this->assertCount(1, $orderItems);
+        $this->assertEquals('1_0', $orderItems[0]->getDeclinationId());
+        $this->assertEquals('optio corporis similique voluptatum', $orderItems[0]->getProductName());
+        $this->assertEquals('6086375420678', $orderItems[0]->getProductCode());
+        $this->assertEquals(20.0, $orderItems[0]->getPrice());
+        $this->assertEquals(2, $orderItems[0]->getAmount());
     }
 
     public function testCreatingABasket()
