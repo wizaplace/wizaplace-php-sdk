@@ -141,4 +141,34 @@ class Declination
     {
         return $this->images;
     }
+
+    /**
+     * Declination's id is composed with :
+     *
+     * productId_option1Id_variantId_option2Id_otherVariantId etc...;
+     */
+    public function hasVariants(array $variantIds): bool
+    {
+        /**
+         * ids is an array where :
+         *
+         * key 0    = productId
+         * key odd  = optionId
+         * key even = variantId -> condition : if (key != 0 && key % 2 == 0)
+         *
+         * each odd key goes along with an even key ( there can't be an odd key without an even key )
+         */
+        $ids = explode('_', $this->id);
+
+        $hasVariants = [];
+        foreach ($variantIds as $variantId) {
+            foreach ($ids as $key => $id) {
+                if ($key != 0 && $key % 2 == 0 && $variantId == $id) {
+                    $hasVariants[] = $variantId;
+                }
+            }
+        }
+
+        return ($hasVariants == $variantIds);
+    }
 }

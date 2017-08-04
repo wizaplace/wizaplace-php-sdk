@@ -309,7 +309,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(2, $product->getId());
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
-        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([['optionId' => '7', 'variantId' => '1']]));
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
     }
 
     public function testGetProductWithMultipleOptions()
@@ -604,11 +604,11 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(3, $product->getId());
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
-        $this->assertEquals($expectedDeclinations[6], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '5'], ['optionId' => '10', 'variantId' => '9']]));
-        $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '6'], ['optionId' => '10', 'variantId' => '9']]));
-        $this->assertEquals($expectedDeclinations[8], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '7'], ['optionId' => '10', 'variantId' => '9']]));
-        $this->assertEquals($expectedDeclinations[9], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '8'], ['optionId' => '10', 'variantId' => '9']]));
-        $this->assertEquals($expectedDeclinations[10], $product->getDeclinationFromOptions([['optionId' => '9', 'variantId' => '5'], ['optionId' => '10', 'variantId' => '10']]));
+        $this->assertEquals($expectedDeclinations[6], $product->getDeclinationFromOptions([5, 9]));
+        $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([6, 9]));
+        $this->assertEquals($expectedDeclinations[8], $product->getDeclinationFromOptions([7, 9]));
+        $this->assertEquals($expectedDeclinations[9], $product->getDeclinationFromOptions([8, 9]));
+        $this->assertEquals($expectedDeclinations[10], $product->getDeclinationFromOptions([5, 10]));
     }
 
     private function buildCatalogService(): CatalogService

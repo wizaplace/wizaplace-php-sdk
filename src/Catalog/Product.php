@@ -284,22 +284,14 @@ class Product
         throw new NotFound('Declination '.$declinationId.' was not found.');
     }
 
-    public function getDeclinationFromOptions(array $optionVariants): Declination
+    public function getDeclinationFromOptions(array $variantIds): Declination
     {
-        $delinationId = $this->getId();
-        $options = $this->getOptions();
-        foreach ($optionVariants as $optionVariant) {
-            foreach ($options as $option) {
-                if ($option->getId() == $optionVariant['optionId']) {
-                    foreach ($option->getVariants() as $variant) {
-                        if ($variant->getId() == $optionVariant['variantId']) {
-                            $delinationId .= '_'.$option->getId().'_'.$variant->getId();
-                        }
-                    }
-                }
+        foreach ($this->declinations as $declination) {
+            if ($declination->hasVariants($variantIds)) {
+                return $declination;
             }
         }
 
-        return $this->getDeclination($delinationId);
+        throw new NotFound('Declination was not found.');
     }
 }
