@@ -22,7 +22,16 @@ class CmsServiceTest extends ApiTestCase
 
         $firstMenu = array_pop($menus);
 
-        $this->assertNotEmpty($firstMenu->getItems());
+        $this->assertEquals(5, $firstMenu->getId());
+        $this->assertEquals('Espace pro', $firstMenu->getName());
+
+        $items = $firstMenu->getItems();
+        $this->assertCount(3, $items);
+
+        $firstItem = $items[0];
+        $this->assertEquals('Annoncer sur la plateforme', $firstItem->getName());
+        $this->assertEquals(0, $firstItem->getPosition());
+        $this->assertEquals('https://wizaplace.loc/annoncer-sur-la-plateforme.html', $firstItem->getUrl()->__toString());
     }
 
     public function testGetPage()
