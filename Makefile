@@ -27,7 +27,7 @@ test:
 ifndef BUILD_ID
 	./vendor/bin/phpunit --configuration ./phpunit.xml
 else
-	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit-result.xml --coverage-clover ./clover.xml
+	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit-result.xml --coverage-clover ./clover.xml --coverage-html ./coverage/
 endif
 
 .PHONY: all install lint stan test
