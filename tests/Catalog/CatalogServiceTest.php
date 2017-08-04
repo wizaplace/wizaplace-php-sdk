@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Catalog;
 
+use Wizaplace\Catalog\AttributeType;
 use Wizaplace\Catalog\CatalogService;
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Catalog\Option;
@@ -201,6 +202,36 @@ class CatalogServiceTest extends ApiTestCase
         // @TODO: more assertions
     }
 
+    public function testGetAttributes()
+    {
+        $attributes = $this->buildCatalogService()->getAttributes();
+
+        $this->assertCount(9, $attributes);
+        foreach ($attributes as $attribute) {
+            $this->assertGreaterThan(0, $attribute->getId());
+            $this->assertGreaterThanOrEqual(0, $attribute->getPosition());
+            $this->assertNotEmpty($attribute->getName());
+            $this->assertNotEmpty($attribute->getType()->getValue());
+        }
+    }
+
+    public function testGetAttribute()
+    {
+        $attribute = $this->buildCatalogService()->getAttribute(1);
+
+        $this->assertEquals(1, $attribute->getId());
+        $this->assertEquals(0, $attribute->getPosition());
+        $this->assertEquals('Couleur', $attribute->getName());
+        $this->assertEquals(AttributeType::CHECKBOX_MULTIPLE(), $attribute->getType());
+        $this->assertNull($attribute->getParentId());
+    }
+
+    public function testGetNonExistingAttribute()
+    {
+        $this->expectException(NotFound::class);
+        $this->buildCatalogService()->getAttribute(404);
+    }
+
     public function testGetAttributeVariant()
     {
         $variant = $this->buildCatalogService()->getAttributeVariant(3);
@@ -210,6 +241,12 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('Rouge', $variant->getName());
         $this->assertEquals('rouge', $variant->getSlug());
         $this->assertNull($variant->getImage());
+    }
+
+    public function testGetNonExistingAttributeVariant()
+    {
+        $this->expectException(NotFound::class);
+        $this->buildCatalogService()->getAttributeVariant(404);
     }
 
     public function testGetProductWithOptions()
