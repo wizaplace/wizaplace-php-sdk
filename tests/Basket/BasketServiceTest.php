@@ -104,6 +104,31 @@ class BasketServiceTest extends ApiTestCase
         $this->assertEquals(2, $orderItems[0]->getAmount());
     }
 
+    public function testCleanBasket()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+
+        $basketService = new BasketService($apiClient);
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $basketService->addProductToBasket($basketId, '1', 1);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $this->assertEquals(1, $basket->getTotalQuantity());
+
+        $basketService->cleanBasket($basketId);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $this->assertEquals(0, $basket->getTotalQuantity());
+    }
+
     public function testCreatingABasket()
     {
         $basketService = $this->buildAuthenticatedBasketService();
