@@ -37,7 +37,34 @@ class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertNotNull($user, 'User exists');
-        $this->assertEquals($user->getEmail(), $userEmail);
+        $this->assertEquals($userEmail, $user->getEmail());
+        $this->assertEquals($userId, $user->getId());
+        $this->assertEquals('', $user->getFirstname());
+        $this->assertEquals('', $user->getLastname());
+        $this->assertEquals([
+            38 => null,
+            'firstname' => '',
+            'lastname' => '',
+            40 => null,
+            'phone' => '',
+            'address' => '',
+            'address_2' => '',
+            'zipcode' => '',
+            'city' => '',
+            'country' => 'FR',
+        ], $user->getShippingAddress());
+        $this->assertEquals([
+            37 => null,
+            'firstname' => '',
+            'lastname' => '',
+            39 => null,
+            'phone' => '',
+            'address' => '',
+            'address_2' => '',
+            'zipcode' => '',
+            'city' => '',
+            'country' => 'FR',
+        ], $user->getBillingAddress());
     }
 
     public function testCreateAlreadyExistingUser()
@@ -48,6 +75,27 @@ class UserServiceTest extends ApiTestCase
         // create already existing user
         $this->expectException(UserAlreadyExists::class);
         $userService->register('user@wizaplace.com', 'whatever');
+    }
+
+    public function testRecoverPassword()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userEmail = 'user1237@example.com';
+        $userPassword = 'password';
+        $userService->register($userEmail, $userPassword);
+
+
+        $this->assertNull($userService->recoverPassword($userEmail));
+    }
+
+    public function testRecoverPasswordForNonExistingEmail()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $this->assertNull($userService->recoverPassword('404@example.com'));
     }
 
     public function testChangePassword()
