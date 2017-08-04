@@ -57,6 +57,6 @@ class MailingListService extends AbstractService
 
     public function unsubscribe(int $mailingListId, string $email)
     {
-        $this->client->rawRequest('delete', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+        $this->client->delete("mailinglists/$mailingListId/subscriptions/$email");
     }
 }
