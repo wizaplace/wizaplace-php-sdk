@@ -2,3 +2,4 @@
 phpunit-result.xml
 coke-*.xml
 clover.xml
+/coverage/
