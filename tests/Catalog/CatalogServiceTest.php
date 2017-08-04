@@ -200,8 +200,21 @@ class CatalogServiceTest extends ApiTestCase
         $firstCategory = $categoryTree[0]->getCategory();
 
         $this->assertEquals(2, $firstCategory->getId());
+        $this->assertEquals('Catégorie principale', $firstCategory->getName());
         $this->assertEquals('categorie-principale', $firstCategory->getSlug());
-        // @TODO: more assertions
+        $this->assertEquals('', $firstCategory->getDescription());
+        $this->assertEquals(10, $firstCategory->getPosition());
+        $this->assertEquals(0, $firstCategory->getProductCount());
+
+        $childrenTrees = $categoryTree[1]->getChildren();
+        $this->assertCount(1, $childrenTrees);
+        $childCategory = $childrenTrees[0]->getCategory();
+        $this->assertEquals(4, $childCategory->getId());
+        $this->assertEquals('Écrans', $childCategory->getName());
+        $this->assertEquals('ecrans', $childCategory->getSlug());
+        $this->assertEquals('', $childCategory->getDescription());
+        $this->assertEquals(0, $childCategory->getPosition());
+        $this->assertEquals(2, $childCategory->getProductCount());
     }
 
     public function testGetAttributes()
