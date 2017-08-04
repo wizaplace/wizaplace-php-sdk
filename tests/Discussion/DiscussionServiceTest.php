@@ -47,7 +47,7 @@ class DiscussionServiceTest extends ApiTestCase
 
     public function testListDiscussions()
     {
-        $discussions = $this->discussionService->getDiscussions();
+        $discussions = $this->discussionService->listDiscussions();
 
         $expectedDiscussions = [
             new Discussion(
@@ -92,7 +92,7 @@ class DiscussionServiceTest extends ApiTestCase
 
     public function testGetEmptyMessages()
     {
-        $messages = $this->discussionService->getMessages(1);
+        $messages = $this->discussionService->listMessages(1);
 
         $this->assertEquals([], $messages);
     }
@@ -103,7 +103,7 @@ class DiscussionServiceTest extends ApiTestCase
         $this->expectExceptionCode(404);
         $this->expectExceptionMessage('The discussion 2 was not found.');
 
-        $this->discussionService->getMessages(2);
+        $this->discussionService->listMessages(2);
     }
 
     public function testPostMessage()
@@ -129,7 +129,7 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $this->discussionService->postMessage(1, 'This is an other test message');
 
-        $messages = $this->discussionService->getMessages(1);
+        $messages = $this->discussionService->listMessages(1);
 
         $date = new \DateTimeImmutable();
 

@@ -13,12 +13,35 @@ use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Exception\SomeParametersAreInvalid;
 
+/**
+ * This service helps getting and creating discussions and messages.
+ *
+ * Discussion are a list of exchanged messages between a customer and a product's vendor.
+ *
+ * Example :
+ *
+ *      // Get the user's discussions list
+ *      $discussionsList = $discussionService->listDiscussions();
+ *
+ *      // Get a discussion based on its id
+ *      $discussion = $discussionService->getDiscussion($discussionId);
+ *
+ *      // Start a discussion between current User and Product's vendor
+ *      $discussion = $discussionService->startDiscussion($productId);
+ *
+ *      // Get the discussion's messages list
+ *      $messagesList = $discussionService->startDiscussion($productId);
+ *
+ *      // Post a new message in the discussion
+ *      $message = $discussionService->postMessage($discussionId, $content);
+ */
 class DiscussionService extends AbstractService
 {
     /**
+     * Get the user's discussions list
      * @return Discussion[]
      */
-    public function getDiscussions(): array
+    public function listDiscussions(): array
     {
         $discussions = array_map(function (array $discussionData): Discussion {
             return new Discussion($discussionData);
@@ -27,6 +50,7 @@ class DiscussionService extends AbstractService
         return $discussions;
     }
 
+    /** Get a discussion based on its id */
     public function getDiscussion(int $discussionId): Discussion
     {
         try {
@@ -36,6 +60,7 @@ class DiscussionService extends AbstractService
         }
     }
 
+    /** Start a discussion with a vendor about a specific product. */
     public function startDiscussion(int $productId): Discussion
     {
         try {
@@ -48,9 +73,10 @@ class DiscussionService extends AbstractService
     }
 
     /**
+     * Get the discussion's messages list
      * @return Message[]
      */
-    public function getMessages(int $discussionId): array
+    public function listMessages(int $discussionId): array
     {
         try {
             $messages = $this->client->get('discussions/'.$discussionId.'/messages');
@@ -63,6 +89,7 @@ class DiscussionService extends AbstractService
         }
     }
 
+    /** Post a new message in the discussion */
     public function postMessage(int $discussionId, string $content): Message
     {
         try {
