@@ -44,6 +44,10 @@ class CmsServiceTest extends ApiTestCase
         $this->assertEquals(31, $page->getId());
         $this->assertEquals('Test Cms Page Slug', $page->getTitle());
         $this->assertEquals('test-cms-page-slug', $page->getSlug());
+        $this->assertEquals('', $page->getContent());
+        $this->assertEquals('', $page->getMetaDescription());
+        $this->assertEquals('', $page->getMetaKeywords());
+        $this->assertEquals('', $page->getMetaTitle());
     }
 
     private function buildCmsService(): CmsService
