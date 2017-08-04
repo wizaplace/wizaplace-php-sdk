@@ -25,15 +25,15 @@ class Option
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->variants = array_map(
-            function ($variant) {
-                return new OptionVariant($variant);
+            function (array $variantData) : OptionVariant {
+                return new OptionVariant($variantData);
             },
             $data['variants']
         );
 
-        //Tri du JSON par VariantId (string)
-        usort($this->variants, function (OptionVariant $a, OptionVariant $b) {
-            return $a->getId() > $b->getId();
+        //Tri du JSON par VariantId (int)
+        usort($this->variants, function (OptionVariant $a, OptionVariant $b) : int {
+            return $a->getId() <=> $b->getId();
         });
     }
 

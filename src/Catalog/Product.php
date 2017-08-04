@@ -121,23 +121,19 @@ class Product
             $data['declinations']
         );
         //Tri du JSON par DeclinationId (string)
-        usort($this->declinations, function (Declination $a, Declination $b) {
-            if (strlen($a->getId()) == strlen($b->getId())) {
-                return ($a->getId() > $b->getId()) ? 1 : -1;
-            } else {
-                return (strlen($a->getId()) > strlen($b->getId())) ? 1 : -1;
-            }
+        usort($this->declinations, function (Declination $a, Declination $b) : int {
+            return strnatcmp($a->getId(), $b->getId());
         });
         $this->options = array_map(
-            function ($option) {
+            function (array $option) : Option {
                 return new Option($option);
             },
             $data['options']
         );
 
-        //Tri du JSON par OptionId (string)
-        usort($this->options, function (Option $a, Option $b) {
-            return $a->getId() > $b->getId();
+        //Tri du JSON par OptionId (int)
+        usort($this->options, function (Option $a, Option $b) : int {
+            return $a->getId() <=> $b->getId();
         });
     }
 
