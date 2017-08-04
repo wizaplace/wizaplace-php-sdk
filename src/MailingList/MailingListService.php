@@ -49,6 +49,7 @@ class MailingListService extends AbstractService
                     throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
                     break;
                 default:
+                    throw $e;
                     break;
             }
         }
