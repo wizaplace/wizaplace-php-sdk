@@ -36,7 +36,6 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
         $this->assertEquals('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
         $this->assertEquals(20, $product->getMinPrice());
-        $this->assertCount(1, $product->getCompanies());
         $this->assertCount(1, $product->getShippings());
         $this->assertEquals('', $product->getShortDescription());
         $this->assertEquals('', $product->getSupplierReference());
@@ -44,6 +43,11 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(0, $product->getGreenTax());
         $this->assertEquals(1.23, $product->getWeight());
         $this->assertEquals(3, $product->getAverageRating());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertEquals(4, $companies[0]->getId());
+        $this->assertEquals('Test company', $companies[0]->getName());
     }
 
     public function testGetProductWithComplexAttributes()
