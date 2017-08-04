@@ -196,8 +196,6 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(10, $category->getPosition());
         $this->assertEquals(0, $category->getProductCount());
         $this->assertNull($category->getImage());
-
-        // @TODO: more assertions
     }
 
     public function testGetCategoryTree()
