@@ -160,13 +160,17 @@ class Declination
      */
     public function hasVariants(array $variantIds): bool
     {
-        // collecting the declination's variantIds
+        /**
+         * collecting the declination's variantIds
+         */
         $declinationVariantIds = [];
         foreach ($this->combinations as $combination) {
             $declinationVariantIds[] = $combination->getVariantId();
         }
 
-        //looks for requested variantIds among declination's variantIds and increment $foundIds when one is found
+        /**
+         * looks for requested variantIds among declination's variantIds and increment $foundIds when one is found
+         */
         $foundIds = 0;
         foreach ($variantIds as $variantId) {
             if (in_array($variantId, $declinationVariantIds)) {
@@ -174,7 +178,11 @@ class Declination
             }
         }
 
-        // if all variantIds have been found, then $foundIds == count($variantIds)
-        return (count($variantIds) == $foundIds);
+        /**
+         * if all variantIds have been found, then $foundIds == count($variantIds).
+         * Also checking that the declination has no other variants
+         * by checking if the count of $variantIds is the same than the $declinationVariantIds'
+         */
+        return (count($variantIds) == $foundIds && count($variantIds) == count($declinationVariantIds));
     }
 }
