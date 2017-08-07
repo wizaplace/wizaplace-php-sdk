@@ -51,6 +51,9 @@ class Declination
     /** @var Image[] */
     private $images;
 
+    /** @var Combination[] */
+    private $combination;
+
     public function __construct(array $data)
     {
         $prices = $data['prices'] ?? [];
@@ -71,6 +74,12 @@ class Declination
                 return new Image($imageData);
             },
             $data['images']
+        );
+        $this->combination = array_map(
+            function ($combinationData) {
+                return new Combination($combinationData);
+            },
+            $data['combinations']
         );
     }
 
@@ -133,6 +142,10 @@ class Declination
     {
         return $this->affiliateLink;
     }
+    public function getCombination(): array
+    {
+        return $this->combination;
+    }
 
     /**
      * @return Image[]
@@ -142,33 +155,19 @@ class Declination
         return $this->images;
     }
 
-    /**
-     * Declination's id is composed with :
-     *
-     * productId_option1Id_variantId_option2Id_otherVariantId etc...;
-     */
     public function hasVariants(array $variantIds): bool
     {
-        /**
-         * ids is an array where :
-         *
-         * key 0    = productId
-         * key odd  = optionId
-         * key even = variantId -> condition : if (key != 0 && key % 2 == 0)
-         *
-         * each odd key goes along with an even key ( there can't be an odd key without an even key )
-         */
-        $ids = explode('_', $this->id);
-
-        $hasVariants = [];
+        $declinationVariantIds = [];
+        foreach ($this->combination as $combination) {
+            $declinationVariantIds[] = $combination->getVariantId();
+        }
+        $foundIds = 0;
         foreach ($variantIds as $variantId) {
-            foreach ($ids as $key => $id) {
-                if ($key != 0 && $key % 2 == 0 && $variantId == $id) {
-                    $hasVariants[] = $variantId;
-                }
+            if (in_array($variantId, $declinationVariantIds)) {
+                $foundIds++;
             }
         }
 
-        return ($hasVariants == $variantIds);
+        return (count($variantIds) == $foundIds);
     }
 }

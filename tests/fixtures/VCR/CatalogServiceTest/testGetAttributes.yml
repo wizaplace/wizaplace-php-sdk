@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 02 Aug 2017 07:41:23 GMT'
+            Date: 'Mon, 07 Aug 2017 14:02:54 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 07cae0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/07cae0'
+            X-Debug-Token: adf8a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/adf8a3'
             Content-Length: '716'
             Content-Type: application/json
         body: '[{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":2,"name":"Taille","position":0,"parentId":null,"type":"LIST_TEXT"},{"id":3,"name":"Commentaire","position":0,"parentId":null,"type":"FREE_TEXT"},{"id":4,"name":"Groupe attributs","position":0,"parentId":null,"type":"GROUP"},{"id":5,"name":"Couleur secondaire","position":0,"parentId":4,"type":"CHECKBOX_MULTIPLE"},{"id":6,"name":"Pointure","position":0,"parentId":4,"type":"LIST_TEXT"},{"id":7,"name":"Compl\u00e9ment adresse","position":0,"parentId":4,"type":"FREE_TEXT"},{"id":8,"name":"Groupe vide","position":0,"parentId":null,"type":"GROUP"},{"id":9,"name":"color","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}]'
