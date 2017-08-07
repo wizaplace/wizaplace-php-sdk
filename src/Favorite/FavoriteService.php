@@ -28,8 +28,8 @@ class FavoriteService extends AbstractService
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations/ids', []);
         $isInFavorites = false;
-        if (!empty($results)) {
-            foreach ($results as $result) {
+        if ($results['count'] > 0) {
+            foreach ($results['_embedded']['favorites'] as $result) {
                 $declination = explode('_', $result);
                 if ($declination[0] == $declinationId) {
                     $isInFavorites = true;
