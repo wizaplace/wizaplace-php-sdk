@@ -19,8 +19,14 @@ class BannerServiceTest extends ApiTestCase
         $banners = $cmsService->getHomepageBanners();
 
         $this->assertEquals(2, count($banners));
+
         $this->assertEquals('http://url-de-test.com', $banners[0]->getLink());
+        $this->assertEquals(3, $banners[0]->getImageId());
+        $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
+
         $this->assertEquals('http://url-de-test-2.com', $banners[1]->getLink());
+        $this->assertEquals(4, $banners[1]->getImageId());
+        $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
     public function testGetMobileHomepageBanners()
@@ -30,6 +36,8 @@ class BannerServiceTest extends ApiTestCase
 
         $this->assertEquals(1, count($banners));
         $this->assertEquals('http://url-de-test.com', $banners[0]->getLink());
+        $this->assertEquals(3, $banners[0]->getImageId());
+        $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
     }
 
     public function testGetDesktopHomepageBanners()
@@ -39,6 +47,8 @@ class BannerServiceTest extends ApiTestCase
 
         $this->assertEquals(1, count($banners));
         $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
+        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
     public function testGetCategoryBanners()
@@ -47,8 +57,14 @@ class BannerServiceTest extends ApiTestCase
         $banners = $cmsService->getCategoriesBanners(3);
 
         $this->assertEquals(2, count($banners));
+
         $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
+        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
+
         $this->assertEquals('http://url-de-test-3.com', $banners[1]->getLink());
+        $this->assertEquals(5, $banners[1]->getImageId());
+        $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
     public function testGetMobileCategoryBanners()
@@ -58,6 +74,8 @@ class BannerServiceTest extends ApiTestCase
 
         $this->assertEquals(1, count($banners));
         $this->assertEquals('http://url-de-test-3.com', $banners[0]->getLink());
+        $this->assertEquals(5, $banners[0]->getImageId());
+        $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
     public function testGetDesktopCategoryBanners()
@@ -67,6 +85,8 @@ class BannerServiceTest extends ApiTestCase
 
         $this->assertEquals(1, count($banners));
         $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
+        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
     public function testGetEmptyCategoryBanners()
