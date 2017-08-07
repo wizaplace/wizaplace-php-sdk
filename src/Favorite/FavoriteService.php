@@ -19,6 +19,23 @@ use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 class FavoriteService extends AbstractService
 {
     /**
+     * Return all the products saved as favorites
+     *
+     * @throws AuthenticationRequired
+     *
+     * @return Favorite[]
+     */
+    public function getAll() : array
+    {
+        $this->client->mustBeAuthenticated();
+        $results = $this->client->get('user/favorites/declinations', []);
+
+        return array_map(function (array $favorite): Favorite {
+            return new Favorite($favorite);
+        }, $results['_embedded']['favorites']);
+    }
+
+    /**
      * Check whether a product is in the user's favorites.
      *
      * @throws AuthenticationRequired

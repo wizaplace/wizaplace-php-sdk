@@ -65,6 +65,15 @@ class FavoriteServiceTest extends ApiTestCase
         $this->assertTrue($isFavorite);
     }
 
+    public function testGetAll()
+    {
+        $favorites = $this->favService->getAll();
+
+        $this->assertTrue(is_array($favorites));
+        $this->assertCount(1, $favorites);
+        $this->assertSame(1, reset($favorites)->getProductId());
+    }
+
     public function testRemoveProductFromFavorite()
     {
         $this->favService->removeDeclinationToUserFavorites(1);
