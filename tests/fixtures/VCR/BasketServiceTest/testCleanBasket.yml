@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:09 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b5cb0c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b5cb0c'
+            X-Debug-Token: ce4c7d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce4c7d'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS\/6sYz"}'
@@ -42,18 +42,18 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:09 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2e779b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e779b'
+            X-Debug-Token: f42e1b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f42e1b'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"46c82fc0-c560-413f-a1af-aaa6cdc778c0"'
+        body: '"8d95be9b-0ab1-4560-a358-2ca120d96731"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/46c82fc0-c560-413f-a1af-aaa6cdc778c0/add'
+        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731/add'
         headers:
             Host: wizaplace.loc
             Expect: null
@@ -70,18 +70,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:09 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '973712'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/973712'
+            X-Debug-Token: ffd8c6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ffd8c6'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/46c82fc0-c560-413f-a1af-aaa6cdc778c0'
+        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -95,18 +95,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:10 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5866b1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5866b1'
+            X-Debug-Token: 5ebe9a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ebe9a'
             Content-Length: '1042'
             Content-Type: application/json
-        body: '{"id":"46c82fc0-c560-413f-a1af-aaa6cdc778c0","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
+        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/46c82fc0-c560-413f-a1af-aaa6cdc778c0'
+        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -120,18 +120,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:11 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dc9e21
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dc9e21'
+            X-Debug-Token: 4a7f5c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4a7f5c'
             Content-Length: '1042'
             Content-Type: application/json
-        body: '{"id":"46c82fc0-c560-413f-a1af-aaa6cdc778c0","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
+        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/46c82fc0-c560-413f-a1af-aaa6cdc778c0/remove'
+        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731/remove'
         headers:
             Host: wizaplace.loc
             Expect: null
@@ -148,17 +148,17 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:11 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c387b2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c387b2'
+            X-Debug-Token: 64aff6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64aff6'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/46c82fc0-c560-413f-a1af-aaa6cdc778c0'
+        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -172,11 +172,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:11 GMT'
+            Date: 'Mon, 07 Aug 2017 09:37:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 349d31
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/349d31'
+            X-Debug-Token: f181e6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f181e6'
             Content-Length: '366'
             Content-Type: application/json
-        body: '{"id":"46c82fc0-c560-413f-a1af-aaa6cdc778c0","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
