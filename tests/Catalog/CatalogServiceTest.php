@@ -39,7 +39,6 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
         $this->assertEquals('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
         $this->assertEquals(20, $product->getMinPrice());
-        $this->assertCount(1, $product->getCompanies());
         $this->assertCount(1, $product->getShippings());
         $this->assertEquals('', $product->getShortDescription());
         $this->assertEquals('', $product->getSupplierReference());
@@ -47,6 +46,11 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(0, $product->getGreenTax());
         $this->assertEquals(1.23, $product->getWeight());
         $this->assertEquals(3, $product->getAverageRating());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertEquals(4, $companies[0]->getId());
+        $this->assertEquals('Test company', $companies[0]->getName());
     }
 
     public function testGetProductWithComplexAttributes()
@@ -59,7 +63,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('test-product-complex-attributes', $product->getSlug());
         $this->assertEquals(1.23, $product->getWeight());
         $this->assertEquals(0, $product->getGreenTax());
-        $this->assertEquals(null, $product->getAverageRating());
+        $this->assertNull($product->getAverageRating());
 
         $attributes = $product->getAttributes();
 
@@ -160,8 +164,8 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('Test company', $company->getDescription());
         $this->assertEquals('40 rue Laure Diebold', $company->getAddress());
         $this->assertEquals('01 02 03 04 05', $company->getPhoneNumber());
-        $this->assertEquals(false, $company->isProfessional());
-        $this->assertEquals(null, $company->getLocation());
+        $this->assertFalse($company->isProfessional());
+        $this->assertNull($company->getLocation());
         $this->assertEquals(2, $company->getAverageRating());
 
         $company = $catalogService->getCompanyById(6);
@@ -172,9 +176,9 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('Test company', $company->getDescription());
         $this->assertEquals('40 rue Laure Diebold', $company->getAddress());
         $this->assertEquals('01 02 03 04 05', $company->getPhoneNumber());
-        $this->assertEquals(true, $company->isProfessional());
-        $this->assertEquals(null, $company->getLocation());
-        $this->assertEquals(null, $company->getAverageRating());
+        $this->assertTrue($company->isProfessional());
+        $this->assertNull($company->getLocation());
+        $this->assertNull($company->getAverageRating());
     }
 
     public function testGetC2cCompanyById()
@@ -189,18 +193,23 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('C2C company', $company->getDescription());
         $this->assertEquals('', $company->getAddress());
         $this->assertEquals('', $company->getPhoneNumber());
-        $this->assertEquals(false, $company->isProfessional());
-        $this->assertEquals(null, $company->getLocation());
-        $this->assertEquals(null, $company->getAverageRating());
+        $this->assertFalse($company->isProfessional());
+        $this->assertNull($company->getLocation());
+        $this->assertNull($company->getAverageRating());
+        $this->assertNull($company->getImage());
     }
 
     public function testGetCategory()
     {
         $category = $this->buildCatalogService()->getCategory(2);
         $this->assertEquals(2, $category->getId());
+        $this->assertNull($category->getParentId());
+        $this->assertEquals('Catégorie principale', $category->getName());
         $this->assertEquals('categorie-principale', $category->getSlug());
-
-        // @TODO: more assertions
+        $this->assertEquals('', $category->getDescription());
+        $this->assertEquals(10, $category->getPosition());
+        $this->assertEquals(0, $category->getProductCount());
+        $this->assertNull($category->getImage());
     }
 
     public function testGetCategoryTree()
@@ -208,11 +217,24 @@ class CatalogServiceTest extends ApiTestCase
         $categoryTree = $this->buildCatalogService()->getCategoryTree();
         $this->assertCount(3, $categoryTree);
 
-        $firstCateogry = $categoryTree[0]->getCategory();
+        $firstCategory = $categoryTree[0]->getCategory();
 
-        $this->assertEquals(2, $firstCateogry->getId());
-        $this->assertEquals('categorie-principale', $firstCateogry->getSlug());
-        // @TODO: more assertions
+        $this->assertEquals(2, $firstCategory->getId());
+        $this->assertEquals('Catégorie principale', $firstCategory->getName());
+        $this->assertEquals('categorie-principale', $firstCategory->getSlug());
+        $this->assertEquals('', $firstCategory->getDescription());
+        $this->assertEquals(10, $firstCategory->getPosition());
+        $this->assertEquals(0, $firstCategory->getProductCount());
+
+        $childrenTrees = $categoryTree[1]->getChildren();
+        $this->assertCount(1, $childrenTrees);
+        $childCategory = $childrenTrees[0]->getCategory();
+        $this->assertEquals(4, $childCategory->getId());
+        $this->assertEquals('Écrans', $childCategory->getName());
+        $this->assertEquals('ecrans', $childCategory->getSlug());
+        $this->assertEquals('', $childCategory->getDescription());
+        $this->assertEquals(0, $childCategory->getPosition());
+        $this->assertEquals(2, $childCategory->getProductCount());
     }
 
     public function testGetAttributes()
