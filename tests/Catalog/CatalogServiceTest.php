@@ -289,9 +289,6 @@ class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById(2);
 
-        $ids = ['2_7_1', '2_7_2', '2_7_3', '2_7_4'];
-        $codes = ['size_13', 'size_15', 'size_17', 'size_21'];
-
         $expectedDeclinations = [
             new Declination([
                 'id' => '2_7_1',
@@ -834,52 +831,7 @@ class CatalogServiceTest extends ApiTestCase
             ]),
         ];
 
-        $expectedOption1 = [
-            'id' => 9,
-            'name' => 'color',
-            'variants' => [
-                [
-                    'id' => 5,
-                    'name' => 'white',
-                ],
-                [
-                    'id' => 6,
-                    'name' => 'black',
-                ],
-                [
-                    'id' => 7,
-                    'name' => 'blue',
-                ],
-                [
-                    'id' => 8,
-                    'name' => 'red',
-                ],
-            ],
-        ];
-
-        $expectedOption2 = [
-            'id' => 10,
-            'name' => 'connectivity',
-            'variants' => [
-                [
-                    'id' => 9,
-                    'name' => 'wireless',
-                ],
-                [
-                    'id' => 10,
-                    'name' => 'wired',
-                ],
-            ],
-        ];
-
-        $expectedOptions = [
-            new Option($expectedOption1),
-            new Option($expectedOption2),
-        ];
-
         $this->assertEquals(3, $product->getId());
-        $this->assertEquals($expectedDeclinations, $product->getDeclinations());
-        $this->assertEquals($expectedOptions, $product->getOptions());
         $this->assertTrue(in_array($product->getDeclinationFromOptions([5]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 9]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 10]), $expectedDeclinations));

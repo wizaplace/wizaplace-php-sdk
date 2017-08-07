@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 14:02:55 GMT'
+            Date: 'Mon, 07 Aug 2017 14:20:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 30d893
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/30d893'
+            X-Debug-Token: '154352'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/154352'
             Content-Length: '67'
             Content-Type: application/json
         body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","image":null}'

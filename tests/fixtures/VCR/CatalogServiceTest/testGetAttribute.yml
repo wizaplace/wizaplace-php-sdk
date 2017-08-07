@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 14:02:54 GMT'
+            Date: 'Mon, 07 Aug 2017 14:20:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 9d1800
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9d1800'
+            X-Debug-Token: '6e0783'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e0783'
             Content-Length: '81'
             Content-Type: application/json
         body: '{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}'

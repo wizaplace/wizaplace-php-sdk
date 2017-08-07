@@ -15,11 +15,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 07 Aug 2017 14:02:55 GMT'
+            Date: 'Mon, 07 Aug 2017 14:20:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '666165'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/666165'
+            X-Debug-Token: d3a4fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3a4fd'
             Content-Length: '49'
             Content-Type: application/json
         body: '{"message":"Attribute \u0022404\u0022 not found"}'
