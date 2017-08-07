@@ -14,7 +14,7 @@ class Category
 {
     /** @var int */
     private $id;
-    /** @var int */
+    /** @var null|int */
     private $parentId;
     /** @var string */
     private $name;
@@ -22,7 +22,7 @@ class Category
     private $description;
     /** @var string */
     private $slug;
-    /** @var Image */
+    /** @var null|Image */
     private $image;
     /** @var int */
     private $position;
@@ -36,7 +36,7 @@ class Category
         $this->name = $data['name'];
         $this->description = $data['description'];
         $this->slug = $data['slug'];
-        $this->image = $data['image'];
+        $this->image = isset($data['image']) ? new Image($data['image']) : null;
         $this->position = $data['position'];
         $this->productCount = $data['productCount'];
     }
@@ -46,7 +46,7 @@ class Category
         return $this->id;
     }
 
-    public function getParentId(): int
+    public function getParentId(): ?int
     {
         return $this->parentId;
     }
@@ -66,7 +66,7 @@ class Category
         return $this->slug;
     }
 
-    public function getImage(): Image
+    public function getImage(): ?Image
     {
         return $this->image;
     }
