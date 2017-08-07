@@ -49,6 +49,7 @@ class MailingListService extends AbstractService
                     throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
                     break;
                 default:
+                    throw $e;
                     break;
             }
         }
@@ -56,6 +57,6 @@ class MailingListService extends AbstractService
 
     public function unsubscribe(int $mailingListId, string $email)
     {
-        $this->client->rawRequest('delete', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+        $this->client->delete("mailinglists/$mailingListId/subscriptions/$email");
     }
 }
