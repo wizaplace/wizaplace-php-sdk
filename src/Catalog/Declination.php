@@ -52,7 +52,7 @@ class Declination
     private $images;
 
     /** @var Combination[] */
-    private $combination;
+    private $combinations;
 
     public function __construct(array $data)
     {
@@ -75,7 +75,7 @@ class Declination
             },
             $data['images']
         );
-        $this->combination = array_map(
+        $this->combinations = array_map(
             function ($combinationData) {
                 return new Combination($combinationData);
             },
@@ -142,9 +142,9 @@ class Declination
     {
         return $this->affiliateLink;
     }
-    public function getCombination(): array
+    public function getCombinations(): array
     {
-        return $this->combination;
+        return $this->combinations;
     }
 
     /**
@@ -155,12 +155,18 @@ class Declination
         return $this->images;
     }
 
+    /**
+     * This function checks if the declination has the variantsIds
+     */
     public function hasVariants(array $variantIds): bool
     {
+        // collecting the declination's variantIds
         $declinationVariantIds = [];
-        foreach ($this->combination as $combination) {
+        foreach ($this->combinations as $combination) {
             $declinationVariantIds[] = $combination->getVariantId();
         }
+
+        //looks for requested variantIds among declination's variantIds and increment $foundIds when one is found
         $foundIds = 0;
         foreach ($variantIds as $variantId) {
             if (in_array($variantId, $declinationVariantIds)) {
@@ -168,6 +174,7 @@ class Declination
             }
         }
 
+        // if all variantIds have been found, then $foundIds == count($variantIds)
         return (count($variantIds) == $foundIds);
     }
 }
