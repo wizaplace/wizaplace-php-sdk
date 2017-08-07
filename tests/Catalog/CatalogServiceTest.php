@@ -49,7 +49,7 @@ class CatalogServiceTest extends ApiTestCase
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
-        $this->assertEquals(4, $companies[0]->getId());
+        $this->assertEquals(5, $companies[0]->getId());
         $this->assertEquals('Test company', $companies[0]->getName());
     }
 
