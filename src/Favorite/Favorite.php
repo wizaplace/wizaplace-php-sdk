@@ -58,12 +58,9 @@ final class Favorite
         $this->vat = $data['prices']['vat'];
         $this->quantity = $data['quantity'];
         $this->affiliateLink = $data['affiliateLink'];
-        $this->images = array_map(
-            static function (array $data): Image {
-                return new Image($data);
-            },
-            $data['images']
-        );
+        $this->images = array_map(static function (array $data): Image {
+            return new Image($data);
+        }, $data['images']);
         $this->slug = $data['slug'];
         $this->categorySlugPath = $data['categorySlugPath'];
     }
