@@ -60,6 +60,7 @@ class SeoServiceTest extends ApiTestCase
 
         $this->assertNotNull($slugTarget);
         $this->assertEquals(SlugTargetType::PRODUCT(), $slugTarget->getObjectType());
+        $this->assertEquals('1', $slugTarget->getObjectId());
     }
 
     public function testResolveSlugWhichDoesntExist()

@@ -57,6 +57,14 @@ pipeline {
                         cloverReportDir: './',
                         cloverReportFileName: 'clover.xml'
                     ])
+                    publishHTML (target: [
+                      allowMissing: false,
+                      alwaysLinkToLastBuild: false,
+                      keepAll: true,
+                      reportDir: 'coverage',
+                      reportFiles: 'index.html',
+                      reportName: "Code Coverage report"
+                    ])
                 }
             }
         }
