@@ -68,7 +68,7 @@ class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            throw new SomeParametersAreInvalid();
+            throw new NotFound('The product '.$productId.' has not been found.');
         }
     }
 

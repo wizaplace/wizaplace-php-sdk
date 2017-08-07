@@ -28,13 +28,9 @@ class Discussion
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-
         $this->recipient = $data['recipient'];
-
         $this->productId = (int) $data['productId'];
-
         $this->title = $data['title'];
-
         $this->unreadCount = $data['unreadCount'];
     }
 

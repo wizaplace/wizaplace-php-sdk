@@ -16,36 +16,39 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:58 GMT'
+            Date: 'Mon, 07 Aug 2017 09:24:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 3410c1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3410c1'
+            X-Debug-Token: 9d28a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9d28a3'
             Content-Length: '61'
             Content-Type: application/json
         body: '{"id":3,"apiKey":"ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS\/6sYz"}'
 -
     request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/discussions/2/messages'
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
         headers:
             Host: wizaplace.loc
+            Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/json
             Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
             VCR-index: '1'
             Accept: null
+        body: '{"productId":42}'
     response:
         status:
             http_version: '1.1'
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:58 GMT'
+            Date: 'Mon, 07 Aug 2017 09:24:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 8c55e4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8c55e4'
-            Content-Length: '48'
+            X-Debug-Token: bc08bf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bc08bf'
+            Content-Length: '50'
             Content-Type: application/json
-        body: '{"message":"Discussion \u00222\u0022 not found"}'
+        body: '{"message":"The productId 42 has not been found."}'

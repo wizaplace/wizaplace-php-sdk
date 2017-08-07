@@ -45,6 +45,14 @@ class DiscussionServiceTest extends ApiTestCase
         $this->assertEquals($expectedDiscussion, $discussion);
     }
 
+    public function testStartDiscussionOnInexistantProduct()
+    {
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('The product 42 has not been found.');
+
+        $this->discussionService->startDiscussion(42);
+    }
+
     public function testListDiscussions()
     {
         $discussions = $this->discussionService->listDiscussions();
