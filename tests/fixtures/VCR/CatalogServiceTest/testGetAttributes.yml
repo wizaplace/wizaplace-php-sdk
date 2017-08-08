@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 14:20:44 GMT'
+            Date: 'Tue, 08 Aug 2017 13:50:37 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 7ae50a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7ae50a'
+            X-Debug-Token: 0a44b8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0a44b8'
             Content-Length: '716'
             Content-Type: application/json
         body: '[{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":2,"name":"Taille","position":0,"parentId":null,"type":"LIST_TEXT"},{"id":3,"name":"Commentaire","position":0,"parentId":null,"type":"FREE_TEXT"},{"id":4,"name":"Groupe attributs","position":0,"parentId":null,"type":"GROUP"},{"id":5,"name":"Couleur secondaire","position":0,"parentId":4,"type":"CHECKBOX_MULTIPLE"},{"id":6,"name":"Pointure","position":0,"parentId":4,"type":"LIST_TEXT"},{"id":7,"name":"Compl\u00e9ment adresse","position":0,"parentId":4,"type":"FREE_TEXT"},{"id":8,"name":"Groupe vide","position":0,"parentId":null,"type":"GROUP"},{"id":9,"name":"color","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}]'

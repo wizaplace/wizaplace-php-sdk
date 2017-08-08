@@ -51,8 +51,8 @@ class Declination
     /** @var Image[] */
     private $images;
 
-    /** @var Combination[] */
-    private $combinations;
+    /** @var DeclinationOption[] */
+    private $options;
 
     public function __construct(array $data)
     {
@@ -75,11 +75,11 @@ class Declination
             },
             $data['images']
         );
-        $this->combinations = array_map(
+        $this->options = array_map(
             function ($combinationData) {
-                return new Combination($combinationData);
+                return new DeclinationOption($combinationData);
             },
-            $data['combinations']
+            $data['options']
         );
     }
 
@@ -142,9 +142,9 @@ class Declination
     {
         return $this->affiliateLink;
     }
-    public function getCombinations(): array
+    public function getOptions(): array
     {
-        return $this->combinations;
+        return $this->options;
     }
 
     /**
@@ -164,7 +164,7 @@ class Declination
          * collecting the declination's variantIds
          */
         $declinationVariantIds = [];
-        foreach ($this->combinations as $combination) {
+        foreach ($this->options as $combination) {
             $declinationVariantIds[] = $combination->getVariantId();
         }
 

@@ -10,7 +10,7 @@ namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\AttributeType;
 use Wizaplace\Catalog\CatalogService;
-use Wizaplace\Catalog\combinations;
+use Wizaplace\Catalog\options;
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Catalog\Option;
 use Wizaplace\Exception\NotFound;
@@ -306,10 +306,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 7,
-                        'optionName' => 'size',
+                        'id' => 7,
+                        'name' => 'size',
                         'variantId' => 1,
                         'variantName' => '13',
                     ],
@@ -331,10 +331,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 7,
-                        'optionName' => 'size',
+                        'id' => 7,
+                        'name' => 'size',
                         'variantId' => 2,
                         'variantName' => '15',
                     ],
@@ -356,10 +356,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 7,
-                        'optionName' => 'size',
+                        'id' => 7,
+                        'name' => 'size',
                         'variantId' => 3,
                         'variantName' => '17',
                     ],
@@ -381,10 +381,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 7,
-                        'optionName' => 'size',
+                        'id' => 7,
+                        'name' => 'size',
                         'variantId' => 4,
                         'variantName' => '21',
                     ],
@@ -448,10 +448,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 5,
                         'variantName' => 'white',
                     ],
@@ -473,16 +473,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 5,
                         'variantName' => 'white',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
@@ -504,16 +504,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 5,
                         'variantName' => 'white',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],
@@ -535,10 +535,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 6,
                         'variantName' => 'black',
                     ],
@@ -560,16 +560,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 6,
                         'variantName' => 'black',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
@@ -591,16 +591,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 6,
                         'variantName' => 'black',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],
@@ -622,10 +622,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 7,
                         'variantName' => 'blue',
                     ],
@@ -647,16 +647,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 7,
                         'variantName' => 'blue',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
@@ -678,16 +678,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 7,
                         'variantName' => 'blue',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],
@@ -709,10 +709,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 8,
                         'variantName' => 'red',
                     ],
@@ -734,16 +734,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 8,
                         'variantName' => 'red',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
@@ -765,16 +765,16 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 9,
-                        'optionName' => 'color',
+                        'id' => 9,
+                        'name' => 'color',
                         'variantId' => 8,
                         'variantName' => 'red',
                     ],
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],
@@ -796,10 +796,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
@@ -821,10 +821,10 @@ class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
-                'combinations' => [
+                'options' => [
                     [
-                        'optionId' => 10,
-                        'optionName' => 'connectivity',
+                        'id' => 10,
+                        'name' => 'connectivity',
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],

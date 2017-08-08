@@ -8,13 +8,13 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Combination
+class DeclinationOption
 {
     /** @var integer */
-    private $optionId;
+    private $id;
 
     /** @var string */
-    private $optionName;
+    private $name;
 
     /** @var integer */
     private $variantId;
@@ -24,20 +24,20 @@ class Combination
 
     public function __construct(array $data)
     {
-        $this->optionId = $data['optionId'];
-        $this->optionName = $data['optionName'];
+        $this->id = $data['id'];
+        $this->name = $data['name'];
         $this->variantId = $data['variantId'];
         $this->variantName = $data['variantName'];
     }
 
-    public function getOptionId(): int
+    public function getId(): int
     {
-        return $this->optionId;
+        return $this->id;
     }
 
-    public function getOptionName(): string
+    public function getName(): string
     {
-        return $this->optionName;
+        return $this->name;
     }
 
     public function getVariantId(): int
