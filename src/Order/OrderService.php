@@ -102,7 +102,7 @@ class OrderService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function createOrderReturn(OrderReturnCreation $creationCommand): int
+    public function createOrderReturn(CreateOrderReturn $creationCommand): int
     {
         $this->client->mustBeAuthenticated();
 

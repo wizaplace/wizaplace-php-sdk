@@ -9,7 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Order;
 
 use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Order\OrderReturnCreation;
+use Wizaplace\Order\CreateOrderReturn;
 use Wizaplace\Order\OrderService;
 use Wizaplace\Order\ReturnItem;
 use Wizaplace\Tests\ApiTestCase;
@@ -30,7 +30,7 @@ class OrderServiceTest extends ApiTestCase
     {
         $orderService = $this->buildOrderService();
 
-        $creationCommand = new OrderReturnCreation(1, "Broken on arrival");
+        $creationCommand = new CreateOrderReturn(1, "Broken on arrival");
         $creationCommand->addItem('1_0', 1, 1);
 
         $returnId = $orderService->createOrderReturn($creationCommand);
@@ -80,7 +80,7 @@ class OrderServiceTest extends ApiTestCase
     public function testCreateOrderReturnWithoutAuthentication()
     {
         $this->expectException(AuthenticationRequired::class);
-        $this->buildOrderServiceWithoutAuthentication()->createOrderReturn(new OrderReturnCreation(1, ""));
+        $this->buildOrderServiceWithoutAuthentication()->createOrderReturn(new CreateOrderReturn(1, ""));
     }
 
     public function testGetReturnReasons()

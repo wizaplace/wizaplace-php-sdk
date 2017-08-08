@@ -11,7 +11,7 @@ namespace Wizaplace\Order;
 /**
  * @see \Wizaplace\Order\OrderService::createOrderReturn
  */
-class OrderReturnCreation
+class CreateOrderReturn
 {
     /** @var int */
     private $orderId;
@@ -55,7 +55,7 @@ class OrderReturnCreation
     }
 
     /**
-     * @see \Wizaplace\Order\OrderReturnCreation::addItem()
+     * @see \Wizaplace\Order\CreateOrderReturn::addItem()
      */
     public function getItems(): array
     {
