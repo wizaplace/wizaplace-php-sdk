@@ -16,11 +16,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 12:47:39 GMT'
+            Date: 'Tue, 08 Aug 2017 13:55:58 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 4c6be1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4c6be1'
+            X-Debug-Token: 159e0b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/159e0b'
             Content-Length: '60'
             Content-Type: application/json
         body: '{"id":2,"apiKey":"NhCc3un4bn7jSr4QJmqGHBM0zDuTkRkie8jqJKAi"}'
@@ -42,11 +42,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 07 Aug 2017 12:47:39 GMT'
+            Date: 'Tue, 08 Aug 2017 13:55:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a6b9cf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6b9cf'
+            X-Debug-Token: 9a6c89
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a6c89'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -67,14 +67,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 12:47:40 GMT'
+            Date: 'Tue, 08 Aug 2017 13:55:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: fddb5d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fddb5d'
-            Content-Length: '354'
+            X-Debug-Token: 2509a8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2509a8'
+            Content-Length: '547'
             Content-Type: application/json
-        body: '{"total":1,"count":1,"_embedded":{"favorites":[{"productId":1,"name":"optio corporis similique voluptatum","code":"6086375420678","supplierReference":"","price":20,"prices":{"priceWithoutVat":19.59,"priceWithTaxes":20,"vat":0.41},"greenTax":0,"quantity":14,"affiliateLink":null,"images":[],"slug":"test-product-slug","categorySlugPath":"informatique"}]}}'
+        body: '{"total":1,"count":1,"_embedded":{"favorites":[{"id":"1_0","productId":1,"name":"optio corporis similique voluptatum","code":"6086375420678","supplierReference":"","prices":{"priceWithoutVat":19.59,"priceWithTaxes":20,"vat":0.41},"greenTax":0,"crossedOutPrice":null,"reductionPercentage":null,"quantity":14,"affiliateLink":null,"options":[],"images":[],"isUsed":false,"description":"","shortDescription":"","company":{"id":5,"name":"Test company","slug":"test-company","image":null},"slug":"test-product-slug","categorySlugPath":"informatique"}]}}'
 -
     request:
         method: DELETE
@@ -92,11 +92,11 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 07 Aug 2017 12:47:40 GMT'
+            Date: 'Tue, 08 Aug 2017 13:55:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dc58d3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dc58d3'
+            X-Debug-Token: 127f13
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/127f13'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
@@ -116,10 +116,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 07 Aug 2017 12:47:40 GMT'
+            Date: 'Tue, 08 Aug 2017 13:55:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b6b0d7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b6b0d7'
+            X-Debug-Token: 320aae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/320aae'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
