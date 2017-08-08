@@ -19,7 +19,8 @@ final class DeclinationCompany
     /** @var Image|null  */
     private $image;
 
-    public function __construct(array $data) {
+    public function __construct(array $data)
+    {
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->slug = $data['slug'];

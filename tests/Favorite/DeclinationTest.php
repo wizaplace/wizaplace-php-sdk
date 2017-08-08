@@ -29,12 +29,14 @@ class DeclinationTest extends TestCase
             'reductionPercentage' => -20,
             'quantity' => 24,
             'affiliateLink' => 'http://example.com',
-            'options' => [[
-                'id' => 1,
-                'name' => 'Color',
-                'variantId' => 2,
-                'variantName' => 'white',
-            ]],
+            'options' => [
+                [
+                    'id' => 1,
+                    'name' => 'Color',
+                    'variantId' => 2,
+                    'variantName' => 'white',
+                ],
+            ],
             'images' => [
                 ['id' => 8],
             ],
