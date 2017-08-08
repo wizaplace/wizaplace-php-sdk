@@ -93,10 +93,22 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Return an order.
+     * Return items from an order. Here is an example:
      *
-     * This method expects the list of items to return in the given order. A buyer can return
-     * the whole order or only specific items.
+     * $order = $orderService->getOrder($orderId);
+     *
+     * $createOrderReturn = new CreateOrderReturn($orderId, 'Comment from the user');
+     *
+     * $returnReasons = $orderService->getReturnReasons();
+     *
+     * // Here we are returning all items from the order, but the user may select only some of them.
+     * foreach ($order->getOrderItem() as $orderItem) {
+     *     $selectedReturnReason = reset($returnReasons); // Let the user select the reason why he is returning the item
+     *
+     *     $createOrderReturn->addItem($orderItem->getDeclinationId(), $selectedReturnReason->getId(), $orderItem->getAmount());
+     * }
+     *
+     * $returnId = $orderService->createOrderReturn($createOrderReturn);
      *
      * @return int ID of the created return.
      *
