@@ -63,7 +63,7 @@ final class Declination
     /** @var string */
     private $shortDescription;
 
-    /** @var Company */
+    /** @var DeclinationCompany */
     private $company;
 
     /** @var string */
