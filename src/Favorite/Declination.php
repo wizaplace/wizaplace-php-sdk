@@ -7,7 +7,7 @@ use Wizaplace\Favorite\Declination\DeclinationOption;
 use Wizaplace\Favorite\Declination\DeclinationCompany;
 use Wizaplace\Image\Image;
 
-final class Favorite
+final class Declination
 {
     /** @var string */
     private $id;

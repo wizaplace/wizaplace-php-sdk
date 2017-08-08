@@ -3,17 +3,17 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Favorite;
 
-use Wizaplace\Favorite\Favorite;
+use Wizaplace\Favorite\Declination;
 use Wizaplace\Favorite\Declination\DeclinationOption;
 use Wizaplace\Favorite\Declination\DeclinationCompany;
 use Wizaplace\Image\Image;
 use PHPUnit\Framework\TestCase;
 
-class FavoriteTest extends TestCase
+class DeclinationTest extends TestCase
 {
     public function testInterface()
     {
-        $favorite = new Favorite([
+        $favorite = new Declination([
             'id' => '42_1_2',
             'productId' => 42,
             'name' => 'Very comfortable chair',

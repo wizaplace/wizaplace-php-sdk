@@ -23,15 +23,15 @@ class FavoriteService extends AbstractService
      *
      * @throws AuthenticationRequired
      *
-     * @return Favorite[]
+     * @return Declination[]
      */
     public function getAll() : array
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations', []);
 
-        return array_map(function (array $favorite): Favorite {
-            return new Favorite($favorite);
+        return array_map(function (array $favorite): Declination {
+            return new Declination($favorite);
         }, $results['_embedded']['favorites']);
     }
 
