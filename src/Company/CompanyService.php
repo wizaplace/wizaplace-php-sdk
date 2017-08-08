@@ -8,8 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 
@@ -18,7 +16,7 @@ class CompanyService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function register(CompanyRegistration $companyRegistration): Company
+    public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
@@ -43,44 +41,28 @@ class CompanyService extends AbstractService
             ],
         ]);
 
-        return new Company($responseData);
+        $company = new Company($responseData);
+
+        $fileUploadResults = $this->uploadRegistrationFiles($company->getId(), $companyRegistration->getFiles());
+
+
+        return new CompanyRegistrationResult($company, $fileUploadResults);
     }
 
     /**
-     * @param string[]|resource[]|StreamInterface[]|UploadedFileInterface[] $files
-     * @return FileUploadResult[] a map of result by file.
+     * @param array $files {@see \Wizaplace\Company\CompanyRegistration::addFile}
+     * @return FileUploadResult[] a map of result by uploaded file.
      */
-    public function uploadRegistrationFiles(int $companyId, array $files): array
+    private function uploadRegistrationFiles(int $companyId, array $files): array
     {
-        $this->client->mustBeAuthenticated();
-
-        $parts = [];
-        foreach ($files as $name => $file) {
-            if (is_string($file)) {
-                $filename = $file;
-                $contents = file_get_contents($file);
-            } elseif (is_resource($file)) {
-                $filename = stream_get_meta_data($file)["uri"] ?? null;
-                $contents = $file;
-            } elseif ($file instanceof StreamInterface) {
-                $filename = $file->getMetadata('uri');
-                $contents = $file;
-            } elseif ($file instanceof UploadedFileInterface) {
-                $filename = $file->getClientFilename();
-                $contents = $file->getStream();
-            } else {
-                throw new \TypeError('$file must be a string, a resource, or a StreamInterface');
-            }
-
-            $parts[] = [
-                'name' => $name,
-                'contents' => $contents,
-                'filename' => $filename,
-            ];
+        if (empty($files)) {
+            return [];
         }
 
+        $this->client->mustBeAuthenticated();
+
         $responseData = $this->client->post("companies/$companyId/files", [
-            'multipart' => $parts,
+            'multipart' => $files,
         ]);
 
         return array_map(function (array $data) {

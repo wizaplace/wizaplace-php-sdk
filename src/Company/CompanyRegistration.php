@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
+use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\UploadedFileInterface;
+
 class CompanyRegistration
 {
     /** @var string */
@@ -57,6 +60,12 @@ class CompanyRegistration
 
     /** @var null|string */
     private $slug;
+
+    /**
+     * @var array
+     * @see \Wizaplace\Company\CompanyRegistration::addFile
+     */
+    private $files = [];
 
     public function __construct(string $name, string $email)
     {
@@ -223,5 +232,28 @@ class CompanyRegistration
     public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    public function addUploadedFile(string $name, UploadedFileInterface $file): void
+    {
+        $this->addFile(
+            $name,
+            $file->getStream(),
+            $file->getClientFilename()
+        );
+    }
+
+    public function getFiles(): array
+    {
+        return $this->files;
+    }
+
+    private function addFile(string $name, StreamInterface $contents, string $filename): void
+    {
+        $this->files[$name] = [
+            'name' => $name,
+            'contents' => $contents,
+            'filename' => $filename,
+        ];
     }
 }
