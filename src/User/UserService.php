@@ -41,16 +41,16 @@ class UserService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function updateUser(User $user)
+    public function updateUser(int $userId, string $email, string $firstName, string $lastName)
     {
         $this->client->mustBeAuthenticated();
         $this->client->put(
-            'users/'.$user->getId(),
+            "users/$userId",
             [
                 'form_params' => [
-                    'email' => $user->getEmail(),
-                    'firstName' => $user->getFirstname(),
-                    'lastName' => $user->getLastname(),
+                    'email' => $email,
+                    'firstName' => $firstName,
+                    'lastName' => $lastName,
                 ],
             ]
         );

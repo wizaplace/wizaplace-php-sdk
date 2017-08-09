@@ -93,40 +93,38 @@ class OrderService extends AbstractService
     }
 
     /**
-     * Return an order.
+     * Return items from an order. Here is an example:
      *
-     * This method expects the list of items to return in the given order. A buyer can return
-     * the whole order or only specific items.
+     * $order = $orderService->getOrder($orderId);
      *
-     * @param int $orderId ID of the order to return.
-     * @param string $comments Buyer's comments on why they are returning the order.
-     * @param array $items List of items of the order to return.
+     * $createOrderReturn = new CreateOrderReturn($orderId, 'Comment from the user');
+     *
+     * $returnReasons = $orderService->getReturnReasons();
+     *
+     * // Here we are returning all items from the order, but the user may select only some of them.
+     * foreach ($order->getOrderItem() as $orderItem) {
+     *     $selectedReturnReason = reset($returnReasons); // Let the user select the reason why he is returning the item
+     *
+     *     $createOrderReturn->addItem($orderItem->getDeclinationId(), $selectedReturnReason->getId(), $orderItem->getAmount());
+     * }
+     *
+     * $returnId = $orderService->createOrderReturn($createOrderReturn);
      *
      * @return int ID of the created return.
      *
      * @throws AuthenticationRequired
      */
-    public function createOrderReturn(int $orderId, string $comments, array $items): int
+    public function createOrderReturn(CreateOrderReturn $creationCommand): int
     {
         $this->client->mustBeAuthenticated();
-        $items = array_map(
-            function (ReturnItem $item) {
-                return [
-                    'declinationId' => $item->getDeclinationId(),
-                    'reason' => $item->getReason(),
-                    'amount' => $item->getAmount(),
-                ];
-            },
-            $items
-        );
 
         return $this->client->post(
-            "user/orders/{$orderId}/returns",
+            "user/orders/{$creationCommand->getOrderId()}/returns",
             [
                 "form_params" => [
                     'userId' => $this->client->getApiKey()->getId(),
-                    'comments' => $comments,
-                    'items' => $items,
+                    'comments' => $creationCommand->getComments(),
+                    'items' => $creationCommand->getItems(),
                 ],
             ]
         )['returnId'];
