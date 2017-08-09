@@ -10,6 +10,7 @@ namespace Wizaplace\Favorite;
 
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
+use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 
@@ -23,15 +24,15 @@ class FavoriteService extends AbstractService
      *
      * @throws AuthenticationRequired
      *
-     * @return Declination[]
+     * @return DeclinationSummary[]
      */
     public function getAll() : array
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations', []);
 
-        return array_map(function (array $favorite): Declination {
-            return new Declination($favorite);
+        return array_map(function (array $favorite): DeclinationSummary {
+            return new DeclinationSummary($favorite);
         }, $results['_embedded']['favorites']);
     }
 

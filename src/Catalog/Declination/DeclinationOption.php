@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace Wizaplace\Favorite\Declination;
+namespace Wizaplace\Catalog\Declination;
 
 final class DeclinationOption
 {

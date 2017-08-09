@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Favorite;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\Favorite\FavoriteService;
-use Wizaplace\Favorite\Declination;
+use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\ApiKey;
 use Wizaplace\User\UserService;
@@ -72,7 +72,7 @@ class FavoriteServiceTest extends ApiTestCase
 
         $this->assertTrue(is_array($favorites));
         $this->assertCount(1, $favorites);
-        $this->assertInstanceOf(Declination::class, reset($favorites));
+        $this->assertInstanceOf(DeclinationSummary::class, reset($favorites));
         $this->assertSame(1, reset($favorites)->getProductId());
     }
 

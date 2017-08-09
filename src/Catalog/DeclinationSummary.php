@@ -1,13 +1,12 @@
 <?php
 declare(strict_types = 1);
 
-namespace Wizaplace\Favorite;
+namespace Wizaplace\Catalog;
 
-use Wizaplace\Favorite\Declination\DeclinationOption;
-use Wizaplace\Favorite\Declination\DeclinationCompany;
+use Wizaplace\Catalog\Declination\DeclinationOption;
 use Wizaplace\Image\Image;
 
-final class Declination
+final class DeclinationSummary
 {
     /** @var string */
     private $id;
@@ -19,10 +18,13 @@ final class Declination
     private $name;
 
     /** @var string */
-    private $code;
+    private $slug;
 
     /** @var string */
-    private $supplierReference;
+    private $code;
+
+    /** @var float|null  */
+    private $crossedOutPrice;
 
     /** @var float */
     private $priceWithTaxes;
@@ -31,19 +33,10 @@ final class Declination
     private $priceWithoutVat;
 
     /** @var float */
-    private $greenTax;
-
-    /** @var float|null  */
-    private $crossedOutPrice;
-
-    /** @var float|null  */
-    private $reductionPercentage;
-
-    /** @var float */
     private $vat;
 
     /** @var int */
-    private $quantity;
+    private $amount;
 
     /** @var string */
     private $affiliateLink;
@@ -51,26 +44,14 @@ final class Declination
     /** @var DeclinationOption[] */
     private $options;
 
-    /** @var Image[] */
-    private $images;
+    /** @var Image|null */
+    private $mainImage;
 
-    /** @var bool */
-    private $isUsed;
-
-    /** @var string */
-    private $description;
-
-    /** @var string */
-    private $shortDescription;
-
-    /** @var DeclinationCompany */
+    /** @var CompanySummary */
     private $company;
 
-    /** @var string */
-    private $slug;
-
-    /** @var string */
-    private $categorySlugPath;
+    /** @var ProductCategory[] */
+    private $categoryPath;
 
     public function __construct(array $data)
     {
@@ -78,27 +59,26 @@ final class Declination
         $this->productId = $data['productId'];
         $this->name = $data['name'];
         $this->code = $data['code'];
-        $this->supplierReference = $data['supplierReference'];
         $this->priceWithTaxes = $data['prices']['priceWithTaxes'];
         $this->priceWithoutVat = $data['prices']['priceWithoutVat'];
-        $this->greenTax = $data['greenTax'];
         $this->vat = $data['prices']['vat'];
         $this->crossedOutPrice = $data['crossedOutPrice'] ?? null;
-        $this->reductionPercentage = $data['reductionPercentage'] ?? null;
-        $this->quantity = $data['quantity'];
+        $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
         $this->options = array_map(static function (array $data): DeclinationOption {
             return new DeclinationOption($data);
         }, $data['options']);
-        $this->images = array_map(static function (array $data): Image {
-            return new Image($data);
-        }, $data['images']);
-        $this->isUsed = (bool) $data['isUsed'];
-        $this->description = $data['description'];
-        $this->shortDescription = $data['shortDescription'];
-        $this->company = new DeclinationCompany($data['company']);
+        $this->mainImage = isset($data['mainImage']) ? new Image($data['mainImage']) : null;
+        $this->company = new CompanySummary(
+            $data['company']['id'],
+            $data['company']['name'],
+            $data['company']['slug'],
+            isset($data['company']['image']) ? new Image($data['company']['image']) : null
+        );
         $this->slug = $data['slug'];
-        $this->categorySlugPath = $data['categorySlugPath'];
+        $this->categoryPath = array_map(static function (array $data): ProductCategory {
+            return new ProductCategory($data);
+        }, $data['categoryPath']);
     }
 
     public function getId(): string
@@ -121,11 +101,6 @@ final class Declination
         return $this->code;
     }
 
-    public function getSupplierReference(): string
-    {
-        return $this->supplierReference;
-    }
-
     public function getPriceWithTaxes(): float
     {
         return $this->priceWithTaxes;
@@ -134,11 +109,6 @@ final class Declination
     public function getPriceWithoutVat(): float
     {
         return $this->priceWithoutVat;
-    }
-
-    public function getGreenTax(): float
-    {
-        return $this->greenTax;
     }
 
     public function getVat(): float
@@ -151,14 +121,9 @@ final class Declination
         return $this->crossedOutPrice;
     }
 
-    public function getReductionPercentage(): ?float
+    public function getAmount(): int
     {
-        return $this->reductionPercentage;
-    }
-
-    public function getQuantity(): int
-    {
-        return $this->quantity;
+        return $this->amount;
     }
 
     public function getAffiliateLink(): string
@@ -174,30 +139,12 @@ final class Declination
         return $this->options;
     }
 
-    /**
-     * @return Image[]
-     */
-    public function getImages(): array
+    public function getMainImage(): ?Image
     {
-        return $this->images;
+        return $this->mainImage;
     }
 
-    public function isUsed(): bool
-    {
-        return $this->isUsed;
-    }
-
-    public function getDescription(): string
-    {
-        return $this->description;
-    }
-
-    public function getShortDescription(): ?string
-    {
-        return $this->shortDescription;
-    }
-
-    public function getCompany(): DeclinationCompany
+    public function getCompany(): CompanySummary
     {
         return $this->company;
     }
@@ -207,8 +154,11 @@ final class Declination
         return $this->slug;
     }
 
-    public function getCategorySlugPath(): string
+    /**
+     * @return ProductCategory[]
+     */
+    public function getCategoryPath(): array
     {
-        return $this->categorySlugPath;
+        return $this->categoryPath;
     }
 }
