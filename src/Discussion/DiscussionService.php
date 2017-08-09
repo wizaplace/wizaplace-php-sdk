@@ -21,7 +21,7 @@ use Wizaplace\Exception\SomeParametersAreInvalid;
  * Example :
  *
  *      // Get the user's discussions list
- *      $discussionsList = $discussionService->listDiscussions();
+ *      $discussionsList = $discussionService->getDiscussions();
  *
  *      // Get a discussion based on its id
  *      $discussion = $discussionService->getDiscussion($discussionId);
@@ -41,7 +41,7 @@ class DiscussionService extends AbstractService
      * Get the user's discussions list
      * @return Discussion[]
      */
-    public function listDiscussions(): array
+    public function getDiscussions(): array
     {
         $discussions = array_map(function (array $discussionData): Discussion {
             return new Discussion($discussionData);
@@ -76,7 +76,7 @@ class DiscussionService extends AbstractService
      * Get the discussion's messages list
      * @return Message[]
      */
-    public function listMessages(int $discussionId): array
+    public function getMessages(int $discussionId): array
     {
         try {
             $messages = $this->client->get('discussions/'.$discussionId.'/messages');

@@ -55,7 +55,7 @@ class DiscussionServiceTest extends ApiTestCase
 
     public function testListDiscussions()
     {
-        $discussions = $this->discussionService->listDiscussions();
+        $discussions = $this->discussionService->getDiscussions();
 
         $expectedDiscussions = [
             new Discussion(
@@ -100,7 +100,7 @@ class DiscussionServiceTest extends ApiTestCase
 
     public function testGetEmptyMessages()
     {
-        $messages = $this->discussionService->listMessages(1);
+        $messages = $this->discussionService->getMessages(1);
 
         $this->assertEquals([], $messages);
     }
@@ -111,7 +111,7 @@ class DiscussionServiceTest extends ApiTestCase
         $this->expectExceptionCode(404);
         $this->expectExceptionMessage('The discussion 2 was not found.');
 
-        $this->discussionService->listMessages(2);
+        $this->discussionService->getMessages(2);
     }
 
     public function testPostMessage()
@@ -128,7 +128,6 @@ class DiscussionServiceTest extends ApiTestCase
             ]
         );
 
-        $this->assertEquals($expectedMessage->getAuthorId(), $message->getAuthorId());
         $this->assertEquals($expectedMessage->getContent(), $message->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
     }
@@ -137,7 +136,7 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $this->discussionService->postMessage(1, 'This is an other test message');
 
-        $messages = $this->discussionService->listMessages(1);
+        $messages = $this->discussionService->getMessages(1);
 
         $date = new \DateTimeImmutable();
 
@@ -154,10 +153,8 @@ class DiscussionServiceTest extends ApiTestCase
             ]),
         ];
 
-        $this->assertEquals($expectedMessages[0]->getAuthorId(), $messages[0]->getAuthorId());
         $this->assertEquals($expectedMessages[0]->getContent(), $messages[0]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
-        $this->assertEquals($expectedMessages[1]->getAuthorId(), $messages[1]->getAuthorId());
         $this->assertEquals($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
     }
