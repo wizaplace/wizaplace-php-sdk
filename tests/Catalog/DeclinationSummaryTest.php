@@ -52,7 +52,7 @@ class DeclinationSummaryTest extends TestCase
                     'id' => 1,
                     'name' => 'Food',
                     'slug' => 'food',
-                ]
+                ],
             ],
         ]);
 
