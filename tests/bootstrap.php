@@ -19,11 +19,37 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
     ->addRequestMatcher('headers_custom_matcher', function (Request $first, Request $second) {
         $headersBags = [$first->getHeaders(), $second->getHeaders()];
 
+        $boundaryHeaderStart = 'multipart/form-data; boundary=';
         foreach ($headersBags as &$headers) {
+            // Replace the random multipart boundary,
+            // so requests with different boundaries in headers still match each other
+            if (strpos($headers['Content-Type'] ?? '', $boundaryHeaderStart) === 0) {
+                $headers['Content-Type'] = $boundaryHeaderStart.'fakeBoundary';
+            }
             // Remove flaky headers that we don't care about
             unset($headers['User-Agent']);
         }
 
         return $headersBags[0] == $headersBags[1];
     })
-    ->enableRequestMatchers(array('method', 'url', 'query_string', 'body', 'post_fields', 'headers_custom_matcher'));
+    ->addRequestMatcher('body_custom_matcher', function (Request $first, Request $second) {
+        $data = array_map(function (Request $req) : array {
+            return [
+                'body' => $req->getBody(),
+                'Content-Type' => $req->getHeaders()['Content-Type'] ?? '',
+            ];
+        }, [$first, $second]);
+
+        $boundaryHeaderStart = 'multipart/form-data; boundary=';
+        foreach ($data as &$requestData) {
+            // Replace the random multipart boundary,
+            // so requests with different boundaries in body still match each other
+            if (strpos($requestData['Content-Type'], $boundaryHeaderStart) === 0) {
+                $boundary = substr($requestData['Content-Type'], strlen($boundaryHeaderStart));
+                $requestData['body'] = str_replace('--'.$boundary, '--fakeBoundary', $requestData['body']);
+            }
+        }
+
+        return $data[0]['body'] === $data[1]['body'];
+    })
+    ->enableRequestMatchers(array('method', 'url', 'query_string', 'body_custom_matcher', 'post_fields', 'headers_custom_matcher'));
