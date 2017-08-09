@@ -95,7 +95,7 @@ class BasketServiceTest extends ApiTestCase
         $this->assertEquals(40.0, $order->getSubtotal());
         $this->assertEquals('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
 
-        $orderItems = $order->getOrderItem();
+        $orderItems = $order->getOrderItems();
         $this->assertCount(1, $orderItems);
         $this->assertEquals('1_0', $orderItems[0]->getDeclinationId());
         $this->assertEquals('optio corporis similique voluptatum', $orderItems[0]->getProductName());

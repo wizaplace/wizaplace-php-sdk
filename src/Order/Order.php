@@ -27,7 +27,7 @@ class Order
     /** @var ShippingAddress */
     private $shippingAddress;
     /** @var OrderItem[] */
-    private $orderItem;
+    private $orderItems;
 
     public function __construct(array $data)
     {
@@ -39,7 +39,7 @@ class Order
         $this->status = $data['status'];
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
-        $this->orderItem = array_map(function ($orderItemData) {
+        $this->orderItems = array_map(function ($orderItemData) {
             return new OrderItem($orderItemData);
         }, $data['items']);
     }
@@ -87,8 +87,8 @@ class Order
     /**
      * @return OrderItem[]
      */
-    public function getOrderItem(): array
+    public function getOrderItems(): array
     {
-        return $this->orderItem;
+        return $this->orderItems;
     }
 }
