@@ -1,0 +1,82 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 03 Aug 2017 13:20:44 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 64ba6e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64ba6e'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":3,"apiKey":"3qNqpYRjDySGAZm2KZCV1ZAxIYk7EgaCtoWkPZ9k"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/json
+            Authorization: 'token 3qNqpYRjDySGAZm2KZCV1ZAxIYk7EgaCtoWkPZ9k'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"4CME Test Inc","email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Thu, 03 Aug 2017 13:20:44 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 0e8d30
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0e8d30'
+            Content-Length: '266'
+            Content-Type: application/json
+        body: '{"id":12,"name":"4CME Test Inc","slug":"4cme-test-inc","email":"acme4@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":""}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/12/files'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: 'multipart/form-data; boundary=f5c7f2a70e13b640ccd693a2683ccc206bfc8923'
+            Authorization: 'token 3qNqpYRjDySGAZm2KZCV1ZAxIYk7EgaCtoWkPZ9k'
+            VCR-index: '2'
+            Accept: null
+        body: "--f5c7f2a70e13b640ccd693a2683ccc206bfc8923\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"dummy.txt\"\r\nContent-Length: 35\r\nContent-Type: text/plain\r\n\r\nJust a dummy file for upload tests\n\r\n--f5c7f2a70e13b640ccd693a2683ccc206bfc8923--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 03 Aug 2017 13:20:44 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: dbd995
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dbd995'
+            Content-Length: '48'
+            Content-Type: application/json
+        body: '{"rib":{"success":false,"error":"Invalid file"}}'
