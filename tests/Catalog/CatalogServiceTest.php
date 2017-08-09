@@ -423,7 +423,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
         $this->assertTrue(in_array($product->getDeclinationFromOptions([1]), $expectedDeclinations));
-//        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
     }
 
     public function testGetProductWithMultipleOptions()
