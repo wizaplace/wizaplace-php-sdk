@@ -7,7 +7,7 @@
 declare(strict_types = 1);
 
 
-namespace Wizaplace\tests\Catalog;
+namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Tests\ApiTestCase;
