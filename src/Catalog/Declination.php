@@ -76,7 +76,7 @@ class Declination
             $data['images']
         );
         $this->options = array_map(
-            function ($combinationData) {
+            function (array $combinationData) : DeclinationOption {
                 return new DeclinationOption($combinationData);
             },
             $data['options']
