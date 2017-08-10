@@ -13,6 +13,9 @@ use Wizaplace\Image\Image;
 class Declination
 {
     /** @var string */
+    private $id;
+
+    /** @var string */
     private $code;
 
     /** @var string */
@@ -48,9 +51,13 @@ class Declination
     /** @var Image[] */
     private $images;
 
+    /** @var DeclinationOption[] */
+    private $options;
+
     public function __construct(array $data)
     {
         $prices = $data['prices'] ?? [];
+        $this->id = $data['id'];
         $this->code = $data['code'];
         $this->supplierReference = $data['supplierReference'];
         $this->price = $data['price'];
@@ -68,6 +75,17 @@ class Declination
             },
             $data['images']
         );
+        $this->options = array_map(
+            function (array $optionData) : DeclinationOption {
+                return new DeclinationOption($optionData);
+            },
+            $data['options']
+        );
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 
     public function getCode(): string
@@ -126,10 +144,52 @@ class Declination
     }
 
     /**
+     * @return DeclinationOption[]
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
      * @return Image[]
      */
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /**
+     * This function checks if the declination has the requested variantsIds and only those
+     *
+     * example : if the requested Ids are [1, 2] and the declination variantIds are [1, 2, 3], it won't be valid
+     * @param int[]
+     */
+    public function hasVariants(array $variantIds): bool
+    {
+        /**
+         * collecting the declination's variantIds
+         */
+        $declinationVariantIds = [];
+        foreach ($this->options as $option) {
+            $declinationVariantIds[] = $option->getVariantId();
+        }
+
+        /**
+         * looks for requested variantIds among declination's variantIds and increment $foundIds when one is found
+         */
+        $foundIds = 0;
+        foreach ($variantIds as $variantId) {
+            if (in_array($variantId, $declinationVariantIds)) {
+                $foundIds++;
+            }
+        }
+
+        /**
+         * if all variantIds have been found, then $foundIds == count($variantIds).
+         * Also checking that the declination has no other variants
+         * by checking if the count of $variantIds is the same than the $declinationVariantIds'
+         */
+        return (count($variantIds) === $foundIds && count($variantIds) === count($declinationVariantIds));
     }
 }

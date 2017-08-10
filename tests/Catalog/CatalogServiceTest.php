@@ -10,6 +10,8 @@ namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\AttributeType;
 use Wizaplace\Catalog\CatalogService;
+use Wizaplace\Catalog\Declination;
+use Wizaplace\Catalog\Option;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
@@ -46,7 +48,7 @@ class CatalogServiceTest extends ApiTestCase
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
-        $this->assertEquals(4, $companies[0]->getId());
+        $this->assertEquals(5, $companies[0]->getId());
         $this->assertEquals('Test company', $companies[0]->getName());
     }
 
@@ -60,7 +62,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('test-product-complex-attributes', $product->getSlug());
         $this->assertEquals(1.23, $product->getWeight());
         $this->assertEquals(0, $product->getGreenTax());
-        $this->assertEquals(null, $product->getAverageRating());
+        $this->assertNull($product->getAverageRating());
 
         $attributes = $product->getAttributes();
 
@@ -136,7 +138,7 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(12, $pagination->getResultsPerPage());
 
         $facets = $result->getFacets();
-        $this->assertCount(8, $facets);
+        $this->assertCount(9, $facets);
         $this->assertEquals('categories', $facets[0]->getName());
         $this->assertEquals('Catégorie', $facets[0]->getLabel());
         $this->assertEquals([
@@ -161,10 +163,21 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals('Test company', $company->getDescription());
         $this->assertEquals('40 rue Laure Diebold', $company->getAddress());
         $this->assertEquals('01 02 03 04 05', $company->getPhoneNumber());
-        $this->assertTrue($company->isProfessional());
+        $this->assertFalse($company->isProfessional());
         $this->assertNull($company->getLocation());
         $this->assertEquals(2, $company->getAverageRating());
-        $this->assertNull($company->getImage());
+
+        $company = $catalogService->getCompanyById(6);
+
+        $this->assertEquals(6, $company->getId());
+        $this->assertEquals('Test company', $company->getName());
+        $this->assertEquals('test-company-2', $company->getSlug());
+        $this->assertEquals('Test company', $company->getDescription());
+        $this->assertEquals('40 rue Laure Diebold', $company->getAddress());
+        $this->assertEquals('01 02 03 04 05', $company->getPhoneNumber());
+        $this->assertTrue($company->isProfessional());
+        $this->assertNull($company->getLocation());
+        $this->assertNull($company->getAverageRating());
     }
 
     public function testGetC2cCompanyById()
@@ -268,6 +281,571 @@ class CatalogServiceTest extends ApiTestCase
     {
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->getAttributeVariant(404);
+    }
+
+    public function testGetProductWithOptions()
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById(2);
+
+        $expectedDeclinations = [
+            new Declination([
+                'id' => '2_7_1',
+                'code' => 'size_13',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 7,
+                        'name' => 'size',
+                        'variantId' => 1,
+                        'variantName' => '13',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '2_7_2',
+                'code' => 'size_15',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 7,
+                        'name' => 'size',
+                        'variantId' => 2,
+                        'variantName' => '15',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '2_7_3',
+                'code' => 'size_17',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 7,
+                        'name' => 'size',
+                        'variantId' => 3,
+                        'variantName' => '17',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '2_7_4',
+                'code' => 'size_21',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 7,
+                        'name' => 'size',
+                        'variantId' => 4,
+                        'variantName' => '21',
+                    ],
+                ],
+            ]),
+        ];
+
+        $expectedOption = [
+            'id' => 7,
+            'name' => 'size',
+            'variants' => [
+                [
+                    'id' => 1,
+                    'name' => '13',
+                ],
+                [
+                    'id' => 2,
+                    'name' => '15',
+                ],
+                [
+                    'id' => 3,
+                    'name' => '17',
+                ],
+                [
+                    'id' => 4,
+                    'name' => '21',
+                ],
+            ],
+        ];
+
+        $expectedOptions = [
+            new Option($expectedOption),
+        ];
+
+        $this->assertEquals(2, $product->getId());
+        $this->assertEquals($expectedDeclinations, $product->getDeclinations());
+        $this->assertEquals($expectedOptions, $product->getOptions());
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([1]), $expectedDeclinations));
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
+    }
+
+    public function testGetProductWithMultipleOptions()
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById(3);
+
+        $expectedDeclinations = [
+            new Declination([
+                'id' => '3_9_5',
+                'code' => 'color_white',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 5,
+                        'variantName' => 'white',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_5_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 5,
+                        'variantName' => 'white',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 9,
+                        'variantName' => 'wireless',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_5_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 5,
+                        'variantName' => 'white',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 10,
+                        'variantName' => 'wired',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_6',
+                'code' => 'color_black',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 6,
+                        'variantName' => 'black',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_6_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 6,
+                        'variantName' => 'black',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 9,
+                        'variantName' => 'wireless',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_6_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 6,
+                        'variantName' => 'black',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 10,
+                        'variantName' => 'wired',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_7',
+                'code' => 'color_blue',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 7,
+                        'variantName' => 'blue',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_7_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 7,
+                        'variantName' => 'blue',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 9,
+                        'variantName' => 'wireless',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_7_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 7,
+                        'variantName' => 'blue',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 10,
+                        'variantName' => 'wired',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_8',
+                'code' => 'color_red',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 8,
+                        'variantName' => 'red',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_8_10_9',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 8,
+                        'variantName' => 'red',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 9,
+                        'variantName' => 'wireless',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_9_8_10_10',
+                'code' => '1438900263352',
+                'supplierReference' => '',
+                'price' => 0,
+                'originalPrice' => 0,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 0,
+                    'priceWithoutVat' => 0,
+                    'vat' => 0,
+                ],
+                'greenTax' => 0,
+                'amount' => 0,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 9,
+                        'name' => 'color',
+                        'variantId' => 8,
+                        'variantName' => 'red',
+                    ],
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 10,
+                        'variantName' => 'wired',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_10_9',
+                'code' => 'connectivity_wireless',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 9,
+                        'variantName' => 'wireless',
+                    ],
+                ],
+            ]),
+            new Declination([
+                'id' => '3_10_10',
+                'code' => 'connectivity_wired',
+                'supplierReference' => '',
+                'price' => 15.5,
+                'originalPrice' => 15.5,
+                'crossedOutPrice' => null,
+                'prices' => [
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
+                ],
+                'greenTax' => 0,
+                'amount' => 10,
+                'affiliateLink' => null,
+                'images' => [],
+                'options' => [
+                    [
+                        'id' => 10,
+                        'name' => 'connectivity',
+                        'variantId' => 10,
+                        'variantName' => 'wired',
+                    ],
+                ],
+            ]),
+        ];
+
+        $this->assertEquals(3, $product->getId());
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([9]), $expectedDeclinations));
     }
 
     private function buildCatalogService(): CatalogService

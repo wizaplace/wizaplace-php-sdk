@@ -15,11 +15,35 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 28 Jul 2017 13:28:39 GMT'
+            Date: 'Tue, 08 Aug 2017 13:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 924fde
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/924fde'
-            Content-Length: '212'
+            X-Debug-Token: 032f99
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/032f99'
+            Content-Length: '213'
             Content-Type: application/json
-        body: '{"id":5,"name":"Test company","description":"Test company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"test-company","image":null,"location":null,"averageRating":2}'
+        body: '{"id":5,"name":"Test company","description":"Test company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"test-company","image":null,"location":null,"averageRating":2}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 08 Aug 2017 13:50:36 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 3754fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3754fd'
+            Content-Length: '217'
+            Content-Type: application/json
+        body: '{"id":6,"name":"Test company","description":"Test company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"test-company-2","image":null,"location":null,"averageRating":null}'
