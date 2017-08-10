@@ -50,7 +50,7 @@ class Option implements \JsonSerializable
         return $this->variants;
     }
 
-    function jsonSerialize(): array
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),

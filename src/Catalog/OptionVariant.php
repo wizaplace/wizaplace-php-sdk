@@ -32,7 +32,7 @@ class OptionVariant implements \JsonSerializable
         return $this->name;
     }
 
-    function jsonSerialize(): array
+    public function jsonSerialize(): array
     {
         return [
             'id' => $this->getId(),
