@@ -9,10 +9,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Catalog;
 
+use PHPUnit\Framework\TestCase;
 use Wizaplace\Catalog\Declination;
-use Wizaplace\Tests\ApiTestCase;
 
-class DeclinationTest extends ApiTestCase
+class DeclinationTest extends TestCase
 {
     public function testDeclinationHasRequestedVariant()
     {
@@ -42,7 +42,7 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertTrue($declination->hasVariants([1]));
+        $this->assertTrue($declination->hasVariants(1));
     }
 
     public function testDeclinationWithDifferentVariantThanRequestedReturnFalse()
@@ -73,7 +73,7 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants([2]));
+        $this->assertFalse($declination->hasVariants(2));
     }
 
     public function testDeclinationWithRequestedVariantAndAnOtherOneReturnFalse()
@@ -110,8 +110,9 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants([2]));
+        $this->assertFalse($declination->hasVariants(2));
     }
+
     public function testDeclinationHasRequestedVariants()
     {
         $declination = new Declination([
@@ -146,7 +147,7 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertTrue($declination->hasVariants([1, 2]));
+        $this->assertTrue($declination->hasVariants(1, 2));
     }
 
     public function testDeclinationWithDifferentVariantsThanRequestedReturnFalse()
@@ -183,7 +184,7 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants([2, 3]));
+        $this->assertFalse($declination->hasVariants(2, 3));
     }
 
     public function testDeclinationWithRequestedVariantsAndOtherOnesReturnFalse()
@@ -226,6 +227,6 @@ class DeclinationTest extends ApiTestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants([1, 2]));
+        $this->assertFalse($declination->hasVariants(1, 2));
     }
 }

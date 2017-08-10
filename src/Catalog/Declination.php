@@ -160,9 +160,11 @@ class Declination
     }
 
     /**
-     * This function checks if the declination has the variantsIds
+     * This function checks if the declination has the requested variantsIds and only those
+     *
+     * example : if the requested Ids are [1, 2] and the declination variantIds are [1, 2, 3], it won't be valid
      */
-    public function hasVariants(array $variantIds): bool
+    public function hasVariants(int ...$variantIds): bool
     {
         /**
          * collecting the declination's variantIds
@@ -187,6 +189,6 @@ class Declination
          * Also checking that the declination has no other variants
          * by checking if the count of $variantIds is the same than the $declinationVariantIds'
          */
-        return (count($variantIds) == $foundIds && count($variantIds) == count($declinationVariantIds));
+        return (count($variantIds) === $foundIds && count($variantIds) === count($declinationVariantIds));
     }
 }
