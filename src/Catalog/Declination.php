@@ -142,6 +142,10 @@ class Declination
     {
         return $this->affiliateLink;
     }
+
+    /**
+     * @return DeclinationOption[]
+     */
     public function getOptions(): array
     {
         return $this->options;
