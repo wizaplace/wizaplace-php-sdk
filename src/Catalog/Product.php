@@ -271,10 +271,14 @@ class Product
         throw new NotFound('Declination '.$declinationId.' was not found.');
     }
 
-    public function getDeclinationFromOptions(int ...$variantIds): Declination
+    /**
+     * @param int[] $variantIds
+     * @throws NotFound
+     */
+    public function getDeclinationFromOptions(array $variantIds): Declination
     {
         foreach ($this->declinations as $declination) {
-            if ($declination->hasVariants(...$variantIds)) {
+            if ($declination->hasVariants($variantIds)) {
                 return $declination;
             }
         }

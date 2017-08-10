@@ -42,7 +42,7 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertTrue($declination->hasVariants(1));
+        $this->assertTrue($declination->hasVariants([1]));
     }
 
     public function testDeclinationWithDifferentVariantThanRequestedReturnFalse()
@@ -73,7 +73,7 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants(2));
+        $this->assertFalse($declination->hasVariants([2]));
     }
 
     public function testDeclinationWithRequestedVariantAndAnOtherOneReturnFalse()
@@ -110,7 +110,7 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants(2));
+        $this->assertFalse($declination->hasVariants([2]));
     }
 
     public function testDeclinationHasRequestedVariants()
@@ -147,7 +147,7 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertTrue($declination->hasVariants(1, 2));
+        $this->assertTrue($declination->hasVariants([1, 2]));
     }
 
     public function testDeclinationWithDifferentVariantsThanRequestedReturnFalse()
@@ -184,7 +184,7 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants(2, 3));
+        $this->assertFalse($declination->hasVariants([2, 3]));
     }
 
     public function testDeclinationWithRequestedVariantsAndOtherOnesReturnFalse()
@@ -227,6 +227,6 @@ class DeclinationTest extends TestCase
             ],
         ]);
 
-        $this->assertFalse($declination->hasVariants(1, 2));
+        $this->assertFalse($declination->hasVariants([1, 2]));
     }
 }

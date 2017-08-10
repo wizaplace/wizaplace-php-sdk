@@ -421,8 +421,8 @@ class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(2, $product->getId());
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(1), $expectedDeclinations));
-        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions(1));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([1]), $expectedDeclinations));
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
     }
 
     public function testGetProductWithMultipleOptions()
@@ -832,20 +832,20 @@ class CatalogServiceTest extends ApiTestCase
         ];
 
         $this->assertEquals(3, $product->getId());
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(5), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(5, 9), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(5, 10), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(6), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(6, 9), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(6, 10), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(7), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(7, 9), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(7, 10), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(8), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(8, 9), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(8, 10), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(8, 10), $expectedDeclinations));
-        $this->assertTrue(in_array($product->getDeclinationFromOptions(9), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([5, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([6, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([7, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 9]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
+        $this->assertTrue(in_array($product->getDeclinationFromOptions([9]), $expectedDeclinations));
     }
 
     private function buildCatalogService(): CatalogService
