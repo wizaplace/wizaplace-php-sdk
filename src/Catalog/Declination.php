@@ -76,8 +76,8 @@ class Declination
             $data['images']
         );
         $this->options = array_map(
-            function (array $combinationData) : DeclinationOption {
-                return new DeclinationOption($combinationData);
+            function (array $optionData) : DeclinationOption {
+                return new DeclinationOption($optionData);
             },
             $data['options']
         );
@@ -168,8 +168,8 @@ class Declination
          * collecting the declination's variantIds
          */
         $declinationVariantIds = [];
-        foreach ($this->options as $combination) {
-            $declinationVariantIds[] = $combination->getVariantId();
+        foreach ($this->options as $option) {
+            $declinationVariantIds[] = $option->getVariantId();
         }
 
         /**
