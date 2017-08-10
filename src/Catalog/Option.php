@@ -55,7 +55,7 @@ class Option
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'variants' => array_map(function($variant) {
+            'variants' => array_map(function ($variant) {
                 return $variant->expose();
             }, $this->getVariants()),
         ];
