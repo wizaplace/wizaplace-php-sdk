@@ -49,4 +49,15 @@ class Option
     {
         return $this->variants;
     }
+
+    public function expose(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'variants' => array_map(function($variant) {
+                return $variant->expose();
+            }, $this->getVariants()),
+        ];
+    }
 }

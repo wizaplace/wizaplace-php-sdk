@@ -31,4 +31,12 @@ class OptionVariant
     {
         return $this->name;
     }
+
+    public function expose(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+        ];
+    }
 }
