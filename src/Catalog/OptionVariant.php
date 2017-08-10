@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class OptionVariant
+class OptionVariant implements \JsonSerializable
 {
     /** @var int */
     private $id;
@@ -30,5 +30,13 @@ class OptionVariant
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+        ];
     }
 }
