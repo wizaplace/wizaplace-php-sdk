@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class DeclinationOption implements \JsonSerializable
+final class DeclinationOption implements \JsonSerializable
 {
     /** @var integer */
     private $id;

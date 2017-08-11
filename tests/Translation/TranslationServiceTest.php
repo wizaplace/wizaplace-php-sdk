@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Translation;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\Translation\TranslationService;
 
-class TranslationServiceTest extends ApiTestCase
+final class TranslationServiceTest extends ApiTestCase
 {
     public function testPushXliffCatalog()
     {

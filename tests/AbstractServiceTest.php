@@ -16,7 +16,7 @@ use PHPUnit\Framework\TestCase;
 use Wizaplace\ApiClient;
 use Wizaplace\Exception\JsonDecodingError;
 
-class AbstractServiceTest extends TestCase
+final class AbstractServiceTest extends TestCase
 {
     public function testInvalidJsonProcessing()
     {

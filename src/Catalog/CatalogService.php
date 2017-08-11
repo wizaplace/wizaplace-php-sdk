@@ -13,7 +13,7 @@ use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Image\Image;
 
-class CatalogService extends AbstractService
+final class CatalogService extends AbstractService
 {
     public function getProductById(int $id) : Product
     {

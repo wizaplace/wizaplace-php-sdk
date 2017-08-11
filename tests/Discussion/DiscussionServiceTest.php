@@ -15,7 +15,7 @@ use Wizaplace\Discussion\Message;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
-class DiscussionServiceTest extends ApiTestCase
+final class DiscussionServiceTest extends ApiTestCase
 {
     /**
      * @var $discussionService DiscussionService

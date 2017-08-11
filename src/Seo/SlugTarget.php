@@ -11,7 +11,7 @@ namespace Wizaplace\Seo;
 /**
  * SlugTarget indicates which object is referenced by a slug.
  */
-class SlugTarget
+final class SlugTarget
 {
     /**
      * @var SlugTargetType

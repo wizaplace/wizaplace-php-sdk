@@ -10,7 +10,7 @@ namespace Wizaplace\Image;
 
 use Wizaplace\AbstractService;
 
-class ImageService extends AbstractService
+final class ImageService extends AbstractService
 {
     /**
      * Return the public URL of an image.

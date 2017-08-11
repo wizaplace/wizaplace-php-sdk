@@ -13,7 +13,7 @@ use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Exception\NotFound;
 
-class UserService extends AbstractService
+final class UserService extends AbstractService
 {
     /**
      * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait

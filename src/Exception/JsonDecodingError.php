@@ -8,6 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Exception;
 
-class JsonDecodingError extends \Exception
+final class JsonDecodingError extends \Exception
 {
 }

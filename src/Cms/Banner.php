@@ -10,7 +10,7 @@ namespace Wizaplace\Cms;
 
 use Psr\Http\Message\UriInterface;
 
-class Banner
+final class Banner
 {
     /**
      * @var UriInterface

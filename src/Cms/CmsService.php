@@ -11,7 +11,7 @@ namespace Wizaplace\Cms;
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\AbstractService;
 
-class CmsService extends AbstractService
+final class CmsService extends AbstractService
 {
     /**
      * @return Menu[]

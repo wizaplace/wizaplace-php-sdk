@@ -8,6 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket\Exception;
 
-class BadQuantity extends \Exception
+final class BadQuantity extends \Exception
 {
 }

@@ -47,7 +47,7 @@ use Wizaplace\Exception\SomeParametersAreInvalid;
  *     // The order is now created, it needs to be paid
  *     // Redirect the user to the payment provider's form : $paymentInfo->getRedirectUrl();
  */
-class BasketService extends AbstractService
+final class BasketService extends AbstractService
 {
     /**
      * Create a new basket.

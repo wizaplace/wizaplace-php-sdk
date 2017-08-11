@@ -15,7 +15,7 @@ use Wizaplace\Tests\ApiTestCase;
 /**
  * @see BasketService
  */
-class BasketServiceTest extends ApiTestCase
+final class BasketServiceTest extends ApiTestCase
 {
     public function testFullCheckout()
     {

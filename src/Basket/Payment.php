@@ -10,7 +10,7 @@ namespace Wizaplace\Basket;
 
 use Wizaplace\Image\Image;
 
-class Payment
+final class Payment
 {
     /** @var int */
     private $id;

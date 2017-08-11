@@ -16,7 +16,7 @@ use Wizaplace\Authentication\AuthenticationRequired;
  *
  * If you want to *create* an order, you need to use the BasketService.
  */
-class OrderService extends AbstractService
+final class OrderService extends AbstractService
 {
     /**
      * List the orders of the current user.

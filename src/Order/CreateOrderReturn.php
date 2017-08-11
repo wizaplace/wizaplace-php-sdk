@@ -11,7 +11,7 @@ namespace Wizaplace\Order;
 /**
  * @see \Wizaplace\Order\OrderService::createOrderReturn
  */
-class CreateOrderReturn
+final class CreateOrderReturn
 {
     /** @var int */
     private $orderId;

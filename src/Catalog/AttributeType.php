@@ -21,7 +21,7 @@ use MyCLabs\Enum\Enum;
  * @method static AttributeType CHECKBOX_MULTIPLE()
  * @method static AttributeType GROUP()
  */
-class AttributeType extends Enum
+final class AttributeType extends Enum
 {
     private const FREE_NUMBER = 'FREE_NUMBER';
     private const FREE_TEXT = 'FREE_TEXT';

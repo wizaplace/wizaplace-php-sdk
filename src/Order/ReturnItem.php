@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-class ReturnItem
+final class ReturnItem
 {
     /** @var string */
     private $declinationId;

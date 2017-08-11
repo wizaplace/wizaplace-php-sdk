@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\MailingList;
 
-class MailingList
+final class MailingList
 {
     /**
      * @var int

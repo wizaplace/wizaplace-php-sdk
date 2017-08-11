@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Catalog;
 use PHPUnit\Framework\TestCase;
 use Wizaplace\Catalog\DeclinationOption;
 
-class DeclinationOptionTest extends TestCase
+final class DeclinationOptionTest extends TestCase
 {
     public function testDeclinationOptionJsonSerialization()
     {

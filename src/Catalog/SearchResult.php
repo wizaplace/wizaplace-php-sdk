@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Pagination;
 
-class SearchResult
+final class SearchResult
 {
     /** @var ProductSummary[] */
     private $products;

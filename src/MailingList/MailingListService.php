@@ -16,7 +16,7 @@ use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
 /**
  * Manages mailing lists and subscriptions
  */
-class MailingListService extends AbstractService
+final class MailingListService extends AbstractService
 {
     /**
      * @return MailingList[]

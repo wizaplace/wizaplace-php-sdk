@@ -17,7 +17,7 @@ use Wizaplace\User\UserService;
 /**
  * @see UserService
  */
-class UserServiceTest extends ApiTestCase
+final class UserServiceTest extends ApiTestCase
 {
     public function testCreateUser()
     {

@@ -14,7 +14,7 @@ use Wizaplace\MailingList\MailingList;
 use Wizaplace\MailingList\MailingListService;
 use Wizaplace\Tests\ApiTestCase;
 
-class MailingListTest extends ApiTestCase
+final class MailingListTest extends ApiTestCase
 {
     /**
      * @var MailingListService

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class CategoryTree
+final class CategoryTree
 {
     /** @var Category */
     private $category;

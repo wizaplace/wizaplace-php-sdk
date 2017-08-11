@@ -12,7 +12,7 @@ namespace Wizaplace\Tests;
  * This is just here for example usages.
  * Having them as runnable tests ensures that they are up to date.
  */
-class ExampleTest extends ApiTestCase
+final class ExampleTest extends ApiTestCase
 {
     /**
      * Shows how to make a simple product search without any filters.

@@ -8,15 +8,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Favorite;
 
+use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\Favorite\FavoriteService;
-use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\ApiKey;
-use Wizaplace\User\UserService;
 
-class FavoriteServiceTest extends ApiTestCase
+final class FavoriteServiceTest extends ApiTestCase
 {
     /**
      * @var FavoriteService

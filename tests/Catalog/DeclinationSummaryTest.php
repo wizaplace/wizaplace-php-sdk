@@ -8,14 +8,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Catalog;
 
-use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Catalog\DeclinationOption;
+use PHPUnit\Framework\TestCase;
 use Wizaplace\Catalog\CompanySummary;
+use Wizaplace\Catalog\DeclinationOption;
+use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Catalog\ProductCategory;
 use Wizaplace\Image\Image;
-use PHPUnit\Framework\TestCase;
 
-class DeclinationSummaryTest extends TestCase
+final class DeclinationSummaryTest extends TestCase
 {
     public function testInterface()
     {

@@ -7,7 +7,7 @@
 
 namespace Wizaplace\Cms;
 
-class Page
+final class Page
 {
     /**
      * @var int

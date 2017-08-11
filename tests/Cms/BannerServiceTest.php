@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Cms;
 use Wizaplace\Cms\BannerService;
 use Wizaplace\Tests\ApiTestCase;
 
-class BannerServiceTest extends ApiTestCase
+final class BannerServiceTest extends ApiTestCase
 {
     public function testGetHomepageBanners()
     {

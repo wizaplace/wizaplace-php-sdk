@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-class CompanyRegistrationResult
+final class CompanyRegistrationResult
 {
     /** @var Company */
     private $company;

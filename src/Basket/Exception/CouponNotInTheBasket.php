@@ -8,6 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket\Exception;
 
-class CouponNotInTheBasket extends \Exception
+final class CouponNotInTheBasket extends \Exception
 {
 }

@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Exception\NotFound;
 
-class Product
+final class Product
 {
     /** @var string */
     private $id;

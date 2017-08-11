@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class BasketShippingGroup
+final class BasketShippingGroup
 {
     /** @var int */
     private $id;

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class ProductAttribute
+final class ProductAttribute
 {
     /** @var string */
     private $name;

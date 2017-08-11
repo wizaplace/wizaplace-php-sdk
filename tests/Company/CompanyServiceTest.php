@@ -20,7 +20,7 @@ use function GuzzleHttp\Psr7\stream_for;
 /**
  * @see CompanyService
  */
-class CompanyServiceTest extends ApiTestCase
+final class CompanyServiceTest extends ApiTestCase
 {
     public function testRegisteringACompanyWithAllInformation()
     {

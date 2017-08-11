@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class Declination
+final class Declination
 {
     /** @var string */
     private $id;

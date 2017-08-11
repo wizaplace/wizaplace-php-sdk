@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Authentication;
 
-class BadCredentials extends \Exception
+final class BadCredentials extends \Exception
 {
     public function __construct(\Throwable $e = null)
     {

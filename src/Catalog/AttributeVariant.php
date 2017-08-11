@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class AttributeVariant
+final class AttributeVariant
 {
     /** @var int */
     private $id;

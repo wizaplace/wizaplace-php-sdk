@@ -7,7 +7,7 @@
 
 namespace Wizaplace\Favorite\Exception;
 
-class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
+final class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
 {
     public const HTTP_ERROR_CODE = 400;
 
