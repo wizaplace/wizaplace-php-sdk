@@ -22,16 +22,16 @@ class CmsServiceTest extends ApiTestCase
 
         $firstMenu = array_pop($menus);
 
-        $this->assertEquals(5, $firstMenu->getId());
-        $this->assertEquals('Espace pro', $firstMenu->getName());
+        $this->assertSame(5, $firstMenu->getId());
+        $this->assertSame('Espace pro', $firstMenu->getName());
 
         $items = $firstMenu->getItems();
         $this->assertCount(3, $items);
 
         $firstItem = $items[0];
-        $this->assertEquals('Annoncer sur la plateforme', $firstItem->getName());
-        $this->assertEquals(0, $firstItem->getPosition());
-        $this->assertEquals('https://wizaplace.loc/annoncer-sur-la-plateforme.html', $firstItem->getUrl()->__toString());
+        $this->assertSame('Annoncer sur la plateforme', $firstItem->getName());
+        $this->assertSame(0, $firstItem->getPosition());
+        $this->assertSame('https://wizaplace.loc/annoncer-sur-la-plateforme.html', $firstItem->getUrl()->__toString());
     }
 
     public function testGetPage()
@@ -41,13 +41,13 @@ class CmsServiceTest extends ApiTestCase
 
         $this->assertNotEmpty($page);
 
-        $this->assertEquals(31, $page->getId());
-        $this->assertEquals('Test Cms Page Slug', $page->getTitle());
-        $this->assertEquals('test-cms-page-slug', $page->getSlug());
-        $this->assertEquals('', $page->getContent());
-        $this->assertEquals('', $page->getMetaDescription());
-        $this->assertEquals('', $page->getMetaKeywords());
-        $this->assertEquals('', $page->getMetaTitle());
+        $this->assertSame(31, $page->getId());
+        $this->assertSame('Test Cms Page Slug', $page->getTitle());
+        $this->assertSame('test-cms-page-slug', $page->getSlug());
+        $this->assertSame('', $page->getContent());
+        $this->assertSame('', $page->getMetaDescription());
+        $this->assertSame('', $page->getMetaKeywords());
+        $this->assertSame('', $page->getMetaTitle());
     }
 
     private function buildCmsService(): CmsService

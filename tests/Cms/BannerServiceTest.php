@@ -18,14 +18,14 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners();
 
-        $this->assertEquals(2, count($banners));
+        $this->assertSame(2, count($banners));
 
-        $this->assertEquals('http://url-de-test.com', $banners[0]->getLink());
-        $this->assertEquals(3, $banners[0]->getImageId());
+        $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
+        $this->assertSame(3, $banners[0]->getImageId());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
 
-        $this->assertEquals('http://url-de-test-2.com', $banners[1]->getLink());
-        $this->assertEquals(4, $banners[1]->getImageId());
+        $this->assertSame('http://url-de-test-2.com', (string) $banners[1]->getLink());
+        $this->assertSame(4, $banners[1]->getImageId());
         $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
@@ -34,9 +34,9 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('mobile');
 
-        $this->assertEquals(1, count($banners));
-        $this->assertEquals('http://url-de-test.com', $banners[0]->getLink());
-        $this->assertEquals(3, $banners[0]->getImageId());
+        $this->assertSame(1, count($banners));
+        $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
+        $this->assertSame(3, $banners[0]->getImageId());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -45,9 +45,9 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('desktop');
 
-        $this->assertEquals(1, count($banners));
-        $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
-        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertSame(1, count($banners));
+        $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
+        $this->assertSame(4, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -56,14 +56,14 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3);
 
-        $this->assertEquals(2, count($banners));
+        $this->assertSame(2, count($banners));
 
-        $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
-        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
+        $this->assertSame(4, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
 
-        $this->assertEquals('http://url-de-test-3.com', $banners[1]->getLink());
-        $this->assertEquals(5, $banners[1]->getImageId());
+        $this->assertSame('http://url-de-test-3.com', (string) $banners[1]->getLink());
+        $this->assertSame(5, $banners[1]->getImageId());
         $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
@@ -72,9 +72,9 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'mobile');
 
-        $this->assertEquals(1, count($banners));
-        $this->assertEquals('http://url-de-test-3.com', $banners[0]->getLink());
-        $this->assertEquals(5, $banners[0]->getImageId());
+        $this->assertSame(1, count($banners));
+        $this->assertSame('http://url-de-test-3.com', (string) $banners[0]->getLink());
+        $this->assertSame(5, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -83,9 +83,9 @@ class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'desktop');
 
-        $this->assertEquals(1, count($banners));
-        $this->assertEquals('http://url-de-test-2.com', $banners[0]->getLink());
-        $this->assertEquals(4, $banners[0]->getImageId());
+        $this->assertSame(1, count($banners));
+        $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
+        $this->assertSame(4, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 

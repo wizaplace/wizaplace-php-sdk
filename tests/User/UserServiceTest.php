@@ -37,11 +37,11 @@ class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertNotNull($user, 'User exists');
-        $this->assertEquals($userEmail, $user->getEmail());
-        $this->assertEquals($userId, $user->getId());
-        $this->assertEquals('', $user->getFirstname());
-        $this->assertEquals('', $user->getLastname());
-        $this->assertEquals([
+        $this->assertSame($userEmail, $user->getEmail());
+        $this->assertSame($userId, $user->getId());
+        $this->assertSame('', $user->getFirstname());
+        $this->assertSame('', $user->getLastname());
+        $this->assertSame([
             38 => null,
             'firstname' => '',
             'lastname' => '',
@@ -53,7 +53,7 @@ class UserServiceTest extends ApiTestCase
             'city' => '',
             'country' => 'FR',
         ], $user->getShippingAddress());
-        $this->assertEquals([
+        $this->assertSame([
             37 => null,
             'firstname' => '',
             'lastname' => '',
@@ -87,18 +87,18 @@ class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user42@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertEquals('user42@example.com', $user->getEmail());
-        $this->assertEquals('Jean', $user->getFirstname());
-        $this->assertEquals('Paul', $user->getLastname());
+        $this->assertSame('user42@example.com', $user->getEmail());
+        $this->assertSame('Jean', $user->getFirstname());
+        $this->assertSame('Paul', $user->getLastname());
 
         $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules');
 
         $client->authenticate('user43@example.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
-        $this->assertEquals('user43@example.com', $user->getEmail());
-        $this->assertEquals('Jacques', $user->getFirstname());
-        $this->assertEquals('Jules', $user->getLastname());
+        $this->assertSame('user43@example.com', $user->getEmail());
+        $this->assertSame('Jacques', $user->getFirstname());
+        $this->assertSame('Jules', $user->getLastname());
     }
 
     public function testRecoverPassword()
