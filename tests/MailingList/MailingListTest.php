@@ -34,9 +34,9 @@ class MailingListTest extends ApiTestCase
             $this->assertInstanceOf(MailingList::class, $mailingList);
         }
 
-        $this->assertEquals(1, count($mailingLists));
-        $this->assertEquals(1, $mailingLists[0]->getId());
-        $this->assertEquals('Newsletter', $mailingLists[0]->getName());
+        $this->assertSame(1, count($mailingLists));
+        $this->assertSame(1, $mailingLists[0]->getId());
+        $this->assertSame('Newsletter', $mailingLists[0]->getName());
     }
 
     public function testSubscribe()

@@ -9,8 +9,8 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\Exception\NotFound;
 use Wizaplace\Catalog\Review\ReviewService;
+use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
 class ReviewServiceTest extends ApiTestCase
@@ -31,7 +31,7 @@ class ReviewServiceTest extends ApiTestCase
         $reviews = $this->reviewService->getProductReviews(1);
 
         foreach ($reviews as $review) {
-            $this->assertEquals('Administrateur Wizaplace', $review->getAuthor()->getName());
+            $this->assertSame('Administrateur Wizaplace', $review->getAuthor()->getName());
             $this->assertInternalType('string', $review->getMessage());
             $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
             $this->assertAttributeGreaterThanOrEqual(1, 'rating', $review);
@@ -73,12 +73,12 @@ class ReviewServiceTest extends ApiTestCase
         $reviews = $this->reviewService->getCompanyReviews(5);
 
         foreach ($reviews as $review) {
-            $this->assertEquals('Paul Martin', $review->getAuthor()->getName());
-            $this->assertEquals(3, $review->getAuthor()->getId());
-            $this->assertEquals('user@wizaplace.com', $review->getAuthor()->getEmail());
-            $this->assertEquals('this is a test review', $review->getMessage());
+            $this->assertSame('Paul Martin', $review->getAuthor()->getName());
+            $this->assertSame(3, $review->getAuthor()->getId());
+            $this->assertSame('user@wizaplace.com', $review->getAuthor()->getEmail());
+            $this->assertSame('this is a test review', $review->getMessage());
             $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
-            $this->assertEquals(2, $review->getRating());
+            $this->assertSame(2, $review->getRating());
         }
     }
 

@@ -47,21 +47,21 @@ class CompanyServiceTest extends ApiTestCase
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
-        $this->assertEquals('acme-inc', $company->getSlug());
-        $this->assertEquals('acme2@example.com', $company->getEmail());
-        $this->assertEquals('24 rue de la gare', $companyRegistration->getAddress());
-        $this->assertEquals('1 000 000 000 $', $companyRegistration->getCapital());
-        $this->assertEquals('Lyon', $companyRegistration->getCity());
-        $this->assertEquals('France', $companyRegistration->getCountry());
-        $this->assertEquals('Super ACME company', $companyRegistration->getDescription());
-        $this->assertEquals('01 02 03 04 05', $companyRegistration->getFax());
-        $this->assertEquals('SARL', $companyRegistration->getLegalStatus());
-        $this->assertEquals('01 02 03 04 05 06', $companyRegistration->getPhoneNumber());
-        $this->assertEquals('RCS VANNES B 514 919 844', $companyRegistration->getRcs());
-        $this->assertEquals('12345678901', $companyRegistration->getVatNumber());
-        $this->assertEquals('69009', $companyRegistration->getZipcode());
-        $this->assertEquals('732 829 320 00074', $companyRegistration->getSiretNumber());
-        $this->assertEquals('https://acme.example.com/', $companyRegistration->getUrl());
+        $this->assertSame('acme-inc', $company->getSlug());
+        $this->assertSame('acme2@example.com', $company->getEmail());
+        $this->assertSame('24 rue de la gare', $companyRegistration->getAddress());
+        $this->assertSame('1 000 000 000 $', $companyRegistration->getCapital());
+        $this->assertSame('Lyon', $companyRegistration->getCity());
+        $this->assertSame('France', $companyRegistration->getCountry());
+        $this->assertSame('Super ACME company', $companyRegistration->getDescription());
+        $this->assertSame('01 02 03 04 05', $companyRegistration->getFax());
+        $this->assertSame('SARL', $companyRegistration->getLegalStatus());
+        $this->assertSame('01 02 03 04 05 06', $companyRegistration->getPhoneNumber());
+        $this->assertSame('RCS VANNES B 514 919 844', $companyRegistration->getRcs());
+        $this->assertSame('12345678901', $companyRegistration->getVatNumber());
+        $this->assertSame('69009', $companyRegistration->getZipcode());
+        $this->assertSame('732 829 320 00074', $companyRegistration->getSiretNumber());
+        $this->assertSame('https://acme.example.com/', $companyRegistration->getUrl());
 
         $this->assertTrue($result->getFileUploadResult('rib')->isSuccess());
         $this->assertNull($result->getFileUploadResult('rib')->getErrorMessage());
@@ -78,7 +78,7 @@ class CompanyServiceTest extends ApiTestCase
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
         $this->assertStringStartsWith('acme-test-inc', $company->getSlug());
-        $this->assertEquals('acme@example.com', $company->getEmail());
+        $this->assertSame('acme@example.com', $company->getEmail());
         $this->assertEmpty($company->getFax());
     }
 
@@ -113,7 +113,7 @@ class CompanyServiceTest extends ApiTestCase
         $this->assertGreaterThan(0, $result->getCompany()->getId());
 
         $this->assertFalse($result->getFileUploadResult('rib')->isSuccess());
-        $this->assertEquals('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
+        $this->assertSame('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
     }
 
     private function buildUserCompanyService(): CompanyService

@@ -29,10 +29,10 @@ class BasketServiceTest extends ApiTestCase
         $this->assertNotEmpty($basketId);
 
         $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
-        $this->assertEquals(1, $newQuantity);
+        $this->assertSame(1, $newQuantity);
 
         $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
-        $this->assertEquals(2, $newQuantity);
+        $this->assertSame(2, $newQuantity);
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
@@ -79,29 +79,29 @@ class BasketServiceTest extends ApiTestCase
         $paymentInformation = $basketService->checkout($basketId, $selectedPayment, true, $redirectUrl);
 
         // @TODO : check that the two following values are normal
-        $this->assertEquals('', $paymentInformation->getHtml());
-        $this->assertEquals('', $paymentInformation->getRedirectUrl());
+        $this->assertSame('', $paymentInformation->getHtml());
+        $this->assertSame('', $paymentInformation->getRedirectUrl());
 
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
 
         $order = $orderService->getOrder($orders[0]['id']);
-        $this->assertEquals($orders[0]['id'], $order->getId());
-        $this->assertEquals(4, $order->getCompanyId());
-        $this->assertEquals('TNT Express', $order->getShippingName());
-        $this->assertEquals('STANDBY_BILLING', $order->getStatus());
+        $this->assertSame($orders[0]['id'], $order->getId());
+        $this->assertSame(4, $order->getCompanyId());
+        $this->assertSame('TNT Express', $order->getShippingName());
+        $this->assertSame('STANDBY_BILLING', $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
-        $this->assertEquals(40.0, $order->getTotal());
-        $this->assertEquals(40.0, $order->getSubtotal());
-        $this->assertEquals('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
+        $this->assertSame(40.0, $order->getTotal());
+        $this->assertSame(40.0, $order->getSubtotal());
+        $this->assertSame('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
 
         $orderItems = $order->getOrderItems();
         $this->assertCount(1, $orderItems);
-        $this->assertEquals('1_0', $orderItems[0]->getDeclinationId());
-        $this->assertEquals('optio corporis similique voluptatum', $orderItems[0]->getProductName());
-        $this->assertEquals('6086375420678', $orderItems[0]->getProductCode());
-        $this->assertEquals(20.0, $orderItems[0]->getPrice());
-        $this->assertEquals(2, $orderItems[0]->getAmount());
+        $this->assertSame('1_0', $orderItems[0]->getDeclinationId());
+        $this->assertSame('optio corporis similique voluptatum', $orderItems[0]->getProductName());
+        $this->assertSame('6086375420678', $orderItems[0]->getProductCode());
+        $this->assertSame(20.0, $orderItems[0]->getPrice());
+        $this->assertSame(2, $orderItems[0]->getAmount());
     }
 
     public function testCleanBasket()
@@ -119,14 +119,14 @@ class BasketServiceTest extends ApiTestCase
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
 
-        $this->assertEquals(1, $basket->getTotalQuantity());
+        $this->assertSame(1, $basket->getTotalQuantity());
 
         $basketService->cleanBasket($basketId);
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
 
-        $this->assertEquals(0, $basket->getTotalQuantity());
+        $this->assertSame(0, $basket->getTotalQuantity());
     }
 
     public function testCreatingABasket()
@@ -161,10 +161,10 @@ class BasketServiceTest extends ApiTestCase
 
         $shippings = $shippingGroups[0]->getShippings();
         $this->assertCount(2, $shippings);
-        $this->assertEquals('Colissmo', $shippings[1]->getName());
+        $this->assertSame('Colissmo', $shippings[1]->getName());
         // @TODO : insert some real data in the fixtures
-        $this->assertEquals(0.0, $shippings[1]->getPrice());
-        $this->assertEquals('', $shippings[1]->getDeliveryTime());
+        $this->assertSame(0.0, $shippings[1]->getPrice());
+        $this->assertSame('', $shippings[1]->getDeliveryTime());
 
         $this->assertTrue($shippings[0]->isSelected());
         $this->assertFalse($shippings[1]->isSelected());
