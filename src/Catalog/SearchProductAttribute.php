@@ -19,6 +19,9 @@ class SearchProductAttribute
     /** @var array */
     private $values;
 
+    /**
+     * @internal
+     */
     public function __construct($data)
     {
         $this->id = $data['attribute']['id'];

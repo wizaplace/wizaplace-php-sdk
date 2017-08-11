@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace;
 
+/**
+ * @internal
+ */
 abstract class AbstractService
 {
     /** @var ApiClient $client */

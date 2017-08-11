@@ -37,6 +37,9 @@ class Basket
     /** @var int */
     private $totalQuantity;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

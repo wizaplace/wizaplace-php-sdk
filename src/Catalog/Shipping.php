@@ -22,6 +22,9 @@ class Shipping
     /** @var float */
     private $nextRate;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->name = $data['name'];

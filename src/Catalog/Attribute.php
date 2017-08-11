@@ -21,6 +21,9 @@ class Attribute
     /** @var null|int */
     private $parentId;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, string $name, AttributeType $type, int $position, ?int $parentId)
     {
         $this->id = $id;

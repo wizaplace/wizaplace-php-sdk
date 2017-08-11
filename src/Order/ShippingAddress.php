@@ -25,6 +25,9 @@ class ShippingAddress
     /** @var string */
     private $country;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->firstname = $data['firstname'];

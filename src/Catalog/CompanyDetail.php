@@ -42,6 +42,9 @@ class CompanyDetail
     /** @var null|integer */
     private $averageRating;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

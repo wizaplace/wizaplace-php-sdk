@@ -23,6 +23,9 @@ class User
     /** @var array */
     private $shippingAddress;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

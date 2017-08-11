@@ -16,6 +16,9 @@ class Message
     /** @var \DateTimeImmutable */
     private $date;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->content = $data['content'];

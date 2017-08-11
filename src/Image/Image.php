@@ -13,6 +13,9 @@ class Image
     /** @var int */
     private $id;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

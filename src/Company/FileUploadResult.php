@@ -13,6 +13,9 @@ class FileUploadResult
     /** @var null|string */
     private $errorMessage;
 
+    /**
+     * @internal
+     */
     public function __construct(?string $errorMessage)
     {
         $this->errorMessage = $errorMessage;

@@ -16,6 +16,9 @@ class Company
     /** @var string */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct($data)
     {
         $this->id = $data['id'];

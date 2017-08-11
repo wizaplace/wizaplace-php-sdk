@@ -11,6 +11,9 @@ class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
 {
     public const HTTP_ERROR_CODE = 400;
 
+    /**
+     * @internal
+     */
     public function __construct(int $productId, \Throwable $previous = null)
     {
         parent::__construct(

@@ -61,6 +61,9 @@ class Company
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];
