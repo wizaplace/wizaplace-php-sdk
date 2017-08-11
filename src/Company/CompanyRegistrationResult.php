@@ -18,6 +18,7 @@ class CompanyRegistrationResult
 
     /**
      * @param FileUploadResult[] $fileUploadResults
+     * @internal
      */
     public function __construct(Company $company, array $fileUploadResults)
     {

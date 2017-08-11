@@ -15,6 +15,9 @@ class CategoryTree
     /** @var CategoryTree[] */
     private $children;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->category = new Category($data['category']);

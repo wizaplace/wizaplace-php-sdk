@@ -54,6 +54,9 @@ class Declination
     /** @var DeclinationOption[] */
     private $options;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $prices = $data['prices'] ?? [];

@@ -27,6 +27,9 @@ class Banner
      */
     private $imageId;
 
+    /**
+     * @internal
+     */
     public function __construct(
         UriInterface $link,
         bool $shouldOpenInNewWindow,

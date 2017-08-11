@@ -24,6 +24,9 @@ class CompanySummary
     /** @var null|Image */
     private $image;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, string $name, string $slug, ?Image $image)
     {
         $this->id = $id;

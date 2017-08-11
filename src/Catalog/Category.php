@@ -29,6 +29,9 @@ class Category
     /** @var int */
     private $productCount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

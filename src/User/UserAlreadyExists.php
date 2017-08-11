@@ -12,6 +12,9 @@ use Throwable;
 
 class UserAlreadyExists extends \Exception
 {
+    /**
+     * @internal
+     */
     public function __construct(Throwable $previous = null)
     {
         parent::__construct("User already exists", 409, $previous);

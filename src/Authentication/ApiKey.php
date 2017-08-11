@@ -21,6 +21,9 @@ class ApiKey
     /** @var string */
     private $key;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->key = $data['apiKey'];

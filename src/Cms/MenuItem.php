@@ -21,6 +21,9 @@ class MenuItem
     /** @var UriInterface */
     private $url;
 
+    /**
+     * @internal
+     */
     public function __construct(string $name, int $position, UriInterface $url)
     {
         $this->name = $name;
