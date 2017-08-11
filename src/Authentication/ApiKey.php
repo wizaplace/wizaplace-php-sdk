@@ -27,9 +27,6 @@ class ApiKey
         $this->id = $data['id'];
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
