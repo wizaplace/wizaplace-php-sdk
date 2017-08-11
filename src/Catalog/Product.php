@@ -8,6 +8,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
+use Wizaplace\Exception\NotFound;
+
 class Product
 {
     /** @var string */
@@ -64,8 +66,11 @@ class Product
     /** @var array */
     private $categoryPath;
 
-    /** @var array */
+    /** @var Declination[] */
     private $declinations;
+
+    /** @var Option[] */
+    private $options;
 
     public function __construct(array $data)
     {
@@ -114,6 +119,12 @@ class Product
                 return new Declination($declination);
             },
             $data['declinations']
+        );
+        $this->options = array_map(
+            function (array $option) : Option {
+                return new Option($option);
+            },
+            $data['options']
         );
     }
 
@@ -230,10 +241,48 @@ class Product
     }
 
     /**
-     * @return array
+     * @return Declination[]
      */
     public function getDeclinations(): array
     {
         return $this->declinations;
+    }
+
+    /**
+     * @return Option[]
+     */
+    public function getOptions(): array
+    {
+        return $this->options;
+    }
+
+    /**
+     * @throws NotFound
+     */
+    public function getDeclination(string $declinationId): Declination
+    {
+        $declinations = $this->getDeclinations();
+        foreach ($declinations as $declination) {
+            if ($declination->getId() === $declinationId) {
+                return $declination;
+            }
+        }
+
+        throw new NotFound('Declination '.$declinationId.' was not found.');
+    }
+
+    /**
+     * @param int[] $variantIds
+     * @throws NotFound
+     */
+    public function getDeclinationFromOptions(array $variantIds): Declination
+    {
+        foreach ($this->declinations as $declination) {
+            if ($declination->hasVariants($variantIds)) {
+                return $declination;
+            }
+        }
+
+        throw new NotFound('Declination was not found.');
     }
 }
