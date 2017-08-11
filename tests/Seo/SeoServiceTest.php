@@ -13,7 +13,7 @@ use Wizaplace\Seo\SlugTarget;
 use Wizaplace\Seo\SlugTargetType;
 use Wizaplace\Tests\ApiTestCase;
 
-class SeoServiceTest extends ApiTestCase
+final class SeoServiceTest extends ApiTestCase
 {
     public function testResolveSlugsForAllKinds()
     {

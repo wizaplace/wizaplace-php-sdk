@@ -11,7 +11,7 @@ namespace Wizaplace\Company;
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 
-class CompanyService extends AbstractService
+final class CompanyService extends AbstractService
 {
     /**
      * @throws AuthenticationRequired

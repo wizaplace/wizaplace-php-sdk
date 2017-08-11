@@ -13,7 +13,7 @@ use Wizaplace\AbstractService;
 /**
  * Dummy service, here to test generic features not tied to any specific service
  */
-class TestService extends AbstractService
+final class TestService extends AbstractService
 {
     public function getTest()
     {

@@ -10,7 +10,7 @@ namespace Wizaplace\Cms;
 
 use Psr\Http\Message\UriInterface;
 
-class MenuItem
+final class MenuItem
 {
     /** @var string */
     private $name;

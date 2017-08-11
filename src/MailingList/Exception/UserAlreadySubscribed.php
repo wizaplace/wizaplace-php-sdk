@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\MailingList\Exception;
 
-class UserAlreadySubscribed extends \Exception
+final class UserAlreadySubscribed extends \Exception
 {
 
 }

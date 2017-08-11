@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Company
+final class Company
 {
     /** @var integer */
     private $id;

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\User;
 
-class User
+final class User
 {
     /** @var int */
     private $id;

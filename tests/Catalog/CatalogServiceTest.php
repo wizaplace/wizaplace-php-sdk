@@ -18,7 +18,7 @@ use Wizaplace\Tests\ApiTestCase;
 /**
  * @see CatalogService
  */
-class CatalogServiceTest extends ApiTestCase
+final class CatalogServiceTest extends ApiTestCase
 {
     public function testGetProductById()
     {

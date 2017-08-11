@@ -11,7 +11,7 @@ namespace Wizaplace\Cms;
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\AbstractService;
 
-class BannerService extends AbstractService
+final class BannerService extends AbstractService
 {
     /**
      * Get the banners that should display on the home page.

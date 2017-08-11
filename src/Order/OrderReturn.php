@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-class OrderReturn
+final class OrderReturn
 {
     /** @var int */
     private $id;

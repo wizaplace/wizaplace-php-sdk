@@ -14,7 +14,7 @@ use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\User\ApiKey;
 
-class TranslationService extends AbstractService
+final class TranslationService extends AbstractService
 {
     /**
      * @param string|StreamInterface $xliffCatalog

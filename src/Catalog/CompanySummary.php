@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class CompanySummary
+final class CompanySummary
 {
     /** @var int */
     private $id;

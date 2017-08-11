@@ -33,7 +33,7 @@ use Wizaplace\Exception\NotFound;
  *      able to post a review.
  *      $reviewService->reviewCompany($companyId, $formData['message'], $formData['rating']);
  */
-class ReviewService extends AbstractService
+final class ReviewService extends AbstractService
 {
     private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
     private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";

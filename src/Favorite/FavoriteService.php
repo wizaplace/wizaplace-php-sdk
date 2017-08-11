@@ -17,7 +17,7 @@ use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 /**
  * This service helps managing the favorite products of a user.
  */
-class FavoriteService extends AbstractService
+final class FavoriteService extends AbstractService
 {
     /**
      * Return all the products saved as favorites

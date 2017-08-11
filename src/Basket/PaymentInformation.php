@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class PaymentInformation
+final class PaymentInformation
 {
     /** @var array */
     private $orders;

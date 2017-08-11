@@ -11,7 +11,7 @@ namespace Wizaplace\Tests;
 use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Order\OrderService;
 
-class ApiClientTest extends ApiTestCase
+final class ApiClientTest extends ApiTestCase
 {
     public function testAuthentication()
     {

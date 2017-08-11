@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Attribute
+final class Attribute
 {
     /** @var int */
     private $id;

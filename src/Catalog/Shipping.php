@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Shipping
+final class Shipping
 {
     /** @var string */
     private $name;

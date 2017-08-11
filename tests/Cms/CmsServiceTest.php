@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Cms;
 use Wizaplace\Cms\CmsService;
 use Wizaplace\Tests\ApiTestCase;
 
-class CmsServiceTest extends ApiTestCase
+final class CmsServiceTest extends ApiTestCase
 {
     public function testGetAllMenus()
     {

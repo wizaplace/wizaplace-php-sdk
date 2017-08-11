@@ -12,7 +12,7 @@ namespace Wizaplace\Tests\Catalog;
 use PHPUnit\Framework\TestCase;
 use Wizaplace\Catalog\Declination;
 
-class DeclinationTest extends TestCase
+final class DeclinationTest extends TestCase
 {
     public function testDeclinationHasRequestedVariant()
     {

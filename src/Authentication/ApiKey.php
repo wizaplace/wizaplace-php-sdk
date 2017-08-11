@@ -13,7 +13,7 @@ use Wizaplace\ApiClient;
 /**
  * @see ApiClient::authenticate()
  */
-class ApiKey
+final class ApiKey
 {
     /** @var int */
     private $id;

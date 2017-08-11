@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class BasketCompanyGroup
+final class BasketCompanyGroup
 {
     /** @var BasketCompany */
     private $basketCompany;

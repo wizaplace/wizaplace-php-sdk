@@ -17,7 +17,7 @@ use Wizaplace\Tests\ApiTestCase;
 /**
  * @see OrderService
  */
-class OrderServiceTest extends ApiTestCase
+final class OrderServiceTest extends ApiTestCase
 {
     public function testGetOrder()
     {

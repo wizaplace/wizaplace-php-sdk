@@ -9,7 +9,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Option implements \JsonSerializable
+final class Option implements \JsonSerializable
 {
     /** @var int */
     private $id;

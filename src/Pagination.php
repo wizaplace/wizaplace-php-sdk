@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace;
 
-class Pagination
+final class Pagination
 {
 
     /** @var int */

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Cms;
 
-class Menu
+final class Menu
 {
     /** @var int */
     private $id;

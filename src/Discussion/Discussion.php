@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Discussion;
 
-class Discussion
+final class Discussion
 {
     /** @var int */
     private $id;

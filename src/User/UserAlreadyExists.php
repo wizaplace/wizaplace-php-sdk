@@ -10,7 +10,7 @@ namespace Wizaplace\User;
 
 use Throwable;
 
-class UserAlreadyExists extends \Exception
+final class UserAlreadyExists extends \Exception
 {
     /**
      * @internal

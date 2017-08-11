@@ -10,7 +10,7 @@ namespace Wizaplace\Basket;
 
 use Wizaplace\Image\Image;
 
-class BasketItem
+final class BasketItem
 {
     /** @var string */
     private $declinationId;

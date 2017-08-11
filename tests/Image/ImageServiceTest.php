@@ -11,7 +11,7 @@ namespace Wizaplace\Tests\Image;
 use Wizaplace\Image\ImageService;
 use Wizaplace\Tests\ApiTestCase;
 
-class ImageServiceTest extends ApiTestCase
+final class ImageServiceTest extends ApiTestCase
 {
     public function testGetImageLink()
     {

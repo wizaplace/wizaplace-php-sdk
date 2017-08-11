@@ -8,6 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Exception;
 
-class SomeParametersAreInvalid extends \Exception
+final class SomeParametersAreInvalid extends \Exception
 {
 }

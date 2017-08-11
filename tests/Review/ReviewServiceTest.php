@@ -13,7 +13,7 @@ use Wizaplace\Catalog\Review\ReviewService;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
-class ReviewServiceTest extends ApiTestCase
+final class ReviewServiceTest extends ApiTestCase
 {
     /**
      * @var $rs ReviewService

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Discussion;
 
-class Message
+final class Message
 {
     /** @var string */
     private $content;

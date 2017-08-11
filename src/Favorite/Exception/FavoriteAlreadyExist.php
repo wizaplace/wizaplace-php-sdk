@@ -7,7 +7,7 @@
 
 namespace Wizaplace\Favorite\Exception;
 
-class FavoriteAlreadyExist extends \Exception
+final class FavoriteAlreadyExist extends \Exception
 {
     public const HTTP_ERROR_CODE = 409;
 

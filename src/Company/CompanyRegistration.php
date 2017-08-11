@@ -11,7 +11,7 @@ namespace Wizaplace\Company;
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
 
-class CompanyRegistration
+final class CompanyRegistration
 {
     /** @var string */
     private $name;

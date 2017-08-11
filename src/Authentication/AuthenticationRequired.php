@@ -14,7 +14,7 @@ use Wizaplace\ApiClient;
 /**
  * @see ApiClient::authenticate()
  */
-class AuthenticationRequired extends \Exception
+final class AuthenticationRequired extends \Exception
 {
     /**
      * @internal
