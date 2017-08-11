@@ -10,6 +10,7 @@ namespace Wizaplace\Favorite;
 
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
+use Wizaplace\Catalog\DeclinationSummary;
 use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 
@@ -19,6 +20,23 @@ use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 class FavoriteService extends AbstractService
 {
     /**
+     * Return all the products saved as favorites
+     *
+     * @throws AuthenticationRequired
+     *
+     * @return DeclinationSummary[]
+     */
+    public function getAll() : array
+    {
+        $this->client->mustBeAuthenticated();
+        $results = $this->client->get('user/favorites/declinations', []);
+
+        return array_map(function (array $favorite): DeclinationSummary {
+            return new DeclinationSummary($favorite);
+        }, $results['_embedded']['favorites']);
+    }
+
+    /**
      * Check whether a product is in the user's favorites.
      *
      * @throws AuthenticationRequired
@@ -26,10 +44,10 @@ class FavoriteService extends AbstractService
     public function isInFavorites(int $declinationId) : bool
     {
         $this->client->mustBeAuthenticated();
-        $results = $this->client->get('user/favorites/declinations', []);
+        $results = $this->client->get('user/favorites/declinations/ids', []);
         $isInFavorites = false;
-        if (!empty($results)) {
-            foreach ($results as $result) {
+        if ($results['count'] > 0) {
+            foreach ($results['_embedded']['favorites'] as $result) {
                 $declination = explode('_', $result);
                 if ($declination[0] == $declinationId) {
                     $isInFavorites = true;
