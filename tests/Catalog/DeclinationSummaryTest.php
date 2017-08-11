@@ -4,7 +4,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Catalog\Declination\DeclinationOption;
+use Wizaplace\Catalog\DeclinationOption;
 use Wizaplace\Catalog\CompanySummary;
 use Wizaplace\Catalog\ProductCategory;
 use Wizaplace\Image\Image;
