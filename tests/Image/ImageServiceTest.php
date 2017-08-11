@@ -15,17 +15,17 @@ class ImageServiceTest extends ApiTestCase
 {
     public function testGetImageLink()
     {
-        $this->assertEquals('http://wizaplace.loc/api/v1/image/1?', $this->buildImageService()->getImageLink(1));
+        $this->assertSame('http://wizaplace.loc/api/v1/image/1?', $this->buildImageService()->getImageLink(1));
     }
 
     public function testGetImageLinkWithWidth()
     {
-        $this->assertEquals('http://wizaplace.loc/api/v1/image/1?w=42', $this->buildImageService()->getImageLink(1, 42));
+        $this->assertSame('http://wizaplace.loc/api/v1/image/1?w=42', $this->buildImageService()->getImageLink(1, 42));
     }
 
     public function testGetImageLinkWithWidthAndHeight()
     {
-        $this->assertEquals('http://wizaplace.loc/api/v1/image/1?w=42&h=36', $this->buildImageService()->getImageLink(1, 42, 36));
+        $this->assertSame('http://wizaplace.loc/api/v1/image/1?w=42&h=36', $this->buildImageService()->getImageLink(1, 42, 36));
     }
 
     private function buildImageService(): ImageService

@@ -10,7 +10,6 @@ namespace Wizaplace\Tests\Translation;
 
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\Translation\TranslationService;
-use Wizaplace\User\UserService;
 
 class TranslationServiceTest extends ApiTestCase
 {
@@ -41,6 +40,6 @@ XLIFF;
         $translationService->pushXliffCatalog($xliff, 'fr');
         $catalog = $translationService->getXliffCatalog('fr');
 
-        $this->assertEquals($catalog->__toString(), $xliff);
+        $this->assertSame($catalog->__toString(), $xliff);
     }
 }
