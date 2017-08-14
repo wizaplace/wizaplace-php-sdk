@@ -21,5 +21,8 @@
     },
     "autoload-dev": {
         "psr-4": { "Wizaplace\\Tests\\": "tests/" }
+    },
+    "extra": {
+        "codetastic": "wizaplace/php-coding-standard"
     }
 }
