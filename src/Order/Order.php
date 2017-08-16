@@ -29,6 +29,9 @@ final class Order
     /** @var OrderItem[] */
     private $orderItems;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

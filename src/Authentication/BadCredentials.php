@@ -10,6 +10,9 @@ namespace Wizaplace\Authentication;
 
 final class BadCredentials extends \Exception
 {
+    /**
+     * @internal
+     */
     public function __construct(\Throwable $e = null)
     {
         parent::__construct("Bad Credentials", 401, $e);

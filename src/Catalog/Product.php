@@ -72,6 +72,9 @@ final class Product
     /** @var Option[] */
     private $options;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (string) $data['id'];

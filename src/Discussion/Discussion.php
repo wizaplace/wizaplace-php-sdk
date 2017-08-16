@@ -25,6 +25,9 @@ final class Discussion
     /** @var int */
     private $unreadCount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

@@ -22,6 +22,9 @@ final class DeclinationOption implements \JsonSerializable
     /** @var string */
     private $variantName;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

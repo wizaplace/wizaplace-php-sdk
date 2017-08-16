@@ -21,6 +21,9 @@ final class ReturnItem
     /** @var int */
     private $amount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->declinationId = (string) $data['declinationId'];

@@ -17,6 +17,9 @@ final class SearchCategoryPath
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct($data)
     {
         $this->id = $data['id'];

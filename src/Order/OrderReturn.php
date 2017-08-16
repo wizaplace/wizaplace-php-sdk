@@ -25,6 +25,9 @@ final class OrderReturn
     /** @var ReturnItem[] */
     private $items;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

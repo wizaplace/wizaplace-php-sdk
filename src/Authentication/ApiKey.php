@@ -21,15 +21,15 @@ final class ApiKey
     /** @var string */
     private $key;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->key = $data['apiKey'];
         $this->id = $data['id'];
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;

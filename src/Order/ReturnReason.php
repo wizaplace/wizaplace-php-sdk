@@ -17,6 +17,9 @@ final class ReturnReason
     /** @var string */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, int $position, string $name)
     {
         $this->id = $id;

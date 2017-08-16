@@ -20,6 +20,9 @@ final class Option implements \JsonSerializable
     /** @var OptionVariant[] */
     private $variants;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

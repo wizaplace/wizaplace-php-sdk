@@ -25,6 +25,9 @@ final class Shipping
     /** @var bool */
     private $selected;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

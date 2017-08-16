@@ -23,7 +23,9 @@ final class Payment
     /** @var Image */
     private $image;
 
-
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

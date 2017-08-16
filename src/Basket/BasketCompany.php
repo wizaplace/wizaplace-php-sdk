@@ -16,6 +16,9 @@ final class BasketCompany
     /** @var string */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

@@ -23,6 +23,9 @@ final class AttributeVariant
     /** @var null|Image */
     private $image;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, int $attributeId, string $name, string $slug, ?Image $image)
     {
         $this->id = $id;

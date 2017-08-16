@@ -16,6 +16,9 @@ final class BasketCompanyGroup
     /** @var BasketShippingGroup[] */
     private $shippingGroups;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->basketCompany = new BasketCompany($data['company']);

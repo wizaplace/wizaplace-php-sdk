@@ -21,6 +21,9 @@ final class OrderItem
     /** @var int */
     private $amount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->declinationId = $data['declinationId'];

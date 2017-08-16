@@ -23,6 +23,9 @@ final class SlugTarget
      */
     private $objectId;
 
+    /**
+     * @internal
+     */
     public function __construct(SlugTargetType $objectType, string $objectId)
     {
         $this->objectId = $objectId;

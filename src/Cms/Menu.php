@@ -21,6 +21,7 @@ final class Menu
 
     /**
      * @param MenuItem[] $items
+     * @internal
      */
     public function __construct(int $id, string $name, array $items)
     {

@@ -49,6 +49,9 @@ final class ProductSummary
     /** @var CompanySummary[] */
     private $companies;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->productId = (string) $data['productId'];

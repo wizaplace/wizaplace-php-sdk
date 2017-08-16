@@ -44,6 +44,9 @@ final class Page
      */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(
         int $id,
         string $title,

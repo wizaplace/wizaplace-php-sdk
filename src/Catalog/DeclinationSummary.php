@@ -57,6 +57,9 @@ final class DeclinationSummary
     /** @var ProductCategory[] */
     private $categoryPath;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

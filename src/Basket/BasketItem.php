@@ -39,6 +39,9 @@ final class BasketItem
     /** @var float */
     private $total;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->declinationId = $data['declinationId'];

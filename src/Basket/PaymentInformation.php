@@ -17,6 +17,9 @@ final class PaymentInformation
     /** @var string */
     private $html;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->orders = $data['orders'];

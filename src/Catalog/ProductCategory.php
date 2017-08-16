@@ -19,6 +19,9 @@ final class ProductCategory
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

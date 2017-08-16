@@ -60,6 +60,7 @@ final class UserService extends AbstractService
      * Update the user's addresses.
      *
      * @throws AuthenticationRequired
+     * @TODO : change param, as we don't need the full user
      */
     public function updateUserAdresses(User $user)
     {

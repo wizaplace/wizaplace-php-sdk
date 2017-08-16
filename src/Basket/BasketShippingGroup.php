@@ -19,6 +19,9 @@ final class BasketShippingGroup
     /** @var Shipping[] */
     private $shippings;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

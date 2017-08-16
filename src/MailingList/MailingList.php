@@ -20,6 +20,9 @@ final class MailingList
      */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, string $name)
     {
         $this->id = $id;

@@ -29,3 +29,4 @@ make all
 ## `php-vcr` behaviour
 
 Any changes to an API call in a tested method will make regenerate the cassette files (this needs the tests to be run twice). Those changes need to be committed alongside your code.
+

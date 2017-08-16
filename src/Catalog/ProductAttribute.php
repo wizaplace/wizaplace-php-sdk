@@ -19,6 +19,9 @@ final class ProductAttribute
     /** @var string[] */
     private $imageUrls;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->name = (string) $data['name'];
