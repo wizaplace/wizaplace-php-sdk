@@ -166,6 +166,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertFalse($company->isProfessional());
         $this->assertNull($company->getLocation());
         $this->assertSame(2, $company->getAverageRating());
+        $this->assertSame('Lorem Ipsum', $company->getTerms());
 
         $company = $catalogService->getCompanyById(6);
 
@@ -178,6 +179,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($company->isProfessional());
         $this->assertNull($company->getLocation());
         $this->assertNull($company->getAverageRating());
+        $this->assertSame('Lorem Ipsum', $company->getTerms());
     }
 
     public function testGetC2cCompanyById()
@@ -196,6 +198,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($company->getLocation());
         $this->assertNull($company->getAverageRating());
         $this->assertNull($company->getImage());
+        $this->assertSame('Lorem Ipsum', $company->getTerms());
     }
 
     public function testGetCategory()
