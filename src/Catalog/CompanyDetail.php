@@ -42,6 +42,9 @@ final class CompanyDetail
     /** @var null|integer */
     private $averageRating;
 
+    /** @var string */
+    private $terms;
+
     /**
      * @internal
      */
@@ -61,6 +64,7 @@ final class CompanyDetail
             $this->location = null;
         }
         $this->averageRating = $data['averageRating'];
+        $this->terms = (string) $data['terms'];
     }
 
     public function getId(): int
@@ -111,5 +115,10 @@ final class CompanyDetail
     public function getAverageRating(): ?int
     {
         return $this->averageRating;
+    }
+
+    public function getTerms(): string
+    {
+        return $this->terms;
     }
 }
