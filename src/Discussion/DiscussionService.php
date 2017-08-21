@@ -82,7 +82,7 @@ final class DiscussionService extends AbstractService
             $messages = $this->client->get('discussions/'.$discussionId.'/messages');
 
             return array_map(function (array $messageData) use ($userId): Message {
-                $messageData['isAuthor'] = $messageData['author'] === $userId;
+                $messageData['isAuthor'] = ($messageData['author'] === $userId);
 
                 return new Message($messageData);
             }, $messages);
