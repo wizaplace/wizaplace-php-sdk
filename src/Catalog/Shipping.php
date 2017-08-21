@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Shipping
+final class Shipping
 {
     /** @var string */
     private $name;
@@ -22,6 +22,9 @@ class Shipping
     /** @var float */
     private $nextRate;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->name = $data['name'];

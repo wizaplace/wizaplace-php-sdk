@@ -13,7 +13,7 @@ use Wizaplace\Seo\SlugTarget;
 use Wizaplace\Seo\SlugTargetType;
 use Wizaplace\Tests\ApiTestCase;
 
-class SeoServiceTest extends ApiTestCase
+final class SeoServiceTest extends ApiTestCase
 {
     public function testResolveSlugsForAllKinds()
     {
@@ -38,7 +38,7 @@ class SeoServiceTest extends ApiTestCase
         ] as $key => $objectType) {
             $this->assertArrayHasKey($key, $slugTargets);
             $this->assertInstanceOf(SlugTarget::class, $slugTargets[$key], "for slug $key");
-            $this->assertEquals($objectType, $slugTargets[$key]->getObjectType());
+            $this->assertTrue($objectType->equals($slugTargets[$key]->getObjectType()));
         }
 
         $this->assertArrayHasKey('404-does-not-exist', $slugTargets);
@@ -59,8 +59,8 @@ class SeoServiceTest extends ApiTestCase
         $slugTarget = $seoService->resolveSlug('test-product-slug');
 
         $this->assertNotNull($slugTarget);
-        $this->assertEquals(SlugTargetType::PRODUCT(), $slugTarget->getObjectType());
-        $this->assertEquals('1', $slugTarget->getObjectId());
+        $this->assertTrue(SlugTargetType::PRODUCT()->equals($slugTarget->getObjectType()));
+        $this->assertSame('1', $slugTarget->getObjectId());
     }
 
     public function testResolveSlugWhichDoesntExist()

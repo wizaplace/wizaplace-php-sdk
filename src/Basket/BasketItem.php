@@ -10,7 +10,7 @@ namespace Wizaplace\Basket;
 
 use Wizaplace\Image\Image;
 
-class BasketItem
+final class BasketItem
 {
     /** @var string */
     private $declinationId;
@@ -39,6 +39,9 @@ class BasketItem
     /** @var float */
     private $total;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->declinationId = $data['declinationId'];

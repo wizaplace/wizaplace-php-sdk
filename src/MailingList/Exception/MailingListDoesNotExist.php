@@ -10,7 +10,7 @@ namespace Wizaplace\MailingList\Exception;
 
 use Wizaplace\Exception\NotFound;
 
-class MailingListDoesNotExist extends NotFound
+final class MailingListDoesNotExist extends NotFound
 {
 
 }

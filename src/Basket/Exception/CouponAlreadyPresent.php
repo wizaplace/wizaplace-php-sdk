@@ -8,6 +8,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket\Exception;
 
-class CouponAlreadyPresent extends \Exception
+final class CouponAlreadyPresent extends \Exception
 {
 }

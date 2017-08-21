@@ -10,7 +10,7 @@ namespace Wizaplace\Basket;
 
 use Wizaplace\Image\Image;
 
-class Payment
+final class Payment
 {
     /** @var int */
     private $id;
@@ -23,7 +23,9 @@ class Payment
     /** @var Image */
     private $image;
 
-
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

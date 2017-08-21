@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-class Company
+final class Company
 {
     /** @var int */
     private $id;
@@ -61,6 +61,9 @@ class Company
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

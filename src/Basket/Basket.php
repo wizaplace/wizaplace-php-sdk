@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class Basket
+final class Basket
 {
     /** @var string */
     private $id;
@@ -37,6 +37,9 @@ class Basket
     /** @var int */
     private $totalQuantity;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

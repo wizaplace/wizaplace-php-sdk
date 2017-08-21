@@ -17,7 +17,7 @@ use MyCLabs\Enum\Enum;
  * @method static SlugTargetType COMPANY()
  * @method static SlugTargetType CMS_PAGE()
  */
-class SlugTargetType extends Enum
+final class SlugTargetType extends Enum
 {
     private const PRODUCT = 'product';
     private const CATEGORY = 'category';

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-class OrderReturn
+final class OrderReturn
 {
     /** @var int */
     private $id;
@@ -25,6 +25,9 @@ class OrderReturn
     /** @var ReturnItem[] */
     private $items;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

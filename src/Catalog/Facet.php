@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Facet
+final class Facet
 {
     /** @var string */
     private $name;
@@ -19,6 +19,9 @@ class Facet
     /** @var array */
     private $values;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->name = $data['name'];

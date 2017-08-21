@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class PaymentInformation
+final class PaymentInformation
 {
     /** @var array */
     private $orders;
@@ -17,6 +17,9 @@ class PaymentInformation
     /** @var string */
     private $html;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->orders = $data['orders'];

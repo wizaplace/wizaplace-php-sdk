@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class CompanyDetail
+final class CompanyDetail
 {
     /** @var integer */
     private $id;
@@ -42,6 +42,12 @@ class CompanyDetail
     /** @var null|integer */
     private $averageRating;
 
+    /** @var string */
+    private $terms;
+
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];
@@ -58,6 +64,7 @@ class CompanyDetail
             $this->location = null;
         }
         $this->averageRating = $data['averageRating'];
+        $this->terms = (string) $data['terms'];
     }
 
     public function getId(): int
@@ -108,5 +115,10 @@ class CompanyDetail
     public function getAverageRating(): ?int
     {
         return $this->averageRating;
+    }
+
+    public function getTerms(): string
+    {
+        return $this->terms;
     }
 }

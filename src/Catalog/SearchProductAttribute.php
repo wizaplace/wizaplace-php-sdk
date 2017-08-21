@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class SearchProductAttribute
+final class SearchProductAttribute
 {
     /** @var int */
     private $id;
@@ -19,6 +19,9 @@ class SearchProductAttribute
     /** @var array */
     private $values;
 
+    /**
+     * @internal
+     */
     public function __construct($data)
     {
         $this->id = $data['attribute']['id'];

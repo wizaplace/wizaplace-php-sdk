@@ -8,13 +8,16 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class CategoryTree
+final class CategoryTree
 {
     /** @var Category */
     private $category;
     /** @var CategoryTree[] */
     private $children;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->category = new Category($data['category']);

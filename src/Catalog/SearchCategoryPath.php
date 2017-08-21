@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class SearchCategoryPath
+final class SearchCategoryPath
 {
     /** @var int */
     private $id;
@@ -17,6 +17,9 @@ class SearchCategoryPath
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct($data)
     {
         $this->id = $data['id'];

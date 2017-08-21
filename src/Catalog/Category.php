@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class Category
+final class Category
 {
     /** @var int */
     private $id;
@@ -29,6 +29,9 @@ class Category
     /** @var int */
     private $productCount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

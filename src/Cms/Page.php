@@ -7,7 +7,7 @@
 
 namespace Wizaplace\Cms;
 
-class Page
+final class Page
 {
     /**
      * @var int
@@ -44,6 +44,9 @@ class Page
      */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(
         int $id,
         string $title,

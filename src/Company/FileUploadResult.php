@@ -8,11 +8,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-class FileUploadResult
+final class FileUploadResult
 {
     /** @var null|string */
     private $errorMessage;
 
+    /**
+     * @internal
+     */
     public function __construct(?string $errorMessage)
     {
         $this->errorMessage = $errorMessage;

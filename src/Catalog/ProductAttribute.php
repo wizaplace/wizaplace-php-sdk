@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class ProductAttribute
+final class ProductAttribute
 {
     /** @var string */
     private $name;
@@ -19,6 +19,9 @@ class ProductAttribute
     /** @var string[] */
     private $imageUrls;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->name = (string) $data['name'];

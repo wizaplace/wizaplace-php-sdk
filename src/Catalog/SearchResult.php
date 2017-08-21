@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Pagination;
 
-class SearchResult
+final class SearchResult
 {
     /** @var ProductSummary[] */
     private $products;
@@ -19,6 +19,9 @@ class SearchResult
     /** @var Facet[] */
     private $facets;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->products = array_map(

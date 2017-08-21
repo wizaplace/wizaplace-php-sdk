@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-class ShippingAddress
+final class ShippingAddress
 {
     /** @var string */
     private $firstname;
@@ -25,6 +25,9 @@ class ShippingAddress
     /** @var string */
     private $country;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->firstname = $data['firstname'];

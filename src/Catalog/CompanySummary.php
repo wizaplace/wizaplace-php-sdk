@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class CompanySummary
+final class CompanySummary
 {
     /** @var int */
     private $id;
@@ -24,6 +24,9 @@ class CompanySummary
     /** @var null|Image */
     private $image;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, string $name, string $slug, ?Image $image)
     {
         $this->id = $id;

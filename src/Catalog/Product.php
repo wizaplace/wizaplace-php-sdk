@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Exception\NotFound;
 
-class Product
+final class Product
 {
     /** @var string */
     private $id;
@@ -72,6 +72,9 @@ class Product
     /** @var Option[] */
     private $options;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (string) $data['id'];

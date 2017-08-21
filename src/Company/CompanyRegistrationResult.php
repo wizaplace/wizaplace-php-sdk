@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Company;
 
-class CompanyRegistrationResult
+final class CompanyRegistrationResult
 {
     /** @var Company */
     private $company;
@@ -18,6 +18,7 @@ class CompanyRegistrationResult
 
     /**
      * @param FileUploadResult[] $fileUploadResults
+     * @internal
      */
     public function __construct(Company $company, array $fileUploadResults)
     {

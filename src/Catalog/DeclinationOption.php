@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class DeclinationOption
+final class DeclinationOption implements \JsonSerializable
 {
     /** @var integer */
     private $id;
@@ -22,6 +22,9 @@ class DeclinationOption
     /** @var string */
     private $variantName;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
@@ -48,5 +51,15 @@ class DeclinationOption
     public function getVariantName(): string
     {
         return $this->variantName;
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            "id" => $this->getId(),
+            "name" => $this->getName(),
+            "variantId" => $this->getVariantId(),
+            "variantName" => $this->getVariantName(),
+        ];
     }
 }

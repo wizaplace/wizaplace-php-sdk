@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Cms;
 
-class Menu
+final class Menu
 {
     /** @var int */
     private $id;
@@ -21,6 +21,7 @@ class Menu
 
     /**
      * @param MenuItem[] $items
+     * @internal
      */
     public function __construct(int $id, string $name, array $items)
     {

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Basket;
 
-class BasketCompanyGroup
+final class BasketCompanyGroup
 {
     /** @var BasketCompany */
     private $basketCompany;
@@ -16,6 +16,9 @@ class BasketCompanyGroup
     /** @var BasketShippingGroup[] */
     private $shippingGroups;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->basketCompany = new BasketCompany($data['company']);

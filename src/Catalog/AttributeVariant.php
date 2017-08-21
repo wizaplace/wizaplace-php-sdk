@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class AttributeVariant
+final class AttributeVariant
 {
     /** @var int */
     private $id;
@@ -23,6 +23,9 @@ class AttributeVariant
     /** @var null|Image */
     private $image;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, int $attributeId, string $name, string $slug, ?Image $image)
     {
         $this->id = $id;

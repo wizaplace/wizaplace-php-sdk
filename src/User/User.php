@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\User;
 
-class User
+final class User
 {
     /** @var int */
     private $id;
@@ -23,6 +23,9 @@ class User
     /** @var array */
     private $shippingAddress;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = (int) $data['id'];

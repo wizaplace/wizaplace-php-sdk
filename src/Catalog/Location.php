@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class Location
+final class Location
 {
     /**
      * @var float
@@ -20,6 +20,9 @@ class Location
      */
     private $longitude;
 
+    /**
+     * @internal
+     */
     public function __construct(float $latitude, float $longitude)
     {
         $this->latitude = $latitude;

@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class ProductCategory
+final class ProductCategory
 {
     /** @var int */
     private $id;
@@ -19,6 +19,9 @@ class ProductCategory
     /** @var string */
     private $slug;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

@@ -10,7 +10,7 @@ namespace Wizaplace\Catalog;
 
 use Wizaplace\Image\Image;
 
-class ProductSummary
+final class ProductSummary
 {
     /** @var string  */
     private $productId;
@@ -49,6 +49,9 @@ class ProductSummary
     /** @var CompanySummary[] */
     private $companies;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->productId = (string) $data['productId'];

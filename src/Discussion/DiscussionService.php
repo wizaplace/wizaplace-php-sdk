@@ -35,7 +35,7 @@ use Wizaplace\Exception\SomeParametersAreInvalid;
  *      // Post a new message in the discussion
  *      $message = $discussionService->postMessage($discussionId, $content);
  */
-class DiscussionService extends AbstractService
+final class DiscussionService extends AbstractService
 {
     /**
      * Get the user's discussions list

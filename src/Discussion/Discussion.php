@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Discussion;
 
-class Discussion
+final class Discussion
 {
     /** @var int */
     private $id;
@@ -25,6 +25,9 @@ class Discussion
     /** @var int */
     private $unreadCount;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

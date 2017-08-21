@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Discussion;
 
-class Message
+final class Message
 {
     /** @var string */
     private $content;
@@ -19,6 +19,9 @@ class Message
     /** @var bool */
     private $isAuthor;
 
+    /**
+     * @internal
+     */
     public function __construct(array $data)
     {
         $this->content = $data['content'];

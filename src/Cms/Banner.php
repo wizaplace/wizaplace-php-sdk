@@ -10,7 +10,7 @@ namespace Wizaplace\Cms;
 
 use Psr\Http\Message\UriInterface;
 
-class Banner
+final class Banner
 {
     /**
      * @var UriInterface
@@ -27,6 +27,9 @@ class Banner
      */
     private $imageId;
 
+    /**
+     * @internal
+     */
     public function __construct(
         UriInterface $link,
         bool $shouldOpenInNewWindow,

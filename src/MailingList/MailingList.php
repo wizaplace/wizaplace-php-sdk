@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\MailingList;
 
-class MailingList
+final class MailingList
 {
     /**
      * @var int
@@ -20,6 +20,9 @@ class MailingList
      */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, string $name)
     {
         $this->id = $id;

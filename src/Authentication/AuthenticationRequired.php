@@ -14,8 +14,11 @@ use Wizaplace\ApiClient;
 /**
  * @see ApiClient::authenticate()
  */
-class AuthenticationRequired extends \Exception
+final class AuthenticationRequired extends \Exception
 {
+    /**
+     * @internal
+     */
     public function __construct(Throwable $previous = null)
     {
         parent::__construct("This action requires you to be authenticated.", 401, $previous);

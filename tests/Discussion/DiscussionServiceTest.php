@@ -15,7 +15,7 @@ use Wizaplace\Discussion\Message;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Tests\ApiTestCase;
 
-class DiscussionServiceTest extends ApiTestCase
+final class DiscussionServiceTest extends ApiTestCase
 {
     /**
      * @var $discussionService DiscussionService
@@ -102,7 +102,7 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $messages = $this->discussionService->getMessages(1, 1);
 
-        $this->assertEquals([], $messages);
+        $this->assertSame([], $messages);
     }
 
     public function testGetMessagesFromInexistantDiscussion()
@@ -128,7 +128,7 @@ class DiscussionServiceTest extends ApiTestCase
             ]
         );
 
-        $this->assertEquals($expectedMessage->getContent(), $message->getContent());
+        $this->assertSame($expectedMessage->getContent(), $message->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
     }
 
@@ -153,9 +153,9 @@ class DiscussionServiceTest extends ApiTestCase
             ]),
         ];
 
-        $this->assertEquals($expectedMessages[0]->getContent(), $messages[0]->getContent());
+        $this->assertSame($expectedMessages[0]->getContent(), $messages[0]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
-        $this->assertEquals($expectedMessages[1]->getContent(), $messages[1]->getContent());
+        $this->assertSame($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
         $this->assertSame(true, $messages[0]->isAuthor());
     }

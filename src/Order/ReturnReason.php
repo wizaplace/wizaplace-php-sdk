@@ -8,7 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Order;
 
-class ReturnReason
+final class ReturnReason
 {
     /** @var int */
     private $id;
@@ -17,6 +17,9 @@ class ReturnReason
     /** @var string */
     private $name;
 
+    /**
+     * @internal
+     */
     public function __construct(int $id, int $position, string $name)
     {
         $this->id = $id;

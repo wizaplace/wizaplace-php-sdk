@@ -20,6 +20,6 @@
             Cache-Control: 'no-cache, private'
             X-Debug-Token: 09be4d
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/09be4d'
-            Content-Length: '179'
+            Content-Length: '201'
             Content-Type: application/json
-        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"","phoneNumber":"","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null}'
+        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"","phoneNumber":"","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'

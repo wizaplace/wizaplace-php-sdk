@@ -11,7 +11,7 @@ namespace Wizaplace\Seo;
 /**
  * SlugTarget indicates which object is referenced by a slug.
  */
-class SlugTarget
+final class SlugTarget
 {
     /**
      * @var SlugTargetType
@@ -23,6 +23,9 @@ class SlugTarget
      */
     private $objectId;
 
+    /**
+     * @internal
+     */
     public function __construct(SlugTargetType $objectType, string $objectId)
     {
         $this->objectId = $objectId;
