@@ -100,7 +100,7 @@ class DiscussionServiceTest extends ApiTestCase
 
     public function testGetEmptyMessages()
     {
-        $messages = $this->discussionService->getMessages(1);
+        $messages = $this->discussionService->getMessages(1, 1);
 
         $this->assertEquals([], $messages);
     }
@@ -111,7 +111,7 @@ class DiscussionServiceTest extends ApiTestCase
         $this->expectExceptionCode(404);
         $this->expectExceptionMessage('The discussion 2 was not found.');
 
-        $this->discussionService->getMessages(2);
+        $this->discussionService->getMessages(2, 1);
     }
 
     public function testPostMessage()
@@ -136,7 +136,7 @@ class DiscussionServiceTest extends ApiTestCase
     {
         $this->discussionService->postMessage(1, 'This is an other test message');
 
-        $messages = $this->discussionService->getMessages(1);
+        $messages = $this->discussionService->getMessages(1, 3);
 
         $date = new \DateTimeImmutable();
 
@@ -157,6 +157,7 @@ class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
         $this->assertEquals($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
+        $this->assertSame(true, $messages[0]->isAuthor());
     }
 
     private function buildDiscussionService(): DiscussionService

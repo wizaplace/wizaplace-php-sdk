@@ -76,12 +76,14 @@ class DiscussionService extends AbstractService
      * Get the discussion's messages list
      * @return Message[]
      */
-    public function getMessages(int $discussionId): array
+    public function getMessages(int $discussionId, int $userId): array
     {
         try {
             $messages = $this->client->get('discussions/'.$discussionId.'/messages');
 
-            return array_map(function (array $messageData): Message {
+            return array_map(function (array $messageData) use ($userId): Message {
+                $messageData['isAuthor'] = $messageData['author'] === $userId;
+
                 return new Message($messageData);
             }, $messages);
         } catch (ClientException $e) {
