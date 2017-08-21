@@ -16,6 +16,9 @@ final class Message
     /** @var \DateTimeImmutable */
     private $date;
 
+    /** @var bool */
+    private $isAuthor;
+
     /**
      * @internal
      */
@@ -23,6 +26,7 @@ final class Message
     {
         $this->content = $data['content'];
         $this->date = new \DateTimeImmutable($data['date']);
+        $this->isAuthor = $data['isAuthor'];
     }
 
     public function getContent(): string
@@ -33,5 +37,10 @@ final class Message
     public function getDate(): \DateTimeImmutable
     {
         return $this->date;
+    }
+
+    public function isAuthor(): bool
+    {
+        return $this->isAuthor;
     }
 }

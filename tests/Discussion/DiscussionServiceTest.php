@@ -122,7 +122,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $expectedMessage = new Message(
             [
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
             ]
@@ -142,12 +142,12 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $expectedMessages = [
             new Message([
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
             ]),
             new Message([
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is an other test message',
                 'date' => $date->format(DATE_RFC3339),
             ]),
@@ -157,6 +157,7 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
         $this->assertSame($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
+        $this->assertSame($expectedMessages[0]->isAuthor(), $messages[0]->isAuthor());
     }
 
     private function buildDiscussionService(): DiscussionService
