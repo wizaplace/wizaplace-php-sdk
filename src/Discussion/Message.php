@@ -41,6 +41,6 @@ final class Message
 
     public function isAuthor(): bool
     {
-        return $this->isAuthor();
+        return $this->isAuthor;
     }
 }

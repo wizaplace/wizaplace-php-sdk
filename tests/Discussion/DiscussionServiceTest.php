@@ -100,7 +100,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testGetEmptyMessages()
     {
-        $messages = $this->discussionService->getMessages(1, 1);
+        $messages = $this->discussionService->getMessages(1);
 
         $this->assertSame([], $messages);
     }
@@ -111,7 +111,7 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->expectExceptionCode(404);
         $this->expectExceptionMessage('The discussion 2 was not found.');
 
-        $this->discussionService->getMessages(2, 1);
+        $this->discussionService->getMessages(2);
     }
 
     public function testPostMessage()
@@ -122,7 +122,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $expectedMessage = new Message(
             [
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
             ]
@@ -136,18 +136,18 @@ final class DiscussionServiceTest extends ApiTestCase
     {
         $this->discussionService->postMessage(1, 'This is an other test message');
 
-        $messages = $this->discussionService->getMessages(1, 3);
+        $messages = $this->discussionService->getMessages(1);
 
         $date = new \DateTimeImmutable();
 
         $expectedMessages = [
             new Message([
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
             ]),
             new Message([
-                'author' => 3,
+                'isAuthor' => true,
                 'content' => 'This is an other test message',
                 'date' => $date->format(DATE_RFC3339),
             ]),
@@ -157,7 +157,7 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
         $this->assertSame($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
-        $this->assertSame(true, $messages[0]->isAuthor());
+        $this->assertSame($expectedMessages[0]->isAuthor(), $messages[0]->isAuthor());
     }
 
     private function buildDiscussionService(): DiscussionService
