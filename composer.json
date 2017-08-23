@@ -1,5 +1,6 @@
 {
     "name": "wizaplace/sdk",
+    "license": "proprietary",
     "description": "Wizaplace's PHP SDK",
     "type": "library",
     "require": {
