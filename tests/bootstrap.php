@@ -15,7 +15,7 @@ ini_set('opcache.enable', '0');
 VCR::configure()->setCassettePath(__DIR__.'/fixtures/VCR/');
 VCR::configure()->setMode(VCR::MODE_ONCE);
 VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
-    ->addRequestMatcher('headers_custom_matcher', function (Request $first, Request $second) {
+    ->addRequestMatcher('headers_custom_matcher', static function (Request $first, Request $second) : bool {
         $headersBags = [$first->getHeaders(), $second->getHeaders()];
 
         $boundaryHeaderStart = 'multipart/form-data; boundary=';
@@ -31,8 +31,8 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
 
         return $headersBags[0] == $headersBags[1];
     })
-    ->addRequestMatcher('body_custom_matcher', function (Request $first, Request $second) {
-        $data = array_map(function (Request $req) : array {
+    ->addRequestMatcher('body_custom_matcher', static function (Request $first, Request $second) : bool {
+        $data = array_map(static function (Request $req) : array {
             return [
                 'body' => $req->getBody(),
                 'Content-Type' => $req->getHeaders()['Content-Type'] ?? '',

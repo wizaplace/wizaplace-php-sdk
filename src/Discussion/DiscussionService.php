@@ -47,7 +47,7 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $discussions = array_map(function (array $discussionData): Discussion {
+        $discussions = array_map(static function (array $discussionData) : Discussion {
             return new Discussion($discussionData);
         }, $this->client->get('discussions'));
 
@@ -103,7 +103,7 @@ final class DiscussionService extends AbstractService
             $messages = $this->client->get('discussions/'.$discussionId.'/messages');
             $userId = $this->client->getApiKey()->getId();
 
-            return array_map(function (array $messageData) use ($userId): Message {
+            return array_map(static function (array $messageData) use ($userId) : Message {
                 $messageData['isAuthor'] = ($messageData['author'] === $userId);
 
                 return new Message($messageData);

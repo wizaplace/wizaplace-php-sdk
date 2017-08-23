@@ -28,7 +28,7 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $datas = $this->client->get('user/orders', []);
-        $orders = array_map(function ($orderData) {
+        $orders = array_map(static function (array $orderData) : Order {
             return new Order($orderData);
         }, $datas);
 
@@ -68,12 +68,9 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $data = $this->client->get("user/returns", []);
-        $orderReturns = array_map(
-            function ($orderReturn) {
-                return new OrderReturn($orderReturn);
-            },
-            $data
-        );
+        $orderReturns = array_map(static function (array $orderReturn) : OrderReturn {
+            return new OrderReturn($orderReturn);
+        }, $data);
 
         return $orderReturns;
     }

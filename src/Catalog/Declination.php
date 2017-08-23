@@ -71,18 +71,12 @@ final class Declination
         $this->greenTax = $data['greenTax'] ?? 0;
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
-        $this->images = array_map(
-            function ($imageData) {
-                return new Image($imageData);
-            },
-            $data['images']
-        );
-        $this->options = array_map(
-            function (array $optionData) : DeclinationOption {
-                return new DeclinationOption($optionData);
-            },
-            $data['options']
-        );
+        $this->images = array_map(static function (array $imageData) : Image {
+            return new Image($imageData);
+        }, $data['images']);
+        $this->options = array_map(static function (array $optionData) : DeclinationOption {
+            return new DeclinationOption($optionData);
+        }, $data['options']);
     }
 
     public function getId(): string

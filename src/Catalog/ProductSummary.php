@@ -67,20 +67,14 @@ final class ProductSummary
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRating'] ?? null;
         $this->condition = $data['conditions'];
-        $this->attributes = array_map(
-            function ($attribute) {
-                return new SearchProductAttribute($attribute);
-            },
-            $data['attributes']
-        );
-        $this->categoryPath = array_map(
-            function ($categoryPath) {
-                return new SearchCategoryPath($categoryPath);
-            },
-            $data['categoryPath']
-        );
+        $this->attributes = array_map(static function (array $attribute) : SearchProductAttribute {
+            return new SearchProductAttribute($attribute);
+        }, $data['attributes']);
+        $this->categoryPath = array_map(static function (array $categoryPath) : SearchCategoryPath {
+            return new SearchCategoryPath($categoryPath);
+        }, $data['categoryPath']);
         $this->slug = (string) $data['slug'];
-        $this->companies = array_map(function (array $companyData) : CompanySummary {
+        $this->companies = array_map(static function (array $companyData) : CompanySummary {
             return new CompanySummary(
                 $companyData['id'],
                 $companyData['name'],
@@ -188,7 +182,7 @@ final class ProductSummary
      */
     public function getCategorySlugs(): array
     {
-        return array_map(function (SearchCategoryPath $category) : string {
+        return array_map(static function (SearchCategoryPath $category) : string {
             return $category->getSlug();
         }, $this->categoryPath);
     }

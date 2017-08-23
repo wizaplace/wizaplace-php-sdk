@@ -25,19 +25,13 @@ final class BasketShippingGroup
     {
         $this->id = (int) $data['id'];
 
-        $this->items = array_map(
-            function ($item) {
-                return new BasketItem($item);
-            },
-            $data['items']
-        );
+        $this->items = array_map(static function (array $item) : BasketItem {
+            return new BasketItem($item);
+        }, $data['items']);
 
-        $this->shippings = array_map(
-            function ($shipping) {
-                return new Shipping($shipping);
-            },
-            $data['shippings']
-        );
+        $this->shippings = array_map(static function (array $shipping) : Shipping {
+            return new Shipping($shipping);
+        }, $data['shippings']);
     }
 
     public function getId(): int

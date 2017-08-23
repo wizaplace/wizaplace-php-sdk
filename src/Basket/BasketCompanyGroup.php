@@ -22,12 +22,9 @@ final class BasketCompanyGroup
     {
         $this->basketCompany = new BasketCompany($data['company']);
 
-        $this->shippingGroups = array_map(
-            function ($shippingGroup) {
-                return new BasketShippingGroup($shippingGroup);
-            },
-            $data['shippingGroups']
-        );
+        $this->shippingGroups = array_map(static function (array $shippingGroup) : BasketShippingGroup {
+            return new BasketShippingGroup($shippingGroup);
+        }, $data['shippingGroups']);
     }
 
     public function getCompany(): BasketCompany

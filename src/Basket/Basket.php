@@ -50,12 +50,9 @@ final class Basket
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
 
-        $this->companyGroups = array_map(
-            function ($companyGroup) {
-                return new BasketCompanyGroup($companyGroup);
-            },
-            $data['companyGroups']
-        );
+        $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
+            return new BasketCompanyGroup($companyGroup);
+        }, $data['companyGroups']);
     }
 
     public function getId(): string

@@ -23,19 +23,13 @@ final class SearchResult
      */
     public function __construct(array $data)
     {
-        $this->products = array_map(
-            function ($product) {
-                return new ProductSummary($product);
-            },
-            $data['results']
-        );
+        $this->products = array_map(static function (array $product) : ProductSummary {
+            return new ProductSummary($product);
+        }, $data['results']);
         $this->pagination = new Pagination($data['pagination']);
-        $this->facets = array_map(
-            function ($facet) {
-                return new Facet($facet);
-            },
-            $data['facets']
-        );
+        $this->facets = array_map(static function (array $facet) : Facet {
+            return new Facet($facet);
+        }, $data['facets']);
     }
 
     /**

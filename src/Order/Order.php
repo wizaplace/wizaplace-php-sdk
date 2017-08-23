@@ -41,7 +41,7 @@ final class Order
         $this->status = $data['status'];
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
-        $this->orderItems = array_map(function ($orderItemData) {
+        $this->orderItems = array_map(static function (array $orderItemData) : OrderItem {
             return new OrderItem($orderItemData);
         }, $data['items']);
     }

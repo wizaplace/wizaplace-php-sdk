@@ -26,12 +26,9 @@ final class ProductAttribute
         $this->name = (string) $data['name'];
         $this->value = $data['value'];
         $this->imageUrls = $data['imageUrls'] ?? [];
-        $this->children = array_map(
-            function (array $childrenData) : self {
-                return new self($childrenData);
-            },
-            $data['children']
-        );
+        $this->children = array_map(static function (array $childrenData) : self {
+            return new self($childrenData);
+        }, $data['children']);
     }
 
     /**

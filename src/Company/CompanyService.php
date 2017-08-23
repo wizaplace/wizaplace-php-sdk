@@ -64,7 +64,7 @@ final class CompanyService extends AbstractService
             'multipart' => $files,
         ]);
 
-        return array_map(function (array $data) {
+        return array_map(static function (array $data) {
             return new FileUploadResult($data['error'] ?? null);
         }, $responseData);
     }

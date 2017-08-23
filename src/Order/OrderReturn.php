@@ -35,7 +35,7 @@ final class OrderReturn
         $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']);
         $this->comments = $data['comments'];
         $this->status = $data['status'];
-        $this->items = array_map(function (array $item) : ReturnItem {
+        $this->items = array_map(static function (array $item) : ReturnItem {
             $item['productName'] = $item['product'];
             unset($item['product']);
 

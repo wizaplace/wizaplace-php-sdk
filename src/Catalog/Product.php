@@ -86,48 +86,30 @@ final class Product
         $this->slug = (string) $data['slug'];
         $this->minPrice = (float) $data['minPrice'];
         $this->greenTax = (float) $data['greenTax'];
-        $this->attributes = array_map(
-            function (array $attributeData) {
-                return new ProductAttribute($attributeData);
-            },
-            $data['attributes']
-        );
+        $this->attributes = array_map(static function (array $attributeData) : ProductAttribute {
+            return new ProductAttribute($attributeData);
+        }, $data['attributes']);
         $this->creationDate = new \DateTimeImmutable($data['creationDate'] ?? '-6days');
         $this->isTransactional = $data['isTransactional'];
         $this->weight = $data['weight'];
         if (isset($data['averageRating'])) {
             $this->averageRating = $data['averageRating'];
         }
-        $this->shippings = array_map(
-            function ($shippingData) {
-                return new Shipping($shippingData);
-            },
-            $data['shippings']
-        );
-        $this->companies = array_map(
-            function ($companyData) {
-                return new Company($companyData);
-            },
-            $data['companies']
-        );
-        $this->categoryPath = array_map(
-            function ($category) {
-                return new ProductCategory($category);
-            },
-            $data['categoryPath']
-        );
-        $this->declinations = array_map(
-            function ($declination) {
-                return new Declination($declination);
-            },
-            $data['declinations']
-        );
-        $this->options = array_map(
-            function (array $option) : Option {
-                return new Option($option);
-            },
-            $data['options']
-        );
+        $this->shippings = array_map(static function (array $shippingData) : Shipping {
+            return new Shipping($shippingData);
+        }, $data['shippings']);
+        $this->companies = array_map(static function (array $companyData) : Company {
+            return new Company($companyData);
+        }, $data['companies']);
+        $this->categoryPath = array_map(static function (array $category) : ProductCategory {
+            return new ProductCategory($category);
+        }, $data['categoryPath']);
+        $this->declinations = array_map(static function (array $declination) : Declination {
+            return new Declination($declination);
+        }, $data['declinations']);
+        $this->options = array_map(static function (array $option) : Option {
+            return new Option($option);
+        }, $data['options']);
     }
 
     public function getId(): string
@@ -237,7 +219,7 @@ final class Product
      */
     public function getCategorySlugs(): array
     {
-        return array_map(function (ProductCategory $category) : string {
+        return array_map(static function (ProductCategory $category) : string {
             return $category->getSlug();
         }, $this->categoryPath);
     }

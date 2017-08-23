@@ -26,12 +26,9 @@ final class Option implements \JsonSerializable
     {
         $this->id = $data['id'];
         $this->name = $data['name'];
-        $this->variants = array_map(
-            function (array $variantData) : OptionVariant {
-                return new OptionVariant($variantData);
-            },
-            $data['variants']
-        );
+        $this->variants = array_map(static function (array $variantData) : OptionVariant {
+            return new OptionVariant($variantData);
+        }, $data['variants']);
     }
 
     public function getId(): int

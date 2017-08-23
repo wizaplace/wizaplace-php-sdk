@@ -30,7 +30,7 @@ final class FavoriteService extends AbstractService
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations', []);
 
-        return array_map(function (array $favorite): DeclinationSummary {
+        return array_map(static function (array $favorite) : DeclinationSummary {
             return new DeclinationSummary($favorite);
         }, $results['_embedded']['favorites']);
     }

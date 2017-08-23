@@ -38,8 +38,8 @@ abstract class ApiTestCase extends TestCase
         $handlerStack = HandlerStack::create();
         $handlerStack->push($historyMiddleware);
         $i = &$this->requestIndex;
-        $handlerStack->push(function (callable $handler) use (&$i) {
-            return function (RequestInterface $request, array $options) use ($handler, &$i) {
+        $handlerStack->push(static function (callable $handler) use (&$i) {
+            return static function (RequestInterface $request, array $options) use ($handler, &$i) {
                 $request = $request->withHeader('VCR-index', $i);
                 $i++;
 

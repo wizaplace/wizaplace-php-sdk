@@ -20,12 +20,9 @@ final class CategoryTree
     public function __construct(array $data)
     {
         $this->category = new Category($data['category']);
-        $this->children = array_map(
-            function ($data) {
-                return new self($data);
-            },
-            $data['children']
-        );
+        $this->children = array_map(static function (array $data) : self {
+            return new self($data);
+        }, $data['children']);
     }
 
     public function getCategory(): Category

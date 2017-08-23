@@ -259,7 +259,7 @@ final class BasketService extends AbstractService
 
             throw $ex;
         }
-        $payments = array_map(function ($payment) {
+        $payments = array_map(static function ($payment) {
             return new Payment($payment);
         }, $payments);
 
