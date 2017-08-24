@@ -10,6 +10,7 @@ namespace Wizaplace\Catalog;
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Exception\SomeParametersAreInvalid;
 use Wizaplace\Image\Image;
 
 final class CatalogService extends AbstractService
@@ -123,6 +124,36 @@ final class CatalogService extends AbstractService
             $variantData['slug'],
             isset($variantData['image']) ? new Image($variantData['image']) : null
         );
+    }
+
+    public function reportProduct(ProductReport $report): void
+    {
+        try {
+            $productId = $report->getProductId();
+            $requestJson = [
+                'productId' => $report->getProductId(),
+                'name' => $report->getReporterName(),
+                'email' => $report->getReporterEmail(),
+                'message' => $report->getMessage(),
+            ];
+        } catch (\TypeError $e) {
+            // ProductReport isn't type-safe, it is not guaranteed to have all its mandatory fields set.
+            throw new SomeParametersAreInvalid('missing at least a field in ProductReport', 400, $e);
+        }
+
+        try {
+            $this->client->post("catalog/products/{$productId}/report", [
+                'json' => $requestJson,
+            ]);
+        } catch (ClientException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    throw new NotFound("Product #{$productId} not found", $e);
+                case 400:
+                    throw new SomeParametersAreInvalid((string) $e->getResponse()->getBody(), 400, $e);
+            }
+            throw $e;
+        }
     }
 
     private function unserializeAttribute(array $attributeData): Attribute
