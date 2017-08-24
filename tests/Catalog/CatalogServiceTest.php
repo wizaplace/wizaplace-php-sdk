@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\Tests\Catalog;
 
 use Wizaplace\Catalog\AttributeType;
+use Wizaplace\Catalog\AttributeVariant;
 use Wizaplace\Catalog\CatalogService;
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Catalog\Option;
@@ -283,6 +284,28 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->getAttributeVariant(404);
+    }
+
+    public function testGetAttributeVariants()
+    {
+        $variants = $this->buildCatalogService()->getAttributeVariants(1);
+
+        $expectedVariants = [
+            new AttributeVariant(1, 1, 'Bleu', 'bleu', null),
+            new AttributeVariant(2, 1, 'Blanc', 'blanc', null),
+            new AttributeVariant(3, 1, 'Rouge', 'rouge', null),
+        ];
+
+        $this->assertEquals($expectedVariants, $variants);
+    }
+
+    public function testGetNonExistingAttributeVariants()
+    {
+        $variants = $this->buildCatalogService()->getAttributeVariants(404);
+
+        $expectedVariants = [];
+
+        $this->assertEquals($expectedVariants, $variants);
     }
 
     public function testGetProductWithOptions()

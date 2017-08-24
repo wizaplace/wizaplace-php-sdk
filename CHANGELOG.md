@@ -7,6 +7,7 @@
 ### New features
 
 - Added `\Wizaplace\Discussion\Message::isAuthor`
+- Added `\Wizaplace\Catalog\CatalogService::getAttributeVariants`
 
 ### Bugfixes
 

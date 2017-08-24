@@ -125,6 +125,24 @@ final class CatalogService extends AbstractService
         );
     }
 
+    /** @return AttributeVariant[] */
+    public function getAttributeVariants(int $attributeId): array
+    {
+        $variantsData = $this->client->get("catalog/attributes/$attributeId/variants");
+
+        return array_map(function (array $variantData): AttributeVariant {
+            $image = (!empty($variantData['image'])) ? new Image($variantData['image']) : null;
+
+            return new AttributeVariant(
+                $variantData['id'],
+                $variantData['attributeId'],
+                $variantData['name'],
+                $variantData['slug'],
+                $image
+            );
+        }, $variantsData);
+    }
+
     private function unserializeAttribute(array $attributeData): Attribute
     {
         return new Attribute(
