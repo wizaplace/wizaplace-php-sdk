@@ -134,6 +134,9 @@ final class Company
         return $this->fax;
     }
 
+    /**
+     * @deprecated
+     */
     public function getUrl(): string
     {
         return $this->url;
