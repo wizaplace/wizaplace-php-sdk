@@ -114,6 +114,9 @@ final class ProductSummary
         return $this->isAvailable;
     }
 
+    /**
+     * @deprecated
+     */
     public function getUrl(): string
     {
         return $this->url;
