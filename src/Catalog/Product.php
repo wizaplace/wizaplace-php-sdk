@@ -132,6 +132,9 @@ final class Product
         return $this->name;
     }
 
+    /**
+     * @deprecated
+     */
     public function getUrl(): string
     {
         return $this->url;

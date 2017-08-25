@@ -7,6 +7,9 @@
 ### New features
 
 - Added `\Wizaplace\Discussion\Message::isAuthor`
+- Mark `\Wizaplace\Company\CompanyRegistration::getUrl` as deprecated
+- Mark `\Wizaplace\Catalog\Product::getUrl` as deprecated
+- Mark `\Wizaplace\Catalog\ProductSummary::getUrl` as deprecated
 - Added `\Wizaplace\Catalog\CatalogService::getAttributeVariants`
 
 ### Bugfixes
