@@ -10,6 +10,7 @@ namespace Wizaplace\Catalog;
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Exception\SomeParametersAreInvalid;
 use Wizaplace\Image\Image;
 
 final class CatalogService extends AbstractService
@@ -141,6 +142,36 @@ final class CatalogService extends AbstractService
                 $image
             );
         }, $variantsData);
+    }
+
+    /**
+     * Report a suspicious product to the marketplace administrator.
+     *
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    public function reportProduct(ProductReport $report): void
+    {
+        $report->validate();
+
+        try {
+            $this->client->post("catalog/products/{$report->getProductId()}/report", [
+                'json' => [
+                    'productId' => $report->getProductId(),
+                    'name' => $report->getReporterName(),
+                    'email' => $report->getReporterEmail(),
+                    'message' => $report->getMessage(),
+                ],
+            ]);
+        } catch (ClientException $e) {
+            switch ($e->getCode()) {
+                case 404:
+                    throw new NotFound("Product #{$report->getProductId()} not found", $e);
+                case 400:
+                    throw new SomeParametersAreInvalid((string) $e->getResponse()->getBody(), 400, $e);
+            }
+            throw $e;
+        }
     }
 
     private function unserializeAttribute(array $attributeData): Attribute

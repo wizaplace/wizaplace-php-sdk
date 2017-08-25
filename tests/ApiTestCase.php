@@ -24,6 +24,7 @@ abstract class ApiTestCase extends TestCase
 
     private $requestIndex = 0;
 
+    private $cassettePath = null;
     private $cassetteName = null;
 
     public static function getApiBaseUrl(): string
@@ -58,7 +59,12 @@ abstract class ApiTestCase extends TestCase
         parent::setUp();
 
         $this->requestIndex = 0;
-        $this->cassetteName = (new \ReflectionClass($this))->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
+        $reflectionClass = (new \ReflectionClass($this));
+
+        $this->cassettePath = dirname($reflectionClass->getFileName());
+        VCR::configure()->setCassettePath($this->cassettePath);
+
+        $this->cassetteName = $reflectionClass->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
         VCR::turnOn();
         VCR::insertCassette($this->cassetteName);
     }
@@ -70,7 +76,7 @@ abstract class ApiTestCase extends TestCase
         } catch (\LogicException $e) {
             if (strpos($e->getMessage(), 'request does not match a previously recorded request') !== false) {
                 /* @see \VCR\Videorecorder::handleRequest */
-                unlink(__DIR__.'/fixtures/VCR/'.$this->cassetteName);
+                unlink($this->cassettePath.DIRECTORY_SEPARATOR.$this->cassetteName);
                 throw new \Exception(
                     "VCR fixtures did not match the requests made during the tests.\nFixtures got deleted, re-run the test to re-populate them.",
                     $e->getCode(),
@@ -85,6 +91,7 @@ abstract class ApiTestCase extends TestCase
     protected function tearDown(): void
     {
         VCR::turnOff();
+        $this->cassettePath = null;
         $this->cassetteName = null;
         self::$historyContainer = [];
         parent::tearDown();
