@@ -129,7 +129,14 @@ final class CatalogService extends AbstractService
     /** @return AttributeVariant[] */
     public function getAttributeVariants(int $attributeId): array
     {
-        $variantsData = $this->client->get("catalog/attributes/$attributeId/variants");
+        try {
+            $variantsData = $this->client->get("catalog/attributes/$attributeId/variants");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Attribute #$attributeId not found", $e);
+            }
+            throw $e;
+        }
 
         return array_map(function (array $variantData): AttributeVariant {
             $image = (!empty($variantData['image'])) ? new Image($variantData['image']) : null;

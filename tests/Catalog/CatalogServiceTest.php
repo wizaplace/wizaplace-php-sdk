@@ -304,11 +304,8 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetNonExistingAttributeVariants()
     {
-        $variants = $this->buildCatalogService()->getAttributeVariants(404);
-
-        $expectedVariants = [];
-
-        $this->assertEquals($expectedVariants, $variants);
+        $this->expectException(NotFound::class);
+        $this->buildCatalogService()->getAttributeVariants(404);
     }
 
     public function testGetProductWithOptions()

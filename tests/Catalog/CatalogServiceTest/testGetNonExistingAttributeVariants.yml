@@ -12,14 +12,14 @@
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '404'
+            message: 'Not Found'
         headers:
-            Date: 'Thu, 24 Aug 2017 15:12:56 GMT'
+            Date: 'Fri, 25 Aug 2017 14:41:46 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: eeea6f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eeea6f'
-            Content-Length: '2'
+            X-Debug-Token: 8736ac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8736ac'
+            Content-Length: '49'
             Content-Type: application/json
-        body: '[]'
+        body: '{"message":"Attribute \u0022404\u0022 not found"}'
