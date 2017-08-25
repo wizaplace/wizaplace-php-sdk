@@ -134,27 +134,21 @@ final class CatalogService extends AbstractService
      */
     public function reportProduct(ProductReport $report): void
     {
-        try {
-            $productId = $report->getProductId();
-            $requestJson = [
-                'productId' => $report->getProductId(),
-                'name' => $report->getReporterName(),
-                'email' => $report->getReporterEmail(),
-                'message' => $report->getMessage(),
-            ];
-        } catch (\TypeError $e) {
-            // ProductReport isn't type-safe, it is not guaranteed to have all its mandatory fields set.
-            throw new SomeParametersAreInvalid('missing at least a field in ProductReport', 400, $e);
-        }
+        $report->validate();
 
         try {
-            $this->client->post("catalog/products/{$productId}/report", [
-                'json' => $requestJson,
+            $this->client->post("catalog/products/{$report->getProductId()}/report", [
+                'json' => [
+                    'productId' => $report->getProductId(),
+                    'name' => $report->getReporterName(),
+                    'email' => $report->getReporterEmail(),
+                    'message' => $report->getMessage(),
+                ],
             ]);
         } catch (ClientException $e) {
             switch ($e->getCode()) {
                 case 404:
-                    throw new NotFound("Product #{$productId} not found", $e);
+                    throw new NotFound("Product #{$report->getProductId()} not found", $e);
                 case 400:
                     throw new SomeParametersAreInvalid((string) $e->getResponse()->getBody(), 400, $e);
             }
