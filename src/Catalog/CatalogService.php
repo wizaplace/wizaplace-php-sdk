@@ -126,6 +126,12 @@ final class CatalogService extends AbstractService
         );
     }
 
+    /**
+     * Report a suspicious product to the marketplace administrator.
+     *
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
     public function reportProduct(ProductReport $report): void
     {
         try {
