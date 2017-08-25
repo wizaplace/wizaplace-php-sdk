@@ -7,11 +7,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Tests\Catalog;
 
+use GuzzleHttp\Psr7\Response;
 use Wizaplace\Catalog\AttributeType;
 use Wizaplace\Catalog\CatalogService;
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Catalog\Option;
+use Wizaplace\Catalog\ProductReport;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Exception\SomeParametersAreInvalid;
 use Wizaplace\Tests\ApiTestCase;
 
 /**
@@ -848,6 +851,59 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([9]), $expectedDeclinations));
+    }
+
+    public function testReportingProduct()
+    {
+        $report = new ProductReport();
+        $report->setProductId('1');
+        $report->setReporterEmail('user@wizaplace.com');
+        $report->setReporterName('Mr. User');
+        $report->setMessage('I am shocked!');
+
+        $this->buildCatalogService()->reportProduct($report);
+        // We don't have a way to check that the report was saved.
+        // So we just check that a request was made successfully
+        $this->assertCount(1, static::$historyContainer);
+        /** @var Response $response */
+        $response = static::$historyContainer[0]['response'];
+        $this->assertSame(204, $response->getStatusCode());
+    }
+
+    public function testReportingNonExistingProduct()
+    {
+        $report = new ProductReport();
+        $report->setProductId('404');
+        $report->setReporterEmail('user@wizaplace.com');
+        $report->setReporterName('User');
+        $report->setMessage('Should get a 404');
+
+        $this->expectException(NotFound::class);
+        $this->buildCatalogService()->reportProduct($report);
+    }
+
+    public function testReportingProductWithInvalidEmail()
+    {
+        $report = new ProductReport();
+        $report->setProductId('1');
+        $report->setReporterEmail('user@@wizaplace.com');
+        $report->setReporterName('User');
+        $report->setMessage('Should get a 400');
+
+        $this->expectException(SomeParametersAreInvalid::class);
+        $this->expectExceptionCode(400);
+        $this->buildCatalogService()->reportProduct($report);
+    }
+
+    public function testReportingProductWithMissingField()
+    {
+        $report = new ProductReport();
+        $report->setProductId('1');
+        $report->setReporterEmail('user@wizaplace.com');
+        $report->setReporterName('User');
+
+        $this->expectException(SomeParametersAreInvalid::class);
+        $this->buildCatalogService()->reportProduct($report);
     }
 
     private function buildCatalogService(): CatalogService
