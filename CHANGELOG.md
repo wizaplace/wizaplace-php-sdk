@@ -6,6 +6,8 @@
 
 ### New features
 
+- Added `\Wizaplace\Basket\BasketItem::getDeclinationOptions`
+
 ### Bugfixes
 
 ## 0.7.1

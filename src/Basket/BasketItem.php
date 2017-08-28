@@ -38,6 +38,9 @@ final class BasketItem
     /** @var float */
     private $total;
 
+    /** @var DeclinationOption[] */
+    private $declinationOptions;
+
     /**
      * @internal
      */
@@ -54,11 +57,22 @@ final class BasketItem
         }
         $this->quantity = $data['quantity'];
         $this->total = $data['total'];
+        $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
+            return new DeclinationOption($data);
+        }, $data['options'] ?? []);
     }
 
     public function getDeclinationId(): string
     {
         return $this->declinationId;
+    }
+
+    /**
+     * @return DeclinationOption[]
+     */
+    public function getDeclinationOptions(): array
+    {
+        return $this->declinationOptions;
     }
 
     public function getProductId(): int
