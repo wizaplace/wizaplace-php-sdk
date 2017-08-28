@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:41 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:51 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ce4c7d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce4c7d'
+            X-Debug-Token: b93055
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b93055'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS\/6sYz"}'
+        body: '{"id":3,"apiKey":"DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW\/dOv"}'
 -
     request:
         method: POST
@@ -32,8 +32,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +42,25 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f42e1b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f42e1b'
+            X-Debug-Token: 5eb753
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5eb753'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"8d95be9b-0ab1-4560-a358-2ca120d96731"'
+        body: '"e6627dff-b31f-48ec-91d1-5ef10b39a66d"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731/add'
+        url: 'http://wizaplace.loc/api/v1/basket/e6627dff-b31f-48ec-91d1-5ef10b39a66d/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=1&quantity=1'
@@ -70,23 +70,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ffd8c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ffd8c6'
+            X-Debug-Token: df9424
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/df9424'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
+        url: 'http://wizaplace.loc/api/v1/basket/e6627dff-b31f-48ec-91d1-5ef10b39a66d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '3'
             Accept: null
     response:
@@ -95,23 +95,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5ebe9a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ebe9a'
-            Content-Length: '1042'
+            X-Debug-Token: '918883'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/918883'
+            Content-Length: '1064'
             Content-Type: application/json
-        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
+        body: '{"id":"e6627dff-b31f-48ec-91d1-5ef10b39a66d","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company","slug":"test-company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
+        url: 'http://wizaplace.loc/api/v1/basket/e6627dff-b31f-48ec-91d1-5ef10b39a66d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '4'
             Accept: null
     response:
@@ -120,25 +120,25 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:42 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 4a7f5c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4a7f5c'
-            Content-Length: '1042'
+            X-Debug-Token: e6c12c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e6c12c'
+            Content-Length: '1064'
             Content-Type: application/json
-        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
+        body: '{"id":"e6627dff-b31f-48ec-91d1-5ef10b39a66d","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"Test company","slug":"test-company"},"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"optio corporis similique voluptatum","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":20,"individualTax":0.41,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":20}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":20,"productTaxes":0.41,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.41}]}],"subtotal":20,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.41,"total":20,"totalQuantity":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731/remove'
+        url: 'http://wizaplace.loc/api/v1/basket/e6627dff-b31f-48ec-91d1-5ef10b39a66d/remove'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '5'
             Accept: null
         body: declinationId=1_0
@@ -148,22 +148,22 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:43 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:53 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 64aff6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64aff6'
+            X-Debug-Token: 149a8c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/149a8c'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/8d95be9b-0ab1-4560-a358-2ca120d96731'
+        url: 'http://wizaplace.loc/api/v1/basket/e6627dff-b31f-48ec-91d1-5ef10b39a66d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            Authorization: 'token DtxyrYBKAhXQ89K8ueeOzqOl4c+hcvp7vxeW/dOv'
             VCR-index: '6'
             Accept: null
     response:
@@ -172,11 +172,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:37:43 GMT'
+            Date: 'Fri, 25 Aug 2017 09:11:53 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f181e6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f181e6'
+            X-Debug-Token: 544cbf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/544cbf'
             Content-Length: '366'
             Content-Type: application/json
-        body: '{"id":"8d95be9b-0ab1-4560-a358-2ca120d96731","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+        body: '{"id":"e6627dff-b31f-48ec-91d1-5ef10b39a66d","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'

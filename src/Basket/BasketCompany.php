@@ -15,6 +15,9 @@ final class BasketCompany
     /** @var string */
     private $name;
 
+    /** @var string */
+    private $slug;
+
     /**
      * @internal
      */
@@ -22,6 +25,7 @@ final class BasketCompany
     {
         $this->id = $data['id'];
         $this->name = $data['name'];
+        $this->slug = $data['slug'];
     }
 
     public function getId(): int
@@ -32,5 +36,10 @@ final class BasketCompany
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getSlug(): string
+    {
+        return $this->slug;
     }
 }
