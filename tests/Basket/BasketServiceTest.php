@@ -55,6 +55,7 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertNotEmpty($basketItem->getProductName());
                     $this->assertNotEmpty($basketItem->getProductUrl());
                     $this->assertNotEmpty($basketItem->getDeclinationId());
+                    $this->assertSame([], $basketItem->getDeclinationOptions());
                     $this->assertGreaterThan(0, $basketItem->getIndividualPrice());
                     $this->assertGreaterThanOrEqual($basketItem->getIndividualPrice(), $basketItem->getTotal());
                     $basketItem->getMainImage();
@@ -189,6 +190,22 @@ final class BasketServiceTest extends ApiTestCase
 
         $this->assertFalse($shippings[0]->isSelected());
         $this->assertTrue($shippings[1]->isSelected());
+    }
+
+    public function testGetBasketWithOption()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '2_7_1', 1));
+
+        $basket = $basketService->getBasket($basketId);
+
+        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[7];
+        $this->assertSame(7, $declinationOption->getOptionId());
+        $this->assertSame('size', $declinationOption->getOptionName());
+        $this->assertSame(1, $declinationOption->getVariantId());
+        $this->assertSame('13', $declinationOption->getVariantName());
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
