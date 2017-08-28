@@ -1,0 +1,29 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/catalog/products/1/report'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            Content-Type: application/json
+            VCR-index: '0'
+            Accept: null
+        body: '{"productId":"1","name":"User","email":"user@@wizaplace.com","message":"Should get a 400"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Date: 'Thu, 24 Aug 2017 13:15:16 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: e19735
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e19735'
+            Content-Length: '96'
+            Connection: close
+            Content-Type: application/json
+        body: '{"message":"Missing required fields","errors":[{"field":"email","message":"Field is required"}]}'

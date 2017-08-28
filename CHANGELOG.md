@@ -10,6 +10,7 @@
 - Mark `\Wizaplace\Company\CompanyRegistration::getUrl` as deprecated
 - Mark `\Wizaplace\Catalog\Product::getUrl` as deprecated
 - Mark `\Wizaplace\Catalog\ProductSummary::getUrl` as deprecated
+- Added `\Wizaplace\Catalog\CatalogService::reportProduct`
 - Added `\Wizaplace\Basket\BasketCompany::getSlug`
 
 ### Bugfixes
