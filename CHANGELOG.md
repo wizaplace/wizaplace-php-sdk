@@ -12,6 +12,7 @@
 - Mark `\Wizaplace\Catalog\ProductSummary::getUrl` as deprecated
 - Added `\Wizaplace\Catalog\CatalogService::reportProduct`
 - Added `\Wizaplace\Basket\BasketCompany::getSlug`
+- Added `\Wizaplace\Catalog\CatalogService::getAttributeVariants`
 
 ### Bugfixes
 
