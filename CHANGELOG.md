@@ -6,15 +6,19 @@
 
 ### New features
 
+### Bugfixes
+
+## 0.7.1
+
+### New features
+
 - Added `\Wizaplace\Discussion\Message::isAuthor`
-- Mark `\Wizaplace\Company\CompanyRegistration::getUrl` as deprecated
-- Mark `\Wizaplace\Catalog\Product::getUrl` as deprecated
-- Mark `\Wizaplace\Catalog\ProductSummary::getUrl` as deprecated
 - Added `\Wizaplace\Catalog\CatalogService::reportProduct`
 - Added `\Wizaplace\Basket\BasketCompany::getSlug`
 - Added `\Wizaplace\Catalog\CatalogService::getAttributeVariants`
-
-### Bugfixes
+- Mark `\Wizaplace\Company\CompanyRegistration::getUrl` as deprecated
+- Mark `\Wizaplace\Catalog\Product::getUrl` as deprecated
+- Mark `\Wizaplace\Catalog\ProductSummary::getUrl` as deprecated
 
 ## 0.7.0
 
