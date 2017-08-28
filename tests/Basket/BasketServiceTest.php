@@ -40,6 +40,7 @@ final class BasketServiceTest extends ApiTestCase
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             $this->assertGreaterThan(0, $companyGroup->getCompany()->getId());
             $this->assertNotEmpty($companyGroup->getCompany()->getName());
+            $this->assertNotEmpty($companyGroup->getCompany()->getSlug());
 
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 $this->assertGreaterThan(0, $shippingGroup->getId());
@@ -86,7 +87,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $order = $orderService->getOrder($orders[0]['id']);
         $this->assertSame($orders[0]['id'], $order->getId());
-        $this->assertSame(4, $order->getCompanyId());
+        $this->assertSame(5, $order->getCompanyId());
         $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertSame('STANDBY_BILLING', $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
