@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\Catalog;
 
-class ProductLocation
+final class ProductLocation
 {
     /** @var float */
     private $latitude;
