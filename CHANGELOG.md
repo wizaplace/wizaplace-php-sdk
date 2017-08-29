@@ -7,6 +7,7 @@
 ### New features
 
 - Added `\Wizaplace\Basket\BasketItem::getDeclinationOptions`
+- Added `\Wizaplace\Catalog\Product::getGeolocation`
 
 ### Bugfixes
 

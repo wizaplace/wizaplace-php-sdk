@@ -71,6 +71,9 @@ final class Product
     /** @var Option[] */
     private $options;
 
+    /** @var null|ProductLocation */
+    private $geolocation;
+
     /**
      * @internal
      */
@@ -110,6 +113,7 @@ final class Product
         $this->options = array_map(static function (array $option) : Option {
             return new Option($option);
         }, $data['options']);
+        $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
     }
 
     public function getId(): string
@@ -271,5 +275,10 @@ final class Product
         }
 
         throw new NotFound('Declination was not found.');
+    }
+
+    public function getGeolocation(): ?ProductLocation
+    {
+        return $this->geolocation;
     }
 }
