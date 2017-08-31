@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "f43da4f9cd97f2429a03a8f9f66a2947",
+    "content-hash": "9dd581c1c43bc04b4e21774714c1451e",
     "packages": [
         {
             "name": "guzzlehttp/guzzle",
@@ -438,37 +438,6 @@
                 "symfony"
             ],
             "time": "2017-06-08T10:48:30+00:00"
-        },
-        {
-            "name": "m6web/coke",
-            "version": "v2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/M6Web/Coke.git",
-                "reference": "b11b5ee62d719c1754be5b73b01907fd9e539986"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/M6Web/Coke/zipball/b11b5ee62d719c1754be5b73b01907fd9e539986",
-                "reference": "b11b5ee62d719c1754be5b73b01907fd9e539986",
-                "shasum": ""
-            },
-            "require": {
-                "squizlabs/php_codesniffer": "~2.3"
-            },
-            "suggest": {
-                "m6web/symfony2-coding-standard": "Symfony2 PHP CodeSniffer Coding Standard"
-            },
-            "bin": [
-                "coke"
-            ],
-            "type": "library",
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "description": "PHP Code Sniffer configurator",
-            "time": "2017-05-16T08:57:34+00:00"
         },
         {
             "name": "myclabs/deep-copy",

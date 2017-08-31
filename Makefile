@@ -11,9 +11,9 @@ endif
 
 lint:
 ifndef BUILD_ID
-	./vendor/bin/coke
+	./vendor/bin/phpcs
 else
-	./vendor/bin/coke --report-full --report-checkstyle=coke-checkstyle.xml
+	./vendor/bin/phpcs --report-full --report-checkstyle=phpcs-checkstyle.xml
 endif
 
 stan:
