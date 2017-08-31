@@ -1,5 +1,5 @@
 /vendor/
 phpunit-result.xml
-coke-*.xml
+phpcs-*.xml
 clover.xml
 /coverage/
