@@ -31,11 +31,12 @@ final class ApiKey
 
     public function getId(): int
     {
-        return $this->id;
+        return (string) $this->id;
     }
 
     public function getKey(): string
     {
         return $this->key;
     }
+
 }
