@@ -21,7 +21,7 @@ ifndef BUILD_ID
 	./vendor/bin/phpstan analyse -l 5 src tests
 else
 	./vendor/bin/phpstan --no-interaction --no-progress analyse --errorFormat=checkstyle -l 5 src tests > phpstan-checkstyle.xml || \
-	sed -i 's/<error/<error source="phpstan"/g' phpstan-checkstyle.xml
+	(sed -i 's/<error/<error source="phpstan"/g' phpstan-checkstyle.xml && false)
 endif
 
 test:
