@@ -41,12 +41,12 @@ pipeline {
                                 useUsernamePassword: false,
                                 useUsernamePasswordCredentials: false,
                                 usernamePasswordCredentialsId: '',
-                                createCommentWithAllSingleFileComments: true,
+                                createCommentWithAllSingleFileComments: false,
                                 createSingleFileComments: true,
                                 commentOnlyChangedContent: true,
                                 minSeverity: 'INFO',
                                 violationConfigs: [
-                                    [ pattern: '.*/phpcs-checkstyle\\.xml$', reporter: 'CHECKSTYLE' ],
+                                    [ pattern: '.*/phpcs-checkstyle\\.xml$', parser: 'CHECKSTYLE', reporter: 'phpcs' ],
                                 ]
                             ]
                         ])
