@@ -46,7 +46,7 @@ pipeline {
                                 commentOnlyChangedContent: true,
                                 minSeverity: 'INFO',
                                 violationConfigs: [
-                                    [ pattern: '.*/phpcs-checkstyle\\.xml$', parser: 'CHECKSTYLE', reporter: 'phpcs' ],
+                                    [ pattern: '.*/*-checkstyle\\.xml$', parser: 'CHECKSTYLE', reporter: 'phpstan' ],
                                 ]
                             ]
                         ])
