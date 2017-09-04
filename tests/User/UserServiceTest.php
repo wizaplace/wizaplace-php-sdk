@@ -12,6 +12,7 @@ use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\UserAlreadyExists;
 use Wizaplace\User\UserService;
+use Wizaplace\User\UserTitle;
 
 /**
  * @see UserService
@@ -100,13 +101,13 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
 
-        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', 'mr');
+        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', UserTitle::MR);
 
         $client->authenticate('user43@example.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         $this->assertSame('user43@example.com', $user->getEmail());
-        $this->assertSame('mr', $user->getTitle());
+        $this->assertSame(UserTitle::MR, $user->getTitle()->getValue());
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
     }
