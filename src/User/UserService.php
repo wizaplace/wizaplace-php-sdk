@@ -48,7 +48,7 @@ final class UserService extends AbstractService
             [
                 'form_params' => [
                     'email' => $email,
-                    'title' => $title->getValue(),
+                    'title' => is_null($title) ? null : $title->getValue(),
                     'firstName' => $firstName,
                     'lastName' => $lastName,
                 ],

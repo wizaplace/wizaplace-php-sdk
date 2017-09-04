@@ -112,6 +112,32 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jules', $user->getLastname());
     }
 
+    public function testUpdateUserWithDefaultValuesOnly()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user42@example.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('user42@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        $this->assertSame('user42@example.com', $user->getEmail());
+        $this->assertSame(null, $user->getTitle());
+        $this->assertSame('Jean', $user->getFirstname());
+        $this->assertSame('Paul', $user->getLastname());
+
+        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules');
+
+        $client->authenticate('user43@example.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        $this->assertSame('user43@example.com', $user->getEmail());
+        $this->assertNull($user->getTitle());
+        $this->assertSame('Jacques', $user->getFirstname());
+        $this->assertSame('Jules', $user->getLastname());
+    }
+
     public function testRecoverPassword()
     {
         $client = $this->buildApiClient();
