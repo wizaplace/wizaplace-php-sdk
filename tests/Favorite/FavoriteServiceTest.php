@@ -12,7 +12,6 @@ use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
 use Wizaplace\Favorite\FavoriteService;
 use Wizaplace\Tests\ApiTestCase;
-use Wizaplace\User\ApiKey;
 
 final class FavoriteServiceTest extends ApiTestCase
 {
@@ -31,9 +30,9 @@ final class FavoriteServiceTest extends ApiTestCase
 
     public function testAddProductToFavorite()
     {
-        $this->favService->addDeclinationToUserFavorites('2');
+        $this->favService->addDeclinationToUserFavorites('2_9_1');
 
-        $this->assertTrue($this->favService->isInFavorites('2'));
+        $this->assertTrue($this->favService->isInFavorites('2_9_1'));
     }
 
     public function testAddFavProductToFavorite()
@@ -59,7 +58,7 @@ final class FavoriteServiceTest extends ApiTestCase
 
     public function testIsFavorite()
     {
-        $isFavorite = $this->favService->isInFavorites('1');
+        $isFavorite = $this->favService->isInFavorites('1_0');
 
         $this->assertTrue($isFavorite);
     }

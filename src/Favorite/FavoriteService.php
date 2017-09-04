@@ -47,8 +47,7 @@ final class FavoriteService extends AbstractService
         $isInFavorites = false;
         if ($results['count'] > 0) {
             foreach ($results['_embedded']['favorites'] as $result) {
-                $declination = explode('_', $result);
-                if ($declination[0] == $declinationId) {
+                if ($result == $declinationId) {
                     $isInFavorites = true;
                     break;
                 }
