@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/x-www-form-urlencoded
             VCR-index: '0'
             Accept: null
@@ -18,14 +18,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 20 Jul 2017 14:44:38 GMT'
+            Date: 'Mon, 04 Sep 2017 09:21:12 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5fe441
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5fe441'
-            Content-Length: '9'
+            X-Debug-Token: d3d2fb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3d2fb'
+            Content-Length: '8'
             Content-Type: application/json
-        body: '{"id":18}'
+        body: '{"id":6}'
 -
     request:
         method: GET
@@ -33,7 +33,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA=='
             VCR-index: '1'
             Accept: null
@@ -43,23 +43,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 20 Jul 2017 14:44:39 GMT'
+            Date: 'Mon, 04 Sep 2017 09:21:17 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 00fd64
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/00fd64'
-            Content-Length: '62'
+            X-Debug-Token: 1d9817
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1d9817'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":18,"apiKey":"5QXwGhAYGeQbc3PLGGRYgMbxUe4hIrgM\/CRl0Fux"}'
+        body: '{"id":6,"apiKey":"kNuJ1kD7Pw5QTCV9JPvxVMP0ipNjW79Y8YeoMRTc"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/18'
+        url: 'http://wizaplace.loc/api/v1/users/6'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token 5QXwGhAYGeQbc3PLGGRYgMbxUe4hIrgM/CRl0Fux'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token kNuJ1kD7Pw5QTCV9JPvxVMP0ipNjW79Y8YeoMRTc'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,11 +68,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 20 Jul 2017 14:44:39 GMT'
+            Date: 'Mon, 04 Sep 2017 09:21:18 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 79a9d0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/79a9d0'
-            Content-Length: '356'
+            X-Debug-Token: 97a2dd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97a2dd'
+            Content-Length: '436'
             Content-Type: application/json
-        body: '{"id":18,"email":"user@example.com","firstName":"","lastName":"","addresses":{"billing":{"37":null,"firstname":"","lastname":"","39":null,"phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR"},"shipping":{"38":null,"firstname":"","lastname":"","40":null,"phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR"}}}'
+        body: '{"id":6,"title":null,"email":"user@example.com","firstName":"","lastName":"","addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
