@@ -13,8 +13,8 @@ use MyCLabs\Enum\Enum;
  * @method static UserTitle MR()
  * @method static UserTitle MRS()
  */
-class UserTitle extends Enum
+final class UserTitle extends Enum
 {
-    const MR = 'mr';
-    const MRS = 'mrs';
+    private const MR = 'mr';
+    private const MRS = 'mrs';
 }
