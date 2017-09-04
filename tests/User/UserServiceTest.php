@@ -12,6 +12,7 @@ use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Tests\ApiTestCase;
 use Wizaplace\User\UserAlreadyExists;
 use Wizaplace\User\UserService;
+use Wizaplace\User\UserTitle;
 
 /**
  * @see UserService
@@ -38,31 +39,40 @@ final class UserServiceTest extends ApiTestCase
         $this->assertNotNull($user, 'User exists');
         $this->assertSame($userEmail, $user->getEmail());
         $this->assertSame($userId, $user->getId());
+        $this->assertSame(null, $user->getTitle());
         $this->assertSame('', $user->getFirstname());
         $this->assertSame('', $user->getLastname());
         $this->assertSame([
-            38 => null,
+            'title' => '',
             'firstname' => '',
             'lastname' => '',
-            40 => null,
+            'company' => '',
             'phone' => '',
             'address' => '',
             'address_2' => '',
             'zipcode' => '',
             'city' => '',
             'country' => 'FR',
+            37 => 3,
+            38 => 3,
+            40 => '',
+            39 => '',
         ], $user->getShippingAddress());
         $this->assertSame([
-            37 => null,
+            'title' => '',
             'firstname' => '',
             'lastname' => '',
-            39 => null,
+            'company' => '',
             'phone' => '',
             'address' => '',
             'address_2' => '',
             'zipcode' => '',
             'city' => '',
             'country' => 'FR',
+            37 => 3,
+            38 => 3,
+            40 => '',
+            39 => '',
         ], $user->getBillingAddress());
     }
 
@@ -87,6 +97,33 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user42@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         $this->assertSame('user42@example.com', $user->getEmail());
+        $this->assertSame(null, $user->getTitle());
+        $this->assertSame('Jean', $user->getFirstname());
+        $this->assertSame('Paul', $user->getLastname());
+
+        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', UserTitle::MR());
+
+        $client->authenticate('user43@example.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        $this->assertSame('user43@example.com', $user->getEmail());
+        $this->assertTrue(UserTitle::MR()->equals($user->getTitle()));
+        $this->assertSame('Jacques', $user->getFirstname());
+        $this->assertSame('Jules', $user->getLastname());
+    }
+
+    public function testUpdateUserWithDefaultValuesOnly()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user42@example.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('user42@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        $this->assertSame('user42@example.com', $user->getEmail());
+        $this->assertSame(null, $user->getTitle());
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
 
@@ -96,6 +133,7 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
         $this->assertSame('user43@example.com', $user->getEmail());
+        $this->assertNull($user->getTitle());
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
     }
