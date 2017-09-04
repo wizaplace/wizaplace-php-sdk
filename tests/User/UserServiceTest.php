@@ -101,13 +101,13 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
 
-        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', UserTitle::MR);
+        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', UserTitle::MR());
 
         $client->authenticate('user43@example.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         $this->assertSame('user43@example.com', $user->getEmail());
-        $this->assertSame(UserTitle::MR, $user->getTitle()->getValue());
+        $this->assertTrue(UserTitle::MR()->equals($user->getTitle()));
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
     }
