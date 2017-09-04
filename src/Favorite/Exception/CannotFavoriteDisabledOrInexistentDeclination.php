@@ -13,10 +13,10 @@ final class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
     /**
      * @internal
      */
-    public function __construct(int $productId, \Throwable $previous = null)
+    public function __construct(string $declinationId, \Throwable $previous = null)
     {
         parent::__construct(
-            "Product #{$productId} cannot be added to favorite as it is disabled or does not exist",
+            "Declination #{$declinationId} cannot be added to favorite as it is disabled or does not exist",
             self::HTTP_ERROR_CODE,
             $previous
         );

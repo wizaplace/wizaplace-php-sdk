@@ -40,7 +40,7 @@ final class FavoriteService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function isInFavorites(int $declinationId) : bool
+    public function isInFavorites(string $declinationId) : bool
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations/ids', []);
@@ -63,7 +63,7 @@ final class FavoriteService extends AbstractService
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(int $declinationId) : void
+    public function addDeclinationToUserFavorites(string $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         try {
