@@ -6,6 +6,7 @@
 
 - `\Wizaplace\Favorite\FavoriteService::isInFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
 - `\Wizaplace\Favorite\FavoriteService::addDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
+- `\Wizaplace\Favorite\FavoriteService::removeDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
 
 ### New features
 
