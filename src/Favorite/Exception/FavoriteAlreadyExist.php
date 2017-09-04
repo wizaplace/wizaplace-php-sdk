@@ -13,8 +13,8 @@ final class FavoriteAlreadyExist extends \Exception
     /**
      * @internal
      */
-    public function __construct(int $productId, \Throwable $previous = null)
+    public function __construct(string $declinationId, \Throwable $previous = null)
     {
-        parent::__construct("Product #{$productId} is already a favorite", self::HTTP_ERROR_CODE, $previous);
+        parent::__construct("Declination #{$declinationId} is already a favorite", self::HTTP_ERROR_CODE, $previous);
     }
 }
