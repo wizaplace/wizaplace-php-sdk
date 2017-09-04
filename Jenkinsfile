@@ -28,6 +28,8 @@ pipeline {
             }
             post {
                 always {
+                    archiveArtifacts allowEmptyArchive: true, artifacts: 'phpstan-checkstyle.xml'
+                    archiveArtifacts allowEmptyArchive: true, artifacts: 'phpcs-checkstyle.xml'
                     withCredentials([string(credentialsId: 'e18082c0-a95c-4c22-9bf5-803fd091c764', variable: 'GITHUB_TOKEN')]) {
                         step([
                             $class: 'ViolationsToGitHubRecorder',
@@ -41,12 +43,12 @@ pipeline {
                                 useUsernamePassword: false,
                                 useUsernamePasswordCredentials: false,
                                 usernamePasswordCredentialsId: '',
-                                createCommentWithAllSingleFileComments: true,
+                                createCommentWithAllSingleFileComments: false,
                                 createSingleFileComments: true,
                                 commentOnlyChangedContent: true,
                                 minSeverity: 'INFO',
                                 violationConfigs: [
-                                    [ pattern: '.*/coke-checkstyle\\.xml$', reporter: 'CHECKSTYLE' ],
+                                    [ pattern: '.*/.*-checkstyle\\.xml$', parser: 'CHECKSTYLE', reporter: 'Checkstyle' ],
                                 ]
                             ]
                         ])
