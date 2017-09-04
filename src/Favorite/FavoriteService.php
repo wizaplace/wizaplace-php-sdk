@@ -86,7 +86,7 @@ final class FavoriteService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function removeDeclinationToUserFavorites(int $declinationId) : void
+    public function removeDeclinationToUserFavorites(string $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         $this->client->rawRequest('delete', 'user/favorites/declinations/'.$declinationId);
