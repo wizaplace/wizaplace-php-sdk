@@ -317,7 +317,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $expectedDeclinations = [
             new Declination([
-                'id' => '2_7_1',
+                'id' => '2_9_1',
                 'code' => 'size_13',
                 'supplierReference' => '',
                 'price' => 15.5,
@@ -329,12 +329,13 @@ final class CatalogServiceTest extends ApiTestCase
                     'vat' => 0.32,
                 ],
                 'greenTax' => 0,
-                'amount' => 10,
+                'amount' => 6,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 7,
+                        'id' => 9,
                         'name' => 'size',
                         'variantId' => 1,
                         'variantName' => '13',
@@ -342,7 +343,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_7_2',
+                'id' => '2_9_2',
                 'code' => 'size_15',
                 'supplierReference' => '',
                 'price' => 15.5,
@@ -357,9 +358,10 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 7,
+                        'id' => 9,
                         'name' => 'size',
                         'variantId' => 2,
                         'variantName' => '15',
@@ -367,7 +369,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_7_3',
+                'id' => '2_9_3',
                 'code' => 'size_17',
                 'supplierReference' => '',
                 'price' => 15.5,
@@ -382,9 +384,10 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 7,
+                        'id' => 9,
                         'name' => 'size',
                         'variantId' => 3,
                         'variantName' => '17',
@@ -392,7 +395,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_7_4',
+                'id' => '2_9_4',
                 'code' => 'size_21',
                 'supplierReference' => '',
                 'price' => 15.5,
@@ -407,9 +410,10 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 7,
+                        'id' => 9,
                         'name' => 'size',
                         'variantId' => 4,
                         'variantName' => '21',
@@ -419,7 +423,7 @@ final class CatalogServiceTest extends ApiTestCase
         ];
 
         $expectedOption = [
-            'id' => 7,
+            'id' => 9,
             'name' => 'size',
             'variants' => [
                 [

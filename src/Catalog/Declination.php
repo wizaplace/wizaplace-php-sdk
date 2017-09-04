@@ -50,6 +50,9 @@ final class Declination
     /** @var Image[] */
     private $images;
 
+    /** @var bool */
+    private $isBrandNew;
+
     /** @var DeclinationOption[] */
     private $options;
 
@@ -74,6 +77,7 @@ final class Declination
         $this->images = array_map(static function (array $imageData) : Image {
             return new Image($imageData);
         }, $data['images']);
+        $this->isBrandNew = $data['isBrandNew'] ?? true;
         $this->options = array_map(static function (array $optionData) : DeclinationOption {
             return new DeclinationOption($optionData);
         }, $data['options']);
@@ -137,6 +141,11 @@ final class Declination
     public function getAffiliateLink(): ?string
     {
         return $this->affiliateLink;
+    }
+
+    public function isBrandNew(): bool
+    {
+        return $this->isBrandNew;
     }
 
     /**
