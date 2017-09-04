@@ -13,6 +13,7 @@ use Wizaplace\Catalog\AttributeVariant;
 use Wizaplace\Catalog\CatalogService;
 use Wizaplace\Catalog\Declination;
 use Wizaplace\Catalog\Option;
+use Wizaplace\Catalog\ProductLocation;
 use Wizaplace\Catalog\ProductReport;
 use Wizaplace\Exception\NotFound;
 use Wizaplace\Exception\SomeParametersAreInvalid;
@@ -48,6 +49,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
         $this->assertSame(3.0, $product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -871,6 +873,16 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([8, 10]), $expectedDeclinations));
         $this->assertTrue(in_array($product->getDeclinationFromOptions([9]), $expectedDeclinations));
+    }
+
+    public function testGetProductWithGeolocation()
+    {
+        $location = $this->buildCatalogService()->getProductById(8)->getGeolocation();
+        $this->assertInstanceOf(ProductLocation::class, $location);
+        $this->assertSame(45.778848, $location->getLatitude());
+        $this->assertSame(4.800039, $location->getLongitude());
+        $this->assertSame('Wizacha', $location->getLabel());
+        $this->assertSame('69009', $location->getZipcode());
     }
 
     public function testReportingProduct()
