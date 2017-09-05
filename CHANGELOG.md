@@ -12,8 +12,6 @@
 
 ### Bugfixes
 
-- `\Wizaplace\Favorite\FavoriteService::isInFavorites` now properly returns `true` or `false` instead of `false` everytime when using it with a declinationId
-
 ## 0.7.2
 
 ### New features
