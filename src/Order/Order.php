@@ -19,7 +19,7 @@ final class Order
     private $subtotal;
     /** @var \DateTimeImmutable */
     private $timestamp;
-    /** @var string */
+    /** @var OrderStatus */
     private $status;
     /** @var string */
     private $shippingName;
@@ -38,7 +38,7 @@ final class Order
         $this->total = $data['total'];
         $this->subtotal = $data['subtotal'];
         $this->timestamp = new \DateTimeImmutable('@'.$data['timestamp']);
-        $this->status = $data['status'];
+        $this->status = new OrderStatus($data['status']);
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
         $this->orderItems = array_map(static function (array $orderItemData) : OrderItem {
@@ -71,7 +71,7 @@ final class Order
         return $this->timestamp;
     }
 
-    public function getStatus(): string
+    public function getStatus(): OrderStatus
     {
         return $this->status;
     }

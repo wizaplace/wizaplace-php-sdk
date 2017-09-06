@@ -10,6 +10,7 @@ namespace Wizaplace\Tests\Order;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Order\CreateOrderReturn;
 use Wizaplace\Order\OrderService;
+use Wizaplace\Order\OrderStatus;
 use Wizaplace\Order\ReturnItem;
 use Wizaplace\Tests\ApiTestCase;
 
@@ -23,6 +24,7 @@ final class OrderServiceTest extends ApiTestCase
         $order = $this->buildOrderService()->getOrder(1);
 
         $this->assertSame(1, $order->getId());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
     }
 
     public function testCreateOrderReturn()
