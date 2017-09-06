@@ -16,8 +16,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # Network
     config.vm.network 'private_network', type: 'dhcp'
-    # Necessaire sous windows : à décommenter
-    # config.vm.network 'forwarded_port', guest: 80, host: 8888
 
     # SSH
     config.ssh.forward_agent = true
