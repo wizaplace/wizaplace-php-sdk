@@ -42,38 +42,42 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getTitle());
         $this->assertSame('', $user->getFirstname());
         $this->assertSame('', $user->getLastname());
+
+        // shipping address
+        $this->assertSame('', $user->getShippingAddress()->getTitle());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getCompany());
+        $this->assertSame('', $user->getShippingAddress()->getPhone());
+        $this->assertSame('', $user->getShippingAddress()->getAddress());
+        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame('', $user->getShippingAddress()->getZipCode());
+        $this->assertSame('', $user->getShippingAddress()->getCity());
+        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
         $this->assertSame([
-            'title' => '',
-            'firstname' => '',
-            'lastname' => '',
-            'company' => '',
-            'phone' => '',
-            'address' => '',
-            'address_2' => '',
-            'zipcode' => '',
-            'city' => '',
-            'country' => 'FR',
             37 => 3,
             38 => 3,
             40 => '',
             39 => '',
-        ], $user->getShippingAddress());
+        ], $user->getShippingAddress()->getExtraFields());
+
+        // billing address
+        $this->assertSame('', $user->getBillingAddress()->getTitle());
+        $this->assertSame('', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getCompany());
+        $this->assertSame('', $user->getBillingAddress()->getPhone());
+        $this->assertSame('', $user->getBillingAddress()->getAddress());
+        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame('', $user->getBillingAddress()->getZipCode());
+        $this->assertSame('', $user->getBillingAddress()->getCity());
+        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
         $this->assertSame([
-            'title' => '',
-            'firstname' => '',
-            'lastname' => '',
-            'company' => '',
-            'phone' => '',
-            'address' => '',
-            'address_2' => '',
-            'zipcode' => '',
-            'city' => '',
-            'country' => 'FR',
             37 => 3,
             38 => 3,
             40 => '',
             39 => '',
-        ], $user->getBillingAddress());
+        ], $user->getBillingAddress()->getExtraFields());
     }
 
     public function testCreateAlreadyExistingUser()
