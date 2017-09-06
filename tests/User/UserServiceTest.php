@@ -10,6 +10,7 @@ namespace Wizaplace\Tests\User;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Authentication\BadCredentials;
 use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\User\UpdateUserCommand;
 use Wizaplace\User\UserAlreadyExists;
 use Wizaplace\User\UserService;
 use Wizaplace\User\UserTitle;
@@ -105,7 +106,15 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
 
-        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules', UserTitle::MR());
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('user43@example.com')
+                ->setFirstName('Jacques')
+                ->setLastName('Jules')
+                ->setTitle(UserTitle::MR())
+        );
 
         $client->authenticate('user43@example.com', 'password');
 
@@ -131,7 +140,13 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
 
-        $userService->updateUser($userId, 'user43@example.com', 'Jacques', 'Jules');
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('user43@example.com')
+                ->setFirstName('Jacques')
+                ->setLastName('Jules')
+        );
 
         $client->authenticate('user43@example.com', 'password');
 

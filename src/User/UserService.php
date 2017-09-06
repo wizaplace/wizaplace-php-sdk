@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\ClientException;
 use Wizaplace\AbstractService;
 use Wizaplace\Authentication\AuthenticationRequired;
 use Wizaplace\Exception\NotFound;
+use Wizaplace\Exception\SomeParametersAreInvalid;
 
 final class UserService extends AbstractService
 {
@@ -39,18 +40,21 @@ final class UserService extends AbstractService
      * Update the information of a user profile.
      *
      * @throws AuthenticationRequired
+     * @throws SomeParametersAreInvalid
      */
-    public function updateUser(int $userId, string $email, string $firstName, string $lastName, ?UserTitle $title = null)
+    public function updateUser(UpdateUserCommand $command)
     {
         $this->client->mustBeAuthenticated();
+        $command->validate();
+
         $this->client->put(
-            "users/$userId",
+            "users/{$command->getUserId()}",
             [
                 'form_params' => [
-                    'email' => $email,
-                    'title' => is_null($title) ? null : $title->getValue(),
-                    'firstName' => $firstName,
-                    'lastName' => $lastName,
+                    'email' => $command->getEmail(),
+                    'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                    'firstName' => $command->getFirstName(),
+                    'lastName' => $command->getLastName(),
                 ],
             ]
         );
