@@ -8,6 +8,8 @@
 
 ### Bugfixes
 
+- `\Wizaplace\Order\OrderService::getOrderReturns` now get from the right API endpoint.
+
 ## 0.7.3
 
 ### New features
