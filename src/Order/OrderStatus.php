@@ -21,8 +21,6 @@ use MyCLabs\Enum\Enum;
  * @method static OrderStatus UNPAID()
  * @method static OrderStatus REFUNDED()
  * @method static OrderStatus CANCELED()
- * @method static OrderStatus INCOMPLETED()
- * @method static OrderStatus PARENT_ORDER()
  */
 final class OrderStatus extends Enum
 {
@@ -37,6 +35,4 @@ final class OrderStatus extends Enum
     private const UNPAID = "UNPAID";
     private const REFUNDED = "REFUNDED";
     private const CANCELED = "CANCELED";
-    private const INCOMPLETED = "INCOMPLETED";
-    private const PARENT_ORDER = "PARENT_ORDER";
 }
