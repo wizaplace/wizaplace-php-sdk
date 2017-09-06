@@ -91,7 +91,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame($orders[0]['id'], $order->getId());
         $this->assertSame(5, $order->getCompanyId());
         $this->assertSame('TNT Express', $order->getShippingName());
-        $this->assertSame(OrderStatus::STANDBY_BILLING(), $order->getStatus());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
         $this->assertSame(40.0, $order->getTotal());
         $this->assertSame(40.0, $order->getSubtotal());
