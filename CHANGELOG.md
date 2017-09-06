@@ -9,8 +9,12 @@
 - `\Wizaplace\Favorite\FavoriteService::removeDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
 - `\Wizaplace\Order\Order::getStatus` is now returning an `\Wizaplace\Order\OrderStatus` instead of a string.
 - `\Wizaplace\User\UserService::updateUser` now takes a single `\Wizaplace\User\UpdateUserCommand` instead of multiple parameters
+- `\Wizaplace\User\User::getBillingAddress` now returns a `\Wizaplace\User\UserAddress` instead of an array
+- `\Wizaplace\User\User::getShippingAddress` now returns a `\Wizaplace\User\UserAddress` instead of an array
 
 ### New features
+
+- `\Wizaplace\Catalog\ProductReport`'s API is now "fluent"
 
 ### Bugfixes
 
