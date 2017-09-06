@@ -18,14 +18,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:51 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 70165f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/70165f'
+            X-Debug-Token: 639f06
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/639f06'
             Content-Length: '8'
             Content-Type: application/json
-        body: '{"id":7}'
+        body: '{"id":6}'
 -
     request:
         method: GET
@@ -43,23 +43,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:53 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 455b18
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/455b18'
+            X-Debug-Token: 457f08
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/457f08'
             Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"\/8SMnaCPlcpGgG\/GfygJD6nQ4sHk\/Ko8MYqHcFYE"}'
+        body: '{"id":6,"apiKey":"eTIzlEcOX\/Sg59N\/B3\/0UFrKWEm7ZrKt5IMDJc6+"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/7'
+        url: 'http://wizaplace.loc/api/v1/users/6'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token /8SMnaCPlcpGgG/GfygJD6nQ4sHk/Ko8MYqHcFYE'
+            Authorization: 'token eTIzlEcOX/Sg59N/B3/0UFrKWEm7ZrKt5IMDJc6+'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,42 +68,42 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:53 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:56 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: cc2e46
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc2e46'
+            X-Debug-Token: e782c9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e782c9'
             Content-Length: '462'
             Content-Type: application/json
-        body: '{"id":7,"title":null,"email":"user42@example.com","firstName":"Jean","lastName":"Paul","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":6,"title":null,"email":"user42@example.com","firstName":"Jean","lastName":"Paul","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/users/7'
+        url: 'http://wizaplace.loc/api/v1/users/6'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token /8SMnaCPlcpGgG/GfygJD6nQ4sHk/Ko8MYqHcFYE'
+            Authorization: 'token eTIzlEcOX/Sg59N/B3/0UFrKWEm7ZrKt5IMDJc6+'
             VCR-index: '3'
             Accept: null
-        body: 'email=user43%40example.com&title=mr&firstName=Jacques&lastName=Jules'
+        body: 'email=user43%40example.com&firstName=Jacques&lastName=Jules'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:54 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:57 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2e9f12
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e9f12'
+            X-Debug-Token: 44a58a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/44a58a'
             Content-Length: '466'
             Content-Type: application/json
-        body: '{"id":7,"title":"mr","email":"user43@example.com","firstName":"Jacques","lastName":"Jules","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":6,"title":null,"email":"user43@example.com","firstName":"Jacques","lastName":"Jules","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
 -
     request:
         method: GET
@@ -121,23 +121,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:55 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:58 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: cba7a5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cba7a5'
+            X-Debug-Token: cd960f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cd960f'
             Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"\/8SMnaCPlcpGgG\/GfygJD6nQ4sHk\/Ko8MYqHcFYE"}'
+        body: '{"id":6,"apiKey":"eTIzlEcOX\/Sg59N\/B3\/0UFrKWEm7ZrKt5IMDJc6+"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/7'
+        url: 'http://wizaplace.loc/api/v1/users/6'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token /8SMnaCPlcpGgG/GfygJD6nQ4sHk/Ko8MYqHcFYE'
+            Authorization: 'token eTIzlEcOX/Sg59N/B3/0UFrKWEm7ZrKt5IMDJc6+'
             VCR-index: '5'
             Accept: null
     response:
@@ -146,11 +146,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 04 Sep 2017 09:54:55 GMT'
+            Date: 'Mon, 04 Sep 2017 12:40:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0ce090
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ce090'
+            X-Debug-Token: 6da5e0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6da5e0'
             Content-Length: '466'
             Content-Type: application/json
-        body: '{"id":7,"title":"mr","email":"user43@example.com","firstName":"Jacques","lastName":"Jules","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":6,"title":null,"email":"user43@example.com","firstName":"Jacques","lastName":"Jules","addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'

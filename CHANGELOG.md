@@ -11,6 +11,9 @@
 
 ### New features
 
+- Added `\Wizaplace\User\User::getTitle`
+- Added (optional) `title` parameter to `\Wizaplace\User\UserService::updateUser`
+
 ### Bugfixes
 
 ## 0.7.2

@@ -13,6 +13,8 @@ final class User
     private $id;
     /** @var string */
     private $email;
+    /** @var UserTitle|null */
+    private $title;
     /** @var string */
     private $firstname;
     /** @var string */
@@ -29,6 +31,7 @@ final class User
     {
         $this->id = (int) $data['id'];
         $this->email = (string) $data['email'];
+        $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstname = (string) $data['firstName'];
         $this->lastname = (string) $data['lastName'];
         $this->billingAddress = $data['addresses']['billing'] ?? [];
@@ -43,6 +46,11 @@ final class User
     public function getEmail(): string
     {
         return $this->email;
+    }
+
+    public function getTitle(): ?UserTitle
+    {
+        return $this->title;
     }
 
     public function getFirstname(): string
