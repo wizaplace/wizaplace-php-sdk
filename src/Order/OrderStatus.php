@@ -9,6 +9,21 @@ namespace Wizaplace\Order;
 
 use MyCLabs\Enum\Enum;
 
+/**
+ * @method static OrderStatus STANDBY_BILLING()
+ * @method static OrderStatus STANDBY_VENDOR()
+ * @method static OrderStatus PROCESSING_SHIPPING()
+ * @method static OrderStatus PROCESSED()
+ * @method static OrderStatus COMPLETED()
+ * @method static OrderStatus BILLING_FAILED()
+ * @method static OrderStatus VENDOR_DECLINED()
+ * @method static OrderStatus STANDBY_SUPPLYING()
+ * @method static OrderStatus UNPAID()
+ * @method static OrderStatus REFUNDED()
+ * @method static OrderStatus CANCELED()
+ * @method static OrderStatus INCOMPLETED()
+ * @method static OrderStatus PARENT_ORDER()
+ */
 final class OrderStatus extends Enum
 {
     private const STANDBY_BILLING = "STANDBY_BILLING";
