@@ -25,10 +25,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # et les mount_options definies ci-dessous sont incompatibles)
     config.vm.synced_folder '.', '/vagrant', type: 'nfs', mount_options: ['nolock', 'actimeo=1', 'fsc']
 
+    config.vm.provision "shell", inline: "cd /vagrant && make install", keep_color: true, privileged: false
+
     if Vagrant.has_plugin?("vagrant-cachier")
         config.cache.scope = :box
         config.cache.enable :composer
-        config.cache.enable :npm
         config.cache.synced_folder_opts = {
           type: :nfs,
           mount_options: ['nolock', 'actimeo=1', 'fsc']
