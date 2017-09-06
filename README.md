@@ -6,6 +6,12 @@ PHP SDK for the Wizaplace e-commerce API: https://sandbox.wizaplace.com/api/v1/d
 composer require wizaplace/sdk
 ```
 
+You can also use Vagrant environment :
+
+```
+vagrant up
+```
+
 ## Usage
 
 You can find some small examples there: [Wizaplace\Tests\ExampleTest](./tests/ExampleTest.php)
