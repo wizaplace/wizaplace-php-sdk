@@ -887,11 +887,11 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testReportingProduct()
     {
-        $report = new ProductReport();
-        $report->setProductId('1');
-        $report->setReporterEmail('user@wizaplace.com');
-        $report->setReporterName('Mr. User');
-        $report->setMessage('I am shocked!');
+        $report = (new ProductReport())
+            ->setProductId('1')
+            ->setReporterEmail('user@wizaplace.com')
+            ->setReporterName('Mr. User')
+            ->setMessage('I am shocked!');
 
         $this->buildCatalogService()->reportProduct($report);
         // We don't have a way to check that the report was saved.
@@ -904,11 +904,11 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testReportingNonExistingProduct()
     {
-        $report = new ProductReport();
-        $report->setProductId('404');
-        $report->setReporterEmail('user@wizaplace.com');
-        $report->setReporterName('User');
-        $report->setMessage('Should get a 404');
+        $report = (new ProductReport())
+            ->setProductId('404')
+            ->setReporterEmail('user@wizaplace.com')
+            ->setReporterName('User')
+            ->setMessage('Should get a 404');
 
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->reportProduct($report);
@@ -916,11 +916,11 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testReportingProductWithInvalidEmail()
     {
-        $report = new ProductReport();
-        $report->setProductId('1');
-        $report->setReporterEmail('user@@wizaplace.com');
-        $report->setReporterName('User');
-        $report->setMessage('Should get a 400');
+        $report = (new ProductReport())
+            ->setProductId('1')
+            ->setReporterEmail('user@@wizaplace.com')
+            ->setReporterName('User')
+            ->setMessage('Should get a 400');
 
         $this->expectException(SomeParametersAreInvalid::class);
         $this->expectExceptionCode(400);
@@ -929,10 +929,10 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testReportingProductWithMissingField()
     {
-        $report = new ProductReport();
-        $report->setProductId('1');
-        $report->setReporterEmail('user@wizaplace.com');
-        $report->setReporterName('User');
+        $report = (new ProductReport())
+            ->setProductId('1')
+            ->setReporterEmail('user@wizaplace.com')
+            ->setReporterName('User');
 
         $this->expectException(SomeParametersAreInvalid::class);
         $this->buildCatalogService()->reportProduct($report);

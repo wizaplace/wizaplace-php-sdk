@@ -31,9 +31,11 @@ final class ProductReport
         return $this->productId;
     }
 
-    public function setProductId(string $productId)
+    public function setProductId(string $productId): self
     {
         $this->productId = $productId;
+
+        return $this;
     }
 
     public function getReporterEmail(): string
@@ -41,9 +43,11 @@ final class ProductReport
         return $this->reporterEmail;
     }
 
-    public function setReporterEmail(string $reporterEmail)
+    public function setReporterEmail(string $reporterEmail): self
     {
         $this->reporterEmail = $reporterEmail;
+
+        return $this;
     }
 
     public function getReporterName(): string
@@ -51,9 +55,11 @@ final class ProductReport
         return $this->reporterName;
     }
 
-    public function setReporterName(string $reporterName)
+    public function setReporterName(string $reporterName): self
     {
         $this->reporterName = $reporterName;
+
+        return $this;
     }
 
     public function getMessage(): string
@@ -61,9 +67,11 @@ final class ProductReport
         return $this->message;
     }
 
-    public function setMessage(string $message)
+    public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
     }
 
     /**

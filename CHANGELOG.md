@@ -11,6 +11,8 @@
 
 ### New features
 
+- `\Wizaplace\Catalog\ProductReport`'s API is now "fluent"
+
 ### Bugfixes
 
 ## 0.7.3
