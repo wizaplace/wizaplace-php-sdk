@@ -31,4 +31,7 @@ else
 	php -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit-result.xml --coverage-clover ./clover.xml --coverage-html ./coverage/
 endif
 
+delete-all-cassettes:
+	cd tests/ && find . -name "*.yml" -type f -delete
+
 .PHONY: all install lint stan test
