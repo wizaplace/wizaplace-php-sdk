@@ -55,12 +55,6 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getShippingAddress()->getZipCode());
         $this->assertSame('', $user->getShippingAddress()->getCity());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
-        $this->assertSame([
-            37 => 3,
-            38 => 3,
-            40 => '',
-            39 => '',
-        ], $user->getShippingAddress()->getExtraFields());
 
         // billing address
         $this->assertSame('', $user->getBillingAddress()->getTitle());
@@ -73,12 +67,6 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getBillingAddress()->getZipCode());
         $this->assertSame('', $user->getBillingAddress()->getCity());
         $this->assertSame('FR', $user->getBillingAddress()->getCountry());
-        $this->assertSame([
-            37 => 3,
-            38 => 3,
-            40 => '',
-            39 => '',
-        ], $user->getBillingAddress()->getExtraFields());
     }
 
     public function testCreateAlreadyExistingUser()
