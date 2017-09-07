@@ -50,6 +50,10 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(20.0, $returnItem->getPrice());
         $this->assertSame('optio corporis similique voluptatum', $returnItem->getProductName());
         $this->assertSame(1, $returnItem->getReason());
+
+        $returns = $orderService->getOrderReturns();
+        $this->assertCount(1, $returns);
+        $this->assertEquals($return, $returns[0]);
     }
 
     public function testGetOrdersWithoutAuthentication()
@@ -68,6 +72,13 @@ final class OrderServiceTest extends ApiTestCase
     {
         $this->expectException(AuthenticationRequired::class);
         $this->buildOrderServiceWithoutAuthentication()->getOrderReturn(1);
+    }
+
+    public function testGetOrderReturnsWithoutData()
+    {
+        $returns = $this->buildOrderService()->getOrderReturns();
+
+        $this->assertCount(0, $returns);
     }
 
     public function testGetOrderReturnsWithoutAuthentication()
