@@ -11,6 +11,7 @@
 - `\Wizaplace\User\UserService::updateUser` now takes a single `\Wizaplace\User\UpdateUserCommand` instead of multiple parameters
 - `\Wizaplace\User\User::getBillingAddress` now returns a `\Wizaplace\User\UserAddress` instead of an array
 - `\Wizaplace\User\User::getShippingAddress` now returns a `\Wizaplace\User\UserAddress` instead of an array
+- `\Wizaplace\User\UserService::updateUserAdresses` now takes a `\Wizaplace\User\UpdateUserAddressesCommand`
 
 ### New features
 

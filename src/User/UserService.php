@@ -64,17 +64,18 @@ final class UserService extends AbstractService
      * Update the user's addresses.
      *
      * @throws AuthenticationRequired
-     * @TODO : change param, as we don't need the full user
+     * @throws SomeParametersAreInvalid
      */
-    public function updateUserAdresses(User $user)
+    public function updateUserAdresses(UpdateUserAddressesCommand $command)
     {
         $this->client->mustBeAuthenticated();
+        $command->validate();
         $this->client->put(
-            'users/'.$user->getId().'/addresses',
+            "users/{$command->getUserId()}/addresses",
             [
                 'form_params' => [
-                    'billing' => $user->getBillingAddress(),
-                    'shipping' => $user->getShippingAddress(),
+                    'billing' => self::serializeUserAddressUpdate($command->getBillingAddress()),
+                    'shipping' => self::serializeUserAddressUpdate($command->getShippingAddress()),
                 ],
             ]
         );
@@ -135,6 +136,22 @@ final class UserService extends AbstractService
             'json' => [
                 'password' => $newPassword,
             ],
+        ]);
+    }
+
+    private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
+    {
+        return array_filter([
+            'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+            'firstname' => $command->getFirstName(),
+            'lastname' => $command->getLastName(),
+            'company' => $command->getCompany(),
+            'phone' => $command->getPhone(),
+            'address' => $command->getAddress(),
+            'address_2' => $command->getAddressSecondLine(),
+            'zipcode' => $command->getZipCode(),
+            'city' => $command->getCity(),
+            'country' => $command->getCountry(),
         ]);
     }
 }
