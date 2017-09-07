@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
- * @see \Wizaplace\Catalog\CatalogService::reportProduct
+ * @see \Wizaplace\SDK\Catalog\CatalogService::reportProduct
  */
 final class ProductReport
 {

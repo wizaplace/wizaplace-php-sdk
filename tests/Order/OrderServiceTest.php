@@ -5,14 +5,14 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Order;
+namespace Wizaplace\SDK\Tests\Order;
 
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Order\CreateOrderReturn;
-use Wizaplace\Order\OrderService;
-use Wizaplace\Order\OrderStatus;
-use Wizaplace\Order\ReturnItem;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Order\CreateOrderReturn;
+use Wizaplace\SDK\Order\OrderService;
+use Wizaplace\SDK\Order\OrderStatus;
+use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
  * @see OrderService

@@ -4,7 +4,7 @@
  * @license Proprietary
  */
 
-namespace Wizaplace\Favorite\Exception;
+namespace Wizaplace\SDK\Favorite\Exception;
 
 final class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
 {

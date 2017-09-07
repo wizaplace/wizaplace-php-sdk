@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Basket;
+namespace Wizaplace\SDK\Basket;
 
 final class DeclinationOption
 {

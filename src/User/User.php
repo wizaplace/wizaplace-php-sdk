@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\User;
+namespace Wizaplace\SDK\User;
 
 final class User
 {
