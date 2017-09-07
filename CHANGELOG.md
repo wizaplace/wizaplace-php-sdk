@@ -19,6 +19,12 @@
 
 ### Bugfixes
 
+## 0.7.4
+
+### Bugfixes
+
+- `\Wizaplace\Order\OrderService::getOrderReturns` now uses the right API endpoint (it was systematically throwing 404 errors before)
+
 ## 0.7.3
 
 ### New features

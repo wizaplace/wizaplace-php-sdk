@@ -67,7 +67,7 @@ final class OrderService extends AbstractService
     public function getOrderReturns(): array
     {
         $this->client->mustBeAuthenticated();
-        $data = $this->client->get("user/returns", []);
+        $data = $this->client->get("user/orders/returns", []);
         $orderReturns = array_map(static function (array $orderReturn) : OrderReturn {
             return new OrderReturn($orderReturn);
         }, $data);
