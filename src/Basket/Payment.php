@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Basket;
+namespace Wizaplace\SDK\Basket;
 
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\Image\Image;
 
 final class Payment
 {

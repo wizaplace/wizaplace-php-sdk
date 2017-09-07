@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
-use Wizaplace\Catalog\DeclinationOption;
+use Wizaplace\SDK\Catalog\DeclinationOption;
 
 final class DeclinationOptionTest extends TestCase
 {

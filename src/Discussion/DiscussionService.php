@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Discussion;
+namespace Wizaplace\SDK\Discussion;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
  * This service helps getting and creating discussions and messages.

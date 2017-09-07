@@ -5,17 +5,17 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\User;
+namespace Wizaplace\SDK\Tests\User;
 
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Authentication\BadCredentials;
-use Wizaplace\Tests\ApiTestCase;
-use Wizaplace\User\UpdateUserAddressCommand;
-use Wizaplace\User\UpdateUserAddressesCommand;
-use Wizaplace\User\UpdateUserCommand;
-use Wizaplace\User\UserAlreadyExists;
-use Wizaplace\User\UserService;
-use Wizaplace\User\UserTitle;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\User\UpdateUserAddressCommand;
+use Wizaplace\SDK\User\UpdateUserAddressesCommand;
+use Wizaplace\SDK\User\UpdateUserCommand;
+use Wizaplace\SDK\User\UserAlreadyExists;
+use Wizaplace\SDK\User\UserService;
+use Wizaplace\SDK\User\UserTitle;
 
 /**
  * @see UserService

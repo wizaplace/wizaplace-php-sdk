@@ -8,7 +8,7 @@ composer require wizaplace/sdk
 
 ## Usage
 
-You can find some small examples there: [Wizaplace\Tests\ExampleTest](./tests/ExampleTest.php)
+You can find some small examples there: [Wizaplace\SDK\Tests\ExampleTest](./tests/ExampleTest.php)
 
 ## Running linters and tests
 

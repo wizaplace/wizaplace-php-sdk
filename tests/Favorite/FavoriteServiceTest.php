@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Favorite;
+namespace Wizaplace\SDK\Tests\Favorite;
 
-use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
-use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
-use Wizaplace\Favorite\FavoriteService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Catalog\DeclinationSummary;
+use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
+use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
+use Wizaplace\SDK\Favorite\FavoriteService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class FavoriteServiceTest extends ApiTestCase
 {

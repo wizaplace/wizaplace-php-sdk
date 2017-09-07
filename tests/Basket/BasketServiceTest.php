@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Basket;
+namespace Wizaplace\SDK\Tests\Basket;
 
-use Wizaplace\Basket\BasketService;
-use Wizaplace\Order\OrderService;
-use Wizaplace\Order\OrderStatus;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Order\OrderService;
+use Wizaplace\SDK\Order\OrderStatus;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
  * @see BasketService

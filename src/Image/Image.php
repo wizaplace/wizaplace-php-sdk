@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Image;
+namespace Wizaplace\SDK\Image;
 
 final class Image
 {

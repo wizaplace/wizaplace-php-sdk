@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Order;
+namespace Wizaplace\SDK\Order;
 
 final class ReturnReason
 {

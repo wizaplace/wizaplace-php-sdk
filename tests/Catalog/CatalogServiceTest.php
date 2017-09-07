@@ -5,19 +5,19 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use GuzzleHttp\Psr7\Response;
-use Wizaplace\Catalog\AttributeType;
-use Wizaplace\Catalog\AttributeVariant;
-use Wizaplace\Catalog\CatalogService;
-use Wizaplace\Catalog\Declination;
-use Wizaplace\Catalog\Option;
-use Wizaplace\Catalog\ProductLocation;
-use Wizaplace\Catalog\ProductReport;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Exception\SomeParametersAreInvalid;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Catalog\AttributeType;
+use Wizaplace\SDK\Catalog\AttributeVariant;
+use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\Declination;
+use Wizaplace\SDK\Catalog\Option;
+use Wizaplace\SDK\Catalog\ProductLocation;
+use Wizaplace\SDK\Catalog\ProductReport;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
  * @see CatalogService
@@ -82,7 +82,7 @@ final class CatalogServiceTest extends ApiTestCase
         foreach ($attributes as $attribute) {
             $value = $attribute->getValue();
             if (!is_null($value) && !is_string($value) && !is_array($value)) {
-                throw new \TypeError('\Wizaplace\Catalog\ProductAttribute::getValue must return null, a string, or an array. Got '.var_export($value, true));
+                throw new \TypeError('\Wizaplace\SDK\Catalog\ProductAttribute::getValue must return null, a string, or an array. Got '.var_export($value, true));
             }
             $this->assertNotEmpty($attribute->getName());
             $attribute->getChildren();

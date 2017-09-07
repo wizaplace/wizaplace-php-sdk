@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Favorite;
+namespace Wizaplace\SDK\Favorite;
 
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
-use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\DeclinationSummary;
+use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
+use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 
 /**
  * This service helps managing the favorite products of a user.

@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\User;
+namespace Wizaplace\SDK\User;
 
-use Wizaplace\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 final class UpdateUserAddressesCommand
 {

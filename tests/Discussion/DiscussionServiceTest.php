@@ -6,13 +6,13 @@
 declare(strict_types = 1);
 
 
-namespace Wizaplace\Tests\Discussion;
+namespace Wizaplace\SDK\Tests\Discussion;
 
-use Wizaplace\Discussion\Discussion;
-use Wizaplace\Discussion\DiscussionService;
-use Wizaplace\Discussion\Message;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Discussion\Discussion;
+use Wizaplace\SDK\Discussion\DiscussionService;
+use Wizaplace\SDK\Discussion\Message;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class DiscussionServiceTest extends ApiTestCase
 {
