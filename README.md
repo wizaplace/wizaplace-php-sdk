@@ -20,19 +20,19 @@ You can find some small examples there: [Wizaplace\SDK\Tests\ExampleTest](./test
 ./docker-make all
 ```
 
-#### Without Docker
-
-Requires Make, Composer, and all dependencies defined in [`composer.json`](/composer.json).
-
-```bash
-make all
-```
-
-You can also use Vagrant environment :
+#### With Vagrant
 
 ```
 vagrant up
 vagrant ssh
+make all
+```
+
+#### Directly on your machine
+
+Requires Make, Composer, and all dependencies defined in [`composer.json`](/composer.json).
+
+```bash
 make all
 ```
 
