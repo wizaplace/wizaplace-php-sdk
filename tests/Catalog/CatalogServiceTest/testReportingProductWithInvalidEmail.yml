@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
             VCR-index: '0'
             Accept: null
@@ -18,11 +18,11 @@
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Thu, 24 Aug 2017 13:15:16 GMT'
+            Date: 'Fri, 08 Sep 2017 09:17:10 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e19735
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e19735'
+            X-Debug-Token: '779205'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/779205'
             Content-Length: '96'
             Connection: close
             Content-Type: application/json
