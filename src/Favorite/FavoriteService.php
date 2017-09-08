@@ -47,7 +47,7 @@ final class FavoriteService extends AbstractService
         $isInFavorites = false;
         if ($results['count'] > 0) {
             foreach ($results['_embedded']['favorites'] as $result) {
-                if ($result == $declinationId) {
+                if ($result === $declinationId) {
                     $isInFavorites = true;
                     break;
                 }
@@ -72,10 +72,8 @@ final class FavoriteService extends AbstractService
             switch ($code) {
                 case CannotFavoriteDisabledOrInexistentDeclination::HTTP_ERROR_CODE:
                     throw new CannotFavoriteDisabledOrInexistentDeclination($declinationId, $e);
-                    break;
                 case FavoriteAlreadyExist::HTTP_ERROR_CODE:
                     throw new FavoriteAlreadyExist($declinationId, $e);
-                    break;
                 default:
                     throw $e;
             }

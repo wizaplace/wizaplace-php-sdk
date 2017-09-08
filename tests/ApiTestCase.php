@@ -42,7 +42,7 @@ abstract class ApiTestCase extends TestCase
         $handlerStack->push(static function (callable $handler) use (&$i) {
             return static function (RequestInterface $request, array $options) use ($handler, &$i) {
                 $request = $request->withHeader('VCR-index', $i);
-                $i++;
+                ++$i;
 
                 return $handler($request, $options);
             };

@@ -177,7 +177,7 @@ final class Declination
         $foundIds = 0;
         foreach ($variantIds as $variantId) {
             if (in_array($variantId, $declinationVariantIds)) {
-                $foundIds++;
+                ++$foundIds;
             }
         }
 

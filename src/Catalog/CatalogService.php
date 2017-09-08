@@ -22,9 +22,9 @@ final class CatalogService extends AbstractService
         } catch (ClientException $exception) {
             if ($exception->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Product #{$id} not found.", $exception);
-            } else {
-                throw $exception;
             }
+
+            throw $exception;
         }
 
         return new Product($response);
@@ -74,9 +74,9 @@ final class CatalogService extends AbstractService
         } catch (ClientException $exception) {
             if ($exception->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Company #{$id} not found.", $exception);
-            } else {
-                throw $exception;
             }
+
+            throw $exception;
         }
 
         return new CompanyDetail($response);
