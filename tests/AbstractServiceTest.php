@@ -5,15 +5,15 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Handler\MockHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Psr7\Response;
 use PHPUnit\Framework\TestCase;
-use Wizaplace\ApiClient;
-use Wizaplace\Exception\JsonDecodingError;
+use Wizaplace\SDK\ApiClient;
+use Wizaplace\SDK\Exception\JsonDecodingError;
 
 final class AbstractServiceTest extends TestCase
 {

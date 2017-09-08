@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
-use Wizaplace\Catalog\Location;
+use Wizaplace\SDK\Catalog\Location;
 
 final class LocationTest extends TestCase
 {

@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
-use Wizaplace\Authentication\BadCredentials;
-use Wizaplace\Order\OrderService;
+use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Order\OrderService;
 
 final class ApiClientTest extends ApiTestCase
 {

@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\MailingList;
+namespace Wizaplace\SDK\MailingList;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\MailingList\Exception\MailingListDoesNotExist;
-use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\MailingList\Exception\MailingListDoesNotExist;
+use Wizaplace\SDK\MailingList\Exception\UserAlreadySubscribed;
 
 /**
  * Manages mailing lists and subscriptions

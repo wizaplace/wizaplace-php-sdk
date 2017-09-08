@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Image;
+namespace Wizaplace\SDK\Tests\Image;
 
-use Wizaplace\Image\ImageService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Image\ImageService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ImageServiceTest extends ApiTestCase
 {

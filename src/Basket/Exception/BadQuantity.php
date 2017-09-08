@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Basket\Exception;
+namespace Wizaplace\SDK\Basket\Exception;
 
 final class BadQuantity extends \Exception
 {

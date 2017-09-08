@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Seo;
+namespace Wizaplace\SDK\Seo;
 
-use Wizaplace\AbstractService;
+use Wizaplace\SDK\AbstractService;
 
 final class SeoService extends AbstractService
 {
