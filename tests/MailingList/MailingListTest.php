@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\MailingList;
+namespace Wizaplace\SDK\Tests\MailingList;
 
-use Wizaplace\MailingList\Exception\MailingListDoesNotExist;
-use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
-use Wizaplace\MailingList\MailingList;
-use Wizaplace\MailingList\MailingListService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\MailingList\Exception\MailingListDoesNotExist;
+use Wizaplace\SDK\MailingList\Exception\UserAlreadySubscribed;
+use Wizaplace\SDK\MailingList\MailingList;
+use Wizaplace\SDK\MailingList\MailingListService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class MailingListTest extends ApiTestCase
 {

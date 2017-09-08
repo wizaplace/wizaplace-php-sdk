@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Image;
+namespace Wizaplace\SDK\Image;
 
-use Wizaplace\AbstractService;
+use Wizaplace\SDK\AbstractService;
 
 final class ImageService extends AbstractService
 {

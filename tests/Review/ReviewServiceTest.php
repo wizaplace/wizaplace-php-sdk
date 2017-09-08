@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Review;
+namespace Wizaplace\SDK\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\Catalog\Review\ReviewService;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Catalog\Review\ReviewService;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ReviewServiceTest extends ApiTestCase
 {

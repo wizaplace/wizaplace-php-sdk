@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Order;
+namespace Wizaplace\SDK\Order;
 
 /**
- * @see \Wizaplace\Order\OrderService::createOrderReturn
+ * @see \Wizaplace\SDK\Order\OrderService::createOrderReturn
  */
 final class CreateOrderReturn
 {
@@ -31,7 +31,7 @@ final class CreateOrderReturn
 
     /**
      * @param string $declinationId The ID of a product declination which is part of the order.
-     * @param int $reason The rason ID. {@see \Wizaplace\Order\OrderService::getReturnReasons}
+     * @param int $reason The rason ID. {@see \Wizaplace\SDK\Order\OrderService::getReturnReasons}
      * @param int $amount The quantity of items to be returned.
      */
     public function addItem(string $declinationId, int $reason, int $amount): void
@@ -54,7 +54,7 @@ final class CreateOrderReturn
     }
 
     /**
-     * @see \Wizaplace\Order\CreateOrderReturn::addItem()
+     * @see \Wizaplace\SDK\Order\CreateOrderReturn::addItem()
      */
     public function getItems(): array
     {
