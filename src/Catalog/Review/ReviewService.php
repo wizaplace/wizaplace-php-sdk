@@ -113,6 +113,7 @@ final class ReviewService extends AbstractService
             if ($e->getCode() === 401) {
                 return false;
             }
+
             throw $e;
         }
 
