@@ -89,7 +89,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $order = $orderService->getOrder($orders[0]['id']);
         $this->assertSame($orders[0]['id'], $order->getId());
-        $this->assertSame(5, $order->getCompanyId());
+        $this->assertSame(7, $order->getCompanyId());
         $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
@@ -198,12 +198,12 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '2_7_1', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '2_9_1', 1));
 
         $basket = $basketService->getBasket($basketId);
 
-        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[7];
-        $this->assertSame(7, $declinationOption->getOptionId());
+        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[9];
+        $this->assertSame(9, $declinationOption->getOptionId());
         $this->assertSame('size', $declinationOption->getOptionName());
         $this->assertSame(1, $declinationOption->getVariantId());
         $this->assertSame('13', $declinationOption->getVariantName());
