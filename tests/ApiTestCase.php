@@ -117,7 +117,7 @@ abstract class ApiTestCase extends TestCase
     private function resetMarketplaceTestData() : ResponseInterface
     {
         $httpClient = new \GuzzleHttp\Client(['base_uri' => 'http://wizaplace.test/api/v1/']);
-        $client = new \Wizaplace\ApiClient($httpClient);
+        $client = new ApiClient($httpClient);
 
         return $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
     }
