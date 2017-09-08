@@ -116,7 +116,7 @@ abstract class ApiTestCase extends TestCase
         $client = new ApiClient($httpClient);
 
         $response = $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
-        
+
         if ($response->getStatusCode() !== 200) {
             throw new \Exception('Marketplace reset failed.');
         }
