@@ -4,6 +4,14 @@
 
 ### BREAKING CHANGES
 
+### New features
+
+### Bugfixes
+
+## 0.8.0
+
+### BREAKING CHANGES
+
 - Base namespace changed from `\Wizaplace` to `Wizaplace\SDK`
 - `\Wizaplace\SDK\Favorite\FavoriteService::isInFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
 - `\Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
@@ -17,8 +25,6 @@
 ### New features
 
 - `\Wizaplace\Catalog\ProductReport`'s API is now "fluent"
-
-### Bugfixes
 
 ## 0.7.4
 
