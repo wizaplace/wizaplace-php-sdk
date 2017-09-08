@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Seo;
+namespace Wizaplace\SDK\Tests\Seo;
 
-use Wizaplace\Seo\SeoService;
-use Wizaplace\Seo\SlugTarget;
-use Wizaplace\Seo\SlugTargetType;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Seo\SeoService;
+use Wizaplace\SDK\Seo\SlugTarget;
+use Wizaplace\SDK\Seo\SlugTargetType;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class SeoServiceTest extends ApiTestCase
 {

@@ -10,6 +10,8 @@ use VCR\VCR;
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
+error_reporting(-1);
+
 // Configure VCR
 ini_set('opcache.enable', '0');
 VCR::configure()->setMode(VCR::MODE_ONCE);

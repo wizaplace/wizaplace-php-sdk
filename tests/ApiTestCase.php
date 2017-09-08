@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
@@ -14,7 +14,7 @@ use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
 use VCR\VCR;
-use Wizaplace\ApiClient;
+use Wizaplace\SDK\ApiClient;
 
 abstract class ApiTestCase extends TestCase
 {

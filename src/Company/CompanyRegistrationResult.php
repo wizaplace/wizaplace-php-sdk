@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Company;
+namespace Wizaplace\SDK\Company;
 
 final class CompanyRegistrationResult
 {

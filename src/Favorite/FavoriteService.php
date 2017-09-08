@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Favorite;
+namespace Wizaplace\SDK\Favorite;
 
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
-use Wizaplace\Favorite\Exception\FavoriteAlreadyExist;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\DeclinationSummary;
+use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
+use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 
 /**
  * This service helps managing the favorite products of a user.
@@ -40,15 +40,14 @@ final class FavoriteService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function isInFavorites(int $declinationId) : bool
+    public function isInFavorites(string $declinationId) : bool
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations/ids', []);
         $isInFavorites = false;
         if ($results['count'] > 0) {
             foreach ($results['_embedded']['favorites'] as $result) {
-                $declination = explode('_', $result);
-                if ($declination[0] == $declinationId) {
+                if ($result == $declinationId) {
                     $isInFavorites = true;
                     break;
                 }
@@ -63,7 +62,7 @@ final class FavoriteService extends AbstractService
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(int $declinationId) : void
+    public function addDeclinationToUserFavorites(string $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -86,7 +85,7 @@ final class FavoriteService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function removeDeclinationToUserFavorites(int $declinationId) : void
+    public function removeDeclinationToUserFavorites(string $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         $this->client->rawRequest('delete', 'user/favorites/declinations/'.$declinationId);

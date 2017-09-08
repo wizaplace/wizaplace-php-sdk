@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Cms;
+namespace Wizaplace\SDK\Cms;
 
 final class Menu
 {

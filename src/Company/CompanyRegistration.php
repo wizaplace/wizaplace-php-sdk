@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Company;
+namespace Wizaplace\SDK\Company;
 
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
@@ -62,7 +62,7 @@ final class CompanyRegistration
 
     /**
      * @var array
-     * @see \Wizaplace\Company\CompanyRegistration::addFile
+     * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
      */
     private $files = [];
 

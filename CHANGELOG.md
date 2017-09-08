@@ -6,10 +6,38 @@
 
 ### New features
 
-- Added `\Wizaplace\User\User::getTitle`
-- Added (optional) `title` parameter to `\Wizaplace\User\UserService::updateUser`
+### Bugfixes
+
+## 0.8.0
+
+### BREAKING CHANGES
+
+- Base namespace changed from `\Wizaplace` to `Wizaplace\SDK`
+- `\Wizaplace\SDK\Favorite\FavoriteService::isInFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
+- `\Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
+- `\Wizaplace\SDK\Favorite\FavoriteService::removeDeclinationToUserFavorites` is now taking a `string $declinationId` parameter instead of a `int $declinationId` one.
+- `\Wizaplace\SDK\Order\Order::getStatus` is now returning an `\Wizaplace\SDK\Order\OrderStatus` instead of a string.
+- `\Wizaplace\SDK\User\UserService::updateUser` now takes a single `\Wizaplace\SDK\User\UpdateUserCommand` instead of multiple parameters
+- `\Wizaplace\SDK\User\User::getBillingAddress` now returns a `\Wizaplace\SDK\User\UserAddress` instead of an array
+- `\Wizaplace\SDK\User\User::getShippingAddress` now returns a `\Wizaplace\SDK\User\UserAddress` instead of an array
+- `\Wizaplace\SDK\User\UserService::updateUserAdresses` now takes a `\Wizaplace\SDK\User\UpdateUserAddressesCommand`
+
+### New features
+
+- `\Wizaplace\Catalog\ProductReport`'s API is now "fluent"
+
+## 0.7.4
 
 ### Bugfixes
+
+- `\Wizaplace\Order\OrderService::getOrderReturns` now uses the right API endpoint (it was systematically throwing 404 errors before)
+
+## 0.7.3
+
+### New features
+
+- Added `\Wizaplace\User\User::getTitle`
+- Added (optional) `title` parameter to `\Wizaplace\User\UserService::updateUser`
 
 ## 0.7.2
 

@@ -6,7 +6,7 @@
 declare(strict_types = 1);
 
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
 final class Option implements \JsonSerializable
 {

@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Exception;
+namespace Wizaplace\SDK\Exception;
 
 final class JsonDecodingError extends \Exception
 {

@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Cms;
+namespace Wizaplace\SDK\Cms;
 
 use GuzzleHttp\Psr7\Uri;
-use Wizaplace\AbstractService;
+use Wizaplace\SDK\AbstractService;
 
 final class CmsService extends AbstractService
 {

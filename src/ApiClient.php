@@ -5,16 +5,16 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace;
+namespace Wizaplace\SDK;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
-use Wizaplace\Authentication\ApiKey;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Authentication\BadCredentials;
-use Wizaplace\Exception\JsonDecodingError;
+use Wizaplace\SDK\Authentication\ApiKey;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Exception\JsonDecodingError;
 
 final class ApiClient
 {

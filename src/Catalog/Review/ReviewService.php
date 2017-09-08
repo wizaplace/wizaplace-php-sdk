@@ -5,11 +5,11 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog\Review;
+namespace Wizaplace\SDK\Catalog\Review;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Exception\NotFound;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\NotFound;
 
 /**
  * This service helps getting and creating reviews for products or companies
