@@ -43,13 +43,10 @@ final class MailingListService extends AbstractService
             switch ($e->getResponse()->getStatusCode()) {
                 case 404:
                     throw new MailingListDoesNotExist("Mailing list #{$mailingListId} does not exist", $e);
-                    break;
                 case 409:
                     throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
-                    break;
                 default:
                     throw $e;
-                    break;
             }
         }
     }

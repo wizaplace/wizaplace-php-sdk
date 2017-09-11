@@ -30,7 +30,7 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
             unset($headers['User-Agent']);
         }
 
-        return $headersBags[0] == $headersBags[1];
+        return $headersBags[0] === $headersBags[1];
     })
     ->addRequestMatcher('body_custom_matcher', static function (Request $first, Request $second) : bool {
         $data = array_map(static function (Request $req) : array {
