@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 06 Sep 2017 14:55:50 GMT'
+            Date: 'Mon, 11 Sep 2017 07:29:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f6780f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f6780f'
+            X-Debug-Token: 05317f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/05317f'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"uRBNlONp9ckeXVflk+Fjz3BdyAfPTZhdZWF72uCR"}'
+        body: '{"id":3,"apiKey":"CU8Z2bm1WbgtK7wmQx8ga7emPt6SLS170+WIATqf"}'
 -
     request:
         method: GET
@@ -31,8 +31,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token uRBNlONp9ckeXVflk+Fjz3BdyAfPTZhdZWF72uCR'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token CU8Z2bm1WbgtK7wmQx8ga7emPt6SLS170+WIATqf'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 06 Sep 2017 14:55:51 GMT'
+            Date: 'Mon, 11 Sep 2017 07:29:24 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c5c359
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5c359'
+            X-Debug-Token: 9ca8ba
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9ca8ba'
             Content-Length: '625'
             Content-Type: application/json
-        body: '{"id":1,"basketId":"02bd3c7f-4016-4dc3-999a-201b573426df","companyId":5,"total":20,"taxTotal":0.41,"subtotal":20,"timestamp":1504707391,"status":"STANDBY_BILLING","shippingName":"TNT Express","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"9_0","productName":"Test product","productCode":"5817693152955","price":20,"amount":1,"options":[]}]}'
+        body: '{"id":1,"basketId":"d6ea25cd-69ae-430f-9086-a823f47b5aa9","companyId":5,"total":20,"taxTotal":0.41,"subtotal":20,"timestamp":1505114958,"status":"STANDBY_BILLING","shippingName":"TNT Express","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"9_0","productName":"Test product","productCode":"5817693152955","price":20,"amount":1,"options":[]}]}'

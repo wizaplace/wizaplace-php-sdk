@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:55 GMT'
+            Date: 'Mon, 11 Sep 2017 07:25:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 9d28a3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9d28a3'
-            Content-Length: '61'
+            X-Debug-Token: 5ac92c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ac92c'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS\/6sYz"}'
+        body: '{"id":3,"apiKey":"Lg2gxVkstQ7uVX5tGMTsq64BhwJh1py38aLo+7Ia"}'
 -
     request:
         method: POST
@@ -32,9 +32,9 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            Authorization: 'token Lg2gxVkstQ7uVX5tGMTsq64BhwJh1py38aLo+7Ia'
             VCR-index: '1'
             Accept: null
         body: '{"productId":42}'
@@ -44,11 +44,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:55 GMT'
+            Date: 'Mon, 11 Sep 2017 07:25:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: bc08bf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bc08bf'
-            Content-Length: '50'
+            X-Debug-Token: fbd8a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fbd8a2'
+            Content-Length: '46'
             Content-Type: application/json
-        body: '{"message":"The productId 42 has not been found."}'
+        body: '{"message":"Product \u002242\u0022 not found"}'

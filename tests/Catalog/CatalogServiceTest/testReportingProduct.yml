@@ -18,10 +18,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Fri, 08 Sep 2017 09:17:09 GMT'
+            Date: 'Mon, 11 Sep 2017 07:22:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: d879b7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d879b7'
+            X-Debug-Token: c9fcda
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c9fcda'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

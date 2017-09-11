@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:17:07 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:58 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: de1303
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/de1303'
+            X-Debug-Token: 2bd178
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2bd178'
             Content-Length: '201'
             Content-Type: application/json
         body: '{"id":4,"name":"C2C company","description":"C2C company","address":"","phoneNumber":"","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'

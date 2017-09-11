@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:17:07 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:50 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0c7822
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0c7822'
+            X-Debug-Token: dedc8e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dedc8e'
             Content-Length: '259'
             Content-Type: application/json
         body: '{"id":5,"name":"Company with reviews","description":"Company with reviews","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"company-with-reviews","image":null,"location":null,"averageRating":2,"terms":"Lorem Ipsum"}'
@@ -39,11 +39,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:17:07 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:50 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 60c09d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/60c09d'
+            X-Debug-Token: 48ab7e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48ab7e'
             Content-Length: '297'
             Content-Type: application/json
         body: '{"id":6,"name":"Company with geoloc","description":"Company with geoloc","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"company-with-geoloc","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":null,"terms":"Lorem Ipsum"}'

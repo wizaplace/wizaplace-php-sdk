@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 11 Jul 2017 13:15:40 GMT'
+            Date: 'Mon, 11 Sep 2017 07:31:34 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: cabdd4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cabdd4'
+            X-Debug-Token: ccb369
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ccb369'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"qLtkH+Vcy0z\/6nUGB0XFdyoIdvRBQdtmssPsuZTS"}'
+        body: '{"id":3,"apiKey":"XVhzDTm6QqIya3aHx5bQGJpXcozwLw02lD\/Dktzo"}'
 -
     request:
         method: POST
@@ -32,23 +32,23 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token qLtkH+Vcy0z/6nUGB0XFdyoIdvRBQdtmssPsuZTS'
+            Authorization: 'token XVhzDTm6QqIya3aHx5bQGJpXcozwLw02lD/Dktzo'
             VCR-index: '1'
             Accept: null
         body: '{"message":"test company review","rating":1}'
     response:
         status:
             http_version: '1.1'
-            code: '201'
-            message: Created
+            code: '403'
+            message: Forbidden
         headers:
-            Date: 'Tue, 11 Jul 2017 13:15:40 GMT'
+            Date: 'Mon, 11 Sep 2017 07:31:34 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: fda920
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fda920'
-            Content-Length: '151'
+            X-Debug-Token: e8583c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e8583c'
+            Content-Length: '89'
             Content-Type: application/json
-        body: '{"author":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"test company review","rating":1,"postedAt":"2017-07-11T15:15:40+02:00"}'
+        body: '{"message":"user \u00223\u0022 unauthorized : must have made a purchase to the company."}'

@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:30:07 GMT'
+            Date: 'Mon, 11 Sep 2017 07:24:35 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dcb0e3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dcb0e3'
+            X-Debug-Token: c6d213
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6d213'
             Content-Length: '133'
             Content-Type: application/json
         body: '{"id":31,"title":"Test Cms Page Slug","content":"","metaTitle":"","metaDescription":"","metaKeywords":"","slug":"test-cms-page-slug"}'

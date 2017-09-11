@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:04 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6e1a31
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e1a31'
+            X-Debug-Token: acd0a5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/acd0a5'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E"}'
+        body: '{"id":2,"apiKey":"2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ"}'
 -
     request:
         method: POST
@@ -33,7 +33,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E'
+            Authorization: 'token 2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,11 +42,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:05 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 96a1b5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/96a1b5'
+            X-Debug-Token: e57b4c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e57b4c'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -58,7 +58,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E'
+            Authorization: 'token 2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ'
             VCR-index: '2'
             Accept: null
     response:
@@ -67,11 +67,11 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:05 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 803e0f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/803e0f'
+            X-Debug-Token: fdf4aa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fdf4aa'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
@@ -82,7 +82,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E'
+            Authorization: 'token 2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ'
             VCR-index: '3'
             Accept: null
     response:
@@ -91,11 +91,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:05 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:09 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 75191f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/75191f'
+            X-Debug-Token: f1a35d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f1a35d'
             Content-Length: '50'
             Content-Type: application/json
         body: '{"total":0,"count":0,"_embedded":{"favorites":[]}}'
@@ -107,7 +107,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E'
+            Authorization: 'token 2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ'
             VCR-index: '4'
             Accept: null
     response:
@@ -116,11 +116,11 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:05 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:09 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 69196d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/69196d'
+            X-Debug-Token: 6d07b3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d07b3'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
@@ -131,7 +131,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token xnE4WwIftpMHBIKWmN0gmsk1gAnyHwzCfZuWqO+E'
+            Authorization: 'token 2RtIwR387a56jGnyFTQUQzgTV1DpvAjBowtKp0KZ'
             VCR-index: '5'
             Accept: null
     response:
@@ -140,10 +140,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Fri, 08 Sep 2017 14:01:06 GMT'
+            Date: 'Mon, 11 Sep 2017 07:28:09 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '8184e0'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8184e0'
+            X-Debug-Token: 680cd2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/680cd2'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

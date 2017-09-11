@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:23:40 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:07 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 8d9285
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8d9285'
-            Content-Length: '61'
+            X-Debug-Token: 3c53fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3c53fd'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"0EiX6uQEyLH1nTv3EK4lg3HBQmoLUYWo8T06\/vr8"}'
+        body: '{"id":2,"apiKey":"dAubsqDjRAGcKsV4oQ6wJJIhVayI71txsgpbFdT3"}'
 -
     request:
         method: POST
@@ -33,7 +33,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 0EiX6uQEyLH1nTv3EK4lg3HBQmoLUYWo8T06/vr8'
+            Authorization: 'token dAubsqDjRAGcKsV4oQ6wJJIhVayI71txsgpbFdT3'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +42,25 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 08 Sep 2017 09:23:40 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 22c683
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/22c683'
+            X-Debug-Token: acbaa6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/acbaa6'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"30c7ae50-7a2a-4d44-b394-c7d206734e09"'
+        body: '"d83e313f-d615-4e5c-bde3-e3db1e9af3d0"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/30c7ae50-7a2a-4d44-b394-c7d206734e09/add'
+        url: 'http://wizaplace.loc/api/v1/basket/d83e313f-d615-4e5c-bde3-e3db1e9af3d0/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token 0EiX6uQEyLH1nTv3EK4lg3HBQmoLUYWo8T06/vr8'
+            Authorization: 'token dAubsqDjRAGcKsV4oQ6wJJIhVayI71txsgpbFdT3'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=2_9_1&quantity=1'
@@ -70,23 +70,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:23:40 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 07f7c8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/07f7c8'
+            X-Debug-Token: '309061'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/309061'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/30c7ae50-7a2a-4d44-b394-c7d206734e09'
+        url: 'http://wizaplace.loc/api/v1/basket/d83e313f-d615-4e5c-bde3-e3db1e9af3d0'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 0EiX6uQEyLH1nTv3EK4lg3HBQmoLUYWo8T06/vr8'
+            Authorization: 'token dAubsqDjRAGcKsV4oQ6wJJIhVayI71txsgpbFdT3'
             VCR-index: '3'
             Accept: null
     response:
@@ -95,11 +95,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Sep 2017 09:23:41 GMT'
+            Date: 'Mon, 11 Sep 2017 07:20:08 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 90fdc7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90fdc7'
+            X-Debug-Token: a67a85
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a67a85'
             Content-Length: '1125'
             Content-Type: application/json
-        body: '{"id":"30c7ae50-7a2a-4d44-b394-c7d206734e09","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":8,"name":"Test company","slug":"test-company-2"},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"2_9_1","productId":2,"productName":"\u00c9cran","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecran.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":20,"mainImage":null,"quantity":1,"total":15.5,"options":{"9":{"optionId":9,"optionName":"size","variantId":1,"variantName":"13"}}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1}'
+        body: '{"id":"d83e313f-d615-4e5c-bde3-e3db1e9af3d0","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":8,"name":"Test company","slug":"test-company-2"},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"2_9_1","productId":2,"productName":"\u00c9cran","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecran.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":20,"mainImage":null,"quantity":1,"total":15.5,"options":{"9":{"optionId":9,"optionName":"size","variantId":1,"variantName":"13"}}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1}'
