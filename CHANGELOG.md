@@ -6,6 +6,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\MailingList\MailingListService::isSubscribed`
+
 ### Bugfixes
 
 ## 0.8.0
