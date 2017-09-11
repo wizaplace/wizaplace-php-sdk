@@ -1,5 +1,5 @@
 {
     "require": {
-        "wizaplace/php-coding-standard": "^1.0"
+        "wizaplace/php-coding-standard": "^1.1.2"
     }
 }
