@@ -12,7 +12,6 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
 use VCR\VCR;
 use Wizaplace\SDK\ApiClient;
 
@@ -71,11 +70,7 @@ abstract class ApiTestCase extends TestCase
         if (!$this->currentCassetteExists()) {
             // ...on ré-initialise les données de la marketplace
             // pour une génération idempotente de la cassette.
-            $response = $this->resetMarketplaceTestData();
-
-            if ($response->getStatusCode() !== 200) {
-                throw new \Exception('Marketplace reset before cassette generation failed.');
-            }
+            $this->resetMarketplaceTestData();
         }
 
         VCR::turnOn();
@@ -109,16 +104,20 @@ abstract class ApiTestCase extends TestCase
         parent::tearDown();
     }
 
-    private function currentCassetteExists() : bool
+    private function currentCassetteExists(): bool
     {
         return file_exists(sprintf("%s/%s", $this->cassettePath, $this->cassetteName));
     }
 
-    private function resetMarketplaceTestData() : ResponseInterface
+    private function resetMarketplaceTestData(): void
     {
         $httpClient = new \GuzzleHttp\Client(['base_uri' => 'http://wizaplace.test/api/v1/']);
         $client = new ApiClient($httpClient);
 
-        return $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
+        $response = $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
+
+        if ($response->getStatusCode() !== 200) {
+            throw new \Exception('Marketplace reset failed.');
+        }
     }
 }

@@ -53,3 +53,5 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
         return $data[0]['body'] === $data[1]['body'];
     })
     ->enableRequestMatchers(array('method', 'url', 'query_string', 'body_custom_matcher', 'post_fields', 'headers_custom_matcher'));
+VCR::turnOn();
+VCR::turnOff();
