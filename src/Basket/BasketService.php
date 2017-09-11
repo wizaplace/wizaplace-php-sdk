@@ -208,7 +208,8 @@ final class BasketService extends AbstractService
 
             if (404 === $code) {
                 throw new NotFound('Basket not found', $ex);
-            } elseif (409 == $code) {
+            }
+            if (409 === $code) {
                 throw new CouponAlreadyPresent('Coupon exist', $code, $ex);
             }
 
@@ -313,7 +314,8 @@ final class BasketService extends AbstractService
 
             if (404 === $code) {
                 throw new NotFound('Basket not found', $ex);
-            } elseif (400 === $code) {
+            }
+            if (400 === $code) {
                 throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
             }
 
