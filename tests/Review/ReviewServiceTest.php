@@ -90,7 +90,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToCompany()
     {
-        $this->reviewService->reviewCompany(4, 'test company review', 1);
+        $this->reviewService->reviewCompany(5, 'test company review', 1);
 
         $this->assertCount(2, static::$historyContainer);
     }
