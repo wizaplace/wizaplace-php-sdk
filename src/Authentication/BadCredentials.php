@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Authentication;
+namespace Wizaplace\SDK\Authentication;
 
 final class BadCredentials extends \Exception
 {

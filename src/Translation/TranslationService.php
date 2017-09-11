@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Translation;
+namespace Wizaplace\SDK\Translation;
 
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\StreamInterface;
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\User\ApiKey;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\User\ApiKey;
 
 final class TranslationService extends AbstractService
 {

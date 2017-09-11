@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\MailingList;
+namespace Wizaplace\SDK\MailingList;
 
 final class MailingList
 {

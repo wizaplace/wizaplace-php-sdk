@@ -10,6 +10,8 @@ use VCR\VCR;
 
 require_once(__DIR__.'/../vendor/autoload.php');
 
+error_reporting(-1);
+
 // Configure VCR
 ini_set('opcache.enable', '0');
 VCR::configure()->setMode(VCR::MODE_ONCE);
@@ -51,3 +53,5 @@ VCR::configure()->enableLibraryHooks(['stream_wrapper', 'curl'])
         return $data[0]['body'] === $data[1]['body'];
     })
     ->enableRequestMatchers(array('method', 'url', 'query_string', 'body_custom_matcher', 'post_fields', 'headers_custom_matcher'));
+VCR::turnOn();
+VCR::turnOff();

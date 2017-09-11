@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\User;
+namespace Wizaplace\SDK\User;
 
 final class User
 {
@@ -19,9 +19,9 @@ final class User
     private $firstname;
     /** @var string */
     private $lastname;
-    /** @var array */
+    /** @var UserAddress|null */
     private $billingAddress;
-    /** @var array */
+    /** @var UserAddress|null */
     private $shippingAddress;
 
     /**
@@ -34,8 +34,8 @@ final class User
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstname = (string) $data['firstName'];
         $this->lastname = (string) $data['lastName'];
-        $this->billingAddress = $data['addresses']['billing'] ?? [];
-        $this->shippingAddress = $data['addresses']['shipping'] ?? [];
+        $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
+        $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
     }
 
     public function getId(): int
@@ -63,12 +63,12 @@ final class User
         return $this->lastname;
     }
 
-    public function getBillingAddress(): array
+    public function getBillingAddress(): ?UserAddress
     {
         return $this->billingAddress;
     }
 
-    public function getShippingAddress(): array
+    public function getShippingAddress(): ?UserAddress
     {
         return $this->shippingAddress;
     }

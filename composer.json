@@ -10,7 +10,7 @@
         "myclabs/php-enum": "^1.5"
     },
     "autoload": {
-        "psr-4": {"Wizaplace\\": "src/"}
+        "psr-4": {"Wizaplace\\SDK\\": "src/"}
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1",
@@ -21,6 +21,6 @@
         "roave/security-advisories": "dev-master"
     },
     "autoload-dev": {
-        "psr-4": { "Wizaplace\\Tests\\": "tests/" }
+        "psr-4": { "Wizaplace\\SDK\\Tests\\": "tests/" }
     }
 }

@@ -5,16 +5,16 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Basket;
+namespace Wizaplace\SDK\Basket;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Basket\Exception\BadQuantity;
-use Wizaplace\Basket\Exception\CouponAlreadyPresent;
-use Wizaplace\Basket\Exception\CouponNotInTheBasket;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Basket\Exception\BadQuantity;
+use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
+use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
  * This service helps creating orders through a basket.

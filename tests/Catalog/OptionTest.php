@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
-use Wizaplace\Catalog\Option;
+use Wizaplace\SDK\Catalog\Option;
 
 final class OptionTest extends TestCase
 {

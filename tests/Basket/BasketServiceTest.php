@@ -5,11 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Basket;
+namespace Wizaplace\SDK\Tests\Basket;
 
-use Wizaplace\Basket\BasketService;
-use Wizaplace\Order\OrderService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Order\OrderService;
+use Wizaplace\SDK\Order\OrderStatus;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
  * @see BasketService
@@ -90,7 +91,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame($orders[0]['id'], $order->getId());
         $this->assertSame(5, $order->getCompanyId());
         $this->assertSame('TNT Express', $order->getShippingName());
-        $this->assertSame('STANDBY_BILLING', $order->getStatus());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
         $this->assertSame(40.0, $order->getTotal());
         $this->assertSame(40.0, $order->getSubtotal());

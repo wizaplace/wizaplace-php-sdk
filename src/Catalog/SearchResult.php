@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Pagination;
+use Wizaplace\SDK\Pagination;
 
 final class SearchResult
 {

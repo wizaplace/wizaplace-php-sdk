@@ -1,6 +1,6 @@
 PHP SDK for the Wizaplace e-commerce API: https://sandbox.wizaplace.com/api/v1/doc/
 
-## Install
+## Installation
 
 ```
 composer require wizaplace/sdk
@@ -8,17 +8,27 @@ composer require wizaplace/sdk
 
 ## Usage
 
-You can find some small examples there: [Wizaplace\Tests\ExampleTest](./tests/ExampleTest.php)
+You can find some small examples there: [Wizaplace\SDK\Tests\ExampleTest](./tests/ExampleTest.php)
 
-## Running linters and tests
+## Development
 
-### With Docker
+### Running linters and tests
+
+#### With Docker
 
 ```bash
 ./docker-make all
 ```
 
-### Without Docker
+#### With Vagrant
+
+```
+vagrant up
+vagrant ssh
+make all
+```
+
+#### Directly on your machine
 
 Requires Make, Composer, and all dependencies defined in [`composer.json`](/composer.json).
 
@@ -26,7 +36,7 @@ Requires Make, Composer, and all dependencies defined in [`composer.json`](/comp
 make all
 ```
 
-## `php-vcr` behaviour
+### `php-vcr` behaviour
 
 Any changes to an API call in a tested method will make regenerate the cassette files (this needs the tests to be run twice). Those changes need to be committed alongside your code.
 

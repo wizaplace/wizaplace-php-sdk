@@ -5,13 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Exception\SomeParametersAreInvalid;
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Image\Image;
 
 final class CatalogService extends AbstractService
 {

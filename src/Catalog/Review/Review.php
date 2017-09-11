@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog\Review;
+namespace Wizaplace\SDK\Catalog\Review;
 
 final class Review
 {

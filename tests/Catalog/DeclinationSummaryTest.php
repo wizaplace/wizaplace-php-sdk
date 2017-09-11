@@ -5,14 +5,14 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
-use Wizaplace\Catalog\CompanySummary;
-use Wizaplace\Catalog\DeclinationOption;
-use Wizaplace\Catalog\DeclinationSummary;
-use Wizaplace\Catalog\ProductCategory;
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\Catalog\CompanySummary;
+use Wizaplace\SDK\Catalog\DeclinationOption;
+use Wizaplace\SDK\Catalog\DeclinationSummary;
+use Wizaplace\SDK\Catalog\ProductCategory;
+use Wizaplace\SDK\Image\Image;
 
 final class DeclinationSummaryTest extends TestCase
 {

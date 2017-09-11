@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Cms;
+namespace Wizaplace\SDK\Tests\Cms;
 
-use Wizaplace\Cms\BannerService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Cms\BannerService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class BannerServiceTest extends ApiTestCase
 {

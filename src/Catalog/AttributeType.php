@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
 use MyCLabs\Enum\Enum;
 

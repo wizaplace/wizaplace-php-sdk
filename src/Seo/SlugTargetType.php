@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Seo;
+namespace Wizaplace\SDK\Seo;
 
 use MyCLabs\Enum\Enum;
 

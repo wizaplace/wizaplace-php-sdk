@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Order;
+namespace Wizaplace\SDK\Order;
 
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 
 /**
  * This service helps retrieve and manage orders that already exist.
@@ -67,7 +67,7 @@ final class OrderService extends AbstractService
     public function getOrderReturns(): array
     {
         $this->client->mustBeAuthenticated();
-        $data = $this->client->get("user/returns", []);
+        $data = $this->client->get("user/orders/returns", []);
         $orderReturns = array_map(static function (array $orderReturn) : OrderReturn {
             return new OrderReturn($orderReturn);
         }, $data);
@@ -83,7 +83,7 @@ final class OrderService extends AbstractService
     public function getReturnReasons(): array
     {
         return array_map(
-            ['Wizaplace\Order\ReturnReason', 'fromApiData'],
+            ['Wizaplace\SDK\Order\ReturnReason', 'fromApiData'],
             $this->client->get('orders/returns/reasons')
         );
     }
