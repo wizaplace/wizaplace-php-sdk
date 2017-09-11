@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\Translation\TranslationService::pushXliffCatalog` now uses a `$password` parameter instead of the apiClient authentication
+
 ### New features
 
 ### Bugfixes
