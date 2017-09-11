@@ -6,6 +6,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\CompanySummary::isProfessional`
+- Added `\Wizaplace\SDK\Catalog\CompanySummary::getAverageRating`
+
 ### Bugfixes
 
 ## 0.8.0
