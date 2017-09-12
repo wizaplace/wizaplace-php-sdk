@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 08:06:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:58:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2e4cfa
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e4cfa'
+            X-Debug-Token: 224a0f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/224a0f'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"s9SGLGYNVKdHF4LMy3ADwNezpRCpk6cABJcr5Hg7"}'
+        body: '{"id":7,"apiKey":"y+Cw6tVIHut0vtytBfMsvM1NBpH6Zkzesqql1Xob"}'
 -
     request:
         method: GET
@@ -32,7 +32,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token s9SGLGYNVKdHF4LMy3ADwNezpRCpk6cABJcr5Hg7'
+            Authorization: 'token y+Cw6tVIHut0vtytBfMsvM1NBpH6Zkzesqql1Xob'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Tue, 12 Sep 2017 08:06:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:59:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b97b4f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b97b4f'
+            X-Debug-Token: 0f3233
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f3233'
             Content-Length: '48'
             Content-Type: application/json
         body: '{"message":"Discussion \u00222\u0022 not found"}'

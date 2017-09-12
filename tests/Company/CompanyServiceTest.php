@@ -118,7 +118,7 @@ final class CompanyServiceTest extends ApiTestCase
     private function buildUserCompanyService(): CompanyService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-3@world-company.com', 'password-customer-3');
 
         return new CompanyService($apiClient);
     }

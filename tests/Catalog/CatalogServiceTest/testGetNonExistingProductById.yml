@@ -15,11 +15,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 11 Sep 2017 07:20:33 GMT'
+            Date: 'Tue, 12 Sep 2017 14:51:31 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: d786a7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d786a7'
+            X-Debug-Token: 3edbe4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3edbe4'
             Content-Length: '31'
             Content-Type: application/json
         body: '{"message":"Product not found"}'

@@ -17,7 +17,7 @@ final class ApiClientTest extends ApiTestCase
         $apiClient = $this->buildApiClient();
         $orderService = new OrderService($apiClient);
 
-        $apiKey = $apiClient->authenticate("admin@wizaplace.com", "password");
+        $apiKey = $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $this->assertNotNull($apiKey);
 
         // Test an authenticated call.

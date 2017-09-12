@@ -16,11 +16,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 11 Sep 2017 07:29:15 GMT'
+            Date: 'Tue, 12 Sep 2017 15:02:32 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ab04b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab04b8'
+            X-Debug-Token: 744a6b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/744a6b'
             Content-Length: '91'
             Content-Type: application/json
         body: '{"message":"Cannot subscribe user@wizaplace.com to mailing list 2, mailing list not found"}'

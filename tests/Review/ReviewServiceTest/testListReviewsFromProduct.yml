@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:30:36 GMT'
+            Date: 'Tue, 12 Sep 2017 15:04:18 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0623c7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0623c7'
-            Content-Length: '60'
+            X-Debug-Token: 9b4e40
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9b4e40'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"3kwhblKVDi3fRKhOM40u0IBDvQIHcQRPQ6fAQLnL"}'
+        body: '{"id":7,"apiKey":"sYiKyFSL3lByM+\/Lu10qBgcViZ97OozYrIQ6xjuX"}'
 -
     request:
         method: GET
@@ -32,7 +32,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 3kwhblKVDi3fRKhOM40u0IBDvQIHcQRPQ6fAQLnL'
+            Authorization: 'token sYiKyFSL3lByM+/Lu10qBgcViZ97OozYrIQ6xjuX'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:30:36 GMT'
+            Date: 'Tue, 12 Sep 2017 15:04:18 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 85a4e8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/85a4e8'
-            Content-Length: '253'
+            X-Debug-Token: ac74e2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac74e2'
+            Content-Length: '227'
             Content-Type: application/json
-        body: '[{"author":"Administrateur Wizaplace","message":"this is a test message","postedAt":"2017-09-11T09:30:34+02:00","rating":4},{"author":"Administrateur Wizaplace","message":"this is a test message again","postedAt":"2017-09-11T09:30:34+02:00","rating":1}]'
+        body: '[{"author":"Michael Jordan","message":"Very good product \u003C3","postedAt":"2017-09-12T17:04:16+02:00","rating":4},{"author":"Dave Matthews","message":"I try to forget it !","postedAt":"2017-09-12T17:04:16+02:00","rating":1}]'

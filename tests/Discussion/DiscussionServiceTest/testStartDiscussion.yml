@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 08:05:43 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a48816
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a48816'
-            Content-Length: '63'
+            X-Debug-Token: a0acf3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0acf3'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"V7\/UaJyjjyLgyiFcXAsyEh\/\/1TIA+uzqHfLZYWSD"}'
+        body: '{"id":7,"apiKey":"U5sEtkiwxrbk1QP5tx2M9PeHIBRF3F0a0f77UiAT"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token V7/UaJyjjyLgyiFcXAsyEh//1TIA+uzqHfLZYWSD'
+            Authorization: 'token U5sEtkiwxrbk1QP5tx2M9PeHIBRF3F0a0f77UiAT'
             VCR-index: '1'
             Accept: null
         body: '{"productId":1}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 08:05:44 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0d4aa4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d4aa4'
+            X-Debug-Token: fc9abb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc9abb'
             Content-Length: '143'
             Content-Type: application/json
         body: '{"id":2,"recipient":"The World Company Inc.","productId":1,"title":"A propos du produit Z11 Plus Bo\u00eetier PC en Acier ATX","unreadCount":0}'

@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 08:06:18 GMT'
+            Date: 'Tue, 12 Sep 2017 14:58:27 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 7aade2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7aade2'
-            Content-Length: '60'
+            X-Debug-Token: 4fa820
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4fa820'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"PZVEaKeVgZivFKNvuKHqYoGKgQrglVm6qU3xtSsx"}'
+        body: '{"id":7,"apiKey":"7IUYEoxo8nohbMM\/Yq88xxpgCYjbxi0j898y1Hle"}'
 -
     request:
         method: GET
@@ -32,7 +32,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token PZVEaKeVgZivFKNvuKHqYoGKgQrglVm6qU3xtSsx'
+            Authorization: 'token 7IUYEoxo8nohbMM/Yq88xxpgCYjbxi0j898y1Hle'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 08:06:19 GMT'
+            Date: 'Tue, 12 Sep 2017 14:58:27 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c4a101
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c4a101'
+            X-Debug-Token: cb02e5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb02e5'
             Content-Length: '130'
             Content-Type: application/json
         body: '{"id":1,"recipient":"The World Company Inc.","productId":"4","title":"A propos du produit Product with shippings","unreadCount":0}'

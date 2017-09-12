@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:31:26 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '40e924'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/40e924'
+            X-Debug-Token: 66697b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/66697b'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"7GXWZfuQSGK5i8b+SNpMCacF6XejR23kms7CQ2q0"}'
+        body: '{"id":7,"apiKey":"J08PdzJIQ5WTsMRQMf3inhacZXlUNuz8lg8ESFy5"}'
 -
     request:
         method: GET
@@ -32,7 +32,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 7GXWZfuQSGK5i8b+SNpMCacF6XejR23kms7CQ2q0'
+            Authorization: 'token J08PdzJIQ5WTsMRQMf3inhacZXlUNuz8lg8ESFy5'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:31:26 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ef630d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ef630d'
+            X-Debug-Token: f0b964
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0b964'
             Content-Length: '37'
             Content-Type: application/json
         body: '{"averageRating":null,"_embedded":[]}'

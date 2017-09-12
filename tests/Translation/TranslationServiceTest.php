@@ -15,7 +15,7 @@ final class TranslationServiceTest extends ApiTestCase
     public function testPushXliffCatalog()
     {
         $client = $this->buildApiClient();
-        $client->authenticate("admin@wizaplace.com", "password");
+        $client->authenticate('admin@world-company.com', 'password-admin');
 
         $xliff = <<<XLIFF
 <?xml version="1.0" encoding="utf-8"?>

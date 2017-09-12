@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,23 +16,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:31:50 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:56 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c60402
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c60402'
-            Content-Length: '60'
+            X-Debug-Token: c54920
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c54920'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"ysTcB0Dfzz5Ak6mqQXOD2YSvyRaqKTfGCMVYCzcn"}'
+        body: '{"id":7,"apiKey":"ga54\/NBhdWxam7a3LJgY7byDJWfcmvGNL0gjBA+m"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/5/reviews/authorized'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3/reviews/authorized'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token ysTcB0Dfzz5Ak6mqQXOD2YSvyRaqKTfGCMVYCzcn'
+            Authorization: 'token ga54/NBhdWxam7a3LJgY7byDJWfcmvGNL0gjBA+m'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,10 +41,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 11 Sep 2017 07:31:51 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:56 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 4c3526
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4c3526'
+            X-Debug-Token: 01a098
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/01a098'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

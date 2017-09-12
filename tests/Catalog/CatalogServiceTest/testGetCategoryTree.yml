@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:21:15 GMT'
+            Date: 'Tue, 12 Sep 2017 14:52:24 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 39dbfe
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39dbfe'
-            Content-Length: '806'
+            X-Debug-Token: 8cc419
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8cc419'
+            Content-Length: '700'
             Content-Type: application/json
-        body: '[{"category":{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0},"children":[]},{"category":{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"informatique","image":null,"position":0,"productCount":3},"children":[{"category":{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"ecrans","image":null,"position":0,"productCount":2},"children":[]}]},{"category":{"id":5,"parentId":null,"name":"Test Category Slug","description":"","slug":"test-category-slug","image":null,"position":0,"productCount":3},"children":[]},{"category":{"id":6,"parentId":null,"name":"Test category","description":"","slug":"test-category","image":null,"position":0,"productCount":1},"children":[]}]'
+        body: '[{"category":{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0},"children":[]},{"category":{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"informatique","image":null,"position":0,"productCount":2},"children":[{"category":{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"ecrans","image":null,"position":0,"productCount":1},"children":[]}]},{"category":{"id":5,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests","image":null,"position":0,"productCount":3},"children":[]}]'

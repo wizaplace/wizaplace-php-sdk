@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:24:53 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: bccd8d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bccd8d'
-            Content-Length: '62'
+            X-Debug-Token: fc25d4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc25d4'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"E1wdn8ZgcEwX0RepOtLK3d0yZCyo\/yM\/NRO9l1dC"}'
+        body: '{"id":9,"apiKey":"GZKawhV2vPkf\/feLV5BN2JaJKNkLnFbvx8yMw9LZ"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token E1wdn8ZgcEwX0RepOtLK3d0yZCyo/yM/NRO9l1dC'
+            Authorization: 'token GZKawhV2vPkf/feLV5BN2JaJKNkLnFbvx8yMw9LZ'
             VCR-index: '1'
             Accept: null
         body: '{"name":"ACME Test Inc","email":"acme@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 07:24:53 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:01 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 39b335
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39b335'
-            Content-Length: '265'
+            X-Debug-Token: 6bd687
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6bd687'
+            Content-Length: '264'
             Content-Type: application/json
-        body: '{"id":14,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":""}'
+        body: '{"id":5,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":""}'

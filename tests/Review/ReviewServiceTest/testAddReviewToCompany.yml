@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,25 +16,25 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 08:02:34 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:34 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2ad4ee
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2ad4ee'
+            X-Debug-Token: 3d2296
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3d2296'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"7G9ZDYRdJFxlqecnf3EROQlEyR0qTY\/OhluzXC7l"}'
+        body: '{"id":7,"apiKey":"c8Pbd1HqZBiZ91P2\/Bzsb5kGkDHjJ+Lpbc9fRtG1"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/5/reviews'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3/reviews'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token 7G9ZDYRdJFxlqecnf3EROQlEyR0qTY/OhluzXC7l'
+            Authorization: 'token c8Pbd1HqZBiZ91P2/Bzsb5kGkDHjJ+Lpbc9fRtG1'
             VCR-index: '1'
             Accept: null
         body: '{"message":"test company review","rating":1}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 08:02:35 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:34 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0383dc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0383dc'
-            Content-Length: '151'
+            X-Debug-Token: 0c9d42
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0c9d42'
+            Content-Length: '164'
             Content-Type: application/json
-        body: '{"author":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"test company review","rating":1,"postedAt":"2017-09-11T10:02:35+02:00"}'
+        body: '{"author":{"id":7,"name":"Michael Jordan","email":"customer-1@world-company.com"},"message":"test company review","rating":1,"postedAt":"2017-09-12T17:05:34+02:00"}'

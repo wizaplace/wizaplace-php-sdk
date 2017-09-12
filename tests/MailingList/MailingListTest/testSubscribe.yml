@@ -16,11 +16,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 07:28:50 GMT'
+            Date: 'Tue, 12 Sep 2017 15:01:59 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c1e7c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1e7c6'
+            X-Debug-Token: '701389'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/701389'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -40,10 +40,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Mon, 11 Sep 2017 07:28:51 GMT'
+            Date: 'Tue, 12 Sep 2017 15:02:00 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 95fbbc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/95fbbc'
+            X-Debug-Token: 73d0bc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/73d0bc'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/5'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -15,18 +15,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:20:50 GMT'
+            Date: 'Tue, 12 Sep 2017 14:51:52 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dedc8e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dedc8e'
-            Content-Length: '259'
+            X-Debug-Token: a850ad
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a850ad'
+            Content-Length: '303'
             Content-Type: application/json
-        body: '{"id":5,"name":"Company with reviews","description":"Company with reviews","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"company-with-reviews","image":null,"location":null,"averageRating":2,"terms":"Lorem Ipsum"}'
+        body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc.","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"terms":"Lorem Ipsum"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/6'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/4'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -39,11 +39,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:20:50 GMT'
+            Date: 'Tue, 12 Sep 2017 14:51:53 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 48ab7e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48ab7e'
-            Content-Length: '297'
+            X-Debug-Token: a65b19
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a65b19'
+            Content-Length: '235'
             Content-Type: application/json
-        body: '{"id":6,"name":"Company with geoloc","description":"Company with geoloc","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"company-with-geoloc","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":null,"terms":"Lorem Ipsum"}'
+        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'

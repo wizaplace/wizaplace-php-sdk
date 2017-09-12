@@ -18,14 +18,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 07:32:49 GMT'
+            Date: 'Tue, 12 Sep 2017 15:07:12 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '7e2563'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e2563'
-            Content-Length: '8'
+            X-Debug-Token: a33178
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a33178'
+            Content-Length: '9'
             Content-Type: application/json
-        body: '{"id":6}'
+        body: '{"id":10}'
 -
     request:
         method: GET
@@ -43,23 +43,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:32:50 GMT'
+            Date: 'Tue, 12 Sep 2017 15:07:13 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 19a5ed
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/19a5ed'
-            Content-Length: '60'
+            X-Debug-Token: 1a4cc7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a4cc7'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"iBjplyXtlW9y6TgxJEYQmcopzId34LzVgALv18Uu"}'
+        body: '{"id":10,"apiKey":"rTTr+y6YtcZAv8LJg6EwEG1+PInAWXOY3UVAHHol"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/6'
+        url: 'http://wizaplace.loc/api/v1/users/10'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token iBjplyXtlW9y6TgxJEYQmcopzId34LzVgALv18Uu'
+            Authorization: 'token rTTr+y6YtcZAv8LJg6EwEG1+PInAWXOY3UVAHHol'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,11 +68,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:32:50 GMT'
+            Date: 'Tue, 12 Sep 2017 15:07:13 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1333cb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1333cb'
-            Content-Length: '436'
+            X-Debug-Token: a6e15e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6e15e'
+            Content-Length: '437'
             Content-Type: application/json
-        body: '{"id":6,"title":null,"email":"user@example.com","firstName":"","lastName":"","addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":10,"title":null,"email":"user@example.com","firstName":"","lastName":"","addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'

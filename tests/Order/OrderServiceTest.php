@@ -49,8 +49,8 @@ final class OrderServiceTest extends ApiTestCase
         $returnItem = reset($returnItems);
         $this->assertSame(1, $returnItem->getAmount());
         $this->assertSame('1_0', $returnItem->getDeclinationId());
-        $this->assertSame(20.0, $returnItem->getPrice());
-        $this->assertSame('optio corporis similique voluptatum', $returnItem->getProductName());
+        $this->assertSame(67.9, $returnItem->getPrice());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $returnItem->getProductName());
         $this->assertSame(1, $returnItem->getReason());
 
         $returns = $orderService->getOrderReturns();
@@ -108,7 +108,7 @@ final class OrderServiceTest extends ApiTestCase
     private function buildOrderService(): OrderService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         return new OrderService($apiClient);
     }

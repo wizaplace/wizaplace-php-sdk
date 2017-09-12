@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:25:10 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:22 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 39e5e2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39e5e2'
-            Content-Length: '60'
+            X-Debug-Token: '896061'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/896061'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"8W5VOO1gxvFYa9pMAZRojJBBjVdsY586sxEwP2Zf"}'
+        body: '{"id":9,"apiKey":"nht6Sebe8I+3SijWcvvHf2axd\/qY0Om6+PbRwgGU"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token 8W5VOO1gxvFYa9pMAZRojJBBjVdsY586sxEwP2Zf'
+            Authorization: 'token nht6Sebe8I+3SijWcvvHf2axd/qY0Om6+PbRwgGU'
             VCR-index: '1'
             Accept: null
         body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
@@ -44,11 +44,11 @@
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Mon, 11 Sep 2017 07:25:11 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:22 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6348cb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6348cb'
+            X-Debug-Token: 9a347c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a347c'
             Content-Length: '98'
             Connection: close
             Content-Type: application/json

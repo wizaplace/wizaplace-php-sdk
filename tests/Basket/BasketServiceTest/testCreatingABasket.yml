@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:19:49 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f15974
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f15974'
+            X-Debug-Token: b73c67
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b73c67'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"9invpZLpSQDyzafRPhnmafBG2M4nx5A4a1Lr0wij"}'
+        body: '{"id":2,"apiKey":"uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg"}'
 -
     request:
         method: POST
@@ -33,7 +33,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 9invpZLpSQDyzafRPhnmafBG2M4nx5A4a1Lr0wij'
+            Authorization: 'token uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,23 +42,23 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 07:19:50 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b0d4fa
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b0d4fa'
+            X-Debug-Token: f22998
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f22998'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"30bad9cc-dde6-4d2c-a6ba-d4a194b073da"'
+        body: '"2b6544e3-04dd-447d-a000-922bc7fc30c3"'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/30bad9cc-dde6-4d2c-a6ba-d4a194b073da'
+        url: 'http://wizaplace.loc/api/v1/basket/2b6544e3-04dd-447d-a000-922bc7fc30c3'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token 9invpZLpSQDyzafRPhnmafBG2M4nx5A4a1Lr0wij'
+            Authorization: 'token uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg'
             VCR-index: '2'
             Accept: null
     response:
@@ -67,11 +67,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:19:50 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '132248'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/132248'
+            X-Debug-Token: c5e187
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5e187'
             Content-Length: '366'
             Content-Type: application/json
-        body: '{"id":"30bad9cc-dde6-4d2c-a6ba-d4a194b073da","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+        body: '{"id":"2b6544e3-04dd-447d-a000-922bc7fc30c3","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
