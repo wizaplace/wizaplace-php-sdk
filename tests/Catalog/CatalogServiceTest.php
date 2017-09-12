@@ -55,6 +55,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(5, $companies[0]->getId());
         $this->assertSame('Test company', $companies[0]->getName());
+        $this->assertSame('test-company', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
     }
 
     public function testGetProductWithComplexAttributes()
