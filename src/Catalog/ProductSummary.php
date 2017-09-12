@@ -75,12 +75,7 @@ final class ProductSummary
         }, $data['categoryPath']);
         $this->slug = (string) $data['slug'];
         $this->companies = array_map(static function (array $companyData) : CompanySummary {
-            return new CompanySummary(
-                $companyData['id'],
-                $companyData['name'],
-                $companyData['slug'],
-                isset($companyData['image']) ? new Image($companyData['image']) : null
-            );
+            return new CompanySummary($companyData);
         }, $data['companies'] ?? []);
     }
 

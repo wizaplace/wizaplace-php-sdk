@@ -23,15 +23,23 @@ final class CompanySummary
     /** @var null|Image */
     private $image;
 
+    /** @var bool */
+    private $professional;
+
+    /** @var float|null */
+    private $averageRating;
+
     /**
      * @internal
      */
-    public function __construct(int $id, string $name, string $slug, ?Image $image)
+    public function __construct(array $data)
     {
-        $this->id = $id;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->image = $image;
+        $this->id = $data['id'];
+        $this->name = $data['name'];
+        $this->slug = $data['slug'];
+        $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->professional = $data['isProfessional'];
+        $this->averageRating = $data['averageRating'] ?? null;
     }
 
     public function getId(): int
@@ -52,5 +60,15 @@ final class CompanySummary
     public function getImage(): ?Image
     {
         return $this->image;
+    }
+
+    public function isProfessional(): bool
+    {
+        return $this->professional;
+    }
+
+    public function getAverageRating(): ?float
+    {
+        return $this->averageRating;
     }
 }
