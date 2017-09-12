@@ -132,8 +132,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame('Test company', $companies[0]->getName());
         $this->assertSame('test-company', $companies[0]->getSlug());
+        $this->assertTrue($companies[0]->isProfessional());
         $this->assertSame(5, $companies[0]->getId());
         $this->assertNull($companies[0]->getImage());
+        $this->assertNull($companies[0]->getAverageRating());
 
 
         $pagination = $result->getPagination();
@@ -143,14 +145,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(12, $pagination->getResultsPerPage());
 
         $facets = $result->getFacets();
-        $this->assertCount(9, $facets);
+        $this->assertCount(8, $facets);
         $this->assertSame('categories', $facets[0]->getName());
         $this->assertSame('Catégorie', $facets[0]->getLabel());
         $this->assertSame([
             3 => [
             'label' => 'Informatique',
             'count' => '1',
-            'position' => 0,
+            'position' => '0',
             ],
         ], $facets[0]->getValues());
         $this->assertFalse($facets[0]->isIsNumeric());
