@@ -33,10 +33,10 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 1,
-                'recipient' => 'Test company',
+                'id' => 2,
+                'recipient' => 'The World Company Inc.',
                 'productId' => 1,
-                'title' => 'A propos du produit optio corporis similique voluptatum',
+                'title' => 'A propos du produit Z11 Plus Boîtier PC en Acier ATX',
                 'unreadCount' => 0,
             ]
         );
@@ -60,9 +60,9 @@ final class DiscussionServiceTest extends ApiTestCase
             new Discussion(
                 [
                     'id' => 1,
-                    'recipient' => 'Test company',
-                    'productId' => 1,
-                    'title' => 'A propos du produit optio corporis similique voluptatum',
+                    'recipient' => 'The World Company Inc.',
+                    'productId' => 4,
+                    'title' => 'A propos du produit Product with shippings',
                     'unreadCount' => 0,
                 ]
             ),
@@ -78,9 +78,9 @@ final class DiscussionServiceTest extends ApiTestCase
         $expectedDiscussion = new Discussion(
             [
                 'id' => 1,
-                'recipient' => 'Test company',
-                'productId' => 1,
-                'title' => 'A propos du produit optio corporis similique voluptatum',
+                'recipient' => 'The World Company Inc.',
+                'productId' => 4,
+                'title' => 'A propos du produit Product with shippings',
                 'unreadCount' => 0,
             ]
         );
@@ -133,6 +133,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testGetMessages()
     {
+        $this->discussionService->postMessage(1, 'This is a test message');
         $this->discussionService->postMessage(1, 'This is an other test message');
 
         $messages = $this->discussionService->getMessages(1);
@@ -157,12 +158,13 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertSame($expectedMessages[1]->getContent(), $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
         $this->assertSame($expectedMessages[0]->isAuthor(), $messages[0]->isAuthor());
+        $this->assertSame($expectedMessages[1]->isAuthor(), $messages[1]->isAuthor());
     }
 
     private function buildDiscussionService(): DiscussionService
     {
         $client = $this->buildApiClient();
-        $client->authenticate('user@wizaplace.com', 'password');
+        $client->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         return new DiscussionService($client);
     }

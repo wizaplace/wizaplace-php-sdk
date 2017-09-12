@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 11 Sep 2017 07:25:36 GMT'
+            Date: 'Tue, 12 Sep 2017 08:05:43 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '675683'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/675683'
-            Content-Length: '60'
+            X-Debug-Token: a48816
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a48816'
+            Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"TSXdY11LI2MoR8ZwMuWGZ9GwgoouWHmWQ6BbNTVq"}'
+        body: '{"id":7,"apiKey":"V7\/UaJyjjyLgyiFcXAsyEh\/\/1TIA+uzqHfLZYWSD"}'
 -
     request:
         method: POST
@@ -34,22 +34,21 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token TSXdY11LI2MoR8ZwMuWGZ9GwgoouWHmWQ6BbNTVq'
+            Authorization: 'token V7/UaJyjjyLgyiFcXAsyEh//1TIA+uzqHfLZYWSD'
             VCR-index: '1'
             Accept: null
         body: '{"productId":1}'
     response:
         status:
             http_version: '1.1'
-            code: '500'
-            message: 'Internal Server Error'
+            code: '201'
+            message: Created
         headers:
-            Date: 'Mon, 11 Sep 2017 07:25:37 GMT'
+            Date: 'Tue, 12 Sep 2017 08:05:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c014b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c014b8'
-            Content-Length: '105'
-            Connection: close
+            X-Debug-Token: 0d4aa4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d4aa4'
+            Content-Length: '143'
             Content-Type: application/json
-        body: '{"message":"The seller of the product cannot receive messages because the company has no administrator."}'
+        body: '{"id":2,"recipient":"The World Company Inc.","productId":1,"title":"A propos du produit Z11 Plus Bo\u00eetier PC en Acier ATX","unreadCount":0}'
