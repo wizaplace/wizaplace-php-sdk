@@ -6,11 +6,15 @@
 
 ### New features
 
+### Bugfixes
+
+## 0.8.1
+
+### New features
+
 - Added `\Wizaplace\SDK\Catalog\CompanySummary::isProfessional`
 - Added `\Wizaplace\SDK\Catalog\CompanySummary::getAverageRating`
 - Added `\Wizaplace\SDK\MailingList\MailingListService::isSubscribed`
-
-### Bugfixes
 
 ## 0.8.0
 
