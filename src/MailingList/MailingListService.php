@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\MailingList;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\MailingList\Exception\MailingListDoesNotExist;
 use Wizaplace\SDK\MailingList\Exception\UserAlreadySubscribed;
 
@@ -54,5 +55,20 @@ final class MailingListService extends AbstractService
     public function unsubscribe(int $mailingListId, string $email)
     {
         $this->client->delete("mailinglists/$mailingListId/subscriptions/$email");
+    }
+
+    /**
+     * Check if the current authenticated user is subscribed
+     * @param int $mailingListId
+     * @return bool
+     * @throws AuthenticationRequired
+     */
+    public function isSubscribed(int $mailingListId): bool
+    {
+        $this->client->mustBeAuthenticated();
+
+        $response = $this->client->get("mailinglists/{$mailingListId}/subscription");
+
+        return (bool) $response['isSubscribedTo'];
     }
 }
