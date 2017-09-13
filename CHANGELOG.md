@@ -4,6 +4,8 @@
 
 ### BREAKING CHANGES
 
+- Replaced `\Wizaplace\SDK\Catalog\Company` by `\Wizaplace\SDK\Catalog\CompanySummary`
+
 ### New features
 
 ### Bugfixes
