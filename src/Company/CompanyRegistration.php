@@ -163,9 +163,6 @@ final class CompanyRegistration
         $this->fax = $fax;
     }
 
-    /**
-     * @deprecated
-     */
     public function getUrl(): ?string
     {
         return $this->url;

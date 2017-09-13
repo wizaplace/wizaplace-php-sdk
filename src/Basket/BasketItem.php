@@ -85,11 +85,6 @@ final class BasketItem
         return $this->productName;
     }
 
-    public function getProductUrl(): string
-    {
-        return $this->productUrl;
-    }
-
     public function getIndividualPrice(): float
     {
         return $this->individualPrice;

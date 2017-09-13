@@ -40,7 +40,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(['informatique'], $product->getCategorySlugs());
         $this->assertSame('6086375420678', $product->getCode());
         $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
-        $this->assertSame('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
         $this->assertSame(20.0, $product->getMinPrice());
         $this->assertCount(1, $product->getShippings());
         $this->assertSame('', $product->getShortDescription());
@@ -125,7 +124,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $product->getSubtitle());
         $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getUpdatedAt()->getTimestamp());
         $this->assertNull($product->getAffiliateLink());
-        $this->assertSame('/informatique/test-product-slug.html', $product->getUrl());
         $this->assertSame(['informatique'], $product->getCategorySlugs());
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertNull($product->getMainImage());
