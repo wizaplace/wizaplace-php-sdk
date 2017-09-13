@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
-use Wizaplace\AbstractService;
+use Wizaplace\SDK\AbstractService;
 
 /**
  * Dummy service, here to test generic features not tied to any specific service

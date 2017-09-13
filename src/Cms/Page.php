@@ -4,7 +4,7 @@
  * @license Proprietary
  */
 
-namespace Wizaplace\Cms;
+namespace Wizaplace\SDK\Cms;
 
 final class Page
 {

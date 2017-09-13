@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:49 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c6cb9f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6cb9f'
-            Content-Length: '61'
+            X-Debug-Token: a0acf3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0acf3'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS\/6sYz"}'
+        body: '{"id":7,"apiKey":"U5sEtkiwxrbk1QP5tx2M9PeHIBRF3F0a0f77UiAT"}'
 -
     request:
         method: POST
@@ -32,9 +32,9 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token ljus883VdNGSaEqDQeD8FJCHrKfxcUjnyKS/6sYz'
+            Authorization: 'token U5sEtkiwxrbk1QP5tx2M9PeHIBRF3F0a0f77UiAT'
             VCR-index: '1'
             Accept: null
         body: '{"productId":1}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 07 Aug 2017 09:24:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:57:55 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: fc9dd4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc9dd4'
-            Content-Length: '131'
+            X-Debug-Token: fc9abb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc9abb'
+            Content-Length: '143'
             Content-Type: application/json
-        body: '{"id":1,"recipient":"Test company","productId":1,"title":"A propos du produit optio corporis similique voluptatum","unreadCount":0}'
+        body: '{"id":2,"recipient":"The World Company Inc.","productId":1,"title":"A propos du produit Z11 Plus Bo\u00eetier PC en Acier ATX","unreadCount":0}'

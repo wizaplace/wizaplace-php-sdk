@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Exception\NotFound;
+use Wizaplace\SDK\Exception\NotFound;
 
 final class Product
 {

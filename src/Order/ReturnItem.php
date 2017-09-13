@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Order;
+namespace Wizaplace\SDK\Order;
 
 final class ReturnItem
 {
@@ -48,7 +48,7 @@ final class ReturnItem
     }
 
     /**
-     * @see \Wizaplace\Order\OrderService::getReturnReasons
+     * @see \Wizaplace\SDK\Order\OrderService::getReturnReasons
      * @return int the reason's ID
      */
     public function getReason(): int

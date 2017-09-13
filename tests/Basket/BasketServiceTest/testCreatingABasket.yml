@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 25 Aug 2017 09:11:53 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '31e266'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/31e266'
+            X-Debug-Token: b73c67
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b73c67'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"4yBnw3mksnWFCCMio+hLPBW2DnrsvYHQJJRqRtcT"}'
+        body: '{"id":2,"apiKey":"uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg"}'
 -
     request:
         method: POST
@@ -32,8 +32,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
-            Authorization: 'token 4yBnw3mksnWFCCMio+hLPBW2DnrsvYHQJJRqRtcT'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,23 +42,23 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 25 Aug 2017 09:11:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6dc36f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6dc36f'
+            X-Debug-Token: f22998
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f22998'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"d66085de-dcea-461f-96aa-65502964762c"'
+        body: '"2b6544e3-04dd-447d-a000-922bc7fc30c3"'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/d66085de-dcea-461f-96aa-65502964762c'
+        url: 'http://wizaplace.loc/api/v1/basket/2b6544e3-04dd-447d-a000-922bc7fc30c3'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.8-2+ubuntu16.04.1+deb.sury.org+4'
-            Authorization: 'token 4yBnw3mksnWFCCMio+hLPBW2DnrsvYHQJJRqRtcT'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token uUNwSarwRgQnudRUq4FquGuGglKZ45yfuJplBBkg'
             VCR-index: '2'
             Accept: null
     response:
@@ -67,11 +67,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 25 Aug 2017 09:11:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:50:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '975777'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/975777'
+            X-Debug-Token: c5e187
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5e187'
             Content-Length: '366'
             Content-Type: application/json
-        body: '{"id":"d66085de-dcea-461f-96aa-65502964762c","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+        body: '{"id":"2b6544e3-04dd-447d-a000-922bc7fc30c3","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'

@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Company;
+namespace Wizaplace\SDK\Company;
 
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 
 final class CompanyService extends AbstractService
 {
@@ -49,7 +49,7 @@ final class CompanyService extends AbstractService
     }
 
     /**
-     * @param array $files {@see \Wizaplace\Company\CompanyRegistration::addFile}
+     * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */
     private function uploadRegistrationFiles(int $companyId, array $files): array

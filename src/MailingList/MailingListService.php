@@ -5,12 +5,13 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\MailingList;
+namespace Wizaplace\SDK\MailingList;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\MailingList\Exception\MailingListDoesNotExist;
-use Wizaplace\MailingList\Exception\UserAlreadySubscribed;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\MailingList\Exception\MailingListDoesNotExist;
+use Wizaplace\SDK\MailingList\Exception\UserAlreadySubscribed;
 
 /**
  * Manages mailing lists and subscriptions
@@ -43,13 +44,10 @@ final class MailingListService extends AbstractService
             switch ($e->getResponse()->getStatusCode()) {
                 case 404:
                     throw new MailingListDoesNotExist("Mailing list #{$mailingListId} does not exist", $e);
-                    break;
                 case 409:
                     throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
-                    break;
                 default:
                     throw $e;
-                    break;
             }
         }
     }
@@ -57,5 +55,20 @@ final class MailingListService extends AbstractService
     public function unsubscribe(int $mailingListId, string $email)
     {
         $this->client->delete("mailinglists/$mailingListId/subscriptions/$email");
+    }
+
+    /**
+     * Check if the current authenticated user is subscribed
+     * @param int $mailingListId
+     * @return bool
+     * @throws AuthenticationRequired
+     */
+    public function isSubscribed(int $mailingListId): bool
+    {
+        $this->client->mustBeAuthenticated();
+
+        $response = $this->client->get("mailinglists/{$mailingListId}/subscription");
+
+        return (bool) $response['isSubscribedTo'];
     }
 }

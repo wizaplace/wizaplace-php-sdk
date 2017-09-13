@@ -5,13 +5,14 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Order;
+namespace Wizaplace\SDK\Tests\Order;
 
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Order\CreateOrderReturn;
-use Wizaplace\Order\OrderService;
-use Wizaplace\Order\ReturnItem;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Order\CreateOrderReturn;
+use Wizaplace\SDK\Order\OrderService;
+use Wizaplace\SDK\Order\OrderStatus;
+use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
  * @see OrderService
@@ -23,6 +24,7 @@ final class OrderServiceTest extends ApiTestCase
         $order = $this->buildOrderService()->getOrder(1);
 
         $this->assertSame(1, $order->getId());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
     }
 
     public function testCreateOrderReturn()
@@ -47,9 +49,13 @@ final class OrderServiceTest extends ApiTestCase
         $returnItem = reset($returnItems);
         $this->assertSame(1, $returnItem->getAmount());
         $this->assertSame('1_0', $returnItem->getDeclinationId());
-        $this->assertSame(20.0, $returnItem->getPrice());
-        $this->assertSame('optio corporis similique voluptatum', $returnItem->getProductName());
+        $this->assertSame(67.9, $returnItem->getPrice());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $returnItem->getProductName());
         $this->assertSame(1, $returnItem->getReason());
+
+        $returns = $orderService->getOrderReturns();
+        $this->assertCount(1, $returns);
+        $this->assertEquals($return, $returns[0]);
     }
 
     public function testGetOrdersWithoutAuthentication()
@@ -68,6 +74,13 @@ final class OrderServiceTest extends ApiTestCase
     {
         $this->expectException(AuthenticationRequired::class);
         $this->buildOrderServiceWithoutAuthentication()->getOrderReturn(1);
+    }
+
+    public function testGetOrderReturnsWithoutData()
+    {
+        $returns = $this->buildOrderService()->getOrderReturns();
+
+        $this->assertCount(0, $returns);
     }
 
     public function testGetOrderReturnsWithoutAuthentication()
@@ -95,7 +108,7 @@ final class OrderServiceTest extends ApiTestCase
     private function buildOrderService(): OrderService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         return new OrderService($apiClient);
     }

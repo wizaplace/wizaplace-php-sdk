@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\MailingList\Exception;
+namespace Wizaplace\SDK\MailingList\Exception;
 
-use Wizaplace\Exception\NotFound;
+use Wizaplace\SDK\Exception\NotFound;
 
 final class MailingListDoesNotExist extends NotFound
 {

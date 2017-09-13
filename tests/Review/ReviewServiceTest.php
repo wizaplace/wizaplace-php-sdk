@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Review;
+namespace Wizaplace\SDK\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\Catalog\Review\ReviewService;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Catalog\Review\ReviewService;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ReviewServiceTest extends ApiTestCase
 {
@@ -29,13 +29,23 @@ final class ReviewServiceTest extends ApiTestCase
     {
         $reviews = $this->reviewService->getProductReviews(1);
 
-        foreach ($reviews as $review) {
-            $this->assertSame('Administrateur Wizaplace', $review->getAuthor()->getName());
-            $this->assertInternalType('string', $review->getMessage());
-            $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
-            $this->assertAttributeGreaterThanOrEqual(1, 'rating', $review);
-            $this->assertAttributeLessThanOrEqual(5, 'rating', $review);
-        }
+        $this->assertCount(2, $reviews);
+
+        // Première review
+        $this->assertSame('Michael Jordan', $reviews[0]->getAuthor()->getName());
+        $this->assertEmpty($reviews[0]->getAuthor()->getId());
+        $this->assertEmpty($reviews[0]->getAuthor()->getEmail());
+        $this->assertSame('Very good product <3', $reviews[0]->getMessage());
+        $this->assertInstanceOf('DateTimeImmutable', $reviews[0]->getPostedAt());
+        $this->assertSame(4, $reviews[0]->getRating());
+
+        // Deuxième review
+        $this->assertSame('Dave Matthews', $reviews[1]->getAuthor()->getName());
+        $this->assertEmpty($reviews[1]->getAuthor()->getId());
+        $this->assertEmpty($reviews[1]->getAuthor()->getEmail());
+        $this->assertSame('I try to forget it !', $reviews[1]->getMessage());
+        $this->assertInstanceOf('DateTimeImmutable', $reviews[1]->getPostedAt());
+        $this->assertSame(1, $reviews[1]->getRating());
     }
 
     public function testListInexistantReviewFromProduct()
@@ -69,16 +79,25 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testListReviewsFromCompany()
     {
-        $reviews = $this->reviewService->getCompanyReviews(5);
+        $reviews = $this->reviewService->getCompanyReviews(3);
 
-        foreach ($reviews as $review) {
-            $this->assertSame('Paul Martin', $review->getAuthor()->getName());
-            $this->assertSame(3, $review->getAuthor()->getId());
-            $this->assertSame('user@wizaplace.com', $review->getAuthor()->getEmail());
-            $this->assertSame('this is a test review', $review->getMessage());
-            $this->assertInstanceOf('DateTimeImmutable', $review->getPostedAt());
-            $this->assertSame(2, $review->getRating());
-        }
+        $this->assertCount(2, $reviews);
+
+        // Première review
+        $this->assertSame('Michael Jordan', $reviews[0]->getAuthor()->getName());
+        $this->assertSame(7, $reviews[0]->getAuthor()->getId());
+        $this->assertSame('customer-1@world-company.com', $reviews[0]->getAuthor()->getEmail());
+        $this->assertSame('Very good customer support.', $reviews[0]->getMessage());
+        $this->assertInstanceOf('DateTimeImmutable', $reviews[0]->getPostedAt());
+        $this->assertSame(4, $reviews[0]->getRating());
+
+        // Deuxième review
+        $this->assertSame('Dave Matthews', $reviews[1]->getAuthor()->getName());
+        $this->assertSame(8, $reviews[1]->getAuthor()->getId());
+        $this->assertSame('customer-2@world-company.com', $reviews[1]->getAuthor()->getEmail());
+        $this->assertSame('This company is unbelievable !!', $reviews[1]->getMessage());
+        $this->assertInstanceOf('DateTimeImmutable', $reviews[1]->getPostedAt());
+        $this->assertSame(5, $reviews[1]->getRating());
     }
 
     public function testListInexistantReviewFromCompany()
@@ -90,7 +109,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewToCompany()
     {
-        $this->reviewService->reviewCompany(4, 'test company review', 1);
+        $this->reviewService->reviewCompany(3, 'test company review', 1);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -105,7 +124,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testUserCanReviewCompany()
     {
-        $response = $this->reviewService->canUserReviewCompany(5);
+        $response = $this->reviewService->canUserReviewCompany(3);
 
         $this->assertTrue($response);
     }
@@ -120,7 +139,7 @@ final class ReviewServiceTest extends ApiTestCase
     private function buildReviewService(): ReviewService
     {
         $client = $this->buildApiClient();
-        $client->authenticate('user@wizaplace.com', 'password');
+        $client->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         return new ReviewService($client);
     }

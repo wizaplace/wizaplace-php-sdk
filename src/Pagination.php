@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace;
+namespace Wizaplace\SDK;
 
 final class Pagination
 {

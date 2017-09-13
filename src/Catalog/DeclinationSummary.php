@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\Image\Image;
 
 final class DeclinationSummary
 {
@@ -75,12 +75,7 @@ final class DeclinationSummary
             return new DeclinationOption($data);
         }, $data['options']);
         $this->mainImage = isset($data['mainImage']) ? new Image($data['mainImage']) : null;
-        $this->company = new CompanySummary(
-            $data['company']['id'],
-            $data['company']['name'],
-            $data['company']['slug'],
-            isset($data['company']['image']) ? new Image($data['company']['image']) : null
-        );
+        $this->company = new CompanySummary($data['company']);
         $this->slug = $data['slug'];
         $this->categoryPath = array_map(static function (array $data): ProductCategory {
             return new ProductCategory($data);

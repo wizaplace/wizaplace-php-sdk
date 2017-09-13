@@ -5,12 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Seo;
+namespace Wizaplace\SDK\Tests\Seo;
 
-use Wizaplace\Seo\SeoService;
-use Wizaplace\Seo\SlugTarget;
-use Wizaplace\Seo\SlugTargetType;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Seo\SeoService;
+use Wizaplace\SDK\Seo\SlugTarget;
+use Wizaplace\SDK\Seo\SlugTargetType;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class SeoServiceTest extends ApiTestCase
 {
@@ -19,20 +19,20 @@ final class SeoServiceTest extends ApiTestCase
         $seoService = $this->buildSeoService();
 
         $slugTargets = $seoService->resolveSlugs([
-            'test-product-slug',
-            'test-category-slug',
-            'test-attribute-variant-slug',
+            'ecran-pc-full-hd-24-noir',
+            'informatique',
+            'blanc',
             'test-cms-page-slug',
-            'test-company-slug',
+            'the-world-company-inc.',
             '404-does-not-exist',
         ]);
 
         $this->assertCount(6, $slugTargets);
         foreach ([
-            'test-product-slug' => SlugTargetType::PRODUCT(),
-            'test-category-slug' => SlugTargetType::CATEGORY(),
-            'test-attribute-variant-slug' => SlugTargetType::ATTRIBUTE_VARIANT(),
-            'test-company-slug' => SlugTargetType::COMPANY(),
+            'ecran-pc-full-hd-24-noir' => SlugTargetType::PRODUCT(),
+            'informatique' => SlugTargetType::CATEGORY(),
+            'blanc' => SlugTargetType::ATTRIBUTE_VARIANT(),
+            'the-world-company-inc.' => SlugTargetType::COMPANY(),
             'test-cms-page-slug' => SlugTargetType::CMS_PAGE(),
         ] as $key => $objectType) {
             $this->assertArrayHasKey($key, $slugTargets);

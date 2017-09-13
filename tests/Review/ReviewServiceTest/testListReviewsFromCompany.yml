@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,23 +16,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 28 Jul 2017 13:29:31 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:12 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: aff2c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aff2c6'
-            Content-Length: '61'
+            X-Debug-Token: d8d814
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d8d814'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":3,"apiKey":"hpt4f\/yARWTUYzeVgNkXjU9Q8Yud3nHd987Omylj"}'
+        body: '{"id":7,"apiKey":"khIMg91JGqa9+aqOT9z3MXWl1pC76bnYl2kjml6d"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/companies/5/reviews'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3/reviews'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token hpt4f/yARWTUYzeVgNkXjU9Q8Yud3nHd987Omylj'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token khIMg91JGqa9+aqOT9z3MXWl1pC76bnYl2kjml6d'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +41,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 28 Jul 2017 13:29:32 GMT'
+            Date: 'Tue, 12 Sep 2017 15:05:13 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 60cd45
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/60cd45'
-            Content-Length: '187'
+            X-Debug-Token: c62e7e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c62e7e'
+            Content-Length: '382'
             Content-Type: application/json
-        body: '{"averageRating":2,"_embedded":[{"author":{"id":3,"name":"Paul Martin","email":"user@wizaplace.com"},"message":"this is a test review","rating":2,"postedAt":"2017-07-28T15:21:54+02:00"}]}'
+        body: '{"averageRating":5,"_embedded":[{"author":{"id":7,"name":"Michael Jordan","email":"customer-1@world-company.com"},"message":"Very good customer support.","rating":4,"postedAt":"2017-09-12T17:05:10+02:00"},{"author":{"id":8,"name":"Dave Matthews","email":"customer-2@world-company.com"},"message":"This company is unbelievable !!","rating":5,"postedAt":"2017-09-12T17:05:10+02:00"}]}'

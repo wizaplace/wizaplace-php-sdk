@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\Image\Image;
 
 final class ProductSummary
 {
@@ -75,12 +75,7 @@ final class ProductSummary
         }, $data['categoryPath']);
         $this->slug = (string) $data['slug'];
         $this->companies = array_map(static function (array $companyData) : CompanySummary {
-            return new CompanySummary(
-                $companyData['id'],
-                $companyData['name'],
-                $companyData['slug'],
-                isset($companyData['image']) ? new Image($companyData['image']) : null
-            );
+            return new CompanySummary($companyData);
         }, $data['companies'] ?? []);
     }
 

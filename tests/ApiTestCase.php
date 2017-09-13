@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
@@ -13,7 +13,7 @@ use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
 use VCR\VCR;
-use Wizaplace\ApiClient;
+use Wizaplace\SDK\ApiClient;
 
 abstract class ApiTestCase extends TestCase
 {
@@ -65,6 +65,14 @@ abstract class ApiTestCase extends TestCase
         VCR::configure()->setCassettePath($this->cassettePath);
 
         $this->cassetteName = $reflectionClass->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
+
+        // Si la cassette n'existe pas...
+        if (!$this->currentCassetteExists()) {
+            // ...on ré-initialise les données de la marketplace
+            // pour une génération idempotente de la cassette.
+            $this->resetMarketplaceTestData();
+        }
+
         VCR::turnOn();
         VCR::insertCassette($this->cassetteName);
     }
@@ -87,7 +95,6 @@ abstract class ApiTestCase extends TestCase
         }
     }
 
-
     protected function tearDown(): void
     {
         VCR::turnOff();
@@ -95,5 +102,22 @@ abstract class ApiTestCase extends TestCase
         $this->cassetteName = null;
         self::$historyContainer = [];
         parent::tearDown();
+    }
+
+    private function currentCassetteExists(): bool
+    {
+        return file_exists(sprintf("%s/%s", $this->cassettePath, $this->cassetteName));
+    }
+
+    private function resetMarketplaceTestData(): void
+    {
+        $httpClient = new \GuzzleHttp\Client(['base_uri' => 'http://wizaplace.test/api/v1/']);
+        $client = new ApiClient($httpClient);
+
+        $response = $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
+
+        if ($response->getStatusCode() !== 200) {
+            throw new \Exception('Marketplace reset failed.');
+        }
     }
 }

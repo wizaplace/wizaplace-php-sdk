@@ -5,9 +5,9 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog;
+namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\Image\Image;
+use Wizaplace\SDK\Image\Image;
 
 final class Declination
 {
@@ -56,6 +56,9 @@ final class Declination
     /** @var DeclinationOption[] */
     private $options;
 
+    /** @var CompanySummary */
+    private $company;
+
     /**
      * @internal
      */
@@ -81,6 +84,7 @@ final class Declination
         $this->options = array_map(static function (array $optionData) : DeclinationOption {
             return new DeclinationOption($optionData);
         }, $data['options']);
+        $this->company = new CompanySummary($data['company']);
     }
 
     public function getId(): string
@@ -196,5 +200,10 @@ final class Declination
          * by checking if the count of $variantIds is the same than the $declinationVariantIds'
          */
         return (count($variantIds) === $foundIds && count($variantIds) === count($declinationVariantIds));
+    }
+
+    public function getCompany(): CompanySummary
+    {
+        return $this->company;
     }
 }

@@ -6,10 +6,10 @@
 declare(strict_types = 1);
 
 
-namespace Wizaplace\Tests\Catalog;
+namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
-use Wizaplace\Catalog\Declination;
+use Wizaplace\SDK\Catalog\Declination;
 
 final class DeclinationTest extends TestCase
 {
@@ -38,6 +38,14 @@ final class DeclinationTest extends TestCase
                     'variantId' => 1,
                     'variantName' => 'xs',
                 ],
+            ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
             ],
         ]);
 
@@ -69,6 +77,14 @@ final class DeclinationTest extends TestCase
                     'variantId' => 1,
                     'variantName' => 'xs',
                 ],
+            ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
             ],
         ]);
 
@@ -107,6 +123,14 @@ final class DeclinationTest extends TestCase
                     'variantName' => 'red',
                 ],
             ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
+            ],
         ]);
 
         $this->assertFalse($declination->hasVariants([2]));
@@ -144,6 +168,14 @@ final class DeclinationTest extends TestCase
                     'variantName' => 'red',
                 ],
             ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
+            ],
         ]);
 
         $this->assertTrue($declination->hasVariants([1, 2]));
@@ -180,6 +212,14 @@ final class DeclinationTest extends TestCase
                     'variantId' => 2,
                     'variantName' => 'red',
                 ],
+            ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
             ],
         ]);
 
@@ -223,6 +263,14 @@ final class DeclinationTest extends TestCase
                     'variantId' => 3,
                     'variantName' => 'short',
                 ],
+            ],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
             ],
         ]);
 

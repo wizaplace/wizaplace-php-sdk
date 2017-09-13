@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 08 Aug 2017 13:50:37 GMT'
+            Date: 'Tue, 12 Sep 2017 14:52:45 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '016100'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/016100'
+            X-Debug-Token: b353eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b353eb'
             Content-Length: '81'
             Content-Type: application/json
         body: '{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}'

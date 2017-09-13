@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Cms;
+namespace Wizaplace\SDK\Tests\Cms;
 
-use Wizaplace\Cms\BannerService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Cms\BannerService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class BannerServiceTest extends ApiTestCase
 {
@@ -20,11 +20,11 @@ final class BannerServiceTest extends ApiTestCase
         $this->assertSame(2, count($banners));
 
         $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
-        $this->assertSame(3, $banners[0]->getImageId());
+        $this->assertSame(4, $banners[0]->getImageId());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
 
         $this->assertSame('http://url-de-test-2.com', (string) $banners[1]->getLink());
-        $this->assertSame(4, $banners[1]->getImageId());
+        $this->assertSame(5, $banners[1]->getImageId());
         $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
@@ -35,7 +35,7 @@ final class BannerServiceTest extends ApiTestCase
 
         $this->assertSame(1, count($banners));
         $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
-        $this->assertSame(3, $banners[0]->getImageId());
+        $this->assertSame(4, $banners[0]->getImageId());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -46,7 +46,7 @@ final class BannerServiceTest extends ApiTestCase
 
         $this->assertSame(1, count($banners));
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
-        $this->assertSame(4, $banners[0]->getImageId());
+        $this->assertSame(5, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -58,11 +58,11 @@ final class BannerServiceTest extends ApiTestCase
         $this->assertSame(2, count($banners));
 
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
-        $this->assertSame(4, $banners[0]->getImageId());
+        $this->assertSame(5, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
 
         $this->assertSame('http://url-de-test-3.com', (string) $banners[1]->getLink());
-        $this->assertSame(5, $banners[1]->getImageId());
+        $this->assertSame(6, $banners[1]->getImageId());
         $this->assertFalse($banners[1]->getShouldOpenInNewWindow());
     }
 
@@ -73,7 +73,7 @@ final class BannerServiceTest extends ApiTestCase
 
         $this->assertSame(1, count($banners));
         $this->assertSame('http://url-de-test-3.com', (string) $banners[0]->getLink());
-        $this->assertSame(5, $banners[0]->getImageId());
+        $this->assertSame(6, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 
@@ -84,7 +84,7 @@ final class BannerServiceTest extends ApiTestCase
 
         $this->assertSame(1, count($banners));
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
-        $this->assertSame(4, $banners[0]->getImageId());
+        $this->assertSame(5, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
     }
 

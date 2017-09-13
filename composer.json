@@ -10,20 +10,17 @@
         "myclabs/php-enum": "^1.5"
     },
     "autoload": {
-        "psr-4": {"Wizaplace\\": "src/"}
+        "psr-4": {"Wizaplace\\SDK\\": "src/"}
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1",
-        "wizaplace/php-coding-standard": "^1.0",
-        "squizlabs/php_codesniffer": "^2.0",
+        "wizaplace/php-coding-standard": "^1.1.2",
+        "squizlabs/php_codesniffer": "^3.0",
         "phpstan/phpstan": "^0.8.0",
         "php-vcr/php-vcr": "1.3.1",
         "roave/security-advisories": "dev-master"
     },
     "autoload-dev": {
-        "psr-4": { "Wizaplace\\Tests\\": "tests/" }
-    },
-    "extra": {
-        "codetastic": "wizaplace/php-coding-standard"
+        "psr-4": { "Wizaplace\\SDK\\Tests\\": "tests/" }
     }
 }

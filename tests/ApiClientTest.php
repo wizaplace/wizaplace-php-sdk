@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
-use Wizaplace\Authentication\BadCredentials;
-use Wizaplace\Order\OrderService;
+use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Order\OrderService;
 
 final class ApiClientTest extends ApiTestCase
 {
@@ -17,7 +17,7 @@ final class ApiClientTest extends ApiTestCase
         $apiClient = $this->buildApiClient();
         $orderService = new OrderService($apiClient);
 
-        $apiKey = $apiClient->authenticate("admin@wizaplace.com", "password");
+        $apiKey = $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $this->assertNotNull($apiKey);
 
         // Test an authenticated call.

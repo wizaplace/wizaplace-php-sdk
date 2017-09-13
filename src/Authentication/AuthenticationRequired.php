@@ -5,10 +5,10 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Authentication;
+namespace Wizaplace\SDK\Authentication;
 
 use Throwable;
-use Wizaplace\ApiClient;
+use Wizaplace\SDK\ApiClient;
 
 /**
  * @see ApiClient::authenticate()

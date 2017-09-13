@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests;
+namespace Wizaplace\SDK\Tests;
 
 /**
  * This is just here for example usages.
@@ -24,8 +24,8 @@ final class ExampleTest extends ApiTestCase
         $httpClient = new \GuzzleHttp\Client([
             'base_uri' => $marketplaceApiUri,
         ]);
-        $wizaplaceClient = new \Wizaplace\ApiClient($httpClient);
-        $catalogService = new \Wizaplace\Catalog\CatalogService($wizaplaceClient);
+        $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
+        $catalogService = new \Wizaplace\SDK\Catalog\CatalogService($wizaplaceClient);
 
         // Search
         $products = $catalogService->search();
@@ -45,11 +45,11 @@ final class ExampleTest extends ApiTestCase
         $httpClient = new \GuzzleHttp\Client([
             'base_uri' => $marketplaceApiUri,
         ]);
-        $wizaplaceClient = new \Wizaplace\ApiClient($httpClient);
-        $orderService = new \Wizaplace\Order\OrderService($wizaplaceClient);
+        $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
+        $orderService = new \Wizaplace\SDK\Order\OrderService($wizaplaceClient);
 
         // Authentication
-        $wizaplaceClient->authenticate("admin@wizaplace.com", "password");
+        $wizaplaceClient->authenticate('customer-3@world-company.com', 'password-customer-3');
 
         // Authenticated Action
         $orders = $orderService->getOrders();

@@ -5,15 +5,15 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Tests\Company;
+namespace Wizaplace\SDK\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
 use PHPUnit_Framework_MockObject_MockObject;
 use Psr\Http\Message\UploadedFileInterface;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Company\CompanyRegistration;
-use Wizaplace\Company\CompanyService;
-use Wizaplace\Tests\ApiTestCase;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Company\CompanyRegistration;
+use Wizaplace\SDK\Company\CompanyService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
 
 /**
@@ -118,7 +118,7 @@ final class CompanyServiceTest extends ApiTestCase
     private function buildUserCompanyService(): CompanyService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-3@world-company.com', 'password-customer-3');
 
         return new CompanyService($apiClient);
     }

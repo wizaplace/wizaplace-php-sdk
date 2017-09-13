@@ -5,11 +5,11 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Catalog\Review;
+namespace Wizaplace\SDK\Catalog\Review;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Exception\NotFound;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\NotFound;
 
 /**
  * This service helps getting and creating reviews for products or companies
@@ -50,6 +50,7 @@ final class ReviewService extends AbstractService
             if ($e->getCode() === 404) {
                 throw new NotFound('This product has not been found', $e);
             }
+
             throw $e;
         }
 
@@ -109,11 +110,11 @@ final class ReviewService extends AbstractService
         try {
             $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $companyId));
         } catch (ClientException $e) {
-            if ($e->getCode() == 401) {
+            if ($e->getCode() === 401) {
                 return false;
-            } else {
-                throw $e;
             }
+
+            throw $e;
         }
 
         return true;

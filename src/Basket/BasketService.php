@@ -5,16 +5,16 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Basket;
+namespace Wizaplace\SDK\Basket;
 
 use GuzzleHttp\Exception\ClientException;
-use Wizaplace\AbstractService;
-use Wizaplace\Authentication\AuthenticationRequired;
-use Wizaplace\Basket\Exception\BadQuantity;
-use Wizaplace\Basket\Exception\CouponAlreadyPresent;
-use Wizaplace\Basket\Exception\CouponNotInTheBasket;
-use Wizaplace\Exception\NotFound;
-use Wizaplace\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Basket\Exception\BadQuantity;
+use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
+use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
  * This service helps creating orders through a basket.
@@ -208,7 +208,8 @@ final class BasketService extends AbstractService
 
             if (404 === $code) {
                 throw new NotFound('Basket not found', $ex);
-            } elseif (409 == $code) {
+            }
+            if (409 === $code) {
                 throw new CouponAlreadyPresent('Coupon exist', $code, $ex);
             }
 
@@ -313,7 +314,8 @@ final class BasketService extends AbstractService
 
             if (404 === $code) {
                 throw new NotFound('Basket not found', $ex);
-            } elseif (400 === $code) {
+            }
+            if (400 === $code) {
                 throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
             }
 
