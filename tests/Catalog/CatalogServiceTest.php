@@ -55,6 +55,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
     }
 
     public function testGetProductWithComplexAttributes()
@@ -133,7 +137,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
         $this->assertSame(3, $companies[0]->getId());
+        $this->assertTrue($companies[0]->isProfessional());
         $this->assertNull($companies[0]->getImage());
+        $this->assertNull($companies[0]->getAverageRating());
 
 
         $pagination = $result->getPagination();
@@ -341,6 +347,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => '13',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_8_8',
@@ -365,6 +379,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 8,
                         'variantName' => '15',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -391,6 +413,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => '17',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_8_10',
@@ -415,6 +445,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 10,
                         'variantName' => '21',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
         ];
@@ -483,6 +521,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'white',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_1_7_5',
@@ -513,6 +559,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 5,
                         'variantName' => 'wireless',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -545,6 +599,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_2',
@@ -569,6 +631,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 2,
                         'variantName' => 'black',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -601,6 +671,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_2_7_6',
@@ -632,6 +710,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_3',
@@ -656,6 +742,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 3,
                         'variantName' => 'blue',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -688,6 +782,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_3_7_6',
@@ -719,6 +821,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_4',
@@ -743,6 +853,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 4,
                         'variantName' => 'red',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -775,6 +893,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_6_4_7_6',
@@ -805,6 +931,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 6,
                         'variantName' => 'wired',
                     ],
+                ],
+                'company' => [
+                    'id' => 3,
+                    'name' => 'The World Company Inc.',
+                    'slug' => 'the-world-company-inc.',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
         ];

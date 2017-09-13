@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\MailingList;
 
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\MailingList\Exception\MailingListDoesNotExist;
 use Wizaplace\SDK\MailingList\Exception\UserAlreadySubscribed;
 use Wizaplace\SDK\MailingList\MailingList;
@@ -19,6 +20,8 @@ final class MailingListTest extends ApiTestCase
      * @var MailingListService
      */
     private $mlService;
+
+    private const USER_EMAIL = 'user@wizaplace.com';
 
     public function setUp(): void
     {
@@ -38,32 +41,36 @@ final class MailingListTest extends ApiTestCase
         $this->assertSame('Newsletter', $mailingLists[0]->getName());
     }
 
-    public function testSubscribe()
+    public function testSubscribeThenUnsubscribe()
     {
-        $this->mlService->subscribe(1, 'user@wizaplace.com');
+        $this->assertFalse($this->mlService->isSubscribed(1));
 
-        $this->assertCount(1, static::$historyContainer);
+        $this->mlService->subscribe(1, self::USER_EMAIL);
 
-        $this->mlService->unsubscribe(1, 'user@wizaplace.com');
+        $this->assertTrue($this->mlService->isSubscribed(1));
+
+        $this->mlService->unsubscribe(1, self::USER_EMAIL);
+
+        $this->assertFalse($this->mlService->isSubscribed(1));
+    }
+
+    public function testIsSubscribedWithoutAuthentication()
+    {
+        $this->expectException(AuthenticationRequired::class);
+        (new MailingListService($this->buildApiClient()))->isSubscribed(1);
     }
 
     public function testSubscribeAlreadySubscribed()
     {
-        $this->expectException(UserAlreadySubscribed::class);
 
         $this->mlService->subscribe(1, 'admin@wizaplace.com');
-        $this->mlService->subscribe(1, 'admin@wizaplace.com');
 
-        $this->mlService->unsubscribe(1, 'admin@wizaplace.com');
-    }
-
-    public function testUnsubscribe()
-    {
-        $this->mlService->subscribe(1, 'user@wizaplace.com');
-
-        $this->mlService->unsubscribe(1, 'user@wizaplace.com');
-
-        $this->assertCount(2, static::$historyContainer);
+        try {
+            $this->expectException(UserAlreadySubscribed::class);
+            $this->mlService->subscribe(1, 'admin@wizaplace.com');
+        } finally {
+            $this->mlService->unsubscribe(1, 'admin@wizaplace.com');
+        }
     }
 
     public function testSubscribeToNotAList()
@@ -75,6 +82,9 @@ final class MailingListTest extends ApiTestCase
 
     private function buildMailingListService(): MailingListService
     {
-        return new MailingListService($this->buildApiClient());
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate(self::USER_EMAIL, 'password');
+
+        return new MailingListService($apiClient);
     }
 }

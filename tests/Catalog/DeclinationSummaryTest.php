@@ -46,6 +46,8 @@ final class DeclinationSummaryTest extends TestCase
                 'id' => 1,
                 'name' => 'Test company',
                 'slug' => 'test-company',
+                'averageRating' => 3.5,
+                'isProfessional' => true,
                 'image' => [
                     'id' => 8,
                 ],
@@ -84,6 +86,8 @@ final class DeclinationSummaryTest extends TestCase
         $this->assertSame('test-company', $favorite->getCompany()->getSlug());
         $this->assertInstanceOf(Image::class, $favorite->getCompany()->getImage());
         $this->assertSame(8, $favorite->getCompany()->getImage()->getId());
+        $this->assertSame(3.5, $favorite->getCompany()->getAverageRating());
+        $this->assertTrue($favorite->getCompany()->isProfessional());
         $this->assertSame('very-confortable-chair', $favorite->getSlug());
         $this->assertCount(1, $favorite->getCategoryPath());
         $this->assertInstanceOf(ProductCategory::class, $favorite->getCategoryPath()[0]);

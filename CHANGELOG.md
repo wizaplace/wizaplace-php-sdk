@@ -8,6 +8,24 @@
 
 ### Bugfixes
 
+## 0.8.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Company::getSlug`
+- Added `\Wizaplace\SDK\Catalog\Company::getImage`
+- Added `\Wizaplace\SDK\Catalog\Company::isProfessional`
+- Added `\Wizaplace\SDK\Catalog\Company::getAverageRating`
+
+## 0.8.1
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\CompanySummary::isProfessional`
+- Added `\Wizaplace\SDK\Catalog\CompanySummary::getAverageRating`
+- Added `\Wizaplace\SDK\MailingList\MailingListService::isSubscribed`
+- Added `\Wizaplace\SDK\Catalog\Declination::getCompany`
+
 ## 0.8.0
 
 ### BREAKING CHANGES
