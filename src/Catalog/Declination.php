@@ -147,6 +147,9 @@ final class Declination
         return $this->affiliateLink;
     }
 
+    /**
+     * Le déclinaison est-elle neuve ou d'occasion ?
+     */
     public function isBrandNew(): bool
     {
         return $this->isBrandNew;
