@@ -346,6 +346,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => '13',
                     ],
                 ],
+                'company' => [
+                    'id' => 6,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-2',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_7_2',
@@ -370,6 +378,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 2,
                         'variantName' => '15',
                     ],
+                ],
+                'company' => [
+                    'id' => 6,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-2',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -396,6 +412,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => '17',
                     ],
                 ],
+                'company' => [
+                    'id' => 6,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-2',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '2_7_4',
@@ -420,6 +444,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 4,
                         'variantName' => '21',
                     ],
+                ],
+                'company' => [
+                    'id' => 6,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-2',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
         ];
@@ -488,6 +520,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'white',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_5_10_9',
@@ -518,6 +558,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 9,
                         'variantName' => 'wireless',
                     ],
+                ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -550,6 +598,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_6',
@@ -574,6 +630,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 6,
                         'variantName' => 'black',
                     ],
+                ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -606,6 +670,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_6_10_10',
@@ -637,6 +709,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_7',
@@ -661,6 +741,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 7,
                         'variantName' => 'blue',
                     ],
+                ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -693,6 +781,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_7_10_10',
@@ -724,6 +820,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_8',
@@ -748,6 +852,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 8,
                         'variantName' => 'red',
                     ],
+                ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
             new Declination([
@@ -780,6 +892,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_9_8_10_10',
@@ -811,6 +931,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wired',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_10_9',
@@ -836,6 +964,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantName' => 'wireless',
                     ],
                 ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
+                ],
             ]),
             new Declination([
                 'id' => '3_10_10',
@@ -860,6 +996,14 @@ final class CatalogServiceTest extends ApiTestCase
                         'variantId' => 10,
                         'variantName' => 'wired',
                     ],
+                ],
+                'company' => [
+                    'id' => 7,
+                    'name' => 'Test company',
+                    'slug' => 'test-company-3',
+                    'isProfessional' => true,
+                    'image' => null,
+                    'averageRating' => null,
                 ],
             ]),
         ];
