@@ -14,6 +14,7 @@ final class TranslationServiceTest extends ApiTestCase
 {
     public function testPushXliffCatalog()
     {
+        $this->markTestSkipped('API had a BC break, will be fixed in v0.9');
         $client = $this->buildApiClient();
         $client->authenticate('admin@world-company.com', 'password-admin');
 
