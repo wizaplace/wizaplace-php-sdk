@@ -59,7 +59,7 @@ final class Product
     /** @var Shipping[] */
     private $shippings;
 
-    /** @var Company[] */
+    /** @var CompanySummary[] */
     private $companies;
 
     /** @var array */
@@ -104,8 +104,8 @@ final class Product
         $this->shippings = array_map(static function (array $shippingData) : Shipping {
             return new Shipping($shippingData);
         }, $data['shippings']);
-        $this->companies = array_map(static function (array $companyData) : Company {
-            return new Company($companyData);
+        $this->companies = array_map(static function (array $companyData) : CompanySummary {
+            return new CompanySummary($companyData);
         }, $data['companies']);
         $this->categoryPath = array_map(static function (array $category) : ProductCategory {
             return new ProductCategory($category);
@@ -202,7 +202,7 @@ final class Product
     }
 
     /**
-     * @return Company[]
+     * @return CompanySummary[]
      */
     public function getCompanies(): array
     {
