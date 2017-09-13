@@ -138,27 +138,15 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $messages = $this->discussionService->getMessages(1);
 
-        $date = new \DateTimeImmutable();
-
-        $expectedMessages = [
-            new Message([
-                'isAuthor' => true,
-                'content' => 'This is a test message',
-                'date' => $date->format(DATE_RFC3339),
-            ]),
-            new Message([
-                'isAuthor' => true,
-                'content' => 'This is an other test message',
-                'date' => $date->format(DATE_RFC3339),
-            ]),
-        ];
-
-        $this->assertSame($expectedMessages[0]->getContent(), $messages[0]->getContent());
+        $this->assertSame('This is a test message', $messages[0]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
-        $this->assertSame($expectedMessages[1]->getContent(), $messages[1]->getContent());
+        $this->assertGreaterThan(1500000000, $messages[0]->getDate()->getTimestamp());
+        $this->assertTrue($messages[0]->isAuthor());
+
+        $this->assertSame('This is an other test message', $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
-        $this->assertSame($expectedMessages[0]->isAuthor(), $messages[0]->isAuthor());
-        $this->assertSame($expectedMessages[1]->isAuthor(), $messages[1]->isAuthor());
+        $this->assertGreaterThan(1500000000, $messages[1]->getDate()->getTimestamp());
+        $this->assertTrue($messages[1]->isAuthor());
     }
 
     private function buildDiscussionService(): DiscussionService
