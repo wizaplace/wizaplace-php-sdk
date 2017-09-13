@@ -4,6 +4,7 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\Translation\TranslationService::pushXliffCatalog` now uses a `$password` parameter instead of the apiClient authentication
 - Removed `\Wizaplace\SDK\Catalog\Product::getUrl`
 - Removed `\Wizaplace\SDK\Catalog\ProductSummary::getUrl`
 - Removed `\Wizaplace\SDK\Basket\BasketItem::getProductUrl`
