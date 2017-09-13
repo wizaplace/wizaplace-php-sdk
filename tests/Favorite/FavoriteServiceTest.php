@@ -30,9 +30,9 @@ final class FavoriteServiceTest extends ApiTestCase
 
     public function testAddProductToFavorite()
     {
-        $this->favService->addDeclinationToUserFavorites('2_9_1');
+        $this->favService->addDeclinationToUserFavorites('2_6_1');
 
-        $this->assertTrue($this->favService->isInFavorites('2_9_1'));
+        $this->assertTrue($this->favService->isInFavorites('2_6_1'));
     }
 
     public function testAddFavProductToFavorite()
@@ -94,7 +94,7 @@ final class FavoriteServiceTest extends ApiTestCase
     private function buildFavoriteService(): FavoriteService
     {
         $client = $this->buildApiClient();
-        $client->authenticate('admin@wizaplace.com', 'password');
+        $client->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         return new FavoriteService($client);
     }

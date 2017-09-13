@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 24 Aug 2017 14:57:54 GMT'
+            Date: 'Tue, 12 Sep 2017 14:53:27 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1bb2ae
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bb2ae'
-            Content-Length: '203'
+            X-Debug-Token: 221ff3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/221ff3'
+            Content-Length: '199'
             Content-Type: application/json
-        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"bleu","image":null},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","image":null},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","image":null}]'
+        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"","image":null},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","image":null},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","image":null}]'

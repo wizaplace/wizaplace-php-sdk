@@ -2,11 +2,11 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=test-product-slug&slugs%5B1%5D=test-category-slug&slugs%5B2%5D=test-attribute-variant-slug&slugs%5B3%5D=test-cms-page-slug&slugs%5B4%5D=test-company-slug&slugs%5B5%5D=404-does-not-exist'
+        url: 'http://wizaplace.loc/api/v1/seo/slugs?slugs%5B0%5D=ecran-pc-full-hd-24-noir&slugs%5B1%5D=informatique&slugs%5B2%5D=blanc&slugs%5B3%5D=test-cms-page-slug&slugs%5B4%5D=the-world-company-inc.&slugs%5B5%5D=404-does-not-exist'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.7-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 11 Jul 2017 13:15:41 GMT'
+            Date: 'Tue, 12 Sep 2017 15:06:18 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: bd48d4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd48d4'
-            Content-Length: '267'
+            X-Debug-Token: a4dffc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a4dffc'
+            Content-Length: '250'
             Content-Type: application/json
-        body: '{"test-attribute-variant-slug":{"type":"attribute_variant","id":"20"},"test-category-slug":{"type":"category","id":"5"},"test-cms-page-slug":{"type":"cms_page","id":"31"},"test-company-slug":{"type":"company","id":"3"},"test-product-slug":{"type":"product","id":"1"}}'
+        body: '{"blanc":{"type":"attribute_variant","id":"2"},"ecran-pc-full-hd-24-noir":{"type":"product","id":"3"},"informatique":{"type":"category","id":"3"},"test-cms-page-slug":{"type":"cms_page","id":"31"},"the-world-company-inc.":{"type":"company","id":"3"}}'

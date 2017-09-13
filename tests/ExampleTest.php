@@ -49,7 +49,7 @@ final class ExampleTest extends ApiTestCase
         $orderService = new \Wizaplace\SDK\Order\OrderService($wizaplaceClient);
 
         // Authentication
-        $wizaplaceClient->authenticate("admin@wizaplace.com", "password");
+        $wizaplaceClient->authenticate('customer-3@world-company.com', 'password-customer-3');
 
         // Authenticated Action
         $orders = $orderService->getOrders();

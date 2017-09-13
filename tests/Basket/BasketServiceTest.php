@@ -20,7 +20,7 @@ final class BasketServiceTest extends ApiTestCase
     public function testFullCheckout()
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         $basketService = new BasketService($apiClient);
         $orderService = new OrderService($apiClient);
@@ -89,27 +89,27 @@ final class BasketServiceTest extends ApiTestCase
 
         $order = $orderService->getOrder($orders[0]['id']);
         $this->assertSame($orders[0]['id'], $order->getId());
-        $this->assertSame(5, $order->getCompanyId());
-        $this->assertSame('TNT Express', $order->getShippingName());
+        $this->assertSame(3, $order->getCompanyId());
+        $this->assertSame('Colissmo', $order->getShippingName());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
-        $this->assertSame(40.0, $order->getTotal());
-        $this->assertSame(40.0, $order->getSubtotal());
+        $this->assertSame(135.8, $order->getTotal());
+        $this->assertSame(135.8, $order->getSubtotal());
         $this->assertSame('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
 
         $orderItems = $order->getOrderItems();
         $this->assertCount(1, $orderItems);
         $this->assertSame('1_0', $orderItems[0]->getDeclinationId());
-        $this->assertSame('optio corporis similique voluptatum', $orderItems[0]->getProductName());
-        $this->assertSame('6086375420678', $orderItems[0]->getProductCode());
-        $this->assertSame(20.0, $orderItems[0]->getPrice());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $orderItems[0]->getProductName());
+        $this->assertSame('978020137962', $orderItems[0]->getProductCode());
+        $this->assertSame(67.9, $orderItems[0]->getPrice());
         $this->assertSame(2, $orderItems[0]->getAmount());
     }
 
     public function testCleanBasket()
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
 
         $basketService = new BasketService($apiClient);
 
@@ -162,8 +162,8 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertCount(1, $shippingGroups);
 
         $shippings = $shippingGroups[0]->getShippings();
-        $this->assertCount(2, $shippings);
-        $this->assertSame('Colissmo', $shippings[1]->getName());
+        $this->assertCount(3, $shippings);
+        $this->assertSame('Lettre prioritaire', $shippings[1]->getName());
         // @TODO : insert some real data in the fixtures
         $this->assertSame(0.0, $shippings[1]->getPrice());
         $this->assertSame('', $shippings[1]->getDeliveryTime());
@@ -187,10 +187,11 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertCount(1, $shippingGroups);
 
         $shippings = $shippingGroups[0]->getShippings();
-        $this->assertCount(2, $shippings);
+        $this->assertCount(3, $shippings);
 
         $this->assertFalse($shippings[0]->isSelected());
         $this->assertTrue($shippings[1]->isSelected());
+        $this->assertFalse($shippings[2]->isSelected());
     }
 
     public function testGetBasketWithOption()
@@ -198,14 +199,14 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '2_7_1', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
 
         $basket = $basketService->getBasket($basketId);
 
-        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[7];
-        $this->assertSame(7, $declinationOption->getOptionId());
+        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[8];
+        $this->assertSame(8, $declinationOption->getOptionId());
         $this->assertSame('size', $declinationOption->getOptionName());
-        $this->assertSame(1, $declinationOption->getVariantId());
+        $this->assertSame(7, $declinationOption->getVariantId());
         $this->assertSame('13', $declinationOption->getVariantName());
     }
 
