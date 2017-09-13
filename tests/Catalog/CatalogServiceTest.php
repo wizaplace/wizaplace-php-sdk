@@ -41,7 +41,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(['informatique'], $product->getCategorySlugs());
         $this->assertSame('978020137962', $product->getCode());
         $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
-        $this->assertSame('http://wizaplace.loc/informatique/test-product-slug.html', $product->getUrl());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
         $this->assertSame('', $product->getShortDescription());
@@ -128,7 +127,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
         $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getUpdatedAt()->getTimestamp());
         $this->assertNull($product->getAffiliateLink());
-        $this->assertSame('/special-category-dedicated-to-specific-tests/product-with-shippings.html', $product->getUrl());
         $this->assertSame(['special-category-dedicated-to-specific-tests'], $product->getCategorySlugs());
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertNull($product->getMainImage());

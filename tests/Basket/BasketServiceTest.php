@@ -54,7 +54,6 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertGreaterThan(0, $basketItem->getProductId());
                     $this->assertGreaterThan(0, $basketItem->getQuantity());
                     $this->assertNotEmpty($basketItem->getProductName());
-                    $this->assertNotEmpty($basketItem->getProductUrl());
                     $this->assertNotEmpty($basketItem->getDeclinationId());
                     $this->assertSame([], $basketItem->getDeclinationOptions());
                     $this->assertGreaterThan(0, $basketItem->getIndividualPrice());

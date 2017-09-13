@@ -140,14 +140,6 @@ final class Product
         return $this->name;
     }
 
-    /**
-     * @deprecated
-     */
-    public function getUrl(): string
-    {
-        return $this->url;
-    }
-
     public function getShortDescription(): string
     {
         return $this->shortDescription;
