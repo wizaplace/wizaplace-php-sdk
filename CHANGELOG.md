@@ -6,12 +6,16 @@
 
 ### New features
 
+### Bugfixes
+
+## 0.8.2
+
+### New features
+
 - Added `\Wizaplace\SDK\Catalog\Company::getSlug`
 - Added `\Wizaplace\SDK\Catalog\Company::getImage`
 - Added `\Wizaplace\SDK\Catalog\Company::isProfessional`
 - Added `\Wizaplace\SDK\Catalog\Company::getAverageRating`
-
-### Bugfixes
 
 ## 0.8.1
 
