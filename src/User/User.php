@@ -19,7 +19,7 @@ final class User
     private $firstname;
     /** @var string */
     private $lastname;
-    /** @var \DateTime|null */
+    /** @var \DateTimeImmutable|null */
     private $birthday;
     /** @var UserAddress|null */
     private $billingAddress;
@@ -36,7 +36,7 @@ final class User
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstname = (string) $data['firstName'];
         $this->lastname = (string) $data['lastName'];
-        $this->birthday = empty($data['birthday']) ? null : new \DateTime($data['birthday']);
+        $this->birthday = empty($data['birthday']) ? null : new \DateTimeImmutable($data['birthday']);
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
     }
@@ -66,7 +66,7 @@ final class User
         return $this->lastname;
     }
 
-    public function getBirthday(): ?\DateTime
+    public function getBirthday(): ?\DateTimeImmutable
     {
         return $this->birthday;
     }
