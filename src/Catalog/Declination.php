@@ -148,7 +148,7 @@ final class Declination
     }
 
     /**
-     * Le déclinaison est-elle neuve ou d'occasion ?
+     * Is the declination brand new (true) or second-hand (false).
      */
     public function isBrandNew(): bool
     {
