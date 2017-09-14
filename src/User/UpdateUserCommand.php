@@ -26,6 +26,9 @@ final class UpdateUserCommand
     /** @var UserTitle|null */
     private $title;
 
+    /** @var \DateTime|null */
+    private $birthday;
+
     public function getUserId(): int
     {
         return $this->id;
@@ -49,6 +52,11 @@ final class UpdateUserCommand
     public function getTitle(): ?UserTitle
     {
         return $this->title;
+    }
+
+    public function getBirthday(): ?\DateTime
+    {
+        return $this->birthday;
     }
 
     public function setUserId(int $userId): self
@@ -82,6 +90,13 @@ final class UpdateUserCommand
     public function setTitle(?UserTitle $title): self
     {
         $this->title = $title;
+
+        return $this;
+    }
+
+    public function setBirthday(?\DateTime $birthday): self
+    {
+        $this->birthday = $birthday;
 
         return $this;
     }
