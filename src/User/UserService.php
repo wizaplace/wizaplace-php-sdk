@@ -55,6 +55,7 @@ final class UserService extends AbstractService
                     'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
+                    'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format('U'),
                 ],
             ]
         );

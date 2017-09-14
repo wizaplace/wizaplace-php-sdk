@@ -8,6 +8,7 @@
 
 - Added `\Wizaplace\Catalog\Declination::isBrandNew`
 - Added `\Wizaplace\Catalog\Product::getVideo`
+- Added `\Wizaplace\SDK\User\User::getBirthday`
 
 ### Bugfixes
 
