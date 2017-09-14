@@ -7,6 +7,7 @@
 ### New features
 
 - Added `\Wizaplace\Catalog\Declination::isBrandNew`
+- Added `\Wizaplace\Catalog\Product::getVideo`
 
 ### Bugfixes
 
