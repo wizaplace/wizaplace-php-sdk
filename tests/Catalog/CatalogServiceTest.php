@@ -339,6 +339,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
                         'id' => 8,
@@ -372,6 +373,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
                         'id' => 8,
@@ -405,6 +407,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
                         'id' => 8,
@@ -438,6 +441,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => true,
                 'options' => [
                     [
                         'id' => 8,
@@ -513,6 +517,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -546,6 +551,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -585,6 +591,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -624,6 +631,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -657,6 +665,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -696,6 +705,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -735,6 +745,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -768,6 +779,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -807,6 +819,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 0,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -846,6 +859,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -879,6 +893,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,
@@ -918,6 +933,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
+                'isBrandNew' => false,
                 'options' => [
                     [
                         'id' => 6,

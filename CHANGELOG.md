@@ -6,6 +6,8 @@
 
 ### New features
 
+- Added `\Wizaplace\Catalog\Declination::isBrandNew`
+
 ### Bugfixes
 
 ## 0.8.2
