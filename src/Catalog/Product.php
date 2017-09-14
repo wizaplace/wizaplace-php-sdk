@@ -74,6 +74,9 @@ final class Product
     /** @var null|ProductLocation */
     private $geolocation;
 
+    /** @var null|ProductVideo */
+    private $video;
+
     /**
      * @internal
      */
@@ -114,6 +117,7 @@ final class Product
             return new Option($option);
         }, $data['options']);
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
+        $this->video = isset($data['video']) ? new ProductVideo($data['video']) : null;
     }
 
     public function getId(): string
@@ -280,5 +284,10 @@ final class Product
     public function getGeolocation(): ?ProductLocation
     {
         return $this->geolocation;
+    }
+
+    public function getVideo(): ?ProductVideo
+    {
+        return $this->video;
     }
 }

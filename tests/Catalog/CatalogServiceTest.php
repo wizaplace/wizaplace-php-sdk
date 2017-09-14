@@ -15,6 +15,7 @@ use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
+use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -50,6 +51,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(1.23, $product->getWeight());
         $this->assertNull($product->getAverageRating());
         $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -983,6 +985,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(4.800039, $location->getLongitude());
         $this->assertSame('Wizacha', $location->getLabel());
         $this->assertSame('69009', $location->getZipcode());
+    }
+
+    public function testGetProductWithVideo()
+    {
+        $video = $this->buildCatalogService()->getProductById(3)->getVideo();
+        $this->assertInstanceOf(ProductVideo::class, $video);
+        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/1979/480-00001.png', $video->getThumbnailUrl());
+        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/1979/480.mp4', $video->getVideoUrl());
     }
 
     public function testReportingProduct()
