@@ -20,7 +20,7 @@ final class ExampleTest extends ApiTestCase
     public function basicUsage()
     {
         // Setup
-        $marketplaceApiUri = 'http://wizaplace.test/api/v1/'; // replace that value with your own
+        $marketplaceApiUri = 'http://wizaplace.loc/api/v1/'; // replace that value with your own
         $httpClient = new \GuzzleHttp\Client([
             'base_uri' => $marketplaceApiUri,
         ]);
