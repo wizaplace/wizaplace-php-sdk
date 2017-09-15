@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\User;
 
 final class User
 {
+    const BIRTHDAY_FORMAT = 'd-m-Y';
+
     /** @var int */
     private $id;
     /** @var string */
@@ -36,7 +38,7 @@ final class User
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstname = (string) $data['firstName'];
         $this->lastname = (string) $data['lastName'];
-        $this->birthday = empty($data['birthday']) ? null : new \DateTimeImmutable($data['birthday']);
+        $this->birthday = empty($data['birthday']) ? null : \DateTimeImmutable::createFromFormat(self::BIRTHDAY_FORMAT, $data['birthday']);
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
     }
