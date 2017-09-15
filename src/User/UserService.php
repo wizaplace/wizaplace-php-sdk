@@ -15,6 +15,8 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 final class UserService extends AbstractService
 {
+    private const BIRTHDAY_FORMAT = 'Y-m-d';
+
     /**
      * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait
      * consulter le profile de quelqu'un d'autre.
@@ -55,7 +57,7 @@ final class UserService extends AbstractService
                     'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
-                    'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format('U'),
+                    'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                 ],
             ]
         );
