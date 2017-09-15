@@ -17,6 +17,8 @@ final class ProductSummary
     private $name;
     /** @var string */
     private $subtitle;
+    /** @var string */
+    private $shortDescription;
     /** @var float */
     private $minimumPrice;
     /** @var float|null */
@@ -56,6 +58,7 @@ final class ProductSummary
         $this->productId = (string) $data['productId'];
         $this->name = (string) $data['name'];
         $this->subtitle = (string) $data['subtitle'];
+        $this->shortDescription = (string) $data['shortDescription'];
         $this->minimumPrice = $data['minimumPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         $this->isAvailable = $data['isAvailable'];
@@ -92,6 +95,11 @@ final class ProductSummary
     public function getSubtitle(): string
     {
         return $this->subtitle;
+    }
+
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
     }
 
     public function getMinimumPrice(): float
