@@ -107,7 +107,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setFirstName('Jacques')
                 ->setLastName('Jules')
                 ->setTitle(UserTitle::MR())
-                ->setBirthday(\DateTime::createFromFormat(User::BIRTHDAY_FORMAT, '17-02-1963'))
+                ->setBirthday(\DateTime::createFromFormat(User::BIRTHDAY_FORMAT, '1963-02-17'))
         );
 
         $client->authenticate('user43@example.com', 'password');
@@ -117,7 +117,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertTrue(UserTitle::MR()->equals($user->getTitle()));
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
-        $this->assertSame('17-02-1963', $user->getBirthday()->format(User::BIRTHDAY_FORMAT));
+        $this->assertSame('1963-02-17', $user->getBirthday()->format(User::BIRTHDAY_FORMAT));
     }
 
     public function testUpdateUserAddresses()
