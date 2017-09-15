@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\User;
 
 final class User
 {
-    const BIRTHDAY_FORMAT = 'Y-m-d';
+    private const BIRTHDAY_FORMAT = 'Y-m-d';
 
     /** @var int */
     private $id;

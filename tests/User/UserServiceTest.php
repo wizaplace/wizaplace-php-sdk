@@ -13,7 +13,6 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\User\UpdateUserAddressCommand;
 use Wizaplace\SDK\User\UpdateUserAddressesCommand;
 use Wizaplace\SDK\User\UpdateUserCommand;
-use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\User\UserAlreadyExists;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
@@ -107,7 +106,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setFirstName('Jacques')
                 ->setLastName('Jules')
                 ->setTitle(UserTitle::MR())
-                ->setBirthday(\DateTime::createFromFormat(User::BIRTHDAY_FORMAT, '1963-02-17'))
+                ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
         );
 
         $client->authenticate('user43@example.com', 'password');
@@ -117,7 +116,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertTrue(UserTitle::MR()->equals($user->getTitle()));
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
-        $this->assertSame('1963-02-17', $user->getBirthday()->format(User::BIRTHDAY_FORMAT));
+        $this->assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
     }
 
     public function testUpdateUserAddresses()
