@@ -1,12 +1,14 @@
 # Changelog
 
-## Unreleased
+<details>
+<summary>Unreleased</summary>
 
 ### BREAKING CHANGES
 
 ### New features
 
 ### Bugfixes
+</details>
 
 ## 0.8.3
 
