@@ -10,6 +10,7 @@
 - Added `\Wizaplace\Catalog\Product::getVideo`
 - Added `\Wizaplace\SDK\User\User::getBirthday`
 - Added `\Wizaplace\SDK\User\UpdateUserCommand::setBirthday`
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getShortDescription`
 
 ### Bugfixes
 

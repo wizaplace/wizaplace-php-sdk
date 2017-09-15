@@ -125,6 +125,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(['N'], $product->getCondition());
         $this->assertSame(1, $product->getDeclinationCount());
         $this->assertSame('', $product->getSubtitle());
+        $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
         $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getUpdatedAt()->getTimestamp());
         $this->assertNull($product->getAffiliateLink());
         $this->assertSame('/special-category-dedicated-to-specific-tests/product-with-shippings.html', $product->getUrl());
