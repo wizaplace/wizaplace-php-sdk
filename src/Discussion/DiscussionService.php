@@ -104,7 +104,7 @@ final class DiscussionService extends AbstractService
             $userId = $this->client->getApiKey()->getId();
 
             return array_map(static function (array $messageData) use ($userId) : Message {
-                $messageData['isAuthor'] = ($messageData['author'] === $userId);
+                $messageData['isAuthor'] = ($messageData['authorId'] === $userId);
 
                 return new Message($messageData);
             }, $messages);
@@ -125,7 +125,7 @@ final class DiscussionService extends AbstractService
 
         try {
             $messageData = $this->client->post('discussions/'.$discussionId.'/messages', ['json' => ['content' => $content]]);
-            $messageData['isAuthor'] = ($messageData['author'] === $this->client->getApiKey()->getId());
+            $messageData['isAuthor'] = ($messageData['authorId'] === $this->client->getApiKey()->getId());
 
             return new Message($messageData);
         } catch (ClientException $e) {
