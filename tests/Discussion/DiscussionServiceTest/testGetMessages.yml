@@ -13,14 +13,95 @@
     response:
         status:
             http_version: '1.1'
-            code: '401'
-            message: Unauthorized
+            code: '200'
+            message: OK
         headers:
-            Date: 'Fri, 15 Sep 2017 13:52:44 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:32 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            WWW-Authenticate: 'Basic realm="Secured Area"'
-            X-Debug-Token: 1d676e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1d676e'
-            Content-Length: '0'
-            Content-Type: 'text/html; charset=UTF-8'
+            X-Debug-Token: 8fc5c0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8fc5c0'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"\/kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions/1/messages'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Content-Type: application/json
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
+            VCR-index: '1'
+            Accept: null
+        body: '{"content":"This is a test message"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 18 Sep 2017 09:48:32 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 4dfe8a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4dfe8a'
+            Content-Length: '110'
+            Content-Type: application/json
+        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:32+02:00"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions/1/messages'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Content-Type: application/json
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
+            VCR-index: '2'
+            Accept: null
+        body: '{"content":"This is an other test message"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 18 Sep 2017 09:48:33 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 17f4db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/17f4db'
+            Content-Length: '117'
+            Content-Type: application/json
+        body: '{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:33+02:00"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/1/messages'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 18 Sep 2017 09:48:33 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 08fe84
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/08fe84'
+            Content-Length: '230'
+            Content-Type: application/json
+        body: '[{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:32+02:00"},{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:33+02:00"}]'
