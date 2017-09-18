@@ -21,10 +21,43 @@ final class OrderServiceTest extends ApiTestCase
 {
     public function testGetOrder()
     {
-        $order = $this->buildOrderService()->getOrder(1);
+        $order = $this->buildOrderService()->getOrder(2);
 
-        $this->assertSame(1, $order->getId());
+        $this->assertSame(2, $order->getId());
+        $this->assertSame(3, $order->getCompanyId());
+        $this->assertSame(35.3, $order->getTotal());
+        $this->assertSame(35.3, $order->getSubtotal());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
+        $this->assertSame('Lettre prioritaire', $order->getShippingName());
+        $this->assertCount(2, $order->getOrderItems());
+
+        // Premier orderItem
+        $firstItem = $order->getOrderItems()[0];
+        $this->assertSame('2_6_4_7_6', $firstItem->getDeclinationId());
+        $this->assertSame('Souris sans fil avec récepteur nano 6 boutons', $firstItem->getProductName());
+        $this->assertSame('color_red_connectivity_wired', $firstItem->getProductCode());
+        $this->assertSame(15.5, $firstItem->getPrice());
+        $this->assertSame(1, $firstItem->getAmount());
+        $this->assertCount(2, $firstItem->getDeclinationOptions());
+
+        $this->assertSame(6, $firstItem->getDeclinationOptions()[0]->getOptionId());
+        $this->assertSame('color', $firstItem->getDeclinationOptions()[0]->getOptionName());
+        $this->assertSame(4, $firstItem->getDeclinationOptions()[0]->getVariantId());
+        $this->assertSame('red', $firstItem->getDeclinationOptions()[0]->getVariantName());
+
+        $this->assertSame(7, $firstItem->getDeclinationOptions()[1]->getOptionId());
+        $this->assertSame('connectivity', $firstItem->getDeclinationOptions()[1]->getOptionName());
+        $this->assertSame(6, $firstItem->getDeclinationOptions()[1]->getVariantId());
+        $this->assertSame('wired', $firstItem->getDeclinationOptions()[1]->getVariantName());
+
+        // Deuxième orderItem
+        $secondItem = $order->getOrderItems()[1];
+        $this->assertSame('4_0', $secondItem->getDeclinationId());
+        $this->assertSame('Product with shippings', $secondItem->getProductName());
+        $this->assertSame('0493020427963', $secondItem->getProductCode());
+        $this->assertSame(9.9, $secondItem->getPrice());
+        $this->assertSame(2, $secondItem->getAmount());
+        $this->assertCount(0, $secondItem->getDeclinationOptions());
     }
 
     public function testCreateOrderReturn()
