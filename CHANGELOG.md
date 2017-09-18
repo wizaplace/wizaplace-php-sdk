@@ -7,6 +7,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Order\DeclinationOption`
+- Added `\Wizaplace\SDK\Order\OrderItem::getDeclinationOptions`
+
 ### Bugfixes
 </details>
 

@@ -19,6 +19,8 @@ final class OrderItem
     private $price;
     /** @var int */
     private $amount;
+    /** @var DeclinationOption[] */
+    private $declinationOptions;
 
     /**
      * @internal
@@ -30,6 +32,9 @@ final class OrderItem
         $this->productCode = $data['productCode'];
         $this->price = $data['price'];
         $this->amount = $data['amount'];
+        $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
+            return new DeclinationOption($data);
+        }, $data['options'] ?? []);
     }
 
     public function getDeclinationId(): string
@@ -55,5 +60,13 @@ final class OrderItem
     public function getAmount(): int
     {
         return $this->amount;
+    }
+
+    /**
+     * @return DeclinationOption[]
+     */
+    public function getDeclinationOptions(): array
+    {
+        return $this->declinationOptions;
     }
 }
