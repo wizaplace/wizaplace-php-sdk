@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:21 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:32 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 063cb3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/063cb3'
+            X-Debug-Token: 8fc5c0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8fc5c0'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"cW+Q3EG696n\/w2pW79g3Qfs24KtyKl5jibBty5vH"}'
+        body: '{"id":7,"apiKey":"\/kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token cW+Q3EG696n/w2pW79g3Qfs24KtyKl5jibBty5vH'
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
             VCR-index: '1'
             Accept: null
         body: '{"content":"This is a test message"}'
@@ -44,14 +44,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:21 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:32 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 600fe8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/600fe8'
-            Content-Length: '82'
+            X-Debug-Token: 4dfe8a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4dfe8a'
+            Content-Length: '110'
             Content-Type: application/json
-        body: '{"content":"This is a test message","author":7,"date":"2017-09-12T16:59:21+02:00"}'
+        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:32+02:00"}'
 -
     request:
         method: POST
@@ -62,7 +62,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token cW+Q3EG696n/w2pW79g3Qfs24KtyKl5jibBty5vH'
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
             VCR-index: '2'
             Accept: null
         body: '{"content":"This is an other test message"}'
@@ -72,14 +72,14 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:22 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5399df
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5399df'
-            Content-Length: '89'
+            X-Debug-Token: 17f4db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/17f4db'
+            Content-Length: '117'
             Content-Type: application/json
-        body: '{"content":"This is an other test message","author":7,"date":"2017-09-12T16:59:22+02:00"}'
+        body: '{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:33+02:00"}'
 -
     request:
         method: GET
@@ -88,7 +88,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token cW+Q3EG696n/w2pW79g3Qfs24KtyKl5jibBty5vH'
+            Authorization: 'token /kdxCGlfnQA0cFiRdQy5bHiiE7+mngKvCEh0mpB2'
             VCR-index: '3'
             Accept: null
     response:
@@ -97,11 +97,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:22 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e585b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e585b8'
-            Content-Length: '174'
+            X-Debug-Token: 08fe84
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/08fe84'
+            Content-Length: '230'
             Content-Type: application/json
-        body: '[{"content":"This is a test message","author":7,"date":"2017-09-12T16:59:21+02:00"},{"content":"This is an other test message","author":7,"date":"2017-09-12T16:59:22+02:00"}]'
+        body: '[{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:32+02:00"},{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:33+02:00"}]'

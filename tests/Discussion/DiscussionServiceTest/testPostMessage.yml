@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:10 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:54 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 501ef2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/501ef2'
+            X-Debug-Token: 8e3f8c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8e3f8c'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"vqNlwJzMJWDvlTmYmAkDDqRkg2HfDLwedTBgD5a+"}'
+        body: '{"id":7,"apiKey":"bR6BnmfT6s1pXxP5ZyyArYKYOSGcET+rtYg2TW93"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token vqNlwJzMJWDvlTmYmAkDDqRkg2HfDLwedTBgD5a+'
+            Authorization: 'token bR6BnmfT6s1pXxP5ZyyArYKYOSGcET+rtYg2TW93'
             VCR-index: '1'
             Accept: null
         body: '{"content":"This is a test message"}'
@@ -44,11 +44,11 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 14:59:10 GMT'
+            Date: 'Mon, 18 Sep 2017 09:48:54 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: d31627
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d31627'
-            Content-Length: '82'
+            X-Debug-Token: 1ac25c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1ac25c'
+            Content-Length: '110'
             Content-Type: application/json
-        body: '{"content":"This is a test message","author":7,"date":"2017-09-12T16:59:11+02:00"}'
+        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2017-09-18T11:48:55+02:00"}'
