@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\Option;
+use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductVideo;
@@ -70,31 +71,103 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertSame('5', $product->getId());
         $this->assertSame('product-with-complex-attributes', $product->getSlug());
-        $this->assertSame(1.23, $product->getWeight());
-        $this->assertSame(0.0, $product->getGreenTax());
-        $this->assertNull($product->getAverageRating());
 
-        $attributes = $product->getAttributes();
+        $expectedAttributes = [
+            new ProductAttribute([
+                'id' => 3,
+                'name' => 'Commentaire',
+                'value' => 'Commentaire #12M%M_°09£*/.?',
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 1,
+                'name' => 'Couleur',
+                'value' => [
+                    'Blanc',
+                    'Rouge',
+                ],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 4,
+                'name' => 'Groupe attributs',
+                'value' => null,
+                'children' => [
+                    [
+                        'id' => 7,
+                        'name' => 'Complément adresse',
+                        'value' => 'Complément d\'adresse pour la stepo',
+                        'children' => [],
+                        'imageUrls' => [],
+                    ],
+                    [
+                        'id' => 5,
+                        'name' => 'Couleur secondaire',
+                        'value' => ['Orange'],
+                        'children' => [],
+                        'imageUrls' => [],
+                    ],
+                    [
+                        'id' => 6,
+                        'name' => 'Pointure',
+                        'value' => ['44'],
+                        'children' => [],
+                        'imageUrls' => [],
+                    ],
+                ],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 2,
+                'name' => 'Taille',
+                'value' => ['M'],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 0,
+                'name' => 'Free attribute multiple',
+                'value' => [
+                    'réponse - 1 #',
+                    'réponse - 2 @',
+                    4985,
+                ],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 0,
+                'name' => 'Free attribute simple',
+                'value' => ['valeur simple du free attribute #12M%M_°09£*/.?'],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 0,
+                'name' => 'Free attribute simple mais en tableau',
+                'value' => ['une bien belle valeur déjà encapsulée'],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 0,
+                'name' => 'Free attribute integer ?',
+                'value' => [92254094],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+            new ProductAttribute([
+                'id' => 0,
+                'name' => 'Free attribute integer mais en tableau',
+                'value' => ['la même histoire par ici'],
+                'children' => [],
+                'imageUrls' => [],
+            ]),
+        ];
 
-        // Check attributes group
-        $this->assertCount(9, $attributes);
-        $attributesGroup = $attributes[2];
-        $this->assertSame('Groupe attributs', $attributesGroup->getName());
-        $this->assertNull($attributesGroup->getValue());
-        $this->assertCount(3, $attributesGroup->getChildren());
-
-        // Bulk checks on all attributes
-        foreach ($attributes as $attribute) {
-            $value = $attribute->getValue();
-            if (!is_null($value) && !is_string($value) && !is_array($value)) {
-                throw new \TypeError('\Wizaplace\SDK\Catalog\ProductAttribute::getValue must return null, a string, or an array. Got '.var_export($value, true));
-            }
-            $this->assertNotEmpty($attribute->getName());
-            $attribute->getChildren();
-            $attribute->getImageUrls();
-        }
-
-        // @TODO: more assertions
+        $this->assertEquals($expectedAttributes, $product->getAttributes());
     }
 
     public function testGetNonExistingProductById()

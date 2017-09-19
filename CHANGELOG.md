@@ -11,6 +11,7 @@
 - Added `\Wizaplace\SDK\Order\OrderItem::getDeclinationOptions`
 - `\Wizaplace\SDK\User\UpdateUserCommand::setBirthday` now takes a `\DateTimeInterface` instead of a `\DateTime`
 - Added `\Wizaplace\SDK\Order\OrderService::sendAfterSalesServiceRequest`
+- Added `\Wizaplace\SDK\Catalog\ProductAttribute::getId`
 
 ### Bugfixes
 </details>
