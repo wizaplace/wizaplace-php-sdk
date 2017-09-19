@@ -7,8 +7,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
  * This service helps retrieve and manage orders that already exist.
@@ -124,5 +128,35 @@ final class OrderService extends AbstractService
                 ],
             ]
         )['returnId'];
+    }
+
+    /**
+     * @param AfterSalesServiceRequest $request
+     * @throws SomeParametersAreInvalid
+     * @throws AuthenticationRequired
+     */
+    public function sendAfterSalesServiceRequest(AfterSalesServiceRequest $request): void
+    {
+        $request->validate();
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->post("user/orders/{$request->getOrderId()}/after-sales", [
+                RequestOptions::JSON => [
+                    'comments' => $request->getComments(),
+                    'items' => $request->getItemsDeclinationsIds(),
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$request->getOrderId()} not found", $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new SomeParametersAreInvalid("Some parameters are invalid", 400, $e);
+            }
+
+            throw $e;
+        }
     }
 }

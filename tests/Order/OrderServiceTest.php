@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Order;
 
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -136,6 +137,31 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(3, $returnTypes[0]->getId());
         $this->assertSame('Colis arrivé en mauvais état, endommagé', $returnTypes[0]->getName());
         $this->assertSame(10, $returnTypes[0]->getPosition());
+    }
+
+    public function testSendingAnAfterSalesServiceRequest()
+    {
+        $request = (new AfterSalesServiceRequest())
+            ->setOrderId(4)
+            ->setComments("Help please :(")
+            ->setItemsDeclinationsIds(['1_0']);
+
+        $this->buildOrderService()->sendAfterSalesServiceRequest($request);
+
+        // sadly we can't check any data, so we just check that 2 request were made (one for authentication, one for the SAV request)
+        $this->assertCount(2, static::$historyContainer);
+        $this->assertSame('/api/v1/user/orders/4/after-sales', static::$historyContainer[1]['request']->getUri()->getPath());
+    }
+
+    public function testSendingAnAfterSalesServiceRequestWithoutAuthentication()
+    {
+        $request = (new AfterSalesServiceRequest())
+            ->setOrderId(4)
+            ->setComments("Help please :(")
+            ->setItemsDeclinationsIds(['1_0']);
+
+        $this->expectException(AuthenticationRequired::class);
+        $this->buildOrderServiceWithoutAuthentication()->sendAfterSalesServiceRequest($request);
     }
 
     private function buildOrderService(): OrderService
