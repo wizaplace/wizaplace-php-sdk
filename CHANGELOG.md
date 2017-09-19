@@ -9,6 +9,7 @@
 
 - Added `\Wizaplace\SDK\Order\DeclinationOption`
 - Added `\Wizaplace\SDK\Order\OrderItem::getDeclinationOptions`
+- `\Wizaplace\SDK\User\UpdateUserCommand::setBirthday` now takes a `\DateTimeInterface` instead of a `\DateTime`
 
 ### Bugfixes
 </details>
