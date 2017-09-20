@@ -5,6 +5,12 @@
 
 ### BREAKING CHANGES
 
+- Extracted a new `\Wizaplace\SDK\OrderReturn\OrderReturnService` out of `\Wizaplace\SDK\Order\OrderService`
+- Moved `\Wizaplace\SDK\OrderReturn\OrderReturn`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
+- Moved `\Wizaplace\SDK\OrderReturn\CreateOrderReturn`
+
 ### New features
 
 ### Bugfixes
