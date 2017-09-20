@@ -5,6 +5,19 @@
 
 ### BREAKING CHANGES
 
+- Abstracted `\Wizaplace\SDK\OrderReturn\OrderReturnService` from `\Wizaplace\SDK\Order\OrderService`
+- Moved `\Wizaplace\SDK\OrderReturn\OrderReturn`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
+- Moved `\Wizaplace\SDK\OrderReturn\CreateOrderReturn`
+
+### New features
+
+### Bugfixes
+</details>
+
+## 0.9.1
+
 ### New features
 
 - Added `\Wizaplace\SDK\Order\DeclinationOption`
@@ -12,9 +25,6 @@
 - `\Wizaplace\SDK\User\UpdateUserCommand::setBirthday` now takes a `\DateTimeInterface` instead of a `\DateTime`
 - Added `\Wizaplace\SDK\Order\OrderService::sendAfterSalesServiceRequest`
 - Added `\Wizaplace\SDK\Catalog\ProductAttribute::getId`
-
-### Bugfixes
-</details>
 
 ## 0.9.0
 

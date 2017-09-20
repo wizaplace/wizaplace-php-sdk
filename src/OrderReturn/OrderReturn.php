@@ -5,7 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Order;
+namespace Wizaplace\SDK\OrderReturn;
 
 final class OrderReturn
 {
