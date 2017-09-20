@@ -10,7 +10,7 @@
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
 - Moved `\Wizaplace\SDK\OrderReturn\CreateOrderReturn`
-- Added `\Wizaplace\SDK\OrderReturn\ReturnStatus`
+- Added `\Wizaplace\SDK\OrderReturn\ReturnStatus` and used it as return type for `\Wizaplace\SDK\OrderReturn\OrderReturn::getStatus` instead of a string
 
 ### New features
 
