@@ -5,7 +5,7 @@
 
 ### BREAKING CHANGES
 
-- Abstracted `\Wizaplace\SDK\OrderReturn\OrderReturnService` from `\Wizaplace\SDK\Order\OrderService`
+- Extracted a new `\Wizaplace\SDK\OrderReturn\OrderReturnService` out of `\Wizaplace\SDK\Order\OrderService`
 - Moved `\Wizaplace\SDK\OrderReturn\OrderReturn`
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
