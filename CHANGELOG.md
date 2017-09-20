@@ -10,6 +10,7 @@
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
 - Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
 - Moved `\Wizaplace\SDK\OrderReturn\CreateOrderReturn`
+- Added `\Wizaplace\SDK\OrderReturn\ReturnStatus`
 
 ### New features
 
