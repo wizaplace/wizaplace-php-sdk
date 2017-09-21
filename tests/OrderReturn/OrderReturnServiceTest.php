@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\OrderReturn;
 
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\OrderReturn\CreateOrderReturn;
+use Wizaplace\SDK\OrderReturn\ReturnStatus;
 use Wizaplace\SDK\OrderReturn\ReturnItem;
 use Wizaplace\SDK\OrderReturn\OrderReturnService;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -31,7 +32,7 @@ final class OrderReturnServiceTest extends ApiTestCase
         $return = $orderService->getOrderReturn($returnId);
         $this->assertSame($returnId, $return->getId());
         $this->assertSame(1, $return->getOrderId());
-        $this->assertSame('R', $return->getStatus());
+        $this->assertEquals(ReturnStatus::PROCESSING(), $return->getStatus());
         $this->assertSame('Broken on arrival', $return->getComments());
         $this->assertGreaterThan(1500000000, $return->getCreatedAt()->getTimestamp());
         $returnItems = $return->getItems();
