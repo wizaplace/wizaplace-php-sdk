@@ -15,6 +15,8 @@ final class ProductAttribute
     private $name;
     /** @var null|string|array */
     private $value;
+    /** @var int[] */
+    private $valueIds;
     /** @var ProductAttribute[] */
     private $children;
     /** @var string[] */
@@ -28,6 +30,7 @@ final class ProductAttribute
         $this->id = (int) $data['id'];
         $this->name = (string) $data['name'];
         $this->value = $data['value'];
+        $this->valueIds = $data['valueIds'];
         $this->imageUrls = $data['imageUrls'] ?? [];
         $this->children = array_map(static function (array $childrenData) : self {
             return new self($childrenData);
@@ -58,6 +61,14 @@ final class ProductAttribute
     public function getValue()
     {
         return $this->value;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getValueIds(): array
+    {
+        return $this->valueIds;
     }
 
     /**
