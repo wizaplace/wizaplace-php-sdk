@@ -25,10 +25,10 @@ final class ExampleTest extends ApiTestCase
             'base_uri' => $marketplaceApiUri,
         ]);
         $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
-        $catalogService = new \Wizaplace\SDK\Catalog\CatalogService($wizaplaceClient);
+        $searchService = new \Wizaplace\SDK\Catalog\Search\SearchService($wizaplaceClient);
 
         // Search
-        $products = $catalogService->search();
+        $products = $searchService->search();
 
         // Just here so PHPUnit does not complain about the lack of assertions
         $this->assertNotEmpty($products);
