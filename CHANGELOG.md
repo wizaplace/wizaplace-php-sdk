@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\SearchProductAttribute::getType`
+
 ### Bugfixes
 </details>
 

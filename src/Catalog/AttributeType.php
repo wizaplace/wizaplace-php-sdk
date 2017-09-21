@@ -31,4 +31,34 @@ final class AttributeType extends Enum
     private const LIST_BRAND = 'LIST_BRAND'; // single choice in a brand list
     private const CHECKBOX_MULTIPLE = 'CHECKBOX_MULTIPLE'; // multiple choices in a list
     private const GROUP = 'GROUP'; // group of other attributes
+
+    /**
+     * @internal
+     * @throws \UnexpectedValueException
+     */
+    public static function createFromLegacyMapping(string $value)
+    {
+        switch ($value) {
+            case 'O':
+                return self::FREE_NUMBER();
+            case 'T':
+                return self::FREE_TEXT();
+            case 'D':
+                return self::FREE_DATE();
+            case 'C':
+                return self::CHECKBOX_UNIQUE();
+            case 'S':
+                return self::LIST_TEXT();
+            case 'N':
+                return self::LIST_NUMBER();
+            case 'E':
+                return self::LIST_BRAND();
+            case 'M':
+                return self::CHECKBOX_MULTIPLE();
+            case 'G':
+                return self::GROUP();
+            default:
+                throw new \UnexpectedValueException("Value '$value' is not part of the legacy mapping for enum ".self::class);
+        }
+    }
 }
