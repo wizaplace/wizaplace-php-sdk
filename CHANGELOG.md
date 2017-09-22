@@ -7,13 +7,17 @@
 
 ### New features
 
+### Bugfixes
+</details>
+
+## 0.9.2
+
+### New features
+
 - Added `\Wizaplace\SDK\Catalog\ProductAttribute::getValueIds`
 - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getDescription`
 - Added `\Wizaplace\SDK\Catalog\SearchProductAttribute::getType`
 - Added `\Wizaplace\SDK\Catalog\AttributeType::FREE`
-
-### Bugfixes
-</details>
 
 ## 0.9.1
 
