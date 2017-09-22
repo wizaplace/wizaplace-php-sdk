@@ -11,7 +11,6 @@ use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-use Wizaplace\SDK\Image\Image;
 
 final class CatalogService extends AbstractService
 {
@@ -117,16 +116,12 @@ final class CatalogService extends AbstractService
             throw $e;
         }
 
-        return new AttributeVariant(
-            $variantData['id'],
-            $variantData['attributeId'],
-            $variantData['name'],
-            $variantData['slug'],
-            isset($variantData['image']) ? new Image($variantData['image']) : null
-        );
+        return new AttributeVariant($variantData);
     }
 
-    /** @return AttributeVariant[] */
+    /**
+     * @return AttributeVariant[]
+     */
     public function getAttributeVariants(int $attributeId): array
     {
         try {
@@ -139,15 +134,7 @@ final class CatalogService extends AbstractService
         }
 
         return array_map(function (array $variantData): AttributeVariant {
-            $image = (!empty($variantData['image'])) ? new Image($variantData['image']) : null;
-
-            return new AttributeVariant(
-                $variantData['id'],
-                $variantData['attributeId'],
-                $variantData['name'],
-                $variantData['slug'],
-                $image
-            );
+            return new AttributeVariant($variantData);
         }, $variantsData);
     }
 

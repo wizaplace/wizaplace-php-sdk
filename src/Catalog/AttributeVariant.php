@@ -19,19 +19,22 @@ final class AttributeVariant
     private $name;
     /** @var string */
     private $slug;
+    /** @var string */
+    private $description;
     /** @var null|Image */
     private $image;
 
     /**
      * @internal
      */
-    public function __construct(int $id, int $attributeId, string $name, string $slug, ?Image $image)
+    public function __construct(array $data)
     {
-        $this->id = $id;
-        $this->attributeId = $attributeId;
-        $this->name = $name;
-        $this->slug = $slug;
-        $this->image = $image;
+        $this->id = $data['id'];
+        $this->attributeId = $data['attributeId'];
+        $this->name = $data['name'];
+        $this->slug = $data['slug'];
+        $this->description = $data['description'];
+        $this->image = isset($data['image']) ? new Image($data['image']) : null;
     }
 
     public function getId(): int
@@ -52,6 +55,11 @@ final class AttributeVariant
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function getDescription(): string
+    {
+        return $this->description;
     }
 
     public function getImage(): ?Image
