@@ -374,6 +374,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $variant->getId());
         $this->assertSame(1, $variant->getAttributeId());
         $this->assertSame('Rouge', $variant->getName());
+        $this->assertSame('Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.', $variant->getDescription());
         $this->assertSame('rouge', $variant->getSlug());
         $this->assertNull($variant->getImage());
     }
@@ -389,9 +390,30 @@ final class CatalogServiceTest extends ApiTestCase
         $variants = $this->buildCatalogService()->getAttributeVariants(1);
 
         $expectedVariants = [
-            new AttributeVariant(1, 1, 'Bleu', '', null),
-            new AttributeVariant(2, 1, 'Blanc', 'blanc', null),
-            new AttributeVariant(3, 1, 'Rouge', 'rouge', null),
+            new AttributeVariant([
+                'id' => 1,
+                'attributeId' => 1,
+                'name' => 'Bleu',
+                'slug' => '',
+                'image' => null,
+                'description' => '',
+            ]),
+            new AttributeVariant([
+                'id' => 2,
+                'attributeId' => 1,
+                'name' => 'Blanc',
+                'slug' => 'blanc',
+                'image' => null,
+                'description' => '',
+            ]),
+            new AttributeVariant([
+                'id' => 3,
+                'attributeId' => 1,
+                'name' => 'Rouge',
+                'slug' => 'rouge',
+                'image' => null,
+                'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
+            ]),
         ];
 
         $this->assertEquals($expectedVariants, $variants);

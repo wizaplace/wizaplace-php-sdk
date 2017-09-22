@@ -8,6 +8,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Catalog\ProductAttribute::getValueIds`
+- Added `\Wizaplace\SDK\Catalog\AttributeVariant::getDescription`
 - Added `\Wizaplace\SDK\Catalog\SearchProductAttribute::getType`
 - Added `\Wizaplace\SDK\Catalog\AttributeType::FREE`
 
