@@ -17,6 +17,8 @@ final class SearchProductAttribute
     private $slug;
     /** @var array */
     private $values;
+    /** @var AttributeType */
+    private $type;
 
     /**
      * @internal
@@ -27,6 +29,7 @@ final class SearchProductAttribute
         $this->name = $data['attribute']['name'];
         $this->slug = $data['attribute']['slug'] ?? '';
         $this->values = $data['values'] ?? [];
+        $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 
     public function getId(): int
@@ -47,5 +50,10 @@ final class SearchProductAttribute
     public function getValues(): array
     {
         return $this->values;
+    }
+
+    public function getType(): AttributeType
+    {
+        return $this->type;
     }
 }
