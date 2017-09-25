@@ -218,6 +218,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(9.9, $product->getMinimumPrice());
         $this->assertNull($product->getCrossedOutPrice());
         $this->assertCount(0, $product->getAttributes());
+        $this->assertSame(45.75845, $product->getGeolocation()->getLatitude());
+        $this->assertSame(4.799044, $product->getGeolocation()->getLongitude());
+        $this->assertSame('Lyon 5e', $product->getGeolocation()->getLabel());
+        $this->assertSame('69005', $product->getGeolocation()->getZipcode());
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
