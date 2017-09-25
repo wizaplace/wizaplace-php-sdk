@@ -49,6 +49,8 @@ final class ProductSummary
     private $slug;
     /** @var CompanySummary[] */
     private $companies;
+    /** @var ProductLocation|null */
+    private $geolocation;
 
     /**
      * @internal
@@ -80,6 +82,7 @@ final class ProductSummary
         $this->companies = array_map(static function (array $companyData) : CompanySummary {
             return new CompanySummary($companyData);
         }, $data['companies'] ?? []);
+        $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
     }
 
     public function getId(): string
@@ -196,5 +199,10 @@ final class ProductSummary
     public function getCompanies(): array
     {
         return $this->companies;
+    }
+
+    public function getGeolocation(): ?ProductLocation
+    {
+        return $this->geolocation;
     }
 }

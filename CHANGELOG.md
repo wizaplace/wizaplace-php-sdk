@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getGeolocation`
+
 ### Bugfixes
 </details>
 
