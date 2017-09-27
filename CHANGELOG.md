@@ -9,9 +9,13 @@
 
 ### Bugfixes
 
-- CategoryTree is now sorted by position
-
 </details>
+
+## 0.9.4
+
+### Bugfixes
+
+- `CategoryTree` is now sorted by position
 
 ## 0.9.3
 
