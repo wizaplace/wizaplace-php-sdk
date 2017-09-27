@@ -20,9 +20,7 @@ final class CategoryTree
     public function __construct(array $data)
     {
         $this->category = new Category($data['category']);
-        $this->children = array_map(static function (array $data) : self {
-            return new self($data);
-        }, $data['children']);
+        $this->children = self::buildCollection($data['children']);
     }
 
     public function getCategory(): Category
@@ -36,5 +34,23 @@ final class CategoryTree
     public function getChildren(): array
     {
         return $this->children;
+    }
+
+    /**
+     * @internal
+     * @param array $data
+     * @return CategoryTree[]
+     */
+    public static function buildCollection(array $data): array
+    {
+        $collection = array_map(static function (array $itemData) : self {
+            return new self($itemData);
+        }, $data);
+
+        usort($collection, static function (CategoryTree $itemA, CategoryTree $itemB): int {
+            return $itemA->getCategory()->getPosition() <=> $itemB->getCategory()->getPosition();
+        });
+
+        return $collection;
     }
 }

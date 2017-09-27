@@ -8,6 +8,9 @@
 ### New features
 
 ### Bugfixes
+
+- CategoryTree is now sorted by position
+
 </details>
 
 ## 0.9.3
