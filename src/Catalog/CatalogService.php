@@ -36,9 +36,7 @@ final class CatalogService extends AbstractService
     {
         $categoryTree = $this->client->get('catalog/categories/tree');
 
-        return array_map(static function (array $tree) : CategoryTree {
-            return new CategoryTree($tree);
-        }, $categoryTree);
+        return CategoryTree::buildCollection($categoryTree);
     }
 
     public function getCategory(int $id): Category

@@ -321,14 +321,14 @@ final class CatalogServiceTest extends ApiTestCase
         $categoryTree = $this->buildCatalogService()->getCategoryTree();
         $this->assertCount(3, $categoryTree);
 
-        $firstCategory = $categoryTree[0]->getCategory();
+        $category = $categoryTree[2]->getCategory();
 
-        $this->assertSame(2, $firstCategory->getId());
-        $this->assertSame('Catégorie principale', $firstCategory->getName());
-        $this->assertSame('categorie-principale', $firstCategory->getSlug());
-        $this->assertSame('', $firstCategory->getDescription());
-        $this->assertSame(10, $firstCategory->getPosition());
-        $this->assertSame(0, $firstCategory->getProductCount());
+        $this->assertSame(2, $category->getId());
+        $this->assertSame('Catégorie principale', $category->getName());
+        $this->assertSame('categorie-principale', $category->getSlug());
+        $this->assertSame('', $category->getDescription());
+        $this->assertSame(10, $category->getPosition());
+        $this->assertSame(0, $category->getProductCount());
 
         $childrenTrees = $categoryTree[1]->getChildren();
         $this->assertCount(1, $childrenTrees);
