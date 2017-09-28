@@ -8,6 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\User;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
@@ -119,15 +121,20 @@ final class UserService extends AbstractService
         return $userData['id'];
     }
 
-    public function recoverPassword(string $email)
+    public function recoverPassword(string $email, ?UriInterface $recoverBaseUrl = null)
     {
+        $data = [
+            'email' => $email,
+        ];
+        if (!empty($recoverBaseUrl)) {
+            $data['recoverBaseUrl'] = (string) $recoverBaseUrl;
+        }
+
         // On attend une 204 donc pas de retour
         $this->client->post(
             'users/password/recover',
             [
-                'form_params' => [
-                    'email' => $email,
-                ],
+                RequestOptions::FORM_PARAMS => $data,
             ]
         );
     }

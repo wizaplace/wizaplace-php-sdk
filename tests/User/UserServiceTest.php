@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\User;
 
+use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -297,6 +298,19 @@ final class UserServiceTest extends ApiTestCase
 
 
         $this->assertNull($userService->recoverPassword($userEmail));
+    }
+
+    public function testRecoverPasswordWithCustomUrl()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userEmail = 'user1237@example.com';
+        $userPassword = 'password';
+        $userService->register($userEmail, $userPassword);
+
+
+        $this->assertNull($userService->recoverPassword($userEmail, new Uri('https://marketplace.example.com/recover-password=token')));
     }
 
     public function testRecoverPasswordForNonExistingEmail()

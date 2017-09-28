@@ -11,6 +11,10 @@
 
 </details>
 
+## 0.9.5
+
+- Added an optional parameter `$recoverBaseUrl` to `\Wizaplace\SDK\User\UserService::recoverPassword`
+
 ## 0.9.4
 
 ### Bugfixes
