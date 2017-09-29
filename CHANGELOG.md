@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\User\UserService::changePasswordWithRecoveryToken`
+
 ### Bugfixes
 
 </details>
