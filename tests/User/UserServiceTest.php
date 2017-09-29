@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\User;
 
 use GuzzleHttp\Psr7\Uri;
+use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -309,7 +310,6 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userService->register($userEmail, $userPassword);
 
-
         $this->assertNull($userService->recoverPassword($userEmail, new Uri('https://marketplace.example.com/recover-password=token')));
     }
 
@@ -346,5 +346,24 @@ final class UserServiceTest extends ApiTestCase
     {
         $this->expectException(AuthenticationRequired::class);
         (new UserService($this->buildApiClient()))->changePassword(1, 'hunter2');
+    }
+
+    public function testChangePasswordWithToken()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $cannotLogin = false;
+        try {
+            $client->authenticate('customer-4@world-company.com', 'newPassword');
+        } catch (BadCredentials $e) {
+            $cannotLogin = true;
+        }
+        $this->assertTrue($cannotLogin);
+
+        $userService->changePasswordWithRecoveryToken(md5('fake_secret_token'), 'newPassword');
+
+        $apiKey = $client->authenticate('customer-4@world-company.com', 'newPassword');
+        $this->assertInstanceOf(ApiKey::class, $apiKey);
     }
 }

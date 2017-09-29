@@ -139,11 +139,26 @@ final class UserService extends AbstractService
         );
     }
 
-    public function changePassword(int $userId, string $newPassword)
+    public function changePasswordWithRecoveryToken(string $token, string $newPassword): void
+    {
+        $this->client->put("users/password/change-with-token", [
+            RequestOptions::JSON => [
+                'token' => $token,
+                'password' => $newPassword,
+            ],
+        ]);
+    }
+
+    /**
+     * @param int $userId
+     * @param string $newPassword
+     * @throws AuthenticationRequired
+     */
+    public function changePassword(int $userId, string $newPassword): void
     {
         $this->client->mustBeAuthenticated();
         $this->client->put("users/$userId/password", [
-            'json' => [
+            RequestOptions::JSON => [
                 'password' => $newPassword,
             ],
         ]);
