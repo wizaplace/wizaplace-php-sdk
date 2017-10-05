@@ -166,6 +166,27 @@ final class CatalogService extends AbstractService
         }
     }
 
+    /**
+     * Get a product's attachment temporary url, valid 1h
+     *
+     * @throws NotFound
+     */
+    public function getProductAttachment(string $id): string
+    {
+        try {
+            $temporaryUrl = $this->client->get("catalog/products/attachments/{$id}");
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Attachment #{$id} not found.", $exception);
+            }
+
+            throw $exception;
+        }
+
+        return (string) $temporaryUrl;
+    }
+
+
     private function unserializeAttribute(array $attributeData): Attribute
     {
         return new Attribute(
