@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 
 final class Product
@@ -77,10 +78,13 @@ final class Product
     /** @var null|ProductVideo */
     private $video;
 
+    /** @var ProductAttachment[] */
+    private $attachments;
+
     /**
      * @internal
      */
-    public function __construct(array $data)
+    public function __construct(array $data, UriInterface $apiBaseUrl)
     {
         $this->id = (string) $data['id'];
         $this->code = $data['code'];
@@ -118,6 +122,9 @@ final class Product
         }, $data['options']);
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
         $this->video = isset($data['video']) ? new ProductVideo($data['video']) : null;
+        $this->attachments = array_map(static function (array $attachmentData) use ($apiBaseUrl) : ProductAttachment {
+            return new ProductAttachment($attachmentData, $apiBaseUrl);
+        }, $data['attachments'] ?? []);
     }
 
     public function getId(): string
@@ -281,5 +288,13 @@ final class Product
     public function getVideo(): ?ProductVideo
     {
         return $this->video;
+    }
+
+    /**
+     * @return ProductAttachment[]
+     */
+    public function getAttachments(): array
+    {
+        return $this->attachments;
     }
 }
