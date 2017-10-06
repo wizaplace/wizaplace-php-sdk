@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Basket;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
@@ -106,6 +107,36 @@ final class BasketService extends AbstractService
     public function getBasket(string $basketId): Basket
     {
         return new Basket($this->client->get("basket/{$basketId}"));
+    }
+
+    /**
+     * Get the currently authenticated user's basket ID
+     * @throws AuthenticationRequired
+     */
+    public function getUserBasketId(): ?string
+    {
+        $this->client->mustBeAuthenticated();
+        $userId = $this->client->getApiKey()->getId();
+
+        $response = $this->client->get("users/$userId/basket");
+
+        return $response['id'];
+    }
+
+    /**
+     * Set the currently authenticated user's basket ID
+     * @throws AuthenticationRequired
+     */
+    public function setUserBasketId(?string $basketId): void
+    {
+        $this->client->mustBeAuthenticated();
+        $userId = $this->client->getApiKey()->getId();
+
+        $this->client->post("users/$userId/basket", [
+            RequestOptions::JSON => [
+                'id' => $basketId,
+            ],
+        ]);
     }
 
     /**

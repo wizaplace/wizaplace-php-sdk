@@ -209,6 +209,20 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame('13', $declinationOption->getVariantName());
     }
 
+    public function testGetAndSetBasketId()
+    {
+        $service = $this->buildAuthenticatedBasketService();
+
+        $this->assertNull($service->getUserBasketId());
+
+        $basketId = $service->create();
+        $this->assertNotEmpty($basketId);
+
+        $service->setUserBasketId($basketId);
+
+        $this->assertSame($basketId, $service->getUserBasketId());
+    }
+
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
     {
         $apiClient = $this->buildApiClient();
