@@ -26,7 +26,7 @@ final class CatalogService extends AbstractService
             throw $exception;
         }
 
-        return new Product($response);
+        return new Product($response, $this->client->getBaseUri());
     }
 
     /**

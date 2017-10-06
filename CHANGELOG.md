@@ -9,6 +9,7 @@
 
 - Added `\Wizaplace\SDK\Basket\BasketService::setUserBasketId`
 - Added `\Wizaplace\SDK\Basket\BasketService::getUserBasketId`
+- Added `\Wizaplace\SDK\Catalog\Product::getAttachments`
 
 ### Bugfixes
 

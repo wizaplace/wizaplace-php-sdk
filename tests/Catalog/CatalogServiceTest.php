@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\Option;
+use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
@@ -52,6 +53,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -1042,7 +1044,7 @@ final class CatalogServiceTest extends ApiTestCase
                     'vat' => 0.32,
                 ],
                 'greenTax' => 0,
-                'amount' => 10,
+                'amount' => 8,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,
@@ -1095,6 +1097,23 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(4.800039, $location->getLongitude());
         $this->assertSame('Wizacha', $location->getLabel());
         $this->assertSame('69009', $location->getZipcode());
+    }
+
+    public function testGetProductWithAttachments()
+    {
+        $attachments = $this->buildCatalogService()->getProductById(7)->getAttachments();
+
+        $this->assertCount(1, $attachments);
+        $this->assertContainsOnly(ProductAttachment::class, $attachments);
+
+        $attachment = $attachments[0];
+
+        $this->assertNotEmpty($attachment->getId());
+        $this->assertSame('Manuel de montage', $attachment->getLabel());
+
+        $response = $this->buildApiClient()->rawRequest('GET', $attachment->getUrl());
+        $this->assertSame('application/pdf', $response->getHeaderLine('Content-Type'));
+        $this->assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
     }
 
     public function testGetProductWithVideo()
