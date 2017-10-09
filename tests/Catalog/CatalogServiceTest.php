@@ -82,6 +82,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE_TEXT()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 1,
@@ -93,6 +94,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [2, 3],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 4,
@@ -107,6 +109,7 @@ final class CatalogServiceTest extends ApiTestCase
                         'valueIds' => [],
                         'children' => [],
                         'imageUrls' => [],
+                        'type' => AttributeType::FREE_TEXT()->getValue(),
                     ],
                     [
                         'id' => 5,
@@ -115,6 +118,7 @@ final class CatalogServiceTest extends ApiTestCase
                         'valueIds' => [9],
                         'children' => [],
                         'imageUrls' => [],
+                        'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
                     ],
                     [
                         'id' => 6,
@@ -123,9 +127,11 @@ final class CatalogServiceTest extends ApiTestCase
                         'valueIds' => [17],
                         'children' => [],
                         'imageUrls' => [],
+                        'type' => AttributeType::LIST_TEXT()->getValue(),
                     ],
                 ],
                 'imageUrls' => [],
+                'type' => AttributeType::GROUP()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 2,
@@ -134,6 +140,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [5],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::LIST_TEXT()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 0,
@@ -146,6 +153,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 0,
@@ -154,6 +162,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 0,
@@ -162,6 +171,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 0,
@@ -170,6 +180,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
                 'id' => 0,
@@ -178,6 +189,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'valueIds' => [],
                 'children' => [],
                 'imageUrls' => [],
+                'type' => AttributeType::FREE()->getValue(),
             ]),
         ];
 

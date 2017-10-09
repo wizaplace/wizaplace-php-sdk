@@ -21,6 +21,8 @@ final class ProductAttribute
     private $children;
     /** @var string[] */
     private $imageUrls;
+    /** @var AttributeType */
+    private $type;
 
     /**
      * @internal
@@ -35,6 +37,7 @@ final class ProductAttribute
         $this->children = array_map(static function (array $childrenData) : self {
             return new self($childrenData);
         }, $data['children']);
+        $this->type = new AttributeType($data['type']);
     }
 
     /**
@@ -77,5 +80,10 @@ final class ProductAttribute
     public function getImageUrls(): array
     {
         return $this->imageUrls;
+    }
+
+    public function getType(): AttributeType
+    {
+        return $this->type;
     }
 }
