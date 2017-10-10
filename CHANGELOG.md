@@ -5,16 +5,22 @@
 
 ### BREAKING CHANGES
 
+### New features
+
+### Bugfixes
+
+</details>
+
+## 0.10.0
+
+### BREAKING CHANGES
+
 - `\Wizaplace\SDK\Catalog\ProductAttribute::getId` is now nullable (bugfix, as the value was already null in some cases, but it raised a fatal error)
 - `\Wizaplace\SDK\Catalog\SearchProductAttribute::getId` is now nullable (bugfix, as the value was already null in some cases, but it raised a fatal error)
 
 ### New features
 
 - Added `\Wizaplace\SDK\Catalog\ProductAttribute::getType`
-
-### Bugfixes
-
-</details>
 
 ## 0.9.7
 
