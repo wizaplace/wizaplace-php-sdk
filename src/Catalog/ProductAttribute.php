@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 final class ProductAttribute
 {
-    /** @var int */
+    /** @var int|null */
     private $id;
     /** @var string */
     private $name;
@@ -29,7 +29,7 @@ final class ProductAttribute
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
+        $this->id = $data['id'];
         $this->name = (string) $data['name'];
         $this->value = $data['value'];
         $this->valueIds = $data['valueIds'];
@@ -48,7 +48,7 @@ final class ProductAttribute
         return $this->children;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
