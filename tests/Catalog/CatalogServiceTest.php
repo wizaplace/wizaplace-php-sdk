@@ -12,12 +12,14 @@ use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Declination;
+use Wizaplace\SDK\Catalog\Facet;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductVideo;
+use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -143,7 +145,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::LIST_TEXT()->getValue(),
             ]),
             new ProductAttribute([
-                'id' => 0,
+                'id' => null,
                 'name' => 'Free attribute multiple',
                 'value' => [
                     'réponse - 1 #',
@@ -156,7 +158,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
-                'id' => 0,
+                'id' => null,
                 'name' => 'Free attribute simple',
                 'value' => ['valeur simple du free attribute #12M%M_°09£*/.?'],
                 'valueIds' => [],
@@ -165,7 +167,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
-                'id' => 0,
+                'id' => null,
                 'name' => 'Free attribute simple mais en tableau',
                 'value' => ['une bien belle valeur déjà encapsulée'],
                 'valueIds' => [],
@@ -174,7 +176,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
-                'id' => 0,
+                'id' => null,
                 'name' => 'Free attribute integer ?',
                 'value' => [92254094],
                 'valueIds' => [],
@@ -183,7 +185,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::FREE()->getValue(),
             ]),
             new ProductAttribute([
-                'id' => 0,
+                'id' => null,
                 'name' => 'Free attribute integer mais en tableau',
                 'value' => ['la même histoire par ici'],
                 'valueIds' => [],
@@ -254,16 +256,101 @@ final class CatalogServiceTest extends ApiTestCase
 
         $facets = $result->getFacets();
         $this->assertCount(9, $facets);
+        $this->assertContainsOnly(Facet::class, $facets);
         $this->assertSame('categories', $facets[0]->getName());
         $this->assertSame('Catégorie', $facets[0]->getLabel());
         $this->assertSame([
             5 => [
-            'label' => 'Special category dedicated to specific tests',
-            'count' => '3',
-            'position' => '0',
+                'label' => 'Special category dedicated to specific tests',
+                'count' => '3',
+                'position' => '0',
             ],
         ], $facets[0]->getValues());
         $this->assertFalse($facets[0]->isIsNumeric());
+    }
+
+    public function testSearchProductWithComplexAttributes()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search('complex', ['1' => '2']);
+
+        $products = $result->getProducts();
+        $this->assertCount(1, $products);
+
+        $product = $products[0];
+        $this->assertSame('5', $product->getId());
+
+        $attributes = $product->getAttributes();
+        $this->assertContainsOnly(SearchProductAttribute::class, $attributes);
+
+        /** @var SearchProductAttribute[] $attributesMap */
+        $attributesMap = [];
+        /** @var SearchProductAttribute[] $freeAttributesMap */
+        $freeAttributesMap = [];
+        foreach ($attributes as $attribute) {
+            if ($attribute->getId() === null) {
+                $freeAttributesMap[$attribute->getName()] = $attribute;
+            } else {
+                $attributesMap[$attribute->getId()] = $attribute;
+            }
+        }
+
+        // Couleur
+        $this->assertSame('Couleur', $attributesMap[1]->getName());
+        $this->assertSame('', $attributesMap[1]->getSlug());
+        $this->assertSame([
+            [
+                'id' => 2,
+                'attributeId' => 1,
+                'name' => 'Blanc',
+                'slug' => 'blanc',
+                'image' => null,
+            ],
+            [
+                'id' => 3,
+                'attributeId' => 1,
+                'name' => 'Rouge',
+                'slug' => 'rouge',
+                'image' => null,
+            ],
+        ], $attributesMap[1]->getValues());
+        $this->assertTrue(AttributeType::CHECKBOX_MULTIPLE()->equals($attributesMap[1]->getType()));
+
+        // Free attributes
+        $this->assertSame([
+            [
+                'id' => null,
+                'attributeId' => null,
+                'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
+                'slug' => '',
+                'image' => null,
+            ],
+        ], $freeAttributesMap['Free attribute simple']->getValues());
+
+        $this->assertSame([
+            [
+                'id' => null,
+                'attributeId' => null,
+                'name' => 'réponse - 1 #',
+                'slug' => '',
+                'image' => null,
+            ],
+            [
+                'id' => null,
+                'attributeId' => null,
+                'name' => 'réponse - 2 @',
+                'slug' => '',
+                'image' => null,
+            ],
+            [
+                'id' => null,
+                'attributeId' => null,
+                'name' => '4985',
+                'slug' => '',
+                'image' => null,
+            ],
+        ], $freeAttributesMap['Free attribute multiple']->getValues());
     }
 
     public function testGetCompanyById()

@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 final class SearchProductAttribute
 {
-    /** @var int */
+    /** @var int|null */
     private $id;
     /** @var string */
     private $name;
@@ -32,7 +32,7 @@ final class SearchProductAttribute
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
