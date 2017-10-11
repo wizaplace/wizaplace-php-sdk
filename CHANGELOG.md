@@ -7,6 +7,10 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getBrand`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getBrandFromProductSummary`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getBrandFromProduct`
+
 ### Bugfixes
 
 </details>
