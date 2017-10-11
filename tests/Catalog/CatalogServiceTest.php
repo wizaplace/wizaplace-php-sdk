@@ -56,6 +56,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -136,6 +137,15 @@ final class CatalogServiceTest extends ApiTestCase
                 'type' => AttributeType::GROUP()->getValue(),
             ]),
             new ProductAttribute([
+                'id' => 9,
+                'name' => 'Marque',
+                'value' => ['Puma'],
+                'valueIds' => [20],
+                'children' => [],
+                'imageUrls' => [],
+                'type' => AttributeType::LIST_BRAND()->getValue(),
+            ]),
+            new ProductAttribute([
                 'id' => 2,
                 'name' => 'Taille',
                 'value' => ['M'],
@@ -196,6 +206,12 @@ final class CatalogServiceTest extends ApiTestCase
         ];
 
         $this->assertEquals($expectedAttributes, $product->getAttributes());
+
+        $brand = $catalogService->getBrand($product);
+        $this->assertInstanceOf(AttributeVariant::class, $brand);
+        $this->assertGreaterThan(0, $brand->getId());
+        $this->assertSame('Puma', $brand->getName());
+        $this->assertSame('puma', $brand->getSlug());
     }
 
     public function testGetNonExistingProductById()
@@ -267,6 +283,8 @@ final class CatalogServiceTest extends ApiTestCase
             ],
         ], $facets[0]->getValues());
         $this->assertFalse($facets[0]->isIsNumeric());
+
+        $this->assertNull($catalogService->getBrand($product));
     }
 
     public function testSearchProductWithComplexAttributes()
@@ -351,6 +369,12 @@ final class CatalogServiceTest extends ApiTestCase
                 'image' => null,
             ],
         ], $freeAttributesMap['Free attribute multiple']->getValues());
+
+        $brand = $catalogService->getBrand($product);
+        $this->assertInstanceOf(AttributeVariant::class, $brand);
+        $this->assertGreaterThan(0, $brand->getId());
+        $this->assertSame('Puma', $brand->getName());
+        $this->assertSame('puma', $brand->getSlug());
     }
 
     public function testGetCompanyById()
@@ -1274,6 +1298,37 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->expectException(SomeParametersAreInvalid::class);
         $this->buildCatalogService()->reportProduct($report);
+    }
+
+    public function testGetBrandFromWrongType()
+    {
+        $this->expectException(\TypeError::class);
+        $this->buildCatalogService()->getBrand(new Declination([
+            'id' => 1,
+            'code' => '0123456789123',
+            'supplierReference' => 'test-supplier',
+            'price' => 10,
+            'originalPrice' => 10,
+            'crossedOutPrice' => 10,
+            'prices' => [
+                'priceWithTaxes' => 10,
+                'priceWithoutVat' => 8,
+                'vat' => 2,
+            ],
+            'greenTax' => 0,
+            'amount' => 14,
+            'affiliateLink' => '',
+            'images' => [],
+            'options' => [],
+            'company' => [
+                'id' => 1,
+                'name' => 'Test company',
+                'slug' => 'test-company',
+                'isProfessional' => true,
+                'averageRating' => null,
+                'image' => null,
+            ],
+        ]));
     }
 
     private function buildCatalogService(): CatalogService

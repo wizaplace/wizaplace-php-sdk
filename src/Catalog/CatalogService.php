@@ -166,6 +166,56 @@ final class CatalogService extends AbstractService
         }
     }
 
+    /**
+     * Convenience method to extract a brand from a product
+     *
+     * @param ProductSummary|Product $product
+     * @return null|AttributeVariant
+     * @throws \TypeError
+     */
+    public function getBrand($product): ?AttributeVariant
+    {
+        if ($product instanceof ProductSummary) {
+            return $this->getBrandFromProductSummary($product);
+        }
+
+        if ($product instanceof Product) {
+            return $this->getBrandFromProduct($product);
+        }
+
+        throw new \TypeError('Unexpected type for $product in getBrand : '.(is_object($product) ? get_class($product) : gettype($product)));
+    }
+
+    public function getBrandFromProductSummary(ProductSummary $product): ?AttributeVariant
+    {
+        foreach ($product->getAttributes() as $attribute) {
+            if ($attribute->getType()->equals(AttributeType::LIST_BRAND())) {
+                $values = $attribute->getValues();
+                $brand = reset($values);
+
+                $brand += ['description' => '']; // @FIXME : we don't have the description in these data, but AttributeVariant expects it
+
+                return new AttributeVariant($brand);
+            }
+        }
+
+        return null;
+    }
+
+    public function getBrandFromProduct(Product $product): ?AttributeVariant
+    {
+        foreach ($product->getAttributes() as $attribute) {
+            if ($attribute->getType()->equals(AttributeType::LIST_BRAND())) {
+                $values = $attribute->getValueIds();
+                $variant = $this->getAttributeVariant(reset($values));
+
+                return $variant;
+            }
+        }
+
+        return null;
+    }
+
     private function unserializeAttribute(array $attributeData): Attribute
     {
         return new Attribute(
