@@ -34,7 +34,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $product = $catalogService->getProductById(1);
+        $product = $catalogService->getProductById('1');
 
         $this->assertSame('1', $product->getId());
         $this->assertSame('test-product-slug', $product->getSlug());
@@ -73,7 +73,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $product = $catalogService->getProductById(5);
+        $product = $catalogService->getProductById('5');
 
         $this->assertSame('5', $product->getId());
         $this->assertSame('product-with-complex-attributes', $product->getSlug());
@@ -221,7 +221,7 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
 
         $this->expectException(NotFound::class);
-        $catalogService->getProductById(404);
+        $catalogService->getProductById('404');
     }
 
     public function testSearchOneProductByName()
@@ -560,7 +560,7 @@ final class CatalogServiceTest extends ApiTestCase
     public function testGetProductWithOptions()
     {
         $catalogService = $this->buildCatalogService();
-        $product = $catalogService->getProductById(3);
+        $product = $catalogService->getProductById('3');
 
         $expectedDeclinations = [
             new Declination([
@@ -738,7 +738,7 @@ final class CatalogServiceTest extends ApiTestCase
     public function testGetProductWithMultipleOptions()
     {
         $catalogService = $this->buildCatalogService();
-        $product = $catalogService->getProductById(2);
+        $product = $catalogService->getProductById('2');
 
         $expectedDeclinations = [
             new Declination([
@@ -1217,7 +1217,7 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetProductWithGeolocation()
     {
-        $location = $this->buildCatalogService()->getProductById(6)->getGeolocation();
+        $location = $this->buildCatalogService()->getProductById('6')->getGeolocation();
         $this->assertInstanceOf(ProductLocation::class, $location);
         $this->assertSame(45.778848, $location->getLatitude());
         $this->assertSame(4.800039, $location->getLongitude());
@@ -1227,7 +1227,7 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetProductWithAttachments()
     {
-        $attachments = $this->buildCatalogService()->getProductById(7)->getAttachments();
+        $attachments = $this->buildCatalogService()->getProductById('7')->getAttachments();
 
         $this->assertCount(1, $attachments);
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
@@ -1244,7 +1244,7 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetProductWithVideo()
     {
-        $video = $this->buildCatalogService()->getProductById(3)->getVideo();
+        $video = $this->buildCatalogService()->getProductById('3')->getVideo();
         $this->assertInstanceOf(ProductVideo::class, $video);
         $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480-00001.png', $video->getThumbnailUrl());
         $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4', $video->getVideoUrl());
