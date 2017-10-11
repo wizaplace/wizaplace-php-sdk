@@ -170,7 +170,7 @@ final class CatalogService extends AbstractService
      * Convenience method to extract a brand from a product
      *
      * @param ProductSummary|Product $product
-     * @return null|AttributeVariant
+     * @return null|ProductAttributeValue
      * @throws \TypeError
      */
     public function getBrand($product): ?ProductAttributeValue
