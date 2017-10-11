@@ -28,7 +28,7 @@ final class SearchProductAttribute
         $this->id = $data['attribute']['id'];
         $this->name = $data['attribute']['name'];
         $this->slug = $data['attribute']['slug'] ?? '';
-        $this->values = $data['values'] ?? [];
+        $this->values = $data['values'] ?? []; // @TODO : use ProductAttributeValue[]
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 

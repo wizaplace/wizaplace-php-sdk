@@ -173,7 +173,7 @@ final class CatalogService extends AbstractService
      * @return null|AttributeVariant
      * @throws \TypeError
      */
-    public function getBrand($product): ?AttributeVariant
+    public function getBrand($product): ?ProductAttributeValue
     {
         if ($product instanceof ProductSummary) {
             return $this->getBrandFromProductSummary($product);
@@ -186,30 +186,34 @@ final class CatalogService extends AbstractService
         throw new \TypeError('Unexpected type for $product in getBrand : '.(is_object($product) ? get_class($product) : gettype($product)));
     }
 
-    public function getBrandFromProductSummary(ProductSummary $product): ?AttributeVariant
+    public function getBrandFromProductSummary(ProductSummary $product): ?ProductAttributeValue
     {
         foreach ($product->getAttributes() as $attribute) {
             if ($attribute->getType()->equals(AttributeType::LIST_BRAND())) {
                 $values = $attribute->getValues();
                 $brand = reset($values);
 
-                $brand += ['description' => '']; // @FIXME : we don't have the description in these data, but AttributeVariant expects it
-
-                return new AttributeVariant($brand);
+                return new ProductAttributeValue($brand);
             }
         }
 
         return null;
     }
 
-    public function getBrandFromProduct(Product $product): ?AttributeVariant
+    public function getBrandFromProduct(Product $product): ?ProductAttributeValue
     {
         foreach ($product->getAttributes() as $attribute) {
             if ($attribute->getType()->equals(AttributeType::LIST_BRAND())) {
                 $values = $attribute->getValueIds();
                 $variant = $this->getAttributeVariant(reset($values));
 
-                return $variant;
+                return new ProductAttributeValue([
+                    'id' => $variant->getId(),
+                    'slug' => $variant->getSlug(),
+                    'name' => $variant->getName(),
+                    'attributeId' => $variant->getAttributeId(),
+                    'image' => $variant->getImage(),
+                ]);
             }
         }
 
