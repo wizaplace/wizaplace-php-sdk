@@ -16,6 +16,7 @@ use Wizaplace\SDK\Catalog\Facet;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
+use Wizaplace\SDK\Catalog\ProductAttributeValue;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductVideo;
@@ -208,8 +209,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedAttributes, $product->getAttributes());
 
         $brand = $catalogService->getBrand($product);
-        $this->assertInstanceOf(AttributeVariant::class, $brand);
+        $this->assertInstanceOf(ProductAttributeValue::class, $brand);
         $this->assertGreaterThan(0, $brand->getId());
+        $this->assertGreaterThan(0, $brand->getAttributeId());
         $this->assertSame('Puma', $brand->getName());
         $this->assertSame('puma', $brand->getSlug());
     }
@@ -371,8 +373,9 @@ final class CatalogServiceTest extends ApiTestCase
         ], $freeAttributesMap['Free attribute multiple']->getValues());
 
         $brand = $catalogService->getBrand($product);
-        $this->assertInstanceOf(AttributeVariant::class, $brand);
+        $this->assertInstanceOf(ProductAttributeValue::class, $brand);
         $this->assertGreaterThan(0, $brand->getId());
+        $this->assertGreaterThan(0, $brand->getAttributeId());
         $this->assertSame('Puma', $brand->getName());
         $this->assertSame('puma', $brand->getSlug());
     }
