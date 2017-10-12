@@ -355,4 +355,42 @@ final class BasketService extends AbstractService
 
         return new PaymentInformation($result);
     }
+
+    /**
+     * This add comments to products
+     *
+     * @param $comments Comment[]
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    public function addComments(string $basketId, array $comments): void
+    {
+        $commentsToPost = array_map(function(Comment $comment) {
+            $comment->validate();
+            return [
+                'declinationId' => $comment->getDeclinationId(),
+                'comment' => $comment->getComment(),
+            ];
+        }, $comments);
+
+        try {
+            $this->client->post(
+                "basket/{$basketId}/comments",
+                [
+                    'form_params' => [
+                        'comments' => $commentsToPost,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            $code = $e->getResponse()->getStatusCode();
+
+            if (404 === $code) {
+                throw new NotFound('Declination not found', $e);
+            }
+            if (400 === $code) {
+                throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);
+            }
+        }
+    }
 }
