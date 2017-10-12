@@ -8,12 +8,14 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Catalog;
 
 use GuzzleHttp\Psr7\Response;
+use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\Facet;
 use Wizaplace\SDK\Catalog\Option;
+use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductAttributeValue;
@@ -67,6 +69,16 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
+    }
+
+    public function testGetMVPById()
+    {
+        $mvp = $this->buildCatalogService()->getProductById('abc671d5-3106-4d28-ba43-0257b0bb8987');
+        $this->assertInstanceOf(Product::class, $mvp);
+
+        $this->assertSame('Test MVP', $mvp->getName());
+        $this->assertCount(2, $mvp->getCompanies());
+        $this->assertCount(2, $mvp->getDeclinations());
     }
 
     public function testGetProductWithComplexAttributes()
@@ -228,10 +240,10 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $result = $catalogService->search('Product');
+        $result = $catalogService->search('Product with shippings');
 
         $products = $result->getProducts();
-        $this->assertCount(3, $products);
+        $this->assertCount(1, $products);
 
         $product = $products[0];
         $this->assertSame('4', $product->getId());
@@ -268,7 +280,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $pagination = $result->getPagination();
         $this->assertSame(1, $pagination->getNbPages());
-        $this->assertSame(3, $pagination->getNbResults());
+        $this->assertSame(1, $pagination->getNbResults());
         $this->assertSame(1, $pagination->getPage());
         $this->assertSame(12, $pagination->getResultsPerPage());
 
@@ -280,7 +292,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame([
             5 => [
                 'label' => 'Special category dedicated to specific tests',
-                'count' => '3',
+                'count' => '1',
                 'position' => '0',
             ],
         ], $facets[0]->getValues());
@@ -458,7 +470,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(10, $category->getPosition());
         $this->assertSame(0, $category->getProductCount());
 
-        $childrenTrees = $categoryTree[1]->getChildren();
+        $childrenTrees = $categoryTree[0]->getChildren();
         $this->assertCount(1, $childrenTrees);
         $childCategory = $childrenTrees[0]->getCategory();
         $this->assertSame(4, $childCategory->getId());
@@ -473,7 +485,8 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $attributes = $this->buildCatalogService()->getAttributes();
 
-        $this->assertCount(9, $attributes);
+        $this->assertCount(10, $attributes);
+        $this->assertContainsOnly(Attribute::class, $attributes);
         foreach ($attributes as $attribute) {
             $this->assertGreaterThan(0, $attribute->getId());
             $this->assertGreaterThanOrEqual(0, $attribute->getPosition());
