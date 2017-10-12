@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
+use Wizaplace\SDK\Basket\Comment;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -221,6 +222,62 @@ final class BasketServiceTest extends ApiTestCase
         $service->setUserBasketId($basketId);
 
         $this->assertSame($basketId, $service->getUserBasketId());
+    }
+
+    public function testAddCommentToProduct()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $comments = [
+            new Comment('3_8_7', 'I will be available only during the afternoon'),
+        ];
+        $basketService->addComments($basketId, $comments);
+    }
+
+    public function testAddCommentToProductWithWrongDeclinationId()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing declination Id');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $comments = [
+            new Comment('', 'I will be available only during the afternoon'),
+        ];
+        $basketService->addComments($basketId, $comments);
+    }
+
+    public function testAddCommentToProductWithEmptyComment()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing comment');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $comments = [
+            new Comment('3_8_7', ''),
+        ];
+        $basketService->addComments($basketId, $comments);
+    }
+
+    public function testAddCommentToProductAbsentOfBasket()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('This product is not in the basket. Impossible to add a comment.');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $comments = [
+            new Comment('3_8_7', 'I will be available only during the afternoon'),
+        ];
+        $basketService->addComments($basketId, $comments);
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
