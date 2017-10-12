@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Basket\BasketService::addComments`
+
 ### Bugfixes
 
 </details>
