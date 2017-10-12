@@ -365,8 +365,9 @@ final class BasketService extends AbstractService
      */
     public function addComments(string $basketId, array $comments): void
     {
-        $commentsToPost = array_map(function(Comment $comment) {
+        $commentsToPost = array_map(function (Comment $comment): array {
             $comment->validate();
+
             return [
                 'declinationId' => $comment->getDeclinationId(),
                 'comment' => $comment->getComment(),
