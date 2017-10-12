@@ -357,13 +357,23 @@ final class BasketService extends AbstractService
     }
 
     /**
-     * This add comments to products
+     * This add comments to products.
+     * You first need to collect the comments, create Comment objects with them, and attach them through the API
+     *
+     * Example (where $comments is an array of key = declinationId and value = comment):
+     *
+     * $commentsToPost = [];
+     * foreach ($comments as $declinationId => $comment) {
+     *     $commentsToPost[] = new Comment($declinationId, $comment);
+     * }
+     *
+     * $basketService->addCommentsToProducts($basketId, $commentsToPost);
      *
      * @param $comments Comment[]
      * @throws NotFound
      * @throws SomeParametersAreInvalid
      */
-    public function addComments(string $basketId, array $comments): void
+    public function addCommentsToProducts(string $basketId, array $comments): void
     {
         $commentsToPost = array_map(function (Comment $comment): array {
             $comment->validate();

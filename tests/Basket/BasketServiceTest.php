@@ -233,7 +233,7 @@ final class BasketServiceTest extends ApiTestCase
         $comments = [
             new Comment('3_8_7', 'I will be available only during the afternoon'),
         ];
-        $basketService->addComments($basketId, $comments);
+        $basketService->addCommentsToProducts($basketId, $comments);
     }
 
     public function testAddCommentToProductWithWrongDeclinationId()
@@ -248,7 +248,7 @@ final class BasketServiceTest extends ApiTestCase
         $comments = [
             new Comment('', 'I will be available only during the afternoon'),
         ];
-        $basketService->addComments($basketId, $comments);
+        $basketService->addCommentsToProducts($basketId, $comments);
     }
 
     public function testAddCommentToProductWithEmptyComment()
@@ -263,7 +263,7 @@ final class BasketServiceTest extends ApiTestCase
         $comments = [
             new Comment('3_8_7', ''),
         ];
-        $basketService->addComments($basketId, $comments);
+        $basketService->addCommentsToProducts($basketId, $comments);
     }
 
     public function testAddCommentToProductAbsentOfBasket()
@@ -277,7 +277,7 @@ final class BasketServiceTest extends ApiTestCase
         $comments = [
             new Comment('3_8_7', 'I will be available only during the afternoon'),
         ];
-        $basketService->addComments($basketId, $comments);
+        $basketService->addCommentsToProducts($basketId, $comments);
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
