@@ -393,5 +393,7 @@ final class BasketService extends AbstractService
                 throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);
             }
         }
+
+        return;
     }
 }
