@@ -375,14 +375,7 @@ final class BasketService extends AbstractService
      */
     public function addCommentsToProducts(string $basketId, array $comments): void
     {
-        $commentsToPost = array_map(function (Comment $comment): array {
-            $comment->validate();
-
-            return [
-                'declinationId' => $comment->getDeclinationId(),
-                'comment' => $comment->getComment(),
-            ];
-        }, $comments);
+        $commentsToPost = array_map(self::class.'::serializeComment', $comments);
 
         try {
             $this->client->post(
@@ -403,7 +396,15 @@ final class BasketService extends AbstractService
                 throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);
             }
         }
+    }
 
-        return;
+    private static function serializeComment(Comment $comment): array
+    {
+        $comment->validate();
+
+        return [
+            'declinationId' => $comment->getDeclinationId(),
+            'comment' => $comment->getComment(),
+        ];
     }
 }
