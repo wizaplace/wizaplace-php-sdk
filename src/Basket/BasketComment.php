@@ -32,7 +32,7 @@ class BasketComment implements Comment
         return $this->comment;
     }
 
-    public function toArray()
+    public function toArray(): array
     {
         return [
             'comment' => $this->comment,

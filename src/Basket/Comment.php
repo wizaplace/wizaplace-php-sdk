@@ -10,7 +10,8 @@ namespace Wizaplace\SDK\Basket;
 
 interface Comment
 {
-    public function getComment();
-
-    public function toArray();
+    /**
+     * Serialize Comment objects.
+     */
+    public function toArray(): array;
 }

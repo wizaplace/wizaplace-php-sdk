@@ -360,9 +360,9 @@ final class BasketService extends AbstractService
      * This add comments to products.
      * You first need to collect the comments, create Comment objects with them, and attach them through the API
      *
-     * Example (where $comments is an array of key = declinationId and value = comment):
+     * Example:
      *
-     * $basketService->addCommentsToProducts($basketId, [
+     * $basketService->updateComments($basketId, [
      *     new ProductComment($declinationId, 'Please gift wrap this product.'),
      *     new ShippingGroupComment($shippingGroupId, 'I will only be available in the morning'),
      *     new BasketComment('I am superman, please deliver to space'),
