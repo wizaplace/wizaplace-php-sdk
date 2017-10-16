@@ -363,15 +363,16 @@ final class BasketService extends AbstractService
      * Example (where $comments is an array of key = declinationId and value = comment):
      *
      * $basketService->addCommentsToProducts($basketId, [
-     *     new Comment($declination1Id, 'Please gift wrap this product.'),
-     *     new Comment($declination2Id, 'This product does not need to be gift wrapped.'),
+     *     new ProductComment($declination1Id, 'Please gift wrap this product.'),
+     *     new BasketComment($declination2Id, 'This product does not need to be gift wrapped.'),
+     *     new ShippingGroupComment($declination2Id, 'This product does not need to be gift wrapped.'),
      * ]);
      *
      * @param $comments Comment[]
      * @throws NotFound
      * @throws SomeParametersAreInvalid
      */
-    public function addCommentsToProducts(string $basketId, array $comments): void
+    public function updateComments(string $basketId, array $comments): void
     {
         $commentsToPost = array_map([self::class, 'serializeComment'], $comments);
 
@@ -400,9 +401,24 @@ final class BasketService extends AbstractService
 
     private static function serializeComment(Comment $comment): array
     {
-        return [
-            'declinationId' => $comment->getDeclinationId(),
-            'comment' => $comment->getComment(),
-        ];
+        if ($comment instanceof ProductComment) {
+            return [
+                'declinationId' => $comment->getDeclinationId(),
+                'comment' => $comment->getComment(),
+            ];
+        }
+        if ($comment instanceof ShippingGroupComment) {
+            return [
+                'shippingGroupId' => $comment->getShippingGroupId(),
+                'comment' => $comment->getComment(),
+            ];
+        }
+        if ($comment instanceof BasketComment) {
+            return [
+                'comment' => $comment->getComment(),
+            ];
+        }
+
+        throw new SomeParametersAreInvalid("$comment is not an instance of Wizaplace\Basket\Comment");
     }
 }

@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
-use Wizaplace\SDK\Basket\Comment;
+use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -231,9 +231,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
         $comments = [
-            new Comment('3_8_7', 'I will be available only during the afternoon'),
+            new ProductComment('3_8_7', 'I will be available only during the afternoon'),
         ];
-        $basketService->addCommentsToProducts($basketId, $comments);
+        $basketService->updateComments($basketId, $comments);
     }
 
     public function testAddCommentToProductWithWrongDeclinationId()
@@ -246,9 +246,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
         $comments = [
-            new Comment('', 'I will be available only during the afternoon'),
+            new ProductComment('', 'I will be available only during the afternoon'),
         ];
-        $basketService->addCommentsToProducts($basketId, $comments);
+        $basketService->updateComments($basketId, $comments);
     }
 
     public function testAddCommentToProductWithEmptyComment()
@@ -261,9 +261,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
         $comments = [
-            new Comment('3_8_7', ''),
+            new ProductComment('3_8_7', ''),
         ];
-        $basketService->addCommentsToProducts($basketId, $comments);
+        $basketService->updateComments($basketId, $comments);
     }
 
     public function testAddCommentToProductAbsentOfBasket()
@@ -275,9 +275,9 @@ final class BasketServiceTest extends ApiTestCase
 
         $basketId = $basketService->create();
         $comments = [
-            new Comment('3_8_7', 'I will be available only during the afternoon'),
+            new ProductComment('3_8_7', 'I will be available only during the afternoon'),
         ];
-        $basketService->addCommentsToProducts($basketId, $comments);
+        $basketService->updateComments($basketId, $comments);
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
