@@ -9,29 +9,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
-use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-
-class BasketComment implements Comment
+class BasketComment extends Comment
 {
-    /**
-     * @var string
-     */
-    private $comment;
-
-    public function __construct(string $comment)
-    {
-        if ($comment === '') {
-            throw new SomeParametersAreInvalid('Missing comment');
-        }
-
-        $this->comment = $comment;
-    }
-
-    public function getComment(): string
-    {
-        return $this->comment;
-    }
-
     public function toArray(): array
     {
         return [
