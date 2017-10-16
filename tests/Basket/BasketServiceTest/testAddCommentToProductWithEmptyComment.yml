@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 14:10:12 GMT'
+            Date: 'Mon, 16 Oct 2017 08:14:25 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 8314dc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8314dc'
+            X-Debug-Token: '954949'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/954949'
             Content-Length: '62'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"Q\/j4TmVOKT3L\/Gsk89ZCp4koAjCSB1JQdbNf4YsB"}'
+        body: '{"id":2,"apiKey":"Bnkkq\/4I7kYigbpdDyDRPqR8MyaDr\/ZXPy+DnSI3"}'
 -
     request:
         method: POST
@@ -33,7 +33,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token Q/j4TmVOKT3L/Gsk89ZCp4koAjCSB1JQdbNf4YsB'
+            Authorization: 'token Bnkkq/4I7kYigbpdDyDRPqR8MyaDr/ZXPy+DnSI3'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +42,25 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 12 Oct 2017 14:10:12 GMT'
+            Date: 'Mon, 16 Oct 2017 08:14:25 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 3ed05d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ed05d'
+            X-Debug-Token: 9c4a72
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9c4a72'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"4a62124b-5346-4938-9200-9dfb7e9830b4"'
+        body: '"44374b33-1dfc-4536-a3a4-9ab988aad209"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/4a62124b-5346-4938-9200-9dfb7e9830b4/add'
+        url: 'http://wizaplace.loc/api/v1/basket/44374b33-1dfc-4536-a3a4-9ab988aad209/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token Q/j4TmVOKT3L/Gsk89ZCp4koAjCSB1JQdbNf4YsB'
+            Authorization: 'token Bnkkq/4I7kYigbpdDyDRPqR8MyaDr/ZXPy+DnSI3'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=3_8_7&quantity=1'
@@ -70,11 +70,38 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 14:10:12 GMT'
+            Date: 'Mon, 16 Oct 2017 08:14:25 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1b5739
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1b5739'
+            X-Debug-Token: 8c4846
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8c4846'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/44374b33-1dfc-4536-a3a4-9ab988aad209/comments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Content-Type: application/x-www-form-urlencoded
+            Authorization: 'token Bnkkq/4I7kYigbpdDyDRPqR8MyaDr/ZXPy+DnSI3'
+            VCR-index: '3'
+            Accept: null
+        body: 'comments%5B0%5D%5BdeclinationId%5D=3_8_7&comments%5B0%5D%5Bcomment%5D='
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Mon, 16 Oct 2017 08:14:26 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: ba9d67
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ba9d67'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'

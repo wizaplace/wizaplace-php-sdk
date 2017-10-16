@@ -25,10 +25,10 @@ class Comment
 
     public function __construct(string $declinationId, string $comment)
     {
-        if ($this->declinationId === '') {
+        if ($declinationId === '') {
             throw new SomeParametersAreInvalid('Missing declination Id');
         }
-        if ($this->comment === '') {
+        if ($comment === '') {
             throw new SomeParametersAreInvalid('Missing comment');
         }
 
