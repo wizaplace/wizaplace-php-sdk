@@ -7,7 +7,7 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\BasketService::addCommentsToProducts`
+- Added `\Wizaplace\SDK\Basket\BasketService::updateComments`
 
 ### Bugfixes
 
