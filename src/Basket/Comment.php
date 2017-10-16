@@ -27,4 +27,6 @@ abstract class Comment
     {
         return $this->comment;
     }
+
+    abstract public function toArray(): array;
 }

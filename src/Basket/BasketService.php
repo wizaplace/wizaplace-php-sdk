@@ -389,7 +389,7 @@ final class BasketService extends AbstractService
             $code = $e->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Declination not found', $e);
+                throw new NotFound('Basket not found', $e);
             }
             if (400 === $code) {
                 throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);

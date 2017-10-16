@@ -21,9 +21,6 @@ class ShippingGroupComment extends Comment
     public function __construct(int $shippingGroupId, string $comment)
     {
         parent::__construct($comment);
-        if ($comment === '') {
-            throw new SomeParametersAreInvalid('Missing comment');
-        }
 
         $this->shippingGroupId = $shippingGroupId;
     }

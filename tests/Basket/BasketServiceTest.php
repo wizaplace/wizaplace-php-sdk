@@ -7,8 +7,11 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
+use PHPUnit\Framework\Error\Error;
+use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\ShippingGroupComment;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -246,7 +249,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
         $comments = [
-            new ProductComment('', 'I will be available only during the afternoon'),
+            new ProductComment('', 'I will only be available during the afternoons.'),
         ];
         $basketService->updateComments($basketId, $comments);
     }
@@ -276,6 +279,139 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $comments = [
             new ProductComment('3_8_7', 'I will be available only during the afternoon'),
+        ];
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToShippingGroup()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $basketService->addProductToBasket($basketId, '5', 1);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $companyGroups = $basket->getCompanyGroups();
+        $this->assertCount(1, $companyGroups);
+        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
+
+        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
+        $comments = [
+            new ShippingGroupComment($shippingGroupId, 'I will only be available during the afternoons.'),
+        ];
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToShippingGroupWithWrongShippingGroupId()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing shippingGroup Id');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $comments = [
+            new ShippingGroupComment(404, 'I will only be available during the afternoons.'),
+        ];
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToShippingGroupWithEmptyComment()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing comment');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $basketService->addProductToBasket($basketId, '5', 1);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $companyGroups = $basket->getCompanyGroups();
+        $this->assertCount(1, $companyGroups);
+        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
+
+        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
+        $comments = [
+            new ShippingGroupComment($shippingGroupId, ''),
+        ];
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToBasket()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $comments = [
+            new BasketComment('I am superman, please deliver to space.'),
+        ];
+
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToBasketWithInexistantBasketId()
+    {
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('Basket not found');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $comments = [
+            new BasketComment('I am superman, please deliver to space.'),
+        ];
+
+        $basketService->updateComments('404', $comments);
+    }
+
+    public function testAddCommentToBasketWithEmptyComment()
+    {
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing comment');
+
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $comments = [
+            new BasketComment(''),
+        ];
+
+        $basketService->updateComments($basketId, $comments);
+    }
+
+    public function testAddCommentToBasketAndShippingGroupAndProduct()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+
+        $basketService->addProductToBasket($basketId, '5', 1);
+
+        $basket = $basketService->getBasket($basketId);
+        $this->assertNotNull($basket);
+
+        $companyGroups = $basket->getCompanyGroups();
+        $this->assertCount(1, $companyGroups);
+        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
+
+        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
+        $comments = [
+            new ProductComment('5_0', 'please, gift wrap this product.'),
+            new ShippingGroupComment($shippingGroupId, 'I will only be available during the afternoons.'),
+            new BasketComment('I am superman, please deliver to space.'),
         ];
         $basketService->updateComments($basketId, $comments);
     }
