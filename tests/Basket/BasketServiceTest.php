@@ -227,7 +227,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame($basketId, $service->getUserBasketId());
     }
 
-    public function testAddCommentToProduct()
+    public function testUpdateCommentToProduct()
     {
         $basketService = $this->buildAuthenticatedBasketService();
 
@@ -239,7 +239,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToProductWithWrongDeclinationId()
+    public function testUpdateCommentToProductWithWrongDeclinationId()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing declination Id');
@@ -254,7 +254,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToProductWithEmptyComment()
+    public function testUpdateCommentToProductWithEmptyComment()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing comment');
@@ -269,7 +269,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToProductAbsentOfBasket()
+    public function testUpdateCommentToProductAbsentOfBasket()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('This product is not in the basket. Impossible to add a comment.');
@@ -283,7 +283,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToShippingGroup()
+    public function testUpdateCommentToShippingGroup()
     {
         $basketService = $this->buildAuthenticatedBasketService();
 
@@ -306,7 +306,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToShippingGroupWithWrongShippingGroupId()
+    public function testUpdateCommentToShippingGroupWithWrongShippingGroupId()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing shippingGroup Id');
@@ -320,7 +320,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToShippingGroupWithEmptyComment()
+    public function testUpdateCommentToShippingGroupWithEmptyComment()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing comment');
@@ -346,7 +346,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToBasket()
+    public function testUpdateCommentToBasket()
     {
         $basketService = $this->buildAuthenticatedBasketService();
 
@@ -360,7 +360,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToBasketWithInexistantBasketId()
+    public function testUpdateCommentToBasketWithInexistantBasketId()
     {
         $this->expectExceptionCode(404);
         $this->expectExceptionMessage('Basket not found');
@@ -374,7 +374,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments('404', $comments);
     }
 
-    public function testAddCommentToBasketWithEmptyComment()
+    public function testUpdateCommentToBasketWithEmptyComment()
     {
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing comment');
@@ -391,7 +391,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testAddCommentToBasketAndShippingGroupAndProduct()
+    public function testUpdateCommentToBasketAndShippingGroupAndProduct()
     {
         $basketService = $this->buildAuthenticatedBasketService();
 

@@ -16,37 +16,39 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 16 Oct 2017 14:46:31 GMT'
+            Date: 'Mon, 16 Oct 2017 15:15:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ef19dc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ef19dc'
-            Content-Length: '61'
+            X-Debug-Token: 0caad3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0caad3'
+            Content-Length: '62'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"eYr5u7yVyuFCLXYRJfkLIYC7IFvOM3j\/ThkRkL8Z"}'
+        body: '{"id":2,"apiKey":"6leXdI4x\/\/IjjzqLkxKC00DQ5CDioD6KOcDRpTdj"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket'
+        url: 'http://wizaplace.loc/api/v1/basket/404/comments'
         headers:
             Host: wizaplace.loc
-            Content-Length: '0'
+            Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token eYr5u7yVyuFCLXYRJfkLIYC7IFvOM3j/ThkRkL8Z'
+            Content-Type: application/x-www-form-urlencoded
+            Authorization: 'token 6leXdI4x//IjjzqLkxKC00DQ5CDioD6KOcDRpTdj'
             VCR-index: '1'
             Accept: null
+        body: comments%5B0%5D%5Bcomment%5D=I+am+superman%2C+please+deliver+to+space.
     response:
         status:
             http_version: '1.1'
-            code: '201'
-            message: Created
+            code: '404'
+            message: 'Not Found'
         headers:
-            Date: 'Mon, 16 Oct 2017 14:46:31 GMT'
+            Date: 'Mon, 16 Oct 2017 15:15:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 80d06c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80d06c'
-            Content-Length: '38'
+            X-Debug-Token: 0ae40e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ae40e'
+            Content-Length: '46'
             Content-Type: application/json
-        body: '"26c6d74f-8f3a-4fb1-8ab3-41d5dd3b70d4"'
+        body: '{"message":"Basket \u0022404\u0022 not found"}'
