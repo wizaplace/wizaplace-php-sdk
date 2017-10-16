@@ -362,12 +362,10 @@ final class BasketService extends AbstractService
      *
      * Example (where $comments is an array of key = declinationId and value = comment):
      *
-     * $commentsToPost = [];
-     * foreach ($comments as $declinationId => $comment) {
-     *     $commentsToPost[] = new Comment($declinationId, $comment);
-     * }
-     *
-     * $basketService->addCommentsToProducts($basketId, $commentsToPost);
+     * $basketService->addCommentsToProducts($basketId, [
+     *     new Comment($declination1Id, 'Please gift wrap this product.'),
+     *     new Comment($declination2Id, 'This product does not need to be gift wrapped.'),
+     * ]);
      *
      * @param $comments Comment[]
      * @throws NotFound
@@ -375,7 +373,7 @@ final class BasketService extends AbstractService
      */
     public function addCommentsToProducts(string $basketId, array $comments): void
     {
-        $commentsToPost = array_map(self::class.'::serializeComment', $comments);
+        $commentsToPost = array_map([self::class, 'serializeComment'], $comments);
 
         try {
             $this->client->post(
@@ -395,13 +393,13 @@ final class BasketService extends AbstractService
             if (400 === $code) {
                 throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);
             }
+
+            throw $e;
         }
     }
 
     private static function serializeComment(Comment $comment): array
     {
-        $comment->validate();
-
         return [
             'declinationId' => $comment->getDeclinationId(),
             'comment' => $comment->getComment(),

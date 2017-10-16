@@ -25,6 +25,13 @@ class Comment
 
     public function __construct(string $declinationId, string $comment)
     {
+        if ($this->declinationId === '') {
+            throw new SomeParametersAreInvalid('Missing declination Id');
+        }
+        if ($this->comment === '') {
+            throw new SomeParametersAreInvalid('Missing comment');
+        }
+
         $this->declinationId = $declinationId;
         $this->comment = $comment;
     }
@@ -37,15 +44,5 @@ class Comment
     public function getComment(): string
     {
         return $this->comment;
-    }
-
-    public function validate(): void
-    {
-        if (is_null($this->declinationId) || $this->declinationId === '') {
-            throw new SomeParametersAreInvalid('Missing declination Id');
-        }
-        if (is_null($this->comment) || $this->comment === '') {
-            throw new SomeParametersAreInvalid('Missing comment');
-        }
     }
 }
