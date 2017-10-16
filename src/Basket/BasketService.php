@@ -363,9 +363,9 @@ final class BasketService extends AbstractService
      * Example (where $comments is an array of key = declinationId and value = comment):
      *
      * $basketService->addCommentsToProducts($basketId, [
-     *     new ProductComment($declination1Id, 'Please gift wrap this product.'),
-     *     new BasketComment($declination2Id, 'This product does not need to be gift wrapped.'),
-     *     new ShippingGroupComment($declination2Id, 'This product does not need to be gift wrapped.'),
+     *     new ProductComment($declinationId, 'Please gift wrap this product.'),
+     *     new ShippingGroupComment($shippingGroupId, 'I will only be available in the morning'),
+     *     new BasketComment('I am superman, please deliver to space'),
      * ]);
      *
      * @param $comments Comment[]
