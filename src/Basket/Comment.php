@@ -11,4 +11,6 @@ namespace Wizaplace\SDK\Basket;
 interface Comment
 {
     public function getComment();
+
+    public function toArray();
 }

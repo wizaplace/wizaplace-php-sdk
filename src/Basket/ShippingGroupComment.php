@@ -42,4 +42,12 @@ class ShippingGroupComment implements Comment
     {
         return $this->comment;
     }
+
+    public function toArray()
+    {
+        return [
+            'shippingGroupId' => $this->shippingGroupId,
+            'comment' => $this->comment,
+        ];
+    }
 }

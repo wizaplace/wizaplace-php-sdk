@@ -401,24 +401,6 @@ final class BasketService extends AbstractService
 
     private static function serializeComment(Comment $comment): array
     {
-        if ($comment instanceof ProductComment) {
-            return [
-                'declinationId' => $comment->getDeclinationId(),
-                'comment' => $comment->getComment(),
-            ];
-        }
-        if ($comment instanceof ShippingGroupComment) {
-            return [
-                'shippingGroupId' => $comment->getShippingGroupId(),
-                'comment' => $comment->getComment(),
-            ];
-        }
-        if ($comment instanceof BasketComment) {
-            return [
-                'comment' => $comment->getComment(),
-            ];
-        }
-
-        throw new SomeParametersAreInvalid("$comment is not an instance of Wizaplace\Basket\Comment");
+        return $comment->toArray();
     }
 }

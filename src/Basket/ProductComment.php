@@ -45,4 +45,12 @@ class ProductComment implements Comment
     {
         return $this->comment;
     }
+
+    public function toArray()
+    {
+        return [
+            'declinationId' => $this->declinationId,
+            'comment' => $this->comment,
+        ];
+    }
 }
