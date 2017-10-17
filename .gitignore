@@ -1,6 +1,4 @@
 /vendor/
-phpunit-result.xml
-*-checkstyle.xml
-clover.xml
-/coverage/
+/phpunit/
+/phpcs/
 .vagrant/

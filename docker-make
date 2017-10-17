@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-IMAGE_NAME=wizaplace-php-sdk-env
+IMAGE_NAME=circleci/php:7.1-cli
 
 if [ -z "$1" ]; then
     MAKE_ARGS="all"
@@ -10,5 +10,4 @@ fi
 
 APP_DIR="$(cd $(dirname $0) && pwd)"
 
-docker build -t "${IMAGE_NAME}" .
-docker run --rm -v "${APP_DIR}":/app -v composer-cache:/composer/cache -u $(id -u):$(id -g) --network=host "${IMAGE_NAME}" make "${MAKE_ARGS}"
+docker run --rm -v "${APP_DIR}":/app -w /app -v composer-cache:/composer/cache -u $(id -u):$(id -g) --network=host "${IMAGE_NAME}" make "${MAKE_ARGS}"
