@@ -5,6 +5,13 @@
 
 ### BREAKING CHANGES
 
+- Extracted a new `\Wizaplace\SDK\OrderReturn\OrderReturnService` out of `\Wizaplace\SDK\Order\OrderService`
+- Moved `\Wizaplace\SDK\OrderReturn\OrderReturn`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnItem`
+- Moved `\Wizaplace\SDK\OrderReturn\ReturnReason`
+- Moved `\Wizaplace\SDK\OrderReturn\CreateOrderReturn`
+- Added `\Wizaplace\SDK\OrderReturn\ReturnStatus` and used it as return type for `\Wizaplace\SDK\OrderReturn\OrderReturn::getStatus` instead of a string
+
 ### New features
 
 ### Bugfixes
