@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
-class BasketComment extends Comment
+final class BasketComment extends Comment
 {
     public function toArray(): array
     {

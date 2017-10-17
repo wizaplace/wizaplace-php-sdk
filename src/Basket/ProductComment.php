@@ -11,7 +11,7 @@ namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
-class ProductComment extends Comment
+final class ProductComment extends Comment
 {
     /**
      * @var string
