@@ -254,9 +254,6 @@ final class BasketServiceTest extends ApiTestCase
 
     public function testUpdateCommentToProductWithEmptyComment()
     {
-        $this->expectExceptionCode(400);
-        $this->expectExceptionMessage('Missing comment');
-
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
@@ -280,9 +277,6 @@ final class BasketServiceTest extends ApiTestCase
         ];
         $basketService->updateComments($basketId, $comments);
     }
-
-
-
 
     public function testUpdateCommentToBasket()
     {
@@ -314,9 +308,6 @@ final class BasketServiceTest extends ApiTestCase
 
     public function testUpdateCommentToBasketWithEmptyComment()
     {
-        $this->expectExceptionCode(400);
-        $this->expectExceptionMessage('Missing comment');
-
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
