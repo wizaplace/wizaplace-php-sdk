@@ -60,6 +60,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
         $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -79,6 +80,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Test MVP', $mvp->getName());
         $this->assertCount(2, $mvp->getCompanies());
         $this->assertCount(2, $mvp->getDeclinations());
+        $otherOffers = $mvp->getOtherOffers($mvp->getDeclinations()[0]);
+        $this->assertSame([$mvp->getDeclinations()[1]], $otherOffers);
     }
 
     public function testGetProductWithComplexAttributes()
