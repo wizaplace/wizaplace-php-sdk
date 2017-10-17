@@ -357,8 +357,7 @@ final class BasketService extends AbstractService
     }
 
     /**
-     * This add comments to products.
-     * You first need to collect the comments, create Comment objects with them, and attach them through the API
+     * Add or update comments on the basket or products inside the basket.
      *
      * Example:
      *
