@@ -7,11 +7,15 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\BasketService::updateComments`
-
 ### Bugfixes
 
 </details>
+
+## 0.10.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketService::updateComments`
 
 ## 0.10.1
 
