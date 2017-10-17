@@ -5,16 +5,18 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Catalog;
+namespace Wizaplace\SDK\Catalog\Search;
 
 use Wizaplace\SDK\Pagination;
 
-final class SearchResult
+final class Result
 {
-    /** @var ProductSummary[] */
+    /** @var Product[] */
     private $products;
+
     /** @var Pagination */
     private $pagination;
+
     /** @var Facet[] */
     private $facets;
 
@@ -23,8 +25,8 @@ final class SearchResult
      */
     public function __construct(array $data)
     {
-        $this->products = array_map(static function (array $product) : ProductSummary {
-            return new ProductSummary($product);
+        $this->products = array_map(static function (array $product) : Product {
+            return new Product($product);
         }, $data['results']);
         $this->pagination = new Pagination($data['pagination']);
         $this->facets = array_map(static function (array $facet) : Facet {
@@ -33,7 +35,7 @@ final class SearchResult
     }
 
     /**
-     * @return ProductSummary[]
+     * @return Product[]
      */
     public function getProducts(): array
     {

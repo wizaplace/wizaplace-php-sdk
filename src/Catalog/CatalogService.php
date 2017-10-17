@@ -49,24 +49,6 @@ final class CatalogService extends AbstractService
         return new Category($category);
     }
 
-    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult
-    {
-        $results = $this->client->get(
-            'catalog/search/products',
-            [
-                'query' => [
-                    'filters' => $filters,
-                    'sorting' => $sorting,
-                    'resultsPerPage' => $resultsPerPage,
-                    'page' => $page,
-                    'query' => $query,
-                ],
-            ]
-        );
-
-        return new SearchResult($results);
-    }
-
     public function getCompanyById(int $id): CompanyDetail
     {
         try {

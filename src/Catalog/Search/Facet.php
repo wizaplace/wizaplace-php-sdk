@@ -5,16 +5,19 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Catalog;
+namespace Wizaplace\SDK\Catalog\Search;
 
 final class Facet
 {
     /** @var string */
     private $name;
+
     /** @var string */
     private $label;
+
     /** @var bool */
     private $isNumeric;
+
     /** @var array */
     private $values;
 

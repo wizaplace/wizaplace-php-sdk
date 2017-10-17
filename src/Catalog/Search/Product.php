@@ -5,49 +5,67 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Catalog;
+namespace Wizaplace\SDK\Catalog\Search;
 
 use Wizaplace\SDK\Image\Image;
 
-final class ProductSummary
+final class Product
 {
     /** @var string  */
     private $productId;
+
     /** @var string */
     private $name;
+
     /** @var string */
     private $subtitle;
+
     /** @var string */
     private $shortDescription;
+
     /** @var float */
     private $minimumPrice;
+
     /** @var float|null */
     private $crossedOutPrice;
+
     /** @var bool */
     private $isAvailable;
+
     /** @var string */
     private $url;
+
     /** @var \DateTimeImmutable */
     private $createdAt;
+
     /** @var \DateTimeImmutable */
     private $updatedAt;
+
     /** @var int */
     private $declinationCount;
+
     /** @var string|null */
     private $affiliateLink;
+
     /** @var Image|null */
     private $mainImage;
+
     /** @var float|null */
     private $averageRating;
+
     /** @var array */
     private $condition;
-    /** @var SearchProductAttribute[] */
+
+    /** @var Attribute[] */
     private $attributes;
-    /** @var SearchCategoryPath[] */
-    private $categoryPath;
+
+    /** @var Category[] */
+    private $category;
+
     /** @var string */
     private $slug;
-    /** @var CompanySummary[] */
+
+    /** @var Company[] */
     private $companies;
 
     /**
@@ -70,15 +88,15 @@ final class ProductSummary
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRating'] ?? null;
         $this->condition = $data['conditions'];
-        $this->attributes = array_map(static function (array $attribute) : SearchProductAttribute {
-            return new SearchProductAttribute($attribute);
+        $this->attributes = array_map(static function (array $attribute) : Attribute {
+            return new Attribute($attribute);
         }, $data['attributes']);
-        $this->categoryPath = array_map(static function (array $categoryPath) : SearchCategoryPath {
-            return new SearchCategoryPath($categoryPath);
+        $this->category = array_map(static function (array $category) : Category {
+            return new Category($category);
         }, $data['categoryPath']);
         $this->slug = (string) $data['slug'];
-        $this->companies = array_map(static function (array $companyData) : CompanySummary {
-            return new CompanySummary($companyData);
+        $this->companies = array_map(static function (array $company) : Company {
+            return new Company($company);
         }, $data['companies'] ?? []);
     }
 
@@ -160,7 +178,7 @@ final class ProductSummary
     }
 
     /**
-     * @return SearchProductAttribute[]
+     * @return Attribute[]
      */
     public function getAttributes(): array
     {
@@ -168,11 +186,11 @@ final class ProductSummary
     }
 
     /**
-     * @return SearchCategoryPath[]
+     * @return Category[]
      */
     public function getCategoryPath(): array
     {
-        return $this->categoryPath;
+        return $this->category;
     }
 
     /**
@@ -180,9 +198,9 @@ final class ProductSummary
      */
     public function getCategorySlugs(): array
     {
-        return array_map(static function (SearchCategoryPath $category) : string {
+        return array_map(static function (Category $category) : string {
             return $category->getSlug();
-        }, $this->categoryPath);
+        }, $this->category);
     }
 
     public function getSlug(): string
@@ -191,7 +209,7 @@ final class ProductSummary
     }
 
     /**
-     * @return CompanySummary[]
+     * @return Company[]
      */
     public function getCompanies(): array
     {

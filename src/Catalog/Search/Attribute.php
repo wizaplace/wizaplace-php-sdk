@@ -5,16 +5,19 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Catalog;
+namespace Wizaplace\SDK\Catalog\Search;
 
-final class SearchProductAttribute
+final class Attribute
 {
     /** @var int */
     private $id;
+
     /** @var string */
     private $name;
+
     /** @var string */
     private $slug;
+
     /** @var array */
     private $values;
 
