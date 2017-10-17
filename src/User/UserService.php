@@ -54,7 +54,7 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}",
             [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'email' => $command->getEmail(),
                     'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
@@ -78,7 +78,7 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}/addresses",
             [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'billing' => self::serializeUserAddressUpdate($command->getBillingAddress()),
                     'shipping' => self::serializeUserAddressUpdate($command->getShippingAddress()),
                 ],
@@ -103,7 +103,7 @@ final class UserService extends AbstractService
             $userData = $this->client->post(
                 'users',
                 [
-                    'form_params' => [
+                    RequestOptions::FORM_PARAMS => [
                         'email' => $email,
                         'password' => $password,
                         'firstName' => $firstName,

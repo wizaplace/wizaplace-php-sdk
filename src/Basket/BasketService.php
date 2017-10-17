@@ -83,7 +83,7 @@ final class BasketService extends AbstractService
 
         try {
             $responseData = $this->client->post("basket/{$basketId}/add", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
                 ],
@@ -154,7 +154,7 @@ final class BasketService extends AbstractService
 
         try {
             $this->client->post("basket/{$basketId}/remove", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                 ],
             ]);
@@ -204,7 +204,7 @@ final class BasketService extends AbstractService
 
         try {
             $responseData = $this->client->post("basket/{$basketId}/modify", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
                 ],
@@ -304,7 +304,7 @@ final class BasketService extends AbstractService
     public function selectShippings(string $basketId, array $selections): void
     {
         $this->client->post("basket/$basketId/shippings", [
-            'json' => [
+            RequestOptions::JSON => [
                 'shippingGroups' => $selections,
             ],
         ]);
@@ -333,7 +333,7 @@ final class BasketService extends AbstractService
             $result = $this->client->post(
                 "basket/{$basketId}/order",
                 [
-                    'form_params' => [
+                    RequestOptions::FORM_PARAMS => [
                         'paymentId' => $paymentId,
                         "acceptTermsAndConditions" => $acceptTerms,
                         'redirectUrl' => $redirectUrl,
