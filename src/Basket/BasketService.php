@@ -380,7 +380,7 @@ final class BasketService extends AbstractService
             $this->client->post(
                 "basket/{$basketId}/comments",
                 [
-                    'form_params' => [
+                    RequestOptions::FORM_PARAMS => [
                         'comments' => $commentsToPost,
                     ],
                 ]
