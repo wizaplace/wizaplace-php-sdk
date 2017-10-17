@@ -362,7 +362,9 @@ final class BasketService extends AbstractService
      * Example:
      *
      * $basketService->updateComments($basketId, [
+     *     // Comment on a product inside the basket
      *     new ProductComment($declinationId, 'Please gift wrap this product.'),
+     *     // Comment on the basket
      *     new BasketComment('I am superman, please deliver to space'),
      * ]);
      *
