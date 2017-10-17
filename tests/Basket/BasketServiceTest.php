@@ -7,11 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
-use PHPUnit\Framework\Error\Error;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\BasketService;
-use Wizaplace\SDK\Basket\ShippingGroupComment;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -283,68 +281,8 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testUpdateCommentToShippingGroup()
-    {
-        $basketService = $this->buildAuthenticatedBasketService();
 
-        $basketId = $basketService->create();
-        $this->assertNotEmpty($basketId);
 
-        $basketService->addProductToBasket($basketId, '5', 1);
-
-        $basket = $basketService->getBasket($basketId);
-        $this->assertNotNull($basket);
-
-        $companyGroups = $basket->getCompanyGroups();
-        $this->assertCount(1, $companyGroups);
-        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
-
-        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
-        $comments = [
-            new ShippingGroupComment($shippingGroupId, 'I will only be available during the afternoons.'),
-        ];
-        $basketService->updateComments($basketId, $comments);
-    }
-
-    public function testUpdateCommentToShippingGroupWithWrongShippingGroupId()
-    {
-        $this->expectExceptionCode(400);
-        $this->expectExceptionMessage('Missing shippingGroup Id');
-
-        $basketService = $this->buildAuthenticatedBasketService();
-
-        $basketId = $basketService->create();
-        $comments = [
-            new ShippingGroupComment(404, 'I will only be available during the afternoons.'),
-        ];
-        $basketService->updateComments($basketId, $comments);
-    }
-
-    public function testUpdateCommentToShippingGroupWithEmptyComment()
-    {
-        $this->expectExceptionCode(400);
-        $this->expectExceptionMessage('Missing comment');
-
-        $basketService = $this->buildAuthenticatedBasketService();
-
-        $basketId = $basketService->create();
-        $this->assertNotEmpty($basketId);
-
-        $basketService->addProductToBasket($basketId, '5', 1);
-
-        $basket = $basketService->getBasket($basketId);
-        $this->assertNotNull($basket);
-
-        $companyGroups = $basket->getCompanyGroups();
-        $this->assertCount(1, $companyGroups);
-        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
-
-        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
-        $comments = [
-            new ShippingGroupComment($shippingGroupId, ''),
-        ];
-        $basketService->updateComments($basketId, $comments);
-    }
 
     public function testUpdateCommentToBasket()
     {
@@ -391,7 +329,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->updateComments($basketId, $comments);
     }
 
-    public function testUpdateCommentToBasketAndShippingGroupAndProduct()
+    public function testUpdateCommentToBasketAndProduct()
     {
         $basketService = $this->buildAuthenticatedBasketService();
 
@@ -400,17 +338,8 @@ final class BasketServiceTest extends ApiTestCase
 
         $basketService->addProductToBasket($basketId, '5', 1);
 
-        $basket = $basketService->getBasket($basketId);
-        $this->assertNotNull($basket);
-
-        $companyGroups = $basket->getCompanyGroups();
-        $this->assertCount(1, $companyGroups);
-        $this->assertCount(1, $companyGroups[0]->getShippingGroups());
-
-        $shippingGroupId = $companyGroups[0]->getShippingGroups()[0]->getId();
         $comments = [
             new ProductComment('5_0', 'please, gift wrap this product.'),
-            new ShippingGroupComment($shippingGroupId, 'I will only be available during the afternoons.'),
             new BasketComment('I am superman, please deliver to space.'),
         ];
         $basketService->updateComments($basketId, $comments);

@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 16 Oct 2017 15:10:46 GMT'
+            Date: 'Tue, 17 Oct 2017 07:09:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dc97c8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dc97c8'
+            X-Debug-Token: a5f755
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a5f755'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"gLPsk8W3bQ+AZn1NmT0uk84wPh8Pf5A+kGyT0X\/r"}'
+        body: '{"id":2,"apiKey":"G2ku7CXuuJ6RLt\/FjIutPIxInAfWvW+rlpj8SERd"}'
 -
     request:
         method: POST
@@ -33,7 +33,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token gLPsk8W3bQ+AZn1NmT0uk84wPh8Pf5A+kGyT0X/r'
+            Authorization: 'token G2ku7CXuuJ6RLt/FjIutPIxInAfWvW+rlpj8SERd'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +42,25 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 16 Oct 2017 15:10:46 GMT'
+            Date: 'Tue, 17 Oct 2017 07:09:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e23477
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e23477'
+            X-Debug-Token: 7fdbf1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7fdbf1'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"78135950-d22d-4f12-b0eb-354956bfa030"'
+        body: '"9c0b653c-91ad-4852-8235-f2f8cdbda656"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/78135950-d22d-4f12-b0eb-354956bfa030/add'
+        url: 'http://wizaplace.loc/api/v1/basket/9c0b653c-91ad-4852-8235-f2f8cdbda656/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token gLPsk8W3bQ+AZn1NmT0uk84wPh8Pf5A+kGyT0X/r'
+            Authorization: 'token G2ku7CXuuJ6RLt/FjIutPIxInAfWvW+rlpj8SERd'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=3_8_7&quantity=1'
@@ -70,11 +70,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 16 Oct 2017 15:10:47 GMT'
+            Date: 'Tue, 17 Oct 2017 07:09:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 201ae8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/201ae8'
+            X-Debug-Token: eb6074
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb6074'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'

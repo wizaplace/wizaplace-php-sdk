@@ -16,14 +16,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 16 Oct 2017 15:15:33 GMT'
+            Date: 'Tue, 17 Oct 2017 07:12:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0caad3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0caad3'
-            Content-Length: '62'
+            X-Debug-Token: 8a3447
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a3447'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"6leXdI4x\/\/IjjzqLkxKC00DQ5CDioD6KOcDRpTdj"}'
+        body: '{"id":2,"apiKey":"oyIhOcLSKEDT5SS5KYMz6O1NsiLlLbr9Pz5UG1aC"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token 6leXdI4x//IjjzqLkxKC00DQ5CDioD6KOcDRpTdj'
+            Authorization: 'token oyIhOcLSKEDT5SS5KYMz6O1NsiLlLbr9Pz5UG1aC'
             VCR-index: '1'
             Accept: null
         body: comments%5B0%5D%5Bcomment%5D=I+am+superman%2C+please+deliver+to+space.
@@ -44,11 +44,11 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 16 Oct 2017 15:15:33 GMT'
+            Date: 'Tue, 17 Oct 2017 07:12:23 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0ae40e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ae40e'
+            X-Debug-Token: dc24a0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dc24a0'
             Content-Length: '46'
             Content-Type: application/json
         body: '{"message":"Basket \u0022404\u0022 not found"}'

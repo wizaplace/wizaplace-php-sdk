@@ -364,7 +364,6 @@ final class BasketService extends AbstractService
      *
      * $basketService->updateComments($basketId, [
      *     new ProductComment($declinationId, 'Please gift wrap this product.'),
-     *     new ShippingGroupComment($shippingGroupId, 'I will only be available in the morning'),
      *     new BasketComment('I am superman, please deliver to space'),
      * ]);
      *
