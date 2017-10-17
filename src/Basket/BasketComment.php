@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Basket;
 
 final class BasketComment extends Comment
 {
+    /**
+     * @internal
+     */
     public function toArray(): array
     {
         return [

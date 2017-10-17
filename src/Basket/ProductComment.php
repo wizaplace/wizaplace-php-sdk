@@ -32,6 +32,9 @@ final class ProductComment extends Comment
         return $this->declinationId;
     }
 
+    /**
+     * @internal
+     */
     public function toArray(): array
     {
         return [

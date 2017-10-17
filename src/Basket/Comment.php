@@ -8,6 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+/**
+ * @internal
+ */
 abstract class Comment
 {
     /** @var string */
@@ -23,5 +26,8 @@ abstract class Comment
         return $this->comment;
     }
 
+    /**
+     * @internal
+     */
     abstract public function toArray(): array;
 }
