@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:51:52 GMT'
+            Date: 'Thu, 12 Oct 2017 08:21:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a850ad
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a850ad'
+            X-Debug-Token: fa6167
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fa6167'
             Content-Length: '303'
             Content-Type: application/json
         body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc.","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"terms":"Lorem Ipsum"}'
@@ -30,7 +30,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
             VCR-index: '1'
             Accept: null
     response:
@@ -39,11 +39,11 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:51:53 GMT'
+            Date: 'Thu, 12 Oct 2017 08:21:33 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a65b19
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a65b19'
+            X-Debug-Token: 626db2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/626db2'
             Content-Length: '235'
             Content-Type: application/json
         body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'

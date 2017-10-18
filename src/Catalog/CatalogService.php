@@ -15,7 +15,7 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 final class CatalogService extends AbstractService
 {
-    public function getProductById(int $id) : Product
+    public function getProductById(string $id) : Product
     {
         try {
             $response = $this->client->get("catalog/products/{$id}");

@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\Catalog\CatalogService::getProductById` now takes a string instead of an int.
+
 ### New features
 
 ### Bugfixes

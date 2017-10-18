@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
             VCR-index: '0'
             Accept: null
@@ -18,10 +18,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 12 Sep 2017 14:54:20 GMT'
+            Date: 'Thu, 12 Oct 2017 08:26:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 386b97
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/386b97'
+            X-Debug-Token: fec9d9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fec9d9'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

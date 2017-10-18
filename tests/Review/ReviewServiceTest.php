@@ -27,7 +27,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testListReviewsFromProduct()
     {
-        $reviews = $this->reviewService->getProductReviews(1);
+        $reviews = $this->reviewService->getProductReviews('1');
 
         $this->assertCount(2, $reviews);
 
@@ -50,7 +50,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testListInexistantReviewFromProduct()
     {
-        $reviews = $this->reviewService->getProductReviews(2);
+        $reviews = $this->reviewService->getProductReviews('2');
         $this->assertEmpty($reviews);
     }
 
@@ -59,12 +59,12 @@ final class ReviewServiceTest extends ApiTestCase
         $this->expectException(NotFound::class);
         $this->expectExceptionMessage('This product has not been found');
 
-        $this->reviewService->getProductReviews(404);
+        $this->reviewService->getProductReviews('404');
     }
 
     public function testAddReviewToProduct()
     {
-        $this->reviewService->reviewProduct(2, 'fake-author', 'this is a test review', 5);
+        $this->reviewService->reviewProduct('2', 'fake-author', 'this is a test review', 5);
 
         $this->assertCount(2, static::$historyContainer);
     }
@@ -74,7 +74,7 @@ final class ReviewServiceTest extends ApiTestCase
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(404);
 
-        $this->reviewService->reviewProduct(404, 'fake-author', 'this is a test review', 4);
+        $this->reviewService->reviewProduct('404', 'fake-author', 'this is a test review', 4);
     }
 
     public function testListReviewsFromCompany()

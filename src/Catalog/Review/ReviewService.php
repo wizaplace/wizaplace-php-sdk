@@ -43,7 +43,7 @@ final class ReviewService extends AbstractService
      * @return Review[]
      * @throws NotFound
      */
-    public function getProductReviews(int $productId): array
+    public function getProductReviews(string $productId): array
     {
         try {
             $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
@@ -63,7 +63,7 @@ final class ReviewService extends AbstractService
         return $productReviews;
     }
 
-    public function reviewProduct(int $productId, string $author, string $message, int $rating) : void
+    public function reviewProduct(string $productId, string $author, string $message, int $rating) : void
     {
         $review = [
             'author' => $author,
