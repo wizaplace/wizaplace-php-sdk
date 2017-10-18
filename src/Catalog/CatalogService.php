@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -148,7 +149,7 @@ final class CatalogService extends AbstractService
 
         try {
             $this->client->post("catalog/products/{$report->getProductId()}/report", [
-                'json' => [
+                RequestOptions::JSON => [
                     'productId' => $report->getProductId(),
                     'name' => $report->getReporterName(),
                     'email' => $report->getReporterEmail(),

@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Company;
 
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 
@@ -20,7 +21,7 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         $responseData = $this->client->post('companies', [
-            'json' => [
+            RequestOptions::JSON => [
                 'name' => $companyRegistration->getName(),
                 'email' => $companyRegistration->getEmail(),
                 'description' => $companyRegistration->getDescription(),

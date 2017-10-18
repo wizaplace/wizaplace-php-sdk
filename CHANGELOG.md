@@ -13,6 +13,12 @@
 
 </details>
 
+## 0.10.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketService::updateComments`
+
 ## 0.10.1
 
 ### New features

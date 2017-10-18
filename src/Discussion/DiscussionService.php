@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Discussion;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
@@ -82,7 +83,7 @@ final class DiscussionService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $discussionData = $this->client->post('discussions', ['json' => ['productId' => $productId]]);
+            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['productId' => $productId]]);
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
@@ -124,7 +125,7 @@ final class DiscussionService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $messageData = $this->client->post('discussions/'.$discussionId.'/messages', ['json' => ['content' => $content]]);
+            $messageData = $this->client->post('discussions/'.$discussionId.'/messages', [RequestOptions::JSON => ['content' => $content]]);
             $messageData['isAuthor'] = ($messageData['authorId'] === $this->client->getApiKey()->getId());
 
             return new Message($messageData);

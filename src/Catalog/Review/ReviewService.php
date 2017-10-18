@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog\Review;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 
@@ -70,7 +71,7 @@ final class ReviewService extends AbstractService
             'rating' => $rating,
         ];
 
-        $this->client->post(sprintf(self::PRODUCT_ENDPOINT, $productId), ['json' => $review]);
+        $this->client->post(sprintf(self::PRODUCT_ENDPOINT, $productId), [RequestOptions::JSON => $review]);
     }
 
     /**
@@ -102,7 +103,7 @@ final class ReviewService extends AbstractService
     {
         $review = ['message' => $message, 'rating' => $rating];
 
-        $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), ['json' => $review]);
+        $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), [RequestOptions::JSON => $review]);
     }
 
     public function canUserReviewCompany(int $companyId): bool

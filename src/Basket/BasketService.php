@@ -83,7 +83,7 @@ final class BasketService extends AbstractService
 
         try {
             $responseData = $this->client->post("basket/{$basketId}/add", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
                 ],
@@ -154,7 +154,7 @@ final class BasketService extends AbstractService
 
         try {
             $this->client->post("basket/{$basketId}/remove", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                 ],
             ]);
@@ -204,7 +204,7 @@ final class BasketService extends AbstractService
 
         try {
             $responseData = $this->client->post("basket/{$basketId}/modify", [
-                'form_params' => [
+                RequestOptions::FORM_PARAMS => [
                     'declinationId' => $declinationId,
                     'quantity' => $quantity,
                 ],
@@ -304,7 +304,7 @@ final class BasketService extends AbstractService
     public function selectShippings(string $basketId, array $selections): void
     {
         $this->client->post("basket/$basketId/shippings", [
-            'json' => [
+            RequestOptions::JSON => [
                 'shippingGroups' => $selections,
             ],
         ]);
@@ -333,7 +333,7 @@ final class BasketService extends AbstractService
             $result = $this->client->post(
                 "basket/{$basketId}/order",
                 [
-                    'form_params' => [
+                    RequestOptions::FORM_PARAMS => [
                         'paymentId' => $paymentId,
                         "acceptTermsAndConditions" => $acceptTerms,
                         'redirectUrl' => $redirectUrl,
@@ -354,5 +354,53 @@ final class BasketService extends AbstractService
         }
 
         return new PaymentInformation($result);
+    }
+
+    /**
+     * Add or update comments on the basket or products inside the basket.
+     *
+     * Example:
+     *
+     * $basketService->updateComments($basketId, [
+     *     // Comment on a product inside the basket
+     *     new ProductComment($declinationId, 'Please gift wrap this product.'),
+     *     // Comment on the basket
+     *     new BasketComment('I am superman, please deliver to space'),
+     * ]);
+     *
+     * @param $comments Comment[]
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    public function updateComments(string $basketId, array $comments): void
+    {
+        $commentsToPost = array_map([self::class, 'serializeComment'], $comments);
+
+        try {
+            $this->client->post(
+                "basket/{$basketId}/comments",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'comments' => $commentsToPost,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            $code = $e->getResponse()->getStatusCode();
+
+            if (404 === $code) {
+                throw new NotFound('Basket not found', $e);
+            }
+            if (400 === $code) {
+                throw new SomeParametersAreInvalid($e->getMessage(), $code, $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    private static function serializeComment(Comment $comment): array
+    {
+        return $comment->toArray();
     }
 }
