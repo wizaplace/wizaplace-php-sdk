@@ -5,15 +5,23 @@
 
 ### BREAKING CHANGES
 
-- `\Wizaplace\SDK\Catalog\CatalogService::getProductById` now takes a string instead of an int.
-
 ### New features
-
-- Added `\Wizaplace\SDK\Catalog\Product::getOtherOffers`
 
 ### Bugfixes
 
 </details>
+
+## 0.11.0
+
+### BREAKING CHANGES
+
+- `\Wizaplace\SDK\Catalog\CatalogService::getProductById` now takes a string instead of an int.
+- `\Wizaplace\SDK\Catalog\Review\ReviewService::getProductReviews` now takes a string instead of an int.
+- `\Wizaplace\SDK\Catalog\Review\ReviewService::reviewProduct` now takes a string instead of an int for `$productId`.
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getOtherOffers`
 
 ## 0.10.2
 
