@@ -28,7 +28,8 @@ test:
 ifndef CIRCLE_BUILD_NUM
 	./vendor/bin/phpunit --configuration ./phpunit.xml
 else
-	php -d'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"' -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit/junit.xml --coverage-clover ./phpunit/clover.xml --coverage-html ./phpunit/coverage/
+	mkdir -p phpunit/coverage
+	php -dzend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so -dxdebug.coverage_enable=1 ./vendor/bin/paratest --configuration ./phpunit.xml --log-junit ./phpunit/junit.xml --coverage-clover ./phpunit/clover.xml --coverage-html ./phpunit/coverage/ --runner WrapperRunner --phpunit="$$(which php) -dzend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so -dxdebug.coverage_enable=1 vendor/bin/phpunit"
 endif
 
 delete-all-cassettes:
