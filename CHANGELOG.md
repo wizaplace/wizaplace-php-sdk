@@ -9,6 +9,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\Product::getOtherOffers`
+
 ### Bugfixes
 
 </details>

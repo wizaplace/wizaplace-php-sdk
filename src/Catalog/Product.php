@@ -280,6 +280,64 @@ final class Product
         throw new NotFound('Declination was not found.');
     }
 
+    /**
+     * Get offers from other vendors for a given declination (in the context of multi-vendor products).
+     * @return Declination[]
+     */
+    public function getOtherOffers(Declination $currentOffer): array
+    {
+        $options = $currentOffer->getOptions();
+        /** @var DeclinationOption[] $optionsMap */
+        $optionsMap = [];
+        foreach ($options as $option) {
+            $optionsMap[$option->getId()] = $option;
+        }
+
+        $givenDeclinationFound = false;
+        /** @var Declination[] $result */
+        $result = [];
+        foreach ($this->declinations as $declination) {
+            if ($currentOffer->getId() === $declination->getId()) {
+                $givenDeclinationFound = true;
+                // Skip the given declination, as we only want *other* offers
+                continue;
+            }
+
+            $declinationOptions = $declination->getOptions();
+            if (count($optionsMap) !== count($declinationOptions)) {
+                // Number of options doesn't match, skip this declination
+                continue;
+            }
+
+            // Search for other declinations with options 100% matching those of the given offer
+            $matches = true;
+            foreach ($declinationOptions as $declinationOption) {
+                $referenceOption = $optionsMap[$declinationOption->getId()] ?? null;
+                if ($referenceOption === null) {
+                    $matches = false;
+                    break;
+                }
+
+                if ($referenceOption->getVariantId() !== $declinationOption->getVariantId()) {
+                    $matches = false;
+                    break;
+                }
+            }
+
+            if (!$matches) {
+                continue;
+            }
+
+            $result[] = $declination;
+        }
+
+        if (!$givenDeclinationFound) {
+            throw new \InvalidArgumentException("The given declination does not belong to this product");
+        }
+
+        return $result;
+    }
+
     public function getGeolocation(): ?ProductLocation
     {
         return $this->geolocation;
