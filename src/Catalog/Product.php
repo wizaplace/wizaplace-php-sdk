@@ -299,7 +299,7 @@ final class Product
         foreach ($this->declinations as $declination) {
             if ($currentOffer->getId() === $declination->getId()) {
                 $givenDeclinationFound = true;
-                // Skip the given declination
+                // Skip the given declination, as we only want *other* offers
                 continue;
             }
 
