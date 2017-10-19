@@ -36,6 +36,9 @@ final class Basket
     /** @var int */
     private $totalQuantity;
 
+    /** @var string */
+    private $comment;
+
     /**
      * @internal
      */
@@ -49,6 +52,7 @@ final class Basket
         $this->totalTax = $data['totalTax'];
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
+        $this->comment = $data['comment'];
 
         $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
             return new BasketCompanyGroup($companyGroup);
@@ -101,5 +105,10 @@ final class Basket
     public function getTotalQuantity(): int
     {
         return $this->totalQuantity;
+    }
+
+    public function getComment(): string
+    {
+        return $this->comment;
     }
 }

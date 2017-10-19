@@ -41,6 +41,9 @@ final class BasketItem
     /** @var DeclinationOption[] */
     private $declinationOptions;
 
+    /** @var string */
+    private $comment;
+
     /**
      * @internal
      */
@@ -60,6 +63,7 @@ final class BasketItem
         $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
             return new DeclinationOption($data);
         }, $data['options'] ?? []);
+        $this->comment = $data['comment'];
     }
 
     public function getDeclinationId(): string
@@ -108,5 +112,10 @@ final class BasketItem
     public function getTotal(): float
     {
         return $this->total;
+    }
+
+    public function getComment(): string
+    {
+        return $this->comment;
     }
 }
