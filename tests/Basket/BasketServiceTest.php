@@ -235,6 +235,11 @@ final class BasketServiceTest extends ApiTestCase
             new ProductComment('3_8_7', 'I will be available only during the afternoon'),
         ];
         $basketService->updateComments($basketId, $comments);
+
+        $basket = $basketService->getBasket($basketId);
+        $comment = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getComment();
+
+        $this->assertSame('I will be available only during the afternoon', $comment);
     }
 
     public function testUpdateCommentToProductWithWrongDeclinationId()
@@ -290,6 +295,11 @@ final class BasketServiceTest extends ApiTestCase
         ];
 
         $basketService->updateComments($basketId, $comments);
+
+        $basket = $basketService->getBasket($basketId);
+        $comment = $basket->getComment();
+
+        $this->assertSame('I am superman, please deliver to space.', $comment);
     }
 
     public function testUpdateCommentToBasketWithInexistantBasketId()
@@ -334,6 +344,13 @@ final class BasketServiceTest extends ApiTestCase
             new BasketComment('I am superman, please deliver to space.'),
         ];
         $basketService->updateComments($basketId, $comments);
+
+        $basket = $basketService->getBasket($basketId);
+        $productComment = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getComment();
+        $basketComment = $basket->getComment();
+
+        $this->assertSame('please, gift wrap this product.', $productComment);
+        $this->assertSame('I am superman, please deliver to space.', $basketComment);
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService

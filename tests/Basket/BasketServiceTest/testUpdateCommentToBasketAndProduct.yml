@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 17 Oct 2017 07:13:40 GMT'
+            Date: 'Thu, 19 Oct 2017 14:05:35 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 1503f8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1503f8'
+            Content-Language: fr
+            X-Debug-Token: f268aa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f268aa'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"oANbu9yqtDlObnDj528sf\/GAhhE4aYF8ypqmwqUv"}'
+        body: '{"id":2,"apiKey":"+DCYAk4+\/jpLPU2HwQ4weRMSGIKF2jtZwCMNNXe6"}'
 -
     request:
         method: POST
@@ -33,7 +34,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token oANbu9yqtDlObnDj528sf/GAhhE4aYF8ypqmwqUv'
+            Authorization: 'token +DCYAk4+/jpLPU2HwQ4weRMSGIKF2jtZwCMNNXe6'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 17 Oct 2017 07:13:41 GMT'
+            Date: 'Thu, 19 Oct 2017 14:05:35 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: e18c19
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e18c19'
+            Content-Language: fr
+            X-Debug-Token: 372f46
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/372f46'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"70e20b00-da5a-436d-8355-461618797b9c"'
+        body: '"64d90d85-b374-4db4-abfe-2c3290c030bb"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/70e20b00-da5a-436d-8355-461618797b9c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/64d90d85-b374-4db4-abfe-2c3290c030bb/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token oANbu9yqtDlObnDj528sf/GAhhE4aYF8ypqmwqUv'
+            Authorization: 'token +DCYAk4+/jpLPU2HwQ4weRMSGIKF2jtZwCMNNXe6'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=5&quantity=1'
@@ -70,25 +72,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 17 Oct 2017 07:13:41 GMT'
+            Date: 'Thu, 19 Oct 2017 14:05:35 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b6d63e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b6d63e'
+            Content-Language: fr
+            X-Debug-Token: eb3b79
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb3b79'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/70e20b00-da5a-436d-8355-461618797b9c/comments'
+        url: 'http://wizaplace.loc/api/v1/basket/64d90d85-b374-4db4-abfe-2c3290c030bb/comments'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token oANbu9yqtDlObnDj528sf/GAhhE4aYF8ypqmwqUv'
+            Authorization: 'token +DCYAk4+/jpLPU2HwQ4weRMSGIKF2jtZwCMNNXe6'
             VCR-index: '3'
             Accept: null
         body: 'comments%5B0%5D%5BdeclinationId%5D=5_0&comments%5B0%5D%5Bcomment%5D=please%2C+gift+wrap+this+product.&comments%5B1%5D%5Bcomment%5D=I+am+superman%2C+please+deliver+to+space.'
@@ -98,10 +101,37 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 17 Oct 2017 07:13:41 GMT'
+            Date: 'Thu, 19 Oct 2017 14:05:36 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 9aadb1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9aadb1'
+            Content-Language: fr
+            X-Debug-Token: 611bdb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/611bdb'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/64d90d85-b374-4db4-abfe-2c3290c030bb'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token +DCYAk4+/jpLPU2HwQ4weRMSGIKF2jtZwCMNNXe6'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 19 Oct 2017 14:05:36 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d42cbb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d42cbb'
+            Content-Length: '1413'
+            Content-Type: application/json
+        body: '{"id":"64d90d85-b374-4db4-abfe-2c3290c030bb","comment":"I am superman, please deliver to space.","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Product with complex attributes","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-complex-attributes.html","individualPrice":15,"individualTax":0.31,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":15,"options":[],"comment":"please, gift wrap this product."}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31}]}],"subtotal":15,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.31,"total":15,"totalQuantity":1}'
