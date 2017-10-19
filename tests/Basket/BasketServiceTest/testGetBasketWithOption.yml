@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             VCR-index: '0'
             Accept: null
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:50:59 GMT'
+            Date: 'Thu, 19 Oct 2017 14:11:04 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 974a27
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/974a27'
-            Content-Length: '61'
+            Content-Language: fr
+            X-Debug-Token: 2121cf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2121cf'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"rtAQYyQiShqn6VdrNgd\/WnX1A1i5812TVzvgRq1W"}'
+        body: '{"id":2,"apiKey":"P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp"}'
 -
     request:
         method: POST
@@ -32,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token rtAQYyQiShqn6VdrNgd/WnX1A1i5812TVzvgRq1W'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 14:50:59 GMT'
+            Date: 'Thu, 19 Oct 2017 14:11:04 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: b85f95
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b85f95'
+            Content-Language: fr
+            X-Debug-Token: c1726d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1726d'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"6c285b05-7da5-419b-9787-3d7d1e45c11c"'
+        body: '"102c1c3c-b871-4136-a11d-93bdc49686f8"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/6c285b05-7da5-419b-9787-3d7d1e45c11c/add'
+        url: 'http://wizaplace.loc/api/v1/basket/102c1c3c-b871-4136-a11d-93bdc49686f8/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token rtAQYyQiShqn6VdrNgd/WnX1A1i5812TVzvgRq1W'
+            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=3_8_7&quantity=1'
@@ -70,23 +72,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:50:59 GMT'
+            Date: 'Thu, 19 Oct 2017 14:11:05 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 3314ce
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3314ce'
+            Content-Language: fr
+            X-Debug-Token: '435263'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/435263'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/6c285b05-7da5-419b-9787-3d7d1e45c11c'
+        url: 'http://wizaplace.loc/api/v1/basket/102c1c3c-b871-4136-a11d-93bdc49686f8'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token rtAQYyQiShqn6VdrNgd/WnX1A1i5812TVzvgRq1W'
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
+            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
             VCR-index: '3'
             Accept: null
     response:
@@ -95,11 +98,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:50:59 GMT'
+            Date: 'Thu, 19 Oct 2017 14:11:05 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 14cd9a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/14cd9a'
-            Content-Length: '1372'
+            Content-Language: fr
+            X-Debug-Token: c3a2a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3a2a2'
+            Content-Length: '1386'
             Content-Type: application/json
-        body: '{"id":"6c285b05-7da5-419b-9787-3d7d1e45c11c","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"3_8_7","productId":3,"productName":"Ecran PC Full HD 24\u0022 Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-24-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":7,"variantName":"13"}}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1}'
+        body: '{"id":"102c1c3c-b871-4136-a11d-93bdc49686f8","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"3_8_7","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":7,"variantName":"13"}},"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1}'

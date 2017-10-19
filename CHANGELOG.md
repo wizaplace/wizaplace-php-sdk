@@ -7,6 +7,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Basket\Basket::getComment`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getComment`
+
 ### Bugfixes
 
 </details>
