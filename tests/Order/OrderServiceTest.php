@@ -50,6 +50,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('connectivity', $firstItem->getDeclinationOptions()[1]->getOptionName());
         $this->assertSame(6, $firstItem->getDeclinationOptions()[1]->getVariantId());
         $this->assertSame('wired', $firstItem->getDeclinationOptions()[1]->getVariantName());
+        $this->assertSame('', $firstItem->getCustomerComment());
 
         // Deuxième orderItem
         $secondItem = $order->getOrderItems()[1];
@@ -59,6 +60,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(9.9, $secondItem->getPrice());
         $this->assertSame(2, $secondItem->getAmount());
         $this->assertCount(0, $secondItem->getDeclinationOptions());
+        $this->assertSame('', $secondItem->getCustomerComment());
     }
 
     public function testCreateOrderReturn()
