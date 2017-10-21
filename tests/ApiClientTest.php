@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Response;
+use Jean85\PrettyVersions;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Order\OrderService;
@@ -38,9 +39,12 @@ final class ApiClientTest extends ApiTestCase
 
     public function testUserAgentContainsVersion()
     {
+        $version = PrettyVersions::getVersion('wizaplace/sdk')->getShortVersion();
+        $this->assertNotEmpty($version);
+
         $expectedRequestOptions = [
             'headers' => [
-                'User-Agent' => 'Wizaplace-PHP-SDK/9999999-dev',
+                'User-Agent' => 'Wizaplace-PHP-SDK/'.$version,
             ],
         ];
 
