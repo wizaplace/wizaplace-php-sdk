@@ -399,6 +399,21 @@ final class BasketService extends AbstractService
         }
     }
 
+    /**
+     * Merge baskets ($sourceBasketId into $targetBasketId).
+     *
+     * @param string $targetBasketId
+     * @param string $sourceBasketId
+     */
+    public function mergeBaskets(string $targetBasketId, string $sourceBasketId)
+    {
+        $this->client->post("basket/$targetBasketId/merge", [
+            RequestOptions::JSON => [
+                'basketId' => $sourceBasketId,
+            ],
+        ]);
+    }
+
     private static function serializeComment(Comment $comment): array
     {
         return $comment->toArray();

@@ -1,0 +1,242 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:52 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ce6c8a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce6c8a'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"29287aec-ec82-417d-9127-72fac8704d20"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/29287aec-ec82-417d-9127-72fac8704d20/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '1'
+            Accept: null
+        body: 'declinationId=1_0&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:53 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 5fe73f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5fe73f'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/29287aec-ec82-417d-9127-72fac8704d20/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=3_8_7&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:53 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c023d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c023d6'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:53 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 3ad0f2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ad0f2'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"4eb00053-67a4-4c7d-8be0-b3427049483a"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/4eb00053-67a4-4c7d-8be0-b3427049483a/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '4'
+            Accept: null
+        body: 'declinationId=1_0&quantity=2'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:53 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 3a66f9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3a66f9'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":2}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/4eb00053-67a4-4c7d-8be0-b3427049483a/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '5'
+            Accept: null
+        body: 'declinationId=3_8_8&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:54 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8cc877
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8cc877'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/29287aec-ec82-417d-9127-72fac8704d20/merge'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '6'
+            Accept: null
+        body: '{"basketId":"4eb00053-67a4-4c7d-8be0-b3427049483a"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:54 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '660037'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/660037'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/29287aec-ec82-417d-9127-72fac8704d20'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:54 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 928c66
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/928c66'
+            Content-Length: '2071'
+            Content-Type: application/json
+        body: '{"id":"29287aec-ec82-417d-9127-72fac8704d20","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":166.8,"productTaxes":3.43,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.43,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":""},{"declinationId":"3_8_7","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":7,"variantName":"13"}},"comment":""},{"declinationId":"3_8_8","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":8,"variantName":"15"}},"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":166.8,"productTaxes":3.43,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.43}]}],"subtotal":166.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":3.43,"total":166.8,"totalQuantity":4}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/4eb00053-67a4-4c7d-8be0-b3427049483a'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:36:55 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 306c31
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/306c31'
+            Content-Length: '1695'
+            Content-Type: application/json
+        body: '{"id":"4eb00053-67a4-4c7d-8be0-b3427049483a","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":""},{"declinationId":"3_8_8","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":8,"variantName":"15"}},"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":151.3,"productTaxes":3.11,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":3.11}]}],"subtotal":151.3,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":3.11,"total":151.3,"totalQuantity":3}'
