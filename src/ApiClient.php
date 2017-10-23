@@ -9,6 +9,7 @@ namespace Wizaplace\SDK;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
@@ -24,9 +25,19 @@ final class ApiClient
     /** @var null|ApiKey */
     private $apiKey;
 
+    /** @var string */
+    private $version;
+
     public function __construct(Client $client)
     {
         $this->httpClient = $client;
+
+        try {
+            $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
+        } catch (\OutOfBoundsException $exception) {
+            // Ignore error if version cannot be detected
+            $this->version = 'unknown';
+        }
     }
 
     /**
@@ -115,6 +126,8 @@ final class ApiClient
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
+        $options['headers']['User-Agent'] = 'Wizaplace-PHP-SDK/'.$this->version;
+
         return $this->httpClient->request($method, $uri, $this->addAuth($options));
     }
 

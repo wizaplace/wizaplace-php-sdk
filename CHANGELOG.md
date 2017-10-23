@@ -7,6 +7,8 @@
 
 ### New features
 
+- Change HTTP client's user-agent for "Wizaplace-PHP-SDK/"+version
+
 ### Bugfixes
 
 </details>
