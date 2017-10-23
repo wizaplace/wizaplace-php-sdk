@@ -7,7 +7,8 @@
         "php": ">=7.1",
         "guzzlehttp/guzzle": "^6.2",
         "guzzlehttp/psr7": "^1.4",
-        "myclabs/php-enum": "^1.5"
+        "myclabs/php-enum": "^1.5",
+        "jean85/pretty-package-versions": "^1.0"
     },
     "autoload": {
         "psr-4": {"Wizaplace\\SDK\\": "src/"}

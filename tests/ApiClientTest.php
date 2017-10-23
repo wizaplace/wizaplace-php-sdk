@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests;
 
+use GuzzleHttp\Client;
+use GuzzleHttp\Psr7\Response;
+use Jean85\PrettyVersions;
+use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Order\OrderService;
 
@@ -31,5 +35,40 @@ final class ApiClientTest extends ApiTestCase
 
         $this->expectException(BadCredentials::class);
         $apiClient->authenticate("admin@wizaplace.com", "wrongPassword");
+    }
+
+    public function testUserAgentContainsVersion()
+    {
+        $version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
+        $this->assertNotEmpty($version);
+
+        $expectedRequestOptions = [
+            'headers' => [
+                'User-Agent' => 'Wizaplace-PHP-SDK/'.$version,
+            ],
+        ];
+
+        /** @var Client|\PHPUnit_Framework_MockObject_MockObject $guzzleMock */
+        $guzzleMock = $this->createMock(Client::class);
+        $guzzleMock
+            ->expects($this->exactly(5))
+            ->method('request')
+            ->withConsecutive(
+                ['GET', 'test', $expectedRequestOptions],
+                ['POST', 'test', $expectedRequestOptions],
+                ['PUT', 'test', $expectedRequestOptions],
+                ['DELETE', 'test', $expectedRequestOptions],
+                ['PATCH', 'test', $expectedRequestOptions]
+            )
+            ->willReturn(new Response())
+        ;
+
+        $apiClient = new ApiClient($guzzleMock);
+
+        $apiClient->get('test');
+        $apiClient->post('test');
+        $apiClient->put('test');
+        $apiClient->delete('test');
+        $apiClient->rawRequest('PATCH', 'test');
     }
 }
