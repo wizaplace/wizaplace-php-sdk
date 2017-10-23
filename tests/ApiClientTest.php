@@ -39,7 +39,7 @@ final class ApiClientTest extends ApiTestCase
 
     public function testUserAgentContainsVersion()
     {
-        $version = PrettyVersions::getVersion('wizaplace/sdk')->getShortVersion();
+        $version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
         $this->assertNotEmpty($version);
 
         $expectedRequestOptions = [

@@ -33,7 +33,7 @@ final class ApiClient
         $this->httpClient = $client;
 
         try {
-            $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getShortVersion();
+            $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
         } catch (\OutOfBoundsException $exception) {
             // Ignore error if version cannot be detected
             $this->version = 'unknown';
