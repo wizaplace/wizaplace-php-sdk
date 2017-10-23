@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:43:25 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: e9bf3a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e9bf3a'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"MkFXMQ1oIbrudS8H8vBiOiOoYJam+jz3kQX8\/JEM"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            Authorization: 'token MkFXMQ1oIbrudS8H8vBiOiOoYJam+jz3kQX8/JEM'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Oct 2017 13:43:25 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d9ccca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9ccca'
+            Content-Length: '727'
+            Content-Type: application/json
+        body: '{"id":5,"basketId":"0055aff3-58c8-4b34-a7ea-e98f594aa34d","companyId":3,"total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1508766170,"status":"STANDBY_BILLING","shippingName":"TNT Express","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product."}]}'

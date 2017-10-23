@@ -166,6 +166,29 @@ final class OrderServiceTest extends ApiTestCase
         $this->buildOrderServiceWithoutAuthentication()->sendAfterSalesServiceRequest($request);
     }
 
+    public function testGetOrderWithComment()
+    {
+        $order = $this->buildOrderService()->getOrder(5);
+
+        $this->assertSame(5, $order->getId());
+        $this->assertSame(3, $order->getCompanyId());
+        $this->assertSame(67.9, $order->getTotal());
+        $this->assertSame(67.9, $order->getSubtotal());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
+        $this->assertSame('TNT Express', $order->getShippingName());
+        $this->assertCount(1, $order->getOrderItems());
+
+        // Premier orderItem
+        $item = $order->getOrderItems()[0];
+        $this->assertSame('1_0', $item->getDeclinationId());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $item->getProductName());
+        $this->assertSame('978020137962', $item->getProductCode());
+        $this->assertSame(67.9, $item->getPrice());
+        $this->assertSame(1, $item->getAmount());
+        $this->assertCount(0, $item->getDeclinationOptions());
+        $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
+    }
+
     private function buildOrderService(): OrderService
     {
         $apiClient = $this->buildApiClient();
