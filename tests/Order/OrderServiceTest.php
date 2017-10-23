@@ -168,13 +168,13 @@ final class OrderServiceTest extends ApiTestCase
 
     public function testGetOrderWithComment()
     {
-        $order = $this->buildOrderService()->getOrder(5);
+        $order = $this->buildOrderService()->getOrder(4);
 
-        $this->assertSame(5, $order->getId());
+        $this->assertSame(4, $order->getId());
         $this->assertSame(3, $order->getCompanyId());
         $this->assertSame(67.9, $order->getTotal());
         $this->assertSame(67.9, $order->getSubtotal());
-        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
+        $this->assertEquals(OrderStatus::COMPLETED(), $order->getStatus());
         $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertCount(1, $order->getOrderItems());
 
