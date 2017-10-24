@@ -50,6 +50,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('connectivity', $firstItem->getDeclinationOptions()[1]->getOptionName());
         $this->assertSame(6, $firstItem->getDeclinationOptions()[1]->getVariantId());
         $this->assertSame('wired', $firstItem->getDeclinationOptions()[1]->getVariantName());
+        $this->assertSame('', $firstItem->getCustomerComment());
 
         // Deuxième orderItem
         $secondItem = $order->getOrderItems()[1];
@@ -59,6 +60,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(9.9, $secondItem->getPrice());
         $this->assertSame(2, $secondItem->getAmount());
         $this->assertCount(0, $secondItem->getDeclinationOptions());
+        $this->assertSame('', $secondItem->getCustomerComment());
     }
 
     public function testCreateOrderReturn()
@@ -162,6 +164,29 @@ final class OrderServiceTest extends ApiTestCase
 
         $this->expectException(AuthenticationRequired::class);
         $this->buildOrderServiceWithoutAuthentication()->sendAfterSalesServiceRequest($request);
+    }
+
+    public function testGetOrderWithComment()
+    {
+        $order = $this->buildOrderService()->getOrder(4);
+
+        $this->assertSame(4, $order->getId());
+        $this->assertSame(3, $order->getCompanyId());
+        $this->assertSame(67.9, $order->getTotal());
+        $this->assertSame(67.9, $order->getSubtotal());
+        $this->assertEquals(OrderStatus::COMPLETED(), $order->getStatus());
+        $this->assertSame('TNT Express', $order->getShippingName());
+        $this->assertCount(1, $order->getOrderItems());
+
+        // Premier orderItem
+        $item = $order->getOrderItems()[0];
+        $this->assertSame('1_0', $item->getDeclinationId());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $item->getProductName());
+        $this->assertSame('978020137962', $item->getProductCode());
+        $this->assertSame(67.9, $item->getPrice());
+        $this->assertSame(1, $item->getAmount());
+        $this->assertCount(0, $item->getDeclinationOptions());
+        $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
     }
 
     private function buildOrderService(): OrderService

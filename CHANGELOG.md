@@ -9,6 +9,7 @@
 
 - Change HTTP client's user-agent for "Wizaplace-PHP-SDK/"+version
 - Added `\Wizaplace\SDK\Basket\BasketService::mergeBaskets`
+- Added `\Wizaplace\SDK\Order\OrderItem::getCustomerComment`
 
 ### Bugfixes
 
