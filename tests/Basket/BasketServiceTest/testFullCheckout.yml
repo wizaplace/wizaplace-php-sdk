@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:19 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:38 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 54d0df
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/54d0df'
-            Content-Length: '60'
+            X-Debug-Token: 4d8bf2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d8bf2'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL"}'
+        body: '{"id":7,"apiKey":"P29tFboWBWfUyci5Rvsd\/wl71XDLrP9MPtKj+78x"}'
 -
     request:
         method: POST
@@ -34,7 +34,7 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,26 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:20 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:39 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c5297b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5297b'
+            X-Debug-Token: 5fbe87
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5fbe87'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"0caed68d-e4f4-4045-8e37-765f404bfe8e"'
+        body: '"fb50a987-5255-4861-9b14-15e3680d5ab1"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e/add'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=1&quantity=1'
@@ -72,26 +72,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:20 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:39 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 07dccc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/07dccc'
+            X-Debug-Token: 6834af
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6834af'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e/add'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '3'
             Accept: null
         body: 'declinationId=1&quantity=1'
@@ -101,24 +101,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:20 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 7862f0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7862f0'
+            X-Debug-Token: 6c9389
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c9389'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":2}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '4'
             Accept: null
     response:
@@ -127,26 +127,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:21 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:40 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c03be6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c03be6'
+            X-Debug-Token: 83b18f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83b18f'
             Content-Length: '1319'
             Content-Type: application/json
-        body: '{"id":"0caed68d-e4f4-4045-8e37-765f404bfe8e","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79}]}],"subtotal":135.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":2.79,"total":135.8,"totalQuantity":2}'
+        body: '{"id":"fb50a987-5255-4861-9b14-15e3680d5ab1","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":2,"total":135.8,"options":[],"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":135.8,"productTaxes":2.79,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":2.79}]}],"subtotal":135.8,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":2.79,"total":135.8,"totalQuantity":2}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e/shippings'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1/shippings'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '5'
             Accept: null
         body: '{"shippingGroups":{"1":39}}'
@@ -156,23 +156,23 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:21 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:41 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ac73af
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac73af'
+            X-Debug-Token: d0dd77
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0dd77'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e/payments'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1/payments'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '6'
             Accept: null
     response:
@@ -181,26 +181,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:21 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e807bf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e807bf'
+            X-Debug-Token: 0dfc9f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0dfc9f'
             Content-Length: '325'
             Content-Type: application/json
         body: '[{"id":1,"name":"CB","description":"Carte Bleue","position":0,"image":{"id":3}},{"id":2,"name":"Visa","description":"Carte Visa","position":1,"image":null},{"id":3,"name":"MasterCard","description":"Carte MasterCard","position":2,"image":null},{"id":4,"name":"Paypal","description":"Compte PayPal","position":3,"image":null}]'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/0caed68d-e4f4-4045-8e37-765f404bfe8e/order'
+        url: 'http://wizaplace.loc/api/v1/basket/fb50a987-5255-4861-9b14-15e3680d5ab1/order'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '7'
             Accept: null
         body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm'
@@ -210,12 +210,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:22 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:42 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 9e3b39
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e3b39'
+            X-Debug-Token: 0ba717
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ba717'
             Content-Length: '21'
             Content-Type: application/json
         body: '{"orders":[{"id":5}]}'
@@ -227,7 +227,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token OYUErMNEe8JRH1dzFREpNU7yF3J2MEsS5Yoe1ELL'
+            Authorization: 'token P29tFboWBWfUyci5Rvsd/wl71XDLrP9MPtKj+78x'
             VCR-index: '8'
             Accept: null
     response:
@@ -236,12 +236,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:08:24 GMT'
+            Date: 'Mon, 23 Oct 2017 09:18:44 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 6aee92
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6aee92'
-            Content-Length: '654'
+            X-Debug-Token: b6417d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b6417d'
+            Content-Length: '696'
             Content-Type: application/json
-        body: '{"id":5,"basketId":"0caed68d-e4f4-4045-8e37-765f404bfe8e","companyId":3,"total":135.8,"taxTotal":2.79,"subtotal":135.8,"timestamp":1508422102,"status":"STANDBY_BILLING","shippingName":"Colissmo","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":2,"options":[]}]}'
+        body: '{"id":5,"basketId":"fb50a987-5255-4861-9b14-15e3680d5ab1","companyId":3,"total":135.8,"taxTotal":2.79,"subtotal":135.8,"timestamp":1508750322,"status":"STANDBY_BILLING","shippingName":"Colissmo","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":2,"options":[],"customerComment":""}]}'

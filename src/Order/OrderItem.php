@@ -21,6 +21,8 @@ final class OrderItem
     private $amount;
     /** @var DeclinationOption[] */
     private $declinationOptions;
+    /** @var string */
+    private $customerComment;
 
     /**
      * @internal
@@ -35,6 +37,7 @@ final class OrderItem
         $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
             return new DeclinationOption($data);
         }, $data['options'] ?? []);
+        $this->customerComment = $data['customerComment'];
     }
 
     public function getDeclinationId(): string
@@ -68,5 +71,10 @@ final class OrderItem
     public function getDeclinationOptions(): array
     {
         return $this->declinationOptions;
+    }
+
+    public function getCustomerComment(): string
+    {
+        return $this->customerComment;
     }
 }
