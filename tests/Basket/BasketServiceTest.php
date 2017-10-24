@@ -8,8 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Basket;
 
 use Wizaplace\SDK\Basket\BasketComment;
-use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -351,6 +351,55 @@ final class BasketServiceTest extends ApiTestCase
 
         $this->assertSame('please, gift wrap this product.', $productComment);
         $this->assertSame('I am superman, please deliver to space.', $basketComment);
+    }
+
+    public function testMergingTwoBaskets()
+    {
+        $apiClient = $this->buildApiClient();
+        $basketService = new BasketService($apiClient);
+
+        $basketId = $basketService->create();
+        $basketService->addProductToBasket($basketId, '1_0', 1);
+        $basketService->addProductToBasket($basketId, '3_8_7', 1);
+
+        $basketId2 = $basketService->create();
+        $basketService->addProductToBasket($basketId2, '1_0', 2);
+        $basketService->addProductToBasket($basketId2, '3_8_8', 1);
+
+        $basketService->mergeBaskets($basketId, $basketId2);
+
+        // check that the target basket was properly affected by the merge
+        $mergedBasket = $basketService->getBasket($basketId);
+        $quantitiesMap = [];
+        foreach ($mergedBasket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getItems() as $item) {
+                    $quantitiesMap[$item->getDeclinationId()] = $item->getQuantity();
+                }
+            }
+        }
+
+        $this->assertSame([
+            '1_0' => 2,
+            '3_8_7' => 1,
+            '3_8_8' => 1,
+        ], $quantitiesMap);
+
+        // check that the source basket is unchanged
+        $sourceBasket = $basketService->getBasket($basketId2);
+        $quantitiesMap = [];
+        foreach ($sourceBasket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getItems() as $item) {
+                    $quantitiesMap[$item->getDeclinationId()] = $item->getQuantity();
+                }
+            }
+        }
+
+        $this->assertSame([
+            '1_0' => 2,
+            '3_8_8' => 1,
+        ], $quantitiesMap);
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
