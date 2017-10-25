@@ -69,7 +69,7 @@ final class Order
         return $this->subtotal;
     }
 
-    public function getTaxTotal(): float
+    public function getTaxtotal(): float
     {
         return $this->taxTotal;
     }
