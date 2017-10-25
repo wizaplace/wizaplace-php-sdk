@@ -17,6 +17,8 @@ final class Order
     private $total;
     /** @var float */
     private $subtotal;
+    /** @var float */
+    private $taxTotal;
     /** @var \DateTimeImmutable */
     private $timestamp;
     /** @var OrderStatus */
@@ -37,6 +39,7 @@ final class Order
         $this->companyId = $data['companyId'];
         $this->total = $data['total'];
         $this->subtotal = $data['subtotal'];
+        $this->taxTotal = $data['taxTotal'];
         $this->timestamp = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->status = new OrderStatus($data['status']);
         $this->shippingName = $data['shippingName'];
@@ -64,6 +67,11 @@ final class Order
     public function getSubtotal(): float
     {
         return $this->subtotal;
+    }
+
+    public function getTaxTotal(): float
+    {
+        return $this->taxTotal;
     }
 
     public function getTimestamp(): \DateTimeImmutable

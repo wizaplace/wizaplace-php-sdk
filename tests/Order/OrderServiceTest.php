@@ -28,6 +28,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(3, $order->getCompanyId());
         $this->assertSame(35.3, $order->getTotal());
         $this->assertSame(35.3, $order->getSubtotal());
+        $this->assertSame(0.73, $order->getTaxTotal());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertSame('Lettre prioritaire', $order->getShippingName());
         $this->assertCount(2, $order->getOrderItems());
@@ -174,6 +175,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(3, $order->getCompanyId());
         $this->assertSame(67.9, $order->getTotal());
         $this->assertSame(67.9, $order->getSubtotal());
+        $this->assertSame(1.4, $order->getTaxTotal());
         $this->assertEquals(OrderStatus::COMPLETED(), $order->getStatus());
         $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertCount(1, $order->getOrderItems());
