@@ -7,13 +7,17 @@
 
 ### New features
 
-- Change HTTP client's user-agent for "Wizaplace-PHP-SDK/"+version
-- Added `\Wizaplace\SDK\Basket\BasketService::mergeBaskets`
-- Added `\Wizaplace\SDK\Order\OrderItem::getCustomerComment`
-
 ### Bugfixes
 
 </details>
+
+## 0.11.2
+
+### New features
+
+- Change HTTP client's user-agent for "Wizaplace-PHP-SDK/"+version
+- Added `\Wizaplace\SDK\Basket\BasketService::mergeBaskets`
+- Added `\Wizaplace\SDK\Order\OrderItem::getCustomerComment`
 
 ## 0.11.1
 
