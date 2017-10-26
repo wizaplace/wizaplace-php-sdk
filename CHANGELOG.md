@@ -8,6 +8,8 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\Order::getTaxTotal`
+- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::isAvailable`
+- Added `\Wizaplace\SDK\Catalog\Declination::isAvailable`
 
 ### Bugfixes
 

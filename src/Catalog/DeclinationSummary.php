@@ -56,6 +56,9 @@ final class DeclinationSummary
     /** @var ProductCategory[] */
     private $categoryPath;
 
+    /** @var bool */
+    private $isAvailable;
+
     /**
      * @internal
      */
@@ -80,6 +83,7 @@ final class DeclinationSummary
         $this->categoryPath = array_map(static function (array $data): ProductCategory {
             return new ProductCategory($data);
         }, $data['categoryPath']);
+        $this->isAvailable = $data['isAvailable'];
     }
 
     public function getId(): string
@@ -161,5 +165,10 @@ final class DeclinationSummary
     public function getCategoryPath(): array
     {
         return $this->categoryPath;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->isAvailable;
     }
 }

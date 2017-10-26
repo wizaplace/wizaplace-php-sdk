@@ -7,8 +7,8 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
             VCR-index: '0'
             Accept: null
         body: '{"productId":"1","name":"User","email":"user@@wizaplace.com","message":"Should get a 400"}'
@@ -18,11 +18,12 @@
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Thu, 12 Oct 2017 08:27:24 GMT'
+            Date: 'Thu, 26 Oct 2017 13:16:22 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 5be9d5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5be9d5'
+            Content-Language: fr
+            X-Debug-Token: 48d895
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48d895'
             Content-Length: '96'
             Connection: close
             Content-Type: application/json

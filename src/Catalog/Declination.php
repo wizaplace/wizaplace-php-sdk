@@ -59,6 +59,9 @@ final class Declination
     /** @var CompanySummary */
     private $company;
 
+    /** @var bool */
+    private $isAvailable;
+
     /**
      * @internal
      */
@@ -85,6 +88,7 @@ final class Declination
             return new DeclinationOption($optionData);
         }, $data['options']);
         $this->company = new CompanySummary($data['company']);
+        $this->isAvailable = $data['isAvailable'];
     }
 
     public function getId(): string
@@ -208,5 +212,10 @@ final class Declination
     public function getCompany(): CompanySummary
     {
         return $this->company;
+    }
+
+    public function isAvailable(): bool
+    {
+        return $this->isAvailable;
     }
 }

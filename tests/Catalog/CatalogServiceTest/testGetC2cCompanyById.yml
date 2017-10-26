@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:21:52 GMT'
+            Date: 'Thu, 26 Oct 2017 13:10:02 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: dd8506
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dd8506'
+            Content-Language: fr
+            X-Debug-Token: 7e0d5c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e0d5c'
             Content-Length: '235'
             Content-Type: application/json
         body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'

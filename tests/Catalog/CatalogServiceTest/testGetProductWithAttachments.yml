@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
             VCR-index: '0'
             Accept: null
     response:
@@ -15,22 +15,23 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:26:06 GMT'
+            Date: 'Thu, 26 Oct 2017 13:14:53 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 3f2bae
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3f2bae'
-            Content-Length: '1441'
+            Content-Language: fr
+            X-Debug-Token: cdc8b1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cdc8b1'
+            Content-Length: '1460'
             Content-Type: application/json
-        body: '{"id":7,"code":"20230495446","supplierReference":"TEST-ATTACHMENT","name":"Product with attachments","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-attachments.html","shortDescription":"","description":"","slug":"product-with-attachments","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":5,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests"}],"geolocation":null,"video":null,"declinations":[{"id":"7_0","code":"20230495446","supplierReference":"TEST-ATTACHMENT","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[{"id":"3f3d4a14-c787-40bb-a75c-f19b0dcdc1d2","label":"Manuel de montage"}]}'
+        body: '{"id":7,"code":"20230495446","supplierReference":"TEST-ATTACHMENT","name":"Product with attachments","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-attachments.html","shortDescription":"","description":"","slug":"product-with-attachments","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":5,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests"}],"geolocation":null,"video":null,"declinations":[{"id":"7_0","code":"20230495446","isAvailable":true,"supplierReference":"TEST-ATTACHMENT","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[{"id":"c2257286-7a02-457c-9638-e028b816dd50","label":"Manuel de montage"}]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/products/attachments/3f3d4a14-c787-40bb-a75c-f19b0dcdc1d2'
+        url: 'http://wizaplace.loc/api/v1/catalog/products/attachments/c2257286-7a02-457c-9638-e028b816dd50'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
             VCR-index: '1'
             Accept: null
     response:
@@ -39,14 +40,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:26:06 GMT'
+            Date: 'Thu, 26 Oct 2017 13:14:53 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: public
-            Last-Modified: 'Thu, 12 Oct 2017 08:25:58 GMT'
-            Content-Disposition: 'attachment; filename="product_attachment_6pirny"'
+            Last-Modified: 'Thu, 26 Oct 2017 13:14:44 GMT'
+            Content-Disposition: 'attachment; filename="product_attachment_Ae2uY9"'
             Content-Length: '739'
             Accept-Ranges: bytes
-            X-Debug-Token: a1baaa
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a1baaa'
+            Content-Language: fr
+            X-Debug-Token: 98b65b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/98b65b'
             Content-Type: application/pdf
         body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"

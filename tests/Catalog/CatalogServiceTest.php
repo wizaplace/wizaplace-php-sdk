@@ -61,6 +61,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(0, $product->getAttachments());
         $this->assertNull($catalogService->getBrand($product));
         $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
@@ -288,7 +289,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(12, $pagination->getResultsPerPage());
 
         $facets = $result->getFacets();
-        $this->assertCount(9, $facets);
+        $this->assertCount(10, $facets);
         $this->assertContainsOnly(Facet::class, $facets);
         $this->assertSame('categories', $facets[0]->getName());
         $this->assertSame('Catégorie', $facets[0]->getLabel());
@@ -582,6 +583,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '3_8_7',
                 'code' => 'size_13',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -616,6 +618,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '3_8_8',
                 'code' => 'size_15',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -650,6 +653,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '3_8_9',
                 'code' => 'size_17',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -684,6 +688,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '3_8_10',
                 'code' => 'size_21',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -760,6 +765,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_1',
                 'code' => 'color_white',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -794,6 +800,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_1_7_5',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -834,6 +841,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_1_7_6',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -874,6 +882,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_2',
                 'code' => 'color_black',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -908,6 +917,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_2_7_5',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -948,6 +958,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_2_7_6',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -988,6 +999,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_3',
                 'code' => 'color_blue',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -1022,6 +1034,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_3_7_5',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -1062,6 +1075,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_3_7_6',
                 'code' => '90204479D2',
+                'isAvailable' => false,
                 'supplierReference' => 'INFO-002',
                 'price' => 0,
                 'originalPrice' => 0,
@@ -1102,6 +1116,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_4',
                 'code' => 'color_red',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -1136,6 +1151,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_4_7_5',
                 'code' => 'color_red_connectivity_wireless',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -1176,6 +1192,7 @@ final class CatalogServiceTest extends ApiTestCase
             new Declination([
                 'id' => '2_6_4_7_6',
                 'code' => 'color_red_connectivity_wired',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
                 'originalPrice' => 15.5,
@@ -1325,6 +1342,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->buildCatalogService()->getBrand(new Declination([
             'id' => 1,
             'code' => '0123456789123',
+            'isAvailable' => true,
             'supplierReference' => 'test-supplier',
             'price' => 10,
             'originalPrice' => 10,

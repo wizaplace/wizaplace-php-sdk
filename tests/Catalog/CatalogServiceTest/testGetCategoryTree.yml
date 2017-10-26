@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:22:31 GMT'
+            Date: 'Thu, 26 Oct 2017 13:10:47 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f738e1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f738e1'
+            Content-Language: fr
+            X-Debug-Token: 6c5dd0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c5dd0'
             Content-Length: '700'
             Content-Type: application/json
         body: '[{"category":{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"informatique","image":null,"position":0,"productCount":3},"children":[{"category":{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"ecrans","image":null,"position":0,"productCount":1},"children":[]}]},{"category":{"id":5,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests","image":null,"position":0,"productCount":6},"children":[]},{"category":{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0},"children":[]}]'
