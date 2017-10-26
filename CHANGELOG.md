@@ -7,13 +7,17 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Order\Order::getTaxTotal`
-- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::isAvailable`
-- Added `\Wizaplace\SDK\Catalog\Declination::isAvailable`
-
 ### Bugfixes
 
 </details>
+
+## 0.11.3
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\Order::getTaxTotal`
+- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::isAvailable`
+- Added `\Wizaplace\SDK\Catalog\Declination::isAvailable`
 
 ## 0.11.2
 
