@@ -29,6 +29,8 @@ final class Order
     private $shippingAddress;
     /** @var OrderItem[] */
     private $orderItems;
+    /** @var string */
+    private $customerComment;
 
     /**
      * @internal
@@ -47,6 +49,7 @@ final class Order
         $this->orderItems = array_map(static function (array $orderItemData) : OrderItem {
             return new OrderItem($orderItemData);
         }, $data['items']);
+        $this->customerComment = $data['customerComment'];
     }
 
     public function getId(): int
@@ -100,5 +103,10 @@ final class Order
     public function getOrderItems(): array
     {
         return $this->orderItems;
+    }
+
+    public function getCustomerComment(): string
+    {
+        return $this->customerComment;
     }
 }
