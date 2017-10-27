@@ -60,6 +60,7 @@ final class DeclinationSummaryTest extends TestCase
                     'slug' => 'food',
                 ],
             ],
+            'isAvailable' => false,
         ]);
 
         $this->assertSame('42_1_2', $favorite->getId());
@@ -94,5 +95,6 @@ final class DeclinationSummaryTest extends TestCase
         $this->assertSame(1, $favorite->getCategoryPath()[0]->getId());
         $this->assertSame('Food', $favorite->getCategoryPath()[0]->getName());
         $this->assertSame('food', $favorite->getCategoryPath()[0]->getSlug());
+        $this->assertFalse($favorite->isAvailable());
     }
 }

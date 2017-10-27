@@ -47,6 +47,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertTrue($declination->hasVariants([1]));
@@ -86,6 +87,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertFalse($declination->hasVariants([2]));
@@ -131,6 +133,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertFalse($declination->hasVariants([2]));
@@ -176,6 +179,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertTrue($declination->hasVariants([1, 2]));
@@ -221,6 +225,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertFalse($declination->hasVariants([2, 3]));
@@ -272,6 +277,7 @@ final class DeclinationTest extends TestCase
                 'averageRating' => null,
                 'image' => null,
             ],
+            'isAvailable' => true,
         ]);
 
         $this->assertFalse($declination->hasVariants([1, 2]));
