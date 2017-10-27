@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            User-Agent: Wizaplace-PHP-SDK/dev-comment-in-order@1d39c88
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 15:42:06 GMT'
+            Date: 'Fri, 27 Oct 2017 12:39:18 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c454f7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c454f7'
-            Content-Length: '60'
+            X-Debug-Token: dffa03
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dffa03'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"dRO9AcGgXNwScgga2NuyPWpwGZlVs+qqQnfXz0DE"}'
+        body: '{"id":7,"apiKey":"ZawrTMr++bthOhuOQrWgkG1bMXT3y\/jGV+uEYxvR"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token dRO9AcGgXNwScgga2NuyPWpwGZlVs+qqQnfXz0DE'
+            User-Agent: Wizaplace-PHP-SDK/dev-comment-in-order@1d39c88
+            Authorization: 'token ZawrTMr++bthOhuOQrWgkG1bMXT3y/jGV+uEYxvR'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 15:42:06 GMT'
+            Date: 'Fri, 27 Oct 2017 12:39:19 GMT'
             Server: 'Apache/2.4.10 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 5ba1e9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ba1e9'
-            Content-Length: '721'
+            X-Debug-Token: c2c20a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c2c20a'
+            Content-Length: '768'
             Content-Type: application/json
-        body: '{"id":4,"basketId":"bf603048-dd63-47b5-99c0-38b64d568394","companyId":3,"total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1508773292,"status":"COMPLETED","shippingName":"TNT Express","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product."}]}'
+        body: '{"id":4,"basketId":"d53a46b9-ff1d-4b1d-af36-b9dada50ff18","companyId":3,"total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1509107924,"status":"COMPLETED","shippingName":"TNT Express","customerComment":"Please deliver at the front desk of my company.","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product."}]}'
