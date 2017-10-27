@@ -7,11 +7,15 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Order\Order::getCustomerComment`
-
 ### Bugfixes
 
 </details>
+
+## 0.11.4
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\Order::getCustomerComment`
 
 ## 0.11.3
 
