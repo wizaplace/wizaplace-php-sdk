@@ -128,6 +128,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                     1 =>
                         array(
@@ -168,6 +169,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                     2 =>
                         array(
@@ -208,6 +210,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                     3 =>
                         array(
@@ -248,6 +251,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                     4 =>
                         array(
@@ -288,6 +292,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                     5 =>
                         array(
@@ -328,6 +333,7 @@ class ProductTest extends TestCase
                                     'image' => null,
                                     'averageRating' => null,
                                 ),
+                            'isAvailable' => true,
                         ),
                 ),
             'attributes' =>
@@ -431,6 +437,7 @@ class ProductTest extends TestCase
                     'image' => null,
                     'averageRating' => null,
                 ),
+            'isAvailable' => true,
         )));
     }
 }
