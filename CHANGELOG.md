@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\Order\OrderReturn::getStatus` now returns an `\Wizaplace\SDK\Order\OrderReturnStatus` instead of a string
+
 ### New features
 
 ### Bugfixes
