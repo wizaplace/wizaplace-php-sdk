@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Image;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 
 final class ImageService extends AbstractService
@@ -21,14 +23,14 @@ final class ImageService extends AbstractService
      * @param int|null $width You can optionally constraint the max width of the image.
      * @param int|null $height You can optionally constraint the max height of the image.
      *
-     * @return string Image URL
+     * @return UriInterface Image URL
      */
-    public function getImageLink(int $imageId, int $width = null, int $height = null): string
+    public function getImageLink(int $imageId, int $width = null, int $height = null): UriInterface
     {
         $query = http_build_query(array_filter(['w' => $width, 'h' => $height]));
 
         $apiBaseUrl = rtrim((string) $this->client->getBaseUri(), '/');
 
-        return "{$apiBaseUrl}/image/${imageId}?${query}";
+        return new Uri("{$apiBaseUrl}/image/${imageId}?${query}");
     }
 }

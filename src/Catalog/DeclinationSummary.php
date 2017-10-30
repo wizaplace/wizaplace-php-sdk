@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Image\Image;
 
 final class DeclinationSummary
@@ -41,7 +43,7 @@ final class DeclinationSummary
     /** @var int */
     private $amount;
 
-    /** @var string */
+    /** @var null|UriInterface */
     private $affiliateLink;
 
     /** @var DeclinationOption[] */
@@ -73,7 +75,7 @@ final class DeclinationSummary
         $this->vat = $data['prices']['vat'];
         $this->crossedOutPrice = $data['crossedOutPrice'] ?? null;
         $this->amount = $data['amount'];
-        $this->affiliateLink = $data['affiliateLink'];
+        $this->affiliateLink = empty($data['affiliateLink']) ? null : new Uri($data['affiliateLink']);
         $this->options = array_map(static function (array $data): DeclinationOption {
             return new DeclinationOption($data);
         }, $data['options']);
@@ -131,7 +133,7 @@ final class DeclinationSummary
         return $this->amount;
     }
 
-    public function getAffiliateLink(): string
+    public function getAffiliateLink(): ?UriInterface
     {
         return $this->affiliateLink;
     }
