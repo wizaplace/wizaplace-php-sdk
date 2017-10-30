@@ -19,7 +19,7 @@ final class OrderReturn
     private $createdAt;
     /** @var string */
     private $comments;
-    /** @var string */
+    /** @var OrderReturnStatus */
     private $status;
     /** @var ReturnItem[] */
     private $items;
@@ -34,7 +34,7 @@ final class OrderReturn
         $this->userId = $data['userId'];
         $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']);
         $this->comments = $data['comments'];
-        $this->status = $data['status'];
+        $this->status = new OrderReturnStatus($data['status']);
         $this->items = array_map(static function (array $item) : ReturnItem {
             $item['productName'] = $item['product'];
             unset($item['product']);
@@ -68,7 +68,7 @@ final class OrderReturn
         return $this->comments;
     }
 
-    public function getStatus(): string
+    public function getStatus(): OrderReturnStatus
     {
         return $this->status;
     }
