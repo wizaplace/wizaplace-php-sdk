@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\User\UserAddress::getTitle` now returns a nullable `\Wizaplace\SDK\User\UserTitle` instead of a string
+
 ### New features
 
 ### Bugfixes
