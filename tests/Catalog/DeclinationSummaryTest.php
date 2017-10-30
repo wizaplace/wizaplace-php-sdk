@@ -72,7 +72,7 @@ final class DeclinationSummaryTest extends TestCase
         $this->assertSame(12.5, $favorite->getVat());
         $this->assertSame(99.99, $favorite->getCrossedOutPrice());
         $this->assertSame(24, $favorite->getAmount());
-        $this->assertSame('http://example.com', $favorite->getAffiliateLink());
+        $this->assertSame('http://example.com', (string) $favorite->getAffiliateLink());
         $this->assertCount(1, $favorite->getOptions());
         $this->assertInstanceOf(DeclinationOption::class, $favorite->getOptions()[0]);
         $this->assertSame(1, $favorite->getOptions()[0]->getId());

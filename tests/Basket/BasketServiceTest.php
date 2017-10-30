@@ -83,7 +83,7 @@ final class BasketServiceTest extends ApiTestCase
 
         // @TODO : check that the two following values are normal
         $this->assertSame('', $paymentInformation->getHtml());
-        $this->assertSame('', $paymentInformation->getRedirectUrl());
+        $this->assertNull($paymentInformation->getRedirectUrl());
 
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
