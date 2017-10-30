@@ -335,57 +335,57 @@ final class CatalogServiceTest extends ApiTestCase
         // Couleur
         $this->assertSame('Couleur', $attributesMap[1]->getName());
         $this->assertSame('', $attributesMap[1]->getSlug());
-        $this->assertSame([
-            [
+        $this->assertEquals([
+            new ProductAttributeValue([
                 'id' => 2,
                 'attributeId' => 1,
                 'name' => 'Blanc',
                 'slug' => 'blanc',
                 'image' => null,
-            ],
-            [
+            ]),
+            new ProductAttributeValue([
                 'id' => 3,
                 'attributeId' => 1,
                 'name' => 'Rouge',
                 'slug' => 'rouge',
                 'image' => null,
-            ],
+            ]),
         ], $attributesMap[1]->getValues());
         $this->assertTrue(AttributeType::CHECKBOX_MULTIPLE()->equals($attributesMap[1]->getType()));
 
         // Free attributes
-        $this->assertSame([
-            [
+        $this->assertEquals([
+            new ProductAttributeValue([
                 'id' => null,
                 'attributeId' => null,
                 'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
                 'slug' => '',
                 'image' => null,
-            ],
+            ]),
         ], $freeAttributesMap['Free attribute simple']->getValues());
 
-        $this->assertSame([
-            [
+        $this->assertEquals([
+            new ProductAttributeValue([
                 'id' => null,
                 'attributeId' => null,
                 'name' => 'réponse - 1 #',
                 'slug' => '',
                 'image' => null,
-            ],
-            [
+            ]),
+            new ProductAttributeValue([
                 'id' => null,
                 'attributeId' => null,
                 'name' => 'réponse - 2 @',
                 'slug' => '',
                 'image' => null,
-            ],
-            [
+            ]),
+            new ProductAttributeValue([
                 'id' => null,
                 'attributeId' => null,
                 'name' => '4985',
                 'slug' => '',
                 'image' => null,
-            ],
+            ]),
         ], $freeAttributesMap['Free attribute multiple']->getValues());
 
         $brand = $catalogService->getBrand($product);

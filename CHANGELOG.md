@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- `\Wizaplace\SDK\Catalog\SearchProductAttribute::getValues` now returns an array of `\Wizaplace\SDK\Catalog\ProductAttributeValue` instead of an array of associative arrays
+
 ### New features
 
 ### Bugfixes
