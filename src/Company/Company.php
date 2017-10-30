@@ -7,6 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Company;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
+
 final class Company
 {
     /** @var int */
@@ -39,7 +42,7 @@ final class Company
     /** @var string */
     private $fax;
 
-    /** @var string */
+    /** @var null|UriInterface */
     private $url;
 
     /** @var string */
@@ -75,7 +78,7 @@ final class Company
         $this->country = (string) $data['country'];
         $this->phoneNumber = (string) $data['phoneNumber'];
         $this->fax = (string) $data['fax'];
-        $this->url = (string) $data['url'];
+        $this->url = empty($data['url']) ? null : new Uri($data['url']);
         $this->legalStatus = (string) $data['legalStatus'];
         $this->siretNumber = (string) $data['siretNumber'];
         $this->vatNumber = (string) $data['vatNumber'];
@@ -134,7 +137,7 @@ final class Company
         return $this->fax;
     }
 
-    public function getUrl(): string
+    public function getUrl(): ?UriInterface
     {
         return $this->url;
     }
