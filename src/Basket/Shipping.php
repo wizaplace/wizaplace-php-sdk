@@ -51,6 +51,9 @@ final class Shipping
         return $this->price;
     }
 
+    /**
+     * @return string example: "24h"
+     */
     public function getDeliveryTime(): string
     {
         return $this->deliveryTime;
