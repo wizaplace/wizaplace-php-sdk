@@ -7,11 +7,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
+
 final class PaymentInformation
 {
     /** @var array */
     private $orders;
-    /** @var string */
+    /** @var null|UriInterface */
     private $redirectUrl;
     /** @var string */
     private $html;
@@ -22,7 +25,7 @@ final class PaymentInformation
     public function __construct(array $data)
     {
         $this->orders = $data['orders'];
-        $this->redirectUrl = $data['redirectUrl'] ?? '';
+        $this->redirectUrl = empty($data['redirectUrl']) ? null : new Uri($this->redirectUrl);
         $this->html = $data['html'] ?? '';
     }
 
@@ -31,7 +34,7 @@ final class PaymentInformation
         return $this->orders;
     }
 
-    public function getRedirectUrl(): string
+    public function getRedirectUrl(): ?UriInterface
     {
         return $this->redirectUrl;
     }

@@ -1279,8 +1279,8 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $video = $this->buildCatalogService()->getProductById('3')->getVideo();
         $this->assertInstanceOf(ProductVideo::class, $video);
-        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480-00001.png', $video->getThumbnailUrl());
-        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4', $video->getVideoUrl());
+        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480-00001.png', (string) $video->getThumbnailUrl());
+        $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4', (string) $video->getVideoUrl());
     }
 
     public function testReportingProduct()
