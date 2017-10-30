@@ -5,6 +5,8 @@
 
 ### BREAKING CHANGES
 
+- Removed `\Wizaplace\SDK\Catalog\Product::getCreationDate`
+
 ### New features
 
 ### Bugfixes

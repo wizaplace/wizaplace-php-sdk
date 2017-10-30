@@ -47,7 +47,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertSame(['informatique'], $product->getCategorySlugs());
         $this->assertSame('978020137962', $product->getCode());
-        $this->assertGreaterThan(1500000000, $product->getCreationDate()->getTimestamp());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
         $this->assertSame('', $product->getShortDescription());
