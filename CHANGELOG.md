@@ -17,6 +17,7 @@
 - Removed `\Wizaplace\SDK\Catalog\ProductSummary::getCategorySlugs`
 - Removed `\Wizaplace\SDK\Catalog\Product::getCategorySlugs`
 - `\Wizaplace\SDK\Catalog\ProductSummary::getConditions` now returns an array of the enum `\Wizaplace\SDK\Catalog\Condition` instead of undocumented strings
+- `\Wizaplace\SDK\Basket\PaymentInformation::getOrders` now returns an array of `\Wizaplace\SDK\Basket\BasketOrder` instead of an array of undocumented associative arrays
 
 ### New features
 
