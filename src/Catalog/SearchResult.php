@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Pagination;
 
 final class SearchResult
@@ -28,7 +29,7 @@ final class SearchResult
         }, $data['results']);
         $this->pagination = new Pagination($data['pagination']);
         $this->facets = array_map(static function (array $facet) : Facet {
-            return new Facet($facet);
+            return Facet::buildFromJson($facet);
         }, $data['facets']);
     }
 
