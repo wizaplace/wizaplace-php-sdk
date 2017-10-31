@@ -7,14 +7,14 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
-/**
- * @internal
- */
 abstract class Comment
 {
     /** @var string */
     protected $comment;
 
+    /**
+     * @internal
+     */
     public function __construct(string $comment)
     {
         $this->comment = $comment;

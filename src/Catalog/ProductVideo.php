@@ -7,12 +7,15 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
+
 final class ProductVideo
 {
-    /** @var string */
+    /** @var UriInterface */
     private $thumbnailUrl;
 
-    /** @var string */
+    /** @var UriInterface */
     private $videoUrl;
 
     /**
@@ -20,16 +23,16 @@ final class ProductVideo
      */
     public function __construct(array $data)
     {
-        $this->thumbnailUrl = $data['thumbnailUrl'];
-        $this->videoUrl = $data['videoUrl'];
+        $this->thumbnailUrl = new Uri($data['thumbnailUrl']);
+        $this->videoUrl = new Uri($data['videoUrl']);
     }
 
-    public function getThumbnailUrl(): string
+    public function getThumbnailUrl(): UriInterface
     {
         return $this->thumbnailUrl;
     }
 
-    public function getVideoUrl(): string
+    public function getVideoUrl(): UriInterface
     {
         return $this->videoUrl;
     }

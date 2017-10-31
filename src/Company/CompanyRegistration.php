@@ -242,6 +242,10 @@ final class CompanyRegistration
         );
     }
 
+    /**
+     * @return array
+     * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
+     */
     public function getFiles(): array
     {
         return $this->files;

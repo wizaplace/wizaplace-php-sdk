@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\User;
 
 final class UserAddress
 {
-    /** @var string */
+    /** @var null|UserTitle */
     private $title;
 
     /** @var string */
@@ -44,7 +44,7 @@ final class UserAddress
      */
     public function __construct(array $data)
     {
-        $this->title = $data['title'];
+        $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstName = $data['firstname'];
         $this->lastName = $data['lastname'];
         $this->company = $data['company'];
@@ -56,7 +56,7 @@ final class UserAddress
         $this->country = $data['country'];
     }
 
-    public function getTitle(): string
+    public function getTitle(): ?UserTitle
     {
         return $this->title;
     }
