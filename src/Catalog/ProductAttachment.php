@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
 
-class ProductAttachment
+final class ProductAttachment
 {
     /** @var string */
     private $id;
