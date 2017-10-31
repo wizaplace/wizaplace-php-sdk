@@ -12,7 +12,7 @@ use PHPUnit\Framework\TestCase;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\Product;
 
-class ProductTest extends TestCase
+final class ProductTest extends TestCase
 {
     public function testGetMultipleOtherOffers()
     {
