@@ -46,7 +46,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getDeclinations());
         $this->assertCount(0, $product->getAttributes());
         $this->assertCount(1, $product->getCategoryPath());
-        $this->assertSame(['informatique'], $product->getCategorySlugs());
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
@@ -263,7 +262,6 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
         $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getUpdatedAt()->getTimestamp());
         $this->assertNull($product->getAffiliateLink());
-        $this->assertSame(['special-category-dedicated-to-specific-tests'], $product->getCategorySlugs());
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertNull($product->getMainImage());
         $this->assertSame(9.9, $product->getMinimumPrice());
