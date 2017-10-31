@@ -25,7 +25,7 @@ final class PaymentInformation
     public function __construct(array $data)
     {
         $this->orders = $data['orders'];
-        $this->redirectUrl = empty($data['redirectUrl']) ? null : new Uri($this->redirectUrl);
+        $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($this->redirectUrl);
         $this->html = $data['html'] ?? '';
     }
 

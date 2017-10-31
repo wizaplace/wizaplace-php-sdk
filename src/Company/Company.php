@@ -78,7 +78,7 @@ final class Company
         $this->country = (string) $data['country'];
         $this->phoneNumber = (string) $data['phoneNumber'];
         $this->fax = (string) $data['fax'];
-        $this->url = empty($data['url']) ? null : new Uri($data['url']);
+        $this->url = $data['url'] === '' ? null : new Uri($data['url']);
         $this->legalStatus = (string) $data['legalStatus'];
         $this->siretNumber = (string) $data['siretNumber'];
         $this->vatNumber = (string) $data['vatNumber'];
