@@ -14,7 +14,9 @@ use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
-use Wizaplace\SDK\Catalog\Facet;
+use Wizaplace\SDK\Catalog\Facet\Facet;
+use Wizaplace\SDK\Catalog\Facet\ListFacet;
+use Wizaplace\SDK\Catalog\Facet\NumericFacet;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductAttachment;
@@ -290,16 +292,18 @@ final class CatalogServiceTest extends ApiTestCase
         $facets = $result->getFacets();
         $this->assertCount(10, $facets);
         $this->assertContainsOnly(Facet::class, $facets);
-        $this->assertSame('categories', $facets[0]->getName());
-        $this->assertSame('Catégorie', $facets[0]->getLabel());
-        $this->assertSame([
-            5 => [
+        /** @var ListFacet $categoryFacet */
+        $categoryFacet = $facets[0];
+        $this->assertSame('categories', $categoryFacet->getName());
+        $this->assertSame('Catégorie', $categoryFacet->getLabel());
+        $this->assertInstanceOf(ListFacet::class, $categoryFacet);
+        $this->assertEquals([
+            5 => new \Wizaplace\SDK\Catalog\Facet\ListFacetValue([
                 'label' => 'Special category dedicated to specific tests',
                 'count' => '1',
                 'position' => '0',
-            ],
-        ], $facets[0]->getValues());
-        $this->assertFalse($facets[0]->isIsNumeric());
+            ]),
+        ], $categoryFacet->getValues());
 
         $this->assertNull($catalogService->getBrand($product));
     }
@@ -1365,6 +1369,30 @@ final class CatalogServiceTest extends ApiTestCase
                 'image' => null,
             ],
         ]));
+    }
+
+    public function testNumericFacet()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search('');
+
+        /** @var null|NumericFacet $priceFacet */
+        $priceFacet = null;
+        foreach ($result->getFacets() as $facet) {
+            if ($facet->getName() === 'price') {
+                $priceFacet = $facet;
+                break;
+            }
+        }
+
+        $this->assertNotNull($priceFacet, 'Price facet not found');
+        $this->assertInstanceOf(NumericFacet::class, $priceFacet);
+
+        $this->assertInternalType('float', $priceFacet->getMin());
+        $this->assertGreaterThanOrEqual(0.0, $priceFacet->getMin());
+        $this->assertInternalType('float', $priceFacet->getMax());
+        $this->assertGreaterThan(0.0, $priceFacet->getMax());
     }
 
     private function buildCatalogService(): CatalogService

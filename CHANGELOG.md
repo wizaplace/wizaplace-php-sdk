@@ -20,6 +20,7 @@
 - `\Wizaplace\SDK\Basket\PaymentInformation::getOrders` now returns an array of `\Wizaplace\SDK\Basket\BasketOrder` instead of an array of undocumented associative arrays
 - `\Wizaplace\SDK\Catalog\ProductAttachment` class is now final
 - `\Wizaplace\SDK\Catalog\ProductAttributeValue` class is now final
+- `\Wizaplace\SDK\Catalog\Facet` has moved to `\Wizaplace\SDK\Catalog\Facet\Facet` and is now an abstract class with two subclasses: `\Wizaplace\SDK\Catalog\Facet\ListFacet` and `\Wizaplace\SDK\Catalog\Facet\NumericFacet`. A few methods have changed in the process
 
 ### New features
 
