@@ -45,9 +45,6 @@ final class Product
     /** @var ProductAttribute[] */
     private $attributes;
 
-    /** @var \DateTimeImmutable */
-    private $creationDate;
-
     /** @var bool */
     private $isTransactional;
 
@@ -99,7 +96,6 @@ final class Product
         $this->attributes = array_map(static function (array $attributeData) : ProductAttribute {
             return new ProductAttribute($attributeData);
         }, $data['attributes']);
-        $this->creationDate = new \DateTimeImmutable($data['creationDate'] ?? '-6days');
         $this->isTransactional = $data['isTransactional'];
         $this->weight = $data['weight'];
         if (isset($data['averageRating'])) {
@@ -178,11 +174,6 @@ final class Product
     public function getAttributes(): array
     {
         return $this->attributes;
-    }
-
-    public function getCreationDate(): \DateTimeImmutable
-    {
-        return $this->creationDate;
     }
 
     public function isTransactional(): bool

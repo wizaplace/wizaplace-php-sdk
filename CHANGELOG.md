@@ -13,6 +13,7 @@
 - `\Wizaplace\SDK\Catalog\ProductVideo::getThumbnailUrl` now returns an `\Psr\Http\Message\UriInterface` instead of a `string`
 - `\Wizaplace\SDK\Catalog\ProductVideo::getVideoUrl` now returns an `\Psr\Http\Message\UriInterface` instead of a `string`
 - `\Wizaplace\SDK\Image\ImageService::getImageLink` now returns an `\Psr\Http\Message\UriInterface` instead of a `string`
+- Removed `\Wizaplace\SDK\Catalog\Product::getCreationDate`
 
 ### New features
 
