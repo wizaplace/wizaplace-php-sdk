@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
-class ProductAttributeValue
+final class ProductAttributeValue
 {
     /** @var int */
     private $id;
