@@ -178,16 +178,6 @@ final class ProductSummary
         return $this->categoryPath;
     }
 
-    /**
-     * @return string[]
-     */
-    public function getCategorySlugs(): array
-    {
-        return array_map(static function (SearchCategoryPath $category) : string {
-            return $category->getSlug();
-        }, $this->categoryPath);
-    }
-
     public function getSlug(): string
     {
         return $this->slug;
