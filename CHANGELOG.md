@@ -16,6 +16,7 @@
 - Removed `\Wizaplace\SDK\Catalog\Product::getCreationDate`
 - Removed `\Wizaplace\SDK\Catalog\ProductSummary::getCategorySlugs`
 - Removed `\Wizaplace\SDK\Catalog\Product::getCategorySlugs`
+- `\Wizaplace\SDK\Catalog\ProductSummary::getConditions` now returns an array of the enum `\Wizaplace\SDK\Catalog\Condition` instead of undocumented strings
 
 ### New features
 
