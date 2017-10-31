@@ -15,7 +15,7 @@ final class SearchProductAttribute
     private $name;
     /** @var string */
     private $slug;
-    /** @var array */
+    /** @var ProductAttributeValue[] */
     private $values;
     /** @var AttributeType */
     private $type;
@@ -28,7 +28,9 @@ final class SearchProductAttribute
         $this->id = $data['attribute']['id'];
         $this->name = $data['attribute']['name'];
         $this->slug = $data['attribute']['slug'] ?? '';
-        $this->values = $data['values'] ?? []; // @TODO : use ProductAttributeValue[]
+        $this->values = array_map(static function (array $valueData): ProductAttributeValue {
+            return new ProductAttributeValue($valueData);
+        }, $data['values'] ?? []);
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 
@@ -47,6 +49,9 @@ final class SearchProductAttribute
         return $this->slug;
     }
 
+    /**
+     * @return ProductAttributeValue[]
+     */
     public function getValues(): array
     {
         return $this->values;
