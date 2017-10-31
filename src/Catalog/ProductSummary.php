@@ -39,8 +39,8 @@ final class ProductSummary
     private $mainImage;
     /** @var float|null */
     private $averageRating;
-    /** @var array */
-    private $condition;
+    /** @var Condition[] */
+    private $conditions;
     /** @var SearchProductAttribute[] */
     private $attributes;
     /** @var SearchCategoryPath[] */
@@ -71,7 +71,9 @@ final class ProductSummary
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRating'] ?? null;
-        $this->condition = $data['conditions'];
+        $this->conditions = array_map(function (string $condition): Condition {
+            return new Condition($condition);
+        }, $data['conditions']);
         $this->attributes = array_map(static function (array $attribute) : SearchProductAttribute {
             return new SearchProductAttribute($attribute);
         }, $data['attributes']);
@@ -154,12 +156,12 @@ final class ProductSummary
     }
 
     /**
-     * @TODO: document
-     * @return array
+     * Returns the various conditions the product is available in.
+     * @return Condition[]
      */
-    public function getCondition(): array
+    public function getConditions(): array
     {
-        return $this->condition;
+        return $this->conditions;
     }
 
     /**
