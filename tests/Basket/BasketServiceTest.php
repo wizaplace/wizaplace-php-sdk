@@ -88,8 +88,8 @@ final class BasketServiceTest extends ApiTestCase
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
 
-        $order = $orderService->getOrder($orders[0]['id']);
-        $this->assertSame($orders[0]['id'], $order->getId());
+        $order = $orderService->getOrder($orders[0]->getId());
+        $this->assertSame($orders[0]->getId(), $order->getId());
         $this->assertSame(3, $order->getCompanyId());
         $this->assertSame('Colissmo', $order->getShippingName());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
