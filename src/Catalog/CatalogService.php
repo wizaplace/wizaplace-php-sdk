@@ -194,7 +194,7 @@ final class CatalogService extends AbstractService
                 $values = $attribute->getValues();
                 $brand = reset($values);
 
-                return new ProductAttributeValue($brand);
+                return $brand;
             }
         }
 
