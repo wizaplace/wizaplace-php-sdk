@@ -12,7 +12,7 @@ final class Basket
     /** @var string */
     private $id;
 
-    /** @var array */
+    /** @var string[] */
     private $coupons;
 
     /** @var BasketCompanyGroup[] */
@@ -64,6 +64,9 @@ final class Basket
         return $this->id;
     }
 
+    /**
+     * @return string[] a list of applied coupon codes
+     */
     public function getCoupons(): array
     {
         return $this->coupons;
