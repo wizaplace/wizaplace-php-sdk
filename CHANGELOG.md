@@ -14,6 +14,8 @@
 - `\Wizaplace\SDK\Catalog\ProductVideo::getVideoUrl` now returns an `\Psr\Http\Message\UriInterface` instead of a `string`
 - `\Wizaplace\SDK\Image\ImageService::getImageLink` now returns an `\Psr\Http\Message\UriInterface` instead of a `string`
 - Removed `\Wizaplace\SDK\Catalog\Product::getCreationDate`
+- Removed `\Wizaplace\SDK\Catalog\ProductSummary::getCategorySlugs`
+- Removed `\Wizaplace\SDK\Catalog\Product::getCategorySlugs`
 - `\Wizaplace\SDK\Catalog\ProductSummary::getConditions` now returns an array of the enum `\Wizaplace\SDK\Catalog\Condition` instead of undocumented strings
 
 ### New features
