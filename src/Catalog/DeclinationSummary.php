@@ -75,7 +75,7 @@ final class DeclinationSummary
         $this->vat = $data['prices']['vat'];
         $this->crossedOutPrice = $data['crossedOutPrice'] ?? null;
         $this->amount = $data['amount'];
-        $this->affiliateLink = empty($data['affiliateLink']) ? null : new Uri($data['affiliateLink']);
+        $this->affiliateLink = $data['affiliateLink'] === '' ? null : new Uri($data['affiliateLink']);
         $this->options = array_map(static function (array $data): DeclinationOption {
             return new DeclinationOption($data);
         }, $data['options']);
