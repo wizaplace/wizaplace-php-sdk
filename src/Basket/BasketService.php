@@ -62,6 +62,10 @@ final class BasketService extends AbstractService
         return (string) $this->client->post("basket");
     }
 
+    public function addToBasket(string $basketId, Purchasable $purchasable, int $quantity): int {
+        return $this->addDeclinationIdToBasket($basketId, $purchasable->getPurchasableId(), $quantity);
+    }
+
     /**
      * Add a product or a product's declination to a basket.
      *
@@ -75,7 +79,7 @@ final class BasketService extends AbstractService
      * @throws BadQuantity The quantity is invalid.
      * @throws NotFound The basket could not be found.
      */
-    public function addProductToBasket(string $basketId, string $declinationId, int $quantity): int
+    public function addDeclinationIdToBasket(string $basketId, string $declinationId, int $quantity): int
     {
         if ($quantity < 1) {
             throw new BadQuantity('"quantity" must be greater than 0');
