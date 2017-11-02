@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Wizaplace\SDK\Basket\Purchasable;
 use Wizaplace\SDK\Image\Image;
 
-final class ProductSummary
+final class ProductSummary implements Purchasable
 {
     /** @var string  */
     private $productId;
@@ -204,5 +205,18 @@ final class ProductSummary
     public function getGeolocation(): ?ProductLocation
     {
         return $this->geolocation;
+    }
+
+    /**
+     * @internal
+     * @inheritdoc
+     */
+    public function getPurchasableId(): string
+    {
+        if ($this->getDeclinationCount() > 1) {
+            throw new \Exception('Products with more than one declination cannot be purchased directly. A declination needs to be selected.');
+        }
+
+        return $this->getId();
     }
 }

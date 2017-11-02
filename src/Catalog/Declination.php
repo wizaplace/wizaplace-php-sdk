@@ -7,9 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Wizaplace\SDK\Basket\Purchasable;
 use Wizaplace\SDK\Image\Image;
 
-final class Declination
+final class Declination implements Purchasable
 {
     /** @var string */
     private $id;
@@ -217,5 +218,14 @@ final class Declination
     public function isAvailable(): bool
     {
         return $this->isAvailable;
+    }
+
+    /**
+     * @internal
+     * @inheritdoc
+     */
+    public function getPurchasableId(): string
+    {
+        return $this->getId();
     }
 }
