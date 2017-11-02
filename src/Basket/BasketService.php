@@ -146,10 +146,6 @@ final class BasketService extends AbstractService
      */
     public function removeProductFromBasket(string $basketId, DeclinationId $declinationId): void
     {
-        if (empty($declinationId)) {
-            throw new \InvalidArgumentException('"declinationId" must not be empty');
-        }
-
         try {
             $this->client->post("basket/{$basketId}/remove", [
                 RequestOptions::FORM_PARAMS => [
