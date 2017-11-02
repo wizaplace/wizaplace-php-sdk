@@ -50,7 +50,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getBirthday());
 
         // shipping address
-        $this->assertSame('', $user->getShippingAddress()->getTitle());
+        $this->assertNull($user->getShippingAddress()->getTitle());
         $this->assertSame('', $user->getShippingAddress()->getFirstName());
         $this->assertSame('', $user->getShippingAddress()->getLastName());
         $this->assertSame('', $user->getShippingAddress()->getCompany());
@@ -62,7 +62,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
 
         // billing address
-        $this->assertSame('', $user->getBillingAddress()->getTitle());
+        $this->assertNull($user->getBillingAddress()->getTitle());
         $this->assertSame('', $user->getBillingAddress()->getFirstName());
         $this->assertSame('', $user->getBillingAddress()->getLastName());
         $this->assertSame('', $user->getBillingAddress()->getCompany());
@@ -131,11 +131,11 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user12@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('', $user->getShippingAddress()->getTitle());
+        $this->assertNull($user->getShippingAddress()->getTitle());
         $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
         $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
 
-        $this->assertSame('', $user->getBillingAddress()->getTitle());
+        $this->assertNull($user->getBillingAddress()->getTitle());
         $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
         $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
 
@@ -173,7 +173,7 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertEquals(UserTitle::MR(), $user->getShippingAddress()->getTitle());
+        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
         $this->assertSame('Pierre', $user->getShippingAddress()->getFirstName());
         $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
@@ -184,7 +184,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('0123456798', $user->getShippingAddress()->getPhone());
         $this->assertSame('69009', $user->getShippingAddress()->getZipCode());
 
-        $this->assertEquals(UserTitle::MRS(), $user->getBillingAddress()->getTitle());
+        $this->assertTrue(UserTitle::MRS()->equals($user->getBillingAddress()->getTitle()));
         $this->assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
         $this->assertSame('Paulette', $user->getBillingAddress()->getLastName());
         $this->assertSame('GB', $user->getBillingAddress()->getCountry());
@@ -206,11 +206,11 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user13@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('', $user->getShippingAddress()->getTitle());
+        $this->assertNull($user->getShippingAddress()->getTitle());
         $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
         $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
 
-        $this->assertSame('', $user->getBillingAddress()->getTitle());
+        $this->assertNull($user->getBillingAddress()->getTitle());
         $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
         $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
 
@@ -231,7 +231,7 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertEquals(UserTitle::MR(), $user->getShippingAddress()->getTitle());
+        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
         $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
         $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
@@ -242,7 +242,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getShippingAddress()->getPhone());
         $this->assertSame('', $user->getShippingAddress()->getZipCode());
 
-        $this->assertEquals('', $user->getBillingAddress()->getTitle());
+        $this->assertNull($user->getBillingAddress()->getTitle());
         $this->assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
         $this->assertSame('Paulette', $user->getBillingAddress()->getLastName());
         $this->assertSame('FR', $user->getBillingAddress()->getCountry());
