@@ -27,7 +27,7 @@ class DeclinationId
         return $this->declinationId;
     }
 
-    public function equals(DeclinationId $declinationId): bool
+    public function equals(self $declinationId): bool
     {
         return $this->declinationId === $declinationId->declinationId;
     }
