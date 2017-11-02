@@ -197,4 +197,18 @@ final class ProductSummary
     {
         return $this->geolocation;
     }
+
+    public function getSingleDeclinationId(): ?DeclinationId
+    {
+        if ($this->getDeclinationCount() > 1) {
+            // There is more than one declination, so the product ID can't be used as a declination ID
+            return null;
+        }
+        if (!ctype_digit($this->productId)) {
+            // an MVP id currently can't be used as a declination ID
+            return null;
+        }
+
+        return new DeclinationId($this->productId);
+    }
 }

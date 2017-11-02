@@ -14,6 +14,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
 use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
@@ -65,17 +66,14 @@ final class BasketService extends AbstractService
     /**
      * Add a product or a product's declination to a basket.
      *
-     * @param string $declinationId ID of the product or the product's declination to add to the basket.
-     *                              Be aware that when a product has declinations, you should use the
-     *                              declination ID instead of the product ID, else you loose the information
-     *                              of which declination was added to the basket.
+     * @param DeclinationId $declinationId ID of the product or the product's declination to add to the basket.
      *
      * @return int quantity added
      *
      * @throws BadQuantity The quantity is invalid.
      * @throws NotFound The basket could not be found.
      */
-    public function addProductToBasket(string $basketId, string $declinationId, int $quantity): int
+    public function addProductToBasket(string $basketId, DeclinationId $declinationId, int $quantity): int
     {
         if ($quantity < 1) {
             throw new BadQuantity('"quantity" must be greater than 0');
@@ -84,7 +82,7 @@ final class BasketService extends AbstractService
         try {
             $responseData = $this->client->post("basket/{$basketId}/add", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => $declinationId,
+                    'declinationId' => (string) $declinationId,
                     'quantity' => $quantity,
                 ],
             ]);
@@ -146,7 +144,7 @@ final class BasketService extends AbstractService
      *
      * @see addProductToBasket()
      */
-    public function removeProductFromBasket(string $basketId, string $declinationId): void
+    public function removeProductFromBasket(string $basketId, DeclinationId $declinationId): void
     {
         if (empty($declinationId)) {
             throw new \InvalidArgumentException('"declinationId" must not be empty');
@@ -155,7 +153,7 @@ final class BasketService extends AbstractService
         try {
             $this->client->post("basket/{$basketId}/remove", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => $declinationId,
+                    'declinationId' => (string) $declinationId,
                 ],
             ]);
         } catch (ClientException $ex) {
@@ -196,7 +194,7 @@ final class BasketService extends AbstractService
      *
      * @see addProductToBasket()
      */
-    public function updateProductQuantity(string $basketId, string $declinationId, int $quantity): int
+    public function updateProductQuantity(string $basketId, DeclinationId $declinationId, int $quantity): int
     {
         if ($quantity < 1) {
             throw new BadQuantity('"quantity" must be greater than 0');
@@ -205,7 +203,7 @@ final class BasketService extends AbstractService
         try {
             $responseData = $this->client->post("basket/{$basketId}/modify", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => $declinationId,
+                    'declinationId' => (string) $declinationId,
                     'quantity' => $quantity,
                 ],
             ]);

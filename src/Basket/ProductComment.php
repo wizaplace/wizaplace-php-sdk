@@ -7,26 +7,23 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
-use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Catalog\DeclinationId;
 
 final class ProductComment extends Comment
 {
     /**
-     * @var string
+     * @var DeclinationId
      */
     private $declinationId;
 
-    public function __construct(string $declinationId, string $comment)
+    public function __construct(DeclinationId $declinationId, string $comment)
     {
         parent::__construct($comment);
-        if ($declinationId === '') {
-            throw new SomeParametersAreInvalid('Missing declination Id');
-        }
 
         $this->declinationId = $declinationId;
     }
 
-    public function getDeclinationId(): string
+    public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;
     }
@@ -37,7 +34,7 @@ final class ProductComment extends Comment
     public function toArray(): array
     {
         return [
-            'declinationId' => $this->declinationId,
+            'declinationId' => (string) $this->declinationId,
             'comment' => $this->comment,
         ];
     }

@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\Catalog;
 
 use PHPUnit\Framework\TestCase;
 use Wizaplace\SDK\Catalog\CompanySummary;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationOption;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 use Wizaplace\SDK\Catalog\ProductCategory;
@@ -63,7 +64,7 @@ final class DeclinationSummaryTest extends TestCase
             'isAvailable' => false,
         ]);
 
-        $this->assertSame('42_1_2', $favorite->getId());
+        $this->assertTrue((new DeclinationId('42_1_2'))->equals($favorite->getId()));
         $this->assertSame('42', $favorite->getProductId());
         $this->assertSame('Very comfortable chair', $favorite->getName());
         $this->assertSame('4006381333933', $favorite->getCode());

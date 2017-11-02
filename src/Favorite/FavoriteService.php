@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Favorite;
 
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
@@ -40,14 +41,14 @@ final class FavoriteService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function isInFavorites(string $declinationId) : bool
+    public function isInFavorites(DeclinationId $declinationId) : bool
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations/ids', []);
         $isInFavorites = false;
         if ($results['count'] > 0) {
             foreach ($results['_embedded']['favorites'] as $result) {
-                if ($result === $declinationId) {
+                if ($result === (string) $declinationId) {
                     $isInFavorites = true;
                     break;
                 }
@@ -62,7 +63,7 @@ final class FavoriteService extends AbstractService
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(string $declinationId) : void
+    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -83,7 +84,7 @@ final class FavoriteService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function removeDeclinationToUserFavorites(string $declinationId) : void
+    public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
         $this->client->mustBeAuthenticated();
         $this->client->rawRequest('delete', 'user/favorites/declinations/'.$declinationId);

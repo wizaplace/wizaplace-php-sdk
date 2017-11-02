@@ -7,9 +7,11 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+use Wizaplace\SDK\Catalog\DeclinationId;
+
 final class OrderItem
 {
-    /** @var string */
+    /** @var DeclinationId */
     private $declinationId;
     /** @var string */
     private $productName;
@@ -29,7 +31,7 @@ final class OrderItem
      */
     public function __construct(array $data)
     {
-        $this->declinationId = $data['declinationId'];
+        $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productName = $data['productName'];
         $this->productCode = $data['productCode'];
         $this->price = $data['price'];
@@ -40,7 +42,7 @@ final class OrderItem
         $this->customerComment = $data['customerComment'];
     }
 
-    public function getDeclinationId(): string
+    public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;
     }

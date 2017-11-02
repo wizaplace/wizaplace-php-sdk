@@ -10,6 +10,8 @@ namespace Wizaplace\SDK\Tests\Basket;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Basket\ProductComment;
+use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -30,10 +32,10 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
-        $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
+        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
         $this->assertSame(1, $newQuantity);
 
-        $newQuantity = $basketService->addProductToBasket($basketId, '1', 1);
+        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
         $this->assertSame(2, $newQuantity);
 
         $basket = $basketService->getBasket($basketId);
@@ -100,7 +102,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $orderItems = $order->getOrderItems();
         $this->assertCount(1, $orderItems);
-        $this->assertSame('1_0', $orderItems[0]->getDeclinationId());
+        $this->assertTrue((new DeclinationId('1_0'))->equals($orderItems[0]->getDeclinationId()));
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $orderItems[0]->getProductName());
         $this->assertSame('978020137962', $orderItems[0]->getProductCode());
         $this->assertSame(67.9, $orderItems[0]->getPrice());
@@ -117,7 +119,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
-        $basketService->addProductToBasket($basketId, '1', 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
@@ -151,7 +153,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
-        $basketService->addProductToBasket($basketId, '5', 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('5'), 1);
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
@@ -200,7 +202,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
 
         $basket = $basketService->getBasket($basketId);
 
@@ -230,9 +232,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
         $comments = [
-            new ProductComment('3_8_7', 'I will be available only during the afternoon'),
+            new ProductComment(new DeclinationId('3_8_7'), 'I will be available only during the afternoon'),
         ];
         $basketService->updateComments($basketId, $comments);
 
@@ -244,15 +246,18 @@ final class BasketServiceTest extends ApiTestCase
 
     public function testUpdateCommentToProductWithWrongDeclinationId()
     {
-        $this->expectExceptionCode(400);
-        $this->expectExceptionMessage('Missing declination Id');
 
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
+
+        $this->expectException(SomeParametersAreInvalid::class);
+        $this->expectExceptionCode(400);
+        $this->expectExceptionMessage('Missing declination Id');
+
         $comments = [
-            new ProductComment('', 'I will only be available during the afternoons.'),
+            new ProductComment(new DeclinationId(''), 'I will only be available during the afternoons.'),
         ];
         $basketService->updateComments($basketId, $comments);
     }
@@ -262,9 +267,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, '3_8_7', 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
         $comments = [
-            new ProductComment('3_8_7', ''),
+            new ProductComment(new DeclinationId('3_8_7'), ''),
         ];
         $basketService->updateComments($basketId, $comments);
     }
@@ -278,7 +283,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $basketId = $basketService->create();
         $comments = [
-            new ProductComment('3_8_7', 'I will be available only during the afternoon'),
+            new ProductComment(new DeclinationId('3_8_7'), 'I will be available only during the afternoon'),
         ];
         $basketService->updateComments($basketId, $comments);
     }
@@ -337,10 +342,10 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
-        $basketService->addProductToBasket($basketId, '5', 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('5'), 1);
 
         $comments = [
-            new ProductComment('5_0', 'please, gift wrap this product.'),
+            new ProductComment(new DeclinationId('5_0'), 'please, gift wrap this product.'),
             new BasketComment('I am superman, please deliver to space.'),
         ];
         $basketService->updateComments($basketId, $comments);
@@ -359,12 +364,12 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = new BasketService($apiClient);
 
         $basketId = $basketService->create();
-        $basketService->addProductToBasket($basketId, '1_0', 1);
-        $basketService->addProductToBasket($basketId, '3_8_7', 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1);
 
         $basketId2 = $basketService->create();
-        $basketService->addProductToBasket($basketId2, '1_0', 2);
-        $basketService->addProductToBasket($basketId2, '3_8_8', 1);
+        $basketService->addProductToBasket($basketId2, new DeclinationId('1_0'), 2);
+        $basketService->addProductToBasket($basketId2, new DeclinationId('3_8_8'), 1);
 
         $basketService->mergeBaskets($basketId, $basketId2);
 
@@ -374,7 +379,7 @@ final class BasketServiceTest extends ApiTestCase
         foreach ($mergedBasket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 foreach ($shippingGroup->getItems() as $item) {
-                    $quantitiesMap[$item->getDeclinationId()] = $item->getQuantity();
+                    $quantitiesMap[(string) $item->getDeclinationId()] = $item->getQuantity();
                 }
             }
         }
@@ -391,7 +396,7 @@ final class BasketServiceTest extends ApiTestCase
         foreach ($sourceBasket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 foreach ($shippingGroup->getItems() as $item) {
-                    $quantitiesMap[$item->getDeclinationId()] = $item->getQuantity();
+                    $quantitiesMap[(string) $item->getDeclinationId()] = $item->getQuantity();
                 }
             }
         }
