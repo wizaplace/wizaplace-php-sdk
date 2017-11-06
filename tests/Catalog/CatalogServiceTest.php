@@ -14,6 +14,7 @@ use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Catalog\Facet\ListFacet;
 use Wizaplace\SDK\Catalog\Facet\NumericFacet;
@@ -259,6 +260,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Product with shippings', $product->getName());
         $this->assertContainsOnly(Condition::class, $product->getConditions());
         $this->assertEquals([Condition::BRAND_NEW()], $product->getConditions());
+        $this->assertTrue((new DeclinationId('4'))->equals($product->getMainDeclinationId()));
         $this->assertSame(1, $product->getDeclinationCount());
         $this->assertSame('', $product->getSubtitle());
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());

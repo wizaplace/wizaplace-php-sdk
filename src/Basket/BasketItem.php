@@ -7,11 +7,12 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Image\Image;
 
 final class BasketItem
 {
-    /** @var string */
+    /** @var DeclinationId */
     private $declinationId;
 
     /** @var int */
@@ -49,7 +50,7 @@ final class BasketItem
      */
     public function __construct(array $data)
     {
-        $this->declinationId = $data['declinationId'];
+        $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productId = $data['productId'];
         $this->productName = $data['productName'];
         $this->productUrl = $data['productUrl'];
@@ -66,7 +67,7 @@ final class BasketItem
         $this->comment = $data['comment'];
     }
 
-    public function getDeclinationId(): string
+    public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;
     }
