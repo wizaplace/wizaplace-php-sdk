@@ -5,6 +5,14 @@
 
 ### BREAKING CHANGES
 
+### New features
+
+### Bugfixes
+
+</details>
+
+## 1.0.0
+
 - `\Wizaplace\SDK\Catalog\SearchProductAttribute::getValues` now returns an array of `\Wizaplace\SDK\Catalog\ProductAttributeValue` instead of an array of associative arrays
 - `\Wizaplace\SDK\User\UserAddress::getTitle` now returns a nullable `\Wizaplace\SDK\User\UserTitle` instead of a string
 - `\Wizaplace\SDK\Order\OrderReturn::getStatus` now returns an `\Wizaplace\SDK\Order\OrderReturnStatus` instead of a string
@@ -24,12 +32,6 @@
 - `\Wizaplace\SDK\Catalog\DeclinationSummary::getProductId` now returns a `string` instead of an `int`
 - All declinations' IDs were changed from `string` to `\Wizaplace\SDK\Catalog\DeclinationId`
 - Added `\Wizaplace\SDK\Catalog\ProductSummary::getMainDeclinationId`
-
-### New features
-
-### Bugfixes
-
-</details>
 
 ## 0.11.4
 
