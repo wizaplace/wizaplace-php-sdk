@@ -16,7 +16,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationHasRequestedVariant()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
@@ -56,7 +56,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationWithDifferentVariantThanRequestedReturnFalse()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
@@ -96,7 +96,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationWithRequestedVariantAndAnOtherOneReturnFalse()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
@@ -142,7 +142,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationHasRequestedVariants()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
@@ -188,7 +188,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationWithDifferentVariantsThanRequestedReturnFalse()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
@@ -234,7 +234,7 @@ final class DeclinationTest extends TestCase
     public function testDeclinationWithRequestedVariantsAndOtherOnesReturnFalse()
     {
         $declination = new Declination([
-            'id' => 1,
+            'id' => '1',
             'code' => '0123456789123',
             'supplierReference' => 'test-supplier',
             'price' => 10,
