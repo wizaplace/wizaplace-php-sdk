@@ -11,7 +11,6 @@ use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
-use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -252,7 +251,7 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
 
-        $this->expectException(SomeParametersAreInvalid::class);
+        $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionCode(400);
         $this->expectExceptionMessage('Missing declination Id');
 

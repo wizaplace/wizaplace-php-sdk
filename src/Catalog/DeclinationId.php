@@ -7,17 +7,18 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
-use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-
 class DeclinationId
 {
     /** @var string */
     private $declinationId;
 
+    /**
+     * @throws \InvalidArgumentException
+     */
     public function __construct(string $declinationId)
     {
         if ($declinationId === '') {
-            throw new SomeParametersAreInvalid('Missing declination Id');
+            throw new \InvalidArgumentException('Missing declination Id', 400);
         }
         $this->declinationId = $declinationId;
     }
