@@ -72,10 +72,10 @@ final class FavoriteServiceTest extends ApiTestCase
         $this->assertTrue(is_array($favorites));
         $this->assertCount(2, $favorites);
         $this->assertInstanceOf(DeclinationSummary::class, reset($favorites));
-        $this->assertSame(1, reset($favorites)->getProductId());
+        $this->assertSame('1', reset($favorites)->getProductId());
         $this->assertTrue(current($favorites)->isAvailable());
         next($favorites);
-        $this->assertSame(2, current($favorites)->getProductId());
+        $this->assertSame('2', current($favorites)->getProductId());
         $this->assertTrue(current($favorites)->isAvailable());
     }
 
