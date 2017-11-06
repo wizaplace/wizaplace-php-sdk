@@ -64,7 +64,7 @@ final class DeclinationSummaryTest extends TestCase
         ]);
 
         $this->assertSame('42_1_2', $favorite->getId());
-        $this->assertSame(42, $favorite->getProductId());
+        $this->assertSame('42', $favorite->getProductId());
         $this->assertSame('Very comfortable chair', $favorite->getName());
         $this->assertSame('4006381333933', $favorite->getCode());
         $this->assertSame(79.99, $favorite->getPriceWithTaxes());
