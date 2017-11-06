@@ -16,7 +16,7 @@ final class DeclinationSummary
     /** @var string */
     private $id;
 
-    /** @var int */
+    /** @var string */
     private $productId;
 
     /** @var string */
@@ -67,7 +67,7 @@ final class DeclinationSummary
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->productId = $data['productId'];
+        $this->productId = (string) $data['productId'];
         $this->name = $data['name'];
         $this->code = $data['code'];
         $this->priceWithTaxes = $data['prices']['priceWithTaxes'];
@@ -93,7 +93,7 @@ final class DeclinationSummary
         return $this->id;
     }
 
-    public function getProductId(): int
+    public function getProductId(): string
     {
         return $this->productId;
     }

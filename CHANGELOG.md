@@ -21,6 +21,7 @@
 - `\Wizaplace\SDK\Catalog\ProductAttachment` class is now final
 - `\Wizaplace\SDK\Catalog\ProductAttributeValue` class is now final
 - `\Wizaplace\SDK\Catalog\Facet` has moved to `\Wizaplace\SDK\Catalog\Facet\Facet` and is now an abstract class with two subclasses: `\Wizaplace\SDK\Catalog\Facet\ListFacet` and `\Wizaplace\SDK\Catalog\Facet\NumericFacet`. A few methods have changed in the process
+- `\Wizaplace\SDK\Catalog\DeclinationSummary::getProductId` now returns a `string` instead of an `int`
 
 ### New features
 
