@@ -6,6 +6,8 @@
 
 namespace Wizaplace\SDK\Favorite\Exception;
 
+use Wizaplace\SDK\Catalog\DeclinationId;
+
 final class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
 {
     public const HTTP_ERROR_CODE = 400;
@@ -13,7 +15,7 @@ final class CannotFavoriteDisabledOrInexistentDeclination extends \Exception
     /**
      * @internal
      */
-    public function __construct(string $declinationId, \Throwable $previous = null)
+    public function __construct(DeclinationId $declinationId, \Throwable $previous = null)
     {
         parent::__construct(
             "Declination #{$declinationId} cannot be added to favorite as it is disabled or does not exist",

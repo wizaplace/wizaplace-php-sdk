@@ -13,7 +13,7 @@ use Wizaplace\SDK\Image\Image;
 
 final class DeclinationSummary
 {
-    /** @var string */
+    /** @var DeclinationId */
     private $id;
 
     /** @var string */
@@ -66,7 +66,7 @@ final class DeclinationSummary
      */
     public function __construct(array $data)
     {
-        $this->id = $data['id'];
+        $this->id = new DeclinationId($data['id']);
         $this->productId = (string) $data['productId'];
         $this->name = $data['name'];
         $this->code = $data['code'];
@@ -88,7 +88,7 @@ final class DeclinationSummary
         $this->isAvailable = $data['isAvailable'];
     }
 
-    public function getId(): string
+    public function getId(): DeclinationId
     {
         return $this->id;
     }

@@ -6,6 +6,8 @@
 
 namespace Wizaplace\SDK\Favorite\Exception;
 
+use Wizaplace\SDK\Catalog\DeclinationId;
+
 final class FavoriteAlreadyExist extends \Exception
 {
     public const HTTP_ERROR_CODE = 409;
@@ -13,7 +15,7 @@ final class FavoriteAlreadyExist extends \Exception
     /**
      * @internal
      */
-    public function __construct(string $declinationId, \Throwable $previous = null)
+    public function __construct(DeclinationId $declinationId, \Throwable $previous = null)
     {
         parent::__construct("Declination #{$declinationId} is already a favorite", self::HTTP_ERROR_CODE, $previous);
     }

@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Tests\Catalog;
 use GuzzleHttp\Psr7\Uri;
 use PHPUnit\Framework\TestCase;
 use Wizaplace\SDK\Catalog\Declination;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\Product;
 
 final class ProductTest extends TestCase
@@ -373,33 +374,33 @@ final class ProductTest extends TestCase
                 array(),
         ), new Uri('https://example.com/'));
 
-        $otherOffers = $product->getOtherOffers($product->getDeclination('4_8_10'));
+        $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('4_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
         $this->assertSame(['3_8_10', '6_8_10'], array_map(function (Declination $declination): string {
-            return $declination->getId();
+            return (string) $declination->getId();
         }, $otherOffers));
 
-        $otherOffers = $product->getOtherOffers($product->getDeclination('6_8_10'));
+        $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('6_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
         $this->assertSame(['3_8_10', '4_8_10'], array_map(function (Declination $declination): string {
-            return $declination->getId();
+            return (string) $declination->getId();
         }, $otherOffers));
 
-        $otherOffers = $product->getOtherOffers($product->getDeclination('3_8_10'));
+        $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('3_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
         $this->assertSame(['4_8_10', '6_8_10'], array_map(function (Declination $declination): string {
-            return $declination->getId();
+            return (string) $declination->getId();
         }, $otherOffers));
 
         // Declination without other offers
-        $otherOffers = $product->getOtherOffers($product->getDeclination('3_8_9'));
+        $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('3_8_9')));
         $this->assertCount(0, $otherOffers);
 
         $this->expectException(\InvalidArgumentException::class);
-        $otherOffers = $product->getOtherOffers(new Declination(array(
+        $product->getOtherOffers(new Declination(array(
             'id' => '404_404_404',
             'code' => 'size_17',
             'supplierReference' => 'INFO-ECRAN-001',

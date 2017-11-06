@@ -234,11 +234,11 @@ final class Product
     /**
      * @throws NotFound
      */
-    public function getDeclination(string $declinationId): Declination
+    public function getDeclination(DeclinationId $declinationId): Declination
     {
         $declinations = $this->getDeclinations();
         foreach ($declinations as $declination) {
-            if ($declination->getId() === $declinationId) {
+            if ($declination->getId()->equals($declinationId)) {
                 return $declination;
             }
         }

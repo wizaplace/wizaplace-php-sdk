@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Order;
 
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
 use Wizaplace\SDK\Order\OrderReturnStatus;
@@ -37,7 +38,7 @@ final class OrderServiceTest extends ApiTestCase
 
         // Premier orderItem
         $firstItem = $order->getOrderItems()[0];
-        $this->assertSame('2_6_4_7_6', $firstItem->getDeclinationId());
+        $this->assertTrue((new DeclinationId('2_6_4_7_6'))->equals($firstItem->getDeclinationId()));
         $this->assertSame('Souris sans fil avec récepteur nano 6 boutons', $firstItem->getProductName());
         $this->assertSame('color_red_connectivity_wired', $firstItem->getProductCode());
         $this->assertSame(15.5, $firstItem->getPrice());
@@ -57,7 +58,7 @@ final class OrderServiceTest extends ApiTestCase
 
         // Deuxième orderItem
         $secondItem = $order->getOrderItems()[1];
-        $this->assertSame('4_0', $secondItem->getDeclinationId());
+        $this->assertTrue((new DeclinationId('4_0'))->equals($secondItem->getDeclinationId()));
         $this->assertSame('Product with shippings', $secondItem->getProductName());
         $this->assertSame('0493020427963', $secondItem->getProductCode());
         $this->assertSame(9.9, $secondItem->getPrice());
@@ -71,7 +72,7 @@ final class OrderServiceTest extends ApiTestCase
         $orderService = $this->buildOrderService();
 
         $creationCommand = new CreateOrderReturn(1, "Broken on arrival");
-        $creationCommand->addItem('1_0', 1, 1);
+        $creationCommand->addItem(new DeclinationId('1_0'), 1, 1);
 
         $returnId = $orderService->createOrderReturn($creationCommand);
         $this->assertGreaterThan(0, $returnId);
@@ -87,7 +88,7 @@ final class OrderServiceTest extends ApiTestCase
         /** @var ReturnItem $returnItem */
         $returnItem = reset($returnItems);
         $this->assertSame(1, $returnItem->getAmount());
-        $this->assertSame('1_0', $returnItem->getDeclinationId());
+        $this->assertTrue((new DeclinationId('1_0'))->equals($returnItem->getDeclinationId()));
         $this->assertSame(67.9, $returnItem->getPrice());
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $returnItem->getProductName());
         $this->assertSame(1, $returnItem->getReason());
@@ -185,7 +186,7 @@ final class OrderServiceTest extends ApiTestCase
 
         // Premier orderItem
         $item = $order->getOrderItems()[0];
-        $this->assertSame('1_0', $item->getDeclinationId());
+        $this->assertTrue((new DeclinationId('1_0'))->equals($item->getDeclinationId()));
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $item->getProductName());
         $this->assertSame('978020137962', $item->getProductCode());
         $this->assertSame(67.9, $item->getPrice());

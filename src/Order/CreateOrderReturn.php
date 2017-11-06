@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+use Wizaplace\SDK\Catalog\DeclinationId;
+
 /**
  * @see \Wizaplace\SDK\Order\OrderService::createOrderReturn
  */
@@ -30,14 +32,14 @@ final class CreateOrderReturn
     }
 
     /**
-     * @param string $declinationId The ID of a product declination which is part of the order.
+     * @param DeclinationId $declinationId The ID of a product declination which is part of the order.
      * @param int $reason The rason ID. {@see \Wizaplace\SDK\Order\OrderService::getReturnReasons}
      * @param int $amount The quantity of items to be returned.
      */
-    public function addItem(string $declinationId, int $reason, int $amount): void
+    public function addItem(DeclinationId $declinationId, int $reason, int $amount): void
     {
         $this->items[] = [
-            'declinationId' => $declinationId,
+            'declinationId' => (string) $declinationId,
             'reason' => $reason,
             'amount' => $amount,
         ];
