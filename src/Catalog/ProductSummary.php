@@ -198,7 +198,7 @@ final class ProductSummary
         return $this->geolocation;
     }
 
-    public function getSingleDeclinationId(): ?DeclinationId
+    public function getMainDeclinationId(): ?DeclinationId
     {
         if ($this->getDeclinationCount() > 1) {
             // There is more than one declination, so the product ID can't be used as a declination ID
