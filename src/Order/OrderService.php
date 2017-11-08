@@ -166,7 +166,7 @@ final class OrderService extends AbstractService
      * @return StreamInterface
      * @throws AuthenticationRequired
      */
-    public function getPDFInvoice(int $orderId): StreamInterface
+    public function downloadPdfInvoice(int $orderId): StreamInterface
     {
         $this->client->mustBeAuthenticated();
         $options = [

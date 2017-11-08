@@ -107,7 +107,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame(67.9, $orderItems[0]->getPrice());
         $this->assertSame(2, $orderItems[0]->getAmount());
 
-        $pdf = $orderService->getPDFInvoice($orders[0]->getId());
+        $pdf = $orderService->downloadPdfInvoice($orders[0]->getId());
         $this->assertStringStartsWith('%PDF-1.4', $pdf->getContents());
     }
 
