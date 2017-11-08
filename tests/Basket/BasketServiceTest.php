@@ -108,7 +108,10 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame(2, $orderItems[0]->getAmount());
 
         $pdf = $orderService->downloadPdfInvoice($orders[0]->getId());
-        $this->assertStringStartsWith('%PDF-1.4', $pdf->getContents());
+        $pdfHeader = '%PDF-1.4';
+        $pdfContents = $pdf->getContents();
+        $this->assertStringStartsWith($pdfHeader, $pdfContents);
+        $this->assertGreaterThan(strlen($pdfHeader), strlen($pdfContents));
     }
 
     public function testCleanBasket()
