@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Order\OrderService::getPDFInvoice`
+
 ### Bugfixes
 
 </details>

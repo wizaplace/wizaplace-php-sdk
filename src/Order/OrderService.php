@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Order;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
@@ -158,5 +159,23 @@ final class OrderService extends AbstractService
 
             throw $e;
         }
+    }
+
+    /**
+     * @param int $orderId
+     * @return StreamInterface
+     * @throws AuthenticationRequired
+     */
+    public function getPDFInvoice(int $orderId): StreamInterface
+    {
+        $this->client->mustBeAuthenticated();
+        $options = [
+            RequestOptions::HEADERS => [
+                "Accept" => "application/pdf",
+            ],
+        ];
+        $response = $this->client->rawRequest("GET", "user/orders/{$orderId}/pdf-invoice", $options);
+
+        return $response->getBody();
     }
 }
