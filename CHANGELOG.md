@@ -13,6 +13,12 @@
 
 </details>
 
+## 1.0.1
+
+### Bugfixes
+
+- Fix `\Wizaplace\SDK\Basket\PaymentInformation::getRedirectUrl` returning an empty URI
+
 ## 1.0.0
 
 ### BREAKING CHANGES
