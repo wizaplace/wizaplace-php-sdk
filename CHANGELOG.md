@@ -11,6 +11,12 @@
 
 </details>
 
+## 1.0.1
+
+### Bugfixes
+
+- Fix `\Wizaplace\SDK\Basket\PaymentInformation::getRedirectUrl` returning an empty URI
+
 ## 1.0.0
 
 - `\Wizaplace\SDK\Catalog\SearchProductAttribute::getValues` now returns an array of `\Wizaplace\SDK\Catalog\ProductAttributeValue` instead of an array of associative arrays

@@ -27,7 +27,7 @@ final class PaymentInformation
         $this->orders = array_map(static function (array $orderData): BasketOrder {
             return new BasketOrder($orderData);
         }, $data['orders']);
-        $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($this->redirectUrl);
+        $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($data['redirectUrl']);
         $this->html = $data['html'] ?? '';
     }
 
