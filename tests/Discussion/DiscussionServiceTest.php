@@ -8,6 +8,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Discussion;
 
+use GuzzleHttp\Psr7\Response;
 use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
@@ -147,6 +148,37 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
         $this->assertGreaterThan(1500000000, $messages[1]->getDate()->getTimestamp());
         $this->assertTrue($messages[1]->isAuthor());
+    }
+
+    public function testSubmitContactRequest()
+    {
+        $message = <<<MSG
+Last Name: Bond
+First Name: James
+Email: client@example.com
+Phone: 0123456798
+
+Message:
+    I love your marketplace!
+    Keep up the good work!
+MSG;
+
+        $service = $this->buildDiscussionService();
+
+        static::$historyContainer = [];
+
+        $service->submitContactRequest(
+            'client@example.com',
+            'Contact form: Great marketplace!',
+            $message
+        );
+
+        // We don't have a way to check that the contact request was processed.
+        // So we just check that an HTTP request was made successfully
+        $this->assertCount(1, static::$historyContainer);
+        /** @var Response $response */
+        $response = static::$historyContainer[0]['response'];
+        $this->assertSame(201, $response->getStatusCode());
     }
 
     private function buildDiscussionService(): DiscussionService

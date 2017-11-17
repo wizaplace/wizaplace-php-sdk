@@ -8,6 +8,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrderService::downloadPdfInvoice`
+- Added `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest`
 
 ### Bugfixes
 
