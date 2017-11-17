@@ -133,4 +133,15 @@ final class DiscussionService extends AbstractService
             throw new SomeParametersAreInvalid();
         }
     }
+
+    public function submitContactRequest(string $senderEmail, string $subject, string $message): void
+    {
+        $this->client->post('contact-request', [
+            RequestOptions::JSON => [
+                'senderEmail' => $senderEmail,
+                'subject' => $subject,
+                'message' => $message,
+            ],
+        ]);
+    }
 }

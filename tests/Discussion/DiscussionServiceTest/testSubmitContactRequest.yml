@@ -1,0 +1,81 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 17 Nov 2017 15:28:48 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: cc894d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc894d'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc\/m3BF"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 17 Nov 2017 15:28:49 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 75ed7f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/75ed7f'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc\/m3BF"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/contact-request'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            Authorization: 'token UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc/m3BF'
+            VCR-index: '2'
+            Accept: null
+        body: '{"senderEmail":"client@example.com","subject":"Contact form: Great marketplace!","message":"Last Name: Bond\nFirst Name: James\nEmail: client@example.com\nPhone: 0123456798\n\nMessage:\n    I love your marketplace!\n    Keep up the good work!"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 17 Nov 2017 15:28:49 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 048b8e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/048b8e'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
