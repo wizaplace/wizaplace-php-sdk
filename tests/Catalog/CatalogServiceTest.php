@@ -322,7 +322,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $products);
 
         $product = $products[0];
-        $this->assertSame('0', $product->getId()); // @FIXME
+        $this->assertSame('c659af24-56b8-48fd-8b86-34ddff28ba1b', $product->getId());
         $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
     }
 
