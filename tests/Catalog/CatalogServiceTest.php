@@ -25,6 +25,7 @@ use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductAttributeValue;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
+use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Exception\NotFound;
@@ -260,7 +261,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Product with shippings', $product->getName());
         $this->assertContainsOnly(Condition::class, $product->getConditions());
         $this->assertEquals([Condition::BRAND_NEW()], $product->getConditions());
-        $this->assertTrue((new DeclinationId('4'))->equals($product->getMainDeclinationId()));
+        $this->assertTrue((new DeclinationId('4_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
         $this->assertSame(1, $product->getDeclinationCount());
         $this->assertSame('', $product->getSubtitle());
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
@@ -308,6 +309,21 @@ final class CatalogServiceTest extends ApiTestCase
         ], $categoryFacet->getValues());
 
         $this->assertNull($catalogService->getBrand($product));
+    }
+
+    public function testSearchMVP()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search('Test MVP');
+
+        $products = $result->getProducts();
+        $this->assertContainsOnly(ProductSummary::class, $products);
+        $this->assertCount(1, $products);
+
+        $product = $products[0];
+        $this->assertSame('0', $product->getId()); // @FIXME
+        $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
     }
 
     public function testSearchProductWithComplexAttributes()
