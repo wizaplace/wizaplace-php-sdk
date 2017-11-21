@@ -51,6 +51,8 @@ final class ProductSummary
     private $companies;
     /** @var ProductLocation|null */
     private $geolocation;
+    /** @var null|DeclinationId */
+    private $mainDeclinationId;
 
     /**
      * @internal
@@ -85,6 +87,9 @@ final class ProductSummary
             return new CompanySummary($companyData);
         }, $data['companies'] ?? []);
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
+        if (isset($data['mainDeclination']['id'])) {
+            $this->mainDeclinationId = new DeclinationId($data['mainDeclination']['id']);
+        }
     }
 
     public function getId(): string
@@ -200,15 +205,6 @@ final class ProductSummary
 
     public function getMainDeclinationId(): ?DeclinationId
     {
-        if ($this->getDeclinationCount() > 1) {
-            // There is more than one declination, so the product ID can't be used as a declination ID
-            return null;
-        }
-        if (!ctype_digit($this->productId)) {
-            // an MVP id currently can't be used as a declination ID
-            return null;
-        }
-
-        return new DeclinationId($this->productId);
+        return $this->mainDeclinationId;
     }
 }

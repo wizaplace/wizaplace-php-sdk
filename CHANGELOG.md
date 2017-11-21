@@ -9,6 +9,7 @@
 
 - Added `\Wizaplace\SDK\Order\OrderService::downloadPdfInvoice`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest`
+- `\Wizaplace\SDK\Catalog\ProductSummary::getMainDeclinationId` now uses the ID given by the API instead of trying to guess it
 
 ### Bugfixes
 
