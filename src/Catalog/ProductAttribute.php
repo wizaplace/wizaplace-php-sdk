@@ -75,6 +75,7 @@ final class ProductAttribute
     }
 
     /**
+     * @deprecated
      * @return string[]
      */
     public function getImageUrls(): array
