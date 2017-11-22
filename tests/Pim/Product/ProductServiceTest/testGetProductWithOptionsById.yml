@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 22 Nov 2017 14:14:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d0cb4e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0cb4e'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"Har0CGwkja+igyIEAGxY99zUSy4z6UfGIfzsQQel"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            Authorization: 'token Har0CGwkja+igyIEAGxY99zUSy4z6UfGIfzsQQel'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 22 Nov 2017 14:14:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0dcea0
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0dcea0'
+            Content-Length: '2186'
+            Content-Type: application/json
+        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511360046,"updated_timestamp":1511360048,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":{"6":1},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_white"},{"combination":{"6":1,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":1,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":2},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_black"},{"combination":{"6":2,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":2,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":3},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_blue"},{"combination":{"6":3,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":3,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":4},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red"},{"combination":{"6":4,"7":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"6":4,"7":6},"amount":9,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}'
