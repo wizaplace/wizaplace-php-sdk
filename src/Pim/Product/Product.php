@@ -43,7 +43,7 @@ final class Product extends ProductSummary
         $this->additionalImages = array_map(static function (array $imageData): ProductImage {
             return new ProductImage($imageData);
         }, $data['image_pairs'] ?? []);
-        $this->declinations = array_map(function (array $declinationData): ProductDeclination {
+        $this->declinations = array_map(static function (array $declinationData): ProductDeclination {
             return new ProductDeclination($declinationData);
         }, $data['inventory'] ?? []);
     }
