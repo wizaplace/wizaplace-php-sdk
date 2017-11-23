@@ -72,7 +72,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getDeclinations());
         $this->assertNull($product->getAffiliateLink());
         $declination = $product->getDeclinations()[0];
-        $this->assertSame(15, $declination->getAmount());
+        $this->assertSame(15, $declination->getQuantity());
         $this->assertSame(15.0, $declination->getPrice());
         $this->assertEmpty($declination->getOptionsVariants());
         $this->assertNull($declination->getCrossedOutPrice());
@@ -89,7 +89,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertCount(12, $product->getDeclinations());
 
         $declination = $product->getDeclinations()[0];
-        $this->assertSame(10, $declination->getAmount());
+        $this->assertSame(10, $declination->getQuantity());
         $this->assertSame([6 => 1], $declination->getOptionsVariants());
         $this->assertSame(15.5, $declination->getPrice());
         $this->assertSame(0.0, $declination->getCrossedOutPrice());

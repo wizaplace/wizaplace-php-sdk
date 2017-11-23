@@ -13,7 +13,7 @@ use Psr\Http\Message\UriInterface;
 final class ProductDeclination
 {
     /** @var int */
-    private $amount;
+    private $quantity;
 
     /** @var null|string */
     private $code;
@@ -35,7 +35,7 @@ final class ProductDeclination
      */
     public function __construct(array $data)
     {
-        $this->amount = $data['amount'];
+        $this->quantity = $data['amount'];
         if (isset($data['combination_code'])) {
             $this->code = $data['combination_code'];
         }
@@ -53,9 +53,9 @@ final class ProductDeclination
         }
     }
 
-    public function getAmount(): int
+    public function getQuantity(): int
     {
-        return $this->amount;
+        return $this->quantity;
     }
 
     /**
