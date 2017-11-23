@@ -69,6 +69,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductImage::class, $product->getAdditionalImages());
         $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
         $this->assertCount(1, $product->getDeclinations());
+        $this->assertNull($product->getAffiliateLink());
         $declination = $product->getDeclinations()[0];
         $this->assertSame(15, $declination->getAmount());
         $this->assertSame(15.0, $declination->getPrice());
