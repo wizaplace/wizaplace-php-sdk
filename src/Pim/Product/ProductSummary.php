@@ -42,7 +42,7 @@ class ProductSummary
     /** @var int */
     private $mainCategoryId;
 
-    /** @var float */ // @TODO: Or maybe some Money object ?
+    /** @var float */
     private $greenTax;
 
     /** @var bool */
