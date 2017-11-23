@@ -91,7 +91,7 @@ class ProductSummary
         $this->status = new ProductStatus($data['status']);
         $this->approvalStatus = new ProductApprovalStatus($data['approved']);
         $this->greenTax = (float) $data['green_tax'];
-        if (isset($data['geolocation']['latitude']) || isset($data['geolocation']['label'])) {
+        if (isset($data['geolocation']['latitude']) || isset($data['geolocation']['longitude'])) { // we have to check it, because the API sometimes returns an object with no value instead of null
             $this->geolocation = new ProductGeolocation($data['geolocation']);
         }
         $this->isBrandNew = $data['condition'] === 'N';

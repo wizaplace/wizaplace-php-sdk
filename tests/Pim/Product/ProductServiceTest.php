@@ -11,6 +11,7 @@ use Wizaplace\SDK\Pim\Product\Product;
 use Wizaplace\SDK\Pim\Product\ProductApprovalStatus;
 use Wizaplace\SDK\Pim\Product\ProductAttachment;
 use Wizaplace\SDK\Pim\Product\ProductDeclination;
+use Wizaplace\SDK\Pim\Product\ProductGeolocation;
 use Wizaplace\SDK\Pim\Product\ProductImage;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
@@ -108,6 +109,20 @@ final class ProductServiceTest extends ApiTestCase
         $attachment = $attachments[0];
         $this->assertSame('c33533cc-54c5-4fe5-8dbb-5f62ba3d3927', $attachment->getId());
         $this->assertSame('Manuel de montage', $attachment->getLabel());
+    }
+
+    public function testGetProductWithGeolocation()
+    {
+        $product = $this->buildProductService()->getProductById(6);
+
+        $this->assertSame(6, $product->getId());
+        $geolocation = $product->getGeolocation();
+        $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
+
+        $this->assertSame('Wizacha', $geolocation->getLabel());
+        $this->assertSame('69009', $geolocation->getZipcode());
+        $this->assertSame(45.778848, $geolocation->getLatitude());
+        $this->assertSame(4.800039, $geolocation->getLongitude());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
