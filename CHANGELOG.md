@@ -5,6 +5,10 @@
 
 ### BREAKING CHANGES
 
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+
 ### Bugfixes
 
 </details>
