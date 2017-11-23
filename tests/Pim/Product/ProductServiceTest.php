@@ -96,6 +96,20 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declination->getAffiliateLink());
     }
 
+    public function testGetProductWithAttachments()
+    {
+        $product = $this->buildProductService()->getProductById(7);
+
+        $this->assertSame(7, $product->getId());
+        $attachments = $product->getAttachments();
+        $this->assertContainsOnly(ProductAttachment::class, $attachments);
+        $this->assertCount(2, $attachments);
+
+        $attachment = $attachments[0];
+        $this->assertSame('c33533cc-54c5-4fe5-8dbb-5f62ba3d3927', $attachment->getId());
+        $this->assertSame('Manuel de montage', $attachment->getLabel());
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();

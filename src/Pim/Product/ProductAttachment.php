@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Pim\Product;
 class ProductAttachment
 {
     /** @var string */
+    private $id;
+
+    /** @var string */
     private $label;
 
     /**
@@ -17,7 +20,13 @@ class ProductAttachment
      */
     public function __construct(array $data)
     {
+        $this->id = $data['id'];
         $this->label = $data['label'];
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 
     public function getLabel(): string
