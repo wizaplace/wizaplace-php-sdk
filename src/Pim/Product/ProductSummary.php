@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use function theodorejb\polycast\to_float;
 
 class ProductSummary
 {
@@ -82,7 +83,7 @@ class ProductSummary
         $this->lastUpdateAt = new \DateTimeImmutable('@'.$data['updated_timestamp']);
         $this->companyId = $data['company_id'];
         $this->mainCategoryId = $data['main_category'];
-        $this->weight = (float) $data['weight'];
+        $this->weight = to_float($data['weight']);
         if (isset($data['affiliate_link']) && $data['affiliate_link'] !== '') {
             $this->affiliateLink = new Uri($data['affiliate_link']);
         }
@@ -90,7 +91,7 @@ class ProductSummary
         $this->hasFreeShipping = $data['free_shipping'] === 'Y';
         $this->status = new ProductStatus($data['status']);
         $this->approvalStatus = new ProductApprovalStatus($data['approved']);
-        $this->greenTax = (float) $data['green_tax'];
+        $this->greenTax = to_float($data['green_tax']);
         if (isset($data['geolocation']['latitude']) || isset($data['geolocation']['longitude'])) { // we have to check it, because the API sometimes returns an object with no value instead of null
             $this->geolocation = new ProductGeolocation($data['geolocation']);
         }

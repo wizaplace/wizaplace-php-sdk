@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use function theodorejb\polycast\to_float;
+use function theodorejb\polycast\to_int;
 
 final class ProductDeclination
 {
@@ -42,11 +44,11 @@ final class ProductDeclination
         $this->optionsVariants = [];
         // We don't copy the full array directly so we can cast the keys (which are strings because that's how JSON works)
         foreach ($data['combination'] as $optionId => $optionVariantId) {
-            $this->optionsVariants[(int) $optionId] = $optionVariantId;
+            $this->optionsVariants[to_int($optionId)] = to_int($optionVariantId);
         }
-        $this->price = (float) $data['price'];
+        $this->price = to_float($data['price']);
         if (isset($data['crossed_out_price'])) {
-            $this->crossedOutPrice = (float) $data['crossed_out_price'];
+            $this->crossedOutPrice = to_float($data['crossed_out_price']);
         }
         if (isset($data['affiliate_link']) && $data['affiliate_link'] !== '') {
             $this->affiliateLink = new Uri($data['affiliate_link']);
