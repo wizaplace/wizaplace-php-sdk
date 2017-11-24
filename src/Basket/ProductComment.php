@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Catalog\DeclinationId;
+use function theodorejb\polycast\to_string;
 
 final class ProductComment extends Comment
 {
@@ -34,7 +35,7 @@ final class ProductComment extends Comment
     public function toArray(): array
     {
         return [
-            'declinationId' => (string) $this->declinationId,
+            'declinationId' => to_string($this->declinationId),
             'comment' => $this->comment,
         ];
     }

@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use function theodorejb\polycast\to_int;
+use function theodorejb\polycast\to_string;
 
 final class Company
 {
@@ -68,23 +70,23 @@ final class Company
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
-        $this->name = (string) $data['name'];
-        $this->email = (string) $data['email'];
-        $this->description = (string) $data['description'];
-        $this->zipcode = (string) $data['zipcode'];
-        $this->address = (string) $data['address'];
-        $this->city = (string) $data['city'];
-        $this->country = (string) $data['country'];
-        $this->phoneNumber = (string) $data['phoneNumber'];
-        $this->fax = (string) $data['fax'];
+        $this->id = to_int($data['id']);
+        $this->name = to_string($data['name']);
+        $this->email = to_string($data['email']);
+        $this->description = to_string($data['description']);
+        $this->zipcode = to_string($data['zipcode']);
+        $this->address = to_string($data['address']);
+        $this->city = to_string($data['city']);
+        $this->country = to_string($data['country']);
+        $this->phoneNumber = to_string($data['phoneNumber']);
+        $this->fax = to_string($data['fax']);
         $this->url = $data['url'] === '' ? null : new Uri($data['url']);
-        $this->legalStatus = (string) $data['legalStatus'];
-        $this->siretNumber = (string) $data['siretNumber'];
-        $this->vatNumber = (string) $data['vatNumber'];
-        $this->capital = (string) $data['capital'];
-        $this->rcs = (string) $data['rcs'];
-        $this->slug = (string) $data['slug'];
+        $this->legalStatus = to_string($data['legalStatus']);
+        $this->siretNumber = to_string($data['siretNumber']);
+        $this->vatNumber = to_string($data['vatNumber']);
+        $this->capital = to_string($data['capital']);
+        $this->rcs = to_string($data['rcs']);
+        $this->slug = to_string($data['slug']);
     }
 
     public function getId(): int

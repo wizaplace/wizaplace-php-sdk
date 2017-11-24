@@ -8,6 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use function theodorejb\polycast\to_int;
+use function theodorejb\polycast\to_string;
 
 final class CompanyDetail
 {
@@ -49,13 +51,13 @@ final class CompanyDetail
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
-        $this->name = (string) $data['name'];
-        $this->description = (string) $data['description'];
-        $this->address = (string) $data['address'];
-        $this->phoneNumber = (string) $data['phoneNumber'];
+        $this->id = to_int($data['id']);
+        $this->name = to_string($data['name']);
+        $this->description = to_string($data['description']);
+        $this->address = to_string($data['address']);
+        $this->phoneNumber = to_string($data['phoneNumber']);
         $this->professional = (bool) $data['professional'];
-        $this->slug = (string) $data['slug'];
+        $this->slug = to_string($data['slug']);
         $this->image = ($data['image'] !== null) ? new Image($data['image']) : null;
         if ($data['location'] !== null) {
             $this->location = new Location($data['location']['latitude'], $data['location']['longitude']);
@@ -63,7 +65,7 @@ final class CompanyDetail
             $this->location = null;
         }
         $this->averageRating = $data['averageRating'];
-        $this->terms = (string) $data['terms'];
+        $this->terms = to_string($data['terms']);
     }
 
     public function getId(): int

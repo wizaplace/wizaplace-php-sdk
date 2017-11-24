@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+use function theodorejb\polycast\to_string;
+
 final class DeclinationOption
 {
     /** @var int */
@@ -27,9 +29,9 @@ final class DeclinationOption
     public function __construct(array $data)
     {
         $this->optionId = $data['optionId'];
-        $this->optionName = (string) $data['optionName'];
+        $this->optionName = to_string($data['optionName']);
         $this->variantId = $data['variantId'];
-        $this->variantName = (string) $data['variantName'];
+        $this->variantName = to_string($data['variantName']);
     }
 
     public function getOptionId(): int

@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use function theodorejb\polycast\to_string;
+
 final class ProductAttribute
 {
     /** @var int|null */
@@ -30,7 +32,7 @@ final class ProductAttribute
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->name = (string) $data['name'];
+        $this->name = to_string($data['name']);
         $this->value = $data['value'];
         $this->valueIds = $data['valueIds'];
         $this->imageUrls = $data['imageUrls'] ?? [];

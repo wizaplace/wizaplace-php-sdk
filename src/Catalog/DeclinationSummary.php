@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Catalog;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Image\Image;
+use function theodorejb\polycast\to_string;
 
 final class DeclinationSummary
 {
@@ -67,7 +68,7 @@ final class DeclinationSummary
     public function __construct(array $data)
     {
         $this->id = new DeclinationId($data['id']);
-        $this->productId = (string) $data['productId'];
+        $this->productId = to_string($data['productId']);
         $this->name = $data['name'];
         $this->code = $data['code'];
         $this->priceWithTaxes = $data['prices']['priceWithTaxes'];

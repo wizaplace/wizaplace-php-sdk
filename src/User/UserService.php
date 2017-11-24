@@ -14,6 +14,7 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use function theodorejb\polycast\to_string;
 
 final class UserService extends AbstractService
 {
@@ -127,7 +128,7 @@ final class UserService extends AbstractService
             'email' => $email,
         ];
         if (!empty($recoverBaseUrl)) {
-            $data['recoverBaseUrl'] = (string) $recoverBaseUrl;
+            $data['recoverBaseUrl'] = to_string($recoverBaseUrl);
         }
 
         // On attend une 204 donc pas de retour

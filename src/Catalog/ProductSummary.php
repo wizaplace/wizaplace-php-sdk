@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use function theodorejb\polycast\to_string;
 
 final class ProductSummary
 {
@@ -59,14 +60,14 @@ final class ProductSummary
      */
     public function __construct(array $data)
     {
-        $this->productId = (string) $data['productId'];
-        $this->name = (string) $data['name'];
-        $this->subtitle = (string) $data['subtitle'];
-        $this->shortDescription = (string) $data['shortDescription'];
+        $this->productId = to_string($data['productId']);
+        $this->name = to_string($data['name']);
+        $this->subtitle = to_string($data['subtitle']);
+        $this->shortDescription = to_string($data['shortDescription']);
         $this->minimumPrice = $data['minimumPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         $this->isAvailable = $data['isAvailable'];
-        $this->url = (string) $data['url'];
+        $this->url = to_string($data['url']);
         $this->createdAt = new \DateTimeImmutable("@{$data['createdAt']}");
         $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
@@ -82,7 +83,7 @@ final class ProductSummary
         $this->categoryPath = array_map(static function (array $categoryPath) : SearchCategoryPath {
             return new SearchCategoryPath($categoryPath);
         }, $data['categoryPath']);
-        $this->slug = (string) $data['slug'];
+        $this->slug = to_string($data['slug']);
         $this->companies = array_map(static function (array $companyData) : CompanySummary {
             return new CompanySummary($companyData);
         }, $data['companies'] ?? []);

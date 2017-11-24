@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
+use function theodorejb\polycast\to_float;
+use function theodorejb\polycast\to_string;
 
 final class Product
 {
@@ -83,16 +85,16 @@ final class Product
      */
     public function __construct(array $data, UriInterface $apiBaseUrl)
     {
-        $this->id = (string) $data['id'];
+        $this->id = to_string($data['id']);
         $this->code = $data['code'];
         $this->supplierReference = $data['supplierReference'];
         $this->name = $data['name'];
         $this->url = $data['url'];
         $this->shortDescription = $data['shortDescription'];
         $this->description = $data['description'];
-        $this->slug = (string) $data['slug'];
-        $this->minPrice = (float) $data['minPrice'];
-        $this->greenTax = (float) $data['greenTax'];
+        $this->slug = to_string($data['slug']);
+        $this->minPrice = to_float($data['minPrice']);
+        $this->greenTax = to_float($data['greenTax']);
         $this->attributes = array_map(static function (array $attributeData) : ProductAttribute {
             return new ProductAttribute($attributeData);
         }, $data['attributes']);

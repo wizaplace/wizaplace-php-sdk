@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Order;
 
 use Wizaplace\SDK\Catalog\DeclinationId;
+use function theodorejb\polycast\to_string;
 
 final class ReturnItem
 {
@@ -27,8 +28,8 @@ final class ReturnItem
      */
     public function __construct(array $data)
     {
-        $this->declinationId = new DeclinationId((string) $data['declinationId']);
-        $this->productName = (string) $data['productName'];
+        $this->declinationId = new DeclinationId(to_string($data['declinationId']));
+        $this->productName = to_string($data['productName']);
         $this->price = $data['price'];
         $this->reason = $data['reason'];
         $this->amount = $data['amount'];

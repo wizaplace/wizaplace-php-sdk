@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Cms;
 
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\AbstractService;
+use function theodorejb\polycast\to_int;
+use function theodorejb\polycast\to_string;
 
 final class CmsService extends AbstractService
 {
@@ -43,11 +45,11 @@ final class CmsService extends AbstractService
     {
         $items = array_map([$this, 'convertArrayToMenuItem'], $menuData['items']);
 
-        return new Menu((int) $menuData['id'], (string) $menuData['name'], $items);
+        return new Menu(to_int($menuData['id']), to_string($menuData['name']), $items);
     }
 
     private function convertArrayToMenuItem(array $menuItem): MenuItem
     {
-        return new MenuItem((string) $menuItem['name'], (int) $menuItem['position'], new Uri((string) $menuItem['url']));
+        return new MenuItem(to_string($menuItem['name']), to_int($menuItem['position']), new Uri(to_string($menuItem['url'])));
     }
 }
