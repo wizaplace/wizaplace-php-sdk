@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK;
 
+use function theodorejb\polycast\to_int;
+
 final class Pagination
 {
     /** @var int */
@@ -23,10 +25,10 @@ final class Pagination
      */
     public function __construct(array $data)
     {
-        $this->page = $data['page'];
-        $this->nbResults = $data['nbResults'];
-        $this->nbPages = $data['nbPages'];
-        $this->resultsPerPage = $data['resultsPerPage'];
+        $this->page = to_int($data['page']);
+        $this->nbResults = to_int($data['nbResults']);
+        $this->nbPages = to_int($data['nbPages']);
+        $this->resultsPerPage = to_int($data['resultsPerPage']);
     }
 
     public function getPage(): int
