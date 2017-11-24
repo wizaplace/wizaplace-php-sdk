@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Discussion;
 
+use function theodorejb\polycast\to_int;
+
 final class Discussion
 {
     /** @var int */
@@ -31,7 +33,7 @@ final class Discussion
     {
         $this->id = $data['id'];
         $this->recipient = $data['recipient'];
-        $this->productId = (int) $data['productId'];
+        $this->productId = to_int($data['productId']);
         $this->title = $data['title'];
         $this->unreadCount = $data['unreadCount'];
     }

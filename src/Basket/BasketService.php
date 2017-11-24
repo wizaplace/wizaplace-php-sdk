@@ -17,6 +17,7 @@ use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use function theodorejb\polycast\to_string;
 
 /**
  * This service helps creating orders through a basket.
@@ -60,7 +61,7 @@ final class BasketService extends AbstractService
      */
     public function create(): string
     {
-        return (string) $this->client->post("basket");
+        return to_string($this->client->post("basket"));
     }
 
     /**
@@ -82,7 +83,7 @@ final class BasketService extends AbstractService
         try {
             $responseData = $this->client->post("basket/{$basketId}/add", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => (string) $declinationId,
+                    'declinationId' => to_string($declinationId),
                     'quantity' => $quantity,
                 ],
             ]);
@@ -149,7 +150,7 @@ final class BasketService extends AbstractService
         try {
             $this->client->post("basket/{$basketId}/remove", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => (string) $declinationId,
+                    'declinationId' => to_string($declinationId),
                 ],
             ]);
         } catch (ClientException $ex) {
@@ -199,7 +200,7 @@ final class BasketService extends AbstractService
         try {
             $responseData = $this->client->post("basket/{$basketId}/modify", [
                 RequestOptions::FORM_PARAMS => [
-                    'declinationId' => (string) $declinationId,
+                    'declinationId' => to_string($declinationId),
                     'quantity' => $quantity,
                 ],
             ]);

@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+use function theodorejb\polycast\to_int;
+
 final class BasketShippingGroup
 {
     /** @var int */
@@ -23,7 +25,7 @@ final class BasketShippingGroup
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
+        $this->id = to_int($data['id']);
 
         $this->items = array_map(static function (array $item) : BasketItem {
             return new BasketItem($item);

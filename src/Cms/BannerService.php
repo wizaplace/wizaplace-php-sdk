@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Cms;
 
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\AbstractService;
+use function theodorejb\polycast\to_string;
 
 final class BannerService extends AbstractService
 {
@@ -47,7 +48,7 @@ final class BannerService extends AbstractService
     {
         $banners = [];
         foreach ($results as $result) {
-            $banner = new Banner(new Uri((string) $result['link']), $result['shouldOpenInNewWindow'], $result['image']['id']);
+            $banner = new Banner(new Uri(to_string($result['link'])), $result['shouldOpenInNewWindow'], $result['image']['id']);
             $banners[] = $banner;
         }
 

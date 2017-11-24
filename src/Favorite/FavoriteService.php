@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
+use function theodorejb\polycast\to_string;
 
 /**
  * This service helps managing the favorite products of a user.
@@ -48,7 +49,7 @@ final class FavoriteService extends AbstractService
         $isInFavorites = false;
         if ($results['count'] > 0) {
             foreach ($results['_embedded']['favorites'] as $result) {
-                if ($result === (string) $declinationId) {
+                if ($result === to_string($declinationId)) {
                     $isInFavorites = true;
                     break;
                 }

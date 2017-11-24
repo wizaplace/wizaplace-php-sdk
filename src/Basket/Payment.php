@@ -8,6 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Image\Image;
+use function theodorejb\polycast\to_int;
+use function theodorejb\polycast\to_string;
 
 final class Payment
 {
@@ -27,10 +29,10 @@ final class Payment
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
-        $this->name = (string) $data['name'];
-        $this->description = (string) $data['description'];
-        $this->position = (int) $data['position'];
+        $this->id = to_int($data['id']);
+        $this->name = to_string($data['name']);
+        $this->description = to_string($data['description']);
+        $this->position = to_int($data['position']);
         if (isset($data['image'])) {
             $this->image = new Image($data['image']);
         }

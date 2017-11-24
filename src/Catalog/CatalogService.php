@@ -12,6 +12,7 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use function theodorejb\polycast\to_string;
 
 final class CatalogService extends AbstractService
 {
@@ -161,7 +162,7 @@ final class CatalogService extends AbstractService
                 case 404:
                     throw new NotFound("Product #{$report->getProductId()} not found", $e);
                 case 400:
-                    throw new SomeParametersAreInvalid((string) $e->getResponse()->getBody(), 400, $e);
+                    throw new SomeParametersAreInvalid(to_string($e->getResponse()->getBody()), 400, $e);
             }
             throw $e;
         }

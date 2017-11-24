@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Order;
 
 use Wizaplace\SDK\Catalog\DeclinationId;
+use function theodorejb\polycast\to_string;
 
 /**
  * @see \Wizaplace\SDK\Order\OrderService::createOrderReturn
@@ -39,7 +40,7 @@ final class CreateOrderReturn
     public function addItem(DeclinationId $declinationId, int $reason, int $amount): void
     {
         $this->items[] = [
-            'declinationId' => (string) $declinationId,
+            'declinationId' => to_string($declinationId),
             'reason' => $reason,
             'amount' => $amount,
         ];

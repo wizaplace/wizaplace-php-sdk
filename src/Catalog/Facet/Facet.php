@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog\Facet;
 
+use function theodorejb\polycast\to_string;
+
 abstract class Facet
 {
     /** @var string */
@@ -19,7 +21,7 @@ abstract class Facet
      */
     public function __construct(array $data)
     {
-        $this->name = (string) $data['name']; // string cast is necessary because the API sometimes sends IDs as integers
+        $this->name = to_string($data['name']); // string cast is necessary because the API sometimes sends IDs as integers
         $this->label = $data['label'];
     }
 

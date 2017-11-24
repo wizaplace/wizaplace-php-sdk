@@ -7,6 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\User;
 
+use function theodorejb\polycast\to_int;
+use function theodorejb\polycast\to_string;
+
 final class User
 {
     private const BIRTHDAY_FORMAT = 'Y-m-d';
@@ -33,11 +36,11 @@ final class User
      */
     public function __construct(array $data)
     {
-        $this->id = (int) $data['id'];
-        $this->email = (string) $data['email'];
+        $this->id = to_int($data['id']);
+        $this->email = to_string($data['email']);
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
-        $this->firstname = (string) $data['firstName'];
-        $this->lastname = (string) $data['lastName'];
+        $this->firstname = to_string($data['firstName']);
+        $this->lastname = to_string($data['lastName']);
         $this->birthday = empty($data['birthday']) ? null : \DateTimeImmutable::createFromFormat(self::BIRTHDAY_FORMAT, $data['birthday']);
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
