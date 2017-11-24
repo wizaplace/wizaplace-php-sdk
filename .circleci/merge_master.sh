@@ -5,6 +5,7 @@
 
 set -eu -o pipefail
 
+CI_PULL_REQUEST=${CI_PULL_REQUEST+}
 PR_NUMBER=${CI_PULL_REQUEST//*pull\//}
 err=0
 
