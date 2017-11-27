@@ -5,6 +5,12 @@
 
 ### BREAKING CHANGES
 
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\ProductAttribute::getValues`
+- Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValueIds`
+- Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValue`
+
 ### Bugfixes
 
 </details>

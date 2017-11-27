@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            User-Agent: Wizaplace-PHP-SDK/9999999-dev@eab64ed
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Oct 2017 13:14:30 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 27 Nov 2017 09:17:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: dd63cc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dd63cc'
-            Content-Length: '1457'
+            X-Debug-Token: '8798e4'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8798e4'
+            Content-Length: '1463'
             Content-Type: application/json
-        body: '{"id":6,"code":"20230495445","supplierReference":"TEST-GEOLOC","name":"Product with valid geoloc","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-valid-geoloc.html","shortDescription":"","description":"","slug":"product-with-valid-geoloc","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":5,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests"}],"geolocation":{"latitude":45.778848,"longitude":4.800039,"label":"Wizacha","zipcode":"69009"},"video":null,"declinations":[{"id":"6_0","code":"20230495445","isAvailable":true,"supplierReference":"TEST-GEOLOC","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":13,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
+        body: '{"id":6,"code":"20230495445","supplierReference":"TEST-GEOLOC","name":"Product with valid geoloc","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/product-with-valid-geoloc.html","shortDescription":"","description":"","slug":"product-with-valid-geoloc","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":5,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}],"geolocation":{"latitude":45.778848,"longitude":4.800039,"label":"Wizacha","zipcode":"69009"},"video":null,"declinations":[{"id":"6_0","code":"20230495445","isAvailable":true,"supplierReference":"TEST-GEOLOC","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":13,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
