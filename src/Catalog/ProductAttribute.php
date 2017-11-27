@@ -13,18 +13,36 @@ final class ProductAttribute
 {
     /** @var int|null */
     private $id;
+
     /** @var string */
     private $name;
-    /** @var null|string|array */
+
+    /**
+     * @deprecated
+     * @var null|string|array
+     */
     private $value;
-    /** @var int[] */
+
+    /**
+     * @deprecated
+     * @var int[]
+     */
     private $valueIds;
+
     /** @var ProductAttribute[] */
     private $children;
-    /** @var string[] */
+
+    /**
+     * @deprecated
+     * @var string[]
+     */
     private $imageUrls;
+
     /** @var AttributeType */
     private $type;
+
+    /** @var null|ProductAttributeValue[] */
+    private $values;
 
     /**
      * @internal
@@ -40,6 +58,11 @@ final class ProductAttribute
             return new self($childrenData);
         }, $data['children']);
         $this->type = new AttributeType($data['type']);
+        if (isset($data['values'])) {
+            $this->values = array_map(function (array $valueData): ProductAttributeValue {
+                return new ProductAttributeValue($valueData);
+            }, $data['values'] ?? []);
+        }
     }
 
     /**
@@ -61,6 +84,7 @@ final class ProductAttribute
     }
 
     /**
+     * @deprecated
      * @return null|string|array
      */
     public function getValue()
@@ -69,6 +93,7 @@ final class ProductAttribute
     }
 
     /**
+     * @deprecated
      * @return int[]
      */
     public function getValueIds(): array
@@ -88,5 +113,13 @@ final class ProductAttribute
     public function getType(): AttributeType
     {
         return $this->type;
+    }
+
+    /**
+     * @return null|ProductAttributeValue[]
+     */
+    public function getValues(): ?array
+    {
+        return $this->values;
     }
 }

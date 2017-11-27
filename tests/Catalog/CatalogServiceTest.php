@@ -78,9 +78,10 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetMVPById()
     {
-        $mvp = $this->buildCatalogService()->getProductById('abc671d5-3106-4d28-ba43-0257b0bb8987');
+        $mvp = $this->buildCatalogService()->getProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
         $this->assertInstanceOf(Product::class, $mvp);
 
+        $this->assertSame('a6e53f40-f4c5-3d56-af1d-cc83fd695feb', $mvp->getId());
         $this->assertSame('Test MVP', $mvp->getName());
         $this->assertCount(2, $mvp->getCompanies());
         $this->assertCount(2, $mvp->getDeclinations());
@@ -101,6 +102,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => 3,
                 'name' => 'Commentaire',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => 3,
+                        'name' => 'Commentaire #12M%M_°09£*/.?',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => 'Commentaire #12M%M_°09£*/.?',
                 'valueIds' => [],
                 'children' => [],
@@ -110,6 +120,24 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => 1,
                 'name' => 'Couleur',
+                'values' => [
+                    [
+                        'id' => 2,
+                        'attributeId' => 1,
+                        'name' => 'Blanc',
+                        'slug' => 'blanc',
+                        'image' => null,
+                    ],
+                    [
+                        'id' => 3,
+                        'attributeId' => 1,
+                        'name' => 'Rouge',
+                        'slug' => 'rouge',
+                        'image' => [
+                            'id' => 5,
+                        ],
+                    ],
+                ],
                 'value' => [
                     'Blanc',
                     'Rouge',
@@ -122,12 +150,22 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => 4,
                 'name' => 'Groupe attributs',
+                'values' => null,
                 'value' => null,
                 'valueIds' => [],
                 'children' => [
                     [
                         'id' => 7,
                         'name' => 'Complément adresse',
+                        'values' => [
+                            [
+                                'id' => null,
+                                'attributeId' => 7,
+                                'name' => 'Complément d\'adresse pour la stepo',
+                                'slug' => '',
+                                'image' => null,
+                            ],
+                        ],
                         'value' => 'Complément d\'adresse pour la stepo',
                         'valueIds' => [],
                         'children' => [],
@@ -137,6 +175,17 @@ final class CatalogServiceTest extends ApiTestCase
                     [
                         'id' => 5,
                         'name' => 'Couleur secondaire',
+                        'values' => [
+                            [
+                                'id' => 9,
+                                'attributeId' => 5,
+                                'name' => 'Orange',
+                                'slug' => 'orange',
+                                'image' => [
+                                    'id' => 6,
+                                ],
+                            ],
+                        ],
                         'value' => ['Orange'],
                         'valueIds' => [9],
                         'children' => [],
@@ -146,6 +195,17 @@ final class CatalogServiceTest extends ApiTestCase
                     [
                         'id' => 6,
                         'name' => 'Pointure',
+                        'values' => [
+                            [
+                                'id' => 17,
+                                'attributeId' => 6,
+                                'name' => '44',
+                                'slug' => '44',
+                                'image' => [
+                                    'id' => 7,
+                                ],
+                            ],
+                        ],
                         'value' => ['44'],
                         'valueIds' => [17],
                         'children' => [],
@@ -159,6 +219,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => 9,
                 'name' => 'Marque',
+                'values' => [
+                    [
+                        'id' => 20,
+                        'attributeId' => 9,
+                        'name' => 'Puma',
+                        'slug' => 'puma',
+                        'image' => null,
+                    ],
+                ],
                 'value' => ['Puma'],
                 'valueIds' => [20],
                 'children' => [],
@@ -168,6 +237,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => 2,
                 'name' => 'Taille',
+                'values' => [
+                    [
+                        'id' => 5,
+                        'attributeId' => 2,
+                        'name' => 'M',
+                        'slug' => 'm',
+                        'image' => null,
+                    ],
+                ],
                 'value' => ['M'],
                 'valueIds' => [5],
                 'children' => [],
@@ -177,6 +255,29 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => null,
                 'name' => 'Free attribute multiple',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'réponse - 1 #',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'réponse - 2 @',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => '4985',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => [
                     'réponse - 1 #',
                     'réponse - 2 @',
@@ -190,6 +291,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => null,
                 'name' => 'Free attribute simple',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => ['valeur simple du free attribute #12M%M_°09£*/.?'],
                 'valueIds' => [],
                 'children' => [],
@@ -199,6 +309,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => null,
                 'name' => 'Free attribute simple mais en tableau',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'une bien belle valeur déjà encapsulée',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => ['une bien belle valeur déjà encapsulée'],
                 'valueIds' => [],
                 'children' => [],
@@ -208,6 +327,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => null,
                 'name' => 'Free attribute integer ?',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => '92254094',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => [92254094],
                 'valueIds' => [],
                 'children' => [],
@@ -217,6 +345,15 @@ final class CatalogServiceTest extends ApiTestCase
             new ProductAttribute([
                 'id' => null,
                 'name' => 'Free attribute integer mais en tableau',
+                'values' => [
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'la même histoire par ici',
+                        'slug' => '',
+                        'image' => null,
+                    ],
+                ],
                 'value' => ['la même histoire par ici'],
                 'valueIds' => [],
                 'children' => [],
@@ -225,7 +362,11 @@ final class CatalogServiceTest extends ApiTestCase
             ]),
         ];
 
-        $this->assertEquals($expectedAttributes, $product->getAttributes());
+        $actualAttributes = $product->getAttributes();
+        $this->sortAttributesById($expectedAttributes);
+        $this->sortAttributesById($actualAttributes);
+
+        $this->assertEquals($expectedAttributes, $actualAttributes);
 
         $brand = $catalogService->getBrand($product);
         $this->assertInstanceOf(ProductAttributeValue::class, $brand);
@@ -1283,7 +1424,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $attachments = $this->buildCatalogService()->getProductById('7')->getAttachments();
 
-        $this->assertCount(1, $attachments);
+        $this->assertCount(2, $attachments);
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
 
         $attachment = $attachments[0];
@@ -1416,5 +1557,18 @@ final class CatalogServiceTest extends ApiTestCase
     private function buildCatalogService(): CatalogService
     {
         return new CatalogService($this->buildApiClient());
+    }
+
+    private function sortAttributesById(array &$attributes): void
+    {
+        usort($attributes, [$this, 'compareAttributesById']);
+    }
+
+    /**
+     * Had to make a method of it (instead of a closure) because of a phpcs bug
+     */
+    private function compareAttributesById(ProductAttribute $a, ProductAttribute $b): int
+    {
+        return $a->getId() <=> $b->getId();
     }
 }
