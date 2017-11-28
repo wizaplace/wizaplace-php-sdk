@@ -9,6 +9,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Discussion;
 
 use GuzzleHttp\Psr7\Response;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
@@ -51,6 +52,56 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->expectExceptionMessage('The product 42 has not been found.');
 
         $this->discussionService->startDiscussion(42);
+    }
+
+    public function testStartDiscussionWithVendor()
+    {
+        $discussion = $this->discussionService->startDiscussionWithVendor(3);
+
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 2,
+                'recipient' => 'The World Company Inc.',
+                'productId' => 0,
+                'title' => 'Contact The World Company Inc.',
+                'unreadCount' => 0,
+            ]
+        );
+
+        $this->assertEquals($expectedDiscussion, $discussion);
+    }
+
+    public function testStartDiscussionOnInexistantVendor()
+    {
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('Company 404 has not been found.');
+
+        $this->discussionService->startDiscussionWithVendor(404);
+    }
+
+    public function testStartDiscussionFromDeclinationId()
+    {
+        $discussion = $this->discussionService->startDiscussionFromDeclinationId(new DeclinationId('1_0'));
+
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 2,
+                'recipient' => 'The World Company Inc.',
+                'productId' => 1,
+                'title' => 'A propos du produit Z11 Plus Boîtier PC en Acier ATX',
+                'unreadCount' => 0,
+            ]
+        );
+
+        $this->assertEquals($expectedDiscussion, $discussion);
+    }
+
+    public function testStartDiscussionOnInexistantDeclinationId()
+    {
+        $this->expectExceptionCode(404);
+        $this->expectExceptionMessage('The product with declination 404_1_2 has not been found.');
+
+        $this->discussionService->startDiscussionFromDeclinationId(new DeclinationId('404_1_2'));
     }
 
     public function testListDiscussions()

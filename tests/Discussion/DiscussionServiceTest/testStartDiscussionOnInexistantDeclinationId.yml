@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 28 Nov 2017 13:47:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2313c2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2313c2'
+            Content-Length: '62'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"XVWMqt3r\/uV7GFnaRYWBuUWz2gELDsoiKB\/Bf59b"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            Authorization: 'token XVWMqt3r/uV7GFnaRYWBuUWz2gELDsoiKB/Bf59b'
+            VCR-index: '1'
+            Accept: null
+        body: '{"declinationId":"404_1_2"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Tue, 28 Nov 2017 13:47:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ca8b4a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca8b4a'
+            Content-Length: '47'
+            Content-Type: application/json
+        body: '{"message":"Product \u0022404\u0022 not found"}'
