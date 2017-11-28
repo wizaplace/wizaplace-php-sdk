@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
@@ -88,6 +89,44 @@ final class DiscussionService extends AbstractService
             return new Discussion($discussionData);
         } catch (ClientException $e) {
             throw new NotFound('The product '.$productId.' has not been found.');
+        }
+    }
+
+    /**
+     * Start a discussion with a vendor about a specific product.
+     *
+     * @throws NotFound
+     * @throws AuthenticationRequired
+     */
+    public function startDiscussionWithVendor(int $companyId): Discussion
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['companyId' => $companyId]]);
+
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            throw new NotFound('Company '.$companyId.' has not been found.');
+        }
+    }
+
+    /**
+     * Start a discussion with a vendor about a specific product identified by its declination ID.
+     *
+     * @throws NotFound
+     * @throws AuthenticationRequired
+     */
+    public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['declinationId' => (string) $declinationId]]);
+
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            throw new NotFound('The product with declination '.$declinationId.' has not been found.');
         }
     }
 

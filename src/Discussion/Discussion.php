@@ -33,7 +33,7 @@ final class Discussion
     {
         $this->id = $data['id'];
         $this->recipient = $data['recipient'];
-        $this->productId = to_int($data['productId']);
+        $this->productId = to_int($data['productId'] ?? 0);
         $this->title = $data['title'];
         $this->unreadCount = $data['unreadCount'];
     }
