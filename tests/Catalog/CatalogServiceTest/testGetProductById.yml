@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            User-Agent: Wizaplace-PHP-SDK/9999999-dev@eab64ed
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Oct 2017 13:07:12 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 27 Nov 2017 09:14:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '516524'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/516524'
-            Content-Length: '1281'
+            X-Debug-Token: f070d4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f070d4'
+            Content-Length: '1261'
             Content-Type: application/json
-        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/informatique\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"}],"geolocation":null,"video":null,"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":11,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
+        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"video":null,"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":11,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
