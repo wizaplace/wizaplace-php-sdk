@@ -12,6 +12,7 @@
 - Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValue`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithVendor`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionFromDeclinationId`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
 
 ### Bugfixes
 
