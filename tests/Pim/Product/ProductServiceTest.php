@@ -274,7 +274,8 @@ final class ProductServiceTest extends ApiTestCase
     /**
      * @see \Wizaplace\SDK\Tests\Pim\Product\ProductServiceTest::testListProductsWithStatusFilter
      */
-    public function statusProvider(): array {
+    public function statusProvider(): array
+    {
         return [
             'enabled' => [ProductStatus::ENABLED(), 2],
             'hidden' => [ProductStatus::HIDDEN(), 0], // @TODO: add hidden products in fixtures
@@ -324,7 +325,8 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
-    public function multiFilterProvider(): array {
+    public function multiFilterProvider(): array
+    {
         return [
             'enabled, in a specific category or its subcategories' => [
                 ProductStatus::ENABLED(),
@@ -335,7 +337,7 @@ final class ProductServiceTest extends ApiTestCase
                     4 => true,
                 ],
                 null,
-                2
+                2,
             ],
             'enabled, in a specific category or its subcategories, with a specific product code' => [
                 ProductStatus::ENABLED(),
@@ -345,7 +347,7 @@ final class ProductServiceTest extends ApiTestCase
                     4 => true,
                 ],
                 '0000001',
-                1
+                1,
             ],
             'disabled, in a specific category or its subcategories' => [
                 ProductStatus::DISABLED(),
@@ -353,7 +355,7 @@ final class ProductServiceTest extends ApiTestCase
                 true,
                 [],
                 null,
-                0
+                0,
             ],
             'enabled, with a specific product code' => [
                 ProductStatus::ENABLED(),
@@ -361,7 +363,7 @@ final class ProductServiceTest extends ApiTestCase
                 false,
                 null,
                 '20230495445',
-                1
+                1,
             ],
             'disabled, with a specific product code which is enabled' => [
                 ProductStatus::DISABLED(),
@@ -369,7 +371,7 @@ final class ProductServiceTest extends ApiTestCase
                 false,
                 [],
                 '20230495445',
-                0
+                0,
             ],
         ];
     }
