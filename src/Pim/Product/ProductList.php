@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Pim\Product;
 
 use Wizaplace\SDK\Pagination;
+use function theodorejb\polycast\to_int;
 
 class ProductList
 {
@@ -28,7 +29,7 @@ class ProductList
         $this->pagination = new Pagination([
             'page' => $data['params']['page'],
             'nbResults' => $data['params']['total_items'],
-            'nbPages' => floor($data['params']['total_items']/$data['params']['items_per_page']) + ($data['params']['total_items']%$data['params']['items_per_page'] ? 1 : 0),
+            'nbPages' => $this->calculateNbPages(to_int($data['params']['items_per_page']), to_int($data['params']['total_items'])),
             'resultsPerPage' => $data['params']['items_per_page'],
         ]);
     }
@@ -44,5 +45,16 @@ class ProductList
     public function getPagination(): Pagination
     {
         return $this->pagination;
+    }
+
+    private function calculateNbPages(int $itemsPerPage, int $totalItems) : int
+    {
+        $nbPages = to_int(floor($totalItems / $itemsPerPage));
+
+        if (($totalItems % $itemsPerPage) !== 0) {
+            $nbPages++;
+        }
+
+        return $nbPages;
     }
 }
