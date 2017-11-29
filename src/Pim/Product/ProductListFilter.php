@@ -46,6 +46,8 @@ final class ProductListFilter
     public function byStatus(ProductStatus $status): self
     {
         $this->status = $status;
+
+        return $this;
     }
 
     /**

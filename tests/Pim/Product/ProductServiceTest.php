@@ -256,9 +256,30 @@ final class ProductServiceTest extends ApiTestCase
         ], $categoriesIds);
     }
 
-    public function testListProductsWithStatusFilter()
+    /**
+     * @dataProvider statusProvider
+     */
+    public function testListProductsWithStatusFilter(ProductStatus $status, int $minimumExpectedCount)
     {
-        // @TODO
+        $filter = (new ProductListFilter())->byStatus($status);
+        $products = $this->buildProductService()->listProducts($filter)->getProducts();
+        $this->assertContainsOnly(ProductSummary::class, $products);
+        $this->assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+
+        foreach ($products as $product) {
+            $this->assertTrue($status->equals($product->getStatus()));
+        }
+    }
+
+    /**
+     * @see \Wizaplace\SDK\Tests\Pim\Product\ProductServiceTest::testListProductsWithStatusFilter
+     */
+    public function statusProvider(): array {
+        return [
+            'enabled' => [ProductStatus::ENABLED(), 2],
+            'hidden' => [ProductStatus::HIDDEN(), 0], // @TODO: add hidden products in fixtures
+            'disabled' => [ProductStatus::DISABLED(), 0], // @TODO: add disabled products in fixtures
+        ];
     }
 
     public function testListProductsWithMultipleFilters()
