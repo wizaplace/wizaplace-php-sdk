@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:14:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 61d385
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/61d385'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"KKsV4YUU4MYb19NYQakp0tQd0z1UHwJttHXMJdi6"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&status=A&cid%5B0%5D=3&subcats=Y'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            Authorization: 'token KKsV4YUU4MYb19NYQakp0tQd0z1UHwJttHXMJdi6'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:14:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 09591f
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/09591f'
+            Content-Length: '1835'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511950429,"updated_timestamp":1511950429,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511950429,"updated_timestamp":1511950431,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","category_ids":[3],"main_category":3,"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":3,"product_code":"0000001","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511950434,"updated_timestamp":1511950434,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Ecran PC Full HD Noir","category_ids":[4],"main_category":4,"green_tax":0.0,"supplier_ref":"INFO-ECRAN-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"1","sort_by":"null","items_per_page":"100","status":"A","cid":["3"],"subcats":"Y","sort_order":"asc","total_items":"3"}}'

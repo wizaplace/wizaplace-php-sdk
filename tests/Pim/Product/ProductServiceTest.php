@@ -282,9 +282,96 @@ final class ProductServiceTest extends ApiTestCase
         ];
     }
 
-    public function testListProductsWithMultipleFilters()
-    {
-        // @TODO
+    /**
+     * @dataProvider multiFilterProvider
+     */
+    public function testListProductsWithMultipleFilters(
+        ?ProductStatus $status = null,
+        ?array $categoryIds = null,
+        bool $includeSubCategories,
+        ?array $expectedCategoryIds,
+        ?string $productCode = null,
+        int $minimumExpectedCount = 1
+    ) {
+        $filter = new ProductListFilter();
+        if ($status !== null) {
+            $filter->byStatus($status);
+        }
+        if ($categoryIds !== null) {
+            $filter->byCategoryIds($categoryIds, $includeSubCategories);
+        }
+        if ($productCode !== null) {
+            $filter->byProductCode($productCode);
+        }
+
+        $products = $this->buildProductService()->listProducts($filter)->getProducts();
+        $this->assertContainsOnly(ProductSummary::class, $products);
+        $this->assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+
+        $categoriesIds = [];
+        foreach ($products as $product) {
+            $categoriesIds[$product->getMainCategoryId()] = true;
+            if ($status !== null) {
+                $this->assertTrue($status->equals($product->getStatus()));
+            }
+            if ($productCode !== null) {
+                $this->assertSame($productCode, $product->getCode());
+            }
+        }
+
+        if ($expectedCategoryIds !== null) {
+            $this->assertSame($expectedCategoryIds, $categoriesIds);
+        }
+    }
+
+    public function multiFilterProvider(): array {
+        return [
+            'enabled, in a specific category or its subcategories' => [
+                ProductStatus::ENABLED(),
+                [3],
+                true,
+                [
+                    3 => true,
+                    4 => true,
+                ],
+                null,
+                2
+            ],
+            'enabled, in a specific category or its subcategories, with a specific product code' => [
+                ProductStatus::ENABLED(),
+                [3],
+                true,
+                [
+                    4 => true,
+                ],
+                '0000001',
+                1
+            ],
+            'disabled, in a specific category or its subcategories' => [
+                ProductStatus::DISABLED(),
+                [3],
+                true,
+                [],
+                null,
+                0
+            ],
+            'enabled, with a specific product code' => [
+                ProductStatus::ENABLED(),
+                null,
+                false,
+                null,
+                '20230495445',
+                1
+            ],
+            'disabled, with a specific product code which is enabled' => [
+                ProductStatus::DISABLED(),
+                null,
+                false,
+                [],
+                '20230495445',
+                0
+            ],
+        ];
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
