@@ -7,16 +7,20 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 1.2.0
+
+### New features
+
 - Added `\Wizaplace\SDK\Catalog\ProductAttribute::getValues`
 - Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValueIds`
 - Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValue`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithVendor`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionFromDeclinationId`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
-
-### Bugfixes
-
-</details>
 
 ## 1.1.0
 
