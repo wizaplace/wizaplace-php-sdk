@@ -11,6 +11,15 @@
 
 </details>
 
+## 1.3.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
+ - Added `\Wizaplace\SDK\Catalog\Product::getCreatedAt`
+ - Added `\Wizaplace\SDK\Catalog\Product::getUpdatedAt`
+
 ## 1.2.0
 
 ### New features

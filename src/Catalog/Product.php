@@ -80,6 +80,18 @@ final class Product
     /** @var ProductAttachment[] */
     private $attachments;
 
+    /** @var string */
+    private $seoTitle;
+
+    /** @var string */
+    private $seoDescription;
+
+    /** @var \DateTimeImmutable|null */
+    private $createdAt;
+
+    /** @var \DateTimeImmutable|null */
+    private $updatedAt;
+
     /**
      * @internal
      */
@@ -123,6 +135,10 @@ final class Product
         $this->attachments = array_map(static function (array $attachmentData) use ($apiBaseUrl) : ProductAttachment {
             return new ProductAttachment($attachmentData, $apiBaseUrl);
         }, $data['attachments'] ?? []);
+        $this->seoTitle = $data['seoData']['title'] ?? '';
+        $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
+        $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
     }
 
     public function getId(): string
@@ -337,5 +353,25 @@ final class Product
     public function getAttachments(): array
     {
         return $this->attachments;
+    }
+
+    public function getSeoTitle(): string
+    {
+        return $this->seoTitle;
+    }
+
+    public function getSeoDescription(): string
+    {
+        return $this->seoDescription;
+    }
+
+    public function getCreatedAt(): ?\DateTimeInterface
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
     }
 }

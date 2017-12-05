@@ -74,6 +74,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
+
+        $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
+        $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
     }
 
     public function testGetMVPById()
@@ -1552,6 +1555,45 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThanOrEqual(0.0, $priceFacet->getMin());
         $this->assertInternalType('float', $priceFacet->getMax());
         $this->assertGreaterThan(0.0, $priceFacet->getMax());
+    }
+
+    public function testGetProductWithSeoData()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('4');
+
+        $this->assertSame('4', $product->getId());
+        $this->assertSame('Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon', $product->getName());
+
+        $this->assertSame('Micro-Casque Corsair Gaming', $product->getSeoTitle());
+        $this->assertSame('Achat Micro-casque Corsair Gaming VOID Pro RGB Dolby 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
+    }
+
+    public function testGetProductWithoutSeoDescription()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('5');
+
+        $this->assertSame('5', $product->getId());
+        $this->assertSame('Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround', $product->getName());
+
+        $this->assertSame('Micro-Casque Logitech Gaming', $product->getSeoTitle());
+        $this->assertSame('', $product->getSeoDescription());
+    }
+
+    public function testGetProductWithoutSeoTitle()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('6');
+
+        $this->assertSame('6', $product->getId());
+        $this->assertSame('Casque Gaming Razer ManO\'War Sans fil 7.1 Surround (PC/PS4)', $product->getName());
+
+        $this->assertSame('', $product->getSeoTitle());
+        $this->assertSame('Achat Micro-casque Razer ManO\'War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
     }
 
     private function buildCatalogService(): CatalogService
