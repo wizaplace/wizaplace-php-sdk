@@ -1,3 +1,4 @@
+# remove all files (except a specific whitelist) from the export made by `git archive`
 * export-ignore
 src/ !export-ignore
 src/** !export-ignore
