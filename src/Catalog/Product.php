@@ -129,8 +129,8 @@ final class Product
         $this->attachments = array_map(static function (array $attachmentData) use ($apiBaseUrl) : ProductAttachment {
             return new ProductAttachment($attachmentData, $apiBaseUrl);
         }, $data['attachments'] ?? []);
-        $this->seoTitle = $data['seoData']['title'];
-        $this->seoDescription = $data['seoData']['description'];
+        $this->seoTitle = $data['seoData']['title'] ?? '';
+        $this->seoDescription = $data['seoData']['description'] ?? '';
     }
 
     public function getId(): string
