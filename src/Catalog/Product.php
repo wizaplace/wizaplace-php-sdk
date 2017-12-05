@@ -80,6 +80,12 @@ final class Product
     /** @var ProductAttachment[] */
     private $attachments;
 
+    /** @var string */
+    private $seoTitle;
+
+    /** @var string */
+    private $seoDescription;
+
     /**
      * @internal
      */
@@ -123,6 +129,8 @@ final class Product
         $this->attachments = array_map(static function (array $attachmentData) use ($apiBaseUrl) : ProductAttachment {
             return new ProductAttachment($attachmentData, $apiBaseUrl);
         }, $data['attachments'] ?? []);
+        $this->seoTitle = $data['seoData']['title'];
+        $this->seoDescription = $data['seoData']['description'];
     }
 
     public function getId(): string
@@ -337,5 +345,15 @@ final class Product
     public function getAttachments(): array
     {
         return $this->attachments;
+    }
+
+    public function getSeoTitle(): string
+    {
+        return $this->seoTitle;
+    }
+
+    public function getSeoDescription(): string
+    {
+        return $this->seoDescription;
     }
 }
