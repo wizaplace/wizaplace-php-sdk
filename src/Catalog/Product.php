@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Nette\Utils\DateTime;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_float;
@@ -86,6 +87,12 @@ final class Product
     /** @var string */
     private $seoDescription;
 
+    /** @var \DateTimeImmutable|null */
+    private $createdAt;
+
+    /** @var \DateTimeImmutable|null */
+    private $updatedAt;
+
     /**
      * @internal
      */
@@ -131,6 +138,8 @@ final class Product
         }, $data['attachments'] ?? []);
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) ?? null;
+        $this->updatedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) ?? null;
     }
 
     public function getId(): string
@@ -355,5 +364,15 @@ final class Product
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
+    }
+
+    public function getCreatedAt(): \DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
+
+    public function getUpdatedAt(): \DateTimeImmutable
+    {
+        return $this->updatedAt;
     }
 }
