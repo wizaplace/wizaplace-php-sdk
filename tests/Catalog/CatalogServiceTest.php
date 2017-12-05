@@ -1554,6 +1554,129 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(0.0, $priceFacet->getMax());
     }
 
+    public function testGetProductWithSeoData()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('4');
+
+        $this->assertSame('4', $product->getId());
+        $this->assertSame('casque-corsair-gaming', $product->getSlug());
+        $this->assertSame('Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon', $product->getName());
+        $this->assertSame('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(2, $product->getCategoryPath());
+        $this->assertSame('7531596248951', $product->getCode());
+        $this->assertSame(54.2, $product->getMinPrice());
+        $this->assertCount(3, $product->getShippings());
+        $this->assertSame('', $product->getShortDescription());
+        $this->assertSame('CORSAIR-CASQUE-GAMING', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
+        $this->assertSame(0.0, $product->getGreenTax());
+        $this->assertSame(1.23, $product->getWeight());
+        $this->assertNull($product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertSame(3, $companies[0]->getId());
+        $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
+        $this->assertSame('Micro-Casque Corsair Gaming', $product->getSeoTitle());
+        $this->assertSame('Achat Micro-casque Corsair Gaming VOID Pro RGB Dolby 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
+    }
+
+    public function testGetProductWithoutSeoDescription()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('5');
+
+        $this->assertSame('5', $product->getId());
+        $this->assertSame('casque-logitech-gaming', $product->getSlug());
+        $this->assertSame('Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround', $product->getName());
+        $this->assertSame('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(2, $product->getCategoryPath());
+        $this->assertSame('7531596248952', $product->getCode());
+        $this->assertSame(61.5, $product->getMinPrice());
+        $this->assertCount(3, $product->getShippings());
+        $this->assertSame('', $product->getShortDescription());
+        $this->assertSame('LOGITECH-CASQUE-GAMING', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
+        $this->assertSame(0.0, $product->getGreenTax());
+        $this->assertSame(1.23, $product->getWeight());
+        $this->assertNull($product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertSame(3, $companies[0]->getId());
+        $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
+        $this->assertSame('Micro-Casque Logitech Gaming', $product->getSeoTitle());
+        $this->assertSame('', $product->getSeoDescription());
+    }
+
+    public function testGetProductWithoutSeoTitle()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('6');
+
+        $this->assertSame('6', $product->getId());
+        $this->assertSame('casque-razer-gaming', $product->getSlug());
+        $this->assertSame('Casque Gaming Razer ManO\'War Sans fil 7.1 Surround (PC/PS4)', $product->getName());
+        $this->assertSame('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(2, $product->getCategoryPath());
+        $this->assertSame('7531596248953', $product->getCode());
+        $this->assertSame(73.7, $product->getMinPrice());
+        $this->assertCount(3, $product->getShippings());
+        $this->assertSame('', $product->getShortDescription());
+        $this->assertSame('RAZER-CASQUE-GAMING', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
+        $this->assertSame(0.0, $product->getGreenTax());
+        $this->assertSame(1.23, $product->getWeight());
+        $this->assertNull($product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertSame(3, $companies[0]->getId());
+        $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
+        $this->assertSame('', $product->getSeoTitle());
+        $this->assertSame('Achat Micro-casque Razer ManO\'War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
+    }
+
     private function buildCatalogService(): CatalogService
     {
         return new CatalogService($this->buildApiClient());

@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@c9ac1e3
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 05 Dec 2017 09:29:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6d847a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d847a'
+            Content-Length: '1669'
+            Content-Type: application/json
+        body: '{"id":4,"code":"7531596248951","supplierReference":"CORSAIR-CASQUE-GAMING","name":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-corsair-gaming.html","shortDescription":"","description":"","slug":"casque-corsair-gaming","minPrice":54.2,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2017-12-05T09:29:03+00:00","updatedAt":"2017-12-05T09:29:04+00:00","video":null,"seoData":{"title":"Micro-Casque Corsair Gaming","description":"Achat Micro-casque Corsair Gaming VOID Pro RGB Dolby 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer."},"declinations":[{"id":"4_0","code":"7531596248951","isAvailable":true,"supplierReference":"CORSAIR-CASQUE-GAMING","price":54.2,"originalPrice":54.2,"crossedOutPrice":null,"prices":{"priceWithTaxes":54.2,"priceWithoutVat":53.09,"vat":1.11},"greenTax":0,"amount":11,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
