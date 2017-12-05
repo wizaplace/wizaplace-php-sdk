@@ -138,8 +138,8 @@ final class Product
         }, $data['attachments'] ?? []);
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
-        $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) ?? null;
-        $this->updatedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) ?? null;
+        $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
+        $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
     }
 
     public function getId(): string
