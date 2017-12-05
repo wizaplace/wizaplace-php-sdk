@@ -9,6 +9,8 @@
 
  - Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
  - Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
+ - Added `\Wizaplace\SDK\Catalog\Product::getCreatedAt`
+ - Added `\Wizaplace\SDK\Catalog\Product::getUpdatedAt`
 
 ### Bugfixes
 

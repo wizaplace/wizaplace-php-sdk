@@ -74,6 +74,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
+
+        $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
+        $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
     }
 
     public function testGetMVPById()
