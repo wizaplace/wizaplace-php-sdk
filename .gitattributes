@@ -1,0 +1,6 @@
+* export-ignore
+src/ !export-ignore
+src/** !export-ignore
+composer.json !export-ignore
+README.md !export-ignore
+CHANGELOG.md !export-ignore
