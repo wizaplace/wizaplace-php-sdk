@@ -7,6 +7,10 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+
 ### Bugfixes
 
 </details>
@@ -29,7 +33,6 @@
 - Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValue`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithVendor`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionFromDeclinationId`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
 
 ## 1.1.0
 

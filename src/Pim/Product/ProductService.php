@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use function theodorejb\polycast\to_int;
 
 final class ProductService extends AbstractService
 {
@@ -37,5 +38,17 @@ final class ProductService extends AbstractService
         ]);
 
         return new ProductList($data);
+    }
+
+    public function createProduct(CreateProductCommand $command): int
+    {
+        $this->client->mustBeAuthenticated();
+        $command->validate();
+
+        $data = $this->client->post('products', [
+            RequestOptions::JSON => $command->toArray(),
+        ]);
+
+        return to_int($data['product_id']);
     }
 }

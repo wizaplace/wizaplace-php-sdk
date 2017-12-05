@@ -7,13 +7,19 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Product;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Pagination;
+use Wizaplace\SDK\Pim\Product\CreateProductCommand;
 use Wizaplace\SDK\Pim\Product\Product;
 use Wizaplace\SDK\Pim\Product\ProductApprovalStatus;
 use Wizaplace\SDK\Pim\Product\ProductAttachment;
+use Wizaplace\SDK\Pim\Product\ProductAttachmentUpload;
 use Wizaplace\SDK\Pim\Product\ProductDeclination;
+use Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductGeolocation;
 use Wizaplace\SDK\Pim\Product\ProductImage;
+use Wizaplace\SDK\Pim\Product\ProductImageUpload;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
@@ -70,7 +76,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductAttachment::class, $product->getAttachments());
         $this->assertSame([2], $product->getTaxIds());
         $this->assertNull($product->getMainImage());
-        $this->assertContainsOnly(ProductImage::class, $product->getAdditionalImages());
+        $this->assertContainsOnly(UriInterface::class, $product->getAdditionalImages());
         $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
         $this->assertCount(1, $product->getDeclinations());
         $this->assertNull($product->getAffiliateLink());
@@ -95,7 +101,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(10, $declination->getQuantity());
         $this->assertSame([6 => 1], $declination->getOptionsVariants());
         $this->assertSame(15.5, $declination->getPrice());
-        $this->assertSame(0.0, $declination->getCrossedOutPrice());
+        $this->assertNull($declination->getCrossedOutPrice());
         $this->assertSame('color_white', $declination->getCode());
         $this->assertNull($declination->getAffiliateLink());
     }
@@ -374,6 +380,122 @@ final class ProductServiceTest extends ApiTestCase
                 0,
             ],
         ];
+    }
+
+    public function testCreateComplexProduct(): void
+    {
+        $data = (new CreateProductCommand())
+            ->setCode("code_full")
+            ->setGreenTax(0.1)
+            ->setIsBrandNew(true)
+            ->setName("Full product")
+            ->setSupplierReference('supplierref_full')
+            ->setStatus(ProductStatus::ENABLED())
+            ->setMainCategoryId(4)
+            ->setFreeAttributes([
+                'freeAttr1' => 'freeAttr1Value',
+                'freeAttr2' => 42,
+                'freeAttr3' => ['freeAttr3Value', 42],
+            ])
+            ->setHasFreeShipping(true)
+            ->setWeight(0.2)
+            ->setIsDownloadable(true)
+            ->setMainImage(new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'))
+            ->setAdditionalImages([
+                (new ProductImageUpload())->setName('image1.png')
+                    ->setMimeType('image/png')
+                    ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
+                new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
+            ])
+            ->setFullDescription("super full description")
+            ->setShortDescription("super short description")
+            ->setTaxIds([1, 2])
+            ->setDeclinations([
+                (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
+                    ->setCode('code_full_declA')
+                    ->setPrice(3.5)
+                    ->setQuantity(12),
+                (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
+                    ->setPrice(100.0)
+                    ->setCrossedOutPrice(1000.0)
+                    ->setQuantity(3),
+            ])
+        ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/api/v1/doc/favicon.png')]);
+        $productService = $this->buildProductService('vendor@wizaplace.com');
+        $productId = $productService->createProduct($data);
+        $this->assertInternalType('int', $productId);
+        $this->assertGreaterThan(0, $productId);
+
+        $product = $productService->getProductById($productId);
+        $this->assertInstanceOf(Product::class, $product);
+
+        $this->assertSame($productId, $product->getId());
+        $this->assertSame(4, $product->getMainCategoryId());
+        $this->assertSame("code_full", $product->getCode());
+        $this->assertSame("Full product", $product->getName());
+        $this->assertSame('supplierref_full', $product->getSupplierReference());
+        $this->assertSame("super full description", $product->getFullDescription());
+        $this->assertSame("super short description", $product->getShortDescription());
+        $this->assertTrue($product->isBrandNew());
+        $this->assertTrue($product->hasFreeShipping());
+        $this->assertSame([1, 2], $product->getTaxIds());
+        $this->assertSame([
+            'freeAttr1' => ['freeAttr1Value'],
+            'freeAttr2' => [42],
+            'freeAttr3' => ['freeAttr3Value', 42],
+        ], $product->getFreeAttributes());
+        $this->assertSame(0.1, $product->getGreenTax());
+        $this->assertSame(0.2, $product->getWeight());
+        $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
+        $this->assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
+        $this->assertTrue($product->isDownloadable());
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
+        $additionalImages = $product->getAdditionalImages();
+        $this->assertCount(2, $additionalImages);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[12]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[13]);
+        $this->assertNotEquals((string) $additionalImages[12], (string) $additionalImages[13]);
+
+        $attachments = $product->getAttachments();
+        $this->assertContainsOnly(ProductAttachment::class, $attachments);
+        $this->assertCount(1, $attachments);
+        $this->assertSame('favicon', $attachments[0]->getLabel());
+        $this->assertNotEmpty($attachments[0]->getId());
+
+        // Checking declinations
+        $declinations = $product->getDeclinations();
+        $this->assertContainsOnly(ProductDeclination::class, $declinations);
+        $this->assertCount(4, $declinations);
+
+        $this->assertSame([6 => 1, 7 => 5, 8 => 10], $declinations[0]->getOptionsVariants());
+        $this->assertNull($declinations[0]->getCode());
+        $this->assertNull($declinations[0]->getAffiliateLink());
+        $this->assertSame(1000.0, $declinations[0]->getCrossedOutPrice());
+        $this->assertSame(3, $declinations[0]->getQuantity());
+        $this->assertSame(100.0, $declinations[0]->getPrice());
+
+        // empty declination generated automatically to complete the matrix
+        $this->assertSame([6 => 1, 7 => 5, 8 => 9], $declinations[1]->getOptionsVariants());
+        $this->assertSame(0.0, $declinations[1]->getPrice());
+        $this->assertSame(0, $declinations[1]->getQuantity());
+        $this->assertNull($declinations[1]->getCrossedOutPrice());
+        $this->assertNull($declinations[1]->getAffiliateLink());
+        $this->assertNull($declinations[1]->getCode());
+
+        // empty declination generated automatically to complete the matrix
+        $this->assertSame([6 => 1, 7 => 6, 8 => 10], $declinations[2]->getOptionsVariants());
+        $this->assertSame(0.0, $declinations[2]->getPrice());
+        $this->assertSame(0, $declinations[2]->getQuantity());
+        $this->assertNull($declinations[2]->getCrossedOutPrice());
+        $this->assertNull($declinations[2]->getAffiliateLink());
+        $this->assertNull($declinations[2]->getCode());
+
+        $this->assertSame([6 => 1, 7 => 6, 8 => 9], $declinations[3]->getOptionsVariants());
+        $this->assertSame(3.5, $declinations[3]->getPrice());
+        $this->assertSame(12, $declinations[3]->getQuantity());
+        $this->assertNull($declinations[3]->getCrossedOutPrice());
+        $this->assertNull($declinations[3]->getAffiliateLink());
+        $this->assertSame('code_full_declA', $declinations[3]->getCode());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
