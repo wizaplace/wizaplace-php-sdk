@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
+
 ### Bugfixes
 
 </details>
