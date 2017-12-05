@@ -7,14 +7,18 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 1.3.0
+
+### New features
+
  - Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
  - Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
  - Added `\Wizaplace\SDK\Catalog\Product::getCreatedAt`
  - Added `\Wizaplace\SDK\Catalog\Product::getUpdatedAt`
-
-### Bugfixes
-
-</details>
 
 ## 1.2.0
 
