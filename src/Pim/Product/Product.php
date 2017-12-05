@@ -7,12 +7,15 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+use GuzzleHttp\Psr7\Uri;
+use Psr\Http\Message\UriInterface;
+
 final class Product extends ProductSummary
 {
-    /** @var null|ProductImage */
+    /** @var UriInterface */
     private $mainImage;
 
-    /** @var ProductImage[] */
+    /** @var UriInterface[] */
     private $additionalImages;
 
     /** @var string */
@@ -37,12 +40,10 @@ final class Product extends ProductSummary
         $this->fullDescription = $data['full_description'];
         $this->shortDescription = $data['short_description'];
         $this->taxIds = $data['tax_ids'];
-        if (isset($data['main_pair']['image_name'])) {
-            $this->mainImage = new ProductImage($data['main_pair']);
+        if (isset($data['main_pair']['detailed']['image_path'])) {
+            $this->mainImage = self::unserializeImage($data['main_pair']);
         }
-        $this->additionalImages = array_map(static function (array $imageData): ProductImage {
-            return new ProductImage($imageData);
-        }, $data['image_pairs'] ?? []);
+        $this->additionalImages = array_map([self::class, 'unserializeImage'], $data['image_pairs'] ?? []);
         $this->declinations = array_map(static function (array $declinationData): ProductDeclination {
             return new ProductDeclination($declinationData);
         }, $data['inventory'] ?? []);
@@ -66,13 +67,13 @@ final class Product extends ProductSummary
         return $this->taxIds;
     }
 
-    public function getMainImage(): ?ProductImage
+    public function getMainImage(): ?UriInterface
     {
         return $this->mainImage;
     }
 
     /**
-     * @return ProductImage[]
+     * @return UriInterface[]
      */
     public function getAdditionalImages(): array
     {
@@ -85,5 +86,10 @@ final class Product extends ProductSummary
     public function getDeclinations(): array
     {
         return $this->declinations;
+    }
+
+    private static function unserializeImage(array $imageData): UriInterface
+    {
+        return new Uri($imageData['detailed']['image_path']);
     }
 }
