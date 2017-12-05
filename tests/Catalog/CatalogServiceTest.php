@@ -75,9 +75,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
-        $startingTime = new \DateTimeImmutable();
-        $this->assertGreaterThanOrEqual(0, $startingTime->diff($product->getCreatedAt())->s);
-        $this->assertGreaterThanOrEqual(0, $startingTime->diff($product->getUpdatedAt())->s);
+        $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
     }
 

@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
-use Nette\Utils\DateTime;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_float;
@@ -366,12 +365,12 @@ final class Product
         return $this->seoDescription;
     }
 
-    public function getCreatedAt(): \DateTimeImmutable
+    public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
-    public function getUpdatedAt(): \DateTimeImmutable
+    public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
     }
