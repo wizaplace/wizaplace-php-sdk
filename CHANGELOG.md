@@ -10,6 +10,7 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
 
 ### Bugfixes
 

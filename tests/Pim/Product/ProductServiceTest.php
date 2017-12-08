@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Pagination;
 use Wizaplace\SDK\Pim\Product\CreateProductCommand;
 use Wizaplace\SDK\Pim\Product\Product;
@@ -260,6 +261,16 @@ final class ProductServiceTest extends ApiTestCase
             3 => true,
             4 => true,
         ], $categoriesIds);
+    }
+
+    public function testDeleteProduct()
+    {
+        $service = $this->buildProductService();
+        $this->assertNotNull($service->getProductById(1));
+        $service->deleteProduct(1);
+
+        $this->expectException(NotFound::class);
+        $service->getProductById(1);
     }
 
     /**
