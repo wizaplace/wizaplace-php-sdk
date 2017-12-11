@@ -7,6 +7,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+
 ### Bugfixes
 
 </details>
