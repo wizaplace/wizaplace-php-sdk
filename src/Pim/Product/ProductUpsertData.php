@@ -309,9 +309,7 @@ abstract class ProductUpsertData
         $builder = Validation::createValidatorBuilder()
             ->addMethodMapping('loadValidatorMetadata');
 
-        if ($this instanceof CreateProductCommand) {
-            // if we are creating a product, most fields can't be null
-            // but if we are updating a product, null fields aren't an issue
+        if (!static::allowsPartialData()) {
             $builder->addMethodMapping('loadNullChecksValidatorMetadata');
         }
 
@@ -333,6 +331,7 @@ abstract class ProductUpsertData
     }
 
     /**
+     * Adds NotNull constraints on most properties.
      * @internal
      */
     public static function loadNullChecksValidatorMetadata(ClassMetadata $metadata): void
@@ -479,6 +478,8 @@ abstract class ProductUpsertData
 
         return $data;
     }
+
+    abstract protected static function allowsPartialData(): bool;
 
     private static function imageToArray($image): array
     {

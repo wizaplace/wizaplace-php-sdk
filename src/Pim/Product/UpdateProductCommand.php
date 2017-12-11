@@ -27,4 +27,9 @@ final class UpdateProductCommand extends ProductUpsertData
     {
         return $this->productId;
     }
+
+    protected static function allowsPartialData(): bool
+    {
+        return true;
+    }
 }
