@@ -7,15 +7,25 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\NotFound;
+use function theodorejb\polycast\to_int;
 
 final class ProductService extends AbstractService
 {
     public function getProductById(int $productId): Product
     {
         $this->client->mustBeAuthenticated();
-        $data = $this->client->get("products/$productId");
+        try {
+            $data = $this->client->get("products/$productId");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} not found", $e);
+            }
+            throw $e;
+        }
 
         return new Product($data);
     }
@@ -37,5 +47,23 @@ final class ProductService extends AbstractService
         ]);
 
         return new ProductList($data);
+    }
+
+    public function createProduct(CreateProductCommand $command): int
+    {
+        $this->client->mustBeAuthenticated();
+        $command->validate();
+
+        $data = $this->client->post('products', [
+            RequestOptions::JSON => $command->toArray(),
+        ]);
+
+        return to_int($data['product_id']);
+    }
+
+    public function deleteProduct(int $productId): void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->delete("products/${productId}");
     }
 }

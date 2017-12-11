@@ -38,7 +38,7 @@ final class ProductDeclination
     public function __construct(array $data)
     {
         $this->quantity = $data['amount'];
-        if (isset($data['combination_code'])) {
+        if (isset($data['combination_code']) && $data['combination_code'] !== '') {
             $this->code = $data['combination_code'];
         }
         $this->optionsVariants = [];
@@ -47,7 +47,7 @@ final class ProductDeclination
             $this->optionsVariants[to_int($optionId)] = to_int($optionVariantId);
         }
         $this->price = to_float($data['price']);
-        if (isset($data['crossed_out_price'])) {
+        if (isset($data['crossed_out_price']) && $data['crossed_out_price'] !== 0.0) {
             $this->crossedOutPrice = to_float($data['crossed_out_price']);
         }
         if (isset($data['affiliate_link']) && $data['affiliate_link'] !== '') {

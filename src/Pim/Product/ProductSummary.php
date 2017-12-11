@@ -87,7 +87,7 @@ class ProductSummary
         if (isset($data['affiliate_link']) && $data['affiliate_link'] !== '') {
             $this->affiliateLink = new Uri($data['affiliate_link']);
         }
-        $this->isDownloadable = isset($data['is_edb']) && $data['is_edb'] === 'Y';
+        $this->isDownloadable = isset($data['is_edp']) && $data['is_edp'] === 'Y';
         $this->hasFreeShipping = $data['free_shipping'] === 'Y';
         $this->status = new ProductStatus($data['status']);
         $this->approvalStatus = new ProductApprovalStatus($data['approved']);

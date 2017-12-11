@@ -7,6 +7,10 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
 
@@ -32,7 +36,6 @@
 - Deprecated `\Wizaplace\SDK\Catalog\ProductAttribute::getValue`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithVendor`
 - Added `\Wizaplace\SDK\Discussion\DiscussionService::startDiscussionFromDeclinationId`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
 
 ## 1.1.0
 
