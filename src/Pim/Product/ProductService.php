@@ -61,6 +61,20 @@ final class ProductService extends AbstractService
         return to_int($data['product_id']);
     }
 
+    public function updateProduct(UpdateProductCommand $command): int
+    {
+        $this->client->mustBeAuthenticated();
+        $command->validate();
+
+        $id = $command->getId();
+
+        $data = $this->client->put("products/${id}", [
+            RequestOptions::JSON => $command->toArray(),
+        ]);
+
+        return to_int($data['product_id']);
+    }
+
     public function deleteProduct(int $productId): void
     {
         $this->client->mustBeAuthenticated();

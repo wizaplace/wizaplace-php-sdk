@@ -63,7 +63,7 @@ abstract class ProductUpsertData
     private $mainImage;
 
     /** @var (UriInterface|ProductImageUpload)[] */
-    private $additionalImages = [];
+    private $additionalImages;
 
     /** @var string */
     private $fullDescription;
@@ -75,10 +75,10 @@ abstract class ProductUpsertData
     private $taxIds;
 
     /** @var ProductDeclinationUpsertData[] */
-    private $declinations = [];
+    private $declinations;
 
     /** @var ProductAttachmentUpload[] */
-    private $attachments = [];
+    private $attachments;
 
     /**
      * @param string $code
@@ -306,7 +306,15 @@ abstract class ProductUpsertData
      */
     public function validate(): void
     {
-        $validator = Validation::createValidatorBuilder()->addMethodMapping('loadValidatorMetadata')->getValidator()->startContext();
+        $builder = Validation::createValidatorBuilder()
+            ->addMethodMapping('loadValidatorMetadata');
+
+        if (!static::allowsPartialData()) {
+            $builder->addMethodMapping('loadNullChecksValidatorMetadata');
+        }
+
+        $validator = $builder->getValidator()
+            ->startContext();
 
         $validator->validate($this);
 
@@ -323,25 +331,39 @@ abstract class ProductUpsertData
     }
 
     /**
+     * Adds NotNull constraints on most properties.
      * @internal
      */
-    public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    public static function loadNullChecksValidatorMetadata(ClassMetadata $metadata): void
     {
         // @TODO: find something more maintainable than this array of strings...
         $nullableProperties = [
             'geolocation',
             'affiliateLink',
             'mainImage',
+            'attachments',
         ];
+
+        foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
+            if (!in_array($prop->getName(), $nullableProperties)) {
+                $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
+            }
+        }
+    }
+
+    /**
+     * @internal
+     */
+    public static function loadValidatorMetadata(ClassMetadata $metadata): void
+    {
+        // @TODO: find something more maintainable than this array of strings...
         $selfValidatingProperties = [
             'geolocation',
             'mainImage',
             'declinations',
         ];
+
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (!in_array($prop->getName(), $nullableProperties)) {
-                $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
-            }
             if (in_array($prop->getName(), $selfValidatingProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Constraints\Valid());
             }
@@ -354,58 +376,110 @@ abstract class ProductUpsertData
      */
     public function toArray(): array
     {
-        $data = [
-            'product_code' => $this->code,
-            'supplier_ref' => $this->supplierReference,
-            'product' => $this->name,
-            'status' => $this->status->getValue(),
-            'main_category' => $this->mainCategoryId,
-            'green_tax' => $this->greenTax,
-            'condition' => $this->isBrandNew ? 'N' : 'U',
-            'free_shipping' => $this->hasFreeShipping ? 'Y' : 'N',
-            'weight' => $this->weight,
-            'is_edp' => $this->isDownloadable ? 'Y' : 'N',
-            'full_description' => $this->fullDescription,
-            'short_description' => $this->shortDescription,
-            'tax_ids' => $this->taxIds,
-            'free_features' => $this->freeAttributes,
-            'inventory' => array_map(function (ProductDeclinationUpsertData $data): array {
-                return $data->toArray();
-            }, $this->declinations),
-            'image_pairs' => array_map([self::class, 'imageToArray'], $this->additionalImages),
-            'attachments' => array_map(function (ProductAttachmentUpload $data): array {
-                return $data->toArray();
-            }, $this->attachments),
-        ];
+        $data = [];
 
-        if ($this->affiliateLink !== null) {
+        if (isset($this->code)) {
+            $data['product_code'] = $this->code;
+        }
+
+        if (isset($this->supplierReference)) {
+            $data['supplier_ref'] = $this->supplierReference;
+        }
+
+        if (isset($this->name)) {
+            $data['product'] = $this->name;
+        }
+
+        if (isset($this->status)) {
+            $data['status'] = $this->status->getValue();
+        }
+
+        if (isset($this->mainCategoryId)) {
+            $data['main_category'] = $this->mainCategoryId;
+        }
+
+        if (isset($this->greenTax)) {
+            $data['green_tax'] = $this->greenTax;
+        }
+
+        if (isset($this->isBrandNew)) {
+            $data['condition'] = $this->isBrandNew ? 'N' : 'U';
+        }
+
+        if (isset($this->hasFreeShipping)) {
+            $data['free_shipping'] = $this->hasFreeShipping ? 'Y' : 'N';
+        }
+
+        if (isset($this->weight)) {
+            $data['weight'] = $this->weight;
+        }
+
+        if (isset($this->isDownloadable)) {
+            $data['is_edp'] = $this->isDownloadable ? 'Y' : 'N';
+        }
+
+        if (isset($this->fullDescription)) {
+            $data['full_description'] = $this->fullDescription;
+        }
+
+        if (isset($this->shortDescription)) {
+            $data['short_description'] = $this->shortDescription;
+        }
+
+        if (isset($this->taxIds)) {
+            $data['tax_ids'] = $this->taxIds;
+        }
+
+        if (isset($this->freeAttributes)) {
+            $data['free_features'] = $this->freeAttributes;
+        }
+
+        if (isset($this->declinations)) {
+            $data['inventory'] = array_map(function (ProductDeclinationUpsertData $data): array {
+                return $data->toArray();
+            }, $this->declinations);
+
+            $allowedOptionsVariants = [];
+            foreach ($data['inventory'] as $inventory) {
+                foreach ($inventory['combination'] as $optionId => $variantId) {
+                    $allowedOptionsVariants[$optionId][] = $variantId;
+                }
+            }
+            $data['allowed_options_variants'] = [];
+            foreach ($allowedOptionsVariants as $optionId => $variantIds) {
+                $data['allowed_options_variants'][] = [
+                    'option_id' => $optionId,
+                    'variants' => array_unique($variantIds),
+                ];
+            }
+        }
+
+        if (isset($this->additionalImages)) {
+            $data['image_pairs'] = array_map([self::class, 'imageToArray'], $this->additionalImages);
+        }
+
+        if (isset($this->attachments)) {
+            $data['attachments'] = array_map(function (ProductAttachmentUpload $data): array {
+                return $data->toArray();
+            }, $this->attachments);
+        }
+
+        if (isset($this->affiliateLink)) {
             $data['affiliate_link'] = to_string($this->affiliateLink);
         }
 
-        if ($this->geolocation !== null) {
+        if (isset($this->geolocation)) {
             $data['geolocation'] = $this->geolocation->toArray();
         }
 
-        if ($this->mainImage !== null) {
+        if (isset($this->mainImage)) {
             $data['main_pair'] = self::imageToArray($this->mainImage);
-        }
-
-        $allowedOptionsVariants = [];
-        foreach ($data['inventory'] as $inventory) {
-            foreach ($inventory['combination'] as $optionId => $variantId) {
-                $allowedOptionsVariants[$optionId][] = $variantId;
-            }
-        }
-        $data['allowed_options_variants'] = [];
-        foreach ($allowedOptionsVariants as $optionId => $variantIds) {
-            $data['allowed_options_variants'][] = [
-                'option_id' => $optionId,
-                'variants' => array_unique($variantIds),
-            ];
         }
 
         return $data;
     }
+
+    abstract protected static function allowsPartialData(): bool;
 
     private static function imageToArray($image): array
     {
