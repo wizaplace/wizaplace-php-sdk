@@ -11,6 +11,8 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
 
 ### Bugfixes
 
