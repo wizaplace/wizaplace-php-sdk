@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+/**
+ * Holds the data for a product update.
+ * Partial updates are allowed (you do not need to set all fields).
+ */
 final class UpdateProductCommand extends ProductUpsertData
 {
     /**
