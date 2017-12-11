@@ -12,15 +12,15 @@ final class UpdateProductCommand extends ProductUpsertData
     /**
      * @var int
      */
-    private $id;
+    private $productId;
 
-    public function __construct(int $id)
+    public function __construct(int $productId)
     {
-        $this->id = $id;
+        $this->productId = $productId;
     }
 
     public function getId(): int
     {
-        return $this->id;
+        return $this->productId;
     }
 }
