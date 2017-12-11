@@ -56,9 +56,6 @@ final class ProductUpsertDataTest extends TestCase
             'allowed_options_variants' =>
                 array (
                 ),
-            'attachments' =>
-                array (
-                ),
         ), $array);
     }
 
