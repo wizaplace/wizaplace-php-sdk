@@ -22,6 +22,28 @@ class OrderService extends AbstractService
         $this->setOrderIsAccepted($orderId, false);
     }
 
+    /**
+     * @param null|OrderStatus $statusFilter
+     * @return OrderSummary[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function listOrders(?OrderStatus $statusFilter = null): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $query = [];
+        if ($statusFilter !== null) {
+            $query['status'] = $statusFilter->getValue();
+        }
+        $data = $this->client->get('orders', [
+            RequestOptions::QUERY => $query,
+        ]);
+
+        return array_map(function (array $orderData): OrderSummary {
+            return new OrderSummary($orderData);
+        }, $data);
+    }
+
     public function getOrderById(int $orderId): Order
     {
         $this->client->mustBeAuthenticated();

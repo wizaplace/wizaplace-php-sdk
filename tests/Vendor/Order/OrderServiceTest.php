@@ -13,6 +13,7 @@ use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
 use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
+use Wizaplace\SDK\Vendor\Order\OrderSummary;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
 
 class OrderServiceTest extends ApiTestCase
@@ -33,6 +34,43 @@ class OrderServiceTest extends ApiTestCase
         $orderService->declineOrder(5);
 
         $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($orderService->getOrderById(5)->getStatus()));
+    }
+
+    public function testListOrders(): void
+    {
+        $orders = $this->buildVendorOrderService()->listOrders();
+
+        $this->assertContainsOnly(OrderSummary::class, $orders);
+        $this->assertCount(2, $orders);
+
+        $order = $orders[0];
+        $this->assertSame(5, $order->getOrderId());
+        $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
+        $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
+        $this->assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
+
+        $order = $orders[1];
+        $this->assertSame(4, $order->getOrderId());
+        $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
+        $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
+        $this->assertTrue(OrderStatus::COMPLETED()->equals($order->getStatus()));
+    }
+
+    public function testListOrdersWithFilter(): void
+    {
+        $orders = $this->buildVendorOrderService()->listOrders(OrderStatus::STANDBY_VENDOR());
+
+        $this->assertContainsOnly(OrderSummary::class, $orders);
+        $this->assertCount(1, $orders);
+
+        $order = $orders[0];
+        $this->assertSame(5, $order->getOrderId());
+        $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
+        $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
+        $this->assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
     }
 
     public function testGetOrderById(): void
