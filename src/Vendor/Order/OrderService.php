@@ -22,6 +22,14 @@ class OrderService extends AbstractService
         $this->setOrderIsAccepted($orderId, false);
     }
 
+    public function getOrderById(int $orderId): Order
+    {
+        $this->client->mustBeAuthenticated();
+        $data = $this->client->get("orders/${orderId}");
+
+        return new Order($data);
+    }
+
     private function setOrderIsAccepted(int $orderId, bool $accepted): void
     {
         $this->client->mustBeAuthenticated();
