@@ -13,7 +13,7 @@ final class OrderAddress
     private $address;
 
     /** @var string */
-    private $address2;
+    private $complementaryAddress;
 
     /** @var string */
     private $city;
@@ -39,7 +39,7 @@ final class OrderAddress
     public function __construct(array $data)
     {
         $this->address = $data['address'];
-        $this->address2 = $data['address_2'];
+        $this->complementaryAddress = $data['address_2'];
         $this->city = $data['city'];
         $this->countryCode = $data['country'];
         $this->firstName = $data['firstname'];
@@ -53,9 +53,9 @@ final class OrderAddress
         return $this->address;
     }
 
-    public function getAddress2(): string
+    public function getComplementaryAddress(): string
     {
-        return $this->address2;
+        return $this->complementaryAddress;
     }
 
     public function getCity(): string

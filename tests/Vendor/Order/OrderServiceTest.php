@@ -61,7 +61,7 @@ class OrderServiceTest extends ApiTestCase
         $shippingAddress = $order->getShippingAddress();
         $this->assertInstanceOf(OrderAddress::class, $shippingAddress);
         $this->assertSame('40 rue Laure Diebold', $shippingAddress->getAddress());
-        $this->assertSame('', $shippingAddress->getAddress2());
+        $this->assertSame('', $shippingAddress->getComplementaryAddress());
         $this->assertSame('Lyon', $shippingAddress->getCity());
         $this->assertSame('FR', $shippingAddress->getCountryCode());
         $this->assertSame('Paul', $shippingAddress->getFirstName());
@@ -72,7 +72,7 @@ class OrderServiceTest extends ApiTestCase
         $billingAddress = $order->getBillingAddress();
         $this->assertInstanceOf(OrderAddress::class, $billingAddress);
         $this->assertSame('40 rue Laure Diebold', $billingAddress->getAddress());
-        $this->assertSame('', $billingAddress->getAddress2());
+        $this->assertSame('', $billingAddress->getComplementaryAddress());
         $this->assertSame('Lyon', $billingAddress->getCity());
         $this->assertSame('FR', $billingAddress->getCountryCode());
         $this->assertSame('Paul', $billingAddress->getFirstName());
