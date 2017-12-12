@@ -104,7 +104,7 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame(2.1, $tax->getRateValue());
         $this->assertSame(1.3966, $tax->getTaxSubtotal());
         $this->assertSame(0, $tax->getPriority());
-        $this->assertSame(445711, $tax->getRegNumber());
+        $this->assertSame('445711', $tax->getRegNumber());
         $this->assertTrue($tax->doesPriceIncludesTax());
         $this->assertTrue(TaxRateType::PERCENT_DEPENDENCE()->equals($tax->getRateType()));
     }
