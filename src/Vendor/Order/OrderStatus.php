@@ -27,11 +27,6 @@ use MyCLabs\Enum\Enum;
 final class OrderStatus extends Enum
 {
     /**
-     * The order is waiting to be payed.
-     */
-    private const STANDBY_BILLING = 'O';
-
-    /**
      * The order is waiting for the vendor to process it.
      */
     private const STANDBY_VENDOR = 'P';
@@ -52,11 +47,6 @@ final class OrderStatus extends Enum
     private const COMPLETED = 'H';
 
     /**
-     * The payment from the client failed.
-     */
-    private const BILLING_FAILED = 'F';
-
-    /**
      * The vendor declined the order.
      */
     private const VENDOR_DECLINED = 'D';
@@ -66,22 +56,5 @@ final class OrderStatus extends Enum
      */
     private const STANDBY_SUPPLYING = 'B';
 
-    private const UNPAID = 'G';
-
     private const REFUNDED = 'A';
-
-    /**
-     * Canceled by the client.
-     */
-    private const CANCELED = 'I';
-
-    /**
-     * The checkout was started but not completed.
-     */
-    private const INCOMPLETED = 'N';
-
-    /**
-     * Special status for parent orders.
-     */
-    private const PARENT_ORDER = 'T';
 }
