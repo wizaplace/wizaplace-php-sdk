@@ -11,7 +11,8 @@ use function theodorejb\polycast\to_float;
 
 class OrderTax
 {
-    private $rateType; // @TODO
+    /** @var TaxRateType */
+    private $rateType;
 
     /** @var float */
     private $rateValue;
@@ -39,6 +40,7 @@ class OrderTax
      */
     public function __construct(array $data)
     {
+        $this->rateType = new TaxRateType($data['rate_type']);
         $this->rateValue = to_float($data['rate_value']);
         $this->regNumber = $data['regnumber'];
         $this->description = $data['description'];
@@ -46,6 +48,11 @@ class OrderTax
         $this->priority = $data['priority'];
         $this->priceIncludesTax = $data['price_includes_tax'] === 'Y';
         $this->applies = $data['applies'];
+    }
+
+    public function getRateType(): TaxRateType
+    {
+        return $this->rateType;
     }
 
     public function getRateValue(): float

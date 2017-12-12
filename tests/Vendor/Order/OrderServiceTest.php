@@ -14,6 +14,7 @@ use Wizaplace\SDK\Vendor\Order\OrderItem;
 use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
+use Wizaplace\SDK\Vendor\Order\TaxRateType;
 
 class OrderServiceTest extends ApiTestCase
 {
@@ -105,6 +106,7 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame(0, $tax->getPriority());
         $this->assertSame('445711', $tax->getRegNumber());
         $this->assertTrue($tax->doesPriceIncludesTax());
+        $this->assertTrue(TaxRateType::PERCENT_DEPENDENCE()->equals($tax->getRateType()));
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
