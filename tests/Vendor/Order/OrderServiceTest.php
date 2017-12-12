@@ -21,21 +21,19 @@ class OrderServiceTest extends ApiTestCase
     public function testAcceptingAnOrder()
     {
         $orderService = $this->buildVendorOrderService();
-        self::$historyContainer = [];
 
         $orderService->acceptOrder(5);
 
-        $this->assertCount(1, self::$historyContainer); // @TODO : get the order before and after, and check the status
+        $this->assertTrue(OrderStatus::PROCESSING_SHIPPING()->equals($orderService->getOrderById(5)->getStatus()));
     }
 
     public function testDecliningAnOrder()
     {
         $orderService = $this->buildVendorOrderService();
-        self::$historyContainer = [];
 
         $orderService->declineOrder(5);
 
-        $this->assertCount(1, self::$historyContainer); // @TODO : get the order before and after, and check the status
+        $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($orderService->getOrderById(5)->getStatus()));
     }
 
     public function testGetOrderById(): void
