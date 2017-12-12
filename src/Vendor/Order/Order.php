@@ -21,7 +21,7 @@ final class Order
     /** @var float */
     private $discountAmount;
 
-    /** @var string[] */
+    /** @var OrderPromotion[] */
     private $promotions;
 
     /** @var string */
@@ -72,7 +72,9 @@ final class Order
         $this->customerUserId = $data['user_id'];
         $this->customerEmail = $data['email'];
         $this->discountAmount = $data['discount'];
-        $this->promotions = $data['promotions'];
+        $this->promotions = array_map(function (array $promotionData): OrderPromotion {
+            return new OrderPromotion($promotionData);
+        }, $data['promotions']);
         $this->invoiceNumber = $data['invoice_number'];
         $this->needsShipping = $data['need_shipping'];
         $this->shipmentsIds = $data['shipment_ids'];
@@ -113,7 +115,7 @@ final class Order
     }
 
     /**
-     * @return string[]
+     * @return OrderPromotion[]
      */
     public function getPromotions(): array
     {

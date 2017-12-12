@@ -11,10 +11,10 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
+use Wizaplace\SDK\Vendor\Order\OrderPromotion;
 use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
-use Wizaplace\SDK\Vendor\Order\TaxRateType;
 
 class OrderServiceTest extends ApiTestCase
 {
@@ -46,17 +46,23 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame(5, $order->getOrderId());
         $this->assertSame(7, $order->getCustomerUserId());
         $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
-        $this->assertSame(67.9, $order->getTotal());
+        $this->assertSame(66.7, $order->getTotal());
         $this->assertSame(0.0, $order->getTaxSubtotal());
         $this->assertSame(0.0, $order->getDiscountAmount());
         $this->assertSame(0.0, $order->getShippingCost());
         $this->assertSame([], $order->getShipmentsIds());
         $this->assertSame('', $order->getInvoiceNumber());
         $this->assertSame('', $order->getNotes());
-        $this->assertSame([], $order->getPromotions());
         $this->assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
         $this->assertTrue($order->needsShipping());
         $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
+
+        $promotions = $order->getPromotions();
+        $this->assertContainsOnly(OrderPromotion::class, $promotions);
+        $this->assertCount(1, $promotions);
+        $promotion = reset($promotions);
+        $this->assertNotEmpty($promotion->getId());
+        $this->assertSame('', $promotion->getName());
 
         $shippingAddress = $order->getShippingAddress();
         $this->assertInstanceOf(OrderAddress::class, $shippingAddress);
