@@ -11,7 +11,6 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
-use Wizaplace\SDK\Vendor\Order\OrderPromotion;
 use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
@@ -54,13 +53,6 @@ class OrderServiceTest extends ApiTestCase
         $this->assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
         $this->assertTrue($order->needsShipping());
         $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
-
-        $promotions = $order->getPromotions();
-        $this->assertContainsOnly(OrderPromotion::class, $promotions);
-        $this->assertCount(1, $promotions);
-        $promotion = reset($promotions);
-        $this->assertNotEmpty($promotion->getId());
-        $this->assertSame('', $promotion->getName());
 
         $shippingAddress = $order->getShippingAddress();
         $this->assertInstanceOf(OrderAddress::class, $shippingAddress);
