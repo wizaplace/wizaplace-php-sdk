@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-get-attributes@c91ce4b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 09:44:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '699541'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/699541'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"e1M1dbAebaTsXDDe37vX12lhZo0RD9gO4ui6HZZg"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/8/features/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-get-attributes@c91ce4b
+            Authorization: 'token e1M1dbAebaTsXDDe37vX12lhZo0RD9gO4ui6HZZg'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 09:44:35 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: db361a
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/db361a'
+            Content-Length: '171'
+            Content-Type: application/json
+        body: '{"feature_id":1,"feature_type":"M","description":"Couleur","categories_path":[],"variants":{"2":{"variant_id":2,"variant":"Blanc"},"3":{"variant_id":3,"variant":"Rouge"}}}'
