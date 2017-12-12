@@ -15,6 +15,7 @@
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
 
 ### Bugfixes
 
