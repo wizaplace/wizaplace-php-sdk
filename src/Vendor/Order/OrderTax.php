@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Vendor\Order;
 
 use function theodorejb\polycast\to_float;
+use function theodorejb\polycast\to_int;
 
 class OrderTax
 {
@@ -20,7 +21,7 @@ class OrderTax
     /** @var bool */
     private $priceIncludesTax;
 
-    /** @var string */
+    /** @var int */
     private $regNumber;
 
     /** @var int */
@@ -42,7 +43,7 @@ class OrderTax
     {
         $this->rateType = new TaxRateType($data['rate_type']);
         $this->rateValue = to_float($data['rate_value']);
-        $this->regNumber = $data['regnumber'];
+        $this->regNumber = to_int($data['regnumber']);
         $this->description = $data['description'];
         $this->taxSubtotal = $data['tax_subtotal'];
         $this->priority = $data['priority'];
@@ -65,7 +66,7 @@ class OrderTax
         return $this->priceIncludesTax;
     }
 
-    public function getRegNumber(): string
+    public function getRegNumber(): int
     {
         return $this->regNumber;
     }
