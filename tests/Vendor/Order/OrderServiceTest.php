@@ -44,8 +44,8 @@ class OrderServiceTest extends ApiTestCase
 
         $this->assertInstanceOf(Order::class, $order);
         $this->assertSame(5, $order->getOrderId());
-        $this->assertSame(7, $order->getClientUserId());
-        $this->assertSame('customer-1@world-company.com', $order->getClientEmail());
+        $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         $this->assertSame(67.9, $order->getTotal());
         $this->assertSame(0.0, $order->getTaxSubtotal());
         $this->assertSame(0.0, $order->getDiscountAmount());
@@ -103,10 +103,7 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame('TVA 2.1%', $tax->getDescription());
         $this->assertSame(2.1, $tax->getRateValue());
         $this->assertSame(1.3966, $tax->getTaxSubtotal());
-        $this->assertSame(0, $tax->getPriority());
-        $this->assertSame('445711', $tax->getRegNumber());
         $this->assertTrue($tax->doesPriceIncludesTax());
-        $this->assertTrue(TaxRateType::PERCENT_DEPENDENCE()->equals($tax->getRateType()));
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

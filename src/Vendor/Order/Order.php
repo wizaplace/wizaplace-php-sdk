@@ -13,10 +13,10 @@ final class Order
     private $orderId;
 
     /** @var int */
-    private $clientUserId;
+    private $customerUserId;
 
     /** @var string */
-    private $clientEmail;
+    private $customerEmail;
 
     /** @var float */
     private $discountAmount;
@@ -69,8 +69,8 @@ final class Order
     public function __construct(array $data)
     {
         $this->orderId = $data['order_id'];
-        $this->clientUserId = $data['user_id'];
-        $this->clientEmail = $data['email'];
+        $this->customerUserId = $data['user_id'];
+        $this->customerEmail = $data['email'];
         $this->discountAmount = $data['discount'];
         $this->promotions = $data['promotions'];
         $this->invoiceNumber = $data['invoice_number'];
@@ -97,14 +97,14 @@ final class Order
         return $this->orderId;
     }
 
-    public function getClientUserId(): int
+    public function getCustomerUserId(): int
     {
-        return $this->clientUserId;
+        return $this->customerUserId;
     }
 
-    public function getClientEmail(): string
+    public function getCustomerEmail(): string
     {
-        return $this->clientEmail;
+        return $this->customerEmail;
     }
 
     public function getDiscountAmount(): float
