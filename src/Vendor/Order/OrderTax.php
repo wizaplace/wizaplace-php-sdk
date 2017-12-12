@@ -10,7 +10,7 @@ namespace Wizaplace\SDK\Vendor\Order;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 
-class OrderTax
+final class OrderTax
 {
     /** @var TaxRateType */
     private $rateType;
