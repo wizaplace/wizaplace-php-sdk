@@ -11,6 +11,7 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\Image\Image;
 
 final class Product
 {
@@ -93,6 +94,11 @@ final class Product
     private $updatedAt;
 
     /**
+     * @var Image[]
+     */
+    private $images;
+
+    /**
      * @internal
      */
     public function __construct(array $data, UriInterface $apiBaseUrl)
@@ -139,6 +145,14 @@ final class Product
         $this->seoDescription = $data['seoData']['description'] ?? '';
         $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
+
+        if (!isset($data['images'])) {
+            $this->images = [];
+        } else {
+            $this->images = array_map(static function (array $imageData) : Image {
+                return new Image($imageData);
+            }, $data['images']);
+        }
     }
 
     public function getId(): string
@@ -373,5 +387,13 @@ final class Product
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * @return Image[]
+     */
+    public function getImages(): array
+    {
+        return $this->images;
     }
 }
