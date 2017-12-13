@@ -1,0 +1,29 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-master@e9dca08
+            VCR-index: '0'
+            Accept: null
+        body: '{"name":"ACME Test Inc","email":"acme5@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"legalRepresentativeFirstName":"John","legalRepresentativeLastName":"Doe"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 13 Dec 2017 10:57:27 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2e6c78
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e6c78'
+            Content-Length: '339'
+            Content-Type: application/json
+        body: '{"id":5,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme5@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"John","legalRepresentativeLastName":"Doe"}'
