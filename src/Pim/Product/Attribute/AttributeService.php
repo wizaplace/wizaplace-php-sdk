@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product\Attribute;
 
+use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 
 final class AttributeService extends AbstractService
@@ -36,5 +37,27 @@ final class AttributeService extends AbstractService
         $data = $this->client->get("products/${productId}/features/${attributeId}");
 
         return ProductAttribute::build($data);
+    }
+
+    public function setProductAttributeValue(int $productId, int $attributeId, string $value): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        $this->client->put("products/${productId}/features/${attributeId}", [
+            RequestOptions::JSON => [
+                'value_str' => $value,
+            ],
+        ]);
+    }
+
+    public function setProductAttributeVariants(int $productId, int $attributeId, array $variantIds): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        $this->client->put("products/${productId}/features/${attributeId}", [
+            RequestOptions::JSON => [
+                'variant_id' => $variantIds,
+            ],
+        ]);
     }
 }

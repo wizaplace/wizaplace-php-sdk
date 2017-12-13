@@ -77,6 +77,26 @@ class AttributeServiceTest extends ApiTestCase
         $this->assertSame('Commentaire #12M%M_°09£*/.?', $attribute->getValue());
     }
 
+    public function testSetProductAttributeValue()
+    {
+        $this->buildAttributeService()->setProductAttributeValue(8, 3, 'different comment');
+
+        /** @var ProductAttributeValue $attribute */
+        $attribute = $this->buildAttributeService()->getProductAttribute(8, 3);
+        $this->assertSame('different comment', $attribute->getValue());
+    }
+
+    public function testSetProductAttributeVariants()
+    {
+        $this->buildAttributeService()->setProductAttributeVariants(8, 1, [3, 1]);
+
+        /** @var ProductAttributeVariants $attribute */
+        $attribute = $this->buildAttributeService()->getProductAttribute(8, 1);
+        $this->assertSame([1 => 1, 3 => 3], array_map(function (AttributeVariant $variant): int {
+            return $variant->getId();
+        }, $attribute->getSelectedVariants()));
+    }
+
     private function buildAttributeService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): AttributeService
     {
         $apiClient = $this->buildApiClient();

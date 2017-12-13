@@ -18,6 +18,8 @@
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::getProductAttributes` and associated classes
 - Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::getProductAttribute` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::setProductAttributeValue`
+- Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::setProductAttributeVariants`
 
 ### Bugfixes
 

@@ -1,0 +1,108 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-set-attribute@3d59760
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 10:13:54 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '752687'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/752687'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"q6fVsnAi777NSrpHJTniwzMciZSbaQeRLFCKOrU9"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/products/8/features/1'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-set-attribute@3d59760
+            Authorization: 'token q6fVsnAi777NSrpHJTniwzMciZSbaQeRLFCKOrU9'
+            VCR-index: '1'
+            Accept: null
+        body: '{"variant_id":[3,1]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 10:13:55 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 3e0d8f
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/3e0d8f'
+            Content-Length: '16'
+            Content-Type: application/json
+        body: '{"feature_id":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-set-attribute@3d59760
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 10:13:55 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ff5071
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ff5071'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"q6fVsnAi777NSrpHJTniwzMciZSbaQeRLFCKOrU9"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/8/features/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-set-attribute@3d59760
+            Authorization: 'token q6fVsnAi777NSrpHJTniwzMciZSbaQeRLFCKOrU9'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 10:13:55 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 5e8d33
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5e8d33'
+            Content-Length: '170'
+            Content-Type: application/json
+        body: '{"feature_id":1,"feature_type":"M","description":"Couleur","categories_path":[],"variants":{"1":{"variant_id":1,"variant":"Bleu"},"3":{"variant_id":3,"variant":"Rouge"}}}'
