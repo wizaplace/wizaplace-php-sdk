@@ -66,6 +66,16 @@ final class Company
     private $slug;
 
     /**
+     * @var string
+     */
+    private $legalRepresentativeFirstName;
+
+    /**
+     * @var string
+     */
+    private $legalRepresentativeLastName;
+
+    /**
      * @internal
      */
     public function __construct(array $data)
@@ -87,6 +97,8 @@ final class Company
         $this->capital = to_string($data['capital']);
         $this->rcs = to_string($data['rcs']);
         $this->slug = to_string($data['slug']);
+        $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
+        $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
     }
 
     public function getId(): int
@@ -172,5 +184,15 @@ final class Company
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    public function getLegalRepresentativeFirstName(): string
+    {
+        return $this->legalRepresentativeFirstName;
+    }
+
+    public function getLegalRepresentativeLastName(): string
+    {
+        return $this->legalRepresentativeLastName;
     }
 }

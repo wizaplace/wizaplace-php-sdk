@@ -65,11 +65,25 @@ final class CompanyRegistration
      * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
      */
     private $files = [];
+    /**
+     * @var string
+     */
+    private $legalRepresentativeFirstName;
+    /**
+     * @var string
+     */
+    private $legalRepresentativeLastName;
 
-    public function __construct(string $name, string $email)
-    {
+    public function __construct(
+        string $name,
+        string $email,
+        string $legalRepresentativeFirstName = '',
+        string $legalRepresentativeLastName = ''
+    ) {
         $this->name = $name;
         $this->email = $email;
+        $this->legalRepresentativeFirstName = $legalRepresentativeFirstName;
+        $this->legalRepresentativeLastName = $legalRepresentativeLastName;
     }
 
 
@@ -249,6 +263,26 @@ final class CompanyRegistration
     public function getFiles(): array
     {
         return $this->files;
+    }
+
+    public function getLegalRepresentativeFirstName(): string
+    {
+        return $this->legalRepresentativeFirstName;
+    }
+
+    public function setLegalRepresentativeFirstName(string $legalRepresentativeFirstName): void
+    {
+        $this->legalRepresentativeFirstName = $legalRepresentativeFirstName;
+    }
+
+    public function getLegalRepresentativeLastName(): string
+    {
+        return $this->legalRepresentativeLastName;
+    }
+
+    public function setLegalRepresentativeLastName(string $legalRepresentativeLastName): void
+    {
+        $this->legalRepresentativeLastName = $legalRepresentativeLastName;
     }
 
     private function addFile(string $name, StreamInterface $contents, string $filename): void

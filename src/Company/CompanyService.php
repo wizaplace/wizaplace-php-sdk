@@ -18,28 +18,54 @@ final class CompanyService extends AbstractService
      */
     public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
-        $this->client->mustBeAuthenticated();
+        if ($companyRegistration->getLegalRepresentativeFirstName() === '' || $companyRegistration->getLegalRepresentativeLastName() === '') {
+            $this->client->mustBeAuthenticated();
+            $options = [
+                RequestOptions::JSON => [
+                    'name' => $companyRegistration->getName(),
+                    'email' => $companyRegistration->getEmail(),
+                    'description' => $companyRegistration->getDescription(),
+                    'slug' => $companyRegistration->getSlug(),
+                    'address' => $companyRegistration->getAddress(),
+                    'country' => $companyRegistration->getCountry(),
+                    'zipcode' => $companyRegistration->getZipcode(),
+                    'city' => $companyRegistration->getCity(),
+                    'phoneNumber' => $companyRegistration->getPhoneNumber(),
+                    'url' => $companyRegistration->getUrl(),
+                    'fax' => $companyRegistration->getFax(),
+                    'vatNumber' => $companyRegistration->getVatNumber(),
+                    'siretNumber' => $companyRegistration->getSiretNumber(),
+                    'rcs' => $companyRegistration->getRcs(),
+                    'legalStatus' => $companyRegistration->getLegalStatus(),
+                    'capital' => $companyRegistration->getCapital(),
+                ],
+            ];
+        } else {
+            $options = [
+                RequestOptions::JSON => [
+                    'name' => $companyRegistration->getName(),
+                    'email' => $companyRegistration->getEmail(),
+                    'description' => $companyRegistration->getDescription(),
+                    'slug' => $companyRegistration->getSlug(),
+                    'address' => $companyRegistration->getAddress(),
+                    'country' => $companyRegistration->getCountry(),
+                    'zipcode' => $companyRegistration->getZipcode(),
+                    'city' => $companyRegistration->getCity(),
+                    'phoneNumber' => $companyRegistration->getPhoneNumber(),
+                    'url' => $companyRegistration->getUrl(),
+                    'fax' => $companyRegistration->getFax(),
+                    'vatNumber' => $companyRegistration->getVatNumber(),
+                    'siretNumber' => $companyRegistration->getSiretNumber(),
+                    'rcs' => $companyRegistration->getRcs(),
+                    'legalStatus' => $companyRegistration->getLegalStatus(),
+                    'capital' => $companyRegistration->getCapital(),
+                    'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
+                    'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
+                ],
+            ];
+        }
 
-        $responseData = $this->client->post('companies', [
-            RequestOptions::JSON => [
-                'name' => $companyRegistration->getName(),
-                'email' => $companyRegistration->getEmail(),
-                'description' => $companyRegistration->getDescription(),
-                'slug' => $companyRegistration->getSlug(),
-                'address' => $companyRegistration->getAddress(),
-                'country' => $companyRegistration->getCountry(),
-                'zipcode' => $companyRegistration->getZipcode(),
-                'city' => $companyRegistration->getCity(),
-                'phoneNumber' => $companyRegistration->getPhoneNumber(),
-                'url' => $companyRegistration->getUrl(),
-                'fax' => $companyRegistration->getFax(),
-                'vatNumber' => $companyRegistration->getVatNumber(),
-                'siretNumber' => $companyRegistration->getSiretNumber(),
-                'rcs' => $companyRegistration->getRcs(),
-                'legalStatus' => $companyRegistration->getLegalStatus(),
-                'capital' => $companyRegistration->getCapital(),
-            ],
-        ]);
+        $responseData = $this->client->post('companies', $options);
 
         $company = new Company($responseData);
 
