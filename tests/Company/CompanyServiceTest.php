@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Tests\Company;
 use GuzzleHttp\Exception\ClientException;
 use PHPUnit_Framework_MockObject_MockObject;
 use Psr\Http\Message\UploadedFileInterface;
+use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyService;
@@ -113,6 +114,19 @@ final class CompanyServiceTest extends ApiTestCase
 
         $this->assertFalse($result->getFileUploadResult('rib')->isSuccess());
         $this->assertSame('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
+    }
+
+    public function testRegisteringACompanyUnauthenticated()
+    {
+        $companyRegistration = new UnauthenticatedCompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John', 'Doe');
+        $result = (new CompanyService($this->buildApiClient()))->unauthenticatedRegister($companyRegistration);
+
+        $company = $result->getCompany();
+        $this->assertGreaterThan(0, $company->getId());
+        $this->assertStringStartsWith('acme-test-inc', $company->getSlug());
+        $this->assertSame('acme5@example.com', $company->getEmail());
+        $this->assertSame('John', $company->getLegalRepresentativeFirstName());
+        $this->assertSame('Doe', $company->getLegalRepresentativeLastName());
     }
 
     private function buildUserCompanyService(): CompanyService
