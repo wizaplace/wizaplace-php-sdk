@@ -115,6 +115,26 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
     }
 
+    public function testRegisteringACompanyAnonymouslyWithBothLegaLRepresentativeInformations()
+    {
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John', 'Doe');
+        $result = (new CompanyService($this->buildApiClient()))->register($companyRegistration);
+
+        $company = $result->getCompany();
+        $this->assertGreaterThan(0, $company->getId());
+        $this->assertStringStartsWith('acme-test-inc', $company->getSlug());
+        $this->assertSame('acme5@example.com', $company->getEmail());
+        $this->assertSame('John', $company->getLegalRepresentativeFirstName());
+        $this->assertSame('Doe', $company->getLegalRepresentativeLastName());
+    }
+
+    public function testRegisteringACompanyAnonymouslyWithPartialLegaLRepresentativeInformations()
+    {
+        $this->expectException(AuthenticationRequired::class);
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John');
+        (new CompanyService($this->buildApiClient()))->register($companyRegistration);
+    }
+
     private function buildUserCompanyService(): CompanyService
     {
         $apiClient = $this->buildApiClient();
