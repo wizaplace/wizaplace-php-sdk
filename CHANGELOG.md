@@ -7,7 +7,6 @@
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\Product::getImages`
  - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
  - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
  - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
@@ -17,6 +16,10 @@
 ### Bugfixes
 
 </details>
+
+## 1.4.0
+
+ - Added `\Wizaplace\SDK\Catalog\Product::getImages`
 
 ## 1.3.0
 
