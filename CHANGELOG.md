@@ -8,10 +8,11 @@
 ### New features
 
  - Added `\Wizaplace\SDK\Catalog\Product::getImages`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::getLegalRepresentativeFirstName`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::setLegalRepresentativeFirstName`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::getLegalRepresentativeLastName`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::setLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
 
 ### Bugfixes
 
