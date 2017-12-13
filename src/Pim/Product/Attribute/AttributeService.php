@@ -37,4 +37,19 @@ final class AttributeService extends AbstractService
 
         return ProductAttribute::build($data);
     }
+
+    /**
+     * @return CategoryAttribute[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getCategoryAttributes(int $categoryId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $data = $this->client->get("categories/${categoryId}/features");
+
+        return array_map(static function (array $attributeData): CategoryAttribute {
+            return new CategoryAttribute($attributeData);
+        }, $data);
+    }
 }

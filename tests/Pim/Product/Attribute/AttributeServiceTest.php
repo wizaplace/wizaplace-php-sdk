@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Tests\Pim\Product\Attribute;
 use Wizaplace\SDK\Pim\Product\Attribute\AttributeService;
 use Wizaplace\SDK\Pim\Product\Attribute\AttributeType;
 use Wizaplace\SDK\Pim\Product\Attribute\AttributeVariant;
+use Wizaplace\SDK\Pim\Product\Attribute\CategoryAttribute;
 use Wizaplace\SDK\Pim\Product\Attribute\ProductAttribute;
 use Wizaplace\SDK\Pim\Product\Attribute\ProductAttributeValue;
 use Wizaplace\SDK\Pim\Product\Attribute\ProductAttributeVariants;
@@ -36,6 +37,29 @@ class AttributeServiceTest extends ApiTestCase
                 $variants = $attribute->getSelectedVariants();
                 $this->assertContainsOnly(AttributeVariant::class, $variants);
 
+                foreach ($variants as $variant) {
+                    $this->assertNotEmpty($variant->getName());
+                    $this->assertGreaterThan(0, $variant->getId());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryAttributes()
+    {
+        $attributes = $this->buildAttributeService()->getCategoryAttributes(6);
+
+        $this->assertContainsOnly(CategoryAttribute::class, $attributes);
+        $this->assertGreaterThanOrEqual(7, count($attributes));
+
+        foreach ($attributes as $attribute) {
+            $this->assertNotEmpty($attribute->getName());
+            $this->assertGreaterThan(0, $attribute->getId());
+            $this->assertContainsOnly('int', $attribute->getCategoriesPath());
+            $this->assertInstanceOf(AttributeType::class, $attribute->getType());
+            $variants = $attribute->getVariants();
+            if ($variants !== null) {
+                $this->assertContainsOnly(AttributeVariant::class, $variants);
                 foreach ($variants as $variant) {
                     $this->assertNotEmpty($variant->getName());
                     $this->assertGreaterThan(0, $variant->getId());
