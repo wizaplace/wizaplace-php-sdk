@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:00 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 13 Dec 2017 12:28:38 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: fc25d4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc25d4'
-            Content-Length: '61'
+            Content-Language: fr
+            X-Debug-Token: f05d5f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f05d5f'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"GZKawhV2vPkf\/feLV5BN2JaJKNkLnFbvx8yMw9LZ"}'
+        body: '{"id":9,"apiKey":"2hYnXaVBqdU4SafAOUtrDNMvCtdeaUHOF4PpdsOE"}'
 -
     request:
         method: POST
@@ -32,9 +33,9 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token GZKawhV2vPkf/feLV5BN2JaJKNkLnFbvx8yMw9LZ'
+            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
+            Authorization: 'token 2hYnXaVBqdU4SafAOUtrDNMvCtdeaUHOF4PpdsOE'
             VCR-index: '1'
             Accept: null
         body: '{"name":"ACME Test Inc","email":"acme@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
@@ -44,11 +45,12 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:01 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 13 Dec 2017 12:28:39 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 6bd687
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6bd687'
-            Content-Length: '264'
+            Content-Language: fr
+            X-Debug-Token: '933473'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/933473'
+            Content-Length: '331'
             Content-Type: application/json
-        body: '{"id":5,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":""}'
+        body: '{"id":5,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":""}'
