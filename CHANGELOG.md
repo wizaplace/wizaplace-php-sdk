@@ -7,11 +7,13 @@
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\Product::getImages`
-
 ### Bugfixes
 
 </details>
+
+## 1.4.0
+
+ - Added `\Wizaplace\SDK\Catalog\Product::getImages`
 
 ## 1.3.0
 
