@@ -5,9 +5,7 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\Company;
-
-use Wizaplace\SDK\Company\CompanyRegistration;
+namespace Wizaplace\SDK\Company;
 
 final class UnauthenticatedCompanyRegistration extends CompanyRegistration
 {
