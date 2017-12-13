@@ -17,7 +17,19 @@
 
 </details>
 
+## 1.5.0-beta.1
+
+### New features
+
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
+
 ## 1.4.0
+
+### New features
 
  - Added `\Wizaplace\SDK\Catalog\Product::getImages`
 
