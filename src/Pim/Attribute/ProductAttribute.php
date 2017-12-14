@@ -10,7 +10,7 @@ namespace Wizaplace\SDK\Pim\Attribute;
 /**
  * @internal
  */
-abstract class ProductAttribute extends Attribute
+abstract class ProductAttribute extends AbstractAttribute
 {
     /**
      * @internal

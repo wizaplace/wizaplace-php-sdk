@@ -39,7 +39,7 @@ final class AttributeService extends AbstractService
     }
 
     /**
-     * @return CategoryAttribute[]
+     * @return Attribute[]
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      */
     public function getCategoryAttributes(int $categoryId): array
@@ -48,8 +48,8 @@ final class AttributeService extends AbstractService
 
         $data = $this->client->get("categories/${categoryId}/features");
 
-        return array_map(static function (array $attributeData): CategoryAttribute {
-            return new CategoryAttribute($attributeData);
+        return array_map(static function (array $attributeData): Attribute {
+            return new Attribute($attributeData);
         }, $data);
     }
 }

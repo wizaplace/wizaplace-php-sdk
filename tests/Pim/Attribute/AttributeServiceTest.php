@@ -7,10 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Attribute;
 
+use Wizaplace\SDK\Pim\Attribute\Attribute;
 use Wizaplace\SDK\Pim\Attribute\AttributeService;
 use Wizaplace\SDK\Pim\Attribute\AttributeType;
 use Wizaplace\SDK\Pim\Attribute\AttributeVariant;
-use Wizaplace\SDK\Pim\Attribute\CategoryAttribute;
 use Wizaplace\SDK\Pim\Attribute\ProductAttribute;
 use Wizaplace\SDK\Pim\Attribute\ProductAttributeValue;
 use Wizaplace\SDK\Pim\Attribute\ProductAttributeVariants;
@@ -49,7 +49,7 @@ class AttributeServiceTest extends ApiTestCase
     {
         $attributes = $this->buildAttributeService()->getCategoryAttributes(6);
 
-        $this->assertContainsOnly(CategoryAttribute::class, $attributes);
+        $this->assertContainsOnly(Attribute::class, $attributes);
         $this->assertGreaterThanOrEqual(7, count($attributes));
 
         foreach ($attributes as $attribute) {
