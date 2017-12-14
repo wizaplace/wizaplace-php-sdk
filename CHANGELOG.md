@@ -22,6 +22,7 @@
 - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
 - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
 - Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
 
 ### Bugfixes
 
