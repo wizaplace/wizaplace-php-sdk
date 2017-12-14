@@ -92,8 +92,6 @@ final class CompanyService extends AbstractService
             return [];
         }
 
-        $this->client->mustBeAuthenticated();
-
         $responseData = $this->client->post("companies/$companyId/files", [
             'multipart' => $files,
         ]);
