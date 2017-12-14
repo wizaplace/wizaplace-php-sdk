@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Pim\Product\Option;
+namespace Wizaplace\SDK\Pim\Option;
 
 final class Option
 {

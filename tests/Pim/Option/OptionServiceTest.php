@@ -5,11 +5,11 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Tests\Pim\Product\Option;
+namespace Wizaplace\SDK\Tests\Pim\Option;
 
-use Wizaplace\SDK\Pim\Product\Option\Option;
-use Wizaplace\SDK\Pim\Product\Option\OptionService;
-use Wizaplace\SDK\Pim\Product\Option\OptionVariant;
+use Wizaplace\SDK\Pim\Option\Option;
+use Wizaplace\SDK\Pim\Option\OptionService;
+use Wizaplace\SDK\Pim\Option\OptionVariant;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 class OptionServiceTest extends ApiTestCase
