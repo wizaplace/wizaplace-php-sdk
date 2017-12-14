@@ -15,9 +15,6 @@ final class Option
     /** @var string */
     private $name;
 
-    /** @var bool */
-    private $pendingModeration;
-
     /** @var OptionVariant[] */
     private $variants;
 
@@ -28,7 +25,6 @@ final class Option
     {
         $this->id = $data['option_id'];
         $this->name = $data['option_name'];
-        $this->pendingModeration = $data['pending'];
         $this->variants = array_map(function (array $variantData): OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);
@@ -42,11 +38,6 @@ final class Option
     public function getName(): string
     {
         return $this->name;
-    }
-
-    public function isPendingModeration(): bool
-    {
-        return $this->pendingModeration;
     }
 
     /**
