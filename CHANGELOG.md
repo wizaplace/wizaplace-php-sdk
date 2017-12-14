@@ -16,8 +16,9 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
-- Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::getProductAttributes` and associated classes
-- Added `\Wizaplace\SDK\Pim\Product\Attribute\AttributeService::getProductAttribute` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
 - Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
 
 ### Bugfixes

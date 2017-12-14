@@ -5,12 +5,12 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Pim\Product\Attribute;
+namespace Wizaplace\SDK\Pim\Attribute;
 
 /**
  * @internal
  */
-abstract class ProductAttribute
+abstract class AbstractAttribute
 {
     /** @var int */
     private $id;
@@ -56,18 +56,5 @@ abstract class ProductAttribute
     public function getCategoriesPath(): array
     {
         return $this->categoriesPath;
-    }
-
-    /**
-     * @internal
-     * @return static
-     */
-    final public static function build(array $data): self
-    {
-        if (isset($data['value_str'])) {
-            return new ProductAttributeValue($data);
-        }
-
-        return new ProductAttributeVariants($data);
     }
 }
