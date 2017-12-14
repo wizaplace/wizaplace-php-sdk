@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Pim\Product\Attribute;
+namespace Wizaplace\SDK\Pim\Attribute;
 
 final class AttributeVariant
 {

@@ -5,15 +5,15 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Tests\Pim\Product\Attribute;
+namespace Wizaplace\SDK\Tests\Pim\Attribute;
 
-use Wizaplace\SDK\Pim\Product\Attribute\AttributeService;
-use Wizaplace\SDK\Pim\Product\Attribute\AttributeType;
-use Wizaplace\SDK\Pim\Product\Attribute\AttributeVariant;
-use Wizaplace\SDK\Pim\Product\Attribute\CategoryAttribute;
-use Wizaplace\SDK\Pim\Product\Attribute\ProductAttribute;
-use Wizaplace\SDK\Pim\Product\Attribute\ProductAttributeValue;
-use Wizaplace\SDK\Pim\Product\Attribute\ProductAttributeVariants;
+use Wizaplace\SDK\Pim\Attribute\AttributeService;
+use Wizaplace\SDK\Pim\Attribute\AttributeType;
+use Wizaplace\SDK\Pim\Attribute\AttributeVariant;
+use Wizaplace\SDK\Pim\Attribute\CategoryAttribute;
+use Wizaplace\SDK\Pim\Attribute\ProductAttribute;
+use Wizaplace\SDK\Pim\Attribute\ProductAttributeValue;
+use Wizaplace\SDK\Pim\Attribute\ProductAttributeVariants;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 class AttributeServiceTest extends ApiTestCase
