@@ -1,0 +1,235 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:23:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 732a80
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/732a80'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fd60ba
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd60ba'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 58fca3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/58fca3'
+            Content-Length: '379'
+            Content-Type: application/json
+        body: '{"id":"6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e/coupons/SUPERPROMO'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 786c94
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/786c94'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '598329'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/598329'
+            Content-Length: '391'
+            Content-Type: application/json
+        body: '{"id":"6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e","comment":"","coupons":["SUPERPROMO"],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e/coupons/SUPERPROMO'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '111890'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/111890'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a0594b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0594b'
+            Content-Length: '379'
+            Content-Type: application/json
+        body: '{"id":"6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e/coupons/SUPERPROMO'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 01a5fc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/01a5fc'
+            Content-Length: '0'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/6e12dd23-4f1f-4ae6-bdee-c5fd6f9a583e/coupons/SUPERPROMO'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-coupon-404@eb923cc
+            Authorization: 'token 8X9FB2kKQIGhOgdLSJsWwFtnXc8JMylfdN5GeHIP'
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '409'
+            message: Conflict
+        headers:
+            Date: 'Fri, 15 Dec 2017 09:24:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: cdeacb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cdeacb'
+            Content-Length: '44'
+            Content-Type: application/json
+        body: '{"message":"This coupon is already applied"}'

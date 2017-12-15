@@ -223,7 +223,7 @@ final class BasketService extends AbstractService
      * A coupon is a simple string. It can be added to the basket to get basket promotions.
      *
      * @throws CouponAlreadyPresent
-     * @throws NotFound The basket cannot be found.
+     * @throws NotFound The basket cannot be found or the coupon cannot be applied.
      */
     public function addCoupon(string $basketId, string $coupon)
     {
@@ -233,7 +233,7 @@ final class BasketService extends AbstractService
             $code = $ex->getResponse()->getStatusCode();
 
             if (404 === $code) {
-                throw new NotFound('Basket not found', $ex);
+                throw new NotFound('Basket not found or coupon cannot be applied', $ex);
             }
             if (409 === $code) {
                 throw new CouponAlreadyPresent('Coupon exist', $code, $ex);
