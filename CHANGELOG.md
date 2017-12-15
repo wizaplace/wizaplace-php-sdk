@@ -11,7 +11,7 @@
 
 </details>
 
-## 1.5.0-beta.1
+## 1.5.0
 
 ### New features
 
