@@ -12,6 +12,7 @@
  - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
  - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
  - Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
+ - Handle 404s in `\Wizaplace\SDK\Favorite\FavoriteService::addDeclinationToUserFavorites`, which now returns a boolean
 
 ### Bugfixes
 
