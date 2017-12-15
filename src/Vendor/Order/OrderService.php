@@ -52,6 +52,16 @@ class OrderService extends AbstractService
         return new Order($data);
     }
 
+    public function setInvoiceNumber(int $orderId, string $invoiceNumber): void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->put("orders/${orderId}", [
+            RequestOptions::JSON => [
+                'invoice_number' => $invoiceNumber,
+            ],
+        ]);
+    }
+
     private function setOrderIsAccepted(int $orderId, bool $accepted): void
     {
         $this->client->mustBeAuthenticated();
