@@ -38,6 +38,23 @@ class OrderServiceTest extends ApiTestCase
         $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($orderService->getOrderById(5)->getStatus()));
     }
 
+    public function testSetInvoiceNumber(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
+        $this->assertSame("", $invoiceNumber);
+
+        $orderService->setInvoiceNumber(5, "00072");
+
+        $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
+
+        $this->assertSame("00072", $invoiceNumber);
+
+        $this->expectException(\Throwable::class); // can't set the invoice number twice
+        $orderService->setInvoiceNumber(5, "00073");
+    }
+
     public function testListOrders(): void
     {
         $orders = $this->buildVendorOrderService()->listOrders();

@@ -25,6 +25,7 @@
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
 
 ### Bugfixes
 
