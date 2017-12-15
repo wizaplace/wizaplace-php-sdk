@@ -64,7 +64,7 @@ final class FavoriteService extends AbstractService
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws FavoriteAlreadyExist
      */
-    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
+    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : bool
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -72,6 +72,11 @@ final class FavoriteService extends AbstractService
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
+                case 404:
+                    // Invalid coupon code
+                    // We don't throw an exception here to maintain backward compatibility
+                    // @TODO: in next major version, throw a special exception
+                    return false;
                 case CannotFavoriteDisabledOrInexistentDeclination::HTTP_ERROR_CODE:
                     throw new CannotFavoriteDisabledOrInexistentDeclination($declinationId, $e);
                 case FavoriteAlreadyExist::HTTP_ERROR_CODE:
@@ -80,6 +85,8 @@ final class FavoriteService extends AbstractService
                     throw $e;
             }
         }
+
+        return true;
     }
 
     /**
