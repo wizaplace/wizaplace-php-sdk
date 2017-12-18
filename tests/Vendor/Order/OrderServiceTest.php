@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Vendor\Order;
 
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
@@ -15,6 +16,7 @@ use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
+use Wizaplace\SDK\Vendor\Order\Shipment;
 
 class OrderServiceTest extends ApiTestCase
 {
@@ -155,6 +157,48 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame(2.1, $tax->getRateValue());
         $this->assertSame(1.3966, $tax->getTaxSubtotal());
         $this->assertTrue($tax->doesPriceIncludesTax());
+    }
+
+    public function testCreateShipment()
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $orderId = 5;
+        $orderService->acceptOrder($orderId);
+
+        $order = $orderService->getOrderById($orderId);
+
+        $itemsShipped = [];
+        foreach ($order->getItems() as $item) {
+            $itemsShipped[$item->getItemId()] = $item->getQuantityToShip();
+        }
+
+        $shipmentId = $orderService->createShipment(
+            (new CreateShipmentCommand($orderId, '0ABC0123456798'))
+            ->setComment('great shipment')
+            ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        $this->assertGreaterThan(0, $shipmentId);
+
+        $order = $orderService->getOrderById($orderId);
+        $this->assertSame([$shipmentId], $order->getShipmentsIds());
+
+        $shipments = $orderService->listShipments($orderId);
+        $this->assertContainsOnly(Shipment::class, $shipments);
+        $this->assertCount(1, $shipments);
+        $this->assertSame($shipmentId, $shipments[0]->getShipmentId());
+        $this->assertSame($orderId, $shipments[0]->getOrderId());
+        $this->assertSame('great shipment', $shipments[0]->getComment());
+        $this->assertSame($itemsShipped, $shipments[0]->getShippedQuantityByItemId());
+        $this->assertSame('TNT Express', $shipments[0]->getShippingName());
+        $this->assertSame('0ABC0123456798', $shipments[0]->getTrackingNumber());
+        $this->assertSame(1, $shipments[0]->getShippingId());
+        $this->assertGreaterThanOrEqual(1500000000, $shipments[0]->getCreatedAt()->getTimestamp());
+
+        $shipment = $orderService->getShipmentById($shipmentId);
+        $this->assertInstanceOf(Shipment::class, $shipment);
+        $this->assertEquals($shipments[0], $shipment);
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

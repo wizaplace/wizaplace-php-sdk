@@ -52,6 +52,46 @@ class OrderService extends AbstractService
         return new Order($data);
     }
 
+    /**
+     * @return Shipment[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function listShipments(?int $orderIdFilter = null): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $query = [];
+        if ($orderIdFilter !== null) {
+            $query['order_id'] = $orderIdFilter;
+        }
+        $data = $this->client->get('shipments', [
+            RequestOptions::QUERY => $query,
+        ]);
+
+        return array_map(static function (array $shipmentData): Shipment {
+            return new Shipment($shipmentData);
+        }, $data);
+    }
+
+    public function getShipmentById(int $shipmentId): Shipment
+    {
+        $data = $this->client->get("shipments/${shipmentId}");
+
+        return new Shipment($data);
+    }
+
+    public function createShipment(CreateShipmentCommand $command): int
+    {
+        $this->client->mustBeAuthenticated();
+        $command->validate();
+
+        $data = $this->client->post('shipments', [
+            RequestOptions::JSON => $command->toArray(),
+        ]);
+
+        return $data['shipment_id'];
+    }
+
     public function setInvoiceNumber(int $orderId, string $invoiceNumber): void
     {
         $this->client->mustBeAuthenticated();

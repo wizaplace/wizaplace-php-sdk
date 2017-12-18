@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use function theodorejb\polycast\to_int;
+
 final class Order
 {
     /** @var int */
@@ -71,7 +73,9 @@ final class Order
         $this->discountAmount = $data['discount'];
         $this->invoiceNumber = $data['invoice_number'];
         $this->needsShipping = $data['need_shipping'];
-        $this->shipmentsIds = $data['shipment_ids'];
+        $this->shipmentsIds = array_map(static function ($v): int {
+            return to_int($v);
+        }, $data['shipment_ids']);
         $this->shippingCost = $data['shipping_cost'];
         $this->notes = $data['notes'];
         $this->taxSubtotal = $data['tax_subtotal'];
