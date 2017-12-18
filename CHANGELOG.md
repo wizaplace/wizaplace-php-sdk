@@ -13,7 +13,7 @@
 
 ## 1.5.1
 
- - Added a default value for `ListFacetValue`'s postion, as it is not always sent by the API.
+ - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
 
 ## 1.5.0
 
