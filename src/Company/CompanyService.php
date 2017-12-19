@@ -49,6 +49,39 @@ final class CompanyService extends AbstractService
         return new CompanyRegistrationResult($company, $fileUploadResults);
     }
 
+    public function unauthenticatedRegister(UnauthenticatedCompanyRegistration $companyRegistration): CompanyRegistrationResult
+    {
+        $responseData = $this->client->post('companies', [
+            RequestOptions::JSON => [
+                'name' => $companyRegistration->getName(),
+                'email' => $companyRegistration->getEmail(),
+                'description' => $companyRegistration->getDescription(),
+                'slug' => $companyRegistration->getSlug(),
+                'address' => $companyRegistration->getAddress(),
+                'country' => $companyRegistration->getCountry(),
+                'zipcode' => $companyRegistration->getZipcode(),
+                'city' => $companyRegistration->getCity(),
+                'phoneNumber' => $companyRegistration->getPhoneNumber(),
+                'url' => $companyRegistration->getUrl(),
+                'fax' => $companyRegistration->getFax(),
+                'vatNumber' => $companyRegistration->getVatNumber(),
+                'siretNumber' => $companyRegistration->getSiretNumber(),
+                'rcs' => $companyRegistration->getRcs(),
+                'legalStatus' => $companyRegistration->getLegalStatus(),
+                'capital' => $companyRegistration->getCapital(),
+                'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
+                'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
+            ],
+        ]);
+
+        $company = new Company($responseData);
+
+        $fileUploadResults = $this->uploadRegistrationFiles($company->getId(), $companyRegistration->getFiles());
+
+
+        return new CompanyRegistrationResult($company, $fileUploadResults);
+    }
+
     /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
@@ -58,8 +91,6 @@ final class CompanyService extends AbstractService
         if (empty($files)) {
             return [];
         }
-
-        $this->client->mustBeAuthenticated();
 
         $responseData = $this->client->post("companies/$companyId/files", [
             'multipart' => $files,

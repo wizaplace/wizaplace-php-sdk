@@ -25,7 +25,7 @@ final class ListFacetValue
     {
         $this->label = $data['label'];
         $this->count = $data['count'];
-        $this->position = $data['position'];
+        $this->position = $data['position'] ?? 0;
     }
 
     public function getLabel(): string

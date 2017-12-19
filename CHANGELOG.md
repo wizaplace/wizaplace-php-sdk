@@ -31,6 +31,26 @@
 
 </details>
 
+## 1.5.1
+
+ - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
+
+## 1.5.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
+ - Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
+
+## 1.4.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\Product::getImages`
+
 ## 1.3.0
 
 ### New features

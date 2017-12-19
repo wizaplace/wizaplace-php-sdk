@@ -77,6 +77,8 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+
+        $this->assertEmpty($product->getImages());
     }
 
     public function testGetMVPById()
