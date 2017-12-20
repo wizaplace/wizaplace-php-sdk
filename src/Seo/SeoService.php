@@ -49,4 +49,21 @@ final class SeoService extends AbstractService
     {
         return $this->resolveSlugs([$slug])[$slug] ?? null;
     }
+
+    /**
+     * @return SlugCatalogItem[]
+     */
+    public function listSlugs(): array
+    {
+        $slugsCatalog = $this->client->get('seo/slugs/catalog');
+
+
+        return array_filter(array_map(static function (array $itemData): ?SlugCatalogItem {
+            try {
+                return new SlugCatalogItem($itemData);
+            } catch (\UnexpectedValueException $e) {
+                return null; // we do not support all slug target types
+            }
+        }, $slugsCatalog));
+    }
 }
