@@ -30,6 +30,8 @@ final class User
     private $billingAddress;
     /** @var UserAddress|null */
     private $shippingAddress;
+    /** @var int|null */
+    private $companyId;
 
     /**
      * @internal
@@ -44,6 +46,7 @@ final class User
         $this->birthday = empty($data['birthday']) ? null : \DateTimeImmutable::createFromFormat(self::BIRTHDAY_FORMAT, $data['birthday']);
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
+        $this->companyId = $data['companyId'] ?? null;
     }
 
     public function getId(): int
@@ -84,5 +87,15 @@ final class User
     public function getShippingAddress(): ?UserAddress
     {
         return $this->shippingAddress;
+    }
+
+    public function getCompanyId(): ?int
+    {
+        return $this->companyId;
+    }
+
+    public function isVendor(): bool
+    {
+        return $this->getCompanyId() !== null;
     }
 }
