@@ -48,6 +48,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getFirstname());
         $this->assertSame('', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
+        $this->assertNull($user->getCompanyId());
 
         // shipping address
         $this->assertNull($user->getShippingAddress()->getTitle());
@@ -99,6 +100,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
+        $this->assertNull($user->getCompanyId());
 
 
         $userService->updateUser(
@@ -119,6 +121,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
         $this->assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
+        $this->assertNull($user->getCompanyId());
     }
 
     public function testUpdateUserAddresses()
@@ -132,12 +135,12 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user12@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
 
         $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -207,12 +210,12 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user13@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
 
         $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -232,8 +235,8 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
         $this->assertSame('', $user->getShippingAddress()->getCity());
         $this->assertSame('', $user->getShippingAddress()->getAddress());
@@ -365,5 +368,17 @@ final class UserServiceTest extends ApiTestCase
 
         $apiKey = $client->authenticate('customer-4@world-company.com', 'newPassword');
         $this->assertInstanceOf(ApiKey::class, $apiKey);
+    }
+
+    public function testGetUserCompany()
+    {
+        $apiClient = $this->buildApiClient();
+
+        $userId = ($apiClient->authenticate('vendor@world-company.com', 'password-vendor'))->getId();
+
+        $companyId = (new UserService($apiClient))->getProfileFromId($userId)->getCompanyId();
+
+        $this->assertInternalType('int', $companyId);
+        $this->assertGreaterThan(0, $companyId);
     }
 }

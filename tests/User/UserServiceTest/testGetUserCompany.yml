@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 20 Dec 2017 08:36:14 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 9e7ee6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e7ee6'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"AwdSeEcqCEwYigm3+snwQRjAWrpaGj1F13q\/p4hc"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
+            Authorization: 'token AwdSeEcqCEwYigm3+snwQRjAWrpaGj1F13q/p4hc'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 20 Dec 2017 08:36:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 584dcc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/584dcc'
+            Content-Length: '536'
+            Content-Type: application/json
+        body: '{"id":6,"title":"mr","email":"vendor@world-company.com","companyId":3,"firstName":"Noam","lastName":"Chomsky","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"","39":""}}}'
