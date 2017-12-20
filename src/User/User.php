@@ -93,4 +93,9 @@ final class User
     {
         return $this->companyId;
     }
+
+    public function isVendor(): bool
+    {
+        return $this->getCompanyId() !== null;
+    }
 }

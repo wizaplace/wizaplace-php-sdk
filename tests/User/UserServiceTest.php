@@ -49,6 +49,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
 
         // shipping address
         $this->assertNull($user->getShippingAddress()->getTitle());
@@ -101,6 +102,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Paul', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
 
 
         $userService->updateUser(
@@ -122,6 +124,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jules', $user->getLastname());
         $this->assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
         $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
     }
 
     public function testUpdateUserAddresses()
@@ -376,9 +379,11 @@ final class UserServiceTest extends ApiTestCase
 
         $userId = ($apiClient->authenticate('vendor@world-company.com', 'password-vendor'))->getId();
 
-        $companyId = (new UserService($apiClient))->getProfileFromId($userId)->getCompanyId();
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+        $companyId = $user->getCompanyId();
 
         $this->assertInternalType('int', $companyId);
         $this->assertGreaterThan(0, $companyId);
+        $this->assertTrue($user->isVendor());
     }
 }
