@@ -23,6 +23,10 @@ final class AttributeVariant
     private $description;
     /** @var null|Image */
     private $image;
+    /** @var string */
+    private $seoTitle;
+    /** @var string */
+    private $seoDescription;
 
     /**
      * @internal
@@ -35,6 +39,8 @@ final class AttributeVariant
         $this->slug = $data['slug'];
         $this->description = $data['description'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->seoTitle = $data['seoData']['title'] ?? '';
+        $this->seoDescription = $data['seoData']['description'] ?? '';
     }
 
     public function getId(): int
@@ -65,5 +71,15 @@ final class AttributeVariant
     public function getImage(): ?Image
     {
         return $this->image;
+    }
+
+    public function getSeoTitle(): string
+    {
+        return $this->seoTitle;
+    }
+
+    public function getSeoDescription(): string
+    {
+        return $this->seoDescription;
     }
 }

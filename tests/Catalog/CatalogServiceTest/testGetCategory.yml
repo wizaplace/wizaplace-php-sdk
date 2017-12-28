@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            User-Agent: Wizaplace-PHP-SDK/dev-SEO@19bb873
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Oct 2017 13:10:24 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 28 Dec 2017 13:08:39 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '148315'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/148315'
-            Content-Length: '150'
+            X-Debug-Token: c6a737
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6a737'
+            Content-Length: '414'
             Content-Type: application/json
-        body: '{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0}'
+        body: '{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide."}}'

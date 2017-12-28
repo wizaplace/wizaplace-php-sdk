@@ -7,6 +7,11 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
+ - Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
+
 ### Bugfixes
 
 </details>
