@@ -30,6 +30,7 @@ use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
@@ -368,8 +369,45 @@ final class CatalogServiceTest extends ApiTestCase
         ];
 
         $actualAttributes = $product->getAttributes();
+        $this->assertContainsOnly(ProductAttribute::class, $actualAttributes);
         $this->sortAttributesById($expectedAttributes);
         $this->sortAttributesById($actualAttributes);
+
+        // Test some getters
+        foreach ($actualAttributes as $attribute) {
+            $id = $attribute->getId();
+            if ($id !== null) {
+                $this->assertInternalType('int', $id);
+            }
+
+            $this->assertInternalType('string', $attribute->getName());
+            $this->assertInstanceOf(AttributeType::class, $attribute->getType());
+            $this->assertContainsOnly(ProductAttribute::class, $attribute->getChildren());
+
+            $values = $attribute->getValues();
+            if ($values !== null) {
+                $this->assertContainsOnly(ProductAttributeValue::class, $values);
+
+                foreach ($values as $value) {
+                    $id = $value->getId();
+                    if ($id !== null) {
+                        $this->assertInternalType('int', $id);
+                    }
+
+                    $id = $value->getAttributeId();
+                    if ($id !== null) {
+                        $this->assertInternalType('int', $id);
+                    }
+
+                    $this->assertInternalType('string', $value->getName());
+                    $this->assertInternalType('string', $value->getSlug());
+                    $image = $value->getImage();
+                    if ($image !== null) {
+                        $this->assertInstanceOf(Image::class, $image);
+                    }
+                }
+            }
+        }
 
         $this->assertEquals($expectedAttributes, $actualAttributes);
 

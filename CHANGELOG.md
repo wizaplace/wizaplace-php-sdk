@@ -11,6 +11,11 @@
 
 </details>
 
+## 1.5.2
+
+ - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getId` as nullable
+ - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getAttributeId` as nullable
+
 ## 1.5.1
 
  - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
