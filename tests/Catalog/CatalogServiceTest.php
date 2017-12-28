@@ -662,6 +662,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $category->getDescription());
         $this->assertSame(10, $category->getPosition());
         $this->assertSame(0, $category->getProductCount());
+        $this->assertSame('Catégorie principale - Vente Catégorie principale - au meilleur prix - en ligne', $category->getSeoTitle());
+        $this->assertSame('Vente Catégorie principale au meilleur prix. Paiement sécurisé. Grand choix Catégorie principale. Livraison rapide.', $category->getSeoDescription());
         $this->assertNull($category->getImage());
     }
 
@@ -730,7 +732,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Rouge', $variant->getName());
         $this->assertSame('Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.', $variant->getDescription());
         $this->assertSame('rouge', $variant->getSlug());
-        $this->assertNull($variant->getImage());
+        $this->assertSame('', $variant->getSeoTitle());
+        $this->assertSame('', $variant->getSeoDescription());
+        $this->assertSame(5, $variant->getImage()->getId());
     }
 
     public function testGetNonExistingAttributeVariant()
@@ -749,7 +753,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'attributeId' => 1,
                 'name' => 'Bleu',
                 'slug' => '',
-                'image' => null,
+                'image' => ['id' => 4],
                 'description' => '',
             ]),
             new AttributeVariant([
@@ -765,7 +769,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'attributeId' => 1,
                 'name' => 'Rouge',
                 'slug' => 'rouge',
-                'image' => null,
+                'image' => ['id' => 5],
                 'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
             ]),
         ];

@@ -27,6 +27,10 @@ final class Category
     private $position;
     /** @var int */
     private $productCount;
+    /** @var string */
+    private $seoTitle;
+    /** @var string */
+    private $seoDescription;
 
     /**
      * @internal
@@ -41,6 +45,8 @@ final class Category
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
         $this->position = $data['position'];
         $this->productCount = $data['productCount'];
+        $this->seoTitle = $data['seoData']['title'] ?? '';
+        $this->seoDescription = $data['seoData']['description'] ?? '';
     }
 
     public function getId(): int
@@ -81,5 +87,15 @@ final class Category
     public function getProductCount(): int
     {
         return $this->productCount;
+    }
+
+    public function getSeoTitle(): string
+    {
+        return $this->seoTitle;
+    }
+
+    public function getSeoDescription(): string
+    {
+        return $this->seoDescription;
     }
 }
