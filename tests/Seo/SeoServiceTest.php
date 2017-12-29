@@ -74,9 +74,9 @@ final class SeoServiceTest extends ApiTestCase
 
     public function testListSlugs(): void
     {
-        $catalog = $this->buildSeoService()->listSlugs();
+        $catalog = iterator_to_array($this->buildSeoService()->listSlugs());
         $this->assertContainsOnly(SlugCatalogItem::class, $catalog);
-        $this->assertNotEmpty($catalog);
+        $this->assertGreaterThanOrEqual(28, count($catalog));
 
         foreach ($catalog as $item) {
             $this->assertInternalType('string', $item->getSlug());

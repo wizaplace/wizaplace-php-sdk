@@ -7,7 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Seo;
 
+use Clue\JsonStream\StreamingJsonParser;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\JsonDecodingError;
 use function theodorejb\polycast\to_string;
 
 final class SeoService extends AbstractService
@@ -51,19 +53,46 @@ final class SeoService extends AbstractService
     }
 
     /**
-     * @return SlugCatalogItem[]
+     * @return iterable|SlugCatalogItem[]
      */
-    public function listSlugs(): array
+    public function listSlugs(): iterable
     {
-        $slugsCatalog = $this->client->get('seo/slugs/catalog');
+        $response = $this->client->rawRequest('GET', 'seo/slugs/catalog');
 
+        $parser = new StreamingJsonParser();
 
-        return array_filter(array_map(static function (array $itemData): ?SlugCatalogItem {
-            try {
-                return new SlugCatalogItem($itemData);
-            } catch (\UnexpectedValueException $e) {
-                return null; // we do not support all slug target types
+        $body = $response->getBody();
+
+        // We read and ignore the first array's opening
+        if ($body->read(1) !== '[') {
+            throw new JsonDecodingError();
+        }
+
+        while (($c = $body->read(1)) !== '') {
+            // we keep reading from the stream while we don't have a full object
+            $data = $parser->push($c);
+            if (empty($data)) {
+                continue;
             }
-        }, $slugsCatalog));
+
+            foreach ($data as $itemData) {
+                try {
+                    yield new SlugCatalogItem($itemData);
+                } catch (\UnexpectedValueException $e) {
+                    // we do not support all slug target types
+                }
+            }
+
+            switch ($body->read(1)) {
+                case ']': // end of the original array, we stop here
+                    return;
+                case ',': // new item, we keep going
+                    break;
+                default:
+                    throw new JsonDecodingError();
+            }
+        }
+
+        throw new JsonDecodingError(); // We should have found the end of the original array
     }
 }
