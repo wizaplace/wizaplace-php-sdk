@@ -53,9 +53,9 @@ final class SeoService extends AbstractService
     }
 
     /**
-     * @return iterable|SlugCatalogItem[]
+     * @return \Traversable|SlugCatalogItem[]
      */
-    public function listSlugs(): iterable
+    public function listSlugs(): \Traversable
     {
         $response = $this->client->rawRequest('GET', 'seo/slugs/catalog');
 
