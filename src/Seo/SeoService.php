@@ -68,9 +68,9 @@ final class SeoService extends AbstractService
             throw new JsonDecodingError();
         }
 
-        while (($c = $body->read(1)) !== '') {
+        while (($char = $body->read(1)) !== '') {
             // we keep reading from the stream while we don't have a full object
-            $data = $parser->push($c);
+            $data = $parser->push($char);
             if (empty($data)) {
                 continue;
             }
