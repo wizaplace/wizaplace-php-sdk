@@ -17,6 +17,7 @@
  - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
  - Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
  - Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
+ - Added `\Wizaplace\SDK\Seo\SeoService::listSlugs` and associated classes
 
 ## 1.5.2
 

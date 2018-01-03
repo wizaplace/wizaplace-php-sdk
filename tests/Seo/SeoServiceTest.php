@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Seo;
 
 use Wizaplace\SDK\Seo\SeoService;
+use Wizaplace\SDK\Seo\SlugCatalogItem;
 use Wizaplace\SDK\Seo\SlugTarget;
 use Wizaplace\SDK\Seo\SlugTargetType;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -69,6 +70,24 @@ final class SeoServiceTest extends ApiTestCase
         $slugTarget = $seoService->resolveSlug('404-does-not-exist');
 
         $this->assertNull($slugTarget);
+    }
+
+    public function testListSlugs(): void
+    {
+        $catalog = iterator_to_array($this->buildSeoService()->listSlugs());
+        $this->assertContainsOnly(SlugCatalogItem::class, $catalog);
+        $this->assertGreaterThanOrEqual(28, count($catalog));
+
+        foreach ($catalog as $item) {
+            $this->assertInternalType('string', $item->getSlug());
+            $this->assertNotEmpty($item->getSlug());
+
+            $target = $item->getTarget();
+            $this->assertInstanceOf(SlugTarget::class, $target);
+            $this->assertInternalType('string', $target->getObjectId());
+            $this->assertNotEmpty($target->getObjectId());
+            $this->assertInstanceOf(SlugTargetType::class, $target->getObjectType());
+        }
     }
 
     private function buildSeoService(): SeoService
