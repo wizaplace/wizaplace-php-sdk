@@ -11,20 +11,31 @@
 
 </details>
 
+## 1.7.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Seo\SeoService::listSlugs` and associated classes
+
 ## 1.6.0
+
+### New features
 
  - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoTitle`
  - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
  - Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
  - Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
- - Added `\Wizaplace\SDK\Seo\SeoService::listSlugs` and associated classes
 
 ## 1.5.2
+
+### Bugfixes
 
  - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getId` as nullable
  - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getAttributeId` as nullable
 
 ## 1.5.1
+
+### Bugfixes
 
  - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
 
