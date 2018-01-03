@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-SEO@19bb873
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:45:39 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 28 Dec 2017 13:10:36 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c6826c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6826c'
-            Content-Length: '84'
+            Content-Language: fr
+            X-Debug-Token: 2a67c0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2a67c0'
+            Content-Length: '123'
             Content-Type: application/json
-        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":null}'
+        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"seoData":{"title":"","description":""}}'

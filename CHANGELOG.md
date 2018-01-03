@@ -33,6 +33,18 @@
 
 </details>
 
+## 1.6.0
+
+ - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
+ - Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
+ - Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
+
+## 1.5.2
+
+ - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getId` as nullable
+ - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getAttributeId` as nullable
+
 ## 1.5.1
 
  - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.

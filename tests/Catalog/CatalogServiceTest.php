@@ -30,6 +30,7 @@ use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
@@ -368,8 +369,45 @@ final class CatalogServiceTest extends ApiTestCase
         ];
 
         $actualAttributes = $product->getAttributes();
+        $this->assertContainsOnly(ProductAttribute::class, $actualAttributes);
         $this->sortAttributesById($expectedAttributes);
         $this->sortAttributesById($actualAttributes);
+
+        // Test some getters
+        foreach ($actualAttributes as $attribute) {
+            $id = $attribute->getId();
+            if ($id !== null) {
+                $this->assertInternalType('int', $id);
+            }
+
+            $this->assertInternalType('string', $attribute->getName());
+            $this->assertInstanceOf(AttributeType::class, $attribute->getType());
+            $this->assertContainsOnly(ProductAttribute::class, $attribute->getChildren());
+
+            $values = $attribute->getValues();
+            if ($values !== null) {
+                $this->assertContainsOnly(ProductAttributeValue::class, $values);
+
+                foreach ($values as $value) {
+                    $id = $value->getId();
+                    if ($id !== null) {
+                        $this->assertInternalType('int', $id);
+                    }
+
+                    $id = $value->getAttributeId();
+                    if ($id !== null) {
+                        $this->assertInternalType('int', $id);
+                    }
+
+                    $this->assertInternalType('string', $value->getName());
+                    $this->assertInternalType('string', $value->getSlug());
+                    $image = $value->getImage();
+                    if ($image !== null) {
+                        $this->assertInstanceOf(Image::class, $image);
+                    }
+                }
+            }
+        }
 
         $this->assertEquals($expectedAttributes, $actualAttributes);
 
@@ -624,6 +662,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $category->getDescription());
         $this->assertSame(10, $category->getPosition());
         $this->assertSame(0, $category->getProductCount());
+        $this->assertSame('Catégorie principale - Vente Catégorie principale - au meilleur prix - en ligne', $category->getSeoTitle());
+        $this->assertSame('Vente Catégorie principale au meilleur prix. Paiement sécurisé. Grand choix Catégorie principale. Livraison rapide.', $category->getSeoDescription());
         $this->assertNull($category->getImage());
     }
 
@@ -692,7 +732,9 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Rouge', $variant->getName());
         $this->assertSame('Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.', $variant->getDescription());
         $this->assertSame('rouge', $variant->getSlug());
-        $this->assertNull($variant->getImage());
+        $this->assertSame('', $variant->getSeoTitle());
+        $this->assertSame('', $variant->getSeoDescription());
+        $this->assertSame(5, $variant->getImage()->getId());
     }
 
     public function testGetNonExistingAttributeVariant()
@@ -711,7 +753,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'attributeId' => 1,
                 'name' => 'Bleu',
                 'slug' => '',
-                'image' => null,
+                'image' => ['id' => 4],
                 'description' => '',
             ]),
             new AttributeVariant([
@@ -727,7 +769,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'attributeId' => 1,
                 'name' => 'Rouge',
                 'slug' => 'rouge',
-                'image' => null,
+                'image' => ['id' => 5],
                 'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
             ]),
         ];

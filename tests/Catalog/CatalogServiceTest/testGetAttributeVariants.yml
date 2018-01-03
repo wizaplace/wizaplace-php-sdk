@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.10-1+ubuntu16.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-SEO@19bb873
             VCR-index: '0'
             Accept: null
     response:
@@ -15,11 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 12 Oct 2017 08:33:05 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 28 Dec 2017 13:12:44 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 15322b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/15322b'
-            Content-Length: '250'
+            Content-Language: fr
+            X-Debug-Token: 891adf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/891adf'
+            Content-Length: '368'
             Content-Type: application/json
-        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"","description":"","image":null},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":null}]'
+        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"","description":"","image":{"id":4},"seoData":{"title":"","description":""}},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null,"seoData":{"title":"","description":""}},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"seoData":{"title":"","description":""}}]'

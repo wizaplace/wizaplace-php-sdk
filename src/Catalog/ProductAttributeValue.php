@@ -11,9 +11,9 @@ use Wizaplace\SDK\Image\Image;
 
 final class ProductAttributeValue
 {
-    /** @var int */
+    /** @var null|int */
     private $id;
-    /** @var int */
+    /** @var null|int */
     private $attributeId;
     /** @var string */
     private $name;
@@ -34,12 +34,12 @@ final class ProductAttributeValue
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
     }
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getAttributeId(): int
+    public function getAttributeId(): ?int
     {
         return $this->attributeId;
     }
