@@ -231,6 +231,10 @@ final class BasketServiceTest extends ApiTestCase
         $service->setUserBasketId($basketId);
 
         $this->assertSame($basketId, $service->getUserBasketId());
+
+        $service->setUserBasketId(null);
+
+        $this->assertNull($service->getUserBasketId());
     }
 
     public function testUpdateCommentToProduct()
