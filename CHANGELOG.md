@@ -7,27 +7,27 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
-- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
-- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
-- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeValue`
-- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
-- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
-- Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
-- Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
-- Added `\Wizaplace\SDK\User\User::getCompanyId`
-- Added `\Wizaplace\SDK\User\User::isVendor`
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeValue`
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
+ - Added `\Wizaplace\SDK\User\User::getCompanyId`
+ - Added `\Wizaplace\SDK\User\User::isVendor`
 
 ### Bugfixes
 
