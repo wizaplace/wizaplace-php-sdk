@@ -11,7 +11,7 @@ use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\AbstractService;
 use function theodorejb\polycast\to_string;
 
-final class BannerService extends AbstractService
+final class BannerService extends AbstractService implements BannerServiceInterface
 {
     /**
      * Get the banners that should display on the home page.
