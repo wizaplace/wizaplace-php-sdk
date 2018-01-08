@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\DeclinationOption::getImage`
+ - Added `\Wizaplace\SDK\Catalog\OptionVariant::getImage`
+
 ### Bugfixes
 
 </details>

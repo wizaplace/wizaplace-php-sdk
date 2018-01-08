@@ -33,6 +33,9 @@ final class OptionTest extends TestCase
                 [
                     'id' => 4,
                     'name' => '21',
+                    'image' => [
+                        'id' => 1234,
+                    ],
                 ],
             ],
         ]), JSON_PRETTY_PRINT);
@@ -44,19 +47,25 @@ final class OptionTest extends TestCase
     "variants": [
         {
             "id": 1,
-            "name": "13"
+            "name": "13",
+            "image": null
         },
         {
             "id": 2,
-            "name": "15"
+            "name": "15",
+            "image": null
         },
         {
             "id": 3,
-            "name": "17"
+            "name": "17",
+            "image": null
         },
         {
             "id": 4,
-            "name": "21"
+            "name": "21",
+            "image": {
+                "id": 1234
+            }
         }
     ]
 }
