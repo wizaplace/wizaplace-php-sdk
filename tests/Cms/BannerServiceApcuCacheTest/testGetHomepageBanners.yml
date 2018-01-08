@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners?device=desktop'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-cms-banners-caches@a0dc0cc
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 08 Jan 2018 13:14:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a1ac0d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a1ac0d'
+            Content-Length: '86'
+            Content-Type: application/json
+        body: '[{"link":"http:\/\/url-de-test-2.com","shouldOpenInNewWindow":false,"image":{"id":9}}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners?device=mobile'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-cms-banners-caches@a0dc0cc
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 08 Jan 2018 13:14:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2fdb14
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2fdb14'
+            Content-Length: '83'
+            Content-Type: application/json
+        body: '[{"link":"http:\/\/url-de-test.com","shouldOpenInNewWindow":true,"image":{"id":8}}]'
