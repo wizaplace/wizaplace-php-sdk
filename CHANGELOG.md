@@ -28,6 +28,7 @@
  - Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
  - Added `\Wizaplace\SDK\User\User::getCompanyId`
  - Added `\Wizaplace\SDK\User\User::isVendor`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classe
 
 ### Bugfixes
 

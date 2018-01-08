@@ -17,6 +17,7 @@ use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
 use Wizaplace\SDK\Vendor\Order\Shipment;
+use Wizaplace\SDK\Vendor\Order\Tax;
 
 class OrderServiceTest extends ApiTestCase
 {
@@ -199,6 +200,22 @@ class OrderServiceTest extends ApiTestCase
         $shipment = $orderService->getShipmentById($shipmentId);
         $this->assertInstanceOf(Shipment::class, $shipment);
         $this->assertEquals($shipments[0], $shipment);
+    }
+
+    public function testListTaxes(): void
+    {
+        $taxes = $this->buildVendorOrderService()->listTaxes();
+
+        $this->assertContainsOnly(Tax::class, $taxes);
+        $this->assertNotEmpty($taxes);
+
+        foreach ($taxes as $tax) {
+            $this->assertInternalType('int', $tax->getId());
+            $this->assertGreaterThan(0, $tax->getId());
+
+            $this->assertInternalType('string', $tax->getName());
+            $this->assertNotEmpty($tax->getName());
+        }
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
