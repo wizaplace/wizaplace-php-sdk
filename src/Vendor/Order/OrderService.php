@@ -102,6 +102,20 @@ class OrderService extends AbstractService
         ]);
     }
 
+    /**
+     * @return Tax[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function listTaxes(): array
+    {
+        $this->client->mustBeAuthenticated();
+        $taxesData = $this->client->get('taxes');
+
+        return array_map(static function (array $taxData): Tax {
+            return new Tax($taxData);
+        }, $taxesData);
+    }
+
     private function setOrderIsAccepted(int $orderId, bool $accepted): void
     {
         $this->client->mustBeAuthenticated();
