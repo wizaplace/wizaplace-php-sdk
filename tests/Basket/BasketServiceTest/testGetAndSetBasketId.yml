@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:46 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 04 Jan 2018 14:46:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1eef93
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1eef93'
+            X-Debug-Token: d0454c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0454c'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"uf0QR0HTHKkmgYlnMxRFeR7TndsDLzuqDnGx8mra"}'
+        body: '{"id":2,"apiKey":"7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token uf0QR0HTHKkmgYlnMxRFeR7TndsDLzuqDnGx8mra'
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:47 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 04 Jan 2018 14:46:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 8ccffb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8ccffb'
+            X-Debug-Token: 0bd131
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0bd131'
             Content-Length: '11'
             Content-Type: application/json
         body: '{"id":null}'
@@ -59,8 +59,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token uf0QR0HTHKkmgYlnMxRFeR7TndsDLzuqDnGx8mra'
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
             VCR-index: '2'
             Accept: null
     response:
@@ -69,15 +69,15 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:47 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 04 Jan 2018 14:46:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 149c4a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/149c4a'
+            X-Debug-Token: 03ef0d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/03ef0d'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"6e9544ee-49a9-45b9-b150-7769a3bb674f"'
+        body: '"0390e48d-5497-45e3-aebf-cfc5fb2616a4"'
 -
     request:
         method: POST
@@ -86,25 +86,24 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token uf0QR0HTHKkmgYlnMxRFeR7TndsDLzuqDnGx8mra'
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
             VCR-index: '3'
             Accept: null
-        body: '{"id":"6e9544ee-49a9-45b9-b150-7769a3bb674f"}'
+        body: '{"id":"0390e48d-5497-45e3-aebf-cfc5fb2616a4"}'
     response:
         status:
             http_version: '1.1'
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:47 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 04 Jan 2018 14:46:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 8d8af5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8d8af5'
-            Content-Length: '0'
+            X-Debug-Token: 3d9763
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3d9763'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -113,8 +112,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token uf0QR0HTHKkmgYlnMxRFeR7TndsDLzuqDnGx8mra'
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
             VCR-index: '4'
             Accept: null
     response:
@@ -123,12 +122,65 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:47 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Thu, 04 Jan 2018 14:46:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c05ecc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c05ecc'
+            X-Debug-Token: f98b2a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f98b2a'
             Content-Length: '45'
             Content-Type: application/json
-        body: '{"id":"6e9544ee-49a9-45b9-b150-7769a3bb674f"}'
+        body: '{"id":"0390e48d-5497-45e3-aebf-cfc5fb2616a4"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/2/basket'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
+            VCR-index: '5'
+            Accept: null
+        body: '{"id":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Thu, 04 Jan 2018 14:46:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '658276'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/658276'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/2/basket'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-user-basket-id@b84c32e
+            Authorization: 'token 7QQ8s+rrj0UCg5ejmmWwReZgctPeDrdja++YQVtx'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 04 Jan 2018 14:46:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 62fbea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/62fbea'
+            Content-Length: '11'
+            Content-Type: application/json
+        body: '{"id":null}'

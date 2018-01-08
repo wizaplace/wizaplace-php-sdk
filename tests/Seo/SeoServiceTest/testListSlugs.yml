@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs/catalog'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-slugs-catalog@5477f3c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 21 Dec 2017 14:56:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8a98fa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a98fa'
+            Content-Length: '4269'
+            Content-Type: application/json
+        body: '[{"slug":"acme","target":{"type":"company","id":"2"}},{"slug":"adidas","target":{"type":"attribute_variant","id":"19"}},{"slug":"c2c-company","target":{"type":"company","id":"4"}},{"slug":"cart","target":{"type":"redirect","id":"0"}},{"slug":"casque-corsair-gaming","target":{"type":"product","id":"4"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"},{"target":{"type":"category","id":"5"},"slug":"headsets"}]},{"slug":"casque-logitech-gaming","target":{"type":"product","id":"5"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"},{"target":{"type":"category","id":"5"},"slug":"headsets"}]},{"slug":"casque-razer-gaming","target":{"type":"product","id":"6"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"},{"target":{"type":"category","id":"5"},"slug":"headsets"}]},{"slug":"catalog","target":{"type":"redirect","id":"0"}},{"slug":"categorie-principale","target":{"type":"category","id":"2"}},{"slug":"checkout","target":{"type":"redirect","id":"0"}},{"slug":"checkout-customer-info","target":{"type":"redirect","id":"0"}},{"slug":"checkout-summary","target":{"type":"redirect","id":"0"}},{"slug":"echec-import-csv","target":{"type":"category","id":"1"}},{"slug":"ecran-pc-full-hd-noir","target":{"type":"product","id":"3"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"},{"target":{"type":"category","id":"4"},"slug":"screens"}]},{"slug":"faq","target":{"type":"cms_page","id":"32"}},{"slug":"gift-certificates","target":{"type":"redirect","id":"0"}},{"slug":"gift-certificates-update","target":{"type":"redirect","id":"0"}},{"slug":"headsets","target":{"type":"category","id":"5"}},{"slug":"ipsam-ipsum-omnis-non-asperiores-hic-veritatis","target":{"type":"product","id":"0adaf6bc-d362-34be-b72f-42d5aa3b4a4e"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"it","target":{"type":"category","id":"3"}},{"slug":"login","target":{"type":"redirect","id":"0"}},{"slug":"marchand-de-test","target":{"type":"company","id":"1"}},{"slug":"news","target":{"type":"redirect","id":"0"}},{"slug":"nike","target":{"type":"attribute_variant","id":"18"}},{"slug":"product-in-mvp-1","target":{"type":"product","id":"11"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"product-in-mvp-2","target":{"type":"product","id":"12"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"product-with-attachments","target":{"type":"product","id":"10"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"product-with-complex-attributes","target":{"type":"product","id":"8"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"product-with-shippings","target":{"type":"product","id":"7"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"product-with-valid-geoloc","target":{"type":"product","id":"9"},"categoryPath":[{"target":{"type":"category","id":"6"},"slug":"special-category-dedicated-to-specific-tests-en"}]},{"slug":"profiles-add","target":{"type":"redirect","id":"0"}},{"slug":"profiles-update","target":{"type":"redirect","id":"0"}},{"slug":"promotions","target":{"type":"redirect","id":"0"}},{"slug":"puma","target":{"type":"attribute_variant","id":"20"}},{"slug":"screens","target":{"type":"category","id":"4"}},{"slug":"sitemap","target":{"type":"redirect","id":"0"}},{"slug":"souris-sans-fil-avec-recepteur-nano-6-boutons","target":{"type":"product","id":"2"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"}]},{"slug":"special-category-dedicated-to-specific-tests-en","target":{"type":"category","id":"6"}},{"slug":"test-cms-page-slug","target":{"type":"cms_page","id":"31"}},{"slug":"test-product-slug","target":{"type":"product","id":"1"},"categoryPath":[{"target":{"type":"category","id":"3"},"slug":"it"}]},{"slug":"the-world-company-inc.","target":{"type":"company","id":"3"}},{"slug":"wishlist","target":{"type":"redirect","id":"0"}}]'
