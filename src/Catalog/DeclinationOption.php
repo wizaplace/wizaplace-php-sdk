@@ -7,6 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Wizaplace\SDK\Image\Image;
+
 final class DeclinationOption implements \JsonSerializable
 {
     /** @var integer */
@@ -21,6 +23,9 @@ final class DeclinationOption implements \JsonSerializable
     /** @var string */
     private $variantName;
 
+    /** @var null|Image */
+    private $image;
+
     /**
      * @internal
      */
@@ -30,6 +35,7 @@ final class DeclinationOption implements \JsonSerializable
         $this->name = $data['name'];
         $this->variantId = $data['variantId'];
         $this->variantName = $data['variantName'];
+        $this->image = isset($data['image']) ? new Image($data['image']) : null;
     }
 
     public function getId(): int
@@ -52,6 +58,11 @@ final class DeclinationOption implements \JsonSerializable
         return $this->variantName;
     }
 
+    public function getImage(): ?Image
+    {
+        return $this->image;
+    }
+
     public function jsonSerialize(): array
     {
         return [
@@ -59,6 +70,7 @@ final class DeclinationOption implements \JsonSerializable
             "name" => $this->getName(),
             "variantId" => $this->getVariantId(),
             "variantName" => $this->getVariantName(),
+            'image' => $this->getImage() ? ['id' => $this->getImage()->getId()] : null,
         ];
     }
 }
