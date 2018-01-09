@@ -92,6 +92,7 @@ final class CatalogService extends AbstractService
             if (!isset($companyData['terms'])) {
                 $companyData['terms'] = '';
             }
+
             return new CompanyDetail($companyData);
         }, $response);
 

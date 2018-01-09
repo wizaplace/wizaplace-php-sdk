@@ -634,7 +634,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Lorem Ipsum', $company->getTerms());
     }
 
-    public function testGetCompanies() {
+    public function testGetCompanies()
+    {
         $catalogService = $this->buildCatalogService();
 
         $companies = $catalogService->getCompanies();
