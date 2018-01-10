@@ -642,7 +642,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertInternalType('array', $companies);
         $this->assertGreaterThanOrEqual(4, count($companies));
-        $this->assertInstanceOf(CompanyListItem::class, $companies[0]);
+        $this->assertContainsOnly(CompanyListItem::class, $companies);
         $this->assertSame(1, $companies[0]->getId());
         $this->assertSame('Marchand de test', $companies[0]->getName());
         $this->assertFalse($companies[0]->isProfessional());
