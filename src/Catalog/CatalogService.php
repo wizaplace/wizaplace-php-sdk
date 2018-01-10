@@ -89,11 +89,7 @@ final class CatalogService extends AbstractService
         $response = $this->client->get("catalog/companies");
 
         $companies = array_map(function ($companyData) {
-            if (!isset($companyData['terms'])) {
-                $companyData['terms'] = '';
-            }
-
-            return new CompanyDetail($companyData);
+            return new CompanyListItem($companyData);
         }, $response);
 
         return $companies;

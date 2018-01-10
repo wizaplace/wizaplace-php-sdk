@@ -12,7 +12,7 @@ use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
-use Wizaplace\SDK\Catalog\CompanyDetail;
+use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\DeclinationId;
@@ -642,11 +642,10 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertInternalType('array', $companies);
         $this->assertGreaterThanOrEqual(4, count($companies));
-        $this->assertInstanceOf(CompanyDetail::class, $companies[0]);
+        $this->assertInstanceOf(CompanyListItem::class, $companies[0]);
         $this->assertSame(1, $companies[0]->getId());
         $this->assertSame('Marchand de test', $companies[0]->getName());
         $this->assertFalse($companies[0]->isProfessional());
-        $this->assertSame('', $companies[0]->getTerms());
     }
 
     public function testGetC2cCompanyById()
