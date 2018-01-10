@@ -7,11 +7,15 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
-
 ### Bugfixes
 
 </details>
+
+## 1.9.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
 
 ## 1.8.0
 
