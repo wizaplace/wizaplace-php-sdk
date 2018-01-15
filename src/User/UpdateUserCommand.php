@@ -106,19 +106,19 @@ final class UpdateUserCommand
      */
     public function validate(): void
     {
-        if (is_null($this->id)) {
+        if (!isset($this->id)) {
             throw new SomeParametersAreInvalid('Missing customer ID');
         }
 
-        if (is_null($this->email)) {
+        if (!isset($this->email)) {
             throw new SomeParametersAreInvalid('Missing customer\'s email');
         }
 
-        if (is_null($this->firstName)) {
+        if (!isset($this->firstName)) {
             throw new SomeParametersAreInvalid('Missing customer\'s first name');
         }
 
-        if (is_null($this->lastName)) {
+        if (!isset($this->lastName)) {
             throw new SomeParametersAreInvalid('Missing customer\'s last name');
         }
     }

@@ -79,19 +79,19 @@ final class ProductReport
      */
     public function validate(): void
     {
-        if (is_null($this->productId)) {
+        if (!isset($this->productId)) {
             throw new SomeParametersAreInvalid('Missing product ID', 400);
         }
 
-        if (is_null($this->reporterEmail)) {
+        if (!isset($this->reporterEmail)) {
             throw new SomeParametersAreInvalid('Missing reporter\'s email', 400);
         }
 
-        if (is_null($this->reporterName)) {
+        if (!isset($this->reporterName)) {
             throw new SomeParametersAreInvalid('Missing reporter\'s name', 400);
         }
 
-        if (is_null($this->message)) {
+        if (!isset($this->message)) {
             throw new SomeParametersAreInvalid('Missing message', 400);
         }
     }
