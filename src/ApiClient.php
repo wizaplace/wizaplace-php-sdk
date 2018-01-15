@@ -122,7 +122,7 @@ final class ApiClient
     }
 
     /**
-     * @param $uri string|UriInterface
+     * @param string|UriInterface $uri
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {

@@ -179,7 +179,7 @@ final class Declination
      * This function checks if the declination has the requested variantsIds and only those
      *
      * example : if the requested Ids are [1, 2] and the declination variantIds are [1, 2, 3], it won't be valid
-     * @param int[]
+     * @param int[] $variantIds
      */
     public function hasVariants(array $variantIds): bool
     {

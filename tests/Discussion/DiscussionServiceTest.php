@@ -19,7 +19,7 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 final class DiscussionServiceTest extends ApiTestCase
 {
     /**
-     * @var $discussionService DiscussionService
+     * @var DiscussionService
      */
     private $discussionService;
 
