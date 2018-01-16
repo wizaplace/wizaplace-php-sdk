@@ -34,6 +34,19 @@
 
 </details>
 
+## 1.9.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
+
+## 1.8.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\DeclinationOption::getImage`
+ - Added `\Wizaplace\SDK\Catalog\OptionVariant::getImage`
+
 ## 1.7.0
 
 ### New features

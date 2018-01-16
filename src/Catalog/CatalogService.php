@@ -82,6 +82,20 @@ final class CatalogService extends AbstractService
     }
 
     /**
+     * @return CompanyDetail[]
+     */
+    public function getCompanies(): array
+    {
+        $response = $this->client->get("catalog/companies");
+
+        $companies = array_map(function ($companyData) {
+            return new CompanyListItem($companyData);
+        }, $response);
+
+        return $companies;
+    }
+
+    /**
      * @return Attribute[]
      */
     public function getAttributes(): array

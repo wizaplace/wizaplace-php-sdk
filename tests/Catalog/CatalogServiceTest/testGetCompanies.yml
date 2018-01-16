@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@7bb0cbe
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 09 Jan 2018 15:25:38 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2c4a52
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2c4a52'
+            Content-Length: '914'
+            Content-Type: application/json
+        body: '[{"id":1,"name":"Marchand de test","description":"Marchand de test","address":"Rue des marketplaces","phoneNumber":"0123456789","professional":false,"slug":"marchand-de-test","image":null,"location":null,"averageRating":null},{"id":2,"name":"ACME","description":"ACME","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"acme","image":null,"location":null,"averageRating":null},{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc.","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5},{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null}]'
