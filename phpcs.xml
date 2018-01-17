@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <ruleset>
-    <rule ref="vendor/wizaplace/php-coding-standard/Wizaplace/ruleset.xml"/>
+    <rule ref="vendor/wizaplace/php-coding-standard/Wizaplace/ruleset.xml">
+        <exclude name="Symfony.Functions.ReturnType.Invalid" /><!-- removed because it is buggy with closures -->
+        <exclude name="Symfony.Objects.ObjectInstantiation.Invalid" /><!-- removed because it is buggy with anonymous classes -->
+    </rule>
     <file>src</file>
     <file>tests</file>
 </ruleset>
