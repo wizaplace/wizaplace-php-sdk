@@ -9,9 +9,9 @@ namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
-use Wizaplace\SDK\Image\Image;
 
 final class Product
 {
@@ -291,6 +291,34 @@ final class Product
         }
 
         throw new NotFound('Declination was not found.');
+    }
+
+    /**
+     * Will return all declinations which have the given options' variants ids, and potentially some more.
+     *
+     * @param int[] $variantIds
+     * @return Declination[]
+     */
+    public function getDeclinationsFromOptions(array $variantIds): array
+    {
+        $result = [];
+
+        $variantsIdsMap = array_flip($variantIds);
+
+        foreach ($this->declinations as $declination) {
+            $matchingVariantsCount = 0;
+            foreach ($declination->getOptions() as $option) {
+                if (isset($variantsIdsMap[$option->getVariantId()])) {
+                    $matchingVariantsCount++;
+                }
+            }
+
+            if ($matchingVariantsCount === count($variantIds)) {
+                $result[] = $declination;
+            }
+        }
+
+        return $result;
     }
 
     /**

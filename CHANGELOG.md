@@ -6,6 +6,8 @@
 ### BREAKING CHANGES
 
 ### New features
+ 
+ - Added `\Wizaplace\SDK\Catalog\Product::getDeclinationsFromOptions`
 
 ### Bugfixes
 

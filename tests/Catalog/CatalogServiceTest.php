@@ -16,6 +16,7 @@ use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Catalog\DeclinationOption;
 use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Catalog\Facet\ListFacet;
 use Wizaplace\SDK\Catalog\Facet\NumericFacet;
@@ -1470,6 +1471,22 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedDeclinations[9], $product->getDeclinationFromOptions([4]));
         $this->assertEquals($expectedDeclinations[10], $product->getDeclinationFromOptions([4, 5]));
         $this->assertEquals($expectedDeclinations[11], $product->getDeclinationFromOptions([4, 6]));
+    }
+
+    public function testGetDeclinationsFromOptions(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById('2');
+
+        $declinations = $product->getDeclinationsFromOptions([5]);
+
+        $this->assertCount(4, $declinations);
+
+        foreach ($declinations as $declination) {
+            $this->assertContains(5, array_map(static function (DeclinationOption $option): int {
+                return $option->getVariantId();
+            }, $declination->getOptions()));
+        }
     }
 
     public function testGetProductWithGeolocation()
