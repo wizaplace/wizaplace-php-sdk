@@ -57,6 +57,11 @@ final class ProductDeclinationUpsertData
         return $this;
     }
 
+    public function getPrice(): float
+    {
+        return $this->price ?? 0.0;
+    }
+
     public function setCrossedOutPrice(?float $crossedOutPrice): self
     {
         $this->crossedOutPrice = $crossedOutPrice;
@@ -78,6 +83,13 @@ final class ProductDeclinationUpsertData
     public function setOptionsVariants(array $optionsVariants): self
     {
         $this->optionsVariants = $optionsVariants;
+
+        return $this;
+    }
+
+    public function setOptionVariant(int $optionId, int $variantId): self
+    {
+        $this->optionsVariants[$optionId] = $variantId;
 
         return $this;
     }
