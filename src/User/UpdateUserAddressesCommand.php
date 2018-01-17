@@ -61,15 +61,15 @@ final class UpdateUserAddressesCommand
      */
     public function validate(): void
     {
-        if (is_null($this->userId)) {
+        if (!isset($this->userId)) {
             throw new SomeParametersAreInvalid('Missing user ID');
         }
 
-        if (is_null($this->shippingAddress)) {
+        if (!isset($this->shippingAddress)) {
             throw new SomeParametersAreInvalid('Missing shipping address');
         }
 
-        if (is_null($this->billingAddress)) {
+        if (!isset($this->billingAddress)) {
             throw new SomeParametersAreInvalid('Missing billing address');
         }
     }

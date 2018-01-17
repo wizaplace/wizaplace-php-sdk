@@ -363,7 +363,7 @@ final class BasketService extends AbstractService
      *     new BasketComment('I am superman, please deliver to space'),
      * ]);
      *
-     * @param $comments Comment[]
+     * @param Comment[] $comments
      * @throws NotFound
      * @throws SomeParametersAreInvalid
      */

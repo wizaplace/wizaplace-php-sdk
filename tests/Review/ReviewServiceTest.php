@@ -15,7 +15,7 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 final class ReviewServiceTest extends ApiTestCase
 {
     /**
-     * @var $rs ReviewService
+     * @var ReviewService
      */
     private $reviewService;
 

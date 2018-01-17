@@ -1598,10 +1598,10 @@ final class CatalogServiceTest extends ApiTestCase
 
         $result = $catalogService->search('');
 
-        /** @var null|NumericFacet $priceFacet */
         $priceFacet = null;
         foreach ($result->getFacets() as $facet) {
             if ($facet->getName() === 'price') {
+                /** @var NumericFacet $priceFacet */
                 $priceFacet = $facet;
                 break;
             }

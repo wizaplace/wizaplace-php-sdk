@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
+            User-Agent: Wizaplace-PHP-SDK/dev-user-get-comapny@1de232b
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 20 Dec 2017 08:36:14 GMT'
+            Date: 'Tue, 16 Jan 2018 15:11:08 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 9e7ee6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e7ee6'
-            Content-Length: '61'
+            X-Debug-Token: a30e5f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a30e5f'
+            Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"AwdSeEcqCEwYigm3+snwQRjAWrpaGj1F13q\/p4hc"}'
+        body: '{"id":6,"apiKey":"w0bdfXBHk+hO1usab\/D8Ah\/Yi9h\/Edos7drel6HY"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
-            Authorization: 'token AwdSeEcqCEwYigm3+snwQRjAWrpaGj1F13q/p4hc'
+            User-Agent: Wizaplace-PHP-SDK/dev-user-get-comapny@1de232b
+            Authorization: 'token w0bdfXBHk+hO1usab/D8Ah/Yi9h/Edos7drel6HY'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 20 Dec 2017 08:36:15 GMT'
+            Date: 'Tue, 16 Jan 2018 15:11:09 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 584dcc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/584dcc'
+            X-Debug-Token: c2d03d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c2d03d'
             Content-Length: '536'
             Content-Type: application/json
         body: '{"id":6,"title":"mr","email":"vendor@world-company.com","companyId":3,"firstName":"Noam","lastName":"Chomsky","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"","39":""},"shipping":{"title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"","39":""}}}'

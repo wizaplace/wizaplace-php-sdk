@@ -67,15 +67,15 @@ final class AfterSalesServiceRequest
      */
     public function validate(): void
     {
-        if (is_null($this->orderId)) {
+        if (!isset($this->orderId)) {
             throw new SomeParametersAreInvalid('Missing order ID');
         }
 
-        if (is_null($this->comments)) {
+        if (!isset($this->comments)) {
             throw new SomeParametersAreInvalid('Missing comments');
         }
 
-        if (is_null($this->itemsDeclinationsIds)) {
+        if (!isset($this->itemsDeclinationsIds)) {
             throw new SomeParametersAreInvalid('Missing items\'  declinations ids');
         }
     }
