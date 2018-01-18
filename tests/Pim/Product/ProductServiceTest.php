@@ -19,6 +19,7 @@ use Wizaplace\SDK\Pim\Product\ProductAttachmentUpload;
 use Wizaplace\SDK\Pim\Product\ProductDeclination;
 use Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductGeolocation;
+use Wizaplace\SDK\Pim\Product\ProductGeolocationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductImage;
 use Wizaplace\SDK\Pim\Product\ProductImageUpload;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
@@ -432,6 +433,11 @@ final class ProductServiceTest extends ApiTestCase
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3),
             ])
+            ->setGeolocation(
+                (new ProductGeolocationUpsertData(/* latitude */ 45.778848, /* longitude */ 4.800039))
+                    ->setLabel('Wizacha')
+                    ->setZipcode('69009')
+            )
         ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/api/v1/doc/favicon.png')]);
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
@@ -473,6 +479,13 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertCount(1, $attachments);
         $this->assertSame('favicon', $attachments[0]->getLabel());
         $this->assertNotEmpty($attachments[0]->getId());
+
+        $geolocation = $product->getGeolocation();
+        $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
+        $this->assertSame('Wizacha', $geolocation->getLabel());
+        $this->assertSame('69009', $geolocation->getZipcode());
+        $this->assertSame(45.778848, $geolocation->getLatitude());
+        $this->assertSame(4.800039, $geolocation->getLongitude());
 
         // Checking declinations
         $declinations = $product->getDeclinations();
