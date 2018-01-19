@@ -58,10 +58,26 @@ final class BasketService extends AbstractService
      * If you want to keep the basket, store it (or store the ID) in the user's session.
      *
      * @return string The ID of the created basket.
+     * @deprecated use \Wizaplace\SDK\Basket\BasketService::createEmptyBasket instead
      */
     public function create(): string
     {
         return to_string($this->client->post("basket"));
+    }
+
+    /**
+     * Create a new basket.
+     *
+     * The basket will *not* be associated to the current user. Basket are disconnected from users.
+     * If you want to keep the basket, store it (or store the ID) in the user's session.
+     *
+     * @return Basket The new empty basket.
+     */
+    public function createEmptyBasket(): Basket
+    {
+        $id = $this->create();
+
+        return Basket::createEmpty($id);
     }
 
     /**

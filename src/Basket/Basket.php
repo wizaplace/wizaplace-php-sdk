@@ -114,4 +114,20 @@ final class Basket
     {
         return $this->comment;
     }
+
+    public static function createEmpty(string $id): self
+    {
+        return new self([
+            'id' => $id,
+            'coupons' => [],
+            'subtotal' => 0.0,
+            'totalDiscount' => 0.0,
+            'totalShipping' => 0.0,
+            'totalTax' => 0.0,
+            'total' => 0.0,
+            'totalQuantity' => 0,
+            'comment' => '',
+            'companyGroups' => [],
+        ]);
+    }
 }
