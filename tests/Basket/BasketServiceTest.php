@@ -29,16 +29,16 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = new BasketService($apiClient);
         $orderService = new OrderService($apiClient);
 
-        $basketId = $basketService->create();
-        $this->assertNotEmpty($basketId);
+        $basket = $basketService->createEmptyBasket();
+        $this->assertNotEmpty($basket->getId());
 
-        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+        $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(1, $newQuantity);
 
-        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+        $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(2, $newQuantity);
 
-        $basket = $basketService->getBasket($basketId);
+        $basket = $basketService->getBasket($basket->getId());
         $this->assertNotNull($basket);
 
         $shippings = [];
@@ -67,9 +67,9 @@ final class BasketServiceTest extends ApiTestCase
                 }
             }
         }
-        $basketService->selectShippings($basketId, $shippings);
+        $basketService->selectShippings($basket->getId(), $shippings);
 
-        $availablePayments = $basketService->getPayments($basketId);
+        $availablePayments = $basketService->getPayments($basket->getId());
         foreach ($availablePayments as $availablePayment) {
             // Here we mostly check the payments were properly unserialized
             $availablePayment->getImage();
@@ -81,7 +81,7 @@ final class BasketServiceTest extends ApiTestCase
         $selectedPayment = reset($availablePayments)->getId();
         $redirectUrl = 'https://demo.loc/order/confirm';
 
-        $paymentInformation = $basketService->checkout($basketId, $selectedPayment, true, $redirectUrl);
+        $paymentInformation = $basketService->checkout($basket->getId(), $selectedPayment, true, $redirectUrl);
 
         // @TODO : check that the two following values are normal
         $this->assertSame('', $paymentInformation->getHtml());
@@ -149,6 +149,19 @@ final class BasketServiceTest extends ApiTestCase
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
+    }
+
+    public function testCreatingAnEmptyBasket()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basket = $basketService->createEmptyBasket();
+        $this->assertNotEmpty($basket->getId());
+
+        $basket2 = $basketService->getBasket($basket->getId());
+        $this->assertNotNull($basket2);
+
+        $this->assertEquals($basket2, $basket);
     }
 
     public function testSelectingShippings()

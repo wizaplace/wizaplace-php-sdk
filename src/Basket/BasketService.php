@@ -75,7 +75,7 @@ final class BasketService extends AbstractService
      */
     public function createEmptyBasket(): Basket
     {
-        $id = to_string($this->client->post("basket"));
+        $id = $this->create();
 
         return Basket::createEmpty($id);
     }
