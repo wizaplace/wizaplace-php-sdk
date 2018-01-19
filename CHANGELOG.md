@@ -7,11 +7,15 @@
 
 ### New features
 
- - Added `\Wizaplace\SDK\Basket\BasketService::createEmptyBasket`
-
 ### Bugfixes
 
 </details>
+
+## 1.11.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Basket\BasketService::createEmptyBasket`
 
 ## 1.10.1
 
