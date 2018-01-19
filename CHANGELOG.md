@@ -13,6 +13,12 @@
 
 </details>
 
+## 1.10.1
+
+### Bugfixes
+
+ - Fix `\Wizaplace\SDK\Basket\BasketService::getUserBasketId` which sometimes returned an empty string instead of `null`
+
 ## 1.10.0
 
 ### New features

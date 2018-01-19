@@ -135,7 +135,12 @@ final class BasketService extends AbstractService
 
         $response = $this->client->get("users/$userId/basket");
 
-        return $response['id'];
+        $id = $response['id'];
+        if ($id === '') {
+            $id = null;
+        }
+
+        return $id;
     }
 
     /**
