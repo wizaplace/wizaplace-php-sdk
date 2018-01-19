@@ -9,6 +9,8 @@
 
 ### Bugfixes
 
+ - Fix `\Wizaplace\SDK\Basket\BasketService::getUserBasketId` which sometimes returned an empty string instead of `null`
+
 </details>
 
 ## 1.10.0
