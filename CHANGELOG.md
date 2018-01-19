@@ -15,8 +15,8 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\User\User::getCompanyId`
-- Added `\Wizaplace\SDK\User\User::isVendor`
+ - Added `\Wizaplace\SDK\User\User::getCompanyId`
+ - Added `\Wizaplace\SDK\User\User::isVendor`
 
 ## 1.9.0
 
