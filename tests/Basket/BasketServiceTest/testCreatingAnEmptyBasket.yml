@@ -1,0 +1,80 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-create-empty-basket@69387e4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 19 Jan 2018 13:45:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a1490e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a1490e'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"yBpbUPVymmzuuaLYQOsgR7t2pcmPUsof38bh5MYY"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-create-empty-basket@69387e4
+            Authorization: 'token yBpbUPVymmzuuaLYQOsgR7t2pcmPUsof38bh5MYY'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 19 Jan 2018 13:45:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c74a47
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c74a47'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"145271d8-4359-480d-bbf4-9c652a67ab71"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/145271d8-4359-480d-bbf4-9c652a67ab71'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-create-empty-basket@69387e4
+            Authorization: 'token yBpbUPVymmzuuaLYQOsgR7t2pcmPUsof38bh5MYY'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 19 Jan 2018 13:45:02 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fd237b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd237b'
+            Content-Length: '379'
+            Content-Type: application/json
+        body: '{"id":"145271d8-4359-480d-bbf4-9c652a67ab71","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'

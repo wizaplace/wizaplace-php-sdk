@@ -13,12 +13,24 @@
 
 </details>
 
+## 1.11.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Basket\BasketService::createEmptyBasket`
+
+## 1.10.1
+
+### Bugfixes
+
+ - Fix `\Wizaplace\SDK\Basket\BasketService::getUserBasketId` which sometimes returned an empty string instead of `null`
+
 ## 1.10.0
 
 ### New features
 
-- Added `\Wizaplace\SDK\User\User::getCompanyId`
-- Added `\Wizaplace\SDK\User\User::isVendor`
+ - Added `\Wizaplace\SDK\User\User::getCompanyId`
+ - Added `\Wizaplace\SDK\User\User::isVendor`
 
 ## 1.9.0
 
