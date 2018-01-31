@@ -39,6 +39,12 @@ final class Basket
     /** @var string */
     private $comment;
 
+    /** @var bool */
+    private $isEligibleToPickupPointsShipping;
+
+    /** @var bool */
+    private $isPickupPointsShipping;
+
     /**
      * @internal
      */
@@ -53,6 +59,8 @@ final class Basket
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
         $this->comment = $data['comment'];
+        $this->isEligibleToPickupPointsShipping = $data['isEligibleToPickupPointsShipping'] ? (bool) $data['isEligibleToPickupPointsShipping'] : false;
+        $this->isPickupPointsShipping = $data['isPickupPointsShipping'] ? (bool) $data['isPickupPointsShipping'] : false;
 
         $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
             return new BasketCompanyGroup($companyGroup);
@@ -115,6 +123,16 @@ final class Basket
         return $this->comment;
     }
 
+    public function isEligibleToPickupPointsShipping(): bool
+    {
+        return $this->isEligibleToPickupPointsShipping;
+    }
+
+    public function isPickupPointsShipping(): bool
+    {
+        return $this->isPickupPointsShipping;
+    }
+
     public static function createEmpty(string $id): self
     {
         return new self([
@@ -128,6 +146,8 @@ final class Basket
             'totalQuantity' => 0,
             'comment' => '',
             'companyGroups' => [],
+            'isEligibleToPickupPointsShipping' => false,
+            'isPickupPointsShipping' => false,
         ]);
     }
 }

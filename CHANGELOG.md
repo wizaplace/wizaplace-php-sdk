@@ -7,6 +7,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
+- Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+
 ### Bugfixes
 
 </details>
