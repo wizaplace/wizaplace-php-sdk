@@ -59,8 +59,8 @@ final class Basket
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
         $this->comment = $data['comment'];
-        $this->isEligibleToPickupPointsShipping = $data['isEligibleToPickupPointsShipping'] ? (bool) $data['isEligibleToPickupPointsShipping'] : false;
-        $this->isPickupPointsShipping = $data['isPickupPointsShipping'] ? (bool) $data['isPickupPointsShipping'] : false;
+        $this->isEligibleToPickupPointsShipping = $data['isEligibleToPickupPointsShipping'] ?? false;
+        $this->isPickupPointsShipping = $data['isPickupPointsShipping'] ?? false;
 
         $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
             return new BasketCompanyGroup($companyGroup);
