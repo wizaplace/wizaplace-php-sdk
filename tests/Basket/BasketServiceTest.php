@@ -9,9 +9,10 @@ namespace Wizaplace\SDK\Tests\Basket;
 
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
-use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\BasketNotFound;
+use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -440,6 +441,8 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1));
+
         $coupons = $basketService->getBasket($basketId)->getCoupons();
         $this->assertSame([], $coupons);
 
@@ -452,8 +455,20 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame([], $coupons);
 
         $basketService->addCoupon($basketId, 'SUPERPROMO');
-        $this->expectException(CouponAlreadyPresent::class);
+        $this->expectException(CouponCodeAlreadyApplied::class);
         $basketService->addCoupon($basketId, 'SUPERPROMO');
+    }
+
+    public function testAddCouponToNonExistingBasket()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $basketService = new BasketService($apiClient);
+
+        $this->expectException(BasketNotFound::class);
+        $this->expectExceptionMessage('basket not found');
+        $basketService->addCoupon('404', 'SUPERPROMO');
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService

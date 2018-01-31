@@ -16,6 +16,11 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Exception\BasketNotFound;
+use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
+use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
+use Wizaplace\SDK\Exception\DomainError;
+use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
 
 final class ApiClient
@@ -135,7 +140,16 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
         }
 
-        return $this->httpClient->request($method, $uri, $this->addAuth($options));
+        try {
+            return $this->httpClient->request($method, $uri, $this->addAuth($options));
+        } catch (ClientException $e) {
+            $domainError = $this->extractDomainErrorFromClientException($e);
+            if ($domainError !== null) {
+                throw $domainError;
+            }
+
+            throw $e;
+        }
     }
 
     public function getBaseUri(): ?UriInterface
@@ -151,6 +165,29 @@ final class ApiClient
     public function setLanguage(?string $language): void
     {
         $this->language = $language;
+    }
+
+    private function extractDomainErrorFromClientException(ClientException $e): ?DomainError
+    {
+        try {
+            $response = $this->jsonDecode($e->getResponse()->getBody()->getContents(), true);
+
+            if (!isset($response['error'])) {
+                return null;
+            }
+
+            $errorCode = new ErrorCode($response['error']['code']);
+
+            foreach ([BasketNotFound::class, CouponCodeDoesNotApply::class, CouponCodeAlreadyApplied::class] as $errorClass) {
+                if ($errorClass::getErrorCode()->equals($errorCode)) {
+                    return new $errorClass($response['error']['message'], $data['error']['context'] ?? [], $e);
+                }
+            }
+
+            return null;
+        } catch (\Throwable $decodingError) {
+            return null;
+        }
     }
 
     /**
