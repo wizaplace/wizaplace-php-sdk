@@ -456,6 +456,18 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->addCoupon($basketId, 'SUPERPROMO');
     }
 
+    public function testPickupPointInformation(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        // Default values (with an empty basket)
+        $basket = $basketService->createEmptyBasket();
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+
+        // TODO: add pickup points shipping mode in fixtures to test efficiently
+    }
+
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
     {
         $apiClient = $this->buildApiClient();

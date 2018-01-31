@@ -1,0 +1,54 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@e955173
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 31 Jan 2018 13:24:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: f70475
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f70475'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"FruSH98SmpB0BTtRTjuTlU6azOjB6dzDYPUgbXdS"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@e955173
+            Authorization: 'token FruSH98SmpB0BTtRTjuTlU6azOjB6dzDYPUgbXdS'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 31 Jan 2018 13:24:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 9cc754
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9cc754'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"42d77b3f-7b7c-45e8-93f8-a59fbce08067"'
