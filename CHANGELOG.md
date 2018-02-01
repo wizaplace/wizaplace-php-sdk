@@ -7,12 +7,16 @@
 
 ### New features
 
- - `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
- - Added `\Wizaplace\SDK\ApiClient::setLanguage`
-
 ### Bugfixes
 
 </details>
+
+## 1.12.0
+
+### New features
+
+ - `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
+ - Added `\Wizaplace\SDK\ApiClient::setLanguage`
 
 ## 1.11.0
 
