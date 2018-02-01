@@ -9,6 +9,7 @@ namespace Wizaplace\SDK;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\RequestOptions;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
@@ -27,6 +28,9 @@ final class ApiClient
 
     /** @var string */
     private $version;
+
+    /** @var null|string */
+    private $language;
 
     public function __construct(Client $client)
     {
@@ -126,7 +130,10 @@ final class ApiClient
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
-        $options['headers']['User-Agent'] = 'Wizaplace-PHP-SDK/'.$this->version;
+        $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/'.$this->version;
+        if ($this->language !== null) {
+            $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+        }
 
         return $this->httpClient->request($method, $uri, $this->addAuth($options));
     }
@@ -134,6 +141,16 @@ final class ApiClient
     public function getBaseUri(): ?UriInterface
     {
         return $this->httpClient->getConfig('base_uri');
+    }
+
+    /**
+     * Changes the language the responses' content will be in.
+     *
+     * @param null|string $language the language code, for example 'fr' or 'en'
+     */
+    public function setLanguage(?string $language): void
+    {
+        $this->language = $language;
     }
 
     /**
