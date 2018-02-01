@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
-class DeclinationId
+class DeclinationId implements \JsonSerializable
 {
     /** @var string */
     private $declinationId;
@@ -31,5 +31,13 @@ class DeclinationId
     public function equals(self $declinationId): bool
     {
         return $this->declinationId === $declinationId->declinationId;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): string
+    {
+        return $this->__toString();
     }
 }

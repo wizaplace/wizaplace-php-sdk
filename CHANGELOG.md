@@ -7,6 +7,8 @@
 
 ### New features
 
+- `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
+
 ### Bugfixes
 
 </details>
