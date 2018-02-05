@@ -15,7 +15,7 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode COUPON_CODE_DOES_NOT_APPLY()
  * @method static ErrorCode COUPON_CODE_ALREADY_APPLIED()
  */
-class ErrorCode extends Enum
+final class ErrorCode extends Enum
 {
     private const BASKET_NOT_FOUND = 1;
     private const COUPON_CODE_DOES_NOT_APPLY = 2;
