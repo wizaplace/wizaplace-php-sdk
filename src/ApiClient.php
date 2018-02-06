@@ -178,7 +178,13 @@ final class ApiClient
 
             $errorCode = new ErrorCode($response['error']['code']);
 
-            foreach ([BasketNotFound::class, CouponCodeDoesNotApply::class, CouponCodeAlreadyApplied::class] as $errorClass) {
+            $errorsClasses = [
+                BasketNotFound::class,
+                CouponCodeDoesNotApply::class,
+                CouponCodeAlreadyApplied::class,
+            ];
+
+            foreach ($errorsClasses as $errorClass) {
                 if ($errorClass::getErrorCode()->equals($errorCode)) {
                     return new $errorClass($response['error']['message'], $data['error']['context'] ?? [], $e);
                 }
