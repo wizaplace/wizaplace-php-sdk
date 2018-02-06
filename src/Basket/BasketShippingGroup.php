@@ -20,6 +20,15 @@ final class BasketShippingGroup
     /** @var Shipping[] */
     private $shippings;
 
+    /** @var Price */
+    private $itemsPrice;
+
+    /** @var Price */
+    private $shippingPrice;
+
+    /** @var Price */
+    private $totalPrice;
+
     /**
      * @internal
      */
@@ -34,6 +43,10 @@ final class BasketShippingGroup
         $this->shippings = array_map(static function (array $shipping) : Shipping {
             return new Shipping($shipping);
         }, $data['shippings']);
+
+        $this->itemsPrice = new Price($data['itemsPrice']);
+        $this->shippingPrice = new Price($data['selectedShippingPrice']);
+        $this->totalPrice = new Price($data['totalPrice']);
     }
 
     public function getId(): int
@@ -55,5 +68,20 @@ final class BasketShippingGroup
     public function getShippings(): array
     {
         return $this->shippings;
+    }
+
+    public function getItemsPrice(): Price
+    {
+        return $this->itemsPrice;
+    }
+
+    public function getShippingPrice(): Price
+    {
+        return $this->shippingPrice;
+    }
+
+    public function getTotalPrice(): Price
+    {
+        return $this->totalPrice;
     }
 }
