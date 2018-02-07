@@ -7,6 +7,7 @@
 
 ### New features
 
+ - `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
  - Added `\Wizaplace\SDK\Basket\Basket::getItemsPrice`
  - Added `\Wizaplace\SDK\Basket\Basket::getShippingPrice`
  - Added `\Wizaplace\SDK\Basket\Basket::getTotalPrice`
