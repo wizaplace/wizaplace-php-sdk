@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:04 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 2121cf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2121cf'
-            Content-Length: '60'
+            X-Debug-Token: e8a8c0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e8a8c0'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp"}'
+        body: '{"id":2,"apiKey":"qGNwUCc6Eyd9EKsYSyffdeih4Cp\/vhEcE4LERYjs"}'
 -
     request:
         method: POST
@@ -33,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token qGNwUCc6Eyd9EKsYSyffdeih4Cp/vhEcE4LERYjs'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,26 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:04 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c1726d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1726d'
+            X-Debug-Token: 86eedf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/86eedf'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"102c1c3c-b871-4136-a11d-93bdc49686f8"'
+        body: '"b9f801e0-0487-45f2-88aa-2a52a9fa046c"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/102c1c3c-b871-4136-a11d-93bdc49686f8/add'
+        url: 'http://wizaplace.loc/api/v1/basket/b9f801e0-0487-45f2-88aa-2a52a9fa046c/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token qGNwUCc6Eyd9EKsYSyffdeih4Cp/vhEcE4LERYjs'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=3_8_7&quantity=1'
@@ -72,24 +72,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:05 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '435263'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/435263'
+            X-Debug-Token: 31da65
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/31da65'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/102c1c3c-b871-4136-a11d-93bdc49686f8'
+        url: 'http://wizaplace.loc/api/v1/basket/b9f801e0-0487-45f2-88aa-2a52a9fa046c'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token P27cjt7Q1llS5kTCdClOyvAYAOaACo5Vy5ajUBCp'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token qGNwUCc6Eyd9EKsYSyffdeih4Cp/vhEcE4LERYjs'
             VCR-index: '3'
             Accept: null
     response:
@@ -98,12 +98,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:11:05 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:23:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c3a2a2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3a2a2'
-            Content-Length: '1386'
+            X-Debug-Token: 22f911
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/22f911'
+            Content-Length: '2221'
             Content-Type: application/json
-        body: '{"id":"102c1c3c-b871-4136-a11d-93bdc49686f8","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"3_8_7","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/informatique\/ecrans\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":7,"variantName":"13"}},"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1}'
+        body: '{"id":"b9f801e0-0487-45f2-88aa-2a52a9fa046c","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"shippingGroups":[{"id":1,"items":[{"declinationId":"3_8_7","productId":3,"productName":"Ecran PC Full HD Noir","productUrl":"https:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":143.66,"mainImage":null,"quantity":1,"total":15.5,"options":{"8":{"optionId":8,"optionName":"size","variantId":7,"variantName":"13"}},"comment":"","unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":15.5,"productTaxes":0.32,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.32,"itemsPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}]}],"subtotal":15.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.32,"total":15.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

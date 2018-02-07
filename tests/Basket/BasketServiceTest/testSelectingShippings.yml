@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:23 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:18 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 03e3b5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/03e3b5'
+            X-Debug-Token: 7e8be2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e8be2'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"BmDl\/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq"}'
+        body: '{"id":2,"apiKey":"NiJ6Gx0yz6xK2BLuHrFTU20Y9F\/cDu772u6ZY8Dj"}'
 -
     request:
         method: POST
@@ -33,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token BmDl/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token NiJ6Gx0yz6xK2BLuHrFTU20Y9F/cDu772u6ZY8Dj'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,26 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:24 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:19 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c75256
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c75256'
+            X-Debug-Token: 389cea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/389cea'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"200c03ce-b0c0-43b5-85b9-1425b0a09e16"'
+        body: '"d2f51bf4-d16b-4e8a-a566-9d9d127fca14"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/200c03ce-b0c0-43b5-85b9-1425b0a09e16/add'
+        url: 'http://wizaplace.loc/api/v1/basket/d2f51bf4-d16b-4e8a-a566-9d9d127fca14/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token BmDl/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token NiJ6Gx0yz6xK2BLuHrFTU20Y9F/cDu772u6ZY8Dj'
             VCR-index: '2'
             Accept: null
         body: 'declinationId=5&quantity=1'
@@ -72,24 +72,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:24 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:19 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 97267a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97267a'
+            X-Debug-Token: 047cfd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/047cfd'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"quantity":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/200c03ce-b0c0-43b5-85b9-1425b0a09e16'
+        url: 'http://wizaplace.loc/api/v1/basket/d2f51bf4-d16b-4e8a-a566-9d9d127fca14'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token BmDl/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token NiJ6Gx0yz6xK2BLuHrFTU20Y9F/cDu772u6ZY8Dj'
             VCR-index: '3'
             Accept: null
     response:
@@ -98,26 +98,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:24 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:19 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e73d6c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e73d6c'
-            Content-Length: '1343'
+            X-Debug-Token: cf7302
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf7302'
+            Content-Length: '2208'
             Content-Type: application/json
-        body: '{"id":"200c03ce-b0c0-43b5-85b9-1425b0a09e16","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Product with complex attributes","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-complex-attributes.html","individualPrice":15,"individualTax":0.31,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":15,"options":[],"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31}]}],"subtotal":15,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.31,"total":15,"totalQuantity":1}'
+        body: '{"id":"d2f51bf4-d16b-4e8a-a566-9d9d127fca14","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","productUrl":"https:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","individualPrice":61.5,"individualTax":1.26,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":61.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"itemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}]}],"subtotal":61.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.26,"total":61.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/200c03ce-b0c0-43b5-85b9-1425b0a09e16/shippings'
+        url: 'http://wizaplace.loc/api/v1/basket/d2f51bf4-d16b-4e8a-a566-9d9d127fca14/shippings'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/json
-            Authorization: 'token BmDl/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token NiJ6Gx0yz6xK2BLuHrFTU20Y9F/cDu772u6ZY8Dj'
             VCR-index: '4'
             Accept: null
         body: '{"shippingGroups":{"1":38}}'
@@ -127,23 +127,22 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:25 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:20 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ca44ca
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca44ca'
-            Content-Length: '0'
+            X-Debug-Token: e127b7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e127b7'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/200c03ce-b0c0-43b5-85b9-1425b0a09e16'
+        url: 'http://wizaplace.loc/api/v1/basket/d2f51bf4-d16b-4e8a-a566-9d9d127fca14'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token BmDl/lS8j3AzduGWmjI2Ujob6dSJPCF5derVnwPq'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token NiJ6Gx0yz6xK2BLuHrFTU20Y9F/cDu772u6ZY8Dj'
             VCR-index: '5'
             Accept: null
     response:
@@ -152,12 +151,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:10:25 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:22:20 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0f9610
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f9610'
-            Content-Length: '1343'
+            X-Debug-Token: c5e16d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5e16d'
+            Content-Length: '2208'
             Content-Type: application/json
-        body: '{"id":"200c03ce-b0c0-43b5-85b9-1425b0a09e16","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Product with complex attributes","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests\/product-with-complex-attributes.html","individualPrice":15,"individualTax":0.31,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":15,"options":[],"comment":""}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","selected":false},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","selected":false}],"productTotalWithTaxes":15,"productTaxes":0.31,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.31}]}],"subtotal":15,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.31,"total":15,"totalQuantity":1}'
+        body: '{"id":"d2f51bf4-d16b-4e8a-a566-9d9d127fca14","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","productUrl":"https:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","individualPrice":61.5,"individualTax":1.26,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":61.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"itemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}]}],"subtotal":61.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.26,"total":61.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

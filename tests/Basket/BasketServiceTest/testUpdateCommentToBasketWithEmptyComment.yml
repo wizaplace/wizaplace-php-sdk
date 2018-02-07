@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 17 Oct 2017 07:32:18 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:28:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 83cfe5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83cfe5'
-            Content-Length: '61'
+            Content-Language: fr
+            X-Debug-Token: d22221
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d22221'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"HH+iM45\/67opbhTrPZ8yta+qwc0s1F1hsDq6+uQr"}'
+        body: '{"id":2,"apiKey":"oYexSZZFWim36I9+oF7AFMhiXo+ILusgAhLxfGuC"}'
 -
     request:
         method: POST
@@ -32,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token HH+iM45/67opbhTrPZ8yta+qwc0s1F1hsDq6+uQr'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token oYexSZZFWim36I9+oF7AFMhiXo+ILusgAhLxfGuC'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,25 +43,26 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 17 Oct 2017 07:32:19 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:28:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: f74f4d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f74f4d'
+            Content-Language: fr
+            X-Debug-Token: a0270b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0270b'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"4c634e5b-93e7-4b6c-b824-a2d99857ae0f"'
+        body: '"149dac3b-a297-44a8-9a51-72a4770e9954"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/4c634e5b-93e7-4b6c-b824-a2d99857ae0f/comments'
+        url: 'http://wizaplace.loc/api/v1/basket/149dac3b-a297-44a8-9a51-72a4770e9954/comments'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Content-Type: application/x-www-form-urlencoded
-            Authorization: 'token HH+iM45/67opbhTrPZ8yta+qwc0s1F1hsDq6+uQr'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token oYexSZZFWim36I9+oF7AFMhiXo+ILusgAhLxfGuC'
             VCR-index: '2'
             Accept: null
         body: comments%5B0%5D%5Bcomment%5D=
@@ -70,10 +72,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 17 Oct 2017 07:32:19 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:28:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 537bea
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/537bea'
-            Content-Length: '0'
+            Content-Language: fr
+            X-Debug-Token: 7bc507
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7bc507'
             Content-Type: 'text/html; charset=UTF-8'
