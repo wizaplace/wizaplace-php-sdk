@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:09:44 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:20:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: bef3a2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bef3a2'
-            Content-Length: '60'
+            X-Debug-Token: 5a82c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5a82c7'
+            Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"+G9polnIvuOg66mvo3kr27HyW8IcrUKXYSjo1kGy"}'
+        body: '{"id":2,"apiKey":"TNjIuHVvY\/CamAyojJEZwclSz3W1\/H6t3U\/vdwmX"}'
 -
     request:
         method: POST
@@ -33,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token +G9polnIvuOg66mvo3kr27HyW8IcrUKXYSjo1kGy'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token TNjIuHVvY/CamAyojJEZwclSz3W1/H6t3U/vdwmX'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,24 +43,24 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 19 Oct 2017 14:09:45 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:20:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 259c27
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/259c27'
+            X-Debug-Token: fe8acc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe8acc'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"9e7aef26-bfdc-4572-9a0e-315bf8dbc5ea"'
+        body: '"8e371d00-949a-411e-8cfb-773c2c520881"'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/9e7aef26-bfdc-4572-9a0e-315bf8dbc5ea'
+        url: 'http://wizaplace.loc/api/v1/basket/8e371d00-949a-411e-8cfb-773c2c520881'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token +G9polnIvuOg66mvo3kr27HyW8IcrUKXYSjo1kGy'
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token TNjIuHVvY/CamAyojJEZwclSz3W1/H6t3U/vdwmX'
             VCR-index: '2'
             Accept: null
     response:
@@ -69,12 +69,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 19 Oct 2017 14:09:45 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 07 Feb 2018 09:20:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 4a7ec4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4a7ec4'
-            Content-Length: '379'
+            X-Debug-Token: '706370'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/706370'
+            Content-Length: '648'
             Content-Type: application/json
-        body: '{"id":"9e7aef26-bfdc-4572-9a0e-315bf8dbc5ea","comment":"","coupons":[],"shippingAddress":{"title":"","firstName":"","lastName":"","company":"","address":"","additionalAddress":"","zipCode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0}'
+        body: '{"id":"8e371d00-949a-411e-8cfb-773c2c520881","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0,"totalItemsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

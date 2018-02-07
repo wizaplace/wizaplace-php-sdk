@@ -8,6 +8,19 @@
 ### New features
 
  - `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
+ - Added `\Wizaplace\SDK\Basket\Basket::getItemsPrice`
+ - Added `\Wizaplace\SDK\Basket\Basket::getShippingPrice`
+ - Added `\Wizaplace\SDK\Basket\Basket::getTotalPrice`
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotalShipping` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotalTax` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotal` as deprecated
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getItemsPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getShippingPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getTotalPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketItem::getUnitPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketItem::getTotalPrice`
+ - Marked `\Wizaplace\SDK\Basket\BasketItem::getIndividualPrice` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\BasketItem::getTotal` as deprecated
 
 ### Bugfixes
 

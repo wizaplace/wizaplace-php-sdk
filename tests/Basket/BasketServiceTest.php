@@ -32,6 +32,15 @@ final class BasketServiceTest extends ApiTestCase
 
         $basket = $basketService->createEmptyBasket();
         $this->assertNotEmpty($basket->getId());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getVat());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getVat());
 
         $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(1, $newQuantity);
@@ -42,6 +51,16 @@ final class BasketServiceTest extends ApiTestCase
         $basket = $basketService->getBasket($basket->getId());
         $this->assertNotNull($basket);
 
+        $this->assertSame(135.8, $basket->getTotalPrice()->getPriceWithTaxes());
+        $this->assertSame(133.01, $basket->getTotalPrice()->getPriceWithoutVat());
+        $this->assertSame(2.79, $basket->getTotalPrice()->getVat());
+        $this->assertSame(135.8, $basket->getItemsPrice()->getPriceWithTaxes());
+        $this->assertSame(133.01, $basket->getItemsPrice()->getPriceWithoutVat());
+        $this->assertSame(2.79, $basket->getItemsPrice()->getVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getVat());
+
         $shippings = [];
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             $this->assertGreaterThan(0, $companyGroup->getCompany()->getId());
@@ -50,6 +69,16 @@ final class BasketServiceTest extends ApiTestCase
 
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 $this->assertGreaterThan(0, $shippingGroup->getId());
+
+                $this->assertSame(135.8, $shippingGroup->getTotalPrice()->getPriceWithTaxes());
+                $this->assertSame(133.01, $shippingGroup->getTotalPrice()->getPriceWithoutVat());
+                $this->assertSame(2.79, $shippingGroup->getTotalPrice()->getVat());
+                $this->assertSame(135.8, $shippingGroup->getItemsPrice()->getPriceWithTaxes());
+                $this->assertSame(133.01, $shippingGroup->getItemsPrice()->getPriceWithoutVat());
+                $this->assertSame(2.79, $shippingGroup->getItemsPrice()->getVat());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithTaxes());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithoutVat());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getVat());
 
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
@@ -62,7 +91,13 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertNotEmpty($basketItem->getDeclinationId());
                     $this->assertSame([], $basketItem->getDeclinationOptions());
                     $this->assertGreaterThan(0, $basketItem->getIndividualPrice());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getPriceWithTaxes());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getPriceWithoutVat());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getVat());
                     $this->assertGreaterThanOrEqual($basketItem->getIndividualPrice(), $basketItem->getTotal());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithTaxes(), $basketItem->getTotalPrice()->getPriceWithTaxes());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithoutVat(), $basketItem->getTotalPrice()->getPriceWithoutVat());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getVat(), $basketItem->getTotalPrice()->getVat());
                     $basketItem->getMainImage();
                     $basketItem->getCrossedOutPrice();
                 }
