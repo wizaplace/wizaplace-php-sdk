@@ -1,0 +1,54 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-API-error-codes@e2c3088
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 02 Feb 2018 15:30:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 17bd80
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/17bd80'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"UiN7sCazP7\/WDjkZleExv0tIhxjP7+JXwyoVk+0f"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/404/coupons/SUPERPROMO'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-API-error-codes@e2c3088
+            Authorization: 'token UiN7sCazP7/WDjkZleExv0tIhxjP7+JXwyoVk+0f'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Fri, 02 Feb 2018 15:30:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8b34bf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b34bf'
+            Content-Length: '79'
+            Content-Type: application/json
+        body: '{"error":{"code":1,"message":"basket not found","context":{"basket_id":"404"}}}'

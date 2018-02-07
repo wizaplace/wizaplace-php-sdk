@@ -7,6 +7,8 @@
 
 ### New features
 
+ - `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
+
 ### Bugfixes
 
 </details>
