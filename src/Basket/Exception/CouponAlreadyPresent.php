@@ -7,6 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket\Exception;
 
-final class CouponAlreadyPresent extends \Exception
+/**
+ * @deprecated use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied instead
+ */
+class CouponAlreadyPresent extends \Exception
 {
 }

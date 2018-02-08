@@ -39,6 +39,15 @@ final class Basket
     /** @var string */
     private $comment;
 
+    /** @var Price */
+    private $itemsPrice;
+
+    /** @var Price */
+    private $shippingPrice;
+
+    /** @var Price */
+    private $totalPrice;
+
     /** @var bool */
     private $isEligibleToPickupPointsShipping;
 
@@ -58,6 +67,9 @@ final class Basket
         $this->totalTax = $data['totalTax'];
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
+        $this->itemsPrice = new Price($data['totalItemsPrice']);
+        $this->shippingPrice = new Price($data['totalShippingsPrice']);
+        $this->totalPrice = new Price($data['totalGlobalPrice']);
         $this->comment = $data['comment'];
         $this->isEligibleToPickupPointsShipping = $data['isEligibleToPickupPointsShipping'] ?? false;
         $this->isPickupPointsShipping = $data['isPickupPointsShipping'] ?? false;
@@ -88,6 +100,9 @@ final class Basket
         return $this->companyGroups;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\Basket::getItemsPrice} instead
+     */
     public function getSubtotal(): float
     {
         return $this->subtotal;
@@ -98,19 +113,43 @@ final class Basket
         return $this->totalDiscount;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\Basket::getShippingPrice} instead
+     */
     public function getTotalShipping(): float
     {
         return $this->totalShipping;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\Basket::getTotalPrice} instead
+     */
     public function getTotalTax(): float
     {
         return $this->totalTax;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\Basket::getTotalPrice} instead
+     */
     public function getTotal(): float
     {
         return $this->total;
+    }
+
+    public function getItemsPrice(): Price
+    {
+        return $this->itemsPrice;
+    }
+
+    public function getShippingPrice(): Price
+    {
+        return $this->shippingPrice;
+    }
+
+    public function getTotalPrice(): Price
+    {
+        return $this->totalPrice;
     }
 
     public function getTotalQuantity(): int
@@ -146,6 +185,21 @@ final class Basket
             'totalQuantity' => 0,
             'comment' => '',
             'companyGroups' => [],
+            'totalItemsPrice' => [
+                'priceWithoutVat' => 0.0,
+                'priceWithTaxes' => 0.0,
+                'vat' => 0.0,
+            ],
+            'totalShippingsPrice' => [
+                'priceWithoutVat' => 0.0,
+                'priceWithTaxes' => 0.0,
+                'vat' => 0.0,
+            ],
+            'totalGlobalPrice' => [
+                'priceWithoutVat' => 0.0,
+                'priceWithTaxes' => 0.0,
+                'vat' => 0.0,
+            ],
             'isEligibleToPickupPointsShipping' => false,
             'isPickupPointsShipping' => false,
         ]);

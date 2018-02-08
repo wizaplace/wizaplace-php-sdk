@@ -12,9 +12,11 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
-use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\BasketNotFound;
+use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
+use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
@@ -243,25 +245,13 @@ final class BasketService extends AbstractService
      *
      * A coupon is a simple string. It can be added to the basket to get basket promotions.
      *
-     * @throws CouponAlreadyPresent
-     * @throws NotFound The basket cannot be found or the coupon cannot be applied.
+     * @throws CouponCodeAlreadyApplied
+     * @throws BasketNotFound
+     * @throws CouponCodeDoesNotApply
      */
     public function addCoupon(string $basketId, string $coupon)
     {
-        try {
-            $this->client->post("basket/{$basketId}/coupons/{$coupon}");
-        } catch (ClientException $ex) {
-            $code = $ex->getResponse()->getStatusCode();
-
-            if (404 === $code) {
-                throw new NotFound('Basket not found or coupon cannot be applied', $ex);
-            }
-            if (409 === $code) {
-                throw new CouponAlreadyPresent('Coupon exist', $code, $ex);
-            }
-
-            throw $ex;
-        }
+        $this->client->post("basket/{$basketId}/coupons/{$coupon}");
     }
 
     /**

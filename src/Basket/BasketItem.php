@@ -21,9 +21,6 @@ final class BasketItem
     /** @var string */
     private $productName;
 
-    /** @var string */
-    private $productUrl;
-
     /** @var float */
     private $individualPrice;
 
@@ -45,6 +42,12 @@ final class BasketItem
     /** @var string */
     private $comment;
 
+    /** @var Price */
+    private $unitPrice;
+
+    /** @var Price */
+    private $totalPrice;
+
     /**
      * @internal
      */
@@ -53,7 +56,6 @@ final class BasketItem
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productId = $data['productId'];
         $this->productName = $data['productName'];
-        $this->productUrl = $data['productUrl'];
         $this->individualPrice = $data['individualPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         if ($data['mainImage']) {
@@ -65,6 +67,8 @@ final class BasketItem
             return new DeclinationOption($data);
         }, $data['options'] ?? []);
         $this->comment = $data['comment'];
+        $this->unitPrice = new Price($data['unitPrice']);
+        $this->totalPrice = new Price($data['totalPrice']);
     }
 
     public function getDeclinationId(): DeclinationId
@@ -90,6 +94,9 @@ final class BasketItem
         return $this->productName;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\BasketItem::getUnitPrice} instead
+     */
     public function getIndividualPrice(): float
     {
         return $this->individualPrice;
@@ -110,6 +117,9 @@ final class BasketItem
         return $this->quantity;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\BasketItem::getTotalPrice} instead
+     */
     public function getTotal(): float
     {
         return $this->total;
@@ -118,5 +128,15 @@ final class BasketItem
     public function getComment(): string
     {
         return $this->comment;
+    }
+
+    public function getUnitPrice(): Price
+    {
+        return $this->unitPrice;
+    }
+
+    public function getTotalPrice(): Price
+    {
+        return $this->totalPrice;
     }
 }

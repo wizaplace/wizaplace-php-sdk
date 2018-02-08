@@ -7,12 +7,33 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
-- Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+ - `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
+ - Added `\Wizaplace\SDK\Basket\Basket::getItemsPrice`
+ - Added `\Wizaplace\SDK\Basket\Basket::getShippingPrice`
+ - Added `\Wizaplace\SDK\Basket\Basket::getTotalPrice`
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotalShipping` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotalTax` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\Basket::getTotal` as deprecated
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getItemsPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getShippingPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getTotalPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketItem::getUnitPrice`
+ - Added `\Wizaplace\SDK\Basket\BasketItem::getTotalPrice`
+ - Marked `\Wizaplace\SDK\Basket\BasketItem::getIndividualPrice` as deprecated
+ - Marked `\Wizaplace\SDK\Basket\BasketItem::getTotal` as deprecated
+ - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
+ - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
 
 ### Bugfixes
 
 </details>
+
+## 1.12.0
+
+### New features
+
+ - `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
+ - Added `\Wizaplace\SDK\ApiClient::setLanguage`
 
 ## 1.11.0
 
