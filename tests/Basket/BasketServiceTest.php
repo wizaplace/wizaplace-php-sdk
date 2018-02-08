@@ -515,7 +515,9 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertFalse($basket->isEligibleToPickupPointsShipping());
         $this->assertFalse($basket->isPickupPointsShipping());
 
-        // TODO: add pickup points shipping mode in fixtures to test efficiently
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'));
+
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'));
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
