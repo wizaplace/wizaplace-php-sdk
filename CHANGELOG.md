@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
+ - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+
 ### Bugfixes
 
 </details>
@@ -29,8 +32,6 @@
  - Added `\Wizaplace\SDK\Basket\BasketItem::getTotalPrice`
  - Marked `\Wizaplace\SDK\Basket\BasketItem::getIndividualPrice` as deprecated
  - Marked `\Wizaplace\SDK\Basket\BasketItem::getTotal` as deprecated
- - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
- - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
 
 ## 1.12.0
 
