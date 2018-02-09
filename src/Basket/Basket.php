@@ -162,11 +162,21 @@ final class Basket
         return $this->comment;
     }
 
+    /**
+     * Returns true if this basket can use pickup-point shipping.
+     *
+     * @return bool
+     */
     public function isEligibleToPickupPointsShipping(): bool
     {
         return $this->isEligibleToPickupPointsShipping;
     }
 
+    /**
+     * Returns true if this basket does use pickup-point shipping.
+     *
+     * @return bool
+     */
     public function isPickupPointsShipping(): bool
     {
         return $this->isPickupPointsShipping;
