@@ -24,6 +24,9 @@ final class Shipping
     /** @var bool */
     private $selected;
 
+    /** @var Price */
+    private $shippingPrice;
+
     /**
      * @internal
      */
@@ -34,6 +37,7 @@ final class Shipping
         $this->price = $data['price'];
         $this->deliveryTime = $data['deliveryTime'];
         $this->selected = $data['selected'];
+        $this->shippingPrice = new Price($data['shippingPrice']);
     }
 
     public function getId(): int
@@ -46,6 +50,9 @@ final class Shipping
         return $this->name;
     }
 
+    /**
+     * @deprecated {@see \Wizaplace\SDK\Basket\Shipping::getShippingPrice} instead
+     */
     public function getPrice(): float
     {
         return $this->price;
@@ -62,5 +69,10 @@ final class Shipping
     public function isSelected(): bool
     {
         return $this->selected;
+    }
+
+    public function getShippingPrice(): Price
+    {
+        return $this->shippingPrice;
     }
 }

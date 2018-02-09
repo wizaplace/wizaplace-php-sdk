@@ -83,6 +83,17 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEmpty($product->getImages());
     }
 
+    public function testGetProductByIdInAnotherLanguage(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->setLanguage('en');
+        $catalogService = new CatalogService($apiClient);
+
+        $product = $catalogService->getProductById('1');
+
+        self::assertSame('Z11 ATX Plus PC Steel case', $product->getName());
+    }
+
     public function testGetMVPById()
     {
         $mvp = $this->buildCatalogService()->getProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');

@@ -9,9 +9,10 @@ namespace Wizaplace\SDK\Tests\Basket;
 
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
-use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\BasketNotFound;
+use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -29,17 +30,36 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = new BasketService($apiClient);
         $orderService = new OrderService($apiClient);
 
-        $basketId = $basketService->create();
-        $this->assertNotEmpty($basketId);
+        $basket = $basketService->createEmptyBasket();
+        $this->assertNotEmpty($basket->getId());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getTotalPrice()->getVat());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getItemsPrice()->getVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getVat());
 
-        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+        $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(1, $newQuantity);
 
-        $newQuantity = $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+        $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(2, $newQuantity);
 
-        $basket = $basketService->getBasket($basketId);
+        $basket = $basketService->getBasket($basket->getId());
         $this->assertNotNull($basket);
+
+        $this->assertSame(135.8, $basket->getTotalPrice()->getPriceWithTaxes());
+        $this->assertSame(133.01, $basket->getTotalPrice()->getPriceWithoutVat());
+        $this->assertSame(2.79, $basket->getTotalPrice()->getVat());
+        $this->assertSame(135.8, $basket->getItemsPrice()->getPriceWithTaxes());
+        $this->assertSame(133.01, $basket->getItemsPrice()->getPriceWithoutVat());
+        $this->assertSame(2.79, $basket->getItemsPrice()->getVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithTaxes());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithoutVat());
+        $this->assertSame(0.0, $basket->getShippingPrice()->getVat());
 
         $shippings = [];
         foreach ($basket->getCompanyGroups() as $companyGroup) {
@@ -49,6 +69,16 @@ final class BasketServiceTest extends ApiTestCase
 
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 $this->assertGreaterThan(0, $shippingGroup->getId());
+
+                $this->assertSame(135.8, $shippingGroup->getTotalPrice()->getPriceWithTaxes());
+                $this->assertSame(133.01, $shippingGroup->getTotalPrice()->getPriceWithoutVat());
+                $this->assertSame(2.79, $shippingGroup->getTotalPrice()->getVat());
+                $this->assertSame(135.8, $shippingGroup->getItemsPrice()->getPriceWithTaxes());
+                $this->assertSame(133.01, $shippingGroup->getItemsPrice()->getPriceWithoutVat());
+                $this->assertSame(2.79, $shippingGroup->getItemsPrice()->getVat());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithTaxes());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithoutVat());
+                $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getVat());
 
                 $availableShippings = $shippingGroup->getShippings();
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
@@ -61,15 +91,21 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertNotEmpty($basketItem->getDeclinationId());
                     $this->assertSame([], $basketItem->getDeclinationOptions());
                     $this->assertGreaterThan(0, $basketItem->getIndividualPrice());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getPriceWithTaxes());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getPriceWithoutVat());
+                    $this->assertGreaterThan(0, $basketItem->getUnitPrice()->getVat());
                     $this->assertGreaterThanOrEqual($basketItem->getIndividualPrice(), $basketItem->getTotal());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithTaxes(), $basketItem->getTotalPrice()->getPriceWithTaxes());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithoutVat(), $basketItem->getTotalPrice()->getPriceWithoutVat());
+                    $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getVat(), $basketItem->getTotalPrice()->getVat());
                     $basketItem->getMainImage();
                     $basketItem->getCrossedOutPrice();
                 }
             }
         }
-        $basketService->selectShippings($basketId, $shippings);
+        $basketService->selectShippings($basket->getId(), $shippings);
 
-        $availablePayments = $basketService->getPayments($basketId);
+        $availablePayments = $basketService->getPayments($basket->getId());
         foreach ($availablePayments as $availablePayment) {
             // Here we mostly check the payments were properly unserialized
             $availablePayment->getImage();
@@ -81,7 +117,7 @@ final class BasketServiceTest extends ApiTestCase
         $selectedPayment = reset($availablePayments)->getId();
         $redirectUrl = 'https://demo.loc/order/confirm';
 
-        $paymentInformation = $basketService->checkout($basketId, $selectedPayment, true, $redirectUrl);
+        $paymentInformation = $basketService->checkout($basket->getId(), $selectedPayment, true, $redirectUrl);
 
         // @TODO : check that the two following values are normal
         $this->assertSame('', $paymentInformation->getHtml());
@@ -149,6 +185,19 @@ final class BasketServiceTest extends ApiTestCase
 
         $basket = $basketService->getBasket($basketId);
         $this->assertNotNull($basket);
+    }
+
+    public function testCreatingAnEmptyBasket()
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basket = $basketService->createEmptyBasket();
+        $this->assertNotEmpty($basket->getId());
+
+        $basket2 = $basketService->getBasket($basket->getId());
+        $this->assertNotNull($basket2);
+
+        $this->assertEquals($basket2, $basket);
     }
 
     public function testSelectingShippings()
@@ -427,6 +476,8 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
         $this->assertNotEmpty($basketId);
 
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1));
+
         $coupons = $basketService->getBasket($basketId)->getCoupons();
         $this->assertSame([], $coupons);
 
@@ -439,8 +490,20 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame([], $coupons);
 
         $basketService->addCoupon($basketId, 'SUPERPROMO');
-        $this->expectException(CouponAlreadyPresent::class);
+        $this->expectException(CouponCodeAlreadyApplied::class);
         $basketService->addCoupon($basketId, 'SUPERPROMO');
+    }
+
+    public function testAddCouponToNonExistingBasket()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $basketService = new BasketService($apiClient);
+
+        $this->expectException(BasketNotFound::class);
+        $this->expectExceptionMessage('basket not found');
+        $basketService->addCoupon('404', 'SUPERPROMO');
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
