@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@e955173
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 31 Jan 2018 13:24:57 GMT'
+            Date: 'Fri, 09 Feb 2018 08:59:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f70475
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f70475'
+            X-Debug-Token: ac322d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac322d'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"FruSH98SmpB0BTtRTjuTlU6azOjB6dzDYPUgbXdS"}'
+        body: '{"id":2,"apiKey":"81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw"}'
 -
     request:
         method: POST
@@ -33,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@e955173
-            Authorization: 'token FruSH98SmpB0BTtRTjuTlU6azOjB6dzDYPUgbXdS'
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,12 +43,148 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 31 Jan 2018 13:24:58 GMT'
+            Date: 'Fri, 09 Feb 2018 08:59:49 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 9cc754
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9cc754'
+            X-Debug-Token: d6ab70
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d6ab70'
             Content-Length: '38'
             Content-Type: application/json
-        body: '"42d77b3f-7b7c-45e8-93f8-a59fbce08067"'
+        body: '"2befc446-adf7-4d30-86a4-4054ffdc10e5"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/2befc446-adf7-4d30-86a4-4054ffdc10e5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 09 Feb 2018 08:59:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: be06c2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/be06c2'
+            Content-Length: '648'
+            Content-Type: application/json
+        body: '{"id":"2befc446-adf7-4d30-86a4-4054ffdc10e5","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0,"totalItemsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/2befc446-adf7-4d30-86a4-4054ffdc10e5/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
+            VCR-index: '3'
+            Accept: null
+        body: 'declinationId=13_0&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 09 Feb 2018 08:59:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4e9e5e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4e9e5e'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/2befc446-adf7-4d30-86a4-4054ffdc10e5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 09 Feb 2018 08:59:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 39b742
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39b742'
+            Content-Length: '2157'
+            Content-Type: application/json
+        body: '{"id":"2befc446-adf7-4d30-86a4-4054ffdc10e5","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"C2C company","slug":"c2c-company-2"},"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"shippingGroups":[{"id":1,"items":[{"declinationId":"13_0","productId":13,"productName":"Produit avec ChronoRelais","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/produit-avec-chronorelais.html","individualPrice":0.5,"individualTax":0.01,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":0.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":41,"name":"ChronoRelais","type":"R","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"itemsPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}]}],"subtotal":0.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.01,"total":0.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"isEligibleToPickupPointsShipping":true,"isPickupPointsShipping":false}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/2befc446-adf7-4d30-86a4-4054ffdc10e5/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
+            VCR-index: '5'
+            Accept: null
+        body: 'declinationId=1_0&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 09 Feb 2018 08:59:50 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0f8032
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f8032'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/2befc446-adf7-4d30-86a4-4054ffdc10e5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-add-pickup-points-info-in-basket@83a178a
+            Authorization: 'token 81HF39ja9GDFs+M2ejcNXo8FhnWjLmuZKisapryw'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 09 Feb 2018 08:59:50 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '723e38'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/723e38'
+            Content-Length: '3624'
+            Content-Type: application/json
+        body: '{"id":"2befc446-adf7-4d30-86a4-4054ffdc10e5","comment":"","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":5,"name":"C2C company","slug":"c2c-company-2"},"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"shippingGroups":[{"id":1,"items":[{"declinationId":"13_0","productId":13,"productName":"Produit avec ChronoRelais","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/produit-avec-chronorelais.html","individualPrice":0.5,"individualTax":0.01,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":0.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":41,"name":"ChronoRelais","type":"R","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"itemsPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}]},{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":67.9,"productTaxes":1.4,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.4,"shippingGroups":[{"id":2,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productUrl":"https:\/\/wizaplace.loc\/it\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"mainImage":null,"quantity":1,"total":67.9,"options":[],"comment":"","unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":67.9,"productTaxes":1.4,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.4,"itemsPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}}]}],"subtotal":68.4,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.41,"total":68.4,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":66.99,"priceWithTaxes":68.4,"vat":1.41},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":66.99,"priceWithTaxes":68.4,"vat":1.41},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

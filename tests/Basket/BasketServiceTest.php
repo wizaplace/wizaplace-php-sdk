@@ -515,9 +515,21 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertFalse($basket->isEligibleToPickupPointsShipping());
         $this->assertFalse($basket->isPickupPointsShipping());
 
-        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'));
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
 
-        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'));
+        $this->assertSame(1, $basketService->addProductToBasket($basket->getId(), new DeclinationId('13_0'), 1));
+
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertTrue($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'), 1);
+
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
