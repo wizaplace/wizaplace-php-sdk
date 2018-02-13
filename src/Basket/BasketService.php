@@ -19,7 +19,6 @@ use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-use Wizaplace\SDK\User\UserTitle;
 use function theodorejb\polycast\to_string;
 
 /**
@@ -421,14 +420,21 @@ final class BasketService extends AbstractService
         ]);
     }
 
-    public function setPickupPoint(string $basketId, string $pickupPointId, UserTitle $title, string $firstName, string $lastName): void
+    /**
+     * Sets a pickup point as the basket's shipping destination.
+     *
+     * @param SetPickupPointCommand $command
+     * @throws SomeParametersAreInvalid
+     */
+    public function setPickupPoint(SetPickupPointCommand $command): void
     {
-        $this->client->post("basket/${basketId}/chronorelais-pickup-point", [
+        $command->validate();
+        $this->client->post('basket/'.$command->getBasketId().'/chronorelais-pickup-point', [
             RequestOptions::JSON => [
-                'pickupPointId' => $pickupPointId,
-                'title' => $title->getValue(),
-                'firstName' => $firstName,
-                'lastName' => $lastName,
+                'pickupPointId' => $command->getPickupPointId(),
+                'title' => $command->getTitle()->getValue(),
+                'firstName' => $command->getFirstName(),
+                'lastName' => $command->getLastName(),
             ],
         ]);
     }
