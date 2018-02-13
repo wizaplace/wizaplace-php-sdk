@@ -9,6 +9,7 @@
 
  - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
  - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+ - Added `\Wizaplace\SDK\Basket\BasketService::setPickupPoint`
 
 ### Bugfixes
 

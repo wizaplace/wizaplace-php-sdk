@@ -19,6 +19,7 @@ use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\User\UserTitle;
 use function theodorejb\polycast\to_string;
 
 /**
@@ -416,6 +417,18 @@ final class BasketService extends AbstractService
         $this->client->post("basket/$targetBasketId/merge", [
             RequestOptions::JSON => [
                 'basketId' => $sourceBasketId,
+            ],
+        ]);
+    }
+
+    public function setPickupPoint(string $basketId, string $pickupPointId, UserTitle $title, string $firstName, string $lastName): void
+    {
+        $this->client->post("basket/${basketId}/chronorelais-pickup-point", [
+            RequestOptions::JSON => [
+                'pickupPointId' => $pickupPointId,
+                'title' => $title->getValue(),
+                'firstName' => $firstName,
+                'lastName' => $lastName,
             ],
         ]);
     }
