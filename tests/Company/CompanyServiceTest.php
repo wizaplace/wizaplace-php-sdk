@@ -10,10 +10,12 @@ namespace Wizaplace\SDK\Tests\Company;
 use GuzzleHttp\Exception\ClientException;
 use PHPUnit_Framework_MockObject_MockObject;
 use Psr\Http\Message\UploadedFileInterface;
-use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyRegistration;
+use Wizaplace\SDK\Company\CompanyRegistrationResult;
 use Wizaplace\SDK\Company\CompanyService;
+use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
 
@@ -127,6 +129,20 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('acme5@example.com', $company->getEmail());
         $this->assertSame('John', $company->getLegalRepresentativeFirstName());
         $this->assertSame('Doe', $company->getLegalRepresentativeLastName());
+    }
+
+    public function testRegisteringAC2CCompany(): void
+    {
+        $service = $this->buildUserCompanyService();
+
+        $result = $service->registerC2CCompany('Super C2C Company');
+        $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
+
+        $company = $result->getCompany();
+        $this->assertInstanceOf(Company::class, $company);
+
+        $this->assertSame('Super C2C Company', $company->getName());
+        $this->assertSame('customer-3@world-company.com', $company->getEmail());
     }
 
     private function buildUserCompanyService(): CompanyService

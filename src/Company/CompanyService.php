@@ -49,6 +49,26 @@ final class CompanyService extends AbstractService
         return new CompanyRegistrationResult($company, $fileUploadResults);
     }
 
+    /**
+     * Register a new C2C company (Customer-To-Customer, aka private individual).
+     *
+     * @throws AuthenticationRequired
+     */
+    public function registerC2CCompany($companyName = ''): CompanyRegistrationResult
+    {
+        $this->client->mustBeAuthenticated();
+
+        $responseData = $this->client->post('companies/c2c', [
+            RequestOptions::JSON => [
+                'name' => $companyName,
+            ],
+        ]);
+
+        $company = new Company($responseData);
+
+        return new CompanyRegistrationResult($company, []);
+    }
+
     public function unauthenticatedRegister(UnauthenticatedCompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $responseData = $this->client->post('companies', [

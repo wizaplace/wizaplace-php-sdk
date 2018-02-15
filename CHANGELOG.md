@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany`
+
 ### Bugfixes
 
 </details>

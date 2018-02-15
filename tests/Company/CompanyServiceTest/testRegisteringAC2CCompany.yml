@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-register-c2c-company@f003c9c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 15 Feb 2018 14:30:05 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: e98419
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e98419'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":9,"apiKey":"odO+0vznb86LlB9y62XPWz9gucsmxLuV7QTT8\/Ua"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/c2c'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-register-c2c-company@f003c9c
+            Authorization: 'token odO+0vznb86LlB9y62XPWz9gucsmxLuV7QTT8/Ua'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Super C2C Company"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Thu, 15 Feb 2018 14:30:05 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c3721c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3721c'
+            Content-Length: '334'
+            Content-Type: application/json
+        body: '{"id":6,"name":"Super C2C Company","slug":"","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":""}'
