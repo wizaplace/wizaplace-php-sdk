@@ -56,19 +56,28 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testStartDiscussionWithVendor()
     {
-        $discussion = $this->discussionService->startDiscussionWithVendor(3);
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
 
         $expectedDiscussion = new Discussion(
             [
                 'id' => 2,
-                'recipient' => 'The World Company Inc.',
+                'recipient' => 'ACME',
                 'productId' => 0,
-                'title' => 'Contact The World Company Inc.',
+                'title' => 'Contact ACME',
                 'unreadCount' => 0,
             ]
         );
 
         $this->assertEquals($expectedDiscussion, $discussion);
+
+        // Check that the vendor can access the discussion
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('vendor@wizaplace.com', 'password');
+        $discussions = (new DiscussionService($apiClient))->getDiscussions();
+        $this->assertContainsOnly(Discussion::class, $discussions);
+        $this->assertCount(1, $discussions);
+        $discussion = reset($discussions);
+        $this->assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
     public function testStartDiscussionOnInexistantVendor()
