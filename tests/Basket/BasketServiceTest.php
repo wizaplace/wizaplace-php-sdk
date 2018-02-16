@@ -506,6 +506,32 @@ final class BasketServiceTest extends ApiTestCase
         $basketService->addCoupon('404', 'SUPERPROMO');
     }
 
+    public function testPickupPointInformation(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        // Default values (with an empty basket)
+        $basket = $basketService->createEmptyBasket();
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+
+        $this->assertSame(1, $basketService->addProductToBasket($basket->getId(), new DeclinationId('13_0'), 1));
+
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertTrue($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1_0'), 1);
+
+        $basket = $basketService->getBasket($basket->getId());
+        $this->assertFalse($basket->isEligibleToPickupPointsShipping());
+        $this->assertFalse($basket->isPickupPointsShipping());
+    }
+
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
     {
         $apiClient = $this->buildApiClient();

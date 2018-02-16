@@ -420,6 +420,25 @@ final class BasketService extends AbstractService
         ]);
     }
 
+    /**
+     * Sets a pickup point as the basket's shipping destination.
+     *
+     * @param SetPickupPointCommand $command
+     * @throws SomeParametersAreInvalid
+     */
+    public function setPickupPoint(SetPickupPointCommand $command): void
+    {
+        $command->validate();
+        $this->client->post('basket/'.$command->getBasketId().'/chronorelais-pickup-point', [
+            RequestOptions::JSON => [
+                'pickupPointId' => $command->getPickupPointId(),
+                'title' => $command->getTitle()->getValue(),
+                'firstName' => $command->getFirstName(),
+                'lastName' => $command->getLastName(),
+            ],
+        ]);
+    }
+
     private static function serializeComment(Comment $comment): array
     {
         return $comment->toArray();

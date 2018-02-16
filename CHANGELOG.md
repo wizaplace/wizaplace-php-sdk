@@ -34,6 +34,14 @@
 
 </details>
 
+## 1.14.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
+ - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+ - Added `\Wizaplace\SDK\Basket\BasketService::setPickupPoint`
+
 ## 1.13.0
 
 ### New features
