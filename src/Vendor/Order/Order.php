@@ -62,6 +62,9 @@ final class Order
     /** @var OrderItem[] */
     private $items;
 
+    /** @var string */
+    private $comment;
+
     /**
      * @internal
      */
@@ -90,6 +93,7 @@ final class Order
         $this->items = array_map(function (array $itemData): OrderItem {
             return new OrderItem($itemData);
         }, $data['products']);
+        $this->comment = $data['notes'] ?? '';
     }
 
     public function getOrderId(): int
@@ -184,5 +188,10 @@ final class Order
     public function getItems(): array
     {
         return $this->items;
+    }
+
+    public function getComment(): string
+    {
+        return $this->comment;
     }
 }

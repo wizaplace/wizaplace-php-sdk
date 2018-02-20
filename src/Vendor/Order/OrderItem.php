@@ -38,6 +38,9 @@ final class OrderItem
     /** @var array */
     private $optionsVariantsIds;
 
+    /** @var string */
+    private $comment;
+
     /**
      * @internal
      */
@@ -55,6 +58,7 @@ final class OrderItem
         foreach ($data['extra']['combinations'] ?? [] as $combinationData) {
             $this->optionsVariantsIds[$combinationData['option_name']] = $combinationData['variant_name'];
         }
+        $this->comment = $data['comment'] ?? '';
     }
 
     public function getItemId(): int
@@ -100,5 +104,10 @@ final class OrderItem
     public function getOptionsVariantsIds(): array
     {
         return $this->optionsVariantsIds;
+    }
+
+    public function getComment(): string
+    {
+        return $this->comment;
     }
 }
