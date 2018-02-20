@@ -160,6 +160,15 @@ class OrderServiceTest extends ApiTestCase
         $this->assertTrue($tax->doesPriceIncludesTax());
     }
 
+    public function testGetOrderComments(): void
+    {
+        $order = $this->buildVendorOrderService()->getOrderById(4);
+
+        $this->assertSame('Please deliver at the front desk of my company.', $order->getComment());
+        $items = $order->getItems();
+        $this->assertSame('Please, gift wrap this product.', reset($items)->getComment());
+    }
+
     public function testCreateShipment()
     {
         $orderService = $this->buildVendorOrderService();
