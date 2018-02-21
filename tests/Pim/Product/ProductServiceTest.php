@@ -399,7 +399,7 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testCreateComplexProduct(): void
     {
-        $availibilityDate = (new \DateTimeImmutable())->add(\DateInterval::createFromDateString('-1d'));
+        $availibilityDate = new \DateTimeImmutable('@1519224245');
         $data = (new CreateProductCommand())
             ->setCode("code_full")
             ->setGreenTax(0.1)
