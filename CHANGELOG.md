@@ -34,6 +34,13 @@
 
 </details>
 
+## 1.15.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany`
+ - Added `\Wizaplace\SDK\Basket\Basket::getShippingAddress`
+
 ## 1.14.0
 
 ### New features

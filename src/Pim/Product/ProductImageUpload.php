@@ -21,7 +21,7 @@ final class ProductImageUpload
     private $mimeType;
 
     /** @var string */
-    private $base64Data;
+    private $data;
 
     public function setName(string $name): self
     {
@@ -39,7 +39,7 @@ final class ProductImageUpload
 
     public function setBase64Data(string $base64Data): self
     {
-        $this->base64Data = $base64Data;
+        $this->data = $base64Data;
 
         return $this;
     }
@@ -63,7 +63,7 @@ final class ProductImageUpload
         return [
             'image_name' => $this->name,
             'image_type' => $this->mimeType,
-            'image_data' => $this->base64Data,
+            'image_data' => $this->data,
         ];
     }
 
