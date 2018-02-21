@@ -79,6 +79,8 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductAttachment::class, $product->getAttachments());
         $this->assertSame([2], $product->getTaxIds());
         $this->assertNull($product->getMainImage());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $product->getAvailibilityDate());
+        $this->assertGreaterThan(130000000, $product->getAvailibilityDate()->getTimestamp());
         $this->assertContainsOnly(UriInterface::class, $product->getAdditionalImages());
         $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
         $this->assertCount(1, $product->getDeclinations());
@@ -397,6 +399,7 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testCreateComplexProduct(): void
     {
+        $availibilityDate = (new \DateTimeImmutable())->add(\DateInterval::createFromDateString('-1d'));
         $data = (new CreateProductCommand())
             ->setCode("code_full")
             ->setGreenTax(0.1)
@@ -424,11 +427,11 @@ final class ProductServiceTest extends ApiTestCase
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
             ->setDeclinations([
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
+                (new ProductDeclinationUpsertData([7 => 1, 8 => 6, 9 => 9]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12),
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
+                (new ProductDeclinationUpsertData([7 => 1, 8 => 5, 9 => 10]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3),
@@ -438,6 +441,7 @@ final class ProductServiceTest extends ApiTestCase
                     ->setLabel('Wizacha')
                     ->setZipcode('69009')
             )
+            ->setAvailabilityDate($availibilityDate)
         ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/api/v1/doc/favicon.png')]);
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
@@ -487,12 +491,14 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(45.778848, $geolocation->getLatitude());
         $this->assertSame(4.800039, $geolocation->getLongitude());
 
+        $this->assertSame($availibilityDate->getTimestamp(), $product->getAvailibilityDate()->getTimestamp());
+
         // Checking declinations
         $declinations = $product->getDeclinations();
         $this->assertContainsOnly(ProductDeclination::class, $declinations);
         $this->assertCount(4, $declinations);
 
-        $this->assertSame([6 => 1, 7 => 5, 8 => 10], $declinations[0]->getOptionsVariants());
+        $this->assertSame([7 => 1, 8 => 5, 9 => 10], $declinations[0]->getOptionsVariants());
         $this->assertNull($declinations[0]->getCode());
         $this->assertNull($declinations[0]->getAffiliateLink());
         $this->assertSame(1000.0, $declinations[0]->getCrossedOutPrice());
@@ -500,7 +506,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(100.0, $declinations[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 5, 8 => 9], $declinations[1]->getOptionsVariants());
+        $this->assertSame([7 => 1, 8 => 5, 9 => 9], $declinations[1]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[1]->getPrice());
         $this->assertSame(0, $declinations[1]->getQuantity());
         $this->assertNull($declinations[1]->getCrossedOutPrice());
@@ -508,14 +514,14 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[1]->getCode());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 6, 8 => 10], $declinations[2]->getOptionsVariants());
+        $this->assertSame([7 => 1, 8 => 6, 9 => 10], $declinations[2]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[2]->getPrice());
         $this->assertSame(0, $declinations[2]->getQuantity());
         $this->assertNull($declinations[2]->getCrossedOutPrice());
         $this->assertNull($declinations[2]->getAffiliateLink());
         $this->assertNull($declinations[2]->getCode());
 
-        $this->assertSame([6 => 1, 7 => 6, 8 => 9], $declinations[3]->getOptionsVariants());
+        $this->assertSame([7 => 1, 8 => 6, 9 => 9], $declinations[3]->getOptionsVariants());
         $this->assertSame(3.5, $declinations[3]->getPrice());
         $this->assertSame(12, $declinations[3]->getQuantity());
         $this->assertNull($declinations[3]->getCrossedOutPrice());

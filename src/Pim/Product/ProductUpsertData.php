@@ -80,6 +80,9 @@ abstract class ProductUpsertData
     /** @var ProductAttachmentUpload[] */
     private $attachments;
 
+    /** @var \DateTimeImmutable */
+    private $availabilityDate;
+
     /**
      * @param string $code
      * @return static
@@ -300,6 +303,17 @@ abstract class ProductUpsertData
         return $this;
     }
 
+    public function setAvailabilityDate(\DateTimeInterface $availabilityDate): self
+    {
+        if ($availabilityDate instanceof \DateTimeImmutable) {
+            $this->availabilityDate = $availabilityDate;
+        } else {
+            $this->availabilityDate = new \DateTimeImmutable('@'.$availabilityDate->getTimestamp());
+        }
+
+        return $this;
+    }
+
     /**
      * @internal
      * @throws SomeParametersAreInvalid
@@ -342,6 +356,7 @@ abstract class ProductUpsertData
             'affiliateLink',
             'mainImage',
             'attachments',
+            'availabilityDate',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -474,6 +489,10 @@ abstract class ProductUpsertData
 
         if (isset($this->mainImage)) {
             $data['main_pair'] = self::imageToArray($this->mainImage);
+        }
+
+        if (isset($this->availabilityDate)) {
+            $data['avail_since'] = $this->availabilityDate->getTimestamp();
         }
 
         return $data;
