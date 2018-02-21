@@ -30,6 +30,9 @@ final class Product extends ProductSummary
     /** @var ProductDeclination[] */
     private $declinations;
 
+    /** @var \DateTimeImmutable */
+    private $availibilityDate;
+
     /**
      * @internal
      */
@@ -47,6 +50,7 @@ final class Product extends ProductSummary
         $this->declinations = array_map(static function (array $declinationData): ProductDeclination {
             return new ProductDeclination($declinationData);
         }, $data['inventory'] ?? []);
+        $this->availibilityDate = new \DateTimeImmutable('@'.$data['avail_since']);
     }
 
     public function getFullDescription(): string
@@ -86,6 +90,11 @@ final class Product extends ProductSummary
     public function getDeclinations(): array
     {
         return $this->declinations;
+    }
+
+    public function getAvailibilityDate(): \DateTimeImmutable
+    {
+        return $this->availibilityDate;
     }
 
     private static function unserializeImage(array $imageData): UriInterface

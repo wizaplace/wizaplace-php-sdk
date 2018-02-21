@@ -80,9 +80,12 @@ abstract class ProductUpsertData
     /** @var ProductAttachmentUpload[] */
     private $attachments;
 
+    /** @var \DateTimeImmutable */
+    private $availabilityDate;
+
     /**
      * @param string $code
-     * @return static
+     * @return $this
      */
     public function setCode(string $code): self
     {
@@ -93,7 +96,7 @@ abstract class ProductUpsertData
 
     /**
      * @param string $supplierReference
-     * @return static
+     * @return $this
      */
     public function setSupplierReference(string $supplierReference): self
     {
@@ -104,7 +107,7 @@ abstract class ProductUpsertData
 
     /**
      * @param string $name
-     * @return static
+     * @return $this
      */
     public function setName(string $name): self
     {
@@ -115,7 +118,7 @@ abstract class ProductUpsertData
 
     /**
      * @param ProductStatus $status
-     * @return static
+     * @return $this
      */
     public function setStatus(ProductStatus $status): self
     {
@@ -126,7 +129,7 @@ abstract class ProductUpsertData
 
     /**
      * @param int $mainCategoryId
-     * @return static
+     * @return $this
      */
     public function setMainCategoryId(int $mainCategoryId): self
     {
@@ -137,7 +140,7 @@ abstract class ProductUpsertData
 
     /**
      * @param float $greenTax
-     * @return static
+     * @return $this
      */
     public function setGreenTax(float $greenTax): self
     {
@@ -148,7 +151,7 @@ abstract class ProductUpsertData
 
     /**
      * @param bool $isBrandNew
-     * @return static
+     * @return $this
      */
     public function setIsBrandNew(bool $isBrandNew): self
     {
@@ -159,7 +162,7 @@ abstract class ProductUpsertData
 
     /**
      * @param null|ProductGeolocationUpsertData $geolocation
-     * @return static
+     * @return $this
      */
     public function setGeolocation(?ProductGeolocationUpsertData $geolocation): self
     {
@@ -170,7 +173,7 @@ abstract class ProductUpsertData
 
     /**
      * @param array $freeAttributes
-     * @return static
+     * @return $this
      */
     public function setFreeAttributes(array $freeAttributes): self
     {
@@ -181,7 +184,7 @@ abstract class ProductUpsertData
 
     /**
      * @param bool $hasFreeShipping
-     * @return static
+     * @return $this
      */
     public function setHasFreeShipping(bool $hasFreeShipping): self
     {
@@ -192,7 +195,7 @@ abstract class ProductUpsertData
 
     /**
      * @param float $weight
-     * @return static
+     * @return $this
      */
     public function setWeight(float $weight): self
     {
@@ -203,7 +206,7 @@ abstract class ProductUpsertData
 
     /**
      * @param bool $isDownloadable
-     * @return static
+     * @return $this
      */
     public function setIsDownloadable(bool $isDownloadable): self
     {
@@ -214,7 +217,7 @@ abstract class ProductUpsertData
 
     /**
      * @param null|string|UriInterface $affiliateLink
-     * @return static
+     * @return $this
      */
     public function setAffiliateLink($affiliateLink): self
     {
@@ -225,7 +228,7 @@ abstract class ProductUpsertData
 
     /**
      * @param null|string|UriInterface|ProductImageUpload $mainImage
-     * @return static
+     * @return $this
      */
     public function setMainImage($mainImage): self
     {
@@ -236,7 +239,7 @@ abstract class ProductUpsertData
 
     /**
      * @param (string|UriInterface|ProductImageUpload)[] $additionalImages
-     * @return static
+     * @return $this
      */
     public function setAdditionalImages(array $additionalImages): self
     {
@@ -247,7 +250,7 @@ abstract class ProductUpsertData
 
     /**
      * @param string $fullDescription
-     * @return static
+     * @return $this
      */
     public function setFullDescription(string $fullDescription): self
     {
@@ -258,7 +261,7 @@ abstract class ProductUpsertData
 
     /**
      * @param string $shortDescription
-     * @return static
+     * @return $this
      */
     public function setShortDescription(string $shortDescription): self
     {
@@ -269,7 +272,7 @@ abstract class ProductUpsertData
 
     /**
      * @param int[] $taxIds
-     * @return static
+     * @return $this
      */
     public function setTaxIds(array $taxIds): self
     {
@@ -280,7 +283,7 @@ abstract class ProductUpsertData
 
     /**
      * @param ProductDeclinationUpsertData[] $declinations
-     * @return static
+     * @return $this
      */
     public function setDeclinations(array $declinations): self
     {
@@ -291,11 +294,25 @@ abstract class ProductUpsertData
 
     /**
      * @param ProductAttachmentUpload[] $attachments
-     * @return static
+     * @return $this
      */
     public function setAttachments(array $attachments): self
     {
         $this->attachments = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     */
+    public function setAvailabilityDate(\DateTimeInterface $availabilityDate): self
+    {
+        if ($availabilityDate instanceof \DateTimeImmutable) {
+            $this->availabilityDate = $availabilityDate;
+        } else {
+            $this->availabilityDate = new \DateTimeImmutable('@'.$availabilityDate->getTimestamp());
+        }
 
         return $this;
     }
@@ -342,6 +359,7 @@ abstract class ProductUpsertData
             'affiliateLink',
             'mainImage',
             'attachments',
+            'availabilityDate',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -474,6 +492,10 @@ abstract class ProductUpsertData
 
         if (isset($this->mainImage)) {
             $data['main_pair'] = self::imageToArray($this->mainImage);
+        }
+
+        if (isset($this->availabilityDate)) {
+            $data['avail_since'] = $this->availabilityDate->getTimestamp();
         }
 
         return $data;
