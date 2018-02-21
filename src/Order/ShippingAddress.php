@@ -16,7 +16,7 @@ final class ShippingAddress
     /** @var string */
     private $address;
     /** @var string */
-    private $address2;
+    private $addressSecondLine;
     /** @var string */
     private $city;
     /** @var string */
@@ -32,7 +32,7 @@ final class ShippingAddress
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
         $this->address = $data['address'];
-        $this->address2 = $data['address2'];
+        $this->addressSecondLine = $data['address2'];
         $this->city = $data['city'];
         $this->zipcode = $data['zipcode'];
         $this->country = $data['country'];
@@ -55,7 +55,7 @@ final class ShippingAddress
 
     public function getAddress2(): string
     {
-        return $this->address2;
+        return $this->addressSecondLine;
     }
 
     public function getCity(): string
