@@ -41,6 +41,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithTaxes());
         $this->assertSame(0.0, $basket->getShippingPrice()->getPriceWithoutVat());
         $this->assertSame(0.0, $basket->getShippingPrice()->getVat());
+        $this->assertNull($basket->getShippingAddress());
 
         $newQuantity = $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $this->assertSame(1, $newQuantity);
@@ -50,6 +51,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $basket = $basketService->getBasket($basket->getId());
         $this->assertNotNull($basket);
+        $this->assertNull($basket->getShippingAddress());
 
         $this->assertSame(135.8, $basket->getTotalPrice()->getPriceWithTaxes());
         $this->assertSame(133.01, $basket->getTotalPrice()->getPriceWithoutVat());

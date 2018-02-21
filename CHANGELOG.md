@@ -8,6 +8,7 @@
 ### New features
 
  - Added `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany`
+ - Added `\Wizaplace\SDK\Basket\Basket::getShippingAddress`
 
 ### Bugfixes
 

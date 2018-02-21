@@ -54,6 +54,9 @@ final class Basket
     /** @var bool */
     private $isPickupPointsShipping;
 
+    /** @var null|Address */
+    private $shippingAddress;
+
     /**
      * @internal
      */
@@ -73,6 +76,12 @@ final class Basket
         $this->comment = $data['comment'];
         $this->isEligibleToPickupPointsShipping = $data['isEligibleToPickupPointsShipping'] ?? false;
         $this->isPickupPointsShipping = $data['isPickupPointsShipping'] ?? false;
+        if (isset($data['shippingAddress'])) {
+            $this->shippingAddress = new Address($data['shippingAddress']);
+            if ($this->shippingAddress->getTitle() === null && $this->shippingAddress->getAddress() === '' && $this->getShippingAddress()->getCity() === '') {
+                $this->shippingAddress = null; // The API returns an address with all the values set but empty. We consider this a null address.
+            }
+        }
 
         $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
             return new BasketCompanyGroup($companyGroup);
@@ -180,6 +189,11 @@ final class Basket
     public function isPickupPointsShipping(): bool
     {
         return $this->isPickupPointsShipping;
+    }
+
+    public function getShippingAddress(): ?Address
+    {
+        return $this->shippingAddress;
     }
 
     public static function createEmpty(string $id): self
