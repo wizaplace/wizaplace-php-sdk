@@ -11,6 +11,10 @@
 
 </details>
 
+## 1.15.1
+
+ - Fixed type errors on `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getCount` and `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getPosition`
+
 ## 1.15.0
 
 ### New features

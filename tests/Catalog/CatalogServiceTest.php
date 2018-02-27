@@ -18,6 +18,7 @@ use Wizaplace\SDK\Catalog\Declination;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Catalog\Facet\ListFacet;
+use Wizaplace\SDK\Catalog\Facet\ListFacetValue;
 use Wizaplace\SDK\Catalog\Facet\NumericFacet;
 use Wizaplace\SDK\Catalog\Option;
 use Wizaplace\SDK\Catalog\Product;
@@ -611,6 +612,24 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(0, $brand->getAttributeId());
         $this->assertSame('Puma', $brand->getName());
         $this->assertSame('puma', $brand->getSlug());
+
+        $facets = $result->getFacets();
+        $this->assertContainsOnly(Facet::class, $facets);
+        foreach ($facets as $facet) {
+            $this->assertNotEmpty($facet->getName());
+            $this->assertNotEmpty($facet->getLabel());
+            if ($facet instanceof ListFacet) {
+                $values = $facet->getValues();
+                $this->assertContainsOnly(ListFacetValue::class, $values);
+                foreach ($values as $value) {
+                    $this->assertNotEmpty($value->getLabel());
+                    $this->assertGreaterThanOrEqual(0, $value->getPosition());
+                    $this->assertGreaterThanOrEqual(0, $value->getCount());
+                }
+            } elseif ($facet instanceof NumericFacet) {
+                $this->assertGreaterThanOrEqual($facet->getMax(), $facet->getMin());
+            }
+        }
     }
 
     public function testGetCompanyById()

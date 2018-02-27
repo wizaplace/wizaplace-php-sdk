@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog\Facet;
 
+use function theodorejb\polycast\to_int;
+
 final class ListFacetValue
 {
     /** @var string */
@@ -24,8 +26,8 @@ final class ListFacetValue
     public function __construct(array $data)
     {
         $this->label = $data['label'];
-        $this->count = $data['count'];
-        $this->position = $data['position'] ?? 0;
+        $this->count = to_int($data['count']);
+        $this->position = to_int($data['position'] ?? 0);
     }
 
     public function getLabel(): string
