@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
-final class CompanySummary
+final class CompanySummary implements \JsonSerializable
 {
     /** @var int */
     private $id;
@@ -70,5 +70,20 @@ final class CompanySummary
     public function getAverageRating(): ?float
     {
         return $this->averageRating;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'slug' => $this->getSlug(),
+            'image' => $this->getImage(),
+            'isProfessional' => $this->isProfessional(),
+            'averageRating' => $this->getAverageRating(),
+        ];
     }
 }

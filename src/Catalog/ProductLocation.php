@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
-final class ProductLocation
+final class ProductLocation implements \JsonSerializable
 {
     /** @var float */
     private $latitude;
@@ -50,5 +50,18 @@ final class ProductLocation
     public function getZipcode(): string
     {
         return $this->zipcode;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'latitude' => $this->getLatitude(),
+            'longitude' => $this->getLongitude(),
+            'label' => $this->getLabel(),
+            'zipcode' => $this->getZipcode(),
+        ];
     }
 }

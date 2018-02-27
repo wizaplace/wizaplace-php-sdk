@@ -10,7 +10,7 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Pagination;
 
-final class SearchResult
+final class SearchResult implements \JsonSerializable
 {
     /** @var ProductSummary[] */
     private $products;
@@ -52,5 +52,17 @@ final class SearchResult
     public function getFacets(): array
     {
         return $this->facets;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'products' => $this->getProducts(),
+            'pagination' => $this->getPagination(),
+            'facets' => $this->getFacets(),
+        ];
     }
 }

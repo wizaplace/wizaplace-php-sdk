@@ -37,4 +37,16 @@ final class NumericFacet extends Facet
     {
         return $this->max;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'type' => 'numeric',
+            'min' => $this->getMin(),
+            'max' => $this->getMax(),
+        ]);
+    }
 }

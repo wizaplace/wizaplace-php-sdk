@@ -520,6 +520,8 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $products[0];
         $this->assertSame('c659af24-56b8-48fd-8b86-34ddff28ba1b', $product->getId());
         $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
+
+        $this->assertNotContains('{}', json_encode($result)); // check that all objects are properly serialized
     }
 
     public function testSearchProductWithComplexAttributes()
@@ -611,6 +613,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(0, $brand->getAttributeId());
         $this->assertSame('Puma', $brand->getName());
         $this->assertSame('puma', $brand->getSlug());
+
+        $this->assertNotContains('{}', json_encode($result)); // check that all objects are properly serialized
     }
 
     public function testGetCompanyById()

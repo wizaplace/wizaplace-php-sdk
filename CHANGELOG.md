@@ -7,6 +7,8 @@
 
 ### New features
 
+ - `\Wizaplace\SDK\Catalog\SearchResult` (and all the classes it may contain) now implements `\JsonSerializable`
+
 ### Bugfixes
 
 </details>

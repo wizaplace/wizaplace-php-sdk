@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog\Facet;
 
 use function theodorejb\polycast\to_string;
 
-abstract class Facet
+abstract class Facet implements \JsonSerializable
 {
     /** @var string */
     private $name;
@@ -42,5 +42,16 @@ abstract class Facet
     public function getLabel(): string
     {
         return $this->label;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'name' => $this->getName(),
+            'label' => $this->getLabel(),
+        ];
     }
 }

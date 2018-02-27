@@ -21,7 +21,7 @@ use MyCLabs\Enum\Enum;
  * @method static AttributeType CHECKBOX_MULTIPLE()
  * @method static AttributeType GROUP()
  */
-final class AttributeType extends Enum
+final class AttributeType extends Enum implements \JsonSerializable
 {
     private const FREE = 'FREE';
     private const FREE_NUMBER = 'FREE_NUMBER';
@@ -64,5 +64,13 @@ final class AttributeType extends Enum
             default:
                 throw new \UnexpectedValueException("Value '$value' is not part of the legacy mapping for enum ".self::class);
         }
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): string
+    {
+        return $this->getValue();
     }
 }

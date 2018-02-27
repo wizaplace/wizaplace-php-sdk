@@ -33,4 +33,15 @@ final class ListFacet extends Facet
     {
         return $this->values;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'type' => 'list',
+            'values' => $this->getValues(),
+        ]);
+    }
 }
