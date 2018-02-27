@@ -10,7 +10,7 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_string;
 
-final class ProductSummary
+final class ProductSummary implements \JsonSerializable
 {
     /** @var string  */
     private $productId;
@@ -207,5 +207,34 @@ final class ProductSummary
     public function getMainDeclinationId(): ?DeclinationId
     {
         return $this->mainDeclinationId;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'slug' => $this->getSlug(),
+            'subtitle' => $this->getSubtitle(),
+            'shortDescription' => $this->getShortDescription(),
+            'minimumPrice' => $this->getMinimumPrice(),
+            'crossedOutPrice' => $this->getCrossedOutPrice(),
+            'isAvailable' => $this->isAvailable(),
+            'createdAt' => $this->getCreatedAt()->format(\DateTimeInterface::RFC3339),
+            'updatedAt' => $this->getUpdatedAt()->format(\DateTimeInterface::RFC3339),
+            'declinationCount' => $this->getDeclinationCount(),
+            'affiliateLink' => $this->getAffiliateLink(),
+            'mainImage' => $this->getMainImage(),
+            'averageRating' => $this->getAverageRating(),
+            'conditions' => $this->getConditions(),
+            'attributes' => $this->getAttributes(),
+            'categoryPath' => $this->getCategoryPath(),
+            'companies' => $this->getCompanies(),
+            'geolocation' => $this->getGeolocation(),
+            'mainDeclinationId' => $this->getMainDeclinationId(),
+        ];
     }
 }

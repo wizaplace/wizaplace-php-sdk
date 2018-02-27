@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK;
 
-final class Pagination
+final class Pagination implements \JsonSerializable
 {
     /** @var int */
     private $page;
@@ -47,5 +47,18 @@ final class Pagination
     public function getResultsPerPage(): int
     {
         return $this->resultsPerPage;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize()
+    {
+        return [
+            'page' => $this->getPage(),
+            'nbResults' => $this->getNbResults(),
+            'nbPages' => $this->getNbPages(),
+            'resultsPerPage' => $this->getResultsPerPage(),
+        ];
     }
 }

@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
-final class ProductAttributeValue
+final class ProductAttributeValue implements \JsonSerializable
 {
     /** @var null|int */
     private $id;
@@ -57,5 +57,19 @@ final class ProductAttributeValue
     public function getImage(): ?Image
     {
         return $this->image;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'attributeId' => $this->getAttributeId(),
+            'name' => $this->getName(),
+            'slug' => $this->getSlug(),
+            'image' => $this->getImage(),
+        ];
     }
 }

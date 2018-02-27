@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
-final class SearchProductAttribute
+final class SearchProductAttribute implements \JsonSerializable
 {
     /** @var int|null */
     private $id;
@@ -60,5 +60,19 @@ final class SearchProductAttribute
     public function getType(): AttributeType
     {
         return $this->type;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'slug' => $this->getSlug(),
+            'values' => $this->getValues(),
+            'type' => $this->getType(),
+        ];
     }
 }

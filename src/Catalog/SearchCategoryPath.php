@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
-final class SearchCategoryPath
+final class SearchCategoryPath implements \JsonSerializable
 {
     /** @var int */
     private $id;
@@ -39,5 +39,17 @@ final class SearchCategoryPath
     public function getSlug(): string
     {
         return $this->slug;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'slug' => $this->getSlug(),
+        ];
     }
 }

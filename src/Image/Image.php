@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Image;
 
-final class Image
+final class Image implements \JsonSerializable
 {
     /** @var int */
     private $id;
@@ -23,5 +23,15 @@ final class Image
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->getId(),
+        ];
     }
 }
