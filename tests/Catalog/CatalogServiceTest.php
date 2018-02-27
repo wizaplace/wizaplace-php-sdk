@@ -12,6 +12,7 @@ use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
@@ -1666,7 +1667,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Achat Micro-casque Razer ManO\'War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
     }
 
-    private function buildCatalogService(): CatalogService
+    private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());
     }

@@ -14,7 +14,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
-final class CatalogService extends AbstractService
+final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     public function getProductById(string $id) : Product
     {
