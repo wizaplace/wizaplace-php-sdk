@@ -11,6 +11,8 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 
 /**
  * This service helps getting and creating reviews for products or companies
@@ -54,6 +56,10 @@ final class ReviewService extends AbstractService
         return $productReviews;
     }
 
+    /**
+     * @throws ProductNotFound
+     * @throws ReviewsAreDisabled
+     */
     public function reviewProduct(string $productId, string $author, string $message, int $rating) : void
     {
         $review = [
