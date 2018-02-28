@@ -41,7 +41,6 @@ final class ReviewService extends AbstractService
 
     /**
      * @return Review[]
-     * @throws NotFound
      */
     public function getProductReviews(string $productId): array
     {

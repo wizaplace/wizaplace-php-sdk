@@ -11,11 +11,15 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
 final class CatalogService extends AbstractService
 {
+    /**
+     * @throws ProductNotFound
+     */
     public function getProductById(string $id) : Product
     {
         $response = $this->client->get("catalog/products/{$id}");
@@ -147,7 +151,7 @@ final class CatalogService extends AbstractService
     /**
      * Report a suspicious product to the marketplace administrator.
      *
-     * @throws NotFound
+     * @throws ProductNotFound
      * @throws SomeParametersAreInvalid
      */
     public function reportProduct(ProductReport $report): void
