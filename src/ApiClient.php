@@ -23,6 +23,7 @@ use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
 use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 
 final class ApiClient
 {
@@ -184,6 +185,7 @@ final class ApiClient
                 CouponCodeDoesNotApply::class,
                 CouponCodeAlreadyApplied::class,
                 ProductNotFound::class,
+                ReviewsAreDisabled::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

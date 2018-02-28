@@ -8,6 +8,7 @@
 ### New features
 
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
 
 ### Bugfixes
 
