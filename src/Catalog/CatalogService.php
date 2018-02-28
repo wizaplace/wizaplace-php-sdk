@@ -18,15 +18,7 @@ final class CatalogService extends AbstractService
 {
     public function getProductById(string $id) : Product
     {
-        try {
-            $response = $this->client->get("catalog/products/{$id}");
-        } catch (ClientException $exception) {
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Product #{$id} not found.", $exception);
-            }
-
-            throw $exception;
-        }
+        $response = $this->client->get("catalog/products/{$id}");
 
         return new Product($response, $this->client->getBaseUri());
     }
@@ -173,8 +165,6 @@ final class CatalogService extends AbstractService
             ]);
         } catch (ClientException $e) {
             switch ($e->getCode()) {
-                case 404:
-                    throw new NotFound("Product #{$report->getProductId()} not found", $e);
                 case 400:
                     throw new SomeParametersAreInvalid(to_string($e->getResponse()->getBody()), 400, $e);
             }

@@ -45,15 +45,7 @@ final class ReviewService extends AbstractService
      */
     public function getProductReviews(string $productId): array
     {
-        try {
-            $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
-        } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound('This product has not been found', $e);
-            }
-
-            throw $e;
-        }
+        $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
 
         $productReviews = [];
         foreach ($reviews as $review) {
