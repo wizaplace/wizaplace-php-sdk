@@ -69,7 +69,7 @@ final class DiscussionService extends AbstractService
         try {
             return new Discussion($this->client->get('discussions/'.$discussionId));
         } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.');
+            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
         }
     }
 
@@ -88,7 +88,7 @@ final class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            throw new NotFound('The product '.$productId.' has not been found.');
+            throw new NotFound('The product '.$productId.' has not been found.', $e);
         }
     }
 
@@ -107,7 +107,7 @@ final class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            throw new NotFound('Company '.$companyId.' has not been found.');
+            throw new NotFound('Company '.$companyId.' has not been found.', $e);
         }
     }
 
@@ -126,7 +126,7 @@ final class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            throw new NotFound('The product with declination '.$declinationId.' has not been found.');
+            throw new NotFound('The product with declination '.$declinationId.' has not been found.', $e);
         }
     }
 
@@ -149,7 +149,7 @@ final class DiscussionService extends AbstractService
                 return new Message($messageData);
             }, $messages);
         } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.');
+            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
         }
     }
 
@@ -169,7 +169,7 @@ final class DiscussionService extends AbstractService
 
             return new Message($messageData);
         } catch (ClientException $e) {
-            throw new SomeParametersAreInvalid();
+            throw new SomeParametersAreInvalid("Some parameters are invalid", 400, $e);
         }
     }
 
