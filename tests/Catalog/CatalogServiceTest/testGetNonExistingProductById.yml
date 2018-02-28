@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_product-not-found@59cf280
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Thu, 26 Oct 2017 13:08:25 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 28 Feb 2018 13:17:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e9e96c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e9e96c'
-            Content-Length: '31'
+            X-Debug-Token: ca1054
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca1054'
+            Content-Length: '81'
             Content-Type: application/json
-        body: '{"message":"Product not found"}'
+        body: '{"error":{"code":4,"message":"product not found","context":{"product_id":"404"}}}'

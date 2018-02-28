@@ -22,6 +22,7 @@ use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\ProductNotFound;
 
 final class ApiClient
 {
@@ -182,6 +183,7 @@ final class ApiClient
                 BasketNotFound::class,
                 CouponCodeDoesNotApply::class,
                 CouponCodeAlreadyApplied::class,
+                ProductNotFound::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

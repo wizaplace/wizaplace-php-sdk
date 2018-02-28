@@ -31,6 +31,7 @@ use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -436,7 +437,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $this->expectException(NotFound::class);
+        $this->expectException(ProductNotFound::class);
         $catalogService->getProductById('404');
     }
 
@@ -1562,7 +1563,7 @@ final class CatalogServiceTest extends ApiTestCase
             ->setReporterName('User')
             ->setMessage('Should get a 404');
 
-        $this->expectException(NotFound::class);
+        $this->expectException(ProductNotFound::class);
         $this->buildCatalogService()->reportProduct($report);
     }
 
