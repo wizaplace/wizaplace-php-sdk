@@ -14,6 +14,7 @@ use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class DiscussionServiceTest extends ApiTestCase
@@ -48,8 +49,8 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testStartDiscussionOnInexistantProduct()
     {
+        $this->expectException(ProductNotFound::class);
         $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('The product 42 has not been found.');
 
         $this->discussionService->startDiscussion(42);
     }

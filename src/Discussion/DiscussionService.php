@@ -83,13 +83,9 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['productId' => $productId]]);
+        $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['productId' => $productId]]);
 
-            return new Discussion($discussionData);
-        } catch (ClientException $e) {
-            throw new NotFound('The product '.$productId.' has not been found.', $e);
-        }
+        return new Discussion($discussionData);
     }
 
     /**

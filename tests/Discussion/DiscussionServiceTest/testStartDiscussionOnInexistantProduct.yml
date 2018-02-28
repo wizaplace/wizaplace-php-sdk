@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:58:05 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 28 Feb 2018 15:38:51 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 52e0b1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/52e0b1'
-            Content-Length: '60'
+            Content-Language: fr
+            X-Debug-Token: 233c0d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/233c0d'
+            Content-Length: '62'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"mKfOhSjP1zUbHfxJx4wnKXsb5jUihGwqKaaZCjkc"}'
+        body: '{"id":7,"apiKey":"iw1vm\/UVQ7m10o4rR00Rbtv\/cWDR0W1pemUC7pCo"}'
 -
     request:
         method: POST
@@ -32,9 +33,9 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token mKfOhSjP1zUbHfxJx4wnKXsb5jUihGwqKaaZCjkc'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token iw1vm/UVQ7m10o4rR00Rbtv/cWDR0W1pemUC7pCo'
             VCR-index: '1'
             Accept: null
         body: '{"productId":42}'
@@ -44,11 +45,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Tue, 12 Sep 2017 14:58:06 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 28 Feb 2018 15:38:51 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: ce6eb7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce6eb7'
-            Content-Length: '46'
+            Content-Language: fr
+            X-Debug-Token: 8a5d88
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a5d88'
+            Content-Length: '80'
             Content-Type: application/json
-        body: '{"message":"Product \u002242\u0022 not found"}'
+        body: '{"error":{"code":4,"message":"product not found","context":{"product_id":"42"}}}'
