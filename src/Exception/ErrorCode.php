@@ -17,6 +17,7 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode PRODUCT_NOT_FOUND()
  * @method static ErrorCode REVIEWS_ARE_DISABLED()
  * @method static ErrorCode SENDER_IS_ALSO_RECIPIENT()
+ * @method static ErrorCode COMPANY_HAS_NO_ADMINISTRATOR()
  */
 final class ErrorCode extends Enum
 {
@@ -26,4 +27,5 @@ final class ErrorCode extends Enum
     private const PRODUCT_NOT_FOUND = 4;
     private const REVIEWS_ARE_DISABLED = 5;
     private const SENDER_IS_ALSO_RECIPIENT = 6;
+    private const COMPANY_HAS_NO_ADMINISTRATOR = 7;
 }

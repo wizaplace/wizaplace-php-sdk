@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
+use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
@@ -94,6 +95,13 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->expectException(SenderIsAlsoRecipient::class);
 
         $this->buildDiscussionService('vendor@world-company.com', 'password-vendor')->startDiscussionWithVendor(3);
+    }
+
+    public function testStartDiscussionWithCompanyWithoutAdmin()
+    {
+        $this->expectException(CompanyHasNoAdministrator::class);
+
+        $this->buildDiscussionService()->startDiscussionWithVendor(1);
     }
 
     public function testStartDiscussionOnInexistantVendor()
