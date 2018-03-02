@@ -12,6 +12,7 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
@@ -80,6 +81,7 @@ final class DiscussionService extends AbstractService
      *
      * @throws ProductNotFound
      * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussion(int $productId): Discussion
@@ -96,6 +98,7 @@ final class DiscussionService extends AbstractService
      *
      * @throws NotFound
      * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussionWithVendor(int $companyId): Discussion
@@ -116,6 +119,7 @@ final class DiscussionService extends AbstractService
      *
      * @throws ProductNotFound
      * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
