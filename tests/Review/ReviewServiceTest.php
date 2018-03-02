@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Tests\Review;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Catalog\Review\ReviewService;
-use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ReviewServiceTest extends ApiTestCase
@@ -56,10 +56,8 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testListReviewsOnInexistantProduct()
     {
-        $this->expectException(NotFound::class);
-        $this->expectExceptionMessage('This product has not been found');
-
-        $this->reviewService->getProductReviews('404');
+        $reviews = $this->reviewService->getProductReviews('404');
+        $this->assertCount(0, $reviews);
     }
 
     public function testAddReviewToProduct()
@@ -71,7 +69,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewOnInexistantProduct()
     {
-        $this->expectException(ClientException::class);
+        $this->expectException(ProductNotFound::class);
         $this->expectExceptionCode(404);
 
         $this->reviewService->reviewProduct('404', 'fake-author', 'this is a test review', 4);

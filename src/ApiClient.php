@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Jean85\PrettyVersions;
@@ -17,11 +18,15 @@ use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\BasketNotFound;
+use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\ReviewsAreDisabled;
+use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 
 final class ApiClient
 {
@@ -142,8 +147,8 @@ final class ApiClient
 
         try {
             return $this->httpClient->request($method, $uri, $this->addAuth($options));
-        } catch (ClientException $e) {
-            $domainError = $this->extractDomainErrorFromClientException($e);
+        } catch (BadResponseException $e) {
+            $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
                 throw $domainError;
             }
@@ -167,7 +172,7 @@ final class ApiClient
         $this->language = $language;
     }
 
-    private function extractDomainErrorFromClientException(ClientException $e): ?DomainError
+    private function extractDomainErrorFromGuzzleException(BadResponseException $e): ?DomainError
     {
         try {
             $response = $this->jsonDecode($e->getResponse()->getBody()->getContents(), true);
@@ -182,6 +187,10 @@ final class ApiClient
                 BasketNotFound::class,
                 CouponCodeDoesNotApply::class,
                 CouponCodeAlreadyApplied::class,
+                ProductNotFound::class,
+                ReviewsAreDisabled::class,
+                SenderIsAlsoRecipient::class,
+                CompanyHasNoAdministrator::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {
