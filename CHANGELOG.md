@@ -9,6 +9,7 @@
 
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
 
 ### Bugfixes
 
