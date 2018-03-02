@@ -13,6 +13,8 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
@@ -76,7 +78,8 @@ final class DiscussionService extends AbstractService
     /**
      * Start a discussion with a vendor about a specific product.
      *
-     * @throws NotFound
+     * @throws ProductNotFound
+     * @throws SenderIsAlsoRecipient
      * @throws AuthenticationRequired
      */
     public function startDiscussion(int $productId): Discussion
@@ -89,9 +92,10 @@ final class DiscussionService extends AbstractService
     }
 
     /**
-     * Start a discussion with a vendor about a specific product.
+     * Start a discussion with a vendor.
      *
      * @throws NotFound
+     * @throws SenderIsAlsoRecipient
      * @throws AuthenticationRequired
      */
     public function startDiscussionWithVendor(int $companyId): Discussion
@@ -110,7 +114,8 @@ final class DiscussionService extends AbstractService
     /**
      * Start a discussion with a vendor about a specific product identified by its declination ID.
      *
-     * @throws NotFound
+     * @throws ProductNotFound
+     * @throws SenderIsAlsoRecipient
      * @throws AuthenticationRequired
      */
     public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
@@ -121,8 +126,9 @@ final class DiscussionService extends AbstractService
             $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['declinationId' => (string) $declinationId]]);
 
             return new Discussion($discussionData);
-        } catch (ClientException $e) {
-            throw new NotFound('The product with declination '.$declinationId.' has not been found.', $e);
+        } catch (ProductNotFound $e) {
+            // add declinationId to exception's context
+            throw new ProductNotFound($e->getMessage(), array_merge($e->getContext(), ['declinationId' => (string) $declinationId]), $e);
         }
     }
 
