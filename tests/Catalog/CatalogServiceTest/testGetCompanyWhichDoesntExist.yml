@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/404'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Fri, 02 Mar 2018 13:38:53 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c1cb7c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1cb7c'
+            Content-Length: '78'
+            Content-Type: application/json
+        body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

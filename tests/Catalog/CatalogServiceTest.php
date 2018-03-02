@@ -30,6 +30,7 @@ use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -696,6 +697,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($company->getAverageRating());
         $this->assertNull($company->getImage());
         $this->assertSame('Lorem Ipsum', $company->getTerms());
+    }
+
+    public function testGetCompanyWhichDoesntExist()
+    {
+        $this->expectException(CompanyNotFound::class);
+
+        $this->buildCatalogService()->getCompanyById(404);
     }
 
     public function testGetCategory()
