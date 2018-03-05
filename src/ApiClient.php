@@ -28,6 +28,7 @@ use Wizaplace\SDK\Exception\JsonDecodingError;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
+use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 
 final class ApiClient
 {
@@ -193,6 +194,7 @@ final class ApiClient
                 SenderIsAlsoRecipient::class,
                 CompanyHasNoAdministrator::class,
                 CompanyNotFound::class,
+                FavoriteAlreadyExist::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

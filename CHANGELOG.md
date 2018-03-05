@@ -12,6 +12,7 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyHasNoAdministrator`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
+ - Improve detection of `\Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist`
 
 ### Bugfixes
 
