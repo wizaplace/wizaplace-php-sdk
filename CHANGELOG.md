@@ -13,6 +13,7 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyHasNoAdministrator`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
  - Improve detection of `\Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\BasketIsEmpty`
 
 ### Bugfixes
 

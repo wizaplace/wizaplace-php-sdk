@@ -17,6 +17,7 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Exception\BasketIsEmpty;
 use Wizaplace\SDK\Exception\BasketNotFound;
 use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\CompanyNotFound;
@@ -195,6 +196,7 @@ final class ApiClient
                 CompanyHasNoAdministrator::class,
                 CompanyNotFound::class,
                 FavoriteAlreadyExist::class,
+                BasketIsEmpty::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {
