@@ -19,6 +19,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\BasketNotFound;
 use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\DomainError;
@@ -191,6 +192,7 @@ final class ApiClient
                 ReviewsAreDisabled::class,
                 SenderIsAlsoRecipient::class,
                 CompanyHasNoAdministrator::class,
+                CompanyNotFound::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

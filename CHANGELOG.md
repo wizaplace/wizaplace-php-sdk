@@ -11,6 +11,7 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyHasNoAdministrator`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
 
 ### Bugfixes
 
