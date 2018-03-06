@@ -7,8 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
+use Wizaplace\SDK\Basket\CheckoutWithPreAuthTokenCommand;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\CheckoutWithRedirectUrlCommand;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\BasketNotFound;
@@ -151,6 +153,108 @@ final class BasketServiceTest extends ApiTestCase
         $pdfContents = $pdf->getContents();
         $this->assertStringStartsWith($pdfHeader, $pdfContents);
         $this->assertGreaterThan(strlen($pdfHeader), strlen($pdfContents));
+    }
+
+    public function testCheckoutWithRedirectUrl()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $basketService = new BasketService($apiClient);
+        $basket = $basketService->createEmptyBasket();
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basket = $basketService->getBasket($basket->getId());
+        $shippings = [];
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $availableShippings = $shippingGroup->getShippings();
+                $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
+                foreach ($shippingGroup->getItems() as $basketItem) {
+                    // Here we mostly check the items were properly unserialized
+                    $basketItem->getMainImage();
+                    $basketItem->getCrossedOutPrice();
+                }
+            }
+        }
+        $basketService->selectShippings($basket->getId(), $shippings);
+
+        $availablePayments = $basketService->getPayments($basket->getId());
+        foreach ($availablePayments as $availablePayment) {
+            // Here we mostly check the payments were properly unserialized
+            $availablePayment->getImage();
+            $availablePayment->getDescription();
+            $this->assertNotEmpty($availablePayment->getName());
+            $this->assertGreaterThan(0, $availablePayment->getId());
+            $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());
+        }
+        $selectedPayment = reset($availablePayments)->getId();
+        $redirectUrl = 'https://demo.loc/order/confirm';
+        $fakeCssUrl = 'https://fakeadress.com/style.css';
+
+        $checkoutCommand = new CheckoutWithRedirectUrlCommand();
+        $checkoutCommand->setBasketId($basket->getId());
+        $checkoutCommand->setPaymentId($selectedPayment);
+        $checkoutCommand->setAcceptTerms(true);
+        $checkoutCommand->setCssUrl($fakeCssUrl);
+        $checkoutCommand->setRedirectUrl($redirectUrl);
+
+        $paymentInformation = $basketService->checkoutBasket($checkoutCommand);
+
+        // @TODO : check that the two following values are normal
+        $this->assertSame('', $paymentInformation->getHtml());
+        $this->assertNull($paymentInformation->getRedirectUrl());
+
+        $orders = $paymentInformation->getOrders();
+        $this->assertCount(1, $orders);
+    }
+
+    public function testCheckoutWithPreauthToken()
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $basketService = new BasketService($apiClient);
+        $basket = $basketService->createEmptyBasket();
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basket = $basketService->getBasket($basket->getId());
+        $shippings = [];
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $availableShippings = $shippingGroup->getShippings();
+                $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
+                foreach ($shippingGroup->getItems() as $basketItem) {
+                    // Here we mostly check the items were properly unserialized
+                    $basketItem->getMainImage();
+                    $basketItem->getCrossedOutPrice();
+                }
+            }
+        }
+        $basketService->selectShippings($basket->getId(), $shippings);
+
+        $availablePayments = $basketService->getPayments($basket->getId());
+        foreach ($availablePayments as $availablePayment) {
+            // Here we mostly check the payments were properly unserialized
+            $availablePayment->getImage();
+            $availablePayment->getDescription();
+            $this->assertNotEmpty($availablePayment->getName());
+            $this->assertGreaterThan(0, $availablePayment->getId());
+            $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());
+        }
+        $selectedPayment = reset($availablePayments)->getId();
+        $fakePreauthToken = 'ThisIsAFakeToken';
+
+        $checkoutCommand = new CheckoutWithPreAuthTokenCommand();
+        $checkoutCommand->setBasketId($basket->getId());
+        $checkoutCommand->setPaymentId($selectedPayment);
+        $checkoutCommand->setAcceptTerms(true);
+        $checkoutCommand->setPreauthToken($fakePreauthToken);
+
+        $paymentInformation = $basketService->checkoutBasket($checkoutCommand);
+
+        // @TODO : check that the two following values are normal
+        $this->assertSame('', $paymentInformation->getHtml());
+        $this->assertNull($paymentInformation->getRedirectUrl());
+
+        $orders = $paymentInformation->getOrders();
+        $this->assertCount(1, $orders);
     }
 
     public function testCleanBasket()
