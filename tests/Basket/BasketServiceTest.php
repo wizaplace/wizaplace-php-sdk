@@ -13,6 +13,7 @@ use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Basket\CheckoutWithRedirectUrlCommand;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\BasketIsEmpty;
 use Wizaplace\SDK\Exception\BasketNotFound;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Order\OrderService;
@@ -636,6 +637,15 @@ final class BasketServiceTest extends ApiTestCase
         $basket = $basketService->getBasket($basket->getId());
         $this->assertFalse($basket->isEligibleToPickupPointsShipping());
         $this->assertFalse($basket->isPickupPointsShipping());
+    }
+
+    public function testCheckingOutAnEmptyBasketYieldsAnError(): void
+    {
+        $service = $this->buildAuthenticatedBasketService();
+        $basket = $service->createEmptyBasket();
+
+        $this->expectException(BasketIsEmpty::class);
+        $service->checkout($basket->getId(), 1, true, 'https://demo.loc/order/confirm');
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService

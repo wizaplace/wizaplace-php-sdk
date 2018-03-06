@@ -20,6 +20,7 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode COMPANY_HAS_NO_ADMINISTRATOR()
  * @method static ErrorCode COMPANY_NOT_FOUND()
  * @method static ErrorCode FAVORITE_ALREADY_EXISTS()
+ * @method static ErrorCode BASKET_IS_EMPTY()
  */
 final class ErrorCode extends Enum
 {
@@ -32,4 +33,5 @@ final class ErrorCode extends Enum
     private const COMPANY_HAS_NO_ADMINISTRATOR = 7;
     private const COMPANY_NOT_FOUND = 8;
     private const FAVORITE_ALREADY_EXISTS = 9;
+    private const BASKET_IS_EMPTY = 10;
 }
