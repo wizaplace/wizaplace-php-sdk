@@ -14,6 +14,8 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
  - Improve detection of `\Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\BasketIsEmpty`
+ - Added `\Wizaplace\SDK\Catalog\CatalogServiceInterface` which is implemented by `\Wizaplace\SDK\Catalog\CatalogService`
+ - Added `\Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator` which allows to easily decorate any `\Wizaplace\SDK\Catalog\CatalogServiceInterface`
 
 ### Bugfixes
 
