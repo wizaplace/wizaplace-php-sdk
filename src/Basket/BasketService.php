@@ -20,6 +20,7 @@ use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\User\CheckoutCommand;
 
 /**
  * This service helps creating orders through a basket.
@@ -344,6 +345,47 @@ final class BasketService extends AbstractService
                         "acceptTermsAndConditions" => $acceptTerms,
                         'redirectUrl' => $redirectUrl,
                     ],
+                ]
+            );
+        } catch (ClientException $ex) {
+            $code = $ex->getResponse()->getStatusCode();
+
+            if (404 === $code) {
+                throw new NotFound('Basket not found', $ex);
+            }
+            if (400 === $code) {
+                throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
+            }
+
+            throw $ex;
+        }
+
+        return new PaymentInformation($result);
+    }
+
+    /**
+     * Checkout the basket to create an order.
+     *
+     * @param CheckoutCommandInterface Data posted in order to convert basket into order.
+     *        2 are available:
+     *        - CheckoutWithRedirectUrlCommmand (external payment page)
+     *        - CheckoutWithPreauthTokenCommand (for example: Stripe)
+     * @return PaymentInformation Information to proceed to the payment of the order that was created.
+     *
+     * @see getPayments()
+     *
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    public function checkoutBasket(CheckoutCommandInterface $command): PaymentInformation
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $result = $this->client->post(
+                "basket/".$command->getBasketId()."/order",
+                [
+                    RequestOptions::FORM_PARAMS => $command->serialize(),
                 ]
             );
         } catch (ClientException $ex) {
