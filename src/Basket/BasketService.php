@@ -20,7 +20,6 @@ use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
-use Wizaplace\SDK\User\CheckoutCommand;
 
 /**
  * This service helps creating orders through a basket.
@@ -366,7 +365,7 @@ final class BasketService extends AbstractService
     /**
      * Checkout the basket to create an order.
      *
-     * @param CheckoutCommandInterface Data posted in order to convert basket into order.
+     * @param CheckoutCommand Data posted in order to convert basket into order.
      *        2 are available:
      *        - CheckoutWithRedirectUrlCommmand (external payment page)
      *        - CheckoutWithPreauthTokenCommand (for example: Stripe)
@@ -378,7 +377,7 @@ final class BasketService extends AbstractService
      * @throws NotFound
      * @throws SomeParametersAreInvalid
      */
-    public function checkoutBasket(CheckoutCommandInterface $command): PaymentInformation
+    public function checkoutBasket(CheckoutCommand $command): PaymentInformation
     {
         $this->client->mustBeAuthenticated();
         try {

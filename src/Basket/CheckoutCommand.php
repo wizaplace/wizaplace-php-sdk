@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
-class CheckoutCommand implements CheckoutCommandInterface
+abstract class CheckoutCommand
 {
     /** @var string|null */
     protected $basketId;
