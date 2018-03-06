@@ -15,7 +15,7 @@ use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
-final class CatalogService extends AbstractService
+final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     /**
      * @throws ProductNotFound
