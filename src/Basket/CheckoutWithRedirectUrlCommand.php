@@ -37,6 +37,10 @@ final class CheckoutWithRedirectUrlCommand extends CheckoutCommand
         $this->cssUrl = $cssUrl;
     }
 
+    /**
+     * @internal
+     * @throws SomeParametersAreInvalid
+     */
     public function validate(): void
     {
         parent::validate();

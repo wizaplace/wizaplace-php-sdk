@@ -374,11 +374,11 @@ final class BasketService extends AbstractService
      * @see getPayments()
      *
      * @throws AuthenticationRequired
-     * @throws NotFound
      * @throws SomeParametersAreInvalid
      */
     public function checkoutBasket(CheckoutCommand $command): PaymentInformation
     {
+        $command->validate();
         $this->client->mustBeAuthenticated();
         try {
             $result = $this->client->post(
@@ -390,9 +390,6 @@ final class BasketService extends AbstractService
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
-            if (404 === $code) {
-                throw new NotFound('Basket not found', $ex);
-            }
             if (400 === $code) {
                 throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
             }

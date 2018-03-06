@@ -9,6 +9,9 @@ namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * @internal
+ */
 abstract class CheckoutCommand
 {
     /** @var string|null */
@@ -52,6 +55,7 @@ abstract class CheckoutCommand
 
     /**
      * @throws SomeParametersAreInvalid
+     * @internal
      */
     public function validate(): void
     {

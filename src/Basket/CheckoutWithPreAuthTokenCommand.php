@@ -24,6 +24,10 @@ final class CheckoutWithPreauthTokenCommand extends CheckoutCommand
         $this->preauthToken = $preauthToken;
     }
 
+    /**
+     * @internal
+     * @throws SomeParametersAreInvalid
+     */
     public function validate(): void
     {
         parent::validate();
