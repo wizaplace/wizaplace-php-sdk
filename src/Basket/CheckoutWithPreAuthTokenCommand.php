@@ -11,15 +11,15 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 final class CheckoutWithPreauthTokenCommand extends CheckoutCommand
 {
-    /** @var string */
+    /** @var string|null */
     private $preauthToken;
 
-    public function getPreauthToken(): string
+    public function getPreauthToken(): ?string
     {
         return $this->preauthToken;
     }
 
-    public function setPreauthToken(string $preauthToken): void
+    public function setPreauthToken(?string $preauthToken): void
     {
         $this->preauthToken = $preauthToken;
     }

@@ -367,7 +367,7 @@ final class BasketService extends AbstractService
     /**
      * Checkout the basket to create an order.
      *
-     * @param CheckoutCommand Data posted in order to convert basket into order.
+     * @param CheckoutCommand $command - Data posted in order to convert basket into order.
      *        2 are available:
      *        - CheckoutWithRedirectUrlCommmand (external payment page)
      *        - CheckoutWithPreauthTokenCommand (for example: Stripe)
