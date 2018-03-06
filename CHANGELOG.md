@@ -7,6 +7,14 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 1.16.0
+
+### New features
+
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
@@ -16,10 +24,6 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\BasketIsEmpty`
  - Added `\Wizaplace\SDK\Catalog\CatalogServiceInterface` which is implemented by `\Wizaplace\SDK\Catalog\CatalogService`
  - Added `\Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator` which allows to easily decorate any `\Wizaplace\SDK\Catalog\CatalogServiceInterface`
-
-### Bugfixes
-
-</details>
 
 ## 1.15.1
 
