@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
-final class CheckoutWithPreauthTokenCommand extends CheckoutCommand
+final class CheckoutWithPreAuthTokenCommand extends CheckoutCommand
 {
     /** @var string|null */
     private $preauthToken;

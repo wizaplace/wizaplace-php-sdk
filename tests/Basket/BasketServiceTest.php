@@ -7,9 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
-use Wizaplace\SDK\Basket\CheckoutWithPreAuthTokenCommand;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\CheckoutWithPreAuthTokenCommand;
 use Wizaplace\SDK\Basket\CheckoutWithRedirectUrlCommand;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
