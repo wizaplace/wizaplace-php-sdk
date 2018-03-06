@@ -17,8 +17,10 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Exception\BasketIsEmpty;
 use Wizaplace\SDK\Exception\BasketNotFound;
 use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\DomainError;
@@ -27,6 +29,7 @@ use Wizaplace\SDK\Exception\JsonDecodingError;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
+use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 
 final class ApiClient
 {
@@ -191,6 +194,9 @@ final class ApiClient
                 ReviewsAreDisabled::class,
                 SenderIsAlsoRecipient::class,
                 CompanyHasNoAdministrator::class,
+                CompanyNotFound::class,
+                FavoriteAlreadyExist::class,
+                BasketIsEmpty::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

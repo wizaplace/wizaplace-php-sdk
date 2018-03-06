@@ -18,6 +18,9 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode REVIEWS_ARE_DISABLED()
  * @method static ErrorCode SENDER_IS_ALSO_RECIPIENT()
  * @method static ErrorCode COMPANY_HAS_NO_ADMINISTRATOR()
+ * @method static ErrorCode COMPANY_NOT_FOUND()
+ * @method static ErrorCode FAVORITE_ALREADY_EXISTS()
+ * @method static ErrorCode BASKET_IS_EMPTY()
  */
 final class ErrorCode extends Enum
 {
@@ -28,4 +31,7 @@ final class ErrorCode extends Enum
     private const REVIEWS_ARE_DISABLED = 5;
     private const SENDER_IS_ALSO_RECIPIENT = 6;
     private const COMPANY_HAS_NO_ADMINISTRATOR = 7;
+    private const COMPANY_NOT_FOUND = 8;
+    private const FAVORITE_ALREADY_EXISTS = 9;
+    private const BASKET_IS_EMPTY = 10;
 }

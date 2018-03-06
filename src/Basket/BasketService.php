@@ -14,6 +14,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\BasketIsEmpty;
 use Wizaplace\SDK\Exception\BasketNotFound;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
@@ -329,7 +330,8 @@ final class BasketService extends AbstractService
      * @see getPayments()
      *
      * @throws AuthenticationRequired
-     * @throws NotFound
+     * @throws BasketNotFound
+     * @throws BasketIsEmpty
      * @throws SomeParametersAreInvalid
      */
     public function checkout(string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation

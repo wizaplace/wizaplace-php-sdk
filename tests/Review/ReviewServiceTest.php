@@ -7,8 +7,8 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Review;
 
-use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Catalog\Review\ReviewService;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -114,7 +114,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testAddReviewOnInexistantCompany()
     {
-        $this->expectException(ClientException::class);
+        $this->expectException(CompanyNotFound::class);
         $this->expectExceptionCode(404);
 
         $this->reviewService->reviewCompany(404, 'test company review', 2);
