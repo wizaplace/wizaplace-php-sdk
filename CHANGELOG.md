@@ -7,6 +7,7 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Basket\BasketService::checkoutBasket` along with `\Wizaplace\SDK\Basket\CheckoutWithRedirectUrlCommand` and `\Wizaplace\SDK\Basket\CheckoutWithPreAuthTokenCommand`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
