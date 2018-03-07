@@ -9,9 +9,9 @@ namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
-use Wizaplace\SDK\Image\Image;
 
 final class Product
 {
@@ -308,41 +308,33 @@ final class Product
 
         $givenDeclinationFound = false;
         /** @var Declination[] $result */
-        $result = [];
-        foreach ($this->declinations as $declination) {
+        $result = array_values(array_filter($this->declinations, static function (Declination $declination) use ($currentOffer, $optionsMap, &$givenDeclinationFound): bool {
             if ($currentOffer->getId() === $declination->getId()) {
                 $givenDeclinationFound = true;
                 // Skip the given declination, as we only want *other* offers
-                continue;
+                return false;
             }
 
             $declinationOptions = $declination->getOptions();
             if (count($optionsMap) !== count($declinationOptions)) {
                 // Number of options doesn't match, skip this declination
-                continue;
+                return false;
             }
 
             // Search for other declinations with options 100% matching those of the given offer
-            $matches = true;
             foreach ($declinationOptions as $declinationOption) {
                 $referenceOption = $optionsMap[$declinationOption->getId()] ?? null;
                 if ($referenceOption === null) {
-                    $matches = false;
-                    break;
+                    return false;
                 }
 
                 if ($referenceOption->getVariantId() !== $declinationOption->getVariantId()) {
-                    $matches = false;
-                    break;
+                    return false;
                 }
             }
 
-            if (!$matches) {
-                continue;
-            }
-
-            $result[] = $declination;
-        }
+            return true;
+        }));
 
         if (!$givenDeclinationFound) {
             throw new \InvalidArgumentException("The given declination does not belong to this product");
