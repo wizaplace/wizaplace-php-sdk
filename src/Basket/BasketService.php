@@ -365,6 +365,44 @@ final class BasketService extends AbstractService
     }
 
     /**
+     * Checkout the basket to create an order.
+     *
+     * @param CheckoutCommand $command - Data posted in order to convert basket into order.
+     *        2 are available:
+     *        - CheckoutWithRedirectUrlCommmand (external payment page)
+     *        - CheckoutWithPreauthTokenCommand (for example: Stripe)
+     * @return PaymentInformation Information to proceed to the payment of the order that was created.
+     *
+     * @see getPayments()
+     *
+     * @throws AuthenticationRequired
+     * @throws SomeParametersAreInvalid
+     */
+    public function checkoutBasket(CheckoutCommand $command): PaymentInformation
+    {
+        $command->validate();
+        $this->client->mustBeAuthenticated();
+        try {
+            $result = $this->client->post(
+                "basket/".$command->getBasketId()."/order",
+                [
+                    RequestOptions::FORM_PARAMS => $command->serialize(),
+                ]
+            );
+        } catch (ClientException $ex) {
+            $code = $ex->getResponse()->getStatusCode();
+
+            if (400 === $code) {
+                throw new SomeParametersAreInvalid($ex->getMessage(), $ex->getCode(), $ex);
+            }
+
+            throw $ex;
+        }
+
+        return new PaymentInformation($result);
+    }
+
+    /**
      * Add or update comments on the basket or products inside the basket.
      *
      * Example:

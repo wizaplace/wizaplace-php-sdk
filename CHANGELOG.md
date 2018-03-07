@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Basket\BasketService::checkoutBasket` along with `\Wizaplace\SDK\Basket\CheckoutWithRedirectUrlCommand` and `\Wizaplace\SDK\Basket\CheckoutWithPreAuthTokenCommand`
+
 ### Bugfixes
 
 </details>
