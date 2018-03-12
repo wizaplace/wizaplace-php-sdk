@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 15:00:06 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 05 Mar 2018 13:05:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a3e82c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a3e82c'
-            Content-Length: '60'
+            Content-Language: fr
+            X-Debug-Token: 6a11a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6a11a3'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"TsDxh+N6ADdeFXpHPvQ2cliFChw3xjwsqPXVY9WB"}'
+        body: '{"id":7,"apiKey":"377CMphOPYx7n5h2VOe6CdHvzsjelUf0eccn4\/na"}'
 -
     request:
         method: POST
@@ -32,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token TsDxh+N6ADdeFXpHPvQ2cliFChw3xjwsqPXVY9WB'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 377CMphOPYx7n5h2VOe6CdHvzsjelUf0eccn4/na'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,11 +43,12 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 12 Sep 2017 15:00:07 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 05 Mar 2018 13:05:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '585111'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/585111'
+            Content-Language: fr
+            X-Debug-Token: a7b6e5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a7b6e5'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -58,8 +60,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token TsDxh+N6ADdeFXpHPvQ2cliFChw3xjwsqPXVY9WB'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 377CMphOPYx7n5h2VOe6CdHvzsjelUf0eccn4/na'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,14 +70,15 @@
             code: '409'
             message: Conflict
         headers:
-            Date: 'Tue, 12 Sep 2017 15:00:07 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 05 Mar 2018 13:05:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 0ac0fa
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ac0fa'
-            Content-Length: '2'
+            Content-Language: fr
+            X-Debug-Token: f79a3c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f79a3c'
+            Content-Length: '101'
             Content-Type: application/json
-        body: '""'
+        body: '{"error":{"code":9,"message":"favorite already exists","context":{"declinationId":"1_0","userId":7}}}'
 -
     request:
         method: DELETE
@@ -83,8 +86,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token TsDxh+N6ADdeFXpHPvQ2cliFChw3xjwsqPXVY9WB'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 377CMphOPYx7n5h2VOe6CdHvzsjelUf0eccn4/na'
             VCR-index: '3'
             Accept: null
     response:
@@ -93,12 +96,12 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 12 Sep 2017 15:00:07 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 05 Mar 2018 13:05:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 2bbf8f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2bbf8f'
-            Content-Length: '0'
+            Content-Language: fr
+            X-Debug-Token: '4204e6'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4204e6'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -107,8 +110,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token TsDxh+N6ADdeFXpHPvQ2cliFChw3xjwsqPXVY9WB'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 377CMphOPYx7n5h2VOe6CdHvzsjelUf0eccn4/na'
             VCR-index: '4'
             Accept: null
     response:
@@ -117,10 +120,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 12 Sep 2017 15:00:07 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Mon, 05 Mar 2018 13:05:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 7c63c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7c63c6'
-            Content-Length: '0'
+            Content-Language: fr
+            X-Debug-Token: abe975
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/abe975'
             Content-Type: 'text/html; charset=UTF-8'

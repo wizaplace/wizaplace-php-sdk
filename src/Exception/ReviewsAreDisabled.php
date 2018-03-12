@@ -3,19 +3,12 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+declare(strict_types=1);
 
-namespace Wizaplace\SDK\Favorite\Exception;
+namespace Wizaplace\SDK\Exception;
 
-use Wizaplace\SDK\Exception\DomainError;
-use Wizaplace\SDK\Exception\ErrorCode;
-
-final class FavoriteAlreadyExist extends \Exception implements DomainError
+final class ReviewsAreDisabled extends \Exception implements DomainError
 {
-    /**
-     * @deprecated use self::getErrorCode instead
-     */
-    public const HTTP_ERROR_CODE = 409;
-
     /**
      * @var array
      */
@@ -39,6 +32,6 @@ final class FavoriteAlreadyExist extends \Exception implements DomainError
 
     public static function getErrorCode(): ErrorCode
     {
-        return ErrorCode::FAVORITE_ALREADY_EXISTS();
+        return ErrorCode::REVIEWS_ARE_DISABLED();
     }
 }

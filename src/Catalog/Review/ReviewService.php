@@ -11,6 +11,8 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 
 /**
  * This service helps getting and creating reviews for products or companies
@@ -41,19 +43,10 @@ final class ReviewService extends AbstractService
 
     /**
      * @return Review[]
-     * @throws NotFound
      */
     public function getProductReviews(string $productId): array
     {
-        try {
-            $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
-        } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound('This product has not been found', $e);
-            }
-
-            throw $e;
-        }
+        $reviews = $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
 
         $productReviews = [];
         foreach ($reviews as $review) {
@@ -63,6 +56,10 @@ final class ReviewService extends AbstractService
         return $productReviews;
     }
 
+    /**
+     * @throws ProductNotFound
+     * @throws ReviewsAreDisabled
+     */
     public function reviewProduct(string $productId, string $author, string $message, int $rating) : void
     {
         $review = [

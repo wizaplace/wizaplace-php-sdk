@@ -31,9 +31,9 @@ final class FavoriteServiceTest extends ApiTestCase
 
     public function testAddProductToFavorite()
     {
-        $this->favService->addDeclinationToUserFavorites(new DeclinationId('2_6_1'));
+        $this->favService->addDeclinationToUserFavorites(new DeclinationId('2_7_1_8_5'));
 
-        $this->assertTrue($this->favService->isInFavorites(new DeclinationId('2_6_1')));
+        $this->assertTrue($this->favService->isInFavorites(new DeclinationId('2_7_1_8_5')));
     }
 
     public function testAddFavProductToFavorite()

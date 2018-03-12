@@ -13,7 +13,11 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
+use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class DiscussionServiceTest extends ApiTestCase
@@ -26,7 +30,7 @@ final class DiscussionServiceTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->discussionService = $this->buildDiscussionService();
+        $this->discussionService = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
     }
 
     public function testStartDiscussion()
@@ -48,10 +52,17 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testStartDiscussionOnInexistantProduct()
     {
+        $this->expectException(ProductNotFound::class);
         $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('The product 42 has not been found.');
 
         $this->discussionService->startDiscussion(42);
+    }
+
+    public function testStartDiscussionOnOwnProduct()
+    {
+        $this->expectException(SenderIsAlsoRecipient::class);
+
+        $this->buildDiscussionService('vendor@world-company.com', 'password-vendor')->startDiscussion(3);
     }
 
     public function testStartDiscussionWithVendor()
@@ -80,10 +91,24 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
-    public function testStartDiscussionOnInexistantVendor()
+    public function testStartDiscussionWithOwnCompany()
+    {
+        $this->expectException(SenderIsAlsoRecipient::class);
+
+        $this->buildDiscussionService('vendor@world-company.com', 'password-vendor')->startDiscussionWithVendor(3);
+    }
+
+    public function testStartDiscussionWithCompanyWithoutAdmin()
+    {
+        $this->expectException(CompanyHasNoAdministrator::class);
+
+        $this->buildDiscussionService()->startDiscussionWithVendor(1);
+    }
+
+    public function testStartDiscussionOnInexistentVendor()
     {
         $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('Company 404 has not been found.');
+        $this->expectException(CompanyNotFound::class);
 
         $this->discussionService->startDiscussionWithVendor(404);
     }
@@ -105,10 +130,17 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertEquals($expectedDiscussion, $discussion);
     }
 
+    public function testStartDiscussionOnOwnDeclination()
+    {
+        $this->expectException(SenderIsAlsoRecipient::class);
+
+        $this->buildDiscussionService('vendor@world-company.com', 'password-vendor')->startDiscussionFromDeclinationId(new DeclinationId('3_9_10'));
+    }
+
     public function testStartDiscussionOnInexistantDeclinationId()
     {
         $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('The product with declination 404_1_2 has not been found.');
+        $this->expectException(ProductNotFound::class);
 
         $this->discussionService->startDiscussionFromDeclinationId(new DeclinationId('404_1_2'));
     }
@@ -223,7 +255,7 @@ Message:
     Keep up the good work!
 MSG;
 
-        $service = $this->buildDiscussionService();
+        $service = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
 
         static::$historyContainer = [];
 
@@ -241,10 +273,10 @@ MSG;
         $this->assertSame(201, $response->getStatusCode());
     }
 
-    private function buildDiscussionService(): DiscussionService
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
     {
         $client = $this->buildApiClient();
-        $client->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $client->authenticate($email, $password);
 
         return new DiscussionService($client);
     }

@@ -74,8 +74,6 @@ final class FavoriteService extends AbstractService
             switch ($code) {
                 case CannotFavoriteDisabledOrInexistentDeclination::HTTP_ERROR_CODE:
                     throw new CannotFavoriteDisabledOrInexistentDeclination($declinationId, $e);
-                case FavoriteAlreadyExist::HTTP_ERROR_CODE:
-                    throw new FavoriteAlreadyExist($declinationId, $e);
                 default:
                     throw $e;
             }

@@ -2,11 +2,11 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/products/404'
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/404'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-error-code_product-not-found@59cf280
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Wed, 28 Feb 2018 13:17:28 GMT'
+            Date: 'Fri, 02 Mar 2018 13:38:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ca1054
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca1054'
-            Content-Length: '81'
+            X-Debug-Token: c1cb7c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1cb7c'
+            Content-Length: '78'
             Content-Type: application/json
-        body: '{"error":{"code":4,"message":"product not found","context":{"product_id":"404"}}}'
+        body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

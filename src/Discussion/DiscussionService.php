@@ -12,7 +12,10 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
@@ -69,33 +72,33 @@ final class DiscussionService extends AbstractService
         try {
             return new Discussion($this->client->get('discussions/'.$discussionId));
         } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.');
+            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
         }
     }
 
     /**
      * Start a discussion with a vendor about a specific product.
      *
-     * @throws NotFound
+     * @throws ProductNotFound
+     * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussion(int $productId): Discussion
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['productId' => $productId]]);
+        $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['productId' => $productId]]);
 
-            return new Discussion($discussionData);
-        } catch (ClientException $e) {
-            throw new NotFound('The product '.$productId.' has not been found.');
-        }
+        return new Discussion($discussionData);
     }
 
     /**
-     * Start a discussion with a vendor about a specific product.
+     * Start a discussion with a vendor.
      *
      * @throws NotFound
+     * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussionWithVendor(int $companyId): Discussion
@@ -107,14 +110,16 @@ final class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            throw new NotFound('Company '.$companyId.' has not been found.');
+            throw new NotFound('Company '.$companyId.' has not been found.', $e);
         }
     }
 
     /**
      * Start a discussion with a vendor about a specific product identified by its declination ID.
      *
-     * @throws NotFound
+     * @throws ProductNotFound
+     * @throws SenderIsAlsoRecipient
+     * @throws CompanyHasNoAdministrator
      * @throws AuthenticationRequired
      */
     public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
@@ -125,8 +130,9 @@ final class DiscussionService extends AbstractService
             $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['declinationId' => (string) $declinationId]]);
 
             return new Discussion($discussionData);
-        } catch (ClientException $e) {
-            throw new NotFound('The product with declination '.$declinationId.' has not been found.');
+        } catch (ProductNotFound $e) {
+            // add declinationId to exception's context
+            throw new ProductNotFound($e->getMessage(), array_merge($e->getContext(), ['declinationId' => (string) $declinationId]), $e);
         }
     }
 
@@ -149,7 +155,7 @@ final class DiscussionService extends AbstractService
                 return new Message($messageData);
             }, $messages);
         } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.');
+            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
         }
     }
 
@@ -169,7 +175,7 @@ final class DiscussionService extends AbstractService
 
             return new Message($messageData);
         } catch (ClientException $e) {
-            throw new SomeParametersAreInvalid();
+            throw new SomeParametersAreInvalid("Some parameters are invalid", 400, $e);
         }
     }
 

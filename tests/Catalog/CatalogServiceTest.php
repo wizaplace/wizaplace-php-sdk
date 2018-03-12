@@ -12,6 +12,7 @@ use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
+use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
@@ -30,7 +31,9 @@ use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -436,7 +439,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $this->expectException(NotFound::class);
+        $this->expectException(ProductNotFound::class);
         $catalogService->getProductById('404');
     }
 
@@ -695,6 +698,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($company->getAverageRating());
         $this->assertNull($company->getImage());
         $this->assertSame('Lorem Ipsum', $company->getTerms());
+    }
+
+    public function testGetCompanyWhichDoesntExist()
+    {
+        $this->expectException(CompanyNotFound::class);
+
+        $this->buildCatalogService()->getCompanyById(404);
     }
 
     public function testGetCategory()
@@ -1562,7 +1572,7 @@ final class CatalogServiceTest extends ApiTestCase
             ->setReporterName('User')
             ->setMessage('Should get a 404');
 
-        $this->expectException(NotFound::class);
+        $this->expectException(ProductNotFound::class);
         $this->buildCatalogService()->reportProduct($report);
     }
 
@@ -1685,7 +1695,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Achat Micro-casque Razer ManO\'War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
     }
 
-    private function buildCatalogService(): CatalogService
+    private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());
     }
