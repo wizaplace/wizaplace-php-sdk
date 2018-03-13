@@ -80,26 +80,34 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $responseData = $this->client->post('companies/'.$command->getCompanyId(), [
-            RequestOptions::JSON => array_filter([
-                'name' => $command->getName(),
-                'email' => $command->getEmail(),
-                'description' => $command->getDescription(),
-                'slug' => $command->getSlug(),
-                'address' => $command->getAddress(),
-                'country' => $command->getCountry(),
-                'zipcode' => $command->getZipcode(),
-                'city' => $command->getCity(),
-                'phoneNumber' => $command->getPhoneNumber(),
-                'url' => $command->getUrl(),
-                'fax' => $command->getFax(),
-                'vatNumber' => $command->getVatNumber(),
-                'siretNumber' => $command->getSiretNumber(),
-                'rcs' => $command->getRcs(),
-                'legalStatus' => $command->getLegalStatus(),
-                'capital' => $command->getCapital(),
-            ]),
-        ], static function ($value): bool { return $value === null; });
+        $responseData = $this->client->post(
+            'companies/'.$command->getCompanyId(),
+            [
+                RequestOptions::JSON => array_filter(
+                    [
+                        'name' => $command->getName(),
+                        'email' => $command->getEmail(),
+                        'description' => $command->getDescription(),
+                        'slug' => $command->getSlug(),
+                        'address' => $command->getAddress(),
+                        'country' => $command->getCountry(),
+                        'zipcode' => $command->getZipcode(),
+                        'city' => $command->getCity(),
+                        'phoneNumber' => $command->getPhoneNumber(),
+                        'url' => $command->getUrl(),
+                        'fax' => $command->getFax(),
+                        'vatNumber' => $command->getVatNumber(),
+                        'siretNumber' => $command->getSiretNumber(),
+                        'rcs' => $command->getRcs(),
+                        'legalStatus' => $command->getLegalStatus(),
+                        'capital' => $command->getCapital(),
+                    ],
+                    static function ($value): bool {
+                        return $value !== null;
+                    }
+                ),
+            ]
+        );
 
         return new Company($responseData);
     }
