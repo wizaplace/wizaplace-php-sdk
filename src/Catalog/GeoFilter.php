@@ -20,11 +20,11 @@ final class GeoFilter
     private $longitude;
 
     /**
-     * @var int
+     * @var nullint
      */
     private $radius;
 
-    public function __construct(float $latitude, float $longitude, int $radius)
+    public function __construct(float $latitude, float $longitude, ?int $radius = null)
     {
         $this->latitude = $latitude;
         $this->longitude = $longitude;
@@ -41,7 +41,7 @@ final class GeoFilter
         return $this->longitude;
     }
 
-    public function getRadius(): int
+    public function getRadius(): ?int
     {
         return $this->radius;
     }
