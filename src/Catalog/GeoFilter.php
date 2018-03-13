@@ -20,7 +20,7 @@ final class GeoFilter
     private $longitude;
 
     /**
-     * @var nullint
+     * @var null|int
      */
     private $radius;
 
