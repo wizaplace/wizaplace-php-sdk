@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Company\CompanyService::update`
+
 ### Bugfixes
 
 </details>
