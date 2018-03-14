@@ -21,7 +21,14 @@ interface CatalogServiceInterface
 
     public function getCategory(int $id): Category;
 
-    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult;
+    public function search(
+        string $query = '',
+        array $filters = [],
+        array $sorting = [],
+        int $resultsPerPage = 12,
+        int $page = 1,
+        ?GeoFilter $geoFilter = null
+    ): SearchResult;
 
     public function getCompanyById(int $id): CompanyDetail;
 
