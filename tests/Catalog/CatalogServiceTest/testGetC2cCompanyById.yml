@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            User-Agent: Wizaplace-PHP-SDK/dev-company-address@1831135
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Oct 2017 13:10:02 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 14 Mar 2018 14:53:20 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 7e0d5c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e0d5c'
-            Content-Length: '235'
+            X-Debug-Token: 0edb85
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0edb85'
+            Content-Length: '332'
             Content-Type: application/json
-        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"terms":"Lorem Ipsum"}'
+        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"terms":"Lorem Ipsum"}'
