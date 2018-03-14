@@ -27,6 +27,8 @@ final class Order
     private $shippingName;
     /** @var ShippingAddress */
     private $shippingAddress;
+    /** @var BillingAddress */
+    private $billingAddress;
     /** @var OrderItem[] */
     private $orderItems;
     /** @var string */
@@ -46,6 +48,7 @@ final class Order
         $this->status = new OrderStatus($data['status']);
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
+        $this->billingAddress = new BillingAddress($data['billingAddress']);
         $this->orderItems = array_map(static function (array $orderItemData) : OrderItem {
             return new OrderItem($orderItemData);
         }, $data['items']);
@@ -95,6 +98,11 @@ final class Order
     public function getShippingAddress(): ShippingAddress
     {
         return $this->shippingAddress;
+    }
+
+    public function getBillingAddress(): BillingAddress
+    {
+        return $this->billingAddress;
     }
 
     /**
