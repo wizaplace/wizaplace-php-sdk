@@ -7,12 +7,16 @@
 
 ### New features
 
-- Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
- - Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
-
 ### Bugfixes
 
 </details>
+
+## 1.17.0
+
+### New features
+
+ - Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
+ - Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
 
 ## 1.16.0
 
