@@ -43,6 +43,9 @@ final class CompanyListItem
     /** @var null|integer */
     private $averageRating;
 
+    /** @var CompanyAddress */
+    private $fullAddress;
+
     /**
      * @internal
      */
@@ -62,6 +65,12 @@ final class CompanyListItem
             $this->location = null;
         }
         $this->averageRating = $data['averageRating'];
+        $this->fullAddress = new CompanyAddress($data['fullAddress']);
+    }
+
+    public function getFullAddress(): CompanyAddress
+    {
+        return $this->fullAddress;
     }
 
     public function getId(): int
@@ -79,6 +88,9 @@ final class CompanyListItem
         return $this->description;
     }
 
+    /**
+     * @deprecated use self::getFullAddress instead
+     */
     public function getAddress(): string
     {
         return $this->address;
