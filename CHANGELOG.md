@@ -34,6 +34,20 @@
 
 </details>
 
+## 1.18.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
+ - Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
+
+## 1.17.0
+
+### New features
+
+ - Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
+ - Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
+
 ## 1.16.0
 
 ### New features

@@ -44,18 +44,33 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return new Category($category);
     }
 
-    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult
-    {
+    public function search(
+        string $query = '',
+        array $filters = [],
+        array $sorting = [],
+        int $resultsPerPage = 12,
+        int $page = 1,
+        ?GeoFilter $geoFilter = null
+    ): SearchResult {
+        $query = [
+            'filters' => $filters,
+            'sorting' => $sorting,
+            'resultsPerPage' => $resultsPerPage,
+            'page' => $page,
+            'query' => $query,
+        ];
+        if ($geoFilter !== null) {
+            $query['geo'] = [
+                'lat' => $geoFilter->getLatitude(),
+                'lng' => $geoFilter->getLongitude(),
+                'radius' => $geoFilter->getRadius(),
+            ];
+        }
+
         $results = $this->client->get(
             'catalog/search/products',
             [
-                'query' => [
-                    'filters' => $filters,
-                    'sorting' => $sorting,
-                    'resultsPerPage' => $resultsPerPage,
-                    'page' => $page,
-                    'query' => $query,
-                ],
+                RequestOptions::QUERY => $query,
             ]
         );
 

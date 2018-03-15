@@ -46,6 +46,9 @@ final class CompanyDetail
     /** @var string */
     private $terms;
 
+    /** @var CompanyAddress */
+    private $fullAddress;
+
     /**
      * @internal
      */
@@ -66,6 +69,12 @@ final class CompanyDetail
         }
         $this->averageRating = $data['averageRating'];
         $this->terms = to_string($data['terms']);
+        $this->fullAddress = new CompanyAddress($data['fullAddress']);
+    }
+
+    public function getFullAddress(): CompanyAddress
+    {
+        return $this->fullAddress;
     }
 
     public function getId(): int
@@ -83,6 +92,9 @@ final class CompanyDetail
         return $this->description;
     }
 
+    /**
+     * @deprecated use self::getFullAddress instead
+     */
     public function getAddress(): string
     {
         return $this->address;
