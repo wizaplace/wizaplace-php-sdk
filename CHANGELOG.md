@@ -7,12 +7,16 @@
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
- - Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
-
 ### Bugfixes
 
 </details>
+
+## 1.18.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
+ - Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
 
 ## 1.17.0
 
