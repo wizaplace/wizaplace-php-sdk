@@ -15,7 +15,7 @@ use Wizaplace\SDK\Discussion\DiscussionService;
 use Wizaplace\SDK\Discussion\Message;
 use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\CompanyNotFound;
-use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\DiscussionNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -155,7 +155,7 @@ final class DiscussionServiceTest extends ApiTestCase
                     'id' => 1,
                     'recipient' => 'The World Company Inc.',
                     'productId' => 4,
-                    'title' => 'A propos du produit Product with shippings',
+                    'title' => 'A propos du produit Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon',
                     'unreadCount' => 0,
                 ]
             ),
@@ -173,7 +173,7 @@ final class DiscussionServiceTest extends ApiTestCase
                 'id' => 1,
                 'recipient' => 'The World Company Inc.',
                 'productId' => 4,
-                'title' => 'A propos du produit Product with shippings',
+                'title' => 'A propos du produit Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon',
                 'unreadCount' => 0,
             ]
         );
@@ -183,9 +183,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testGetInexistantDiscussion()
     {
-        $this->expectException(NotFound::class);
-        $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('The discussion 2 was not found.');
+        $this->expectException(DiscussionNotFound::class);
 
         $this->discussionService->getDiscussion(2);
     }
@@ -199,9 +197,7 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testGetMessagesFromInexistantDiscussion()
     {
-        $this->expectException(NotFound::class);
-        $this->expectExceptionCode(404);
-        $this->expectExceptionMessage('The discussion 2 was not found.');
+        $this->expectException(DiscussionNotFound::class);
 
         $this->discussionService->getMessages(2);
     }
@@ -222,6 +218,13 @@ final class DiscussionServiceTest extends ApiTestCase
 
         $this->assertSame($expectedMessage->getContent(), $message->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
+    }
+
+    public function testPostMessageOnInexistantDiscussion()
+    {
+        $this->expectException(DiscussionNotFound::class);
+
+        $this->discussionService->postMessage(2, 'This is a test message');
     }
 
     public function testGetMessages()
