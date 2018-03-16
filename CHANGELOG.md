@@ -7,6 +7,10 @@
 
 ### New features
 
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
+
 ### Bugfixes
 
 </details>
