@@ -80,7 +80,7 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $responseData = $this->client->post(
+        $responseData = $this->client->put(
             'companies/'.$command->getCompanyId(),
             [
                 RequestOptions::JSON => array_filter(
