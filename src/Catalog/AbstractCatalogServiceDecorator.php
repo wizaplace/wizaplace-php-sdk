@@ -38,9 +38,15 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
         return $this->decorated->getCategory($id);
     }
 
-    public function search(string $query = '', array $filters = [], array $sorting = [], int $resultsPerPage = 12, int $page = 1): SearchResult
-    {
-        return $this->decorated->search($query, $filters, $sorting, $resultsPerPage, $page);
+    public function search(
+        string $query = '',
+        array $filters = [],
+        array $sorting = [],
+        int $resultsPerPage = 12,
+        int $page = 1,
+        ?GeoFilter $geoFilter = null
+    ): SearchResult {
+        return $this->decorated->search($query, $filters, $sorting, $resultsPerPage, $page, $geoFilter);
     }
 
     public function getCompanyById(int $id): CompanyDetail

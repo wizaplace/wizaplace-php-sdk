@@ -7,11 +7,28 @@
 
 ### New features
 
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
  - Added `\Wizaplace\SDK\Company\CompanyService::update`
 
 ### Bugfixes
 
 </details>
+
+## 1.18.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
+ - Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
+
+## 1.17.0
+
+### New features
+
+ - Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
+ - Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
 
 ## 1.16.0
 

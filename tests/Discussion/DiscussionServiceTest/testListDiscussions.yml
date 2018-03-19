@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:58:16 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Fri, 16 Mar 2018 15:39:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 37242b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/37242b'
-            Content-Length: '61'
+            Content-Language: fr
+            X-Debug-Token: d2af04
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d2af04'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"GWOdiXqDBbN9ED11T3CHRbneQA5et7V\/v+iXVUPs"}'
+        body: '{"id":7,"apiKey":"S48VwRamz5R6KclmOqGSf3dMzoE6033MIB6O0zjf"}'
 -
     request:
         method: GET
@@ -31,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
-            Authorization: 'token GWOdiXqDBbN9ED11T3CHRbneQA5et7V/v+iXVUPs'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token S48VwRamz5R6KclmOqGSf3dMzoE6033MIB6O0zjf'
             VCR-index: '1'
             Accept: null
     response:
@@ -41,11 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:58:17 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Fri, 16 Mar 2018 15:39:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: c3ffc8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3ffc8'
-            Content-Length: '132'
+            Content-Language: fr
+            X-Debug-Token: 65fc9f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/65fc9f'
+            Content-Length: '206'
             Content-Type: application/json
-        body: '[{"id":1,"recipient":"The World Company Inc.","productId":"4","title":"A propos du produit Product with shippings","unreadCount":0}]'
+        body: '[{"id":1,"recipient":"The World Company Inc.","recipientId":6,"productId":"4","companyId":null,"title":"A propos du produit Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","unreadCount":0}]'

@@ -23,9 +23,12 @@ use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
+use Wizaplace\SDK\Exception\DeclinationIsNotActive;
+use Wizaplace\SDK\Exception\DiscussionNotFound;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\ProductAttachmentNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
@@ -197,6 +200,9 @@ final class ApiClient
                 CompanyNotFound::class,
                 FavoriteAlreadyExist::class,
                 BasketIsEmpty::class,
+                DeclinationIsNotActive::class,
+                DiscussionNotFound::class,
+                ProductAttachmentNotFound::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

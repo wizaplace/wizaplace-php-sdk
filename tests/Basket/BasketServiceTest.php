@@ -138,6 +138,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame(135.8, $order->getTotal());
         $this->assertSame(135.8, $order->getSubtotal());
         $this->assertSame('40 rue Laure Diebold', $order->getShippingAddress()->getAddress());
+        $this->assertSame('40 rue Laure Diebold', $order->getBillingAddress()->getAddress());
 
         $orderItems = $order->getOrderItems();
         $this->assertCount(1, $orderItems);

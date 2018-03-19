@@ -652,6 +652,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals(4.800039, $company->getLocation()->getLongitude());
         $this->assertSame(5, $company->getAverageRating());
         $this->assertSame('Lorem Ipsum', $company->getTerms());
+        $this->assertSame('FR', $company->getFullAddress()->getCountry());
+        $this->assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
+        $this->assertSame('Paris', $company->getFullAddress()->getCity());
+        $this->assertSame('75001', $company->getFullAddress()->getZipCode());
 
         $company = $catalogService->getCompanyById(4);
 
@@ -665,6 +669,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($company->getLocation());
         $this->assertNull($company->getAverageRating());
         $this->assertSame('Lorem Ipsum', $company->getTerms());
+        $this->assertSame('FR', $company->getFullAddress()->getCountry());
+        $this->assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
+        $this->assertSame('Paris', $company->getFullAddress()->getCity());
+        $this->assertSame('75001', $company->getFullAddress()->getZipCode());
     }
 
     public function testGetCompanies()
@@ -679,6 +687,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(1, $companies[0]->getId());
         $this->assertSame('Marchand de test', $companies[0]->getName());
         $this->assertFalse($companies[0]->isProfessional());
+        $this->assertSame('FR', $companies[0]->getFullAddress()->getCountry());
+        $this->assertSame('Rue des marketplaces', $companies[0]->getFullAddress()->getAddress());
+        $this->assertSame('Lyon', $companies[0]->getFullAddress()->getCity());
+        $this->assertSame('69000', $companies[0]->getFullAddress()->getZipCode());
     }
 
     public function testGetC2cCompanyById()
@@ -698,6 +710,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($company->getAverageRating());
         $this->assertNull($company->getImage());
         $this->assertSame('Lorem Ipsum', $company->getTerms());
+        $this->assertSame('FR', $company->getFullAddress()->getCountry());
+        $this->assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
+        $this->assertSame('Paris', $company->getFullAddress()->getCity());
+        $this->assertSame('75001', $company->getFullAddress()->getZipCode());
     }
 
     public function testGetCompanyWhichDoesntExist()
