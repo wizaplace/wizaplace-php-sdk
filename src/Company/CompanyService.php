@@ -7,9 +7,11 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Company;
 
+use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 
 final class CompanyService extends AbstractService
 {
@@ -67,6 +69,47 @@ final class CompanyService extends AbstractService
         $company = new Company($responseData);
 
         return new CompanyRegistrationResult($company, []);
+    }
+
+    /**
+     * @throws AuthenticationRequired
+     * @throws CompanyNotFound
+     * @throws BadResponseException
+     */
+    public function update(CompanyUpdateCommand $command): Company
+    {
+        $this->client->mustBeAuthenticated();
+
+        $responseData = $this->client->put(
+            'companies/'.$command->getCompanyId(),
+            [
+                RequestOptions::JSON => array_filter(
+                    [
+                        'name' => $command->getName(),
+                        'email' => $command->getEmail(),
+                        'description' => $command->getDescription(),
+                        'slug' => $command->getSlug(),
+                        'address' => $command->getAddress(),
+                        'country' => $command->getCountry(),
+                        'zipcode' => $command->getZipcode(),
+                        'city' => $command->getCity(),
+                        'phoneNumber' => $command->getPhoneNumber(),
+                        'url' => $command->getUrl(),
+                        'fax' => $command->getFax(),
+                        'vatNumber' => $command->getVatNumber(),
+                        'siretNumber' => $command->getSiretNumber(),
+                        'rcs' => $command->getRcs(),
+                        'legalStatus' => $command->getLegalStatus(),
+                        'capital' => $command->getCapital(),
+                    ],
+                    static function ($value): bool {
+                        return $value !== null;
+                    }
+                ),
+            ]
+        );
+
+        return new Company($responseData);
     }
 
     public function unauthenticatedRegister(UnauthenticatedCompanyRegistration $companyRegistration): CompanyRegistrationResult

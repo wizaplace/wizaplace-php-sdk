@@ -15,7 +15,9 @@ use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyRegistrationResult;
 use Wizaplace\SDK\Company\CompanyService;
+use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
+use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
 
@@ -45,7 +47,7 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
 
-        $result = $this->buildUserCompanyService()->register($companyRegistration);
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
@@ -75,7 +77,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
-        $result = $this->buildUserCompanyService()->register($companyRegistration);
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
@@ -89,14 +91,14 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
 
         $this->expectException(ClientException::class); // @TODO: decorate?
-        $this->buildUserCompanyService()->register($companyRegistration);
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
     }
 
     public function testRegisteringACompanyWithEmptyRequiredFields()
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(400);
-        $this->buildUserCompanyService()->register(new CompanyRegistration('', ''));
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register(new CompanyRegistration('', ''));
     }
 
     public function testRegisteringACompanyAnonymously()
@@ -109,7 +111,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
-        $companyService = $this->buildUserCompanyService();
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
         $result = $companyService->register($companyRegistration);
         $this->assertGreaterThan(0, $result->getCompany()->getId());
@@ -133,7 +135,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testRegisteringAC2CCompany(): void
     {
-        $service = $this->buildUserCompanyService();
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
         $result = $service->registerC2CCompany('Super C2C Company');
         $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
@@ -145,10 +147,25 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('customer-3@world-company.com', $company->getEmail());
     }
 
-    private function buildUserCompanyService(): CompanyService
+    public function testUpdatingACompany(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $company = $service->update((new CompanyUpdateCommand(3))->setPhoneNumber('0987654321'));
+
+        $this->assertSame('0987654321', $company->getPhoneNumber());
+    }
+
+    public function testUpdatingACompanyWhichDoesNotExistYieldsAnError(): void
+    {
+        $this->expectException(CompanyNotFound::class);
+        $this->buildUserCompanyService()->update((new CompanyUpdateCommand(404))->setPhoneNumber('0123456789'));
+    }
+
+    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('customer-3@world-company.com', 'password-customer-3');
+        $apiClient->authenticate($email, $password);
 
         return new CompanyService($apiClient);
     }

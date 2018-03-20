@@ -10,6 +10,7 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
+ - Added `\Wizaplace\SDK\Company\CompanyService::update`
 
 ### Bugfixes
 
