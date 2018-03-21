@@ -13,6 +13,7 @@ use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\CatalogServiceInterface;
+use Wizaplace\SDK\Catalog\Category;
 use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
@@ -761,6 +762,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $childCategory->getDescription());
         $this->assertSame(0, $childCategory->getPosition());
         $this->assertSame(1, $childCategory->getProductCount());
+    }
+
+    public function testGetCategories()
+    {
+        $categories = $this->buildCatalogService()->getCategories();
+
+        $this->assertGreaterThanOrEqual(5, count($categories));
+        $this->assertContainsOnly(Category::class, $categories);
     }
 
     public function testGetAttributes()
