@@ -48,7 +48,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     {
         $categories = $this->client->get('catalog/categories');
 
-        return array_map(function ($category) {
+        return array_map(static function ($category) {
             return new Category($category);
         }, $categories);
     }
