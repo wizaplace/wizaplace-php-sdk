@@ -21,6 +21,11 @@ interface CatalogServiceInterface
 
     public function getCategory(int $id): Category;
 
+    /**
+     * @return Category[]
+     */
+    public function getCategories(): array;
+
     public function search(
         string $query = '',
         array $filters = [],

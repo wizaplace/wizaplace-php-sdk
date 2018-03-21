@@ -11,6 +11,7 @@
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
  - Added `\Wizaplace\SDK\Company\CompanyService::update`
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getCategories`
 
 ### Bugfixes
 
