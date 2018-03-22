@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_order-not-found@dacd41b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 22 Mar 2018 14:06:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4e9a62
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4e9a62'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"Xbwr0viB0LkIbsa5IKhuR1dTtXUf9qdENZ5jM3by"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/404'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_order-not-found@dacd41b
+            Authorization: 'token Xbwr0viB0LkIbsa5IKhuR1dTtXUf9qdENZ5jM3by'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Thu, 22 Mar 2018 14:06:18 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d123d0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d123d0'
+            Content-Length: '75'
+            Content-Type: application/json
+        body: '{"error":{"code":14,"message":"order not found","context":{"orderId":404}}}'

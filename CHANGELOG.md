@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\OrderNotFound`
+
 ### Bugfixes
 
 </details>
