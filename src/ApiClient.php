@@ -28,6 +28,7 @@ use Wizaplace\SDK\Exception\DiscussionNotFound;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\ProductAttachmentNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
@@ -201,8 +202,9 @@ final class ApiClient
                 FavoriteAlreadyExist::class,
                 BasketIsEmpty::class,
                 DeclinationIsNotActive::class,
-                DiscussionNotFound::class,
                 ProductAttachmentNotFound::class,
+                DiscussionNotFound::class,
+                OrderNotFound::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

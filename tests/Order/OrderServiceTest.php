@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\Order;
 
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
 use Wizaplace\SDK\Order\OrderReturnStatus;
@@ -65,6 +66,12 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(2, $secondItem->getAmount());
         $this->assertCount(0, $secondItem->getDeclinationOptions());
         $this->assertSame('', $secondItem->getCustomerComment());
+    }
+
+    public function testGetInexistingOrderYieldsAnError(): void
+    {
+        $this->expectException(OrderNotFound::class);
+        $this->buildOrderService()->getOrder(404);
     }
 
     public function testCreateOrderReturn()

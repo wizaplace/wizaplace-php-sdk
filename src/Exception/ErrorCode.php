@@ -24,6 +24,7 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode DECLINATION_IS_NOT_ACTIVE()
  * @method static ErrorCode PRODUCT_ATTACHMENT_NOT_FOUND()
  * @method static ErrorCode DISCUSSION_NOT_FOUND()
+ * @method static ErrorCode ORDER_NOT_FOUND()
  */
 final class ErrorCode extends Enum
 {
@@ -40,4 +41,5 @@ final class ErrorCode extends Enum
     private const DECLINATION_IS_NOT_ACTIVE = 11;
     private const PRODUCT_ATTACHMENT_NOT_FOUND = 12;
     private const DISCUSSION_NOT_FOUND = 13;
+    private const ORDER_NOT_FOUND = 14;
 }
