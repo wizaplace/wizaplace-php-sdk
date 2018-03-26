@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 17 Nov 2017 15:28:48 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: cc894d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc894d'
+            X-Debug-Token: c0b42f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c0b42f'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc\/m3BF"}'
+        body: '{"id":7,"apiKey":"JGnzW552griyO0ncn8uLVp51g\/Z25alasTR0Y7mD"}'
 -
     request:
         method: GET
@@ -33,7 +33,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             VCR-index: '1'
             Accept: null
     response:
@@ -42,15 +42,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 17 Nov 2017 15:28:49 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 75ed7f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/75ed7f'
+            X-Debug-Token: a02994
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a02994'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc\/m3BF"}'
+        body: '{"id":7,"apiKey":"JGnzW552griyO0ncn8uLVp51g\/Z25alasTR0Y7mD"}'
 -
     request:
         method: POST
@@ -60,8 +60,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
-            Authorization: 'token UcXXmIttdnBf+3cO4BZof24ShU0RRWsAxkc/m3BF'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token JGnzW552griyO0ncn8uLVp51g/Z25alasTR0Y7mD'
             VCR-index: '2'
             Accept: null
         body: '{"senderEmail":"client@example.com","subject":"Contact form: Great marketplace!","message":"Last Name: Bond\nFirst Name: James\nEmail: client@example.com\nPhone: 0123456798\n\nMessage:\n    I love your marketplace!\n    Keep up the good work!"}'
@@ -71,11 +71,12 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 17 Nov 2017 15:28:49 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 048b8e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/048b8e'
+            X-Debug-Token: 0b7923
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0b7923'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220b7923%22%2C%22route%22%3A%22api_contact_request%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CContactController%22%2C%22method%22%3A%22postContactRequestAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FContactController.php%22%2C%22line%22%3A48%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; HttpOnly'
             Content-Length: '0'
             Content-Type: 'text/html; charset=UTF-8'

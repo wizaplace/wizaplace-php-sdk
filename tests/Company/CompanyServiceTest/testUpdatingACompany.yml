@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 19 Mar 2018 14:17:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 115e1b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/115e1b'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"8er3pmg3BvcZSKP\/JBHCarfbb+yz4I026PrzVeC9"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
+            Authorization: 'token 8er3pmg3BvcZSKP/JBHCarfbb+yz4I026PrzVeC9'
+            VCR-index: '1'
+            Accept: null
+        body: '{"phoneNumber":"0987654321"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 19 Mar 2018 14:17:13 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '297428'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/297428'
+            Content-Length: '467'
+            Content-Type: application/json
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean"}'

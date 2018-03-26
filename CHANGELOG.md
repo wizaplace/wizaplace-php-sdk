@@ -34,6 +34,16 @@
 
 </details>
 
+## 1.19.0
+
+### New features
+
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
+ - Added `\Wizaplace\SDK\Company\CompanyService::update`
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getCategories`
+
 ## 1.18.0
 
 ### New features

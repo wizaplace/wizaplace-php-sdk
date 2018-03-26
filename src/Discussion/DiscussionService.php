@@ -69,11 +69,7 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            return new Discussion($this->client->get('discussions/'.$discussionId));
-        } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
-        }
+        return new Discussion($this->client->get('discussions/'.$discussionId));
     }
 
     /**
@@ -105,13 +101,9 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['companyId' => $companyId]]);
+        $discussionData = $this->client->post('discussions', [RequestOptions::JSON => ['companyId' => $companyId]]);
 
-            return new Discussion($discussionData);
-        } catch (ClientException $e) {
-            throw new NotFound('Company '.$companyId.' has not been found.', $e);
-        }
+        return new Discussion($discussionData);
     }
 
     /**
@@ -145,18 +137,14 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            $messages = $this->client->get('discussions/'.$discussionId.'/messages');
-            $userId = $this->client->getApiKey()->getId();
+        $messages = $this->client->get('discussions/'.$discussionId.'/messages');
+        $userId = $this->client->getApiKey()->getId();
 
-            return array_map(static function (array $messageData) use ($userId) : Message {
-                $messageData['isAuthor'] = ($messageData['authorId'] === $userId);
+        return array_map(static function (array $messageData) use ($userId) : Message {
+            $messageData['isAuthor'] = ($messageData['authorId'] === $userId);
 
-                return new Message($messageData);
-            }, $messages);
-        } catch (ClientException $e) {
-            throw new NotFound('The discussion '.$discussionId.' was not found.', $e);
-        }
+            return new Message($messageData);
+        }, $messages);
     }
 
     /**

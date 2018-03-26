@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
             VCR-index: '0'
             Accept: null
     response:
@@ -16,41 +16,41 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:34:27 GMT'
+            Date: 'Mon, 19 Mar 2018 14:20:24 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 8db5d3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8db5d3'
-            Content-Length: '60'
+            X-Debug-Token: '214549'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/214549'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"FR1+gQx8uEd3TFGhaqhLf+8HlFiCS677hur8qlTQ"}'
+        body: '{"id":9,"apiKey":"q3ISBy\/eqJUChVpp95ta0HnvmoQw6V3QXXYPcrqx"}'
 -
     request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/discussions'
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/companies/404'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token FR1+gQx8uEd3TFGhaqhLf+8HlFiCS677hur8qlTQ'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
+            Authorization: 'token q3ISBy/eqJUChVpp95ta0HnvmoQw6V3QXXYPcrqx'
             VCR-index: '1'
             Accept: null
-        body: '{"productId":42}'
+        body: '{"phoneNumber":"0123456789"}'
     response:
         status:
             http_version: '1.1'
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Fri, 16 Mar 2018 15:34:27 GMT'
+            Date: 'Mon, 19 Mar 2018 14:20:24 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1f7dac
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1f7dac'
-            Content-Length: '80'
+            X-Debug-Token: 94ec54
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/94ec54'
+            Content-Length: '78'
             Content-Type: application/json
-        body: '{"error":{"code":4,"message":"product not found","context":{"product_id":"42"}}}'
+        body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

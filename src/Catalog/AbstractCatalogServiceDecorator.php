@@ -38,6 +38,14 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
         return $this->decorated->getCategory($id);
     }
 
+    /**
+     * @return Category[]
+     */
+    public function getCategories(): array
+    {
+        return $this->decorated->getCategories();
+    }
+
     public function search(
         string $query = '',
         array $filters = [],

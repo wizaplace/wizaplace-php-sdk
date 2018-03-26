@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 02 Mar 2018 13:41:13 GMT'
+            Date: 'Fri, 16 Mar 2018 15:36:58 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 017d4f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/017d4f'
-            Content-Length: '61'
+            X-Debug-Token: d11b4c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d11b4c'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"rbVEWX562c1OuGBvWX8d1j54\/a34wJQnffZiNbgh"}'
+        body: '{"id":7,"apiKey":"foCY5igi1GCahQShUuz4REHdEnFcKpQVdh5cDvJK"}'
 -
     request:
         method: POST
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Authorization: 'token rbVEWX562c1OuGBvWX8d1j54/a34wJQnffZiNbgh'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token foCY5igi1GCahQShUuz4REHdEnFcKpQVdh5cDvJK'
             VCR-index: '1'
             Accept: null
         body: '{"companyId":404}'
@@ -45,12 +45,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Fri, 02 Mar 2018 13:41:14 GMT'
+            Date: 'Fri, 16 Mar 2018 15:36:58 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0c448b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0c448b'
+            X-Debug-Token: 3c72b5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3c72b5'
             Content-Length: '78'
             Content-Type: application/json
         body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

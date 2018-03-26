@@ -21,6 +21,9 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode COMPANY_NOT_FOUND()
  * @method static ErrorCode FAVORITE_ALREADY_EXISTS()
  * @method static ErrorCode BASKET_IS_EMPTY()
+ * @method static ErrorCode DECLINATION_IS_NOT_ACTIVE()
+ * @method static ErrorCode PRODUCT_ATTACHMENT_NOT_FOUND()
+ * @method static ErrorCode DISCUSSION_NOT_FOUND()
  */
 final class ErrorCode extends Enum
 {
@@ -34,4 +37,7 @@ final class ErrorCode extends Enum
     private const COMPANY_NOT_FOUND = 8;
     private const FAVORITE_ALREADY_EXISTS = 9;
     private const BASKET_IS_EMPTY = 10;
+    private const DECLINATION_IS_NOT_ACTIVE = 11;
+    private const PRODUCT_ATTACHMENT_NOT_FOUND = 12;
+    private const DISCUSSION_NOT_FOUND = 13;
 }
