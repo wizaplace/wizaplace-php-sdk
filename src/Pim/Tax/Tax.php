@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Tax;
 
-class Tax
+final class Tax
 {
     /** @var int */
     private $id;

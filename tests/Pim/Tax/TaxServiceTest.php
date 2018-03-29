@@ -5,7 +5,7 @@
  */
 declare(strict_types=1);
 
-namespace Wizaplace\tests\Pim\Tax;
+namespace Wizaplace\SDK\Tests\Pim\Tax;
 
 use Wizaplace\SDK\Pim\Tax\Tax;
 use Wizaplace\SDK\Pim\Tax\TaxService;

@@ -16,7 +16,7 @@ class TaxService extends AbstractService
         $this->client->mustBeAuthenticated();
         $taxes = $this->client->get("taxes");
 
-        return array_map(static function ($tax){
+        return array_map(static function ($tax) {
             return new Tax($tax);
         }, $taxes);
     }
