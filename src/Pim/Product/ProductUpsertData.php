@@ -383,7 +383,7 @@ abstract class ProductUpsertData
             'geolocation',
             'mainImage',
             'declinations',
-            'additionalImages'
+            'additionalImages',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
