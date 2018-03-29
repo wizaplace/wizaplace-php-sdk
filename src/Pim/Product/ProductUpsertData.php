@@ -360,6 +360,10 @@ abstract class ProductUpsertData
             'mainImage',
             'attachments',
             'availabilityDate',
+            'freeAttributes',
+            'hasFreeShipping',
+            'isDownloadable',
+            'additionalImages',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -379,6 +383,7 @@ abstract class ProductUpsertData
             'geolocation',
             'mainImage',
             'declinations',
+            'additionalImages'
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
