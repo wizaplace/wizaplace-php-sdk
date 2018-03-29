@@ -29,6 +29,7 @@
  - Added `\Wizaplace\SDK\User\User::getCompanyId`
  - Added `\Wizaplace\SDK\User\User::isVendor`
  - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Tax\TaxService::getTaxes`
 
 ### Bugfixes
 
