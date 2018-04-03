@@ -28,7 +28,6 @@ class CategoryServiceTest extends ApiTestCase
         $this->assertSame(1, $category->getId());
         $this->assertSame("Echec import CSV", $category->getName());
         $this->assertSame(0, $category->getParentId());
-        $this->assertTrue($category->isFillable());
         $this->assertTrue(CategoryStatus::HIDDEN()->equals($category->getStatus()));
     }
 

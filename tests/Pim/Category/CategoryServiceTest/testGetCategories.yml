@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@2708391
+            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@e48e404
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 30 Mar 2018 07:58:06 GMT'
+            Date: 'Tue, 03 Apr 2018 13:06:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d19ff3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d19ff3'
-            Content-Length: '60'
+            X-Debug-Token: 529bb7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/529bb7'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":4,"apiKey":"VLnon5qVTpXLvksnfhz5RcyXb99JSyYN2gQzv2sS"}'
+        body: '{"id":4,"apiKey":"LDQ\/cKO9XPgUWIEvDhdFeDjdGWsa3PuxuAOgyZpD"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@2708391
-            Authorization: 'token VLnon5qVTpXLvksnfhz5RcyXb99JSyYN2gQzv2sS'
+            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@e48e404
+            Authorization: 'token LDQ/cKO9XPgUWIEvDhdFeDjdGWsa3PuxuAOgyZpD'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 30 Mar 2018 07:58:06 GMT'
+            Date: 'Tue, 03 Apr 2018 13:06:50 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1ec723
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1ec723'
-            Content-Length: '585'
+            X-Debug-Token: 55be60
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/55be60'
+            Content-Length: '470'
             Content-Type: application/json
-        body: '[{"category_id":6,"parent_id":0,"category":"Special category dedicated to specific tests","status":"A","is_fillable":true},{"category_id":5,"parent_id":3,"category":"Casques","status":"A","is_fillable":true},{"category_id":4,"parent_id":3,"category":"\u00c9crans","status":"A","is_fillable":true},{"category_id":3,"parent_id":0,"category":"Informatique","status":"A","is_fillable":false},{"category_id":2,"parent_id":0,"category":"Cat\u00e9gorie principale","status":"A","is_fillable":true},{"category_id":1,"parent_id":0,"category":"Echec import CSV","status":"H","is_fillable":true}]'
+        body: '[{"category_id":6,"parent_id":0,"category":"Special category dedicated to specific tests","status":"A"},{"category_id":5,"parent_id":3,"category":"Casques","status":"A"},{"category_id":4,"parent_id":3,"category":"\u00c9crans","status":"A"},{"category_id":3,"parent_id":0,"category":"Informatique","status":"A"},{"category_id":2,"parent_id":0,"category":"Cat\u00e9gorie principale","status":"A"},{"category_id":1,"parent_id":0,"category":"Echec import CSV","status":"H"}]'

@@ -23,16 +23,12 @@ class Category
     /** @var int */
     private $parentId;
 
-    /** @var bool */
-    private $isFillable;
-
     public function __construct(array $data)
     {
         $this->id = $data['category_id'];
         $this->name = $data['category'];
         $this->status = new CategoryStatus($data['status']);
         $this->parentId = $data['parent_id'];
-        $this->isFillable = $data['is_fillable'];
     }
 
     public function getId(): int
@@ -53,10 +49,5 @@ class Category
     public function getParentId(): int
     {
         return $this->parentId;
-    }
-
-    public function isFillable(): bool
-    {
-        return $this->isFillable;
     }
 }

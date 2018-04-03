@@ -15,7 +15,7 @@ class CategoryService extends AbstractService
 {
     public function listCategories(): array
     {
-        $categoriesData = $this->client->get('categories');
+        $categoriesData = $this->client->get('categories', ['leaves' => true]);
 
         return array_map(static function ($categoryData) {
             return new Category($categoryData);
