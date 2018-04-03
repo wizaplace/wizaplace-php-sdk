@@ -16,7 +16,7 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 
 class CategoryServiceTest extends ApiTestCase
 {
-    public function testGetCategories()
+    public function testListCategories()
     {
         $categories = $this->buildCategoryService()->listCategories();
 
