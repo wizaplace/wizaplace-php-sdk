@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@2708391
+            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@0ccf898
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 29 Mar 2018 09:57:52 GMT'
+            Date: 'Tue, 03 Apr 2018 13:12:32 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0cd609
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0cd609'
-            Content-Length: '60'
+            X-Debug-Token: 291bec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/291bec'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":4,"apiKey":"tp9TQPwvkHvADz2sc4DF4SuEt6A1XCJ4cJk1T4pp"}'
+        body: '{"id":4,"apiKey":"gvUtigAJpQpuBp76JR\/a6qwklETM+6SxfT1qL8EM"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@2708391
-            Authorization: 'token tp9TQPwvkHvADz2sc4DF4SuEt6A1XCJ4cJk1T4pp'
+            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@0ccf898
+            Authorization: 'token gvUtigAJpQpuBp76JR/a6qwklETM+6SxfT1qL8EM'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 29 Mar 2018 09:57:53 GMT'
+            Date: 'Tue, 03 Apr 2018 13:12:33 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 5e85eb
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5e85eb'
+            X-Debug-Token: 6688a6
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/6688a6'
             Content-Length: '147'
             Content-Type: application/json
         body: '[{"tax_id":1,"tax":"TVA 0%"},{"tax_id":2,"tax":"TVA 2.1%"},{"tax_id":3,"tax":"TVA 5.5%"},{"tax_id":4,"tax":"TVA 10%"},{"tax_id":5,"tax":"TVA 20%"}]'

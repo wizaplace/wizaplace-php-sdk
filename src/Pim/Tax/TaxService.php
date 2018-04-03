@@ -11,7 +11,7 @@ use Wizaplace\SDK\AbstractService;
 
 class TaxService extends AbstractService
 {
-    public function getTaxes(): array
+    public function listTaxes(): array
     {
         $this->client->mustBeAuthenticated();
         $taxes = $this->client->get("taxes");

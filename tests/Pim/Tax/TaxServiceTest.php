@@ -13,10 +13,10 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 
 class TaxServiceTest extends ApiTestCase
 {
-    public function testGetTaxes()
+    public function testListTaxes()
     {
         /** @var Tax[] $taxes */
-        $taxes = $this->buildTaxService()->getTaxes();
+        $taxes = $this->buildTaxService()->listTaxes();
 
         $this->assertNotEmpty($taxes);
         $this->assertContainsOnly(Tax::class, $taxes);
