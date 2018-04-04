@@ -9,7 +9,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Category;
 
-class Category
+final class Category
 {
     /** @var int */
     private $id;
@@ -23,6 +23,7 @@ class Category
     /** @var int */
     private $parentId;
 
+    /** @internal */
     public function __construct(array $data)
     {
         $this->id = $data['category_id'];

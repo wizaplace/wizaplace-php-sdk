@@ -13,8 +13,13 @@ use Wizaplace\SDK\AbstractService;
 
 class CategoryService extends AbstractService
 {
+    /**
+     * @return Category[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
     public function listCategories(): array
     {
+        $this->client->mustBeAuthenticated();
         $categoriesData = $this->client->get('categories', ['leaves' => true]);
 
         return array_map(static function ($categoryData) {

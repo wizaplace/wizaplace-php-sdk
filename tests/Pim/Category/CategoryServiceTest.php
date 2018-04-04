@@ -22,7 +22,6 @@ class CategoryServiceTest extends ApiTestCase
 
         $this->assertNotEmpty($categories);
 
-        /** @var Category $category */
         $category = end($categories);
 
         $this->assertSame(1, $category->getId());
