@@ -15,6 +15,7 @@ final class Tax
     /** @var string */
     private $name;
 
+    /** @internal */
     public function __construct(array $data)
     {
         $this->id = $data['tax_id'];

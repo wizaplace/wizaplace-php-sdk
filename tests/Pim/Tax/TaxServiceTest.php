@@ -15,7 +15,6 @@ class TaxServiceTest extends ApiTestCase
 {
     public function testListTaxes()
     {
-        /** @var Tax[] $taxes */
         $taxes = $this->buildTaxService()->listTaxes();
 
         $this->assertNotEmpty($taxes);

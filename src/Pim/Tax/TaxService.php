@@ -11,6 +11,10 @@ use Wizaplace\SDK\AbstractService;
 
 class TaxService extends AbstractService
 {
+    /**
+     * @return Tax[]
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
     public function listTaxes(): array
     {
         $this->client->mustBeAuthenticated();
