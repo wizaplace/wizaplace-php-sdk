@@ -20,7 +20,6 @@ use Wizaplace\SDK\Pim\Product\ProductDeclination;
 use Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductGeolocation;
 use Wizaplace\SDK\Pim\Product\ProductGeolocationUpsertData;
-use Wizaplace\SDK\Pim\Product\ProductImage;
 use Wizaplace\SDK\Pim\Product\ProductImageUpload;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
 use Wizaplace\SDK\Pim\Product\ProductService;

@@ -44,16 +44,16 @@ abstract class ProductUpsertData
     /** @var null|ProductGeolocationUpsertData */
     private $geolocation;
 
-    /** @var array */
+    /** @var null|array */
     private $freeAttributes;
 
-    /** @var bool */
+    /** @var null|bool */
     private $hasFreeShipping;
 
     /** @var float */
     private $weight;
 
-    /** @var bool */
+    /** @var null|bool */
     private $isDownloadable;
 
     /** @var null|string|UriInterface */
@@ -62,7 +62,7 @@ abstract class ProductUpsertData
     /** @var null|string|UriInterface|ProductImageUpload */
     private $mainImage;
 
-    /** @var (UriInterface|ProductImageUpload)[] */
+    /** @var null|(UriInterface|ProductImageUpload)[] */
     private $additionalImages;
 
     /** @var string */
@@ -172,10 +172,10 @@ abstract class ProductUpsertData
     }
 
     /**
-     * @param array $freeAttributes
+     * @param null|array $freeAttributes
      * @return $this
      */
-    public function setFreeAttributes(array $freeAttributes): self
+    public function setFreeAttributes(?array $freeAttributes): self
     {
         $this->freeAttributes = $freeAttributes;
 
@@ -183,10 +183,10 @@ abstract class ProductUpsertData
     }
 
     /**
-     * @param bool $hasFreeShipping
+     * @param null|bool $hasFreeShipping
      * @return $this
      */
-    public function setHasFreeShipping(bool $hasFreeShipping): self
+    public function setHasFreeShipping(?bool $hasFreeShipping): self
     {
         $this->hasFreeShipping = $hasFreeShipping;
 
@@ -205,10 +205,10 @@ abstract class ProductUpsertData
     }
 
     /**
-     * @param bool $isDownloadable
+     * @param null|bool $isDownloadable
      * @return $this
      */
-    public function setIsDownloadable(bool $isDownloadable): self
+    public function setIsDownloadable(?bool $isDownloadable): self
     {
         $this->isDownloadable = $isDownloadable;
 
@@ -238,10 +238,10 @@ abstract class ProductUpsertData
     }
 
     /**
-     * @param (string|UriInterface|ProductImageUpload)[] $additionalImages
+     * @param (null|string|UriInterface|ProductImageUpload)[] $additionalImages
      * @return $this
      */
-    public function setAdditionalImages(array $additionalImages): self
+    public function setAdditionalImages(?array $additionalImages): self
     {
         $this->additionalImages = $additionalImages;
 
@@ -360,6 +360,10 @@ abstract class ProductUpsertData
             'mainImage',
             'attachments',
             'availabilityDate',
+            'freeAttributes',
+            'hasFreeShipping',
+            'isDownloadable',
+            'additionalImages',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -379,6 +383,7 @@ abstract class ProductUpsertData
             'geolocation',
             'mainImage',
             'declinations',
+            'additionalImages',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {

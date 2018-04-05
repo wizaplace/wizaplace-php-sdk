@@ -36,21 +36,13 @@ final class ProductUpsertDataTest extends TestCase
             'main_category' => 1,
             'green_tax' => 0.1,
             'condition' => 'U',
-            'free_shipping' => 'N',
             'weight' => 0.1,
-            'is_edp' => 'N',
             'full_description' => '',
             'short_description' => '',
             'tax_ids' =>
                 array (
                 ),
-            'free_features' =>
-                array (
-                ),
             'inventory' =>
-                array (
-                ),
-            'image_pairs' =>
                 array (
                 ),
             'allowed_options_variants' =>
@@ -77,11 +69,7 @@ final class ProductUpsertDataTest extends TestCase
             ->setSupplierReference('')
             ->setStatus(ProductStatus::ENABLED())
             ->setMainCategoryId(1)
-            ->setFreeAttributes([])
-            ->setHasFreeShipping(false)
             ->setWeight(0.1)
-            ->setIsDownloadable(false)
-            ->setAdditionalImages([])
             ->setFullDescription("")
             ->setShortDescription("")
             ->setTaxIds([])
