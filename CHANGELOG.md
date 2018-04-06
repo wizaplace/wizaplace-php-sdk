@@ -8,7 +8,7 @@
 ### New features
 
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\OrderNotFound`
- - Added `\Wizaplace\SDK\Basket\Payment::$type`
+ - Added `\Wizaplace\SDK\Basket\Payment::getType()`
 
 ### Bugfixes
 
