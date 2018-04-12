@@ -88,6 +88,102 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEmpty($product->getImages());
     }
 
+    public function testGetProducstByCode()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $products = $catalogService->getProductsByCode('978020137962');
+
+        $this->assertCount(1, $products);
+
+        $product = $products[0];
+
+        $this->assertSame('1', $product->getId());
+        $this->assertSame('test-product-slug', $product->getSlug());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $product->getName());
+        $this->assertSame('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(1, $product->getCategoryPath());
+        $this->assertSame('978020137962', $product->getCode());
+        $this->assertSame(67.9, $product->getMinPrice());
+        $this->assertCount(3, $product->getShippings());
+        $this->assertSame('', $product->getShortDescription());
+        $this->assertSame('INFO-001', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
+        $this->assertSame(0.0, $product->getGreenTax());
+        $this->assertSame(1.23, $product->getWeight());
+        $this->assertNull($product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertSame(3, $companies[0]->getId());
+        $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
+
+        $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
+        $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+
+        $this->assertEmpty($product->getImages());
+    }
+
+    public function testGetProducstBySupplierReference()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $products = $catalogService->getProductsBySupplierReference('INFO-001');
+
+        $this->assertCount(1, $products);
+
+        $product = $products[0];
+
+        $this->assertSame('1', $product->getId());
+        $this->assertSame('test-product-slug', $product->getSlug());
+        $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $product->getName());
+        $this->assertSame('', $product->getDescription());
+        $this->assertCount(1, $product->getDeclinations());
+        $this->assertCount(0, $product->getAttributes());
+        $this->assertCount(1, $product->getCategoryPath());
+        $this->assertSame('978020137962', $product->getCode());
+        $this->assertSame(67.9, $product->getMinPrice());
+        $this->assertCount(3, $product->getShippings());
+        $this->assertSame('', $product->getShortDescription());
+        $this->assertSame('INFO-001', $product->getSupplierReference());
+        $this->assertTrue($product->isTransactional());
+        $this->assertSame(0.0, $product->getGreenTax());
+        $this->assertSame(1.23, $product->getWeight());
+        $this->assertNull($product->getAverageRating());
+        $this->assertNull($product->getGeolocation());
+        $this->assertNull($product->getVideo());
+        $this->assertCount(0, $product->getAttachments());
+        $this->assertNull($catalogService->getBrand($product));
+        $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
+        $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+
+        $companies = $product->getCompanies();
+        $this->assertCount(1, $companies);
+        $this->assertSame(3, $companies[0]->getId());
+        $this->assertSame('The World Company Inc.', $companies[0]->getName());
+        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertNull($companies[0]->getImage());
+        $this->assertTrue($companies[0]->isProfessional());
+
+        $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
+        $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+
+        $this->assertEmpty($product->getImages());
+    }
+
     public function testGetProductByIdInAnotherLanguage(): void
     {
         $apiClient = $this->buildApiClient();

@@ -7,6 +7,9 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByCode`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsBySupplierReference`
+
 ### Bugfixes
 
 </details>
