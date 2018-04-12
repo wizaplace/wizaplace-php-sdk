@@ -32,7 +32,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      */
     public function getProductsByCode(string $code) : array
     {
-        $response = $this->client->get('catalog/products', ['query' => ['code' => $code]]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code]]);
 
         return array_map(function($product) {
             return new Product($product, $this->client->getBaseUri());
@@ -44,7 +44,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      */
     public function getProductsBySupplierReference(string $supplierReference) : array
     {
-        $response = $this->client->get('catalog/products', ['query' => ['supplierRef' => $supplierReference]]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['supplierRef' => $supplierReference]]);
 
         return array_map(function($product) {
             return new Product($product, $this->client->getBaseUri());
