@@ -26,6 +26,22 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
     }
 
     /**
+     * @return Product[]
+     */
+    public function getProductsByCode(string $code): array
+    {
+        return $this->decorated->getProductsByCode($code);
+    }
+
+    /**
+     * @return Product[]
+     */
+    public function getProductsBySupplierReference(string $supplierReference): array
+    {
+        return $this->decorated->getProductsBySupplierReference($supplierReference);
+    }
+
+    /**
      * @return CategoryTree[]
      */
     public function getCategoryTree(): array

@@ -23,6 +23,8 @@ final class Payment
     private $position;
     /** @var Image */
     private $image;
+    /** @var PaymentType */
+    private $type;
 
     /**
      * @internal
@@ -36,6 +38,7 @@ final class Payment
         if (isset($data['image'])) {
             $this->image = new Image($data['image']);
         }
+        $this->type = new PaymentType($data['type']);
     }
 
     public function getId(): int
@@ -61,5 +64,10 @@ final class Payment
     public function getImage(): ?Image
     {
         return $this->image;
+    }
+
+    public function getType(): PaymentType
+    {
+        return $this->type;
     }
 }

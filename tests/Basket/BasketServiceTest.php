@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Tests\Basket;
 
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\Payment;
+use Wizaplace\SDK\Basket\PaymentType;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\BasketIsEmpty;
@@ -113,6 +115,7 @@ final class BasketServiceTest extends ApiTestCase
             // Here we mostly check the payments were properly unserialized
             $availablePayment->getImage();
             $availablePayment->getDescription();
+            $this->assertTrue(PaymentType::MANUAL()->equals($availablePayment->getType()));
             $this->assertNotEmpty($availablePayment->getName());
             $this->assertGreaterThan(0, $availablePayment->getId());
             $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());

@@ -28,6 +28,30 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @return Product[]
+     */
+    public function getProductsByCode(string $code) : array
+    {
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code]]);
+
+        return array_map(function ($product) {
+            return new Product($product, $this->client->getBaseUri());
+        }, $response);
+    }
+
+    /**
+     * @return Product[]
+     */
+    public function getProductsBySupplierReference(string $supplierReference) : array
+    {
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['supplierRef' => $supplierReference]]);
+
+        return array_map(function ($product) {
+            return new Product($product, $this->client->getBaseUri());
+        }, $response);
+    }
+
+    /**
      * @return CategoryTree[]
      */
     public function getCategoryTree():array

@@ -36,6 +36,18 @@
 
 </details>
 
+## 1.21.0
+
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByCode`
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsBySupplierReference`
+
+## 1.20.0
+
+### New features
+
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\OrderNotFound`
+ - Added `\Wizaplace\SDK\Basket\Payment::getType()`
+
 ## 1.19.0
 
 ### New features

@@ -15,6 +15,16 @@ interface CatalogServiceInterface
     public function getProductById(string $id): Product;
 
     /**
+     * @return Product[]
+     */
+    public function getProductsByCode(string $code): array;
+
+    /**
+     * @return Product[]
+     */
+    public function getProductsBySupplierReference(string $supplierReference): array;
+
+    /**
      * @return CategoryTree[]
      */
     public function getCategoryTree(): array;
