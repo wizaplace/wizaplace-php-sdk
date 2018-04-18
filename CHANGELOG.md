@@ -7,11 +7,15 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Order\OrderService::commitOrder`
-
 ### Bugfixes
 
 </details>
+
+## 1.22.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Order\OrderService::commitOrder`
 
 ## 1.21.0
 
