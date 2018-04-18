@@ -178,4 +178,33 @@ final class OrderService extends AbstractService
 
         return $response->getBody();
     }
+
+    /**
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    public function commitOrder(OrderCommitmentCommand $command): void
+    {
+        try {
+            $this->client->post(
+                "user/orders/{$command->getOrderId()}/commitment",
+                [
+                    RequestOptions::JSON => [
+                        'date' => $command->getCommitDate()->format('Y-m-d'),
+                        'number' => $command->getCommitNumber(),
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$command->getOrderId()} not found", $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new SomeParametersAreInvalid("Some parameters are invalid", 400, $e);
+            }
+
+            throw $e;
+        }
+    }
 }
