@@ -25,6 +25,8 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode PRODUCT_ATTACHMENT_NOT_FOUND()
  * @method static ErrorCode DISCUSSION_NOT_FOUND()
  * @method static ErrorCode ORDER_NOT_FOUND()
+ * @method static ErrorCode PROMOTION_NOT_FOUND()
+ * @method static ErrorCode INVALID_PROMOTION_RULE()
  */
 final class ErrorCode extends Enum
 {
@@ -42,4 +44,6 @@ final class ErrorCode extends Enum
     private const PRODUCT_ATTACHMENT_NOT_FOUND = 12;
     private const DISCUSSION_NOT_FOUND = 13;
     private const ORDER_NOT_FOUND = 14;
+    private const PROMOTION_NOT_FOUND = 15;
+    private const INVALID_PROMOTION_RULE = 16;
 }
