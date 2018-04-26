@@ -59,7 +59,7 @@ final class CatalogPromotion implements \JsonSerializable
         $this->name = to_string($data['name']);
         $this->active = (bool) $data['active'];
         $this->rule = self::unserializeRule($data['rule']);
-        $this->discounts = array_map([self::class, 'unserializeDiscount'], $data['discounts']);
+        $this->discounts = array_map([self::class, 'denormalizeDiscount'], $data['discounts']);
         $this->period = self::unserializePeriod($data['period']);
     }
 
@@ -115,7 +115,7 @@ final class CatalogPromotion implements \JsonSerializable
         return $serializer->normalize($this);
     }
 
-    private static function unserializeDiscount(array $discountData): Discount
+    private static function denormalizeDiscount(array $discountData): Discount
     {
         $type = new DiscountType($discountData['type']);
 
