@@ -31,6 +31,10 @@
  - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classes
  - Added `\Wizaplace\SDK\Pim\Category\CategoryService::listCategories`
  - Added `\Wizaplace\SDK\Pim\Tax\TaxService::listTaxes`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::getPromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::listPromotions`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::savePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::deletePromotion`
 
 ### Bugfixes
 
