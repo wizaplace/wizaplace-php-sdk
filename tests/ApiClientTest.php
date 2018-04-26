@@ -71,4 +71,25 @@ final class ApiClientTest extends ApiTestCase
         $apiClient->delete('test');
         $apiClient->rawRequest('PATCH', 'test');
     }
+
+    public function testOAuthAuthentication()
+    {
+        $apiClient = $this->buildApiClient();
+        $orderService = new OrderService($apiClient);
+
+        $apiKey = $apiClient->oauthAuthenticate('4/AAAfMc0UWDe1LOXv93D0ZKM2f5VuazwpHl004ZPfjB1tpBQDIa95uYFPPPMcH2ePnJoPhgzcp6ZWGDbEGYS9-6Q#');
+        $this->assertNotNull($apiKey);
+
+        // Test an authenticated call.
+        // If the authentication did not "register" properly, we will get an exception and the test will fail.
+        $orderService->getOrders();
+    }
+
+    public function testBadCredentialsOAuthAuthentication()
+    {
+        $apiClient = $this->buildApiClient();
+
+        $this->expectException(BadCredentials::class);
+        $apiClient->oauthAuthenticate('foo');
+    }
 }

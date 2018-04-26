@@ -86,6 +86,33 @@ final class ApiClient
         return $apiKey;
     }
 
+    /**
+     * @throws BadCredentials
+     */
+    public function oauthAuthenticate(string $authToken): ApiKey
+    {
+        try {
+            $apiKeyData = $this->post(
+                'user/oauth-token',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'token' => $authToken,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new BadCredentials($e);
+            }
+            throw $e;
+        }
+
+        $apiKey = new ApiKey($apiKeyData);
+        $this->setApiKey($apiKey);
+
+        return $apiKey;
+    }
+
     public function setApiKey(?ApiKey $apiKey = null): void
     {
         $this->apiKey = $apiKey;
