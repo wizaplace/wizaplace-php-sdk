@@ -91,7 +91,7 @@ final class SaveCatalogPromotionCommand
     }
 
     /**
-     * @param null|(Discount[]) $discounts
+     * @param null|(Discount[]) $discounts The complete list of discounts provided by the promotion. If null, won't modify existing discounts. If empty, will remove them all.
      */
     public function setDiscounts(?array $discounts): self
     {
