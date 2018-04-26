@@ -58,9 +58,9 @@ final class CatalogPromotion implements \JsonSerializable
         $this->companyId = to_int($data['company_id']);
         $this->name = to_string($data['name']);
         $this->active = (bool) $data['active'];
-        $this->rule = self::unserializeRule($data['rule']);
+        $this->rule = self::denormalizeRule($data['rule']);
         $this->discounts = array_map([self::class, 'denormalizeDiscount'], $data['discounts']);
-        $this->period = self::unserializePeriod($data['period']);
+        $this->period = self::denormalizePeriod($data['period']);
     }
 
     public function getPromotionId(): string
@@ -129,7 +129,7 @@ final class CatalogPromotion implements \JsonSerializable
         }
     }
 
-    private static function unserializePeriod(array $periodData): PromotionPeriod
+    private static function denormalizePeriod(array $periodData): PromotionPeriod
     {
         return new PromotionPeriod(
             \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $periodData['from']),
@@ -137,15 +137,15 @@ final class CatalogPromotion implements \JsonSerializable
         );
     }
 
-    private static function unserializeRule(array $ruleData): CatalogRule
+    private static function denormalizeRule(array $ruleData): CatalogRule
     {
         $type = new CatalogRuleType($ruleData['type']);
 
         switch (true) {
             case CatalogRuleType::OR()->equals($type):
-                return new OrCatalogRule(...array_map([self::class, 'unserializeRule'], $ruleData['items']));
+                return new OrCatalogRule(...array_map([self::class, 'denormalizeRule'], $ruleData['items']));
             case CatalogRuleType::AND()->equals($type):
-                return new AndCatalogRule(...array_map([self::class, 'unserializeRule'], $ruleData['items']));
+                return new AndCatalogRule(...array_map([self::class, 'denormalizeRule'], $ruleData['items']));
             case CatalogRuleType::PRODUCT_IN_CATEGORY_LIST()->equals($type):
                 return new ProductInCategoryListRule(...$ruleData['categories_ids']);
             case CatalogRuleType::PRODUCT_IN_LIST()->equals($type):
