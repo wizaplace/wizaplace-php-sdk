@@ -50,6 +50,6 @@ final class CmsService extends AbstractService
 
     private function convertArrayToMenuItem(array $menuItem): MenuItem
     {
-        return new MenuItem(to_string($menuItem['name']), to_int($menuItem['position']), new Uri(to_string($menuItem['url'])));
+        return new MenuItem(to_string($menuItem['name']), to_int($menuItem['position']), new Uri(to_string($menuItem['url'])), array_map([$this, 'convertArrayToMenuItem'], $menuItem['children']));
     }
 }
