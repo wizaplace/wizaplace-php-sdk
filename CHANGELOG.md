@@ -8,6 +8,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\ApiClient::oauthAuthenticate`
+- Added `\Wizaplace\SDK\Cms\MenuItem::getChildren`
 
 ### Bugfixes
 
