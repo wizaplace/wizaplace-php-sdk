@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@4bf920f
+            User-Agent: Wizaplace-PHP-SDK/dev-master@de3ce6c
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 03 May 2018 13:02:42 GMT'
+            Date: 'Fri, 04 May 2018 12:51:31 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: b02976
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b02976'
-            Content-Length: '2737'
+            X-Debug-Token: eb933a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb933a'
+            Content-Length: '994'
             Content-Type: application/json
-        body: '{"1":{"id":1,"name":"Liens rapides header","items":[{"name":"Contact","position":0,"url":"https:\/\/wizaplace.loc\/contact.html","children":[]},{"name":"FAQ","position":0,"url":"https:\/\/wizaplace.loc\/faq-2.html","children":[]},{"name":"Wishliste","position":0,"url":"https:\/\/wizaplace.loc\/wishliste.html","children":[]},{"name":"Vendre sur la plateforme","position":0,"url":"https:\/\/wizaplace.loc\/vendre-sur-la-plateforme.html","children":[]}]},"2":{"id":2,"name":"Top menu","items":[{"name":" Toutes les cat\u00e9gories","position":0,"url":"https:\/\/wizaplace.loc\/","children":[]}]},"3":{"id":3,"name":"Informations","items":[{"name":"Retours produits","position":0,"url":"https:\/\/wizaplace.loc\/retours-produits.html","children":[]},{"name":"Modes de livraison","position":0,"url":"https:\/\/wizaplace.loc\/modes-de-livraison.html","children":[]},{"name":"Les paiements","position":0,"url":"https:\/\/wizaplace.loc\/les-paiements.html","children":[]},{"name":"Protection des donn\u00e9es","position":0,"url":"https:\/\/wizaplace.loc\/protection-des-donnees.html","children":[]},{"name":"Qui sommes-nous ?","position":0,"url":"https:\/\/wizaplace.loc\/qui-sommes-nous.html","children":[]},{"name":"Les marchands","position":0,"url":"https:\/\/wizaplace.loc\/les-marchands.html","children":[]},{"name":"Le blog","position":0,"url":"https:\/\/wizaplace.loc\/le-blog.html","children":[]},{"name":"Mentions l\u00e9gales","position":0,"url":"https:\/\/wizaplace.loc\/mentions-legales.html","children":[]},{"name":"CGV","position":0,"url":"https:\/\/wizaplace.loc\/conditions-generales-de-vente.html","children":[]}]},"4":{"id":4,"name":"Espace client","items":[{"name":"FAQ \/ Aide","position":0,"url":"https:\/\/wizaplace.loc\/faq-aide.html","children":[]},{"name":"Passer une commande","position":0,"url":"https:\/\/wizaplace.loc\/passer-une-commande.html","children":[]},{"name":"Suivi de commande","position":0,"url":"https:\/\/wizaplace.loc\/suivi-de-commande.html","children":[]},{"name":"Retourner un article","position":0,"url":"https:\/\/wizaplace.loc\/retourner-un-article.html","children":[]},{"name":"Cr\u00e9er un SAV","position":0,"url":"https:\/\/wizaplace.loc\/creer-un-sav.html","children":[]},{"name":"Contact","position":0,"url":"https:\/\/wizaplace.loc\/contact.html","children":[]}]},"5":{"id":5,"name":"Espace pro","items":[{"name":"Annoncer sur la plateforme","position":0,"url":"https:\/\/wizaplace.loc\/annoncer-sur-la-plateforme.html","children":[]},{"name":"Proposer un partenariat","position":0,"url":"https:\/\/wizaplace.loc\/proposer-un-partenariat.html","children":[]},{"name":"Vendre sur la plateforme","position":0,"url":"https:\/\/wizaplace.loc\/vendre-sur-la-plateforme.html","children":[]}]}}'
+        body: '{"1":{"id":1,"name":"Informations","items":[{"name":"Contact","position":0,"url":"https:\/\/wizaplace.loc\/contact.html","children":[{"name":"Qui sommes-nous ?","position":0,"url":"https:\/\/wizaplace.loc\/about-us.html","children":[]}]},{"name":"FAQ \/ Aide","position":0,"url":"https:\/\/wizaplace.loc\/faq-help.html","children":[]},{"name":"Mentions l\u00e9gales","position":0,"url":"https:\/\/wizaplace.loc\/legal-mentions.html","children":[]}]},"2":{"id":2,"name":"Espace client","items":[{"name":"Retours produits","position":0,"url":"https:\/\/wizaplace.loc\/rma.html","children":[]},{"name":"Cr\u00e9er un SAV","position":0,"url":"https:\/\/wizaplace.loc\/create-rma.html","children":[]}]},"3":{"id":3,"name":"Espace pro","items":[{"name":"Proposer un partenariat","position":0,"url":"https:\/\/wizaplace.loc\/propose-a-partnership.html","children":[]},{"name":"Conditions G\u00e9n\u00e9rales de Vente","position":0,"url":"https:\/\/wizaplace.loc\/terms-of-sales.html","children":[]}]}}'
