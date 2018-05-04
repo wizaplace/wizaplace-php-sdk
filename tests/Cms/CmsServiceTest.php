@@ -18,7 +18,7 @@ final class CmsServiceTest extends ApiTestCase
         $menus = $cmsService->getAllMenus();
 
         $this->assertNotEmpty($menus);
-        $firstMenu = reset($menus);;
+        $firstMenu = reset($menus);
 
         $this->assertSame(1, $firstMenu->getId());
         $this->assertSame('Informations', $firstMenu->getName());
