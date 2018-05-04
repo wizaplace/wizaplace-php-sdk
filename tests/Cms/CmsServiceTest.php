@@ -31,6 +31,7 @@ final class CmsServiceTest extends ApiTestCase
         $this->assertSame('Annoncer sur la plateforme', $firstItem->getName());
         $this->assertSame(0, $firstItem->getPosition());
         $this->assertSame('https://wizaplace.loc/annoncer-sur-la-plateforme.html', $firstItem->getUrl()->__toString());
+        $this->assertSame(0, count($firstItem->getChildren()));
     }
 
     public function testGetPage()
