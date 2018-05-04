@@ -7,6 +7,8 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
+
 ### Bugfixes
 
 </details>
