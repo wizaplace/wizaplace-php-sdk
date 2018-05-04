@@ -18,30 +18,36 @@ final class CmsServiceTest extends ApiTestCase
         $menus = $cmsService->getAllMenus();
 
         $this->assertNotEmpty($menus);
+        $firstMenu = reset($menus);
 
-        $firstMenu = array_pop($menus);
-
-        $this->assertSame(5, $firstMenu->getId());
-        $this->assertSame('Espace pro', $firstMenu->getName());
+        $this->assertSame(1, $firstMenu->getId());
+        $this->assertSame('Informations', $firstMenu->getName());
 
         $items = $firstMenu->getItems();
         $this->assertCount(3, $items);
 
         $firstItem = $items[0];
-        $this->assertSame('Annoncer sur la plateforme', $firstItem->getName());
+        $this->assertSame('Contact', $firstItem->getName());
         $this->assertSame(0, $firstItem->getPosition());
-        $this->assertSame('https://wizaplace.loc/annoncer-sur-la-plateforme.html', $firstItem->getUrl()->__toString());
-        $this->assertSame(0, count($firstItem->getChildren()));
+        $this->assertSame('https://wizaplace.loc/contact.html', $firstItem->getUrl()->__toString());
+        $this->assertSame(1, count($firstItem->getChildren()));
+
+        $firstChild = $firstItem->getChildren()[0];
+
+        $this->assertSame('Qui sommes-nous ?', $firstChild->getName());
+        $this->assertSame(0, $firstChild->getPosition());
+        $this->assertSame('https://wizaplace.loc/about-us.html', $firstChild->getUrl()->__toString());
+        $this->assertSame(0, count($firstChild->getChildren()));
     }
 
     public function testGetPage()
     {
         $cmsService = $this->buildCmsService();
-        $page = $cmsService->getPage(31);
+        $page = $cmsService->getPage(9);
 
         $this->assertNotEmpty($page);
 
-        $this->assertSame(31, $page->getId());
+        $this->assertSame(9, $page->getId());
         $this->assertSame('Test Cms Page Slug', $page->getTitle());
         $this->assertSame('test-cms-page-slug', $page->getSlug());
         $this->assertSame('', $page->getContent());
