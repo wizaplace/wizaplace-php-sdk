@@ -113,6 +113,11 @@ final class ApiClient
         return $apiKey;
     }
 
+    public function getOAuthAuthorizationUrl(): string
+    {
+        return $this->get('user/oauth/authorize-url')['url'];
+    }
+
     public function setApiKey(?ApiKey $apiKey = null): void
     {
         $this->apiKey = $apiKey;
