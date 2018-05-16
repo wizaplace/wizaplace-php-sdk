@@ -35,6 +35,10 @@
  - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::listPromotions`
  - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::savePromotion`
  - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::deletePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::getPromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::listPromotions`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::savePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::deletePromotion`
 
 ### Bugfixes
 

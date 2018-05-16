@@ -9,26 +9,28 @@ namespace Wizaplace\SDK\Tests\Vendor\Promotion;
 
 use Wizaplace\SDK\Exception\PromotionNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Vendor\Promotion\CatalogPromotion;
-use Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService;
+use Wizaplace\SDK\Vendor\Promotion\BasketPromotion;
+use Wizaplace\SDK\Vendor\Promotion\BasketPromotionService;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\Discount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount;
 use Wizaplace\SDK\Vendor\Promotion\PromotionPeriod;
-use Wizaplace\SDK\Vendor\Promotion\Rules\AndCatalogRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\CatalogRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\OrCatalogRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\ProductInCategoryListRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\ProductInListRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\ProductPriceInferiorToRule;
-use Wizaplace\SDK\Vendor\Promotion\Rules\ProductPriceSuperiorToRule;
-use Wizaplace\SDK\Vendor\Promotion\SaveCatalogPromotionCommand;
+use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\OrBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\SaveBasketPromotionCommand;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
 
-final class PromotionServiceTest extends ApiTestCase
+final class BasketPromotionServiceTest extends ApiTestCase
 {
     public function testPromotionLifeCycle(): void
     {
-        $service = $this->buildCatalogPromotionService();
+        $service = $this->buildBasketPromotionService();
 
         $promotions = $service->listPromotions();
         $this->assertCount(0, $promotions);
@@ -36,7 +38,7 @@ final class PromotionServiceTest extends ApiTestCase
         $from = new \DateTimeImmutable('1992-09-07');
         $to = new \DateTime('@1546300800');
         $savedPromotion = $service->savePromotion(
-            SaveCatalogPromotionCommand::createNew()
+            SaveBasketPromotionCommand::createNew()
                 ->setName('test promotion')
                 ->setActive(true)
                 ->setDiscounts([
@@ -45,15 +47,18 @@ final class PromotionServiceTest extends ApiTestCase
                 ])
                 ->setPeriod(new PromotionPeriod($from, $to))
                 ->setRule(
-                    new AndCatalogRule(
-                        new ProductPriceSuperiorToRule(3.13),
-                        new ProductPriceInferiorToRule(3.15),
-                        new OrCatalogRule(
-                            new ProductInListRule(1, 2, 3),
-                            new ProductInCategoryListRule(4, 5, 6)
-                        )
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(3.13),
+                        new BasketPriceInferiorToRule(3.15),
+                        new OrBasketRule(
+                            new BasketHasProductInListRule(1, 2, 3),
+                            new BasketHasProductInListRule(4, 5, 7)
+                        ),
+                        new MaxUsageCountRule(100),
+                        new MaxUsageCountPerUserRule(1)
                     )
                 )
+            ->setTarget(new ProductsTarget(1, 4, 7))
         );
 
         // We check that the promotion and company IDs were set.
@@ -62,7 +67,7 @@ final class PromotionServiceTest extends ApiTestCase
         $this->assertInternalType('int', $savedPromotion->getCompanyId());
         $this->assertGreaterThan(0, $savedPromotion->getCompanyId());
         // We check that the promotion we got back matches what we wanted to save.
-        $this->assertInstanceOf(CatalogPromotion::class, $savedPromotion);
+        $this->assertInstanceOf(BasketPromotion::class, $savedPromotion);
         $this->assertSame('test promotion', $savedPromotion->getName());
         $this->assertSame(true, $savedPromotion->isActive());
         $this->assertInstanceOf(PromotionPeriod::class, $savedPromotion->getPeriod());
@@ -80,33 +85,42 @@ final class PromotionServiceTest extends ApiTestCase
         $secondDiscount = $savedPromotion->getDiscounts()[1];
         $this->assertInstanceOf(FixedDiscount::class, $secondDiscount);
         $this->assertSame(3.5, $secondDiscount->getValue());
-        /** @var AndCatalogRule $rootRule */
+        /** @var AndBasketRule $rootRule */
         $rootRule = $savedPromotion->getRule();
-        $this->assertInstanceOf(CatalogRule::class, $rootRule);
-        $this->assertInstanceOf(AndCatalogRule::class, $rootRule);
-        $this->assertContainsOnly(CatalogRule::class, $rootRule->getItems());
-        $this->assertCount(3, $rootRule->getItems());
-        /** @var ProductPriceSuperiorToRule $productPriceSuperior */
+        $this->assertInstanceOf(BasketRule::class, $rootRule);
+        $this->assertInstanceOf(AndBasketRule::class, $rootRule);
+        $this->assertContainsOnly(BasketRule::class, $rootRule->getItems());
+        $this->assertCount(5, $rootRule->getItems());
+        /** @var BasketPriceSuperiorToRule $productPriceSuperior */
         $productPriceSuperior = $rootRule->getItems()[0];
-        $this->assertInstanceOf(ProductPriceSuperiorToRule::class, $productPriceSuperior);
+        $this->assertInstanceOf(BasketPriceSuperiorToRule::class, $productPriceSuperior);
         $this->assertSame(3.13, $productPriceSuperior->getValue());
-        /** @var ProductPriceInferiorToRule $productPriceInferior */
+        /** @var BasketPriceInferiorToRule $productPriceInferior */
         $productPriceInferior = $rootRule->getItems()[1];
-        $this->assertInstanceOf(ProductPriceInferiorToRule::class, $productPriceInferior);
+        $this->assertInstanceOf(BasketPriceInferiorToRule::class, $productPriceInferior);
         $this->assertSame(3.15, $productPriceInferior->getValue());
-        /** @var OrCatalogRule $or */
+        /** @var OrBasketRule $or */
         $or = $rootRule->getItems()[2];
-        $this->assertInstanceOf(OrCatalogRule::class, $or);
-        $this->assertContainsOnly(CatalogRule::class, $or->getItems());
+        $this->assertInstanceOf(OrBasketRule::class, $or);
+        $this->assertContainsOnly(BasketRule::class, $or->getItems());
         $this->assertCount(2, $or->getItems());
-        /** @var ProductInListRule $productInList */
+        /** @var BasketHasProductInListRule $productInList */
         $productInList = $or->getItems()[0];
-        $this->assertInstanceOf(ProductInListRule::class, $productInList);
+        $this->assertInstanceOf(BasketHasProductInListRule::class, $productInList);
         $this->assertSame([1, 2, 3], $productInList->getProductsIds());
-        /** @var ProductInCategoryListRule $productInCategoryList */
-        $productInCategoryList = $or->getItems()[1];
-        $this->assertInstanceOf(ProductInCategoryListRule::class, $productInCategoryList);
-        $this->assertSame([4, 5, 6], $productInCategoryList->getCategoriesIds());
+        /** @var BasketHasProductInListRule $productInList */
+        $productInList = $or->getItems()[1];
+        $this->assertInstanceOf(BasketHasProductInListRule::class, $productInList);
+        $this->assertSame([4, 5, 7], $productInList->getProductsIds());
+        /** @var MaxUsageCountRule $maxUsageCount */
+        $maxUsageCount = $rootRule->getItems()[3];
+        $this->assertInstanceOf(MaxUsageCountRule::class, $maxUsageCount);
+        $this->assertSame(100, $maxUsageCount->getValue());
+        /** @var MaxUsageCountPerUserRule $maxUsageCountPerUser */
+        $maxUsageCountPerUser = $rootRule->getItems()[4];
+        $this->assertInstanceOf(MaxUsageCountPerUserRule::class, $maxUsageCountPerUser);
+        $this->assertSame(1, $maxUsageCountPerUser->getValue());
+
         $jsonSerialization = json_encode($savedPromotion);
         $this->assertGreaterThan(2, strlen($jsonSerialization));
 
@@ -115,13 +129,13 @@ final class PromotionServiceTest extends ApiTestCase
 
         // Let's update a few fields, but not all of them
         $updatedPromotion = $service->savePromotion(
-            SaveCatalogPromotionCommand::updateExisting($savedPromotion->getPromotionId())
+            SaveBasketPromotionCommand::updateExisting($savedPromotion->getPromotionId())
                 ->setName('test promotion updated')
                 ->setActive(false)
         );
 
         $this->assertSame($savedPromotion->getPromotionId(), $updatedPromotion->getPromotionId());
-        $this->assertInstanceOf(CatalogPromotion::class, $updatedPromotion);
+        $this->assertInstanceOf(BasketPromotion::class, $updatedPromotion);
         $this->assertSame('test promotion updated', $updatedPromotion->getName());
         $this->assertSame(false, $updatedPromotion->isActive());
 
@@ -130,7 +144,7 @@ final class PromotionServiceTest extends ApiTestCase
 
         $promotions = $service->listPromotions();
         $this->assertCount(1, $promotions);
-        $this->assertContainsOnly(CatalogPromotion::class, $promotions);
+        $this->assertContainsOnly(BasketPromotion::class, $promotions);
         $this->assertEquals($actualPromotion, $promotions[0]);
 
         $service->deletePromotion($actualPromotion->getPromotionId());
@@ -142,11 +156,11 @@ final class PromotionServiceTest extends ApiTestCase
         $service->getPromotion($savedPromotion->getPromotionId());
     }
 
-    private function buildCatalogPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): CatalogPromotionService
+    private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);
 
-        return new CatalogPromotionService($apiClient);
+        return new BasketPromotionService($apiClient);
     }
 }
