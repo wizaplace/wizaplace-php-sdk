@@ -13,9 +13,10 @@ use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\Discount;
-use Wizaplace\SDK\Vendor\Promotion\Rules\CatalogRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 
-final class SaveCatalogPromotionCommand
+final class SaveBasketPromotionCommand
 {
     /** @var null|string */
     private $promotionId;
@@ -26,7 +27,7 @@ final class SaveCatalogPromotionCommand
     /** @var null|bool */
     private $active;
 
-    /** @var null|CatalogRule */
+    /** @var null|BasketRule */
     private $rule;
 
     /** @var null|(Discount[]) */
@@ -34,6 +35,12 @@ final class SaveCatalogPromotionCommand
 
     /** @var null|PromotionPeriod */
     private $period;
+
+    /** @var null|string */
+    private $coupon;
+
+    /** @var null|BasketPromotionTarget */
+    private $target;
 
     private function __construct(?string $promotionId = null)
     {
@@ -76,9 +83,33 @@ final class SaveCatalogPromotionCommand
         return $this;
     }
 
-    public function setRule(?CatalogRule $rule): self
+    public function setRule(?BasketRule $rule): self
     {
         $this->rule = $rule;
+
+        return $this;
+    }
+
+    public function getCoupon(): ?string
+    {
+        return $this->coupon;
+    }
+
+    public function setCoupon(?string $coupon): self
+    {
+        $this->coupon = $coupon;
+
+        return $this;
+    }
+
+    public function getTarget(): ?BasketPromotionTarget
+    {
+        return $this->target;
+    }
+
+    public function setTarget(?BasketPromotionTarget $target): self
+    {
+        $this->target = $target;
 
         return $this;
     }
@@ -124,6 +155,8 @@ final class SaveCatalogPromotionCommand
                 'rule' => $this->rule,
                 'discounts' => $this->discounts,
                 'period' => $this->period,
+                'coupon' => $this->coupon,
+                'target' => $this->target,
             ]),
             static function ($value): bool {
                 return $value !== null;
