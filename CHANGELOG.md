@@ -7,7 +7,7 @@
 
 ### New features
 
-- Added `Wizaplace\SDK\Order\Order::getPayment`
+ - Added `\Wizaplace\SDK\Order\Order::getPayment`
 
 ### Bugfixes
 
