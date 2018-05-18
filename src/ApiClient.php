@@ -49,6 +49,9 @@ final class ApiClient
     /** @var null|string */
     private $language;
 
+    /** @var null|string */
+    private $applicationToken;
+
     public function __construct(Client $client)
     {
         $this->httpClient = $client;
@@ -84,6 +87,11 @@ final class ApiClient
         $this->setApiKey($apiKey);
 
         return $apiKey;
+    }
+
+    public function setApplicationToken(?string $applicationToken): void
+    {
+        $this->applicationToken = $applicationToken;
     }
 
     /**
@@ -278,6 +286,9 @@ final class ApiClient
     {
         if (!is_null($this->apiKey)) {
             $options['headers']['Authorization'] = 'token '.$this->apiKey->getKey();
+        }
+        if (!is_null($this->applicationToken)) {
+            $options['headers']['Application-Token'] = $this->applicationToken;
         }
 
         return $options;
