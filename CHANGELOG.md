@@ -5,14 +5,16 @@
 
 ### BREAKING CHANGES
 
+### Bugfixes
+
+</details>
+
+## 1.24.0
+
 ### New features
 
  - Added `\Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
  - Added `\Wizaplace\SDK\ApiClient::setApplicationToken`
-
-### Bugfixes
-
-</details>
 
 ## 1.23.0
 
