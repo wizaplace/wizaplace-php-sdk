@@ -7,7 +7,8 @@
 
 ### New features
 
-- Added `Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
+ - Added `\Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
+ - Added `\Wizaplace\SDK\ApiClient::setApplicationToken`
 
 ### Bugfixes
 
@@ -17,7 +18,7 @@
 
 ### New features
 
- - Added `Wizaplace\SDK\ApiClient::oauthAuthenticate`
+ - Added `\Wizaplace\SDK\ApiClient::oauthAuthenticate`
  - Added `\Wizaplace\SDK\Cms\MenuItem::getChildren`
 
 ## 1.22.0
