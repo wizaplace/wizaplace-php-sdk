@@ -41,6 +41,10 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertCount(2, $order->getOrderItems());
         $this->assertSame('', $order->getCustomerComment());
 
+        $this->assertNotNull($order->getPayment());
+        $this->assertSame('manual', $order->getPayment()->getType());
+        $this->assertNull($order->getPayment()->getProcessorName());
+
         // Premier orderItem
         $firstItem = $order->getOrderItems()[0];
         $this->assertTrue((new DeclinationId('2_6_4_7_6'))->equals($firstItem->getDeclinationId()));
