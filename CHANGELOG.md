@@ -44,6 +44,32 @@
 
 </details>
 
+## 1.25.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Order\Order::getPayment`
+
+## 1.24.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
+ - Added `\Wizaplace\SDK\ApiClient::setApplicationToken`
+
+## 1.23.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\ApiClient::oauthAuthenticate`
+ - Added `\Wizaplace\SDK\Cms\MenuItem::getChildren`
+
+## 1.22.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Order\OrderService::commitOrder`
+
 ## 1.21.0
 
  - Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByCode`

@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-add-order-commitment-api@12822a5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 17 Apr 2018 14:27:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d278d3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d278d3'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"mi9LrsJUlVvVkRU3syJ4albD6kT6MmIGmLS\/ONOV"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/user/orders/404/commitment'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-add-order-commitment-api@12822a5
+            Authorization: 'token mi9LrsJUlVvVkRU3syJ4albD6kT6MmIGmLS/ONOV'
+            VCR-index: '1'
+            Accept: null
+        body: '{"date":"2018-01-01","number":"404"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Tue, 17 Apr 2018 14:27:59 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '165225'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/165225'
+            Content-Length: '75'
+            Content-Type: application/json
+        body: '{"error":{"code":14,"message":"order not found","context":{"orderId":404}}}'

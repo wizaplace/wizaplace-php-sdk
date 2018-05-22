@@ -33,6 +33,8 @@ final class Order
     private $orderItems;
     /** @var string */
     private $customerComment;
+    /** @var Payment */
+    private $payment;
 
     /**
      * @internal
@@ -53,6 +55,7 @@ final class Order
             return new OrderItem($orderItemData);
         }, $data['items']);
         $this->customerComment = $data['customerComment'];
+        $this->payment = new Payment($data['payment']);
     }
 
     public function getId(): int
@@ -116,5 +119,10 @@ final class Order
     public function getCustomerComment(): string
     {
         return $this->customerComment;
+    }
+
+    public function getPayment(): Payment
+    {
+        return $this->payment;
     }
 }

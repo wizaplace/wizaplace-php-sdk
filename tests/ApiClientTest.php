@@ -71,4 +71,32 @@ final class ApiClientTest extends ApiTestCase
         $apiClient->delete('test');
         $apiClient->rawRequest('PATCH', 'test');
     }
+
+    public function testOAuthAuthentication()
+    {
+        $apiClient = $this->buildApiClient();
+        $orderService = new OrderService($apiClient);
+
+        $apiKey = $apiClient->oauthAuthenticate('4/AAAfMc0UWDe1LOXv93D0ZKM2f5VuazwpHl004ZPfjB1tpBQDIa95uYFPPPMcH2ePnJoPhgzcp6ZWGDbEGYS9-6Q#');
+        $this->assertNotNull($apiKey);
+
+        // Test an authenticated call.
+        // If the authentication did not "register" properly, we will get an exception and the test will fail.
+        $orderService->getOrders();
+    }
+
+    public function testBadCredentialsOAuthAuthentication()
+    {
+        $apiClient = $this->buildApiClient();
+
+        $this->expectException(BadCredentials::class);
+        $apiClient->oauthAuthenticate('foo');
+    }
+
+    public function testGetOAuthAuthorizationUrl()
+    {
+        $url = $this->buildApiClient()->getOAuthAuthorizationUrl();
+
+        $this->assertSame('https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=cli3nt_1d&redirect_uri=http%3A%2F%2Fwizaplace.fr%2Foauth&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&approval_prompt=auto', $url);
+    }
 }

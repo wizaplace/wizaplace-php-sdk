@@ -7,11 +7,15 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Order;
 
+use DateTimeImmutable;
+use GuzzleHttp\Psr7\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
+use Wizaplace\SDK\Order\OrderCommitmentCommand;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -36,6 +40,10 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('Lettre prioritaire', $order->getShippingName());
         $this->assertCount(2, $order->getOrderItems());
         $this->assertSame('', $order->getCustomerComment());
+
+        $this->assertNotNull($order->getPayment());
+        $this->assertSame('manual', $order->getPayment()->getType());
+        $this->assertNull($order->getPayment()->getProcessorName());
 
         // Premier orderItem
         $firstItem = $order->getOrderItems()[0];
@@ -200,6 +208,31 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(1, $item->getAmount());
         $this->assertCount(0, $item->getDeclinationOptions());
         $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
+    }
+
+    public function testCommitOrder()
+    {
+        $orderService = $this->buildOrderService();
+
+        static::$historyContainer = [];
+
+        $commitCommand = new OrderCommitmentCommand(6, new DateTimeImmutable('2018-01-01'), 'ABC123');
+        $orderService->commitOrder($commitCommand);
+
+        // We don't have a way to check that the order request was processed.
+        // So we just check that an HTTP request was made successfully
+        $this->assertCount(1, static::$historyContainer);
+        /** @var Response $response */
+        $response = static::$historyContainer[0]['response'];
+        $this->assertSame(204, $response->getStatusCode());
+    }
+
+    public function testCommitOrderWhichDoesNotExist()
+    {
+        $commitCommand = new OrderCommitmentCommand(404, new DateTimeImmutable('2018-01-01'), '404');
+
+        $this->expectException(NotFound::class);
+        $this->buildOrderService()->commitOrder($commitCommand);
     }
 
     private function buildOrderService(): OrderService

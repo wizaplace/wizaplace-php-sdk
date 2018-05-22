@@ -51,6 +51,9 @@ final class ApiClient
     /** @var null|string */
     private $language;
 
+    /** @var null|string */
+    private $applicationToken;
+
     public function __construct(Client $client)
     {
         $this->httpClient = $client;
@@ -86,6 +89,43 @@ final class ApiClient
         $this->setApiKey($apiKey);
 
         return $apiKey;
+    }
+
+    public function setApplicationToken(?string $applicationToken): void
+    {
+        $this->applicationToken = $applicationToken;
+    }
+
+    /**
+     * @throws BadCredentials
+     */
+    public function oauthAuthenticate(string $authToken): ApiKey
+    {
+        try {
+            $apiKeyData = $this->post(
+                'user/oauth-token',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'token' => $authToken,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new BadCredentials($e);
+            }
+            throw $e;
+        }
+
+        $apiKey = new ApiKey($apiKeyData);
+        $this->setApiKey($apiKey);
+
+        return $apiKey;
+    }
+
+    public function getOAuthAuthorizationUrl(): string
+    {
+        return $this->get('user/oauth/authorize-url')['url'];
     }
 
     public function setApiKey(?ApiKey $apiKey = null): void
@@ -250,6 +290,9 @@ final class ApiClient
     {
         if (!is_null($this->apiKey)) {
             $options['headers']['Authorization'] = 'token '.$this->apiKey->getKey();
+        }
+        if (!is_null($this->applicationToken)) {
+            $options['headers']['Application-Token'] = $this->applicationToken;
         }
 
         return $options;
