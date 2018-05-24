@@ -8,10 +8,11 @@ env:
     - PREFER_LOWEST="--prefer-lowest"
     - PREFER_LOWEST=""
 
+install:
+  composer update -n $PREFER_LOWEST
+
 jobs:
   include:
-    - stage: install
-      script: composer update -n $PREFER_LOWEST
     - stage: test
       script: make lint
     - stage: test
@@ -20,5 +21,4 @@ jobs:
       script: make test
 
 stages:
-  - install
   - test
