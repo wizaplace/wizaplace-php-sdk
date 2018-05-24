@@ -8,8 +8,12 @@ env:
     - PREFER_LOWEST="--prefer-lowest"
     - PREFER_LOWEST=""
 
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
 install:
-  composer update -n $PREFER_LOWEST
+  composer update -n --prefer-dist $PREFER_LOWEST
 
 jobs:
   include:
