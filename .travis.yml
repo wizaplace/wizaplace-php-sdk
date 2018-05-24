@@ -1,0 +1,24 @@
+language: php
+php:
+  - '7.1'
+  - nightly
+
+env:
+  matrix:
+    - PREFER_LOWEST="--prefer-lowest"
+    - PREFER_LOWEST=""
+
+jobs:
+  include:
+    - stage: install
+      script: composer update -n $PREFER_LOWEST
+    - stage: test
+      script: make lint
+    - stage: test
+      script: make stan
+    - stage: test
+      script: make test
+
+stages:
+  - install
+  - test
