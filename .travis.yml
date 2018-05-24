@@ -17,12 +17,13 @@ install:
 
 jobs:
   include:
-    - stage: test
+    - stage: check
+      php: 7.1
       script: make lint
-    - stage: test
-      script: make stan
+    - script: make stan
     - stage: test
       script: make test
 
 stages:
+  - check
   - test
