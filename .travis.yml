@@ -14,15 +14,4 @@ cache:
 install:
   composer update -n --prefer-dist $PREFER_LOWEST
 
-jobs:
-  include:
-    - stage: check
-      php: 7.1
-      script: make lint
-    - script: make stan
-    - stage: test
-      script: make test
-
-stages:
-  - check
-  - test
+script: make -j lint stan test
