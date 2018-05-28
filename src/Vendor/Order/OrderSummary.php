@@ -12,6 +12,12 @@ final class OrderSummary
     /** @var string */
     private $customerEmail;
 
+    /** @var string */
+    private $customerFirstName;
+
+    /** @var string */
+    private $customerLastName;
+
     /** @var int */
     private $orderId;
 
@@ -30,6 +36,8 @@ final class OrderSummary
     public function __construct(array $data)
     {
         $this->customerEmail = $data['email'];
+        $this->customerFirstName = $data['customer_firstname'];
+        $this->customerLastName = $data['customer_lastname'];
         $this->orderId = $data['order_id'];
         $this->status = new OrderStatus($data['status']);
         $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
@@ -39,6 +47,16 @@ final class OrderSummary
     public function getCustomerEmail(): string
     {
         return $this->customerEmail;
+    }
+
+    public function getCustomerFirstName(): string
+    {
+        return $this->customerFirstName;
+    }
+
+    public function getCustomerLastName(): string
+    {
+        return $this->customerLastName;
     }
 
     public function getOrderId(): int

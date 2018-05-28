@@ -20,6 +20,12 @@ final class Order
     /** @var string */
     private $customerEmail;
 
+    /** @var string */
+    private $customerFirstName;
+
+    /** @var string */
+    private $customerLastName;
+
     /** @var float */
     private $discountAmount;
 
@@ -73,6 +79,8 @@ final class Order
         $this->orderId = $data['order_id'];
         $this->customerUserId = $data['user_id'];
         $this->customerEmail = $data['email'];
+        $this->customerFirstName = $data['customer_firstname'];
+        $this->customerLastName = $data['customer_lastname'];
         $this->discountAmount = $data['discount'];
         $this->invoiceNumber = $data['invoice_number'];
         $this->needsShipping = $data['need_shipping'];
@@ -109,6 +117,16 @@ final class Order
     public function getCustomerEmail(): string
     {
         return $this->customerEmail;
+    }
+
+    public function getCustomerFirstName(): string
+    {
+        return $this->customerFirstName;
+    }
+
+    public function getCustomerLastName(): string
+    {
+        return $this->customerLastName;
     }
 
     public function getDiscountAmount(): float
