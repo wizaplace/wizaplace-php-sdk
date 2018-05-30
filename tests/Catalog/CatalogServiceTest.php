@@ -833,6 +833,33 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Catégorie principale - Vente Catégorie principale - au meilleur prix - en ligne', $category->getSeoTitle());
         $this->assertSame('Vente Catégorie principale au meilleur prix. Paiement sécurisé. Grand choix Catégorie principale. Livraison rapide.', $category->getSeoDescription());
         $this->assertNull($category->getImage());
+
+        $categoryPath = $category->getCategoryPath();
+        $this->assertCount(1, $categoryPath);
+        $this->assertSame(2, $categoryPath[0]->getId());
+        $this->assertSame('Catégorie principale', $categoryPath[0]->getName());
+        $this->assertSame('categorie-principale', $categoryPath[0]->getSlug());
+
+        $category = $this->buildCatalogService()->getCategory(4);
+        $this->assertSame(4, $category->getId());
+        $this->assertSame(3, $category->getParentId());
+        $this->assertSame('Écrans', $category->getName());
+        $this->assertSame('screens', $category->getSlug());
+        $this->assertSame('', $category->getDescription());
+        $this->assertSame(0, $category->getPosition());
+        $this->assertSame(1, $category->getProductCount());
+        $this->assertSame('', $category->getSeoTitle());
+        $this->assertSame('', $category->getSeoDescription());
+        $this->assertNull($category->getImage());
+
+        $categoryPath = $category->getCategoryPath();
+        $this->assertCount(2, $categoryPath);
+        $this->assertSame(3, $categoryPath[0]->getId());
+        $this->assertSame('Informatique', $categoryPath[0]->getName());
+        $this->assertSame('it', $categoryPath[0]->getSlug());
+        $this->assertSame(4, $categoryPath[1]->getId());
+        $this->assertSame('Écrans', $categoryPath[1]->getName());
+        $this->assertSame('screens', $categoryPath[1]->getSlug());
     }
 
     public function testGetCategoryTree()
@@ -849,15 +876,30 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(10, $category->getPosition());
         $this->assertSame(0, $category->getProductCount());
 
+        $categoryPath = $category->getCategoryPath();
+        $this->assertCount(1, $categoryPath);
+        $this->assertSame(2, $categoryPath[0]->getId());
+        $this->assertSame('Catégorie principale', $categoryPath[0]->getName());
+        $this->assertSame('categorie-principale', $categoryPath[0]->getSlug());
+
         $childrenTrees = $categoryTree[0]->getChildren();
-        $this->assertCount(1, $childrenTrees);
+        $this->assertCount(2, $childrenTrees);
         $childCategory = $childrenTrees[0]->getCategory();
         $this->assertSame(4, $childCategory->getId());
         $this->assertSame('Écrans', $childCategory->getName());
-        $this->assertSame('ecrans', $childCategory->getSlug());
+        $this->assertSame('screens', $childCategory->getSlug());
         $this->assertSame('', $childCategory->getDescription());
         $this->assertSame(0, $childCategory->getPosition());
         $this->assertSame(1, $childCategory->getProductCount());
+
+        $categoryPath = $childCategory->getCategoryPath();
+        $this->assertCount(2, $categoryPath);
+        $this->assertSame(3, $categoryPath[0]->getId());
+        $this->assertSame('Informatique', $categoryPath[0]->getName());
+        $this->assertSame('it', $categoryPath[0]->getSlug());
+        $this->assertSame(4, $categoryPath[1]->getId());
+        $this->assertSame('Écrans', $categoryPath[1]->getName());
+        $this->assertSame('screens', $categoryPath[1]->getSlug());
     }
 
     public function testGetCategories()

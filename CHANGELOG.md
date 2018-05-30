@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
+
 ### Bugfixes
 
 </details>
