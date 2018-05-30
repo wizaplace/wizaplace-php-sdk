@@ -31,6 +31,8 @@ final class Category
     private $seoTitle;
     /** @var string */
     private $seoDescription;
+    /** @var array  */
+    private $categoryPath;
 
     /**
      * @internal
@@ -47,6 +49,7 @@ final class Category
         $this->productCount = $data['productCount'];
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->categoryPath = $data['categoryPath'] ?? [];
     }
 
     public function getId(): int
@@ -97,5 +100,10 @@ final class Category
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
+    }
+
+    public function getCategoryPath(): array
+    {
+        return $this->categoryPath;
     }
 }
