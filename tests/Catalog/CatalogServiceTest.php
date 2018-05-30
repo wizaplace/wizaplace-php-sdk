@@ -14,7 +14,6 @@ use Wizaplace\SDK\Catalog\AttributeVariant;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Catalog\Category;
-use Wizaplace\SDK\Catalog\CategorySummary;
 use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
