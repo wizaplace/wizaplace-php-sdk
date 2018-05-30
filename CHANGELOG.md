@@ -7,16 +7,11 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
+
 ### Bugfixes
 
 </details>
-
-## 1.26.0
-
-### New features
-
- - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
- - new `\Wizaplace\SDK\Catalog\CategorySummary`
 
 ## 1.25.0
 
