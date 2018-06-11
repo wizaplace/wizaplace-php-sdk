@@ -141,7 +141,7 @@ final class UserService extends AbstractService
                         'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                         'billing' => self::serializeUserAddressUpdate($command->getBilling()),
                         'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
-                    ]
+                    ],
                 ]
             );
         } catch (ClientException $e) {
