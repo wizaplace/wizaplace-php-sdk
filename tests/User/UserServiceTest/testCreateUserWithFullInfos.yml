@@ -1,0 +1,82 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            VCR-index: '0'
+            Accept: null
+        body: 'email=user%40example.com&password=password&firstName=Jane&lastName=Doe&title=mrs&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Mon, 11 Jun 2018 12:56:24 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0ce507
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ce507'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220ce507%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '9'
+            Content-Type: application/json
+        body: '{"id":13}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 11 Jun 2018 12:56:25 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c564d9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c564d9'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":13,"apiKey":"0H+6ljo1ZJy7XEn6z36ZENlGDOZyTxq7NrVn8svV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/13'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token 0H+6ljo1ZJy7XEn6z36ZENlGDOZyTxq7NrVn8svV'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 11 Jun 2018 12:56:25 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: aefd57
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aefd57'
+            Content-Length: '657'
+            Content-Type: application/json
+        body: '{"id":13,"title":"mrs","email":"user@example.com","companyId":null,"firstName":"Jane","lastName":"Doe","birthday":"1998-07-12","loyaltyIdentifier":null,"addresses":{"billing":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}}}'

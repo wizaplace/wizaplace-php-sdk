@@ -100,6 +100,7 @@ final class UserService extends AbstractService
         string $firstName = '',
         string $lastName = ''
     ): int {
+
         try {
             $userData = $this->client->post(
                 'users',
@@ -110,6 +111,37 @@ final class UserService extends AbstractService
                         'firstName' => $firstName,
                         'lastName' => $lastName,
                     ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 409) {
+                throw new UserAlreadyExists($e);
+            }
+            throw $e;
+        }
+
+        return $userData['id'];
+    }
+
+    /**
+     * @throws UserAlreadyExists
+     */
+    public function registerWithFullInfos(RegisterUserCommand $command): int
+    {
+        try {
+            $userData = $this->client->post(
+                'users',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'email' => $command->getEmail(),
+                        'password' => $command->getPassword(),
+                        'firstName' => $command->getFirstName(),
+                        'lastName' => $command->getLastName(),
+                        'title' => $command->getTitle()->getValue(),
+                        'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                        'billing' => self::serializeUserAddressUpdate($command->getBilling()),
+                        'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
+                    ]
                 ]
             );
         } catch (ClientException $e) {
