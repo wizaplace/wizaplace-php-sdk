@@ -100,7 +100,6 @@ final class UserService extends AbstractService
         string $firstName = '',
         string $lastName = ''
     ): int {
-
         try {
             $userData = $this->client->post(
                 'users',

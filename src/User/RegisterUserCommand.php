@@ -7,7 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\User;
 
-class RegisterUserCommand
+final class RegisterUserCommand
 {
     /** @var string */
     private $email;
