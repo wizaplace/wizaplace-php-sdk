@@ -1,0 +1,17 @@
+language: php
+php:
+  - '7.1'
+  - nightly
+
+env:
+  - PREFER_LOWEST="--prefer-lowest"
+  - PREFER_LOWEST=""
+
+cache:
+  directories:
+    - $HOME/.composer/cache/files
+
+install:
+  composer update -n --prefer-dist $PREFER_LOWEST
+
+script: make -j lint stan test
