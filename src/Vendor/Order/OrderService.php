@@ -116,6 +116,17 @@ class OrderService extends AbstractService
         }, $taxesData);
     }
 
+    public function reportHandDelivery(int $orderId, ?string $deliveryCode): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        $this->client->post("orders/${orderId}/handDelivery", [
+            RequestOptions::JSON => [
+                'code' => $deliveryCode,
+            ],
+        ]);
+    }
+
     private function setOrderIsAccepted(int $orderId, bool $accepted): void
     {
         $this->client->mustBeAuthenticated();
