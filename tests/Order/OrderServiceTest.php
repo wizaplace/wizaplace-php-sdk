@@ -33,12 +33,13 @@ final class OrderServiceTest extends ApiTestCase
 
         $this->assertSame(2, $order->getId());
         $this->assertSame(3, $order->getCompanyId());
-        $this->assertSame(35.3, $order->getTotal());
-        $this->assertSame(35.3, $order->getSubtotal());
-        $this->assertSame(0.73, $order->getTaxtotal());
+        $this->assertSame(108.4, $order->getTotal());
+        $this->assertSame(108.4, $order->getSubtotal());
+        $this->assertSame(2.23, $order->getTaxtotal());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
-        $this->assertSame('Lettre prioritaire', $order->getShippingName());
-        $this->assertCount(2, $order->getOrderItems());
+        $this->assertEquals('workflow_manual_payment_pending_manual_payment_processing', $order->getWorkflow());
+        $this->assertSame('TNT Express', $order->getShippingName());
+        $this->assertCount(1, $order->getOrderItems());
         $this->assertSame('', $order->getCustomerComment());
 
         $this->assertNotNull($order->getPayment());
@@ -47,33 +48,12 @@ final class OrderServiceTest extends ApiTestCase
 
         // Premier orderItem
         $firstItem = $order->getOrderItems()[0];
-        $this->assertTrue((new DeclinationId('2_6_4_7_6'))->equals($firstItem->getDeclinationId()));
-        $this->assertSame('Souris sans fil avec récepteur nano 6 boutons', $firstItem->getProductName());
-        $this->assertSame('color_red_connectivity_wired', $firstItem->getProductCode());
-        $this->assertSame(15.5, $firstItem->getPrice());
-        $this->assertSame(1, $firstItem->getAmount());
-        $this->assertCount(2, $firstItem->getDeclinationOptions());
-
-        $this->assertSame(6, $firstItem->getDeclinationOptions()[0]->getOptionId());
-        $this->assertSame('color', $firstItem->getDeclinationOptions()[0]->getOptionName());
-        $this->assertSame(4, $firstItem->getDeclinationOptions()[0]->getVariantId());
-        $this->assertSame('red', $firstItem->getDeclinationOptions()[0]->getVariantName());
-
-        $this->assertSame(7, $firstItem->getDeclinationOptions()[1]->getOptionId());
-        $this->assertSame('connectivity', $firstItem->getDeclinationOptions()[1]->getOptionName());
-        $this->assertSame(6, $firstItem->getDeclinationOptions()[1]->getVariantId());
-        $this->assertSame('wired', $firstItem->getDeclinationOptions()[1]->getVariantName());
-        $this->assertSame('', $firstItem->getCustomerComment());
-
-        // Deuxième orderItem
-        $secondItem = $order->getOrderItems()[1];
-        $this->assertTrue((new DeclinationId('4_0'))->equals($secondItem->getDeclinationId()));
-        $this->assertSame('Product with shippings', $secondItem->getProductName());
-        $this->assertSame('0493020427963', $secondItem->getProductCode());
-        $this->assertSame(9.9, $secondItem->getPrice());
-        $this->assertSame(2, $secondItem->getAmount());
-        $this->assertCount(0, $secondItem->getDeclinationOptions());
-        $this->assertSame('', $secondItem->getCustomerComment());
+        $this->assertTrue((new DeclinationId('4_0'))->equals($firstItem->getDeclinationId()));
+        $this->assertSame('Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon', $firstItem->getProductName());
+        $this->assertSame('7531596248951', $firstItem->getProductCode());
+        $this->assertSame(54.2, $firstItem->getPrice());
+        $this->assertSame(2, $firstItem->getAmount());
+        $this->assertCount(0, $firstItem->getDeclinationOptions());
     }
 
     public function testGetInexistingOrderYieldsAnError(): void

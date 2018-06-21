@@ -24,6 +24,8 @@ final class Order
     /** @var OrderStatus */
     private $status;
     /** @var string */
+    private $workflow;
+    /** @var string */
     private $shippingName;
     /** @var ShippingAddress */
     private $shippingAddress;
@@ -48,6 +50,7 @@ final class Order
         $this->taxtotal = $data['taxTotal'];
         $this->timestamp = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->status = new OrderStatus($data['status']);
+        $this->workflow = $data['workflow'];
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
         $this->billingAddress = new BillingAddress($data['billingAddress']);
@@ -91,6 +94,11 @@ final class Order
     public function getStatus(): OrderStatus
     {
         return $this->status;
+    }
+
+    public function getWorkflow(): string
+    {
+        return $this->workflow;
     }
 
     public function getShippingName(): string
