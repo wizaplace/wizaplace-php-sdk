@@ -11,6 +11,12 @@
 
 </details>
 
+## 1.27.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Order\Order::getWorkflow`
+ 
 ## 1.26.0
 
 ### New features

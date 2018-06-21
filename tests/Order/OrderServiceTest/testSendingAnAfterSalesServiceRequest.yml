@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:28:57 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 15:00:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d8d1e6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d8d1e6'
-            Content-Length: '62'
+            X-Debug-Token: '0e0218'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0e0218'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"s2f\/RIUiD6vx\/Stm+DtH8NeCMJ01sB3ikRtYCjuP"}'
+        body: '{"id":7,"apiKey":"B9b5wlTUHrkc6UsOeJKb1v\/QKjgnqnN5r26oCKTk"}'
 -
     request:
         method: POST
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token s2f/RIUiD6vx/Stm+DtH8NeCMJ01sB3ikRtYCjuP'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token B9b5wlTUHrkc6UsOeJKb1v/QKjgnqnN5r26oCKTk'
             VCR-index: '1'
             Accept: null
         body: '{"comments":"Help please :(","items":["1_0"]}'
@@ -45,12 +45,13 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 23 Oct 2017 13:28:57 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 15:00:13 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f3d26f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f3d26f'
+            X-Debug-Token: 249a53
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/249a53'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22249a53%22%2C%22route%22%3A%22api_after_sales_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrderAfterSalesController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrderAfterSalesController.php%22%2C%22line%22%3A21%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'

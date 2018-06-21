@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:26:11 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:56:14 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: cb3b50
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb3b50'
-            Content-Length: '61'
+            X-Debug-Token: 025d4f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/025d4f'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"5hgp+3jrrj50IBFL0\/NwpSUaZnWp3Hi7pEdkjRVM"}'
+        body: '{"id":7,"apiKey":"CnbFWkq0usm19zvJi4PLbozd5O5409fDLmywTO0B"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 5hgp+3jrrj50IBFL0/NwpSUaZnWp3Hi7pEdkjRVM'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token CnbFWkq0usm19zvJi4PLbozd5O5409fDLmywTO0B'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:26:12 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:56:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '8e6809'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8e6809'
+            X-Debug-Token: 489d7a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/489d7a'
             Content-Length: '2'
             Content-Type: application/json
         body: '[]'

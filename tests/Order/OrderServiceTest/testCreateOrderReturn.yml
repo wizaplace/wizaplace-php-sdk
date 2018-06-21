@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:26 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:52:30 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c0379e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c0379e'
+            X-Debug-Token: 85e55e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/85e55e'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh"}'
+        body: '{"id":7,"apiKey":"CubgTePfdqNKGjjvwM83JdqnTzz9XnsPYVgqwdr9"}'
 -
     request:
         method: POST
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token CubgTePfdqNKGjjvwM83JdqnTzz9XnsPYVgqwdr9'
             VCR-index: '1'
             Accept: null
         body: 'userId=7&comments=Broken+on+arrival&items%5B0%5D%5BdeclinationId%5D=1_0&items%5B0%5D%5Breason%5D=1&items%5B0%5D%5Bamount%5D=1'
@@ -45,12 +45,13 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:27 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:52:31 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d0adbf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0adbf'
+            X-Debug-Token: 53a5df
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/53a5df'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2253a5df%22%2C%22route%22%3A%22api_create_return%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrderReturnController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrderReturnController.php%22%2C%22line%22%3A50%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '14'
             Content-Type: application/json
         body: '{"returnId":1}'
@@ -61,8 +62,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token CubgTePfdqNKGjjvwM83JdqnTzz9XnsPYVgqwdr9'
             VCR-index: '2'
             Accept: null
     response:
@@ -71,15 +72,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:27 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:52:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: b30658
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b30658'
-            Content-Length: '247'
+            X-Debug-Token: 4bb9ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bb9ff'
+            Content-Length: '364'
             Content-Type: application/json
-        body: '{"id":1,"orderId":1,"userId":7,"createdAt":"2017-10-23T15:23:27+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","price":67.9,"amount":1,"reason":1}}}'
+        body: '{"id":1,"orderId":1,"userId":7,"createdAt":"2018-06-20T16:52:31+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"reason":1,"options":[],"customerComment":""}}}'
 -
     request:
         method: GET
@@ -87,8 +88,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@beff0af
+            Authorization: 'token CubgTePfdqNKGjjvwM83JdqnTzz9XnsPYVgqwdr9'
             VCR-index: '3'
             Accept: null
     response:
@@ -97,12 +98,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:28 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 20 Jun 2018 14:52:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e97603
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e97603'
-            Content-Length: '249'
+            X-Debug-Token: b910d0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b910d0'
+            Content-Length: '366'
             Content-Type: application/json
-        body: '[{"id":1,"orderId":1,"userId":7,"createdAt":"2017-10-23T15:23:27+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","price":67.9,"amount":1,"reason":1}}}]'
+        body: '[{"id":1,"orderId":1,"userId":7,"createdAt":"2018-06-20T16:52:31+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"reason":1,"options":[],"customerComment":""}}}]'
