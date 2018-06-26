@@ -60,6 +60,9 @@ class CompanyRegistration
     /** @var null|string */
     private $slug;
 
+    /** @var array */
+    private $extra = [];
+
     /**
      * @var array
      * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
@@ -231,6 +234,16 @@ class CompanyRegistration
     final public function setSlug(?string $slug): void
     {
         $this->slug = $slug;
+    }
+
+    final public function getExtra(): array
+    {
+        return $this->extra;
+    }
+
+    final public function setExtra(array $extra): void
+    {
+        $this->extra = $extra;
     }
 
     final public function addUploadedFile(string $name, UploadedFileInterface $file): void

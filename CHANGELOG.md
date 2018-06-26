@@ -7,6 +7,13 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getExtra`
+ - Added `\Wizaplace\SDK\Company\Company::getExtra`
+ - Added `\Wizaplace\SDK\Company\CompanyRegistration::getExtra`
+ - Added `\Wizaplace\SDK\Company\CompanyRegistration::setExtra`
+ - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getExtra`
+ - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setExtra`
+
 ### Bugfixes
 
 </details>

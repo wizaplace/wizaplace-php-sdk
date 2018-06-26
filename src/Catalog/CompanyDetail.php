@@ -49,6 +49,9 @@ final class CompanyDetail
     /** @var CompanyAddress */
     private $fullAddress;
 
+    /** @var array */
+    private $extra;
+
     /**
      * @internal
      */
@@ -70,6 +73,7 @@ final class CompanyDetail
         $this->averageRating = $data['averageRating'];
         $this->terms = to_string($data['terms']);
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
+        $this->extra = (array) $data['extra'];
     }
 
     public function getFullAddress(): CompanyAddress
@@ -133,5 +137,10 @@ final class CompanyDetail
     public function getTerms(): string
     {
         return $this->terms;
+    }
+
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 }

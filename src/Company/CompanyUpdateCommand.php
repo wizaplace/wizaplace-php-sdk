@@ -57,6 +57,9 @@ class CompanyUpdateCommand
     /** @var null|string */
     private $slug;
 
+    /** @var null|array */
+    private $extra;
+
     /** @var int */
     private $companyId;
 
@@ -255,6 +258,16 @@ class CompanyUpdateCommand
         $this->slug = $slug;
 
         return $this;
+    }
+
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
+
+    public function setExtra(?array $extra): void
+    {
+        $this->extra = $extra;
     }
 
     public function getCompanyId(): int

@@ -76,6 +76,11 @@ final class Company
     private $legalRepresentativeLastName;
 
     /**
+     * @var array
+     */
+    private $extra;
+
+    /**
      * @internal
      */
     public function __construct(array $data)
@@ -99,6 +104,7 @@ final class Company
         $this->slug = to_string($data['slug']);
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
+        $this->extra = (array) $data['extra'];
     }
 
     public function getId(): int
@@ -194,5 +200,10 @@ final class Company
     public function getLegalRepresentativeLastName(): string
     {
         return $this->legalRepresentativeLastName;
+    }
+
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 }

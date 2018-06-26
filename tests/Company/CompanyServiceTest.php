@@ -43,6 +43,7 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setSiretNumber('732 829 320 00074');
         $companyRegistration->setSlug('acme-inc');
         $companyRegistration->setUrl('https://acme.example.com/');
+        $companyRegistration->setExtra(['driving_license_number' => '654987321']);
 
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
@@ -53,19 +54,20 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertGreaterThan(0, $company->getId());
         $this->assertSame('acme-inc', $company->getSlug());
         $this->assertSame('acme2@example.com', $company->getEmail());
-        $this->assertSame('24 rue de la gare', $companyRegistration->getAddress());
-        $this->assertSame('1 000 000 000 $', $companyRegistration->getCapital());
-        $this->assertSame('Lyon', $companyRegistration->getCity());
-        $this->assertSame('France', $companyRegistration->getCountry());
-        $this->assertSame('Super ACME company', $companyRegistration->getDescription());
-        $this->assertSame('01 02 03 04 05', $companyRegistration->getFax());
-        $this->assertSame('SARL', $companyRegistration->getLegalStatus());
-        $this->assertSame('01 02 03 04 05 06', $companyRegistration->getPhoneNumber());
-        $this->assertSame('RCS VANNES B 514 919 844', $companyRegistration->getRcs());
-        $this->assertSame('12345678901', $companyRegistration->getVatNumber());
-        $this->assertSame('69009', $companyRegistration->getZipcode());
-        $this->assertSame('732 829 320 00074', $companyRegistration->getSiretNumber());
-        $this->assertSame('https://acme.example.com/', $companyRegistration->getUrl());
+        $this->assertSame('24 rue de la gare', $company->getAddress());
+        $this->assertSame('1 000 000 000 $', $company->getCapital());
+        $this->assertSame('Lyon', $company->getCity());
+        $this->assertSame('France', $company->getCountry());
+        $this->assertSame('Super ACME company', $company->getDescription());
+        $this->assertSame('01 02 03 04 05', $company->getFax());
+        $this->assertSame('SARL', $company->getLegalStatus());
+        $this->assertSame('01 02 03 04 05 06', $company->getPhoneNumber());
+        $this->assertSame('RCS VANNES B 514 919 844', $company->getRcs());
+        $this->assertSame('12345678901', $company->getVatNumber());
+        $this->assertSame('69009', $company->getZipcode());
+        $this->assertSame('732 829 320 00074', $company->getSiretNumber());
+        $this->assertSame('https://acme.example.com/', $company->getUrl());
+        $this->assertSame(['driving_license_number' => '654987321'], $company->getExtra());
 
         $this->assertTrue($result->getFileUploadResult('rib')->isSuccess());
         $this->assertNull($result->getFileUploadResult('rib')->getErrorMessage());

@@ -753,6 +753,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
         $this->assertSame('Paris', $company->getFullAddress()->getCity());
         $this->assertSame('75001', $company->getFullAddress()->getZipCode());
+        $this->assertSame([], $company->getExtra());
 
         $company = $catalogService->getCompanyById(4);
 
@@ -770,6 +771,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
         $this->assertSame('Paris', $company->getFullAddress()->getCity());
         $this->assertSame('75001', $company->getFullAddress()->getZipCode());
+        $this->assertSame([], $company->getExtra());
     }
 
     public function testGetCompanies()
