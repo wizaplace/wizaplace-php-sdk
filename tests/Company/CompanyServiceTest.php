@@ -32,7 +32,7 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setAddress('24 rue de la gare');
         $companyRegistration->setCapital('1 000 000 000 $');
         $companyRegistration->setCity('Lyon');
-        $companyRegistration->setCountry('France');
+        $companyRegistration->setCountry('FR');
         $companyRegistration->setDescription('Super ACME company');
         $companyRegistration->setFax('01 02 03 04 05');
         $companyRegistration->setLegalStatus('SARL');
@@ -57,7 +57,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('24 rue de la gare', $company->getAddress());
         $this->assertSame('1 000 000 000 $', $company->getCapital());
         $this->assertSame('Lyon', $company->getCity());
-        $this->assertSame('France', $company->getCountry());
+        $this->assertSame('FR', $company->getCountry());
         $this->assertSame('Super ACME company', $company->getDescription());
         $this->assertSame('01 02 03 04 05', $company->getFax());
         $this->assertSame('SARL', $company->getLegalStatus());
@@ -66,7 +66,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('12345678901', $company->getVatNumber());
         $this->assertSame('69009', $company->getZipcode());
         $this->assertSame('732 829 320 00074', $company->getSiretNumber());
-        $this->assertSame('https://acme.example.com/', $company->getUrl());
+        $this->assertEquals('https://acme.example.com/', $company->getUrl());
         $this->assertSame(['driving_license_number' => '654987321'], $company->getExtra());
 
         $this->assertTrue($result->getFileUploadResult('rib')->isSuccess());

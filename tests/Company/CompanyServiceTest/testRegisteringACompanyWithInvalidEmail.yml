@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:11 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Tue, 26 Jun 2018 13:58:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a5ce01
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a5ce01'
-            Content-Length: '60'
+            Content-Language: fr
+            X-Debug-Token: b0f64f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b0f64f'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"0ww5alNsYaGmOpbJwL2hPkedt7KXcAxrKR+hvGWa"}'
+        body: '{"id":9,"apiKey":"pqT51tld+FDgdml+LJHJY\/uGrHrvOFlAGpQXP+qx"}'
 -
     request:
         method: POST
@@ -32,23 +33,24 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token 0ww5alNsYaGmOpbJwL2hPkedt7KXcAxrKR+hvGWa'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token pqT51tld+FDgdml+LJHJY/uGrHrvOFlAGpQXP+qx'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME Test Inc","email":"acme@@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
+        body: '{"name":"ACME Test Inc","email":"acme@@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"extra":[]}'
     response:
         status:
             http_version: '1.1'
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:12 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Tue, 26 Jun 2018 13:58:02 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: a681e7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a681e7'
+            Content-Language: fr
+            X-Debug-Token: 7ad159
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7ad159'
             Content-Length: '74'
             Connection: close
             Content-Type: application/json

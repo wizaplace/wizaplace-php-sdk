@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -16,14 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:22 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Tue, 26 Jun 2018 13:58:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: '896061'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/896061'
+            Content-Language: fr
+            X-Debug-Token: 32c2d1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/32c2d1'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"nht6Sebe8I+3SijWcvvHf2axd\/qY0Om6+PbRwgGU"}'
+        body: '{"id":9,"apiKey":"h\/W2CQcQbZzYsoPsQOR5SNWKjq37pMNE7n9mk1fk"}'
 -
     request:
         method: POST
@@ -32,23 +33,24 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
-            Authorization: 'token nht6Sebe8I+3SijWcvvHf2axd/qY0Om6+PbRwgGU'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token h/W2CQcQbZzYsoPsQOR5SNWKjq37pMNE7n9mk1fk'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
+        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"extra":[]}'
     response:
         status:
             http_version: '1.1'
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Tue, 12 Sep 2017 14:57:22 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Tue, 26 Jun 2018 13:58:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            X-Debug-Token: 9a347c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a347c'
+            Content-Language: fr
+            X-Debug-Token: 319b99
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/319b99'
             Content-Length: '98'
             Connection: close
             Content-Type: application/json

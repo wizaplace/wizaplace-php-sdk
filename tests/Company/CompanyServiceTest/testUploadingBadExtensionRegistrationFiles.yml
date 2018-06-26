@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 12:29:54 GMT'
+            Date: 'Tue, 26 Jun 2018 13:59:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ff27dc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ff27dc'
+            X-Debug-Token: 28a1b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/28a1b6'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"ZAYCC20j+xJZjN9bpNHYoUoQFUME6CkjmyCLxZPP"}'
+        body: '{"id":9,"apiKey":"pXIiyX39jzyJvrRqDg3lxAVCZhSC3tt2PYTF+JZB"}'
 -
     request:
         method: POST
@@ -34,52 +34,53 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
-            Authorization: 'token ZAYCC20j+xJZjN9bpNHYoUoQFUME6CkjmyCLxZPP'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token pXIiyX39jzyJvrRqDg3lxAVCZhSC3tt2PYTF+JZB'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"4CME Test Inc","email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null}'
+        body: '{"name":"4CME Test Inc","email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"extra":[]}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 13 Dec 2017 12:29:55 GMT'
+            Date: 'Tue, 26 Jun 2018 13:59:54 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: abbe9c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/abbe9c'
-            Content-Length: '332'
+            X-Debug-Token: '580801'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/580801'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22580801%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A31%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '355'
             Content-Type: application/json
-        body: '{"id":5,"name":"4CME Test Inc","slug":"4cme-test-inc","email":"acme4@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":""}'
+        body: '{"id":6,"name":"4CME Test Inc","slug":"4cme-test-inc","email":"acme4@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":[]}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/companies/5/files'
+        url: 'http://wizaplace.loc/api/v1/companies/6/files'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=b0880f2c0be2eb9a22024dbae87bddc62431e182'
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
-            Authorization: 'token ZAYCC20j+xJZjN9bpNHYoUoQFUME6CkjmyCLxZPP'
+            Content-Type: 'multipart/form-data; boundary=8391a9b9bed256d8c5e62e0e9c7bbe9db598b209'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token pXIiyX39jzyJvrRqDg3lxAVCZhSC3tt2PYTF+JZB'
             VCR-index: '2'
             Accept: null
-        body: "--b0880f2c0be2eb9a22024dbae87bddc62431e182\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"dummy.txt\"\r\nContent-Length: 35\r\nContent-Type: text/plain\r\n\r\nJust a dummy file for upload tests\n\r\n--b0880f2c0be2eb9a22024dbae87bddc62431e182--\r\n"
+        body: "--8391a9b9bed256d8c5e62e0e9c7bbe9db598b209\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"dummy.txt\"\r\nContent-Length: 35\r\nContent-Type: text/plain\r\n\r\nJust a dummy file for upload tests\n\r\n--8391a9b9bed256d8c5e62e0e9c7bbe9db598b209--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 12:29:58 GMT'
+            Date: 'Tue, 26 Jun 2018 13:59:54 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 28dc8d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/28dc8d'
+            X-Debug-Token: d9465c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9465c'
             Content-Length: '48'
             Content-Type: application/json
         body: '{"rib":{"success":false,"error":"Invalid file"}}'
