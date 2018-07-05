@@ -1,0 +1,157 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '835891'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/835891'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            Authorization: 'token PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d601eb
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/d601eb'
+            Content-Length: '712'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511535190,"updated_timestamp":1511535191,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"1","sort_by":"null","items_per_page":"1","sort_order":"asc","total_items":"9"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d72d76
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d72d76'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=2&items_per_page=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            Authorization: 'token PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6613c7
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/6613c7'
+            Content-Length: '665'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511535191,"updated_timestamp":1511535193,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","category_ids":[3],"main_category":3,"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"2","sort_by":"null","items_per_page":"1","sort_order":"asc","total_items":"9"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: f40ad1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f40ad1'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-parsing-utils-uint@4a68942
+            Authorization: 'token PV1NUkMvR5iXqwdcN6ULeAdHLXcqUUZQ5ekt2g0w'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 14:53:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0ac618
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0ac618'
+            Content-Length: '1266'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511535190,"updated_timestamp":1511535191,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511535191,"updated_timestamp":1511535193,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","category_ids":[3],"main_category":3,"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"1","sort_by":"null","items_per_page":"2","sort_order":"asc","total_items":"9"}}'

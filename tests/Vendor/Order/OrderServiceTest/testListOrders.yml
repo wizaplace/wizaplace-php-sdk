@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-customer-names-in-vendor-orders@f909ccf
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 28 May 2018 09:49:38 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ab8166
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab8166'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"9jEWmsY37eLhYmPWzuCFPEoQrGmFDgynZU8D0KvV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-customer-names-in-vendor-orders@f909ccf
+            Authorization: 'token 9jEWmsY37eLhYmPWzuCFPEoQrGmFDgynZU8D0KvV'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 28 May 2018 09:49:39 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 24a23a
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/24a23a'
+            Content-Length: '447'
+            Content-Type: application/json
+        body: '[{"order_id":5,"user_id":7,"basket_id":"b6538eaa-6866-31ee-b1e9-260b3510017a","timestamp":1527500931,"email":"customer-1@world-company.com","status":"P","total":66.7,"customer_firstname":"Paul","customer_lastname":"Martin"},{"order_id":4,"user_id":7,"basket_id":"84d979f9-25c6-3b74-8db2-2f2b07b3c5fd","timestamp":1527500931,"email":"customer-1@world-company.com","status":"H","total":67.9,"customer_firstname":"Paul","customer_lastname":"Martin"}]'

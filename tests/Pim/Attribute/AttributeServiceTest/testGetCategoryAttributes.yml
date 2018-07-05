@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-get-category-attributes@3d59760
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 11:01:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: eb272f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb272f'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"24qy17OZLTXcOJYBnU\/tDGQPlL4sAwNIcklGg5T7"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/categories/6/features'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-pim-get-category-attributes@3d59760
+            Authorization: 'token 24qy17OZLTXcOJYBnU/tDGQPlL4sAwNIcklGg5T7'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 13 Dec 2017 11:01:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4f4369
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4f4369'
+            Content-Length: '1511'
+            Content-Type: application/json
+        body: '[{"feature_id":10,"feature_type":"T","description":"color","categories_path":[]},{"feature_id":3,"feature_type":"T","description":"Commentaire","categories_path":[]},{"feature_id":1,"feature_type":"M","description":"Couleur","categories_path":[],"variants":{"2":{"variant_id":2,"variant":"Blanc"},"1":{"variant_id":1,"variant":"Bleu"},"3":{"variant_id":3,"variant":"Rouge"}}},{"feature_id":9,"feature_type":"E","description":"Marque","categories_path":[],"variants":{"19":{"variant_id":19,"variant":"Adidas"},"18":{"variant_id":18,"variant":"Nike"},"20":{"variant_id":20,"variant":"Puma"}}},{"feature_id":2,"feature_type":"S","description":"Taille","categories_path":[],"variants":{"6":{"variant_id":6,"variant":"L"},"5":{"variant_id":5,"variant":"M"},"4":{"variant_id":4,"variant":"S"}}},{"feature_id":7,"feature_type":"T","description":"Compl\u00e9ment adresse","categories_path":[]},{"feature_id":5,"feature_type":"M","description":"Couleur secondaire","categories_path":[],"variants":{"8":{"variant_id":8,"variant":"Jaune"},"9":{"variant_id":9,"variant":"Orange"},"7":{"variant_id":7,"variant":"Vert"},"10":{"variant_id":10,"variant":"Violet"}}},{"feature_id":6,"feature_type":"S","description":"Pointure","categories_path":[],"variants":{"11":{"variant_id":11,"variant":"38"},"12":{"variant_id":12,"variant":"39"},"13":{"variant_id":13,"variant":"40"},"14":{"variant_id":14,"variant":"41"},"15":{"variant_id":15,"variant":"42"},"16":{"variant_id":16,"variant":"43"},"17":{"variant_id":17,"variant":"44"}}}]'

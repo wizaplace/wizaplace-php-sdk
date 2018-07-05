@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 10:26:11 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: b1693d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b1693d'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"pB9QD1ZS0wIb+dTV0oAtZNh7RV8YwPYYP1Gi\/j5o"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            Authorization: 'token pB9QD1ZS0wIb+dTV0oAtZNh7RV8YwPYYP1Gi/j5o'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 24 Nov 2017 10:26:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a041b8
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/a041b8'
+            Content-Length: '5883'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519149,"updated_timestamp":1511519150,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519150,"updated_timestamp":1511519152,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","category_ids":[3],"main_category":3,"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":3,"product_code":"0000001","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519155,"updated_timestamp":1511519156,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Ecran PC Full HD Noir","category_ids":[4],"main_category":4,"green_tax":0.0,"supplier_ref":"INFO-ECRAN-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":4,"product_code":"0493020427963","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519157,"updated_timestamp":1511519157,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product with shippings","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":13,"price":9.9}],"green_tax":0.0,"supplier_ref":"TEST-SHIPPINGS","condition":"N","free_features":[],"geolocation":{"latitude":45.75845,"longitude":4.799044,"label":"Lyon 5e","zipcode":"69005"},"attachments":[]},{"product_id":5,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519158,"updated_timestamp":1511519159,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product with complex attributes","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":15,"price":15.0}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":6,"product_code":"20230495445","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519160,"updated_timestamp":1511519160,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product with valid geoloc","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":14,"price":0.5}],"green_tax":0.0,"supplier_ref":"TEST-GEOLOC","condition":"N","free_features":[],"geolocation":{"latitude":45.778848,"longitude":4.800039,"label":"Wizacha","zipcode":"69009"},"attachments":[]},{"product_id":7,"product_code":"20230495446","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519160,"updated_timestamp":1511519161,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product with attachments","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":15,"price":0.5}],"green_tax":0.0,"supplier_ref":"TEST-ATTACHMENT","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[{"id":"13a668f8-2d7c-482a-924c-f120b54e60e2","label":"Manuel de montage"},{"id":"3258367f-0646-4632-9687-ca30cc9dac7f","label":"Manuel de montage"}]},{"product_id":8,"product_code":"20230495448","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511519161,"updated_timestamp":1511519162,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product in MVP 1","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":15,"price":0.5}],"green_tax":0.0,"supplier_ref":"TEST-MVP-1","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]},{"product_id":9,"product_code":"20230495449","status":"A","company_id":4,"approved":"Y","weight":1.23,"timestamp":1511519162,"updated_timestamp":1511519162,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Product in MVP 2","category_ids":[5],"main_category":5,"inventory":[{"combination":[],"amount":15,"price":0.5}],"green_tax":0.0,"supplier_ref":"TEST-MVP-2","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"1","sort_by":"null","items_per_page":"100","sort_order":"asc","total_items":"9"}}'

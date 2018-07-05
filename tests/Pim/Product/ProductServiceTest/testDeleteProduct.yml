@@ -1,0 +1,105 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a6de29
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6de29'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
+            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '063709'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/063709'
+            Content-Length: '704'
+            Content-Type: application/json
+        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1512740048,"updated_timestamp":1512740049,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
+            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 1f24c2
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1f24c2'
+            Content-Length: '16'
+            Content-Type: application/json
+        body: '{"message":"Ok"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
+            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Fri, 08 Dec 2017 13:34:34 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 1ef9bf
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1ef9bf'
+            Content-Length: '50'
+            Content-Type: application/json
+        body: '{"message":"Not Found: Array. Array","status":404}'

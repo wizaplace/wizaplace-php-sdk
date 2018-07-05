@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 23 Nov 2017 10:20:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d1d172
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d1d172'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"KDma0nYI3rCO6zfwwjDAJWtZCBtssIWUMPa\/K5Gh"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            Authorization: 'token KDma0nYI3rCO6zfwwjDAJWtZCBtssIWUMPa/K5Gh'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 23 Nov 2017 10:20:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 07fdbf
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/07fdbf'
+            Content-Length: '710'
+            Content-Type: application/json
+        body: '{"product_id":6,"product_code":"20230495445","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511432402,"updated_timestamp":1511432403,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Product with valid geoloc","short_description":"","full_description":"","category_ids":[5],"main_category":5,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":[],"amount":14,"price":0.5}],"green_tax":0.0,"supplier_ref":"TEST-GEOLOC","condition":"N","free_features":[],"geolocation":{"latitude":45.778848,"longitude":4.800039,"label":"Wizacha","zipcode":"69009"},"attachments":[]}'
