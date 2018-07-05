@@ -7,6 +7,14 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 1.27.0
+
+### New features
+
  - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
  - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
  - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
@@ -40,10 +48,6 @@
  - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::listPromotions`
  - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::savePromotion`
  - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::deletePromotion`
-
-### Bugfixes
-
-</details>
 
 ## 1.26.0
 
