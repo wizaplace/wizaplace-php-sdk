@@ -45,6 +45,14 @@
 
 </details>
 
+## 1.26.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
+ - Added `\Wizaplace\SDK\Basket\PaymentType::SEPA_DIRECT`
+ - Added `\Wizaplace\SDK\User\UserService::registerWithFullInfos`
+ 
 ## 1.25.0
 
 ### New features
