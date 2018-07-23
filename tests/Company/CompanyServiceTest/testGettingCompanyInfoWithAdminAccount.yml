@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Jul 2018 09:24:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8a9efe
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a9efe'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"C05iY8pT9a5WrkyYrYaSEG15o4Ujf\/hvHN0RvUPb"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
+            Authorization: 'token C05iY8pT9a5WrkyYrYaSEG15o4Ujf/hvHN0RvUPb'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Mon, 23 Jul 2018 09:24:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '969827'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/969827'
+            Content-Length: '509'
+            Content-Type: application/json
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"01 02 03 04 05","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'
