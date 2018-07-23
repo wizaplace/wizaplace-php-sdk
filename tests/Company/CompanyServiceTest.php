@@ -18,7 +18,6 @@ use Wizaplace\SDK\Company\CompanyService;
 use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
-use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
 
