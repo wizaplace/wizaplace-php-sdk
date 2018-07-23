@@ -18,6 +18,7 @@ use Wizaplace\SDK\Company\CompanyService;
 use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
 
@@ -180,5 +181,46 @@ final class CompanyServiceTest extends ApiTestCase
         $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
 
         return $file;
+    }
+
+    public function testGettingCompanyInfoWithAdminAccount(): void
+    {
+        $service = $this->buildUserCompanyService('admin@wizaplace.com', 'password');
+        $company = $service->getCompany(3);
+
+        $this->assertEquals(3, $company->getId());
+        $this->assertSame('The World Company Inc.', $company->getName());
+        $this->assertSame('coucou@world-company.com', $company->getEmail());
+        $this->assertSame('The World Company Inc.', $company->getDescription());
+        $this->assertSame('75001', $company->getZipcode());
+        $this->assertSame('40 rue Laure Diebold', $company->getAddress());
+        $this->assertSame('Paris', $company->getCity());
+        $this->assertSame('FR', $company->getCountry());
+        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
+        $this->assertSame('the-world-company-inc.', $company->getSlug());
+    }
+
+    public function testGettingVendorCompanyInfoWithVendorAccount(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $company = $service->getCompany(3);
+
+        $this->assertEquals(3, $company->getId());
+        $this->assertSame('The World Company Inc.', $company->getName());
+        $this->assertSame('coucou@world-company.com', $company->getEmail());
+        $this->assertSame('The World Company Inc.', $company->getDescription());
+        $this->assertSame('75001', $company->getZipcode());
+        $this->assertSame('40 rue Laure Diebold', $company->getAddress());
+        $this->assertSame('Paris', $company->getCity());
+        $this->assertSame('FR', $company->getCountry());
+        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
+        $this->assertSame('the-world-company-inc.', $company->getSlug());
+
+    }
+
+    public function testCannotGetOtherCompanyInfoWithVendorAccount(): void
+    {
+        $this->expectException(ClientException::class);
+        $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor')->getCompany(1);
     }
 }

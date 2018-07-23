@@ -163,4 +163,19 @@ final class CompanyService extends AbstractService
             return new FileUploadResult($data['error'] ?? null);
         }, $responseData);
     }
+
+    /**
+     * Return the company matching the given ID
+     * @param int $companyId
+     * @return array
+     * @throws AuthenticationRequired
+     */
+    public function getCompany(int $companyId) :Company
+    {
+        $this->client->mustBeAuthenticated();
+
+        $companyData = $this->client->get('companies/'.$companyId);
+
+        return new Company($companyData);
+    }
 }
