@@ -162,26 +162,6 @@ final class CompanyServiceTest extends ApiTestCase
         $this->buildUserCompanyService()->update((new CompanyUpdateCommand(404))->setPhoneNumber('0123456789'));
     }
 
-    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
-    {
-        $apiClient = $this->buildApiClient();
-        $apiClient->authenticate($email, $password);
-
-        return new CompanyService($apiClient);
-    }
-
-    private function mockUploadedFile(string $filename): UploadedFileInterface
-    {
-        $path = __DIR__.'/../fixtures/files/'.$filename;
-
-        /** @var UploadedFileInterface|PHPUnit_Framework_MockObject_MockObject $file */
-        $file = $this->createMock(UploadedFileInterface::class);
-        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
-        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
-
-        return $file;
-    }
-
     public function testGettingCompanyInfoWithAdminAccount(): void
     {
         $service = $this->buildUserCompanyService('admin@wizaplace.com', 'password');
@@ -214,12 +194,31 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('FR', $company->getCountry());
         $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
         $this->assertSame('the-world-company-inc.', $company->getSlug());
-
     }
 
     public function testCannotGetOtherCompanyInfoWithVendorAccount(): void
     {
         $this->expectException(ClientException::class);
         $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor')->getCompany(1);
+    }
+
+    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate($email, $password);
+
+        return new CompanyService($apiClient);
+    }
+
+    private function mockUploadedFile(string $filename): UploadedFileInterface
+    {
+        $path = __DIR__.'/../fixtures/files/'.$filename;
+
+        /** @var UploadedFileInterface|PHPUnit_Framework_MockObject_MockObject $file */
+        $file = $this->createMock(UploadedFileInterface::class);
+        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
+        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
+
+        return $file;
     }
 }
