@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-company-address@1831135
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -15,15 +15,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 14 Mar 2018 14:51:48 GMT'
+            Date: 'Tue, 26 Jun 2018 12:04:29 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 56f65f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56f65f'
-            Content-Length: '400'
+            X-Debug-Token: 2d4c2b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2d4c2b'
+            Content-Length: '411'
             Content-Type: application/json
-        body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc.","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"terms":"Lorem Ipsum"}'
+        body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc.","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"terms":"Lorem Ipsum"}'
 -
     request:
         method: GET
@@ -31,7 +31,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-company-address@1831135
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '1'
             Accept: null
     response:
@@ -40,12 +40,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 14 Mar 2018 14:51:48 GMT'
+            Date: 'Tue, 26 Jun 2018 12:04:29 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 68b13c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/68b13c'
-            Content-Length: '332'
+            X-Debug-Token: 1ecd2f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1ecd2f'
+            Content-Length: '343'
             Content-Type: application/json
-        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"terms":"Lorem Ipsum"}'
+        body: '{"id":4,"name":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"terms":"Lorem Ipsum"}'

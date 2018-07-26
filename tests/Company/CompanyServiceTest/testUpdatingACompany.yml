@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 19 Mar 2018 14:17:12 GMT'
+            Date: 'Tue, 26 Jun 2018 14:27:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 115e1b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/115e1b'
+            X-Debug-Token: 52f50e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/52f50e'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"8er3pmg3BvcZSKP\/JBHCarfbb+yz4I026PrzVeC9"}'
+        body: '{"id":6,"apiKey":"Knuwv+T0kBB6b36neO6i7xamPrpcZqDD7G\/DFvUg"}'
 -
     request:
         method: PUT
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-company-update@8cca34b
-            Authorization: 'token 8er3pmg3BvcZSKP/JBHCarfbb+yz4I026PrzVeC9'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token Knuwv+T0kBB6b36neO6i7xamPrpcZqDD7G/DFvUg'
             VCR-index: '1'
             Accept: null
         body: '{"phoneNumber":"0987654321"}'
@@ -45,12 +45,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 19 Mar 2018 14:17:13 GMT'
+            Date: 'Tue, 26 Jun 2018 14:27:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '297428'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/297428'
-            Content-Length: '467'
+            X-Debug-Token: fbccda
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fbccda'
+            Content-Length: '505'
             Content-Type: application/json
-        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean"}'
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'

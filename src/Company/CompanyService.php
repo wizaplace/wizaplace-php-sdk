@@ -40,6 +40,7 @@ final class CompanyService extends AbstractService
                 'rcs' => $companyRegistration->getRcs(),
                 'legalStatus' => $companyRegistration->getLegalStatus(),
                 'capital' => $companyRegistration->getCapital(),
+                'extra' => $companyRegistration->getExtra(),
             ],
         ]);
 
@@ -101,6 +102,7 @@ final class CompanyService extends AbstractService
                         'rcs' => $command->getRcs(),
                         'legalStatus' => $command->getLegalStatus(),
                         'capital' => $command->getCapital(),
+                        'extra' => $command->getExtra(),
                     ],
                     static function ($value): bool {
                         return $value !== null;
@@ -134,6 +136,7 @@ final class CompanyService extends AbstractService
                 'capital' => $companyRegistration->getCapital(),
                 'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
                 'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
+                'extra' => $companyRegistration->getExtra(),
             ],
         ]);
 

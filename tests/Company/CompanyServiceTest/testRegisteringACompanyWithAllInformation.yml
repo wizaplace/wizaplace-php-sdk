@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 12:27:20 GMT'
+            Date: 'Tue, 26 Jun 2018 13:56:04 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '298210'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/298210'
+            X-Debug-Token: dae5b4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dae5b4'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"CnkiTcwoQPsv3TGcb0\/R1GPsq3jbzc6DCxHLHjP1"}'
+        body: '{"id":9,"apiKey":"EQ2Qa+FL4rpaT+qUe6\/JfGHWkirOZaIWv+zuVd9J"}'
 -
     request:
         method: POST
@@ -34,52 +34,53 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
-            Authorization: 'token CnkiTcwoQPsv3TGcb0/R1GPsq3jbzc6DCxHLHjP1'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token EQ2Qa+FL4rpaT+qUe6/JfGHWkirOZaIWv+zuVd9J'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME2 Test Inc","email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"France","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $"}'
+        body: '{"name":"ACME2 Test Inc","email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","extra":{"driving_license_number":"654987321"}}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 13 Dec 2017 12:27:21 GMT'
+            Date: 'Tue, 26 Jun 2018 13:56:05 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 7dfe43
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7dfe43'
-            Content-Length: '508'
+            X-Debug-Token: 4d74f5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d74f5'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224d74f5%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A31%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '563'
             Content-Type: application/json
-        body: '{"id":5,"name":"ACME2 Test Inc","slug":"acme-inc","email":"acme2@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"France","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","legalRepresentativeFirstName":"","legalRepresentativeLastName":""}'
+        body: '{"id":6,"name":"ACME2 Test Inc","slug":"acme-inc","email":"acme2@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":{"driving_license_number":"654987321"}}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/companies/5/files'
+        url: 'http://wizaplace.loc/api/v1/companies/6/files'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=30653a65c6e97b51bc131c0d56e9a87c92d40800'
-            User-Agent: Wizaplace-PHP-SDK/dev-update_company_registration@f1c926a
-            Authorization: 'token CnkiTcwoQPsv3TGcb0/R1GPsq3jbzc6DCxHLHjP1'
+            Content-Type: 'multipart/form-data; boundary=b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0'
+            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'token EQ2Qa+FL4rpaT+qUe6/JfGHWkirOZaIWv+zuVd9J'
             VCR-index: '2'
             Accept: null
-        body: "--30653a65c6e97b51bc131c0d56e9a87c92d40800\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--30653a65c6e97b51bc131c0d56e9a87c92d40800\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--30653a65c6e97b51bc131c0d56e9a87c92d40800--\r\n"
+        body: "--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 12:27:24 GMT'
+            Date: 'Tue, 26 Jun 2018 13:56:06 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c22c73
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c22c73'
+            X-Debug-Token: 8484eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8484eb'
             Content-Length: '50'
             Content-Type: application/json
         body: '{"rib":{"success":true},"idCard":{"success":true}}'
