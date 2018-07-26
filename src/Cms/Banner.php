@@ -27,16 +27,23 @@ final class Banner
     private $imageId;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * @internal
      */
     public function __construct(
         UriInterface $link,
         bool $shouldOpenInNewWindow,
-        int $imageId
+        int $imageId,
+        string $name
     ) {
         $this->link = $link;
         $this->shouldOpenInNewWindow = $shouldOpenInNewWindow;
         $this->imageId = $imageId;
+        $this->name = $name;
     }
 
     public function getLink(): UriInterface
@@ -52,5 +59,10 @@ final class Banner
     public function getImageId(): int
     {
         return $this->imageId;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 }
