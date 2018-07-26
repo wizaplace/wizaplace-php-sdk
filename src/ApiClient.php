@@ -27,10 +27,12 @@ use Wizaplace\SDK\Exception\DeclinationIsNotActive;
 use Wizaplace\SDK\Exception\DiscussionNotFound;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
+use Wizaplace\SDK\Exception\InvalidPromotionRule;
 use Wizaplace\SDK\Exception\JsonDecodingError;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\ProductAttachmentNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
+use Wizaplace\SDK\Exception\PromotionNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
@@ -245,6 +247,8 @@ final class ApiClient
                 ProductAttachmentNotFound::class,
                 DiscussionNotFound::class,
                 OrderNotFound::class,
+                PromotionNotFound::class,
+                InvalidPromotionRule::class,
             ];
 
             foreach ($errorsClasses as $errorClass) {

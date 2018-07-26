@@ -18,6 +18,44 @@
 
 </details>
 
+## 1.27.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+ - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeValue`
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
+ - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery`
+ - Added `\Wizaplace\SDK\User\User::getCompanyId`
+ - Added `\Wizaplace\SDK\User\User::isVendor`
+ - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classes
+ - Added `\Wizaplace\SDK\Pim\Category\CategoryService::listCategories`
+ - Added `\Wizaplace\SDK\Pim\Tax\TaxService::listTaxes`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::getPromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::listPromotions`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::savePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::deletePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::getPromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::listPromotions`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::savePromotion`
+ - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::deletePromotion`
+
 ## 1.26.0
 
 ### New features

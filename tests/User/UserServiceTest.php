@@ -209,12 +209,12 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user12@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
 
         $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -284,12 +284,12 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user13@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
 
         $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -309,8 +309,8 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
         $this->assertSame('', $user->getShippingAddress()->getCity());
         $this->assertSame('', $user->getShippingAddress()->getAddress());

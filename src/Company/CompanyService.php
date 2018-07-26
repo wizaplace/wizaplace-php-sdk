@@ -149,6 +149,21 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * Return the company matching the given ID
+     * @param int $companyId
+     * @return Company
+     * @throws AuthenticationRequired
+     */
+    public function getCompany(int $companyId) :Company
+    {
+        $this->client->mustBeAuthenticated();
+
+        $companyData = $this->client->get('companies/'.$companyId);
+
+        return new Company($companyData);
+    }
+
+    /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */

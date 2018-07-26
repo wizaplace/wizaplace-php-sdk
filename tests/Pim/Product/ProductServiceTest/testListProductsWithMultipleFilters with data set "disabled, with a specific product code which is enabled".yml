@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:19:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8253d1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8253d1'
+            Content-Length: '62'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"gEddsWboHKBcT\/2Dgcg9HX9nIYF9JOIjUSO4UKp\/"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&status=D&pcode=20230495445'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            Authorization: 'token gEddsWboHKBcT/2Dgcg9HX9nIYF9JOIjUSO4UKp/'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:19:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '252e73'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/252e73'
+            Content-Length: '149'
+            Content-Type: application/json
+        body: '{"products":[],"params":{"page":"1","sort_by":"null","items_per_page":"100","status":"D","pcode":"20230495445","sort_order":"asc","total_items":"0"}}'
