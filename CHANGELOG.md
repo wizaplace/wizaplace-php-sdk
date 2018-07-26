@@ -7,16 +7,20 @@
 
 ### New features
 
+### Bugfixes
+
+</details>
+
+## 1.28.0
+
  - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getExtra`
  - Added `\Wizaplace\SDK\Company\Company::getExtra`
  - Added `\Wizaplace\SDK\Company\CompanyRegistration::getExtra`
  - Added `\Wizaplace\SDK\Company\CompanyRegistration::setExtra`
  - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getExtra`
  - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setExtra`
-
-### Bugfixes
-
-</details>
+ - Added `\Wizaplace\SDK\Cms\Banner::getName`
+ - Added `\Wizaplace\SDK\Company\CompanyService::getCompany`
 
 ## 1.27.0
 
