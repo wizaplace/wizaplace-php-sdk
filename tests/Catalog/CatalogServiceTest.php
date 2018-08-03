@@ -44,6 +44,16 @@ use Wizaplace\SDK\Tests\ApiTestCase;
  */
 final class CatalogServiceTest extends ApiTestCase
 {
+    public function testGetAllProducts()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $products = iterator_to_array($catalogService->getAllProducts());
+
+        $this->assertCount(12, $products);
+        $this->assertInstanceOf(ProductSummary::class, $products[0]);
+    }
+
     public function testGetProductById()
     {
         $catalogService = $this->buildCatalogService();

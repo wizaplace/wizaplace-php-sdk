@@ -20,6 +20,11 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
         $this->decorated = $decorated;
     }
 
+    public function getAllProducts(): \Generator
+    {
+        return $this->decorated->getAllProducts();
+    }
+
     public function getProductById(string $id): Product
     {
         return $this->decorated->getProductById($id);
