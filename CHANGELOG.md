@@ -11,7 +11,15 @@
 
 </details>
 
+## 1.29.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
+
 ## 1.28.0
+
+### New features
 
  - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getExtra`
  - Added `\Wizaplace\SDK\Company\Company::getExtra`
@@ -67,7 +75,7 @@
  - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
  - Added `\Wizaplace\SDK\Basket\PaymentType::SEPA_DIRECT`
  - Added `\Wizaplace\SDK\User\UserService::registerWithFullInfos`
- 
+
 ## 1.25.0
 
 ### New features
@@ -587,7 +595,7 @@
 - `ProductAttribute::getValue` does not crash anymore with strings attributes
 - `OrderService::getOrderReturn` wasn't working at all. It is now fixed and tested.
 - `OrderService::getReturnTypes` wasn't working at all. It is now fixed, tested, and renamed (as seen in the breaking changes list)
-- `\Wizaplace\Basket\Payment::getImage` wasn't working at all. It is now fixed and tested. 
+- `\Wizaplace\Basket\Payment::getImage` wasn't working at all. It is now fixed and tested.
 
 ## 0.4.2
 
@@ -626,7 +634,7 @@
 - Fix `\Wizaplace\Basket\BasketService::create` which was systematically crashing since version 0.3.0
 
 
-## 0.3.0 
+## 0.3.0
 
 ### BREAKING CHANGES
 

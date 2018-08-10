@@ -17,6 +17,49 @@ use function theodorejb\polycast\to_string;
 
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
+    public function getAllProducts(): \Generator
+    {
+        $page = 1;
+
+        while (true) {
+            $response = $this->client->get("catalog/export/{$page}");
+
+            if (!isset($response['result']) || !is_array($response['result'])) {
+                throw new \Exception('Results missing in response');
+            }
+
+            foreach ($response['result'] as $item) {
+                $data = [
+                    'productId' => $item['id'],
+                    'name' => $item['name'],
+                    'shortDescription' => $item['shortDescription'],
+                    'subtitle' => '',
+                    'minimumPrice' => null,
+                    'crossedOutPrice' => null,
+                    'isAvailable' => null,
+                    'url' => $item['url'],
+                    'declinationCount' => null,
+                    'mainImage' => null,
+                    'conditions' => [],
+                    'attributes' => [],
+                    'categoryPath' => [],
+                    'slug' => $item['slug'],
+                    'companies' => [],
+                    'createdAt' => \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $item['createdAt'])->getTimestamp(),
+                    'updatedAt' => \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $item['updatedAt'])->getTimestamp(),
+                ];
+
+                yield new ProductSummary($data);
+            }
+
+            if ($response['pagination']['page'] >= $response['pagination']['nbPages']) {
+                break;
+            }
+
+            $page++;
+        }
+    }
+
     /**
      * @throws ProductNotFound
      */
