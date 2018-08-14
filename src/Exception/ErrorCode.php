@@ -27,6 +27,7 @@ use MyCLabs\Enum\Enum;
  * @method static ErrorCode ORDER_NOT_FOUND()
  * @method static ErrorCode PROMOTION_NOT_FOUND()
  * @method static ErrorCode INVALID_PROMOTION_RULE()
+ * @method Static ErrorCode USER_DOESNT_BELONG_TO_ORGANISATION()
  */
 final class ErrorCode extends Enum
 {
@@ -46,4 +47,5 @@ final class ErrorCode extends Enum
     private const ORDER_NOT_FOUND = 14;
     private const PROMOTION_NOT_FOUND = 15;
     private const INVALID_PROMOTION_RULE = 16;
+    private const USER_DOESNT_BELONG_TO_ORGANISATION = 17;
 }
