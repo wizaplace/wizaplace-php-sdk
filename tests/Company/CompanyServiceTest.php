@@ -48,7 +48,9 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
 
-        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
+
+        $result = $companyService->register($companyRegistration);
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
@@ -73,6 +75,15 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertNull($result->getFileUploadResult('rib')->getErrorMessage());
         $this->assertTrue($result->getFileUploadResult('idCard')->isSuccess());
         $this->assertNull($result->getFileUploadResult('idCard')->getErrorMessage());
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        $this->assertCount(2, $files);
+        foreach ($files as $file) {
+            $response = $companyService->getCompanyFile($file);
+
+            $this->assertSame('application/pdf', $response->getHeaderLine('Content-Type'));
+            $this->assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
+        }
     }
 
     public function testRegisteringACompanyWithMinimalInformation()

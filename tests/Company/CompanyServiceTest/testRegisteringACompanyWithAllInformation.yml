@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 13:56:04 GMT'
+            Date: 'Tue, 14 Aug 2018 13:28:05 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: dae5b4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dae5b4'
+            X-Debug-Token: 57b6b9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/57b6b9'
             Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"EQ2Qa+FL4rpaT+qUe6\/JfGHWkirOZaIWv+zuVd9J"}'
+        body: '{"id":9,"apiKey":"ms2ghKdLwJHRrSCo2MyMNucsasD\/GhRWl3uElF92"}'
 -
     request:
         method: POST
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
-            Authorization: 'token EQ2Qa+FL4rpaT+qUe6/JfGHWkirOZaIWv+zuVd9J'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
+            Authorization: 'token ms2ghKdLwJHRrSCo2MyMNucsasD/GhRWl3uElF92'
             VCR-index: '1'
             Accept: null
         body: '{"name":"ACME2 Test Inc","email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","extra":{"driving_license_number":"654987321"}}'
@@ -45,13 +45,13 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 26 Jun 2018 13:56:05 GMT'
+            Date: 'Tue, 14 Aug 2018 13:28:05 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 4d74f5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d74f5'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224d74f5%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A31%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Debug-Token: f61556
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f61556'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22f61556%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A33%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '563'
             Content-Type: application/json
         body: '{"id":6,"name":"ACME2 Test Inc","slug":"acme-inc","email":"acme2@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":{"driving_license_number":"654987321"}}'
@@ -63,24 +63,108 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0'
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
-            Authorization: 'token EQ2Qa+FL4rpaT+qUe6/JfGHWkirOZaIWv+zuVd9J'
+            Content-Type: 'multipart/form-data; boundary=c6c7142a84a46f25f8b1b388fa3249ea5d2c1051'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
+            Authorization: 'token ms2ghKdLwJHRrSCo2MyMNucsasD/GhRWl3uElF92'
             VCR-index: '2'
             Accept: null
-        body: "--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--b7ec7c96f5e8c5efbbb9d36b3ec7483f5eb631a0--\r\n"
+        body: "--c6c7142a84a46f25f8b1b388fa3249ea5d2c1051\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--c6c7142a84a46f25f8b1b388fa3249ea5d2c1051\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--c6c7142a84a46f25f8b1b388fa3249ea5d2c1051--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 13:56:06 GMT'
+            Date: 'Tue, 14 Aug 2018 13:28:06 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 8484eb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8484eb'
+            X-Debug-Token: eb73cf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb73cf'
             Content-Length: '50'
             Content-Type: application/json
         body: '{"rib":{"success":true},"idCard":{"success":true}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/6/files'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
+            Authorization: 'token ms2ghKdLwJHRrSCo2MyMNucsasD/GhRWl3uElF92'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 14 Aug 2018 13:28:06 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 04f9ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/04f9ed'
+            Content-Length: '16'
+            Content-Type: application/json
+        body: '["idCard","rib"]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/6/files/idCard'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
+            Authorization: 'token ms2ghKdLwJHRrSCo2MyMNucsasD/GhRWl3uElF92'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 14 Aug 2018 13:28:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: public
+            Last-Modified: 'Tue, 14 Aug 2018 13:28:06 GMT'
+            Content-Disposition: 'attachment; filename="w_ID_card_6_minimal.pdf"'
+            Content-Length: '739'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            X-Debug-Token: '2e6029'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e6029'
+            Content-Type: application/pdf
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/6/files/rib'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@b3bcc67
+            Authorization: 'token ms2ghKdLwJHRrSCo2MyMNucsasD/GhRWl3uElF92'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 14 Aug 2018 13:28:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: public
+            Last-Modified: 'Tue, 14 Aug 2018 13:28:06 GMT'
+            Content-Disposition: 'attachment; filename="w_RIB_6_minimal.pdf"'
+            Content-Length: '739'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            X-Debug-Token: 9240fa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9240fa'
+            Content-Type: application/pdf
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
