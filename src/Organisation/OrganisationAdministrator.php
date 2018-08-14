@@ -6,7 +6,6 @@
 
 namespace Wizaplace\SDK\Organisation;
 
-
 use Symfony\Component\Validator\Constraints\Uuid;
 use function theodorejb\polycast\to_string;
 
@@ -30,12 +29,6 @@ class OrganisationAdministrator
     /** @var string */
     private $occupation;
 
-    /** @var Uuid */
-    private $identityCard;
-
-    /** @var Uuid */
-    private $proofOfAppointment;
-
     public function __construct(array $data)
     {
         $this->email = to_string($data['email']);
@@ -44,8 +37,20 @@ class OrganisationAdministrator
         $this->password = to_string($data['password']);
         $this->title = to_string($data['title']);
         $this->occupation = to_string($data['occupation']);
-        $this->identityCard = $data['identityCard'];
-        $this->proofOfAppointment = $data['proofOfAppointment'];
+    }
+
+    public function toArray()
+    {
+        $data = [];
+
+        $data['email'] = isset($this->email) ? $this->email : '';
+        $data['firstName'] = isset($this->firstName) ? $this->firstName : '';
+        $data['lastName'] = isset($this->lastName) ? $this->lastName : '';
+        $data['password'] = isset($this->password) ? $this->password : '';
+        $data['title'] = isset($this->title) ? $this->title : '';
+        $data['occupation'] = isset($this->occupation) ? $this->occupation : '';
+
+        return $data;
     }
 
     /**
@@ -142,37 +147,5 @@ class OrganisationAdministrator
     public function setOccupation(string $occupation): void
     {
         $this->occupation = $occupation;
-    }
-
-    /**
-     * @return Uuid
-     */
-    public function getIdentityCard(): Uuid
-    {
-        return $this->identityCard;
-    }
-
-    /**
-     * @param Uuid $identityCard
-     */
-    public function setIdentityCard(Uuid $identityCard): void
-    {
-        $this->identityCard = $identityCard;
-    }
-
-    /**
-     * @return Uuid
-     */
-    public function getProofOfAppointment(): Uuid
-    {
-        return $this->proofOfAppointment;
-    }
-
-    /**
-     * @param Uuid $proofOfAppointment
-     */
-    public function setProofOfAppointment(Uuid $proofOfAppointment): void
-    {
-        $this->proofOfAppointment = $proofOfAppointment;
     }
 }

@@ -23,27 +23,27 @@ final class Organisation
     private $address;
 
     /** @var OrganisationAddress */
-    private $shipping_address;
+    private $shippingAddress;
 
     /** @var string */
-    private $legal_information_siret;
+    private $legalInformationSiret;
 
     /** @var string */
-    private $legal_information_vat_number;
+    private $legalInformationVatNumber;
 
     /** @var string */
-    private $legal_information_business_name;
+    private $legalInformationBusinessName;
 
     /** @var string */
-    private $business_unit_code;
+    private $businessUnitCode;
 
     /** @var string */
-    private $business_unit_name;
+    private $businessUnitName;
 
     /** @var string */
     private $status = 'pending';
 
-    /** @var array */
+    /** @var OrganisationAdministrator */
     private $administrator;
 
     /** @var array */
@@ -51,17 +51,17 @@ final class Organisation
 
     public function __construct(array $data)
     {
-        $this->id = to_string($data['id']);
+        $this->id = isset($data['id']) ? to_string($data['id']) : null;
         $this->name = to_string($data['name']);
-        $this->address = $data['address'];
-        $this->shipping_address = $data['shippingAddress'];
-        $this->legal_information_siret = to_string($data['siret']);
-        $this->legal_information_vat_number = to_string($data['vatNumber']);
-        $this->legal_information_business_name = to_string($data['businessName']);
-        $this->business_unit_code = to_string($data['businessUnitCode']);
-        $this->business_unit_name = to_string($data['businessUnitName']);
-        $this->status = to_string($data['status']);
-        $this->administrator = isset($data['administrator']) ? $data['administrator'] : null;
+        $this->address = new OrganisationAddress($data['address']);
+        $this->shippingAddress = new OrganisationAddress($data['shippingAddress']);
+        $this->legalInformationSiret = to_string($data['siret']);
+        $this->legalInformationVatNumber = to_string($data['vatNumber']);
+        $this->legalInformationBusinessName = to_string($data['businessName']);
+        $this->businessUnitCode = to_string($data['businessUnitCode']);
+        $this->businessUnitName = to_string($data['businessUnitName']);
+        $this->status = isset($data['status']) ? to_string($data['status']) : null;
+        $this->administrator = isset($data['administrator']) ? new OrganisationAdministrator($data['administrator']) : null;
     }
 
     /**
@@ -109,15 +109,15 @@ final class Organisation
      */
     public function getShippingAddress(): OrganisationAddress
     {
-        return $this->shipping_address;
+        return $this->shippingAddress;
     }
 
     /**
-     * @param OrganisationAddress $shipping_address
+     * @param OrganisationAddress $shippingAddress
      */
-    public function setShippingAddress(OrganisationAddress $shipping_address): void
+    public function setShippingAddress(OrganisationAddress $shippingAddress): void
     {
-        $this->shipping_address = $shipping_address;
+        $this->shippingAddress = $shippingAddress;
     }
 
     /**
@@ -125,15 +125,15 @@ final class Organisation
      */
     public function getLegalInformationSiret(): string
     {
-        return $this->legal_information_siret;
+        return $this->legalInformationSiret;
     }
 
     /**
-     * @param string $legal_information_siret
+     * @param string $legalInformationSiret
      */
-    public function setLegalInformationSiret(string $legal_information_siret): void
+    public function setLegalInformationSiret(string $legalInformationSiret): void
     {
-        $this->legal_information_siret = $legal_information_siret;
+        $this->legalInformationSiret = $legalInformationSiret;
     }
 
     /**
@@ -141,15 +141,15 @@ final class Organisation
      */
     public function getLegalInformationVatNumber(): string
     {
-        return $this->legal_information_vat_number;
+        return $this->legalInformationVatNumber;
     }
 
     /**
-     * @param string $legal_information_vat_number
+     * @param string $legalInformationVatNumber
      */
-    public function setLegalInformationVatNumber(string $legal_information_vat_number): void
+    public function setLegalInformationVatNumber(string $legalInformationVatNumber): void
     {
-        $this->legal_information_vat_number = $legal_information_vat_number;
+        $this->legalInformationVatNumber = $legalInformationVatNumber;
     }
 
     /**
@@ -157,15 +157,15 @@ final class Organisation
      */
     public function getLegalInformationBusinessName(): string
     {
-        return $this->legal_information_business_name;
+        return $this->legalInformationBusinessName;
     }
 
     /**
-     * @param string $legal_information_business_name
+     * @param string $legalInformationBusinessName
      */
-    public function setLegalInformationBusinessName(string $legal_information_business_name): void
+    public function setLegalInformationBusinessName(string $legalInformationBusinessName): void
     {
-        $this->legal_information_business_name = $legal_information_business_name;
+        $this->legalInformationBusinessName = $legalInformationBusinessName;
     }
 
     /**
@@ -173,15 +173,15 @@ final class Organisation
      */
     public function getBusinessUnitCode(): string
     {
-        return $this->business_unit_code;
+        return $this->businessUnitCode;
     }
 
     /**
-     * @param string $business_unit_code
+     * @param string $businessUnitCode
      */
-    public function setBusinessUnitCode(string $business_unit_code): void
+    public function setBusinessUnitCode(string $businessUnitCode): void
     {
-        $this->business_unit_code = $business_unit_code;
+        $this->businessUnitCode = $businessUnitCode;
     }
 
     /**
@@ -189,15 +189,15 @@ final class Organisation
      */
     public function getBusinessUnitName(): string
     {
-        return $this->business_unit_name;
+        return $this->businessUnitName;
     }
 
     /**
-     * @param string $business_unit_name
+     * @param string $businessUnitName
      */
-    public function setBusinessUnitName(string $business_unit_name): void
+    public function setBusinessUnitName(string $businessUnitName): void
     {
-        $this->business_unit_name = $business_unit_name;
+        $this->businessUnitName = $businessUnitName;
     }
 
     /**
@@ -217,17 +217,17 @@ final class Organisation
     }
 
     /**
-     * @return array
+     * @return OrganisationAdministrator
      */
-    public function getAdministrator(): array
+    public function getAdministrator(): OrganisationAdministrator
     {
         return $this->administrator;
     }
 
     /**
-     * @param array $administrator
+     * @param OrganisationAdministrator $administrator
      */
-    public function setAdministrator(array $administrator): void
+    public function setAdministrator(OrganisationAdministrator $administrator): void
     {
         $this->administrator = $administrator;
     }

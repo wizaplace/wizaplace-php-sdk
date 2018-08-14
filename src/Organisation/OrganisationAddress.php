@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Organisation;
 
-
 use function theodorejb\polycast\to_string;
 
 class OrganisationAddress
@@ -16,10 +15,10 @@ class OrganisationAddress
     private $address;
 
     /** @var string */
-    private $additional_address;
+    private $additionalAddress;
 
     /** @var string */
-    private $zip_code;
+    private $zipCode;
 
     /** @var string */
     private $city;
@@ -33,8 +32,8 @@ class OrganisationAddress
     public function __construct(array $data)
     {
         $this->address = to_string($data['address']);
-        $this->additional_address = to_string($data['additional_address']);
-        $this->zip_code = to_string($data['zip_code']);
+        $this->additionalAddress = to_string($data['additionalAddress']);
+        $this->zipCode = to_string($data['zipCode']);
         $this->city = to_string($data['city']);
         $this->state = to_string($data['state']);
         $this->country = to_string($data['country']);
@@ -45,8 +44,8 @@ class OrganisationAddress
         $data = [];
 
         $data['address'] = isset($this->address) ? $this->address : '';
-        $data['additionalAddress'] = isset($this->additional_address) ? $this->additional_address : '';
-        $data['zipCode'] = isset($this->zip_code) ? $this->zip_code : '';
+        $data['additionalAddress'] = isset($this->additionalAddress) ? $this->additionalAddress : '';
+        $data['zipCode'] = isset($this->zipCode) ? $this->zipCode : '';
         $data['city'] = isset($this->city) ? $this->city : '';
         $data['state'] = isset($this->state) ? $this->state : '';
         $data['country'] = isset($this->country) ? $this->country : '';
@@ -75,15 +74,15 @@ class OrganisationAddress
      */
     public function getAdditionalAddress(): string
     {
-        return $this->additional_address;
+        return $this->additionalAddress;
     }
 
     /**
-     * @param string $additional_address
+     * @param string $additionalAddress
      */
-    public function setAdditionalAddress(string $additional_address): void
+    public function setAdditionalAddress(string $additionalAddress): void
     {
-        $this->additional_address = $additional_address;
+        $this->additionalAddress = $additionalAddress;
     }
 
     /**
@@ -91,15 +90,15 @@ class OrganisationAddress
      */
     public function getZipCode(): string
     {
-        return $this->zip_code;
+        return $this->zipCode;
     }
 
     /**
-     * @param string $zip_code
+     * @param string $zipCode
      */
-    public function setZipCode(string $zip_code): void
+    public function setZipCode(string $zipCode): void
     {
-        $this->zip_code = $zip_code;
+        $this->zipCode = $zipCode;
     }
 
     /**

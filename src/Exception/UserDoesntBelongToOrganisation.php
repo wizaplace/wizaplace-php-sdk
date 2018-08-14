@@ -8,7 +8,6 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Exception;
 
-
 final class UserDoesntBelongToOrganisation extends \Exception implements DomainError
 {
     /**
