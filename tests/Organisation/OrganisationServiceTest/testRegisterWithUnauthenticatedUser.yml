@@ -1,0 +1,83 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/organisations/registrations'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=def8ed24383478e3583f44daf58df709e41826a7'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            VCR-index: '0'
+            Accept: null
+        body: "--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 15\r\n\r\nGalactic Empire\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"businessName\"\r\nContent-Length: 8\r\n\r\nL'Empire\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"businessUnitName\"\r\nContent-Length: 10\r\n\r\nDeath Star\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"businessUnitCode\"\r\nContent-Length: 2\r\n\r\nDS\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"siret\"\r\nContent-Length: 12\r\n\r\nDS9988776655\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"vatNumber\"\r\nContent-Length: 12\r\n\r\nDS1122334455\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[address]\"\r\nContent-Length: 10\r\n\r\nLa Cantina\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[additionalAddress]\"\r\nContent-Length: 14\r\n\r\nHan Shot First\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[zipCode]\"\r\nContent-Length: 5\r\n\r\n69521\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[city]\"\r\nContent-Length: 9\r\n\r\nMos Esley\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[state]\"\r\nContent-Length: 18\r\n\r\nBordure Exterieure\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"address[country]\"\r\nContent-Length: 6\r\n\r\nFrance\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[address]\"\r\nContent-Length: 10\r\n\r\nLa Cantina\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[additionalAddress]\"\r\nContent-Length: 14\r\n\r\nHan Shot First\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[zipCode]\"\r\nContent-Length: 5\r\n\r\n69521\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[city]\"\r\nContent-Length: 9\r\n\r\nMos Esley\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[state]\"\r\nContent-Length: 18\r\n\r\nBordure Exterieure\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"shippingAddress[country]\"\r\nContent-Length: 6\r\n\r\nFrance\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[email]\"\r\nContent-Length: 16\r\n\r\ndarth@empire.com\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[firstName]\"\r\nContent-Length: 6\r\n\r\nAnakin\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[lastName]\"\r\nContent-Length: 9\r\n\r\nSkywalker\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[password]\"\r\nContent-Length: 4\r\n\r\njedi\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[title]\"\r\nContent-Length: 2\r\n\r\nmr\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"administrator[occupation]\"\r\nContent-Length: 16\r\n\r\nkill the emperor\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"identityCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--def8ed24383478e3583f44daf58df709e41826a7\r\nContent-Disposition: form-data; name=\"proofOfAppointment\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--def8ed24383478e3583f44daf58df709e41826a7--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:06:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Location: /api/v1/organisations/dfbb9f44-a14c-11e8-84dd-080027ea4cb6
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6bbc11
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6bbc11'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%226bbc11%22%2C%22route%22%3A%22api_organisation_registration%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationController%22%2C%22method%22%3A%22registrationAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationController.php%22%2C%22line%22%3A31%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '548'
+            Content-Type: application/json
+        body: '{"id":"dfbb9f44-a14c-11e8-84dd-080027ea4cb6","name":"Galactic Empire","businessName":"L\u0027Empire","siret":"DS9988776655","vatNumber":"DS1122334455","businessUnitCode":"DS","businessUnitName":"Death Star","address":{"address":"La Cantina","additionalAddress":"Han Shot First","zipCode":"69521","city":"Mos Esley","state":"Bordure Exterieure","country":"France"},"shippingAddress":{"address":"La Cantina","additionalAddress":"Han Shot First","zipCode":"69521","city":"Mos Esley","state":"Bordure Exterieure","country":"France"},"status":"pending"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:06:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 082f53
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/082f53'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"F0eGPOSxxGcLdfsvNfzE2NDGwqVXCshnuOSCIzOS"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/dfbb9f44-a14c-11e8-84dd-080027ea4cb6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            Authorization: 'token F0eGPOSxxGcLdfsvNfzE2NDGwqVXCshnuOSCIzOS'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:06:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c47990
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c47990'
+            Content-Length: '548'
+            Content-Type: application/json
+        body: '{"id":"dfbb9f44-a14c-11e8-84dd-080027ea4cb6","name":"Galactic Empire","businessName":"L\u0027Empire","siret":"DS9988776655","vatNumber":"DS1122334455","businessUnitCode":"DS","businessUnitName":"Death Star","address":{"address":"La Cantina","additionalAddress":"Han Shot First","zipCode":"69521","city":"Mos Esley","state":"Bordure Exterieure","country":"France"},"shippingAddress":{"address":"La Cantina","additionalAddress":"Han Shot First","zipCode":"69521","city":"Mos Esley","state":"Bordure Exterieure","country":"France"},"status":"pending"}'

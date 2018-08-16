@@ -28,8 +28,6 @@ class OrganisationService extends AbstractService
      */
     public function register(Organisation $organisation)
     {
-//        $this->client->mustBeAuthenticated();
-
         $data = [
             'name' => $organisation->getName(),
             'businessName' => $organisation->getLegalInformationBusinessName(),
@@ -46,9 +44,9 @@ class OrganisationService extends AbstractService
 
         $dataToSend = [];
 
-        $flat_array = $this->flattenArray($data);
+        $flatArray = $this->flattenArray($data);
 
-        foreach($flat_array as $key => $value) {
+        foreach ($flatArray as $key => $value) {
             $dataToSend[] = [
                 'name'  => $key,
                 'contents' => $value,
@@ -185,7 +183,7 @@ class OrganisationService extends AbstractService
             ]);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                throw new InvalidArgumentException("Invalid request", $e);
+                throw new \Exception("Invalid request", $e);
             }
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
@@ -225,7 +223,7 @@ class OrganisationService extends AbstractService
             return $responseData;
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                throw new InvalidArgumentException("Invalid request", $e);
+                throw new \Exception("Invalid request", $e);
             }
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
@@ -239,26 +237,93 @@ class OrganisationService extends AbstractService
 
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1baskets/post
+     *
+     * @param string $organisationId
+     * @param string $name
+     * @return array|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
      */
-    public function addBasket()
+    public function addBasket(string $organisationId, string $name)
     {
         $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets', [
+                RequestOptions::FORM_PARAMS => [
+                    'name' => $name,
+                ],
+            ]);
+
+            return $responseData;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
     }
 
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1baskets~1{basketId}~1lock/post
+     *
+     * @param string $organisationId
+     * @param string $basketId
+     * @return array|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
      */
-    public function lockBasket()
+    public function lockBasket(string $organisationId, string $basketId)
     {
         $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/lock');
+
+            return $responseData;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
     }
 
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1baskets~1{basketId}~1validation/post
+     *
+     * @param string $organisationId
+     * @param string $basketId
+     * @return array|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
      */
-    public function basketValidation()
+    public function basketValidation(string $organisationId, string $basketId)
     {
         $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/validation');
+
+            return $responseData;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
     }
 
     /**
@@ -270,25 +335,29 @@ class OrganisationService extends AbstractService
      * ['name' => 'obiwan', ['address' => ['street' => 'main street', 'city' => 'Mos Esley']]
      * needs to be flatten to
      * ['name' => 'obiwan', 'address[street]' => 'main street', 'address[city]' => 'Mos esley']
-    */
-    private function flattenArray(array $array, string $original_key = '')
+     *
+     * @param array $array
+     * @param string $originalKey
+     * @return array
+     */
+    private function flattenArray(array $array, string $originalKey = '')
     {
         $output = [];
 
         foreach ($array as $key => $value) {
-            $new_key = $original_key;
-            if (empty($original_key)) {
-                $new_key .= $key;
+            $newKey = $originalKey;
+            if (empty($originalKey)) {
+                $newKey .= $key;
             } else {
-                $new_key .= '[' . $key . ']';
+                $newKey .= '['.$key.']';
             }
 
             if (is_array($value)) {
-                $output = array_merge($output, $this->flattenArray($value, $new_key));
+                $output = array_merge($output, $this->flattenArray($value, $newKey));
             } elseif ($value instanceof OrganisationAddress || $value instanceof OrganisationAdministrator) {
-                $output = array_merge($output, $this->flattenArray($value->toArray(), $new_key));
+                $output = array_merge($output, $this->flattenArray($value->toArray(), $newKey));
             } else {
-                $output[$new_key] = $value;
+                $output[$newKey] = $value;
             }
         }
 
