@@ -23,7 +23,6 @@ final class CompanyFile
         $this->filename = $filename;
     }
 
-
     public function getCompanyId(): int
     {
         return $this->companyId;

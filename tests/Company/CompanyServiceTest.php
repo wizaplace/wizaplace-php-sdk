@@ -79,7 +79,7 @@ final class CompanyServiceTest extends ApiTestCase
         $files = $companyService->getCompanyFiles($company->getId());
         $this->assertCount(2, $files);
         foreach ($files as $file) {
-            $response = $companyService->getCompanyFile($file);
+            $response = $companyService->fetchFile($file);
 
             $this->assertSame('application/pdf', $response->getHeaderLine('Content-Type'));
             $this->assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));

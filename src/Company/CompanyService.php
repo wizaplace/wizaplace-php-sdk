@@ -180,7 +180,7 @@ final class CompanyService extends AbstractService
         return $return;
     }
 
-    public function getCompanyFile(CompanyFile $file) :ResponseInterface
+    public function fetchFile(CompanyFile $file) :ResponseInterface
     {
         $this->client->mustBeAuthenticated();
 
