@@ -96,38 +96,42 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $organisation = $organisationService->get($organisationId);
+        if (is_string($organisationId)) {
+            $organisation = $organisationService->get($organisationId);
 
-        $this->assertSame($organisationId, $organisation->getId());
-        $this->assertSame('University of New York', $organisation->getName());
-        $this->assertSame('University of New York', $organisation->getLegalInformationBusinessName());
-        $this->assertSame('44229377500031', $organisation->getLegalInformationSiret());
-        $this->assertSame('FR99999999999', $organisation->getLegalInformationVatNumber());
-        $this->assertSame('NTW', $organisation->getBusinessUnitCode());
-        $this->assertSame('Network Infrastructure', $organisation->getBusinessUnitName());
-        $this->assertSame("194 Lindale Avenue", $organisation->getAddress()->getAddress());
-        $this->assertSame("", $organisation->getAddress()->getAdditionalAddress());
-        $this->assertSame("94801", $organisation->getAddress()->getZipCode());
-        $this->assertSame("Richmond", $organisation->getAddress()->getCity());
-        $this->assertSame("", $organisation->getAddress()->getState());
-        $this->assertSame("US", $organisation->getAddress()->getCountry());
-        $this->assertSame("4917 Snyder Avenue", $organisation->getShippingAddress()->getAddress());
-        $this->assertSame("", $organisation->getShippingAddress()->getAdditionalAddress());
-        $this->assertSame("28209", $organisation->getShippingAddress()->getZipCode());
-        $this->assertSame("North Carolina", $organisation->getShippingAddress()->getCity());
-        $this->assertSame("", $organisation->getShippingAddress()->getState());
-        $this->assertSame("US", $organisation->getShippingAddress()->getCountry());
-        $this->assertSame('pending', $organisation->getStatus());
+            $this->assertSame($organisationId, $organisation->getId());
+            $this->assertSame('University of New York', $organisation->getName());
+            $this->assertSame('University of New York', $organisation->getLegalInformationBusinessName());
+            $this->assertSame('44229377500031', $organisation->getLegalInformationSiret());
+            $this->assertSame('FR99999999999', $organisation->getLegalInformationVatNumber());
+            $this->assertSame('NTW', $organisation->getBusinessUnitCode());
+            $this->assertSame('Network Infrastructure', $organisation->getBusinessUnitName());
+            $this->assertSame("194 Lindale Avenue", $organisation->getAddress()->getAddress());
+            $this->assertSame("", $organisation->getAddress()->getAdditionalAddress());
+            $this->assertSame("94801", $organisation->getAddress()->getZipCode());
+            $this->assertSame("Richmond", $organisation->getAddress()->getCity());
+            $this->assertSame("", $organisation->getAddress()->getState());
+            $this->assertSame("US", $organisation->getAddress()->getCountry());
+            $this->assertSame("4917 Snyder Avenue", $organisation->getShippingAddress()->getAddress());
+            $this->assertSame("", $organisation->getShippingAddress()->getAdditionalAddress());
+            $this->assertSame("28209", $organisation->getShippingAddress()->getZipCode());
+            $this->assertSame("North Carolina", $organisation->getShippingAddress()->getCity());
+            $this->assertSame("", $organisation->getShippingAddress()->getState());
+            $this->assertSame("US", $organisation->getShippingAddress()->getCountry());
+            $this->assertSame('pending', $organisation->getStatus());
+        }
     }
 
     public function testCannotGetOrganisationIfNotOwned()
     {
         $organisationId = $this->getOrganisationId();
 
-        $organisationService = $this->buildOrganisationService();
+        if (is_string($organisationId)) {
+            $organisationService = $this->buildOrganisationService();
 
-        $this->expectExceptionCode(404);
-        $organisationService->get($organisationId);
+            $this->expectExceptionCode(404);
+            $organisationService->get($organisationId);
+        }
     }
 
     public function testGetList()
@@ -162,15 +166,18 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
         $organisationId = $this->getOrganisationId();
-        $listUsers = $organisationService->getListUsers($organisationId);
 
-        $this->assertNotEmpty($listUsers);
-        $this->assertCount(3, $listUsers);
-        $this->assertArrayHasKey('total', $listUsers);
-        $this->assertArrayHasKey('count', $listUsers);
-        $this->assertArrayHasKey('_embedded', $listUsers);
-        $this->assertSame(1, $listUsers['count']);
-        $this->assertSame(1, $listUsers['total']);
+        if (is_string($organisationId)) {
+            $listUsers = $organisationService->getListUsers($organisationId);
+
+            $this->assertNotEmpty($listUsers);
+            $this->assertCount(3, $listUsers);
+            $this->assertArrayHasKey('total', $listUsers);
+            $this->assertArrayHasKey('count', $listUsers);
+            $this->assertArrayHasKey('_embedded', $listUsers);
+            $this->assertSame(1, $listUsers['count']);
+            $this->assertSame(1, $listUsers['total']);
+        }
     }
 
     public function testCannotGetListUsersIfNotOwned()
@@ -179,8 +186,10 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->getListUsers($organisationId);
+        if (is_string($organisationId)) {
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->getListUsers($organisationId);
+        }
     }
 
     public function testOrganisationAddressesUpdate()
@@ -189,45 +198,47 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $address = [
-            'address' => '10 rue de la gare',
-            'additionalAddress' => 'Lieu dit: au dessus de LDLC',
-            'zipCode' => '69009',
-            'city' => 'Lyon',
-            'state' => 'Rhone',
-            'country' => 'France',
-        ];
+        if (is_string($organisationId)) {
+            $address = [
+                'address' => '10 rue de la gare',
+                'additionalAddress' => 'Lieu dit: au dessus de LDLC',
+                'zipCode' => '69009',
+                'city' => 'Lyon',
+                'state' => 'Rhone',
+                'country' => 'France',
+            ];
 
-        $address = new OrganisationAddress($address);
+            $address = new OrganisationAddress($address);
 
-        $shippingAddress = [
-            'address' => '3 rue de la République',
-            'additionalAddress' => '',
-            'zipCode' => '75002',
-            'city' => 'Paris',
-            'state' => 'Paris',
-            'country' => 'France',
-        ];
+            $shippingAddress = [
+                'address' => '3 rue de la République',
+                'additionalAddress' => '',
+                'zipCode' => '75002',
+                'city' => 'Paris',
+                'state' => 'Paris',
+                'country' => 'France',
+            ];
 
-        $shippingAddress = new OrganisationAddress($shippingAddress);
+            $shippingAddress = new OrganisationAddress($shippingAddress);
 
-        $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
+            $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
 
-        $organisation = $organisationService->get($organisationId);
+            $organisation = $organisationService->get($organisationId);
 
-        $this->assertSame('10 rue de la gare', $organisation->getAddress()->getAddress());
-        $this->assertSame('Lieu dit: au dessus de LDLC', $organisation->getAddress()->getAdditionalAddress());
-        $this->assertSame('69009', $organisation->getAddress()->getZipCode());
-        $this->assertSame('Lyon', $organisation->getAddress()->getCity());
-        $this->assertSame('Rhone', $organisation->getAddress()->getState());
-        $this->assertSame('France', $organisation->getAddress()->getCountry());
+            $this->assertSame('10 rue de la gare', $organisation->getAddress()->getAddress());
+            $this->assertSame('Lieu dit: au dessus de LDLC', $organisation->getAddress()->getAdditionalAddress());
+            $this->assertSame('69009', $organisation->getAddress()->getZipCode());
+            $this->assertSame('Lyon', $organisation->getAddress()->getCity());
+            $this->assertSame('Rhone', $organisation->getAddress()->getState());
+            $this->assertSame('France', $organisation->getAddress()->getCountry());
 
-        $this->assertSame('3 rue de la République', $organisation->getShippingAddress()->getAddress());
-        $this->assertSame('', $organisation->getShippingAddress()->getAdditionalAddress());
-        $this->assertSame('75002', $organisation->getShippingAddress()->getZipCode());
-        $this->assertSame('Paris', $organisation->getShippingAddress()->getCity());
-        $this->assertSame('Paris', $organisation->getShippingAddress()->getState());
-        $this->assertSame('France', $organisation->getShippingAddress()->getCountry());
+            $this->assertSame('3 rue de la République', $organisation->getShippingAddress()->getAddress());
+            $this->assertSame('', $organisation->getShippingAddress()->getAdditionalAddress());
+            $this->assertSame('75002', $organisation->getShippingAddress()->getZipCode());
+            $this->assertSame('Paris', $organisation->getShippingAddress()->getCity());
+            $this->assertSame('Paris', $organisation->getShippingAddress()->getState());
+            $this->assertSame('France', $organisation->getShippingAddress()->getCountry());
+        }
     }
 
     public function testCannotUpdateOrganisationAddresses()
@@ -236,32 +247,34 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $address = [
-            'address' => '10 rue de la gare',
-            'additionalAddress' => 'Lieu dit: au dessus de LDLC',
-            'zipCode' => '69009',
-            'city' => 'Lyon',
-            'state' => 'Rhone',
-            'country' => 'France',
-        ];
+        if (is_string($organisationId)) {
+            $address = [
+                'address' => '10 rue de la gare',
+                'additionalAddress' => 'Lieu dit: au dessus de LDLC',
+                'zipCode' => '69009',
+                'city' => 'Lyon',
+                'state' => 'Rhone',
+                'country' => 'France',
+            ];
 
-        $address = new OrganisationAddress($address);
+            $address = new OrganisationAddress($address);
 
-        $shippingAddress = [
-            'address' => '3 rue de la République',
-            'additionalAddress' => '',
-            'zipCode' => '75002',
-            'city' => 'Paris',
-            'state' => 'Paris',
-            'country' => 'France',
-        ];
+            $shippingAddress = [
+                'address' => '3 rue de la République',
+                'additionalAddress' => '',
+                'zipCode' => '75002',
+                'city' => 'Paris',
+                'state' => 'Paris',
+                'country' => 'France',
+            ];
 
-        $shippingAddress = new OrganisationAddress($shippingAddress);
+            $shippingAddress = new OrganisationAddress($shippingAddress);
 
-        $organisationService = $this->buildOrganisationService();
+            $organisationService = $this->buildOrganisationService();
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
+        }
     }
 
     public function testOrganisationUpdate()
@@ -270,25 +283,27 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $organisation = $organisationService->get($organisationId);
+        if (is_string($organisationId)) {
+            $organisation = $organisationService->get($organisationId);
 
-        $organisation->setName("New name");
-        $organisation->setBusinessUnitName("New Business Unit Name");
-        $organisation->setBusinessUnitCode("NEWCODE");
-        $organisation->setLegalInformationBusinessName("New Business Name");
-        $organisation->setLegalInformationSiret("NEWSIRET");
-        $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
+            $organisation->setName("New name");
+            $organisation->setBusinessUnitName("New Business Unit Name");
+            $organisation->setBusinessUnitCode("NEWCODE");
+            $organisation->setLegalInformationBusinessName("New Business Name");
+            $organisation->setLegalInformationSiret("NEWSIRET");
+            $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
 
-        $organisationService->organisationUpdate($organisationId, $organisation);
+            $organisationService->organisationUpdate($organisationId, $organisation);
 
-        $organisation = $organisationService->get($organisationId);
+            $organisation = $organisationService->get($organisationId);
 
-        $this->assertSame("New name", $organisation->getName());
-        $this->assertSame("New Business Unit Name", $organisation->getBusinessUnitName());
-        $this->assertSame("NEWCODE", $organisation->getBusinessUnitCode());
-        $this->assertSame("New Business Name", $organisation->getLegalInformationBusinessName());
-        $this->assertSame("NEWSIRET", $organisation->getLegalInformationSiret());
-        $this->assertSame("NEWVATNUMBER", $organisation->getLegalInformationVatNumber());
+            $this->assertSame("New name", $organisation->getName());
+            $this->assertSame("New Business Unit Name", $organisation->getBusinessUnitName());
+            $this->assertSame("NEWCODE", $organisation->getBusinessUnitCode());
+            $this->assertSame("New Business Name", $organisation->getLegalInformationBusinessName());
+            $this->assertSame("NEWSIRET", $organisation->getLegalInformationSiret());
+            $this->assertSame("NEWVATNUMBER", $organisation->getLegalInformationVatNumber());
+        }
     }
 
     public function testCannotUpdateOrganisationIfNotOwned()
@@ -297,19 +312,21 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $organisation = $organisationService->get($organisationId);
+        if (is_string($organisationId)) {
+            $organisation = $organisationService->get($organisationId);
 
-        $organisation->setName("New name");
-        $organisation->setBusinessUnitName("New Business Unit Name");
-        $organisation->setBusinessUnitCode("NEWCODE");
-        $organisation->setLegalInformationBusinessName("New Business Name");
-        $organisation->setLegalInformationSiret("NEWSIRET");
-        $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
+            $organisation->setName("New name");
+            $organisation->setBusinessUnitName("New Business Unit Name");
+            $organisation->setBusinessUnitCode("NEWCODE");
+            $organisation->setLegalInformationBusinessName("New Business Name");
+            $organisation->setLegalInformationSiret("NEWSIRET");
+            $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
 
-        $organisationService = $this->buildOrganisationService();
+            $organisationService = $this->buildOrganisationService();
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->organisationUpdate($organisationId, $organisation);
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->organisationUpdate($organisationId, $organisation);
+        }
     }
 
     public function testAddBasket()
@@ -318,11 +335,13 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
-        $this->assertSame("Mon nouveau panier", $responseData['name']);
-        $this->assertSame(false, $responseData['locked']);
-        $this->assertSame(false, $responseData['accepted']);
+            $this->assertSame("Mon nouveau panier", $responseData['name']);
+            $this->assertSame(false, $responseData['locked']);
+            $this->assertSame(false, $responseData['accepted']);
+        }
     }
 
     public function testCannotAddBasketIfNotOwned()
@@ -331,8 +350,10 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        }
     }
 
     public function testLockBasket()
@@ -341,15 +362,17 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
-        $basketId = $responseData['basketId'];
+            $basketId = $responseData['basketId'];
 
-        $responseData = $organisationService->lockBasket($organisationId, $basketId);
+            $responseData = $organisationService->lockBasket($organisationId, $basketId);
 
-        $this->assertSame("Mon nouveau panier", $responseData['name']);
-        $this->assertSame(true, $responseData['locked']);
-        $this->assertSame(false, $responseData['accepted']);
+            $this->assertSame("Mon nouveau panier", $responseData['name']);
+            $this->assertSame(true, $responseData['locked']);
+            $this->assertSame(false, $responseData['accepted']);
+        }
     }
 
     public function testCannotLockBasketIfNotOwned()
@@ -358,14 +381,16 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
-        $basketId = $responseData['basketId'];
+            $basketId = $responseData['basketId'];
 
-        $organisationService = $this->buildOrganisationService();
+            $organisationService = $this->buildOrganisationService();
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->lockBasket($organisationId, $basketId);
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->lockBasket($organisationId, $basketId);
+        }
     }
 
     public function testBasketValidation()
@@ -374,15 +399,17 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
-        $basketId = $responseData['basketId'];
+            $basketId = $responseData['basketId'];
 
-        $responseData = $organisationService->basketValidation($organisationId, $basketId);
+            $responseData = $organisationService->basketValidation($organisationId, $basketId);
 
-        $this->assertSame("Mon nouveau panier", $responseData['name']);
-        $this->assertSame(false, $responseData['locked']);
-        $this->assertSame(true, $responseData['accepted']);
+            $this->assertSame("Mon nouveau panier", $responseData['name']);
+            $this->assertSame(false, $responseData['locked']);
+            $this->assertSame(true, $responseData['accepted']);
+        }
     }
 
     public function testCannotValidateBasketIfNotOwned()
@@ -391,14 +418,16 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
-        $basketId = $responseData['basketId'];
+            $basketId = $responseData['basketId'];
 
-        $organisationService = $this->buildOrganisationService();
+            $organisationService = $this->buildOrganisationService();
 
-        $this->expectException(UserDoesntBelongToOrganisation::class);
-        $organisationService->basketValidation($organisationId, $basketId);
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+            $organisationService->basketValidation($organisationId, $basketId);
+        }
     }
 
     /**
