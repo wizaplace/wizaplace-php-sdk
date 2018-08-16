@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\CompanyNotFound;
@@ -161,6 +162,29 @@ final class CompanyService extends AbstractService
         $companyData = $this->client->get('companies/'.$companyId);
 
         return new Company($companyData);
+    }
+
+    /**
+     * @return CompanyFile[]
+     */
+    public function getCompanyFiles(int $companyId) :array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $files = $this->client->get('companies/'.$companyId.'/files');
+        $return = [];
+        foreach ($files as $file) {
+            $return[] = new CompanyFile($companyId, $file);
+        }
+
+        return $return;
+    }
+
+    public function fetchFile(CompanyFile $file) :ResponseInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->rawRequest('GET', "companies/{$file->getCompanyId()}/files/{$file->getFilename()}");
     }
 
     /**
