@@ -11,6 +11,71 @@
 
 </details>
 
+## 1.31.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::addBasket`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::basketValidation`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::get`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::getList`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::getListUsers`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::lockBasket`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationAddressesUpdate`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationUpdate`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationService::register`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getId`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getAddress`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getShippingAddress`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getLegalInformationSiret`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getLegalInformationVatNumber`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getLegalInformationBusinessName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getBusinessUnitCode`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getBusinessUnitName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getStatus`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getAdministrator`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setAddress`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setShippingAddress`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setLegalInformationSiret`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setLegalInformationVatNumber`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setLegalInformationBusinessName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setBusinessUnitCode`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setBusinessUnitName`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setStatus`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::setAdministrator`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::addUploadedFile`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::getFiles`
+ - Added `\Wizaplace\SDK\Organisation\Organisation::addFile`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::toArray`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getAddress`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getAdditionalAddress`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getZipCode`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getCity`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getState`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::getCountry`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setAddress`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setAdditionalAddress`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setZipCode`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setCity`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setState`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAddress::setCountry`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::toArray`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getEmail`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getFirstName`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getLastName`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getPassword`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getTitle`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::getOccupation`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setEmail`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setFirstName`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setLastName`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setPassword`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setTitle`
+ - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setOccupation`
+ - Introduce a new detailed exception `\Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation`
+
 ## 1.30.0
 
 ### New features
