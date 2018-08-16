@@ -457,6 +457,10 @@ final class OrganisationServiceTest extends ApiTestCase
         return $file;
     }
 
+    /**
+     * The datas for testing the registration of an organisation
+     * @return array
+     */
     private function getDataForRegistration()
     {
         $data = [
