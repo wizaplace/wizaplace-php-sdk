@@ -159,10 +159,42 @@ class OrganisationService extends AbstractService
 
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}/put
+     *
+     * @param string $organisationId
+     * @param Organisation $organisation
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
      */
-    public function organisationUpdate()
+    public function organisationUpdate(string $organisationId, Organisation $organisation)
     {
         $this->client->mustBeAuthenticated();
+
+        $data = [
+            'name' => $organisation->getName(),
+            'businessName' => $organisation->getLegalInformationBusinessName(),
+            'businessUnitName' => $organisation->getBusinessUnitName(),
+            'businessUnitCode' => $organisation->getBusinessUnitCode(),
+            'siret' => $organisation->getLegalInformationSiret(),
+            'vatNumber' => $organisation->getLegalInformationVatNumber(),
+        ];
+
+        try {
+            $this->client->put('organisations/'.$organisationId, [
+                RequestOptions::FORM_PARAMS => $data,
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new InvalidArgumentException("Invalid request", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
     }
 
     /**

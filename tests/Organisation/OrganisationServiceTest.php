@@ -191,8 +191,36 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame('France', $organisation->getShippingAddress()->getCountry());
     }
 
+    public function testOrganisationUpdate()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getFirstOrganisationId();
+
+        $organisation = $organisationService->get($organisationId);
+
+        $organisation->setName("New name");
+        $organisation->setBusinessUnitName("New Business Unit Name");
+        $organisation->setBusinessUnitCode("NEWCODE");
+        $organisation->setLegalInformationBusinessName("New Business Name");
+        $organisation->setLegalInformationSiret("NEWSIRET");
+        $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
+
+        $responseData = $organisationService->organisationUpdate($organisationId, $organisation);
+
+        $organisation = $organisationService->get($organisationId);
+
+        $this->assertSame("New name", $organisation->getName());
+        $this->assertSame("New Business Unit Name", $organisation->getBusinessUnitName());
+        $this->assertSame("NEWCODE", $organisation->getBusinessUnitCode());
+        $this->assertSame("New Business Name", $organisation->getLegalInformationBusinessName());
+        $this->assertSame("NEWSIRET", $organisation->getLegalInformationSiret());
+        $this->assertSame("NEWVATNUMBER", $organisation->getLegalInformationVatNumber());
+
+    }
+
     /**
-     * Return the if of the first organisation, if found, else false
+     * Return the id of the first organisation, if found, else false
      * @return string|bool
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Authentication\BadCredentials
