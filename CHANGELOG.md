@@ -7,12 +7,16 @@
 
 ### New features
 
- - Added `\Wizaplace\SDK\Company\Company::getCompanyFiles`
- - Added `\Wizaplace\SDK\Company\Company::fetchFile`
-
 ### Bugfixes
 
 </details>
+
+## 1.30.0
+
+### New features
+
+ - Added `\Wizaplace\SDK\Company\Company::getCompanyFiles`
+ - Added `\Wizaplace\SDK\Company\Company::fetchFile`
 
 ## 1.29.0
 
