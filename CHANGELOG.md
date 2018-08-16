@@ -7,6 +7,9 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Company\Company::getCompanyFiles`
+ - Added `\Wizaplace\SDK\Company\Company::fetchFile`
+
 ### Bugfixes
 
 </details>
