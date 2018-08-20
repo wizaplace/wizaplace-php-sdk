@@ -4,10 +4,9 @@
  * @license Proprietary
  */
 
-namespace Wizaplace\SDK\Organisation;
+namespace Wizaplace\SDK;
 
-
-interface OrganisationItemInterface
+interface ArrayableInterface
 {
     public function toArray() : array;
 }

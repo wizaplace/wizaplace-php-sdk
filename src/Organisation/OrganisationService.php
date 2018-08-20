@@ -9,8 +9,8 @@ namespace Wizaplace\SDK\Organisation;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
-use http\Exception\InvalidArgumentException;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\NotFound;
@@ -355,7 +355,7 @@ class OrganisationService extends AbstractService
 
             if (is_array($value)) {
                 $output = array_merge($output, $this->flattenArray($value, $newKey));
-            } elseif ($value instanceof OrganisationItemInterface) {
+            } elseif ($value instanceof ArrayableInterface) {
                 $output = array_merge($output, $this->flattenArray($value->toArray(), $newKey));
             } else {
                 $output[$newKey] = $value;

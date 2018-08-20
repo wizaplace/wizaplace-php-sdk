@@ -8,8 +8,9 @@ namespace Wizaplace\SDK\Organisation;
 
 use Symfony\Component\Validator\Constraints\Uuid;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\ArrayableInterface;
 
-class OrganisationAdministrator implements OrganisationItemInterface
+class OrganisationAdministrator implements ArrayableInterface
 {
     /** @var string */
     private $email;

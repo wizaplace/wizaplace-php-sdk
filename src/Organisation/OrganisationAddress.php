@@ -8,8 +8,9 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Organisation;
 
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\ArrayableInterface;
 
-class OrganisationAddress implements OrganisationItemInterface
+class OrganisationAddress implements ArrayableInterface
 {
     /** @var string */
     private $address;
