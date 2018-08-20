@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Organisation;
 
 use function theodorejb\polycast\to_string;
 
-class OrganisationAddress
+class OrganisationAddress implements OrganisationItemInterface
 {
     /** @var string */
     private $address;
@@ -39,7 +39,7 @@ class OrganisationAddress
         $this->country = to_string($data['country']);
     }
 
-    public function toArray()
+    public function toArray() : array
     {
         $data = [];
 

@@ -252,10 +252,6 @@ final class Organisation
 
     final private function addFile(string $name, StreamInterface $contents, string $filename): void
     {
-        $this->files[$name] = [
-            'name' => $name,
-            'contents' => $contents,
-            'filename' => $filename,
-        ];
+        $this->files[$name] = new OrganisationFile($name, $contents, $filename);
     }
 }

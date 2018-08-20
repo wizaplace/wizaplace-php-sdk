@@ -53,10 +53,11 @@ class OrganisationService extends AbstractService
             ];
         }
 
-        foreach ($files as $k => $v) {
+        foreach ($files as $file) {
+            /** @var OrganisationFile $file */
             $dataToSend[] = [
-                'name' => $v['name'],
-                'contents' => $v['contents'],
+                'name' => $file->getName(),
+                'contents' => $file->getContents(),
             ];
         }
 
@@ -164,7 +165,7 @@ class OrganisationService extends AbstractService
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
      */
-    public function organisationUpdate(string $organisationId, Organisation $organisation)
+    public function updateOrganisation(string $organisationId, Organisation $organisation)
     {
         $this->client->mustBeAuthenticated();
 
@@ -206,7 +207,7 @@ class OrganisationService extends AbstractService
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
      */
-    public function organisationAddressesUpdate(string $organisationId, OrganisationAddress $address, OrganisationAddress $shippingAddress)
+    public function updateOrganisationAddresses(string $organisationId, OrganisationAddress $address, OrganisationAddress $shippingAddress)
     {
         $this->client->mustBeAuthenticated();
 
@@ -307,7 +308,7 @@ class OrganisationService extends AbstractService
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
      */
-    public function basketValidation(string $organisationId, string $basketId)
+    public function validateBasket(string $organisationId, string $basketId)
     {
         $this->client->mustBeAuthenticated();
 
@@ -354,7 +355,7 @@ class OrganisationService extends AbstractService
 
             if (is_array($value)) {
                 $output = array_merge($output, $this->flattenArray($value, $newKey));
-            } elseif ($value instanceof OrganisationAddress || $value instanceof OrganisationAdministrator) {
+            } elseif ($value instanceof OrganisationItemInterface) {
                 $output = array_merge($output, $this->flattenArray($value->toArray(), $newKey));
             } else {
                 $output[$newKey] = $value;

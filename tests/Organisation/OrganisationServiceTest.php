@@ -221,7 +221,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
             $shippingAddress = new OrganisationAddress($shippingAddress);
 
-            $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
+            $organisationService->updateOrganisationAddresses($organisationId, $address, $shippingAddress);
 
             $organisation = $organisationService->get($organisationId);
 
@@ -273,7 +273,7 @@ final class OrganisationServiceTest extends ApiTestCase
             $organisationService = $this->buildOrganisationService();
 
             $this->expectException(UserDoesntBelongToOrganisation::class);
-            $organisationService->organisationAddressesUpdate($organisationId, $address, $shippingAddress);
+            $organisationService->updateOrganisationAddresses($organisationId, $address, $shippingAddress);
         }
     }
 
@@ -293,7 +293,7 @@ final class OrganisationServiceTest extends ApiTestCase
             $organisation->setLegalInformationSiret("NEWSIRET");
             $organisation->setLegalInformationVatNumber("NEWVATNUMBER");
 
-            $organisationService->organisationUpdate($organisationId, $organisation);
+            $organisationService->updateOrganisation($organisationId, $organisation);
 
             $organisation = $organisationService->get($organisationId);
 
@@ -325,7 +325,7 @@ final class OrganisationServiceTest extends ApiTestCase
             $organisationService = $this->buildOrganisationService();
 
             $this->expectException(UserDoesntBelongToOrganisation::class);
-            $organisationService->organisationUpdate($organisationId, $organisation);
+            $organisationService->updateOrganisation($organisationId, $organisation);
         }
     }
 
@@ -404,7 +404,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
             $basketId = $responseData['basketId'];
 
-            $responseData = $organisationService->basketValidation($organisationId, $basketId);
+            $responseData = $organisationService->validateBasket($organisationId, $basketId);
 
             $this->assertSame("Mon nouveau panier", $responseData['name']);
             $this->assertSame(false, $responseData['locked']);
@@ -426,7 +426,7 @@ final class OrganisationServiceTest extends ApiTestCase
             $organisationService = $this->buildOrganisationService();
 
             $this->expectException(UserDoesntBelongToOrganisation::class);
-            $organisationService->basketValidation($organisationId, $basketId);
+            $organisationService->validateBasket($organisationId, $basketId);
         }
     }
 

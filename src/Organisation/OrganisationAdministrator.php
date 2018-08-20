@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Organisation;
 use Symfony\Component\Validator\Constraints\Uuid;
 use function theodorejb\polycast\to_string;
 
-class OrganisationAdministrator
+class OrganisationAdministrator implements OrganisationItemInterface
 {
     /** @var string */
     private $email;
@@ -39,7 +39,7 @@ class OrganisationAdministrator
         $this->occupation = to_string($data['occupation']);
     }
 
-    public function toArray()
+    public function toArray() : array
     {
         $data = [];
 
