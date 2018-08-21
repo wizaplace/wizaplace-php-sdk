@@ -25,6 +25,8 @@ final class OrderItem
     private $declinationOptions;
     /** @var string */
     private $customerComment;
+    /** @var float */
+    private $greenTax;
 
     /**
      * @internal
@@ -40,6 +42,7 @@ final class OrderItem
             return new DeclinationOption($data);
         }, $data['options'] ?? []);
         $this->customerComment = $data['customerComment'];
+        $this->greenTax = $data['greenTax'];
     }
 
     public function getDeclinationId(): DeclinationId
@@ -78,5 +81,10 @@ final class OrderItem
     public function getCustomerComment(): string
     {
         return $this->customerComment;
+    }
+
+    public function getGreenTax(): float
+    {
+        return $this->greenTax;
     }
 }
