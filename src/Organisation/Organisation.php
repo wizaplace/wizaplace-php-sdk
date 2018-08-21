@@ -232,7 +232,7 @@ final class Organisation
         $this->administrator = $administrator;
     }
 
-    final public function addUploadedFile(string $name, UploadedFileInterface $file): void
+    public function addUploadedFile(string $name, UploadedFileInterface $file): void
     {
         $this->addFile(
             $name,
@@ -245,12 +245,12 @@ final class Organisation
      * @return array
      * @see Organisation::addFile()
      */
-    final public function getFiles(): array
+    public function getFiles(): array
     {
         return $this->files;
     }
 
-    final private function addFile(string $name, StreamInterface $contents, string $filename): void
+    private function addFile(string $name, StreamInterface $contents, string $filename): void
     {
         $this->files[$name] = new OrganisationFile($name, $contents, $filename);
     }
