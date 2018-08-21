@@ -35,7 +35,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
         $promotions = $service->listPromotions();
         $this->assertCount(0, $promotions);
 
-        $from = new \DateTimeImmutable('1992-09-07');
+        $from = new \DateTimeImmutable('1992-09-07T00:00:00+0000');
         $to = new \DateTime('@1546300800');
         $savedPromotion = $service->savePromotion(
             SaveBasketPromotionCommand::createNew()

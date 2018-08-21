@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:46 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:26 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e64f16
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e64f16'
+            X-Debug-Token: b33691
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b33691'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv"}'
+        body: '{"id":6,"apiKey":"6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:47 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:26 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: de8220
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/de8220'
+            X-Debug-Token: 4d8a10
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d8a10'
             Content-Length: '17'
             Content-Type: application/json
         body: '{"promotions":[]}'
@@ -60,35 +60,35 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '2'
             Accept: null
-        body: '{"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"period":{"from":"1992-09-07T00:00:00+02:00","to":"2019-01-01T00:00:00+00:00"}}'
+        body: '{"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"}}'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:47 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:27 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f7f3d1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f7f3d1'
+            X-Debug-Token: 80d17f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80d17f'
             Content-Length: '534'
             Content-Type: application/json
-        body: '{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-06T22:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
+        body: '{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/catalog/fedefce3-8e8c-4485-8622-7500c5f889ef'
+        url: 'http://wizaplace.loc/api/v1/promotions/catalog/3a9d8b9b-a00d-489b-a363-38222a79bef9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '3'
             Accept: null
     response:
@@ -97,53 +97,53 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:47 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:27 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c5c6ae
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5c6ae'
+            X-Debug-Token: bb34c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb34c8'
             Content-Length: '534'
             Content-Type: application/json
-        body: '{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-06T22:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
+        body: '{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/promotions/catalog/fedefce3-8e8c-4485-8622-7500c5f889ef'
+        url: 'http://wizaplace.loc/api/v1/promotions/catalog/3a9d8b9b-a00d-489b-a363-38222a79bef9'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '4'
             Accept: null
-        body: '{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","name":"test promotion updated","active":false}'
+        body: '{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","name":"test promotion updated","active":false}'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:47 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:27 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f18293
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f18293'
+            X-Debug-Token: 9928cc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9928cc'
             Content-Length: '543'
             Content-Type: application/json
-        body: '{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-06T22:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
+        body: '{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/catalog/fedefce3-8e8c-4485-8622-7500c5f889ef'
+        url: 'http://wizaplace.loc/api/v1/promotions/catalog/3a9d8b9b-a00d-489b-a363-38222a79bef9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '5'
             Accept: null
     response:
@@ -152,15 +152,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:48 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:27 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 6e48bb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e48bb'
+            X-Debug-Token: '114585'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/114585'
             Content-Length: '543'
             Content-Type: application/json
-        body: '{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-06T22:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
+        body: '{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}'
 -
     request:
         method: GET
@@ -168,8 +168,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '6'
             Accept: null
     response:
@@ -178,24 +178,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:48 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:28 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '813112'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/813112'
+            X-Debug-Token: 4d9fa8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d9fa8'
             Content-Length: '560'
             Content-Type: application/json
-        body: '{"promotions":[{"promotion_id":"fedefce3-8e8c-4485-8622-7500c5f889ef","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-06T22:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}]}'
+        body: '{"promotions":[{"promotion_id":"3a9d8b9b-a00d-489b-a363-38222a79bef9","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"product_price_superior_to","value":3.13},{"type":"product_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"product_in_list","products_ids":[1,2,3]},{"type":"product_in_category_list","categories_ids":[4,5,6]}]}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}]}]}'
 -
     request:
         method: DELETE
-        url: 'http://wizaplace.loc/api/v1/promotions/catalog/fedefce3-8e8c-4485-8622-7500c5f889ef'
+        url: 'http://wizaplace.loc/api/v1/promotions/catalog/3a9d8b9b-a00d-489b-a363-38222a79bef9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '7'
             Accept: null
     response:
@@ -204,12 +204,12 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:48 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:28 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0d427f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d427f'
+            X-Debug-Token: 74a9ab
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/74a9ab'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -218,8 +218,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '8'
             Accept: null
     response:
@@ -228,24 +228,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:48 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:28 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: a251e7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a251e7'
+            X-Debug-Token: eeda2c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eeda2c'
             Content-Length: '17'
             Content-Type: application/json
         body: '{"promotions":[]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/catalog/fedefce3-8e8c-4485-8622-7500c5f889ef'
+        url: 'http://wizaplace.loc/api/v1/promotions/catalog/3a9d8b9b-a00d-489b-a363-38222a79bef9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@e446d0d
-            Authorization: 'token RrIMdKAjTNe0eVSqYD+OXr7Rnt9s4F89FweBSWqv'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@41bf794
+            Authorization: 'token 6q+5eSOL12aIB6ygWDENCqkXEPM07Pm8zZQ4Ukcg'
             VCR-index: '9'
             Accept: null
     response:
@@ -254,12 +254,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Tue, 21 Aug 2018 08:00:49 GMT'
+            Date: 'Tue, 21 Aug 2018 08:30:28 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e2ecfb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e2ecfb'
+            X-Debug-Token: 6d6d12
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d6d12'
             Content-Length: '118'
             Content-Type: application/json
-        body: '{"error":{"code":15,"message":"promotion not found","context":{"promotionId":"fedefce3-8e8c-4485-8622-7500c5f889ef"}}}'
+        body: '{"error":{"code":15,"message":"promotion not found","context":{"promotionId":"3a9d8b9b-a00d-489b-a363-38222a79bef9"}}}'
