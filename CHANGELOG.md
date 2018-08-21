@@ -7,14 +7,6 @@
 
 ### New features
 
-### Bugfixes
-
-</details>
-
-## 1.31.0
-
-### New features
-
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::addBasket`
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::basketValidation`
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::get`
@@ -75,6 +67,10 @@
  - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setTitle`
  - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setOccupation`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation`
+
+### Bugfixes
+
+</details>
 
 ## 1.30.0
 
