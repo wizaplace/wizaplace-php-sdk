@@ -48,6 +48,9 @@ final class BasketItem
     /** @var Price */
     private $totalPrice;
 
+    /** @var float */
+    private $greenTax;
+
     /**
      * @internal
      */
@@ -69,6 +72,7 @@ final class BasketItem
         $this->comment = $data['comment'];
         $this->unitPrice = new Price($data['unitPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
+        $this->greenTax = $data['greenTax'];
     }
 
     public function getDeclinationId(): DeclinationId
@@ -138,5 +142,10 @@ final class BasketItem
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
+    }
+
+    public function getGreenTax(): float
+    {
+        return $this->greenTax;
     }
 }

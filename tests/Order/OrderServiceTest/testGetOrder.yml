@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-comment-in-order@1d39c88
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-greentax@3b71619
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 25 Oct 2017 11:47:52 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 22 Aug 2018 11:37:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0c4c96
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0c4c96'
-            Content-Length: '61'
+            X-Debug-Token: 3c9ddd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3c9ddd'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"q5qlNFjBdVptdlD5\/MepeVBnKKwGW31f48VjBney"}'
+        body: '{"id":7,"apiKey":"G7xy4yP0YQidvrGpLfQ9yOlJut42mEG1Z9751XKU"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-comment-in-order@1d39c88
-            Authorization: 'token q5qlNFjBdVptdlD5/MepeVBnKKwGW31f48VjBney'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-greentax@3b71619
+            Authorization: 'token G7xy4yP0YQidvrGpLfQ9yOlJut42mEG1Z9751XKU'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,38 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 25 Oct 2017 11:47:53 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 22 Aug 2018 11:37:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 66db07
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/66db07'
-            Content-Length: '1037'
+            X-Debug-Token: aa8548
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aa8548'
+            Content-Length: '1031'
             Content-Type: application/json
-        body: '{"id":2,"basketId":"99cd5d26-0718-4bb0-9b7c-51f059bd9c52","companyId":3,"total":35.3,"taxTotal":0.73,"subtotal":35.3,"timestamp":1508932038,"status":"STANDBY_BILLING","shippingName":"Lettre prioritaire","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"2_6_4_7_6","productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_red_connectivity_wired","price":15.5,"amount":1,"options":[{"optionId":6,"optionName":"color","variantId":4,"variantName":"red"},{"optionId":7,"optionName":"connectivity","variantId":6,"variantName":"wired"}],"customerComment":""},{"declinationId":"4_0","productName":"Product with shippings","productCode":"0493020427963","price":9.9,"amount":2,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}}'
--
-    request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/user/orders/2'
-        headers:
-            Host: wizaplace.loc
-            Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-comment-in-order@1d39c88
-            Authorization: 'token q5qlNFjBdVptdlD5/MepeVBnKKwGW31f48VjBney'
-            VCR-index: '2'
-            Accept: null
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Date: 'Wed, 25 Oct 2017 11:47:54 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 2aaccd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2aaccd'
-            Content-Length: '1037'
-            Content-Type: application/json
-        body: '{"id":2,"basketId":"99cd5d26-0718-4bb0-9b7c-51f059bd9c52","companyId":3,"total":35.3,"taxTotal":0.73,"subtotal":35.3,"timestamp":1508932038,"status":"STANDBY_BILLING","shippingName":"Lettre prioritaire","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"2_6_4_7_6","productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_red_connectivity_wired","price":15.5,"amount":1,"options":[{"optionId":6,"optionName":"color","variantId":4,"variantName":"red"},{"optionId":7,"optionName":"connectivity","variantId":6,"variantName":"wired"}],"customerComment":""},{"declinationId":"4_0","productName":"Product with shippings","productCode":"0493020427963","price":9.9,"amount":2,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}}'
+        body: '{"id":2,"basketId":"2b4d182f-af3f-37c4-87d7-e84dec020920","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1534937808,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
