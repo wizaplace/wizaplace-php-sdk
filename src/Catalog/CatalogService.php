@@ -17,6 +17,9 @@ use function theodorejb\polycast\to_string;
 
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
+    /**
+     * @return \Generator|Product[] a Generator of Product
+     */
     public function getAllProducts(): \Generator
     {
         $page = 1;
@@ -29,27 +32,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
             }
 
             foreach ($response['result'] as $item) {
-                $data = [
-                    'productId' => $item['id'],
-                    'name' => $item['name'],
-                    'shortDescription' => $item['shortDescription'],
-                    'subtitle' => '',
-                    'minimumPrice' => null,
-                    'crossedOutPrice' => null,
-                    'isAvailable' => null,
-                    'url' => $item['url'],
-                    'declinationCount' => null,
-                    'mainImage' => null,
-                    'conditions' => [],
-                    'attributes' => [],
-                    'categoryPath' => [],
-                    'slug' => $item['slug'],
-                    'companies' => [],
-                    'createdAt' => \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $item['createdAt'])->getTimestamp(),
-                    'updatedAt' => \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $item['updatedAt'])->getTimestamp(),
-                ];
-
-                yield new ProductSummary($data);
+                yield new Product($item, $this->client->getBaseUri());
             }
 
             if ($response['pagination']['page'] >= $response['pagination']['nbPages']) {

@@ -51,7 +51,7 @@ final class CatalogServiceTest extends ApiTestCase
         $products = iterator_to_array($catalogService->getAllProducts());
 
         $this->assertCount(12, $products);
-        $this->assertInstanceOf(ProductSummary::class, $products[0]);
+        $this->assertInstanceOf(Product::class, $products[0]);
     }
 
     public function testGetProductById()
