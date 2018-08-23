@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-greentax@3b71619
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 09:15:14 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 22 Aug 2018 13:38:06 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '28e306'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/28e306'
+            X-Debug-Token: ada33b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ada33b'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"BeSMP5qDqc42CPXxv7pQ+KP0iUgUWEoV3lixrJxX"}'
+        body: '{"id":7,"apiKey":"AZoNQo0hgGRYDV061sxIGPeejQ2VpE2bxywvlVcU"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.6-1~ubuntu16.04.1+deb.sury.org+1'
-            Authorization: 'token BeSMP5qDqc42CPXxv7pQ+KP0iUgUWEoV3lixrJxX'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-greentax@3b71619
+            Authorization: 'token AZoNQo0hgGRYDV061sxIGPeejQ2VpE2bxywvlVcU'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 09:15:14 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
+            Date: 'Wed, 22 Aug 2018 13:38:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d9cfe6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9cfe6'
-            Content-Length: '2427'
+            X-Debug-Token: b02d3d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b02d3d'
+            Content-Length: '4130'
             Content-Type: application/json
-        body: '[{"id":1,"basketId":"4d3c9b12-1b53-4f78-93f0-1068619a91c8","companyId":3,"total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1508750078,"status":"STANDBY_BILLING","shippingName":"TNT Express","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}},{"id":2,"basketId":"ad13f4fb-bf63-4d4b-a632-8f8936aa8929","companyId":3,"total":35.3,"taxTotal":0.73,"subtotal":35.3,"timestamp":1508750078,"status":"STANDBY_BILLING","shippingName":"Lettre prioritaire","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"2_6_4_7_6","productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_red_connectivity_wired","price":15.5,"amount":1,"options":[{"optionId":6,"optionName":"color","variantId":4,"variantName":"red"},{"optionId":7,"optionName":"connectivity","variantId":6,"variantName":"wired"}],"customerComment":""},{"declinationId":"4_0","productName":"Product with shippings","productCode":"0493020427963","price":9.9,"amount":2,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}},{"id":4,"basketId":"393b4cca-a092-4d9d-8830-52b84cdab6f2","companyId":3,"total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1508750078,"status":"COMPLETED","shippingName":"TNT Express","customerComment":"","shippingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"billingAddress":{"firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"","city":"Lyon","zipcode":"69009","country":"FR"},"items":[{"declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":""}],"payment":{"type":"manual","processorName":null}}]'
+        body: '[{"id":2,"basketId":"2b4d182f-af3f-37c4-87d7-e84dec020920","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1534945064,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":1,"basketId":"4fec2923-4eac-3420-a9c6-abf6dc578744","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1534945064,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":4,"basketId":"90c50bbf-9dbb-3497-a71a-7554303b4875","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1534945064,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"Please deliver at the front desk of my company.","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product.","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":5,"basketId":"c3818958-2089-3549-b4ab-66a5c07b77dc","companyId":3,"companyName":"The World Company Inc.","total":66.7,"taxTotal":1.4,"subtotal":66.7,"timestamp":1534945064,"status":"STANDBY_VENDOR","workflow":"workflow_order_validation_pending_vendor_validation_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}]'

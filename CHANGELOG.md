@@ -7,6 +7,8 @@
 
 ### New features
 
+ - Added `\Wizaplace\SDK\Basket\BasketItem::getGreenTax`
+ - Added `\Wizaplace\SDK\Order\OrderItem::getGreenTax`
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::addBasket`
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::basketValidation`
  - Added `\Wizaplace\SDK\Organisation\OrganisationService::get`
