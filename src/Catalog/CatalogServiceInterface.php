@@ -12,6 +12,9 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 interface CatalogServiceInterface
 {
+    /**
+     * @return \Generator|Product[] a Generator of Product
+     */
     public function getAllProducts(): \Generator;
 
     public function getProductById(string $id): Product;
