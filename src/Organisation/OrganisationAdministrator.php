@@ -44,12 +44,12 @@ class OrganisationAdministrator implements ArrayableInterface
     {
         $data = [];
 
-        $data['email'] = isset($this->email) ? $this->email : '';
-        $data['firstName'] = isset($this->firstName) ? $this->firstName : '';
-        $data['lastName'] = isset($this->lastName) ? $this->lastName : '';
-        $data['password'] = isset($this->password) ? $this->password : '';
-        $data['title'] = isset($this->title) ? $this->title : '';
-        $data['occupation'] = isset($this->occupation) ? $this->occupation : '';
+        $data['email'] = $this->email;
+        $data['firstName'] = $this->firstName;
+        $data['lastName'] = $this->lastName;
+        $data['password'] = $this->password;
+        $data['title'] = $this->title;
+        $data['occupation'] = $this->occupation;
 
         return $data;
     }

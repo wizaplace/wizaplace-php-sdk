@@ -44,12 +44,12 @@ class OrganisationAddress implements ArrayableInterface
     {
         $data = [];
 
-        $data['address'] = isset($this->address) ? $this->address : '';
-        $data['additionalAddress'] = isset($this->additionalAddress) ? $this->additionalAddress : '';
-        $data['zipCode'] = isset($this->zipCode) ? $this->zipCode : '';
-        $data['city'] = isset($this->city) ? $this->city : '';
-        $data['state'] = isset($this->state) ? $this->state : '';
-        $data['country'] = isset($this->country) ? $this->country : '';
+        $data['address'] = $this->address;
+        $data['additionalAddress'] = $this->additionalAddress;
+        $data['zipCode'] = $this->zipCode;
+        $data['city'] = $this->city;
+        $data['state'] = $this->state;
+        $data['country'] = $this->country;
 
         return $data;
     }
