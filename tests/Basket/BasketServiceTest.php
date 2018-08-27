@@ -115,7 +115,6 @@ final class BasketServiceTest extends ApiTestCase
             // Here we mostly check the payments were properly unserialized
             $availablePayment->getImage();
             $availablePayment->getDescription();
-            $this->assertTrue(PaymentType::MANUAL()->equals($availablePayment->getType()));
             $this->assertNotEmpty($availablePayment->getName());
             $this->assertGreaterThan(0, $availablePayment->getId());
             $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());
@@ -264,12 +263,12 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1));
 
         $basket = $basketService->getBasket($basketId);
 
-        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[8];
-        $this->assertSame(8, $declinationOption->getOptionId());
+        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[3];
+        $this->assertSame(3, $declinationOption->getOptionId());
         $this->assertSame('size', $declinationOption->getOptionName());
         $this->assertSame(7, $declinationOption->getVariantId());
         $this->assertSame('13', $declinationOption->getVariantName());
@@ -298,9 +297,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1));
         $comments = [
-            new ProductComment(new DeclinationId('3_8_7'), 'I will be available only during the afternoon'),
+            new ProductComment(new DeclinationId('3_3_7'), 'I will be available only during the afternoon'),
         ];
         $basketService->updateComments($basketId, $comments);
 
@@ -431,11 +430,11 @@ final class BasketServiceTest extends ApiTestCase
 
         $basketId = $basketService->create();
         $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1);
-        $basketService->addProductToBasket($basketId, new DeclinationId('3_8_7'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1);
 
         $basketId2 = $basketService->create();
         $basketService->addProductToBasket($basketId2, new DeclinationId('1_0'), 2);
-        $basketService->addProductToBasket($basketId2, new DeclinationId('3_8_8'), 1);
+        $basketService->addProductToBasket($basketId2, new DeclinationId('3_3_8'), 1);
 
         $basketService->mergeBaskets($basketId, $basketId2);
 
@@ -452,8 +451,8 @@ final class BasketServiceTest extends ApiTestCase
 
         $this->assertSame([
             '1_0' => 2,
-            '3_8_7' => 1,
-            '3_8_8' => 1,
+            '3_3_7' => 1,
+            '3_3_8' => 1,
         ], $quantitiesMap);
 
         // check that the source basket is unchanged
@@ -469,7 +468,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $this->assertSame([
             '1_0' => 2,
-            '3_8_8' => 1,
+            '3_3_8' => 1,
         ], $quantitiesMap);
     }
 
