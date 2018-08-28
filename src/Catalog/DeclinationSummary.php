@@ -62,6 +62,9 @@ final class DeclinationSummary
     /** @var bool */
     private $isAvailable;
 
+    /** @var string */
+    private $shortDescription;
+
     /**
      * @internal
      */
@@ -87,6 +90,7 @@ final class DeclinationSummary
             return new ProductCategory($data);
         }, $data['categoryPath']);
         $this->isAvailable = $data['isAvailable'];
+        $this->shortDescription = $data['shortDescription'];
     }
 
     public function getId(): DeclinationId
@@ -174,4 +178,14 @@ final class DeclinationSummary
     {
         return $this->isAvailable;
     }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
+    }
+
+
 }
