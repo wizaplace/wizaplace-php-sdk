@@ -23,6 +23,7 @@ final class DeclinationSummaryTest extends TestCase
             'id' => '42_1_2',
             'productId' => 42,
             'name' => 'Very comfortable chair',
+            'shortDescription' => '',
             'code' => '4006381333933',
             'prices' => [
                 'priceWithoutVat' => 67.49,

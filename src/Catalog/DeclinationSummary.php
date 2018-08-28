@@ -186,6 +186,4 @@ final class DeclinationSummary
     {
         return $this->shortDescription;
     }
-
-
 }
