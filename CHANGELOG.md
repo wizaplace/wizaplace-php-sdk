@@ -1,9 +1,6 @@
 # Changelog
 
-<details>
-<summary>Unreleased</summary>
-
-### BREAKING CHANGES
+## 1.31.0
 
 ### New features
 
@@ -69,10 +66,6 @@
  - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setTitle`
  - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator::setOccupation`
  - Introduce a new detailed exception `\Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation`
-
-### Bugfixes
-
-</details>
 
 ## 1.30.0
 
