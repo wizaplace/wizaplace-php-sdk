@@ -1,5 +1,7 @@
 # Changelog
 
+## 1.32.0
+
 ### New features
 
  - Added `\Wizaplace\SDK\Catalog\DeclinationSummary::getShortDescription`
