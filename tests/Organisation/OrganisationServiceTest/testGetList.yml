@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:10:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 64498b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64498b'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"Rmo\/O1ieDKRLjqqSDGj+vjApb4SKQyymgZkS14Ex"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            Authorization: 'token Rmo/O1ieDKRLjqqSDGj+vjApb4SKQyymgZkS14Ex'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:10:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: aaf69c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aaf69c'
+            Content-Length: '1146'
+            Content-Type: application/json
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"451f484f-a14d-11e8-84dd-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"454c0b08-a14d-11e8-84dd-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'

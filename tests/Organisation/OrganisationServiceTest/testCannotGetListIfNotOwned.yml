@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:10:55 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4f00ac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f00ac'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":9,"apiKey":"Ew6eH1L3e47O26fSwrTXVEuY\/5ZilAZ5KOQjyDhg"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            Authorization: 'token Ew6eH1L3e47O26fSwrTXVEuY/5ZilAZ5KOQjyDhg'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '403'
+            message: Forbidden
+        headers:
+            Date: 'Thu, 16 Aug 2018 12:10:55 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '355439'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/355439'
+            Content-Length: '28'
+            Content-Type: application/json
+        body: '{"message":"Access Denied."}'
