@@ -69,7 +69,7 @@ class OrganisationService extends AbstractService
             return $registrationReturn;
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                throw new \Exception("Invalid request", $e);
+                throw new \Exception("Invalid request", $e->getResponse()->getStatusCode(), $e);
             }
             throw $e;
         }
@@ -184,7 +184,7 @@ class OrganisationService extends AbstractService
             ]);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                throw new \Exception("Invalid request", $e);
+                throw new \Exception("Invalid request", $e->getResponse()->getStatusCode(), $e);
             }
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
@@ -224,7 +224,7 @@ class OrganisationService extends AbstractService
             return $responseData;
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                throw new \Exception("Invalid request", $e);
+                throw new \Exception("Invalid request", $e->getResponse()->getStatusCode(), $e);
             }
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
