@@ -45,7 +45,7 @@ final class MailingListService extends AbstractService
                 case 404:
                     throw new MailingListDoesNotExist("Mailing list #{$mailingListId} does not exist", $e);
                 case 409:
-                    throw new UserAlreadySubscribed("User '{$email}' already subsribed to mailing list #{$mailingListId}", 409, $e);
+                    throw new UserAlreadySubscribed("User '{$email}' already subscribed to mailing list #{$mailingListId}", 409, $e);
                 default:
                     throw $e;
             }
