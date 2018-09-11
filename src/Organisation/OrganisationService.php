@@ -328,6 +328,32 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * Allow to get the organisation's id from a user
+     *
+     * @param int $userId
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getOrganisationIdFromUserId(int $userId) : array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->get("users/{$userId}/organisation");
+
+            return $responseData;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("You don't belong to an organisation", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
      * This method help to have an array compliant to Guzzle for multipart POST/PUT for the organisation process
      * There are exception in the process for OrganisationAddress and OrganisationAdministrator which needs to be transformed to array
      * prior to processing
