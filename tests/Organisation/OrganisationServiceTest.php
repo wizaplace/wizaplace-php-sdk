@@ -430,6 +430,14 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetOrganisationId()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $response = $organisationService->getOrganisationIdFromUserId(11);
+        $this->assertRegExp("/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i", $response['id']);
+    }
+
     /**
      * Return the id of an organisation, if found, else false
      * @param int $index
