@@ -189,6 +189,16 @@ final class CompanyService extends AbstractService
         return $this->client->rawRequest('GET', "companies/{$file->getCompanyId()}/files/{$file->getFilename()}");
     }
 
+    /**
+     * Allow to update an existing company registration file
+     *
+     * @param int    $companyId
+     * @param string $filename
+     * @param array  $files
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
     public function updateFile(int $companyId, string $filename, array $files)
     {
         $this->client->mustBeAuthenticated();
@@ -198,6 +208,15 @@ final class CompanyService extends AbstractService
         ]);
     }
 
+    /**
+     * Allow to delete an existing company registration file
+     *
+     * @param int    $companyId
+     * @param string $filename
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
     public function deleteFile(int $companyId, string $filename)
     {
         $this->client->mustBeAuthenticated();
