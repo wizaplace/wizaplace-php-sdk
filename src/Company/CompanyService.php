@@ -8,8 +8,10 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Psr7\UploadedFile;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\CompanyNotFound;
@@ -187,6 +189,22 @@ final class CompanyService extends AbstractService
         return $this->client->rawRequest('GET', "companies/{$file->getCompanyId()}/files/{$file->getFilename()}");
     }
 
+    public function updateFile(int $companyId, string $filename, array $files)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->post("companies/{$companyId}/files/{$filename}", [
+            RequestOptions::MULTIPART => $files,
+        ]);
+    }
+
+    public function deleteFile(int $companyId, string $filename)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->delete("companies/{$companyId}/files/{$filename}");
+    }
+
     /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
@@ -198,7 +216,7 @@ final class CompanyService extends AbstractService
         }
 
         $responseData = $this->client->post("companies/$companyId/files", [
-            'multipart' => $files,
+            RequestOptions::MULTIPART => $files,
         ]);
 
         return array_map(static function (array $data) {
