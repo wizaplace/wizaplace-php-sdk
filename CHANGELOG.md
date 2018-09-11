@@ -1,5 +1,13 @@
 # Changelog
 
+## Next release
+
+### New features
+
+ - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getMultiVendorProductById`
+ - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::createMultiVendorProduct`
+ - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::updateMultiVendorProduct`
+
 ## 1.32.0
 
 ### New features
