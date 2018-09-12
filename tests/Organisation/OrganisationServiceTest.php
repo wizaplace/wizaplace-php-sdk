@@ -434,8 +434,8 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
-        $response = $organisationService->getOrganisationIdFromUserId(11);
-        $this->assertRegExp("/^[0-9A-F]{8}-[0-9A-F]{4}-[0-9A-F]{4}-[89AB][0-9A-F]{3}-[0-9A-F]{12}$/i", $response['id']);
+        $response = $organisationService->getOrganisationFromUserId(11);
+        $this->assertCount(15, $response);
     }
 
     /**
