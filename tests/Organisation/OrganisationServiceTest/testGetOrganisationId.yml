@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 11 Sep 2018 13:54:17 GMT'
+            Date: 'Wed, 12 Sep 2018 08:53:07 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f12819
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f12819'
-            Content-Length: '62'
+            X-Debug-Token: '071201'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/071201'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"VtdqRTh8jxqJQ0W\/DVMHE+HckX1LZ4mPL\/sIdRK+"}'
+        body: '{"id":2,"apiKey":"5HDVbGRNyKH5OUHpcVd\/AeGgluhxIb1GJlRYIdvS"}'
 -
     request:
         method: GET
@@ -33,7 +33,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@21db1d7
-            Authorization: 'token VtdqRTh8jxqJQ0W/DVMHE+HckX1LZ4mPL/sIdRK+'
+            Authorization: 'token 5HDVbGRNyKH5OUHpcVd/AeGgluhxIb1GJlRYIdvS'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 11 Sep 2018 13:54:17 GMT'
+            Date: 'Wed, 12 Sep 2018 08:53:07 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: fdb578
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fdb578'
-            Content-Length: '45'
+            X-Debug-Token: 5d1286
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d1286'
+            Content-Length: '808'
             Content-Type: application/json
-        body: '{"id":"1e4c4a06-b5ca-11e8-8919-080027ea4cb6"}'
+        body: '{"id":"36d96840-b669-11e8-8919-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending","baskets":[],"adminGroup":{"id":"36da0cf1-b669-11e8-8919-080027ea4cb6","name":"organisation_group_admin_label","type":"admin"},"userGroups":[{"id":"36da0cf1-b669-11e8-8919-080027ea4cb6","name":"organisation_group_admin_label","type":"admin"}],"administrators":[{}],"isAdmin":true}'

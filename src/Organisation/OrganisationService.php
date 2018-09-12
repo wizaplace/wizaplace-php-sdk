@@ -328,7 +328,7 @@ class OrganisationService extends AbstractService
     }
 
     /**
-     * Allow to get the organisation's id from a user
+     * Allow to get the organisation's information from a user
      *
      * @param int $userId
      *
@@ -336,7 +336,7 @@ class OrganisationService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      */
-    public function getOrganisationIdFromUserId(int $userId) : array
+    public function getOrganisationFromUserId(int $userId) : array
     {
         $this->client->mustBeAuthenticated();
 
