@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@db4c594
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 12 Sep 2018 13:12:04 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fb71aa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb71aa'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"cfYbAN11yHVvDmRW7sDKHiplWiMd49LLc3ruzVLV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/11/organisation'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@db4c594
+            Authorization: 'token cfYbAN11yHVvDmRW7sDKHiplWiMd49LLc3ruzVLV'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 12 Sep 2018 13:12:05 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 619f5d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/619f5d'
+            Content-Length: '528'
+            Content-Type: application/json
+        body: '{"id":"654c3ecf-b68d-11e8-8919-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"}'

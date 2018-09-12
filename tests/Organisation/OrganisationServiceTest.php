@@ -430,12 +430,12 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationId()
+    public function testGetOrganisationFromUser()
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
         $response = $organisationService->getOrganisationFromUserId(11);
-        $this->assertCount(15, $response);
+        $this->assertInstanceOf(Organisation::class, $response);
     }
 
     /**

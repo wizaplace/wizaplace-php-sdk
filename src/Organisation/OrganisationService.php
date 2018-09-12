@@ -336,14 +336,14 @@ class OrganisationService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      */
-    public function getOrganisationFromUserId(int $userId) : array
+    public function getOrganisationFromUserId(int $userId) : Organisation
     {
         $this->client->mustBeAuthenticated();
 
         try {
             $responseData = $this->client->get("users/{$userId}/organisation");
 
-            return $responseData;
+            return new Organisation($responseData);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("You don't belong to an organisation", $e);
