@@ -2,13 +2,14 @@
 
 ## Next release
 
+- Added `\Wizaplace\SDK\Company\CompanyService::updateFile`
+- Added `\Wizaplace\SDK\Company\CompanyService::deleteFile`
+
 ### 1.33.0
 
  - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getMultiVendorProductById`
  - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::createMultiVendorProduct`
  - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::updateMultiVendorProduct`
- - Added `\Wizaplace\SDK\Company\CompanyService::updateFile`
- - Added `\Wizaplace\SDK\Company\CompanyService::deleteFile`
 
 ## 1.32.0
 
