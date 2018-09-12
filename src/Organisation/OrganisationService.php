@@ -332,7 +332,7 @@ class OrganisationService extends AbstractService
      *
      * @param int $userId
      *
-     * @return array
+     * @return Organisation
      * @throws AuthenticationRequired
      * @throws NotFound
      */
