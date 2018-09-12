@@ -194,17 +194,20 @@ final class CompanyService extends AbstractService
      *
      * @param int    $companyId
      * @param string $filename
-     * @param array  $files
+     * @param array  $file
      *
      * @return mixed|null
      * @throws AuthenticationRequired
+     * @throws \Exception
      */
-    public function updateFile(int $companyId, string $filename, array $files)
+    public function updateFile(int $companyId, string $filename, array $file)
     {
         $this->client->mustBeAuthenticated();
 
         return $this->client->post("companies/{$companyId}/files/{$filename}", [
-            RequestOptions::MULTIPART => $files,
+            RequestOptions::MULTIPART => [
+                $filename => $file,
+            ],
         ]);
     }
 

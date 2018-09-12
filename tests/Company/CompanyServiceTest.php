@@ -90,11 +90,9 @@ final class CompanyServiceTest extends ApiTestCase
         $file = $this->mockUploadedFile('minimal.pdf');
 
         $update = $companyService->updateFile($company->getId(), 'idCard', [
-            'idCard' => [
-                'name'     => "idCard",
-                'contents' => $file->getStream(),
-                'filename' => $file->getClientFilename(),
-            ],
+            'name'     => "idCard",
+            'contents' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
         ]);
         $this->assertSame([
             'success' => true,
