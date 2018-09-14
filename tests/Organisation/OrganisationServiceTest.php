@@ -449,9 +449,6 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $response = $organisationService->removeUserToGroup($groupId, 11);
         $this->assertSame(null, $response);
-
-        $response = $organisationService->addUserToGroup($groupId, 11);
-        $this->assertSame(null, $response);
     }
 
     /**
