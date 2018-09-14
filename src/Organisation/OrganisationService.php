@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Organisation;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -350,6 +351,108 @@ class OrganisationService extends AbstractService
             }
 
             throw $e;
+        }
+    }
+
+    /**
+     * Allow to list the organisation's user groups
+     *
+     * @param string $organisationId
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationGroups(string $organisationId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->get("organisations/{$organisationId}/groups");
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the organisation.", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to add a new user to the group.
+     *
+     * @param string $groupId
+     * @param int    $userId
+     *
+     * @return null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function addUserToGroup(string $groupId, int $userId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->post("organisations/groups/{$groupId}/users", [
+                RequestOptions::FORM_PARAMS => [
+                    'userId' => $userId,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_BAD_REQUEST:
+                    throw new \Exception("Invalid request", Response::HTTP_BAD_REQUEST, $e);
+
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the admin user group of the organisation", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The user group doesn't exist", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to remove a user from the group.
+     *
+     * @param string $groupId
+     * @param int    $userId
+     *
+     * @return null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function removeUserToGroup(string $groupId, int $userId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->delete("organisations/groups/{$groupId}/users/{$userId}");
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_BAD_REQUEST:
+                    throw new \Exception("Invalid request", Response::HTTP_BAD_REQUEST, $e);
+
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the admin user group of the organisation", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The user group doesn't exist", $e);
+
+                default:
+                    throw $e;
+            }
         }
     }
 
