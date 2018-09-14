@@ -84,6 +84,30 @@ final class CompanyServiceTest extends ApiTestCase
             $this->assertSame('application/pdf', $response->getHeaderLine('Content-Type'));
             $this->assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
         }
+
+
+        // Update file
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $update = $companyService->updateFile($company->getId(), 'idCard', [
+            'name'     => "idCard",
+            'contents' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ]);
+        $this->assertSame([
+            'success' => true,
+        ], $update);
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        $this->assertCount(2, $files);
+
+
+        // Delete file
+        $delete = $companyService->deleteFile($company->getId(), 'idCard');
+        $this->assertNull($delete);
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        $this->assertCount(1, $files);
     }
 
     public function testRegisteringACompanyWithMinimalInformation()
