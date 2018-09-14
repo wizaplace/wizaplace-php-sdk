@@ -8,10 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Exception\BadResponseException;
-use GuzzleHttp\Psr7\UploadedFile;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\CompanyNotFound;
