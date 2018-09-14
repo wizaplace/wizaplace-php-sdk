@@ -457,6 +457,36 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * Allow to list the organisation's baskets
+     *
+     * @param string $organisationId
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationBaskets(string $organisationId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->get("organisations/{$organisationId}/baskets");
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the organisation.", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
      * This method help to have an array compliant to Guzzle for multipart POST/PUT for the organisation process
      * There are exception in the process for OrganisationAddress and OrganisationAdministrator which needs to be transformed to array
      * prior to processing

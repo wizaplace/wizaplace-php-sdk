@@ -5,6 +5,7 @@
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationFromUserId`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::addUserToGroup`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::removeUserToGroup`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationBaskets`
 
 ### 1.33.0
 
