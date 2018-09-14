@@ -438,6 +438,22 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertInstanceOf(Organisation::class, $response);
     }
 
+    public function testRemoveAndAddUserToGroup()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $organisationGroups = $organisationService->getOrganisationGroups($organisationId);
+        $groupId = $organisationGroups['_embedded']['groups'][0]['id'];
+
+        $response = $organisationService->removeUserToGroup($groupId, 11);
+        $this->assertSame(null, $response);
+
+        $response = $organisationService->addUserToGroup($groupId, 11);
+        $this->assertSame(null, $response);
+    }
+
     /**
      * Return the id of an organisation, if found, else false
      * @param int $index
