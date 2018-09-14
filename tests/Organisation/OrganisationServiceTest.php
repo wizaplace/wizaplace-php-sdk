@@ -444,7 +444,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $organisationGroups = $organisationService->getOrganisationGroups($organisationId);
+        $organisationGroups = $organisationService->getOrganisationGroups((string) $organisationId);
         $groupId = $organisationGroups['_embedded']['groups'][0]['id'];
 
         $response = $organisationService->removeUserToGroup($groupId, 11);
@@ -457,7 +457,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $baskets = $organisationService->getOrganisationBaskets($organisationId);
+        $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
         $this->assertSame(true, (isset($baskets['_embedded'])));
         $this->assertSame(true, (isset($baskets['_embedded']['baskets'])));
     }
