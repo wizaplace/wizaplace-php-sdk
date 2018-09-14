@@ -451,6 +451,17 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame(null, $response);
     }
 
+    public function testGetOrganisationBaskets()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $baskets = $organisationService->getOrganisationBaskets($organisationId);
+        $this->assertSame(true, (isset($baskets['_embedded'])));
+        $this->assertSame(true, (isset($baskets['_embedded']['baskets'])));
+    }
+
     /**
      * Return the id of an organisation, if found, else false
      * @param int $index
