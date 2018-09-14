@@ -3,6 +3,8 @@
 ## Next release
 
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationFromUserId`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::addUserToGroup`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::removeUserToGroup`
 
 ### 1.33.0
 
