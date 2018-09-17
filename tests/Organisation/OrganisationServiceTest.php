@@ -13,6 +13,8 @@ use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
+use Wizaplace\SDK\Organisation\OrganisationBasket;
+use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
@@ -445,9 +447,13 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId();
 
         $organisationGroups = $organisationService->getOrganisationGroups((string) $organisationId);
-        $groupId = $organisationGroups['_embedded']['groups'][0]['id'];
+        if ($organisationGroups->count() > 0) {
+            $this->assertInstanceOf(OrganisationGroup::class, $organisationGroups->offsetGet(0));
 
-        $organisationService->removeUserToGroup($groupId, 11);
+            $groupId = $organisationGroups->offsetGet(0)->getId();
+
+            $organisationService->removeUserToGroup($groupId, 11);
+        }
     }
 
     public function testGetOrganisationBaskets()
@@ -457,8 +463,9 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId();
 
         $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
-        $this->assertSame(true, (isset($baskets['_embedded'])));
-        $this->assertSame(true, (isset($baskets['_embedded']['baskets'])));
+        if ($baskets->count() > 0) {
+            $this->assertInstanceOf(OrganisationBasket::class, $baskets->offsetGet(0));
+        }
     }
 
     /**

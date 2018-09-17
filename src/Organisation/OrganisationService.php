@@ -359,7 +359,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return mixed|null
+     * @return \ArrayIterator
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
@@ -369,7 +369,14 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->get("organisations/{$organisationId}/groups");
+            $response = $this->client->get("organisations/{$organisationId}/groups");
+
+            $data = new \ArrayIterator();
+            foreach ($response['_embedded']['groups'] as $groupData) {
+                $data->append(new OrganisationGroup($groupData));
+            }
+
+            return $data;
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
@@ -461,7 +468,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return mixed|null
+     * @return \ArrayIterator
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
@@ -471,7 +478,14 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->get("organisations/{$organisationId}/baskets");
+            $response = $this->client->get("organisations/{$organisationId}/baskets");
+
+            $data = new \ArrayIterator();
+            foreach ($response['_embedded']['baskets'] as $basketData) {
+                $data->append(new OrganisationBasket($basketData));
+            }
+
+            return $data;
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
