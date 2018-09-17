@@ -390,17 +390,17 @@ class OrganisationService extends AbstractService
      * @param string $groupId
      * @param int    $userId
      *
-     * @return null
+     * @return void
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
      */
-    public function addUserToGroup(string $groupId, int $userId)
+    public function addUserToGroup(string $groupId, int $userId) : void
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->post("organisations/groups/{$groupId}/users", [
+            $this->client->post("organisations/groups/{$groupId}/users", [
                 RequestOptions::FORM_PARAMS => [
                     'userId' => $userId,
                 ],
@@ -428,17 +428,17 @@ class OrganisationService extends AbstractService
      * @param string $groupId
      * @param int    $userId
      *
-     * @return null
+     * @return void
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
      */
-    public function removeUserToGroup(string $groupId, int $userId)
+    public function removeUserToGroup(string $groupId, int $userId) : void
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->delete("organisations/groups/{$groupId}/users/{$userId}");
+            $this->client->delete("organisations/groups/{$groupId}/users/{$userId}");
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case Response::HTTP_BAD_REQUEST:

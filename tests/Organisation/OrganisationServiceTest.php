@@ -447,8 +447,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationGroups = $organisationService->getOrganisationGroups((string) $organisationId);
         $groupId = $organisationGroups['_embedded']['groups'][0]['id'];
 
-        $response = $organisationService->removeUserToGroup($groupId, 11);
-        $this->assertSame(null, $response);
+        $organisationService->removeUserToGroup($groupId, 11);
     }
 
     public function testGetOrganisationBaskets()
