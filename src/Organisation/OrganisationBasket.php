@@ -22,7 +22,7 @@ class OrganisationBasket
      */
     private $createdAt;
 
-    public function __construct(array $data = array(), int $flags = 0)
+    public function __construct(array $data)
     {
         $this->setId($data['basketId']);
         $this->setName($data['name']);
@@ -32,7 +32,7 @@ class OrganisationBasket
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getId() : string
     {
@@ -40,15 +40,15 @@ class OrganisationBasket
     }
 
     /**
-     * @param mixed $id
+     * @param string $id
      */
-    public function setId($id): void
+    public function setId(string $id): void
     {
         $this->id = $id;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName() : string
     {
@@ -56,9 +56,9 @@ class OrganisationBasket
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }

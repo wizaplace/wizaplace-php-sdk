@@ -9,7 +9,7 @@ class OrganisationGroup
     private $name;
     private $type;
 
-    public function __construct(array $data = array(), int $flags = 0)
+    public function __construct(array $data)
     {
         $this->setId($data['id']);
         $this->setName($data['name']);
@@ -17,7 +17,7 @@ class OrganisationGroup
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getId() : string
     {
@@ -25,15 +25,15 @@ class OrganisationGroup
     }
 
     /**
-     * @param mixed $id
+     * @param string $id
      */
-    public function setId($id): void
+    public function setId(string $id): void
     {
         $this->id = $id;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName() : string
     {
@@ -41,15 +41,15 @@ class OrganisationGroup
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getType() : string
     {
@@ -57,9 +57,9 @@ class OrganisationGroup
     }
 
     /**
-     * @param mixed $type
+     * @param string $type
      */
-    public function setType($type): void
+    public function setType(string $type): void
     {
         $this->type = $type;
     }
