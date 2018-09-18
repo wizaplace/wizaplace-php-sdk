@@ -461,7 +461,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        $organisationService->addBasket($organisationId, "fake_basket");
+        $organisationService->addBasket((string) $organisationId, "fake_basket");
 
         $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
         foreach ($baskets as $basket) {
