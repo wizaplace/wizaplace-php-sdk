@@ -457,9 +457,11 @@ final class OrganisationServiceTest extends ApiTestCase
 
     public function testGetOrganisationBaskets()
     {
-        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
-        $organisationId = $this->getOrganisationId();
+        $organisationId = $this->getOrganisationId(1);
+
+        $organisationService->addBasket($organisationId, "fake_basket");
 
         $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
         foreach ($baskets as $basket) {

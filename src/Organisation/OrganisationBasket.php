@@ -38,7 +38,7 @@ class OrganisationBasket
         $this->setName($data['name']);
         $this->setLocked($data['locked']);
         $this->setAccepted($data['accepted']);
-        $this->setCreatedAt(\DateTime::createFromFormat("c", $data['createdAt']));
+        $this->setCreatedAt(\DateTime::createFromFormat(\DateTime::RFC3339, $data['createdAt']));
     }
 
     /**
