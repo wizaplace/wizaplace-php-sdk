@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@db4c594
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 12 Sep 2018 13:12:04 GMT'
+            Date: 'Tue, 18 Sep 2018 14:21:16 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: fb71aa
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb71aa'
-            Content-Length: '60'
+            X-Debug-Token: 21560a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/21560a'
+            Content-Length: '62'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"cfYbAN11yHVvDmRW7sDKHiplWiMd49LLc3ruzVLV"}'
+        body: '{"id":2,"apiKey":"zQKSssULa07qHO+Rk71lLl8ByA3\/\/B09gO8yeg5x"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@db4c594
-            Authorization: 'token cfYbAN11yHVvDmRW7sDKHiplWiMd49LLc3ruzVLV'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            Authorization: 'token zQKSssULa07qHO+Rk71lLl8ByA3//B09gO8yeg5x'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 12 Sep 2018 13:12:05 GMT'
+            Date: 'Tue, 18 Sep 2018 14:21:16 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 619f5d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/619f5d'
+            X-Debug-Token: 63a18b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/63a18b'
             Content-Length: '528'
             Content-Type: application/json
-        body: '{"id":"654c3ecf-b68d-11e8-8919-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"}'
+        body: '{"id":"0ba3daf4-bb4e-11e8-9ec0-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"}'

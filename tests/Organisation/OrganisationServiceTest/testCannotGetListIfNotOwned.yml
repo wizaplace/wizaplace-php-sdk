@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 16 Aug 2018 12:10:55 GMT'
+            Date: 'Tue, 18 Sep 2018 14:12:51 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 4f00ac
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f00ac'
-            Content-Length: '61'
+            X-Debug-Token: d19ff7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d19ff7'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"Ew6eH1L3e47O26fSwrTXVEuY\/5ZilAZ5KOQjyDhg"}'
+        body: '{"id":9,"apiKey":"HbGs64Q3CYRLJuftm2cpFYsKo5AyOAkVOJVDiXtx"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5863_organisation_sdk@45e3614
-            Authorization: 'token Ew6eH1L3e47O26fSwrTXVEuY/5ZilAZ5KOQjyDhg'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            Authorization: 'token HbGs64Q3CYRLJuftm2cpFYsKo5AyOAkVOJVDiXtx'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '403'
             message: Forbidden
         headers:
-            Date: 'Thu, 16 Aug 2018 12:10:55 GMT'
+            Date: 'Tue, 18 Sep 2018 14:12:51 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '355439'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/355439'
+            X-Debug-Token: 5e58eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5e58eb'
             Content-Length: '28'
             Content-Type: application/json
         body: '{"message":"Access Denied."}'
