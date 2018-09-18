@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 18 Sep 2018 13:48:51 GMT'
+            Date: 'Tue, 18 Sep 2018 14:00:46 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e50b25
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e50b25'
-            Content-Length: '60'
+            X-Debug-Token: afec7b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/afec7b'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"7BCrRaG0rtleJhnZd3bl0WTIj0xtcBJA6D0leSfv"}'
+        body: '{"id":2,"apiKey":"ytEzk80yPI\/LOjtBT8WrpweWTfw9NNREStzkLw3Q"}'
 -
     request:
         method: GET
@@ -42,15 +42,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 18 Sep 2018 13:48:52 GMT'
+            Date: 'Tue, 18 Sep 2018 14:00:47 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d28fe9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d28fe9'
-            Content-Length: '60'
+            X-Debug-Token: 54b12c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/54b12c'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"7BCrRaG0rtleJhnZd3bl0WTIj0xtcBJA6D0leSfv"}'
+        body: '{"id":2,"apiKey":"ytEzk80yPI\/LOjtBT8WrpweWTfw9NNREStzkLw3Q"}'
 -
     request:
         method: GET
@@ -59,7 +59,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Authorization: 'token 7BCrRaG0rtleJhnZd3bl0WTIj0xtcBJA6D0leSfv'
+            Authorization: 'token ytEzk80yPI/LOjtBT8WrpweWTfw9NNREStzkLw3Q'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,24 +68,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 18 Sep 2018 13:48:52 GMT'
+            Date: 'Tue, 18 Sep 2018 14:00:47 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 92a373
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92a373'
+            X-Debug-Token: '987133'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/987133'
             Content-Length: '1146'
             Content-Type: application/json
-        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"7e2445fa-bb49-11e8-9ec0-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"7e4e96ec-bb49-11e8-9ec0-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"2a84c9de-bb4b-11e8-9ec0-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"2ab40bf8-bb4b-11e8-9ec0-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/7e2445fa-bb49-11e8-9ec0-080027ea4cb6/orders'
+        url: 'http://wizaplace.loc/api/v1/organisations/2a84c9de-bb4b-11e8-9ec0-080027ea4cb6/orders'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Authorization: 'token 7BCrRaG0rtleJhnZd3bl0WTIj0xtcBJA6D0leSfv'
+            Authorization: 'token ytEzk80yPI/LOjtBT8WrpweWTfw9NNREStzkLw3Q'
             VCR-index: '3'
             Accept: null
     response:
@@ -94,12 +94,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 18 Sep 2018 13:48:52 GMT'
+            Date: 'Tue, 18 Sep 2018 14:00:47 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 39b810
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39b810'
+            X-Debug-Token: 51114f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/51114f'
             Content-Length: '47'
             Content-Type: application/json
         body: '{"total":0,"count":0,"_embedded":{"orders":[]}}'
