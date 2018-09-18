@@ -188,6 +188,44 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * Allow to update an existing company registration file
+     *
+     * @param int    $companyId
+     * @param string $filename
+     * @param array  $file
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     * @throws \Exception
+     */
+    public function updateFile(int $companyId, string $filename, array $file)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->post("companies/{$companyId}/files/{$filename}", [
+            RequestOptions::MULTIPART => [
+                $filename => $file,
+            ],
+        ]);
+    }
+
+    /**
+     * Allow to delete an existing company registration file
+     *
+     * @param int    $companyId
+     * @param string $filename
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
+    public function deleteFile(int $companyId, string $filename)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->delete("companies/{$companyId}/files/{$filename}");
+    }
+
+    /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */
@@ -198,7 +236,7 @@ final class CompanyService extends AbstractService
         }
 
         $responseData = $this->client->post("companies/$companyId/files", [
-            'multipart' => $files,
+            RequestOptions::MULTIPART => $files,
         ]);
 
         return array_map(static function (array $data) {
