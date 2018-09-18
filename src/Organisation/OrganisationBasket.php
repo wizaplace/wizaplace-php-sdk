@@ -5,23 +5,30 @@
  */
 namespace Wizaplace\SDK\Organisation;
 
-use DateTime;
-
 class OrganisationBasket
 {
-
+    /**
+     * @var string
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $name;
+
     /**
      * @var boolean
      */
     private $locked;
+
     /**
      * @var boolean
      */
     private $accepted;
+
     /**
-     * @var DateTime
+     * @var \DateTime
      */
     private $createdAt;
 
@@ -31,7 +38,7 @@ class OrganisationBasket
         $this->setName($data['name']);
         $this->setLocked($data['locked']);
         $this->setAccepted($data['accepted']);
-        $this->setCreatedAt(DateTime::createFromFormat("c", $data['createdAt']));
+        $this->setCreatedAt(\DateTime::createFromFormat("c", $data['createdAt']));
     }
 
     /**
@@ -99,17 +106,17 @@ class OrganisationBasket
     }
 
     /**
-     * @return DateTime
+     * @return \DateTime
      */
-    public function getCreatedAt(): DateTime
+    public function getCreatedAt(): \DateTime
     {
         return $this->createdAt;
     }
 
     /**
-     * @param DateTime $createdAt
+     * @param \DateTime $createdAt
      */
-    public function setCreatedAt(DateTime $createdAt): void
+    public function setCreatedAt(\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
     }

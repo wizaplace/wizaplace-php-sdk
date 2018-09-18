@@ -359,7 +359,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return \ArrayIterator
+     * @return \Iterator
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
@@ -468,7 +468,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return \ArrayIterator
+     * @return \Iterator
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception

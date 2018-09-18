@@ -7,9 +7,19 @@ namespace Wizaplace\SDK\Organisation;
 
 class OrganisationGroup
 {
-
+    /**
+     * @var string
+     */
     private $id;
+
+    /**
+     * @var string
+     */
     private $name;
+
+    /**
+     * @var string
+     */
     private $type;
 
     public function __construct(array $data)
