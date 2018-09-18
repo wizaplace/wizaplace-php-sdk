@@ -447,16 +447,11 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId();
 
         $organisationGroups = $organisationService->getOrganisationGroups((string) $organisationId);
-        $groupId = "";
         foreach ($organisationGroups as $key => $group) {
             if ($key === 0) {
-                $groupId = $group->getId();
+                $organisationService->removeUserFromGroup($group->getId(), 11);
             }
             $this->assertInstanceOf(OrganisationGroup::class, $group);
-        }
-
-        if (!empty($groupId)) {
-            $organisationService->removeUserToGroup($groupId, 11);
         }
     }
 

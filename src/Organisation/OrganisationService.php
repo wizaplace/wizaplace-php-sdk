@@ -359,7 +359,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return \Iterator
+     * @return \Iterator|OrganisationGroup[]
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
@@ -440,7 +440,7 @@ class OrganisationService extends AbstractService
      * @throws NotFound
      * @throws \Exception
      */
-    public function removeUserToGroup(string $groupId, int $userId) : void
+    public function removeUserFromGroup(string $groupId, int $userId) : void
     {
         $this->client->mustBeAuthenticated();
 
@@ -468,7 +468,7 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return \Iterator
+     * @return \Iterator|OrganisationBasket[]
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
