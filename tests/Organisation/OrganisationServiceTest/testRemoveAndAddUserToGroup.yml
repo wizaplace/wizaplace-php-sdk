@@ -1,0 +1,129 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 18 Sep 2018 13:46:43 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 505c4d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/505c4d'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"2bWmPuMrgwfIZw+GdRB5xec6FH9SOOTBbKn05AMr"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 18 Sep 2018 13:46:43 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 24c376
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/24c376'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"2bWmPuMrgwfIZw+GdRB5xec6FH9SOOTBbKn05AMr"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            Authorization: 'token 2bWmPuMrgwfIZw+GdRB5xec6FH9SOOTBbKn05AMr'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 18 Sep 2018 13:46:43 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 219cab
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/219cab'
+            Content-Length: '1146'
+            Content-Type: application/json
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"217d2264-bb49-11e8-9ec0-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"21a2ba6a-bb49-11e8-9ec0-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/217d2264-bb49-11e8-9ec0-080027ea4cb6/groups'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            Authorization: 'token 2bWmPuMrgwfIZw+GdRB5xec6FH9SOOTBbKn05AMr'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 18 Sep 2018 13:46:43 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8cba6d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8cba6d'
+            Content-Length: '147'
+            Content-Type: application/json
+        body: '{"total":1,"count":1,"_embedded":{"groups":[{"id":"217e299d-bb49-11e8-9ec0-080027ea4cb6","name":"organisation_group_admin_label","type":"admin"}]}}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/organisations/groups/217e299d-bb49-11e8-9ec0-080027ea4cb6/users/11'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
+            Authorization: 'token 2bWmPuMrgwfIZw+GdRB5xec6FH9SOOTBbKn05AMr'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Tue, 18 Sep 2018 13:46:44 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6822b2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6822b2'
+            Content-Type: 'text/html; charset=UTF-8'

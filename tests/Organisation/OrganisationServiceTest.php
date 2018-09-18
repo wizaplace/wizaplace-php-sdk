@@ -15,6 +15,7 @@ use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
 use Wizaplace\SDK\Organisation\OrganisationGroup;
+use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
@@ -466,6 +467,18 @@ final class OrganisationServiceTest extends ApiTestCase
         $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
         foreach ($baskets as $basket) {
             $this->assertInstanceOf(OrganisationBasket::class, $basket);
+        }
+    }
+
+    public function testGetOrganisationOrders()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $orders = $organisationService->getOrganisationOrders((string) $organisationId);
+        foreach ($orders as $order) {
+            $this->assertInstanceOf(OrganisationOrder::class, $order);
         }
     }
 

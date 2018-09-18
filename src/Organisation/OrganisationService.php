@@ -501,6 +501,44 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * Allow to list the organisation's orders
+     *
+     * @param string $organisationId
+     *
+     * @return \Iterator|OrganisationOrder[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationOrders(string $organisationId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/{$organisationId}/orders");
+
+            $data = new \ArrayIterator();
+            foreach ($response['_embedded']['orders'] as $orderData) {
+                $data->append(new OrganisationOrder($orderData));
+            }
+
+            return $data;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    $response = json_decode($e->getResponse());
+                    throw new \Exception($response->message, Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
      * This method help to have an array compliant to Guzzle for multipart POST/PUT for the organisation process
      * There are exception in the process for OrganisationAddress and OrganisationAdministrator which needs to be transformed to array
      * prior to processing
