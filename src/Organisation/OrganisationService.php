@@ -505,21 +505,29 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      *
-     * @return \Iterator|OrganisationOrder[]
+     * @param int    $start Offset
+     * @param int    $limit The length (min 1; max 10)
+     *
+     * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
      */
-    public function getOrganisationOrders(string $organisationId)
+    public function getOrganisationOrders(string $organisationId, int $start = 0, int $limit = 10) : array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->get("organisations/{$organisationId}/orders");
+            $response = $this->client->get("organisations/{$organisationId}/orders", [
+                RequestOptions::QUERY => [
+                    'start' => $start,
+                    'limit' => $limit,
+                ],
+            ]);
 
-            $data = new \ArrayIterator();
+            $data = [];
             foreach ($response['_embedded']['orders'] as $orderData) {
-                $data->append(new OrganisationOrder($orderData));
+                $data[] = new OrganisationOrder($orderData);
             }
 
             return $data;
