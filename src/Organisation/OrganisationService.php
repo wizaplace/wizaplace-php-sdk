@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Organisation;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -324,6 +325,224 @@ class OrganisationService extends AbstractService
                 throw new NotFound("The organisation doesn't exist", $e);
             }
             throw $e;
+        }
+    }
+
+    /**
+     * Allow to get the organisation's information from a user
+     *
+     * @param int $userId
+     *
+     * @return Organisation
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getOrganisationFromUserId(int $userId) : Organisation
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->get("users/{$userId}/organisation");
+
+            return new Organisation($responseData);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("You don't belong to an organisation", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to list the organisation's user groups
+     *
+     * @param string $organisationId
+     *
+     * @return \Iterator|OrganisationGroup[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationGroups(string $organisationId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/{$organisationId}/groups");
+
+            $data = new \ArrayIterator();
+            foreach ($response['_embedded']['groups'] as $groupData) {
+                $data->append(new OrganisationGroup($groupData));
+            }
+
+            return $data;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the organisation.", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to add a new user to the group.
+     *
+     * @param string $groupId
+     * @param int    $userId
+     *
+     * @return void
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function addUserToGroup(string $groupId, int $userId) : void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->post("organisations/groups/{$groupId}/users", [
+                RequestOptions::FORM_PARAMS => [
+                    'userId' => $userId,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_BAD_REQUEST:
+                    throw new \Exception("Invalid request", Response::HTTP_BAD_REQUEST, $e);
+
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the admin user group of the organisation", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The user group doesn't exist", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to remove a user from the group.
+     *
+     * @param string $groupId
+     * @param int    $userId
+     *
+     * @return void
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function removeUserFromGroup(string $groupId, int $userId) : void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->delete("organisations/groups/{$groupId}/users/{$userId}");
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_BAD_REQUEST:
+                    throw new \Exception("Invalid request", Response::HTTP_BAD_REQUEST, $e);
+
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the admin user group of the organisation", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The user group doesn't exist", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to list the organisation's baskets
+     *
+     * @param string $organisationId
+     *
+     * @return \Iterator|OrganisationBasket[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationBaskets(string $organisationId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/{$organisationId}/baskets");
+
+            $data = new \ArrayIterator();
+            foreach ($response['_embedded']['baskets'] as $basketData) {
+                $data->append(new OrganisationBasket($basketData));
+            }
+
+            return $data;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the organisation.", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to list the organisation's orders
+     *
+     * @param string $organisationId
+     *
+     * @param int    $start Offset
+     * @param int    $limit The length (min 1; max 10)
+     *
+     * @return OrganisationOrder[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getOrganisationOrders(string $organisationId, int $start = 0, int $limit = 10)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/{$organisationId}/orders", [
+                RequestOptions::QUERY => [
+                    'start' => $start,
+                    'limit' => $limit,
+                ],
+            ]);
+
+            $data = [];
+            foreach ($response['_embedded']['orders'] as $orderData) {
+                $data[] = new OrganisationOrder($orderData);
+            }
+
+            return $data;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    $response = json_decode($e->getResponse());
+                    throw new \Exception($response->message, Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
         }
     }
 

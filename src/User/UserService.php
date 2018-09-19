@@ -196,6 +196,34 @@ final class UserService extends AbstractService
         ]);
     }
 
+    /**
+     * Allow to enable a user
+     *
+     * @param int $userId
+     *
+     * @return void
+     * @throws AuthenticationRequired
+     */
+    public function enable(int $userId) : void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->post("/users/{$userId}/enable");
+    }
+
+    /**
+     * Allow to disable a user
+     *
+     * @param int $userId
+     *
+     * @return void
+     * @throws AuthenticationRequired
+     */
+    public function disable(int $userId) : void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->post("/users/{$userId}/disable");
+    }
+
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
     {
         return array_filter([

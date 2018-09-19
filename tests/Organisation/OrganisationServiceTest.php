@@ -13,6 +13,9 @@ use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
+use Wizaplace\SDK\Organisation\OrganisationBasket;
+use Wizaplace\SDK\Organisation\OrganisationGroup;
+use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
@@ -428,6 +431,61 @@ final class OrganisationServiceTest extends ApiTestCase
             $this->expectException(UserDoesntBelongToOrganisation::class);
             $organisationService->validateBasket($organisationId, $basketId);
         }
+    }
+
+    public function testGetOrganisationFromUser()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $response = $organisationService->getOrganisationFromUserId(11);
+        $this->assertInstanceOf(Organisation::class, $response);
+    }
+
+    public function testRemoveAndAddUserToGroup()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $organisationGroups = $organisationService->getOrganisationGroups((string) $organisationId);
+        foreach ($organisationGroups as $key => $group) {
+            if ($key === 0) {
+                $organisationService->removeUserFromGroup($group->getId(), 11);
+            }
+            $this->assertInstanceOf(OrganisationGroup::class, $group);
+        }
+    }
+
+    public function testGetOrganisationBaskets()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+
+        $organisationId = $this->getOrganisationId(1);
+
+        $organisationService->addBasket((string) $organisationId, "fake_basket");
+
+        $baskets = $organisationService->getOrganisationBaskets((string) $organisationId);
+        foreach ($baskets as $basket) {
+            $this->assertInstanceOf(OrganisationBasket::class, $basket);
+        }
+    }
+
+    public function testGetOrganisationOrders()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $orders = $organisationService->getOrganisationOrders((string) $organisationId);
+        $this->assertSame(true, is_array($orders));
+
+        foreach ($orders as $order) {
+            $this->assertInstanceOf(OrganisationOrder::class, $order);
+        }
+
+        $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
+        $this->assertSame(true, is_array($orders));
+        $this->assertCount(0, $orders);
     }
 
     /**
