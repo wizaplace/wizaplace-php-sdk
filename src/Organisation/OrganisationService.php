@@ -508,12 +508,12 @@ class OrganisationService extends AbstractService
      * @param int    $start Offset
      * @param int    $limit The length (min 1; max 10)
      *
-     * @return array
+     * @return OrganisationOrder[]
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \Exception
      */
-    public function getOrganisationOrders(string $organisationId, int $start = 0, int $limit = 10) : array
+    public function getOrganisationOrders(string $organisationId, int $start = 0, int $limit = 10)
     {
         $this->client->mustBeAuthenticated();
 
