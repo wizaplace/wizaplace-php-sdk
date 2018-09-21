@@ -14,11 +14,13 @@ use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
+use Wizaplace\SDK\Organisation\OrganisationFile;
 use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use function GuzzleHttp\Psr7\stream_for;
+use Wizaplace\SDK\User\User;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -486,6 +488,45 @@ final class OrganisationServiceTest extends ApiTestCase
         $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
         $this->assertSame(true, is_array($orders));
         $this->assertCount(0, $orders);
+    }
+
+    public function testAddUserAdminToOrganisation()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        $groupId = "";
+        foreach ($organisationService->getOrganisationGroups((string) $organisationId) as $group) {
+            if ($group->getType() === "admin") {
+                $groupId = $group->getId();
+                break;
+            }
+        }
+
+        $data = [
+            "groupId"    => $groupId,
+            "email"      => "lemmy@motohead.com",
+            "firstName"  => "Lemmy",
+            "lastName"   => "Kilmister",
+            "password"   => "born2loose",
+            "status"     => "A",
+            "title"      => "mr",
+            "occupation" => "singer",
+        ];
+
+
+        $idCard = $this->mockUploadedFile('minimal.pdf');
+        $proof  = $this->mockUploadedFile('minimal.pdf');
+
+        $files = [
+            new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
+            new OrganisationFile("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
+        ];
+
+        $user = $organisationService->addNewUser((string) $organisationId, $data, $files);
+
+        $this->assertInstanceOf(User::class, $user);
     }
 
     /**

@@ -16,6 +16,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
+use Wizaplace\SDK\User\User;
 
 class OrganisationService extends AbstractService
 {
@@ -41,30 +42,9 @@ class OrganisationService extends AbstractService
             'administrator' => $organisation->getAdministrator(),
         ];
 
-        $files = $organisation->getFiles();
-
-        $dataToSend = [];
-
-        $flatArray = $this->flattenArray($data);
-
-        foreach ($flatArray as $key => $value) {
-            $dataToSend[] = [
-                'name'  => $key,
-                'contents' => $value,
-            ];
-        }
-
-        foreach ($files as $file) {
-            /** @var OrganisationFile $file */
-            $dataToSend[] = [
-                'name' => $file->getName(),
-                'contents' => $file->getContents(),
-            ];
-        }
-
         try {
             $registrationReturn = $this->client->post('organisations/registrations', [
-                RequestOptions::MULTIPART => $dataToSend,
+                RequestOptions::MULTIPART => $this->createMultipartArray($data, $organisation->getFiles()),
             ]);
 
             return $registrationReturn;
@@ -147,6 +127,43 @@ class OrganisationService extends AbstractService
 
             return $listUsers;
         } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to add a new user to the organisation
+     *
+     * @param string $organisationId
+     * @param array  $data
+     * @param array  $files
+     *
+     * @return User
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
+     * @throws \Exception
+     */
+    public function addNewUser(string $organisationId, array $data, array $files) : User
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post("organisations/{$organisationId}/users", [
+                RequestOptions::MULTIPART => $this->createMultipartArray($data, $files),
+            ]);
+
+            return new User($response);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new \Exception($e->getMessage(), 400, $e);
+            }
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
             }
@@ -582,5 +599,34 @@ class OrganisationService extends AbstractService
         }
 
         return $output;
+    }
+
+    /**
+     * @param array              $data
+     * @param OrganisationFile[] $files
+     *
+     * @return array
+     */
+    private function createMultipartArray(array $data, array $files) : array
+    {
+        $dataToSend = [];
+
+        $flatArray = $this->flattenArray($data);
+
+        foreach ($flatArray as $key => $value) {
+            $dataToSend[] = [
+                'name'  => $key,
+                'contents' => $value,
+            ];
+        }
+
+        foreach ($files as $file) {
+            $dataToSend[] = [
+                'name' => $file->getName(),
+                'contents' => $file->getContents(),
+            ];
+        }
+
+        return $dataToSend;
     }
 }

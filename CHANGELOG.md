@@ -8,6 +8,7 @@
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::addUserToGroup`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::removeUserToGroup`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationBaskets`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::addNewUser`
 
 ### 1.33.0
 
