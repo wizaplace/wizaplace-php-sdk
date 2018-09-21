@@ -497,7 +497,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId();
 
         $groupId = "";
-        foreach ($organisationService->getOrganisationGroups($organisationId) as $group) {
+        foreach ($organisationService->getOrganisationGroups((string) $organisationId) as $group) {
             if ($group->getType() === "admin") {
                 $groupId = $group->getId();
                 break;
@@ -524,7 +524,7 @@ final class OrganisationServiceTest extends ApiTestCase
             new OrganisationFile("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
         ];
 
-        $user = $organisationService->addNewUser($organisationId, $data, $files);
+        $user = $organisationService->addNewUser((string) $organisationId, $data, $files);
 
         $this->assertInstanceOf(User::class, $user);
     }

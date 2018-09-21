@@ -1,0 +1,135 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@0669744
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Sep 2018 15:17:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: aed651
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aed651'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"Ypn8o5OiiJfseWywP6fy\/l6hRRWkRNPLtk1zIpFZ"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@0669744
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Sep 2018 15:17:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c37505
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c37505'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"Ypn8o5OiiJfseWywP6fy\/l6hRRWkRNPLtk1zIpFZ"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@0669744
+            Authorization: 'token Ypn8o5OiiJfseWywP6fy/l6hRRWkRNPLtk1zIpFZ'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Sep 2018 15:17:57 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 37bab0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/37bab0'
+            Content-Length: '1146'
+            Content-Type: application/json
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"4d5f4279-bce8-11e8-8db2-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"4d7c8dc7-bce8-11e8-8db2-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/4d5f4279-bce8-11e8-8db2-080027ea4cb6/groups'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@0669744
+            Authorization: 'token Ypn8o5OiiJfseWywP6fy/l6hRRWkRNPLtk1zIpFZ'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 20 Sep 2018 15:17:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2c161c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2c161c'
+            Content-Length: '147'
+            Content-Type: application/json
+        body: '{"total":1,"count":1,"_embedded":{"groups":[{"id":"4d5febb0-bce8-11e8-8db2-080027ea4cb6","name":"organisation_group_admin_label","type":"admin"}]}}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/organisations/4d5f4279-bce8-11e8-8db2-080027ea4cb6/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=3ec4dbade1a94e8486286f7febc3489947e9b748'
+            User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@0669744
+            Authorization: 'token Ypn8o5OiiJfseWywP6fy/l6hRRWkRNPLtk1zIpFZ'
+            VCR-index: '4'
+            Accept: null
+        body: "--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"groupId\"\r\nContent-Length: 36\r\n\r\n4d5febb0-bce8-11e8-8db2-080027ea4cb6\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"email\"\r\nContent-Length: 18\r\n\r\nlemmy@motohead.com\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"firstName\"\r\nContent-Length: 5\r\n\r\nLemmy\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"lastName\"\r\nContent-Length: 9\r\n\r\nKilmister\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"password\"\r\nContent-Length: 10\r\n\r\nborn2loose\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"status\"\r\nContent-Length: 1\r\n\r\nA\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"title\"\r\nContent-Length: 2\r\n\r\nmr\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"occupation\"\r\nContent-Length: 6\r\n\r\nsinger\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"identityCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748\r\nContent-Disposition: form-data; name=\"proofOfAppointment\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--3ec4dbade1a94e8486286f7febc3489947e9b748--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Thu, 20 Sep 2018 15:17:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2dc230
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2dc230'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%222dc230%22%2C%22route%22%3A%22api_organisation_add_new_user%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationController%22%2C%22method%22%3A%22addNewUserAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationController.php%22%2C%22line%22%3A206%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '94'
+            Content-Type: application/json
+        body: '{"id":13,"email":"lemmy@motohead.com","firstName":"Lemmy","lastName":"Kilmister","status":"A"}'
