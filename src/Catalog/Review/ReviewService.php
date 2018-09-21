@@ -118,6 +118,20 @@ final class ReviewService extends AbstractService
         return true;
     }
 
+    public function canUserReviewProduct(string $productId) : bool
+    {
+        try {
+            $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $productId));
+        } catch (ClientException $e) {
+            if ($e->getCode() === 401) {
+                return false;
+            }
+            throw $e;
+        }
+
+        return true;
+    }
+
     private function createReview(array $review): Review
     {
         if (is_array($review['author'])) {

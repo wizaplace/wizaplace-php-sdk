@@ -134,6 +134,22 @@ final class ReviewServiceTest extends ApiTestCase
         $this->assertFalse($response);
     }
 
+    public function testCanUserReviewProduct()
+    {
+        $response = $this->reviewService->canUserReviewProduct((string) 1);
+
+        var_dump($response);
+        die();
+
+        $this->assertTrue($response);
+    }
+
+    public function testCannotUserReviewProduct()
+    {
+        $response = $this->reviewService->canUserReviewProduct((string) 1);
+        $this->assertFalse($response);
+    }
+
     private function buildReviewService(): ReviewService
     {
         $client = $this->buildApiClient();
