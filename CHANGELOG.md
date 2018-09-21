@@ -17,6 +17,7 @@
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::removeUserToGroup`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationBaskets`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::addNewUser`
+- Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
 
 ## 1.33.0
 
