@@ -121,7 +121,7 @@ final class ReviewService extends AbstractService
     public function canUserReviewProduct(string $productId) : bool
     {
         try {
-            $this->client->get(sprintf(self::AUTHORIZATION_ENDPOINT, $productId));
+            $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
         } catch (ClientException $e) {
             if ($e->getCode() === 401) {
                 return false;
