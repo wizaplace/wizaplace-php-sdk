@@ -40,7 +40,7 @@ final class ReviewService extends AbstractService
     private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
     private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
     private const AUTHORIZATION_ENDPOINT = "catalog/companies/%s/reviews/authorized";
-    private const AUTHORIZATION_PRODUCT_ENDPOINT = "catalog/products/{productId}/reviews/authorized";
+    private const AUTHORIZATION_PRODUCT_ENDPOINT = "catalog/products/%s/reviews/authorized";
 
     /**
      * @return Review[]
