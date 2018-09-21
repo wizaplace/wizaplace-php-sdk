@@ -40,6 +40,7 @@ final class ReviewService extends AbstractService
     private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
     private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";
     private const AUTHORIZATION_ENDPOINT = "catalog/companies/%s/reviews/authorized";
+    private const AUTHORIZATION_PRODUCT_ENDPOINT = "catalog/products/{productId}/reviews/authorized";
 
     /**
      * @return Review[]
@@ -121,7 +122,7 @@ final class ReviewService extends AbstractService
     public function canUserReviewProduct(string $productId) : bool
     {
         try {
-            $this->client->get(sprintf(self::PRODUCT_ENDPOINT, $productId));
+            $this->client->get(sprintf(self::AUTHORIZATION_PRODUCT_ENDPOINT, $productId));
         } catch (ClientException $e) {
             if ($e->getCode() === 401) {
                 return false;
