@@ -2,6 +2,14 @@
 
 ## Next release
 
+### New features
+
+### Corrections
+
+## 1.34.0
+
+### New features
+
 - Added `\Wizaplace\SDK\Company\CompanyService::updateFile`
 - Added `\Wizaplace\SDK\Company\CompanyService::deleteFile`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationFromUserId`
@@ -10,7 +18,9 @@
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationBaskets`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::addNewUser`
 
-### 1.33.0
+## 1.33.0
+
+### New features
 
  - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getMultiVendorProductById`
  - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::createMultiVendorProduct`
