@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/add-sdk-wiz20@84ac061
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 26 Sep 2018 08:50:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fc415e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc415e'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"6Noy3X7sxw9sPERjEyszx5LTv73xXIBfJt9pcD1X"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/4/reviews/authorized'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/add-sdk-wiz20@84ac061
+            Authorization: 'token 6Noy3X7sxw9sPERjEyszx5LTv73xXIBfJt9pcD1X'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Wed, 26 Sep 2018 08:50:30 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 20ae46
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/20ae46'
+            Content-Type: 'text/html; charset=UTF-8'

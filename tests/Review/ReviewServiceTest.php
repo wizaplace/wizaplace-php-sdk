@@ -136,7 +136,7 @@ final class ReviewServiceTest extends ApiTestCase
 
     public function testCannotUserReviewProduct()
     {
-        $response = $this->reviewService->canUserReviewProduct((string) 1);
+        $response = $this->reviewService->canUserReviewProduct((string) 4);
         $this->assertFalse($response);
     }
 
