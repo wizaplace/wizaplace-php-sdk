@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
+
 ### Corrections
 
 ## 1.34.0
