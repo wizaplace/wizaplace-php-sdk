@@ -538,7 +538,7 @@ final class OrganisationServiceTest extends ApiTestCase
         if (is_string($organisationId)) {
             $responseData = $organisationService->createGroup($organisationId, "name", "type");
 
-            $this->assertRegexp(
+            $this->assertRegExp(
                 '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
                 $responseData['id']
             );
