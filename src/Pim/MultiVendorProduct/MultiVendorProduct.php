@@ -7,11 +7,12 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
+use Psr\Http\Message\UriInterface;
+use GuzzleHttp\Psr7\Uri;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
-use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
@@ -69,6 +70,9 @@ final class MultiVendorProduct
     /** @var array */
     private $imageIds;
 
+    /** @var UriInterface */
+    private $mainImage;
+
     public function __construct(array $data = [])
     {
         $this->id = isset($data['id']) ? to_string($data['id']) : null;
@@ -87,6 +91,9 @@ final class MultiVendorProduct
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
         $this->attributes = $data['attributes'] ?? null;
+        if (isset($data['main_pair']['detailed']['image_path'])) {
+            $this->mainImage = self::unserializeImage($data['main_pair']);
+        }
     }
 
     public function getId(): string
@@ -274,6 +281,18 @@ final class MultiVendorProduct
         return $this;
     }
 
+    public function getImage(): ?UriInterface
+    {
+        return $this->mainImage;
+    }
+
+    public function setImage($mainImage): self
+    {
+        $this->mainImage = $mainImage;
+
+        return $this;
+    }
+
     /**
      * @internal
      */
@@ -337,6 +356,10 @@ final class MultiVendorProduct
             $data['imageIds'] = $this->imageIds;
         }
 
+        if (isset($this->mainImage)) {
+            $data['main_pair'] = self::imageToArray($this->mainImage);
+        }
+
         return $data;
     }
 
@@ -371,5 +394,26 @@ final class MultiVendorProduct
                 }, iterator_to_array($violations)))
             );
         }
+    }
+
+    private static function imageToArray($image): array
+    {
+        if ($image instanceof MultiVendorProductImageUpload) {
+            return [
+                'detailed' => $image->toArray(),
+            ];
+        }
+
+        // direct link
+        return [
+            'detailed' => [
+                'image_path' => to_string($image),
+            ],
+        ];
+    }
+
+    private static function unserializeImage(array $imageData): UriInterface
+    {
+        return new Uri($imageData['detailed']['image_path']);
     }
 }

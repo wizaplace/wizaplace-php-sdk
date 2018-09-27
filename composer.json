@@ -12,7 +12,8 @@
         "myclabs/php-enum": "^1.5",
         "symfony/serializer": "^4.0|^3.0",
         "symfony/validator": "^3.3",
-        "theodorejb/polycast": "^1.0"
+        "theodorejb/polycast": "^1.0",
+      "ext-http": "*"
     },
     "autoload": {
         "psr-4": {"Wizaplace\\SDK\\": "src/"}
