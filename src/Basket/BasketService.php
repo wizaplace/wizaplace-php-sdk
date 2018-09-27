@@ -431,7 +431,31 @@ final class BasketService extends AbstractService
     public function setPickupPoint(SetPickupPointCommand $command): void
     {
         $command->validate();
+
         $this->client->post('basket/'.$command->getBasketId().'/chronorelais-pickup-point', [
+            RequestOptions::JSON => [
+                'pickupPointId' => $command->getPickupPointId(),
+                'title' => $command->getTitle()->getValue(),
+                'firstName' => $command->getFirstName(),
+                'lastName' => $command->getLastName(),
+            ],
+        ]);
+    }
+
+    /**
+     * Sets a pickup point as the basket's shipping destination.
+     *
+     * @param SetPickupPointCommand $command
+     *
+     * @return array The full address
+     *
+     * @throws SomeParametersAreInvalid
+     */
+    public function setMRPickupPoint(SetPickupPointCommand $command): array
+    {
+        $command->validate();
+
+        return $this->client->post(sprintf('basket/%s/mondialrelay-pickup-point', $command->getBasketId()), [
             RequestOptions::JSON => [
                 'pickupPointId' => $command->getPickupPointId(),
                 'title' => $command->getTitle()->getValue(),
