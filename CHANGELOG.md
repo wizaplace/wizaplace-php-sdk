@@ -6,6 +6,7 @@
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
 
 ### Corrections
 

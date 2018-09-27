@@ -409,6 +409,43 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1groups/post
+     *
+     * @param string $organisationId
+     * @param string $name
+     * @param string $type
+     *
+     * @return array|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
+     */
+    public function createGroup(string $organisationId, string $name, string $type)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->post(
+                "organisations/{$organisationId}/groups",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        "name" => $name,
+                        "type" => $type,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new UserDoesntBelongToOrganisation("You don't belong to the administrator group", $e);
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
      * Allow to add a new user to the group.
      *
      * @param string $groupId

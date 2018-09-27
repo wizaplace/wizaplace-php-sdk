@@ -529,6 +529,22 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertInstanceOf(User::class, $user);
     }
 
+    public function testCanCreateAnOrganisationGroup()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->createGroup($organisationId, "name", "type");
+
+            $this->assertRegExp(
+                '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
+                $responseData['id']
+            );
+        }
+    }
+
     /**
      * Return the id of an organisation, if found, else false
      * @param int $index
