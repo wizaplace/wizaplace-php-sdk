@@ -5,6 +5,7 @@
 ### New features
 
 - Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
 
 ### Corrections
 
