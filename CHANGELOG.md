@@ -4,6 +4,7 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
 
 ### Corrections
