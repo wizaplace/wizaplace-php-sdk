@@ -69,7 +69,6 @@ final class MultiVendorProductService extends AbstractService
     public function addImageToMultiVendorProduct(String $mvpId, array $files) : MultiVendorProduct
     {
         if (empty($files)) {
-
             throw new \Exception('Empty $files[]');
         }
 
@@ -83,7 +82,7 @@ final class MultiVendorProductService extends AbstractService
             if ($e->getCode() === 404) {
                 throw new NotFound("Multi vendor product #${mvpId} not found", $e);
             }
-            elseif ($e->getCode() === 400) {
+            if ($e->getCode() === 400) {
                 throw new InvalidArgumentException($e->getMessage());
             }
             throw $e;

@@ -158,7 +158,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     {
         $service = $this->buildMultiVendorProductService();
 
-        $mvp = $service->getMultiVendorProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
+        $mvp = $service->getMultiVendorProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
 
         $mvp->setName('Plop plop');
         $mvp->setStatus(MultiVendorProductStatus::HIDDEN());
@@ -166,13 +166,13 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         $service->updateMultiVendorProduct($mvp);
 
-        $updatedMvp = $service->getMultiVendorProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
+        $updatedMvp = $service->getMultiVendorProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
         $this->assertSame('Plop plop', $updatedMvp->getName());
         $this->assertTrue(MultiVendorProductStatus::HIDDEN()->equals($updatedMvp->getStatus()));
         $this->assertSame('plop-plop', $updatedMvp->getSlug());
         $this->assertSame('product', $updatedMvp->getProductTemplateType());
-        $this->assertSame('Et odio nobis aut est et. Sapiente quia dicta reprehenderit quaerat. Laboriosam magnam enim sunt atque.', $updatedMvp->getShortDescription());
-        $this->assertSame('Aliquam enim blanditiis dolorem voluptate ex. Minima in blanditiis quisquam. Impedit et dolorem non perferendis. Est qui quibusdam exercitationem consequatur doloribus. Velit impedit quo ut temporibus. Qui et molestiae facilis nisi necessitatibus repudiandae eos. Vel omnis sit ut recusandae quis enim suscipit. Nam qui velit consequatur ad rerum natus. Officiis accusantium veniam pariatur ut ad dignissimos. Ut maxime quas a cupiditate impedit in aut. Odio saepe et doloremque. Quidem non ipsam et corrupti.', $updatedMvp->getDescription());
+        $this->assertSame('Consectetur est cumque reiciendis aspernatur incidunt voluptatem. Odio nobis aut est et.', $updatedMvp->getShortDescription());
+        $this->assertSame('Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.', $updatedMvp->getDescription());
         $this->assertSame('', $updatedMvp->getSeoTitle());
         $this->assertSame('', $updatedMvp->getSeoDescription());
         $this->assertSame('', $updatedMvp->getSeoKeywords());
@@ -216,7 +216,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testAddImageToMultiVendorProduct(): void
     {
         $service = $this->buildMultiVendorProductService();
-        $path = dirname(dirname(__DIR__)) . '/fixtures/files/favicon.png';
+        $path = dirname(dirname(__DIR__)).'/fixtures/files/favicon.png';
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
         $files =  [
