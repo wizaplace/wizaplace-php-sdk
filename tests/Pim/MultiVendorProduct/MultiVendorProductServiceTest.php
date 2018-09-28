@@ -215,17 +215,15 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame([], $updatedMvp->getImageIds());
     }
 
-    public function testAddImageToMultiVendorProduct(): bool
+    public function testAddImageToMultiVendorProduct()
     {
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = file_get_contents("../../fixtures/files/wiz.svg", true, null);
+        $image = file_get_contents("../../fixtures/files/favicon.png", true, null);
         $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $image);
 
         $this->assertEquals($uuid, $multiVendorProduct->getId());
-
-        return $image;
     }
 
     private function buildMultiVendorProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): MultiVendorProductService
