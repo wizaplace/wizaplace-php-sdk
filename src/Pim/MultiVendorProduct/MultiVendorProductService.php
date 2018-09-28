@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
-use Wizaplace\SDK\Exception\InvalidArgumentException;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_string;
@@ -58,32 +58,32 @@ final class MultiVendorProductService extends AbstractService
     }
 
     /**
-     * @param String $mvpId
-     * @param array $files
+     * @param string $mvpId
+     * @param string $imageFile
      * @return MultiVendorProduct
-     * @throws InvalidArgumentException
      * @throws NotFound
+     * @throws SomeParametersAreInvalid
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
-     * @throws \Exception
      */
-    public function addImageToMultiVendorProduct(String $mvpId, array $files) : MultiVendorProduct
+    public function addImageToMultiVendorProduct(string $mvpId, string $imageFile) : MultiVendorProduct
     {
-        if (empty($files)) {
-            throw new \Exception('Empty $files[]');
-        }
-
         $this->client->mustBeAuthenticated();
 
         try {
             $response = $this->client->post("pim/multi-vendor-products/$mvpId/images", [
-                RequestOptions::MULTIPART => $files,
+                RequestOptions::MULTIPART => [
+                    [
+                        'name' => 'file',
+                        'contents' => $imageFile,
+                    ],
+                ],
             ]);
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("Multi vendor product #${mvpId} not found", $e);
             }
             if ($e->getCode() === 400) {
-                throw new InvalidArgumentException($e->getMessage());
+                throw new SomeParametersAreInvalid($e->getMessage());
             }
             throw $e;
         }

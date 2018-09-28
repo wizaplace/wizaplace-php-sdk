@@ -70,9 +70,6 @@ final class MultiVendorProduct
     /** @var array */
     private $imageIds;
 
-    /** @var UriInterface */
-    private $mainImage;
-
     public function __construct(array $data = [])
     {
         $this->id = isset($data['id']) ? to_string($data['id']) : null;
@@ -277,18 +274,6 @@ final class MultiVendorProduct
     public function setImageIds(?array $imageIds): self
     {
         $this->imageIds = $imageIds;
-
-        return $this;
-    }
-
-    public function getImage(): ?UriInterface
-    {
-        return $this->mainImage;
-    }
-
-    public function setImage($mainImage): self
-    {
-        $this->mainImage = $mainImage;
 
         return $this;
     }

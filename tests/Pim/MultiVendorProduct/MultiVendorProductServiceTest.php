@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
 use GuzzleHttp\Psr7\Uri;
 use Symfony\Component\HttpFoundation\File\File;
+use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\InvalidArgumentException;
 use Wizaplace\SDK\Exception\NotFound;
@@ -216,23 +217,12 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testAddImageToMultiVendorProduct(): void
     {
         $service = $this->buildMultiVendorProductService();
-        $path = dirname(dirname(__DIR__)).'/fixtures/files/favicon.png';
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $files =  [
-            [
-                'name' => 'file',
-                'contents' => fopen($path, 'r'),
-            ],
-        ];
-
-        $service->addImageToMultiVendorProduct($uuid, $files);
-        $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files);
+        $image = strval(file_get_contents("../../fixtures/files/wiz.svg", true));
+        $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $image);
 
         $this->assertEquals($uuid, $multiVendorProduct->getId());
-        $this->assertCount(2, $multiVendorProduct->getImageIds());
-        $this->assertEquals(11, $multiVendorProduct->getImageIds()[0]);
-        $this->assertEquals(12, $multiVendorProduct->getImageIds()[1]);
     }
 
     private function buildMultiVendorProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): MultiVendorProductService
