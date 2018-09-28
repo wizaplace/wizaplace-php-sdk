@@ -88,9 +88,6 @@ final class MultiVendorProduct
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
         $this->attributes = $data['attributes'] ?? null;
-        if (isset($data['main_pair']['detailed']['image_path'])) {
-            $this->mainImage = self::unserializeImage($data['main_pair']);
-        }
     }
 
     public function getId(): string
@@ -341,10 +338,6 @@ final class MultiVendorProduct
             $data['imageIds'] = $this->imageIds;
         }
 
-        if (isset($this->mainImage)) {
-            $data['main_pair'] = self::imageToArray($this->mainImage);
-        }
-
         return $data;
     }
 
@@ -379,26 +372,5 @@ final class MultiVendorProduct
                 }, iterator_to_array($violations)))
             );
         }
-    }
-
-    private static function imageToArray($image): array
-    {
-        if ($image instanceof MultiVendorProductImageUpload) {
-            return [
-                'detailed' => $image->toArray(),
-            ];
-        }
-
-        // direct link
-        return [
-            'detailed' => [
-                'image_path' => to_string($image),
-            ],
-        ];
-    }
-
-    private static function unserializeImage(array $imageData): UriInterface
-    {
-        return new Uri($imageData['detailed']['image_path']);
     }
 }
