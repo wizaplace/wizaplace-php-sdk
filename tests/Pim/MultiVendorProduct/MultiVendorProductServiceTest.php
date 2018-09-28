@@ -7,10 +7,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
-use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
-use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductImageUpload;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;

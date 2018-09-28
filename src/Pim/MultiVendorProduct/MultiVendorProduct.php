@@ -7,8 +7,6 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
-use Psr\Http\Message\UriInterface;
-use GuzzleHttp\Psr7\Uri;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Mapping\ClassMetadata;

@@ -12,6 +12,7 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
+use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
 final class MultiVendorProductService extends AbstractService
