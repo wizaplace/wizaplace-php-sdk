@@ -76,7 +76,7 @@ final class MultiVendorProductService extends AbstractService
                     [
                         'name' => 'file',
                         'contents' => $imageFile,
-                        'filename' => 'a',
+                        'filename' => 'image',
                     ],
                 ],
             ]);

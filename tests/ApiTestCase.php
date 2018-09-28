@@ -51,7 +51,6 @@ abstract class ApiTestCase extends TestCase
         return new ApiClient(new Client([
             'handler' => $handlerStack,
             'base_uri' => self::getApiBaseUrl(),
-            'debug' => true,
         ]));
     }
 
