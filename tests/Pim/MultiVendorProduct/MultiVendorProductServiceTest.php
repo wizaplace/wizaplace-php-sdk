@@ -7,13 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
-use GuzzleHttp\Psr7\Uri;
-use phpDocumentor\Reflection\Types\Null_;
-use Symfony\Component\HttpFoundation\File\File;
-use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
-use Wizaplace\SDK\Exception\InvalidArgumentException;
-use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductImageUpload;
@@ -220,7 +214,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = file_get_contents("../../fixtures/files/favicon.png", true, null);
+        $image = file_get_contents(__DIR__."/../../fixtures/files/favicon.png");
         $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $image);
 
         $this->assertEquals($uuid, $multiVendorProduct->getId());
