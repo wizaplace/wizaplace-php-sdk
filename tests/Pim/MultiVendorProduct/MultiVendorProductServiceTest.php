@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
 use GuzzleHttp\Psr7\Uri;
+use phpDocumentor\Reflection\Types\Null_;
 use Symfony\Component\HttpFoundation\File\File;
 use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -214,15 +215,17 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame([], $updatedMvp->getImageIds());
     }
 
-    public function testAddImageToMultiVendorProduct(): void
+    public function testAddImageToMultiVendorProduct(): bool
     {
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = strval(file_get_contents("../../fixtures/files/wiz.svg", true));
+        $image = file_get_contents("../../fixtures/files/wiz.svg", true, null);
         $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $image);
 
         $this->assertEquals($uuid, $multiVendorProduct->getId());
+
+        return $image;
     }
 
     private function buildMultiVendorProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): MultiVendorProductService
