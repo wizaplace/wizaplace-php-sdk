@@ -4,10 +4,14 @@
 
 ### New features
 
+### Corrections
+
+## 1.35.0
+
+### New features
+
 - Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
-
-### Corrections
 
 ## 1.34.0
 
