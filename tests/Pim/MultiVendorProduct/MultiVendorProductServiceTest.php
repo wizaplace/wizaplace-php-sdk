@@ -8,13 +8,13 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-use Wizaplace\SDK\File\FileService;
+use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Tests\File\FileTestService;
+use Wizaplace\SDK\Tests\File\FileTest;
 
 final class MultiVendorProductServiceTest extends ApiTestCase
 {
@@ -215,10 +215,10 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = FileTestService::mockUploadedFile("favicon.png");
+        $image = FileTest::mockUploadedFile("favicon.png");
 
         $files = [
-            new FileService('file', $image->getStream(), $image->getClientFilename()),
+            new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),
         ];
 
         $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files);

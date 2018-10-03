@@ -12,7 +12,8 @@ use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
-use Wizaplace\SDK\File\FileService;
+use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\File\Multipart;
 use function theodorejb\polycast\to_string;
 
 final class MultiVendorProductService extends AbstractService
@@ -72,7 +73,7 @@ final class MultiVendorProductService extends AbstractService
 
         try {
             $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/images", [
-                RequestOptions::MULTIPART => FileService::createMultipartArray([], $files),
+                RequestOptions::MULTIPART => Multipart::createMultipartArray([], $files),
             ]);
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {

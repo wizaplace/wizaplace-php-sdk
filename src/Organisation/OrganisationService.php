@@ -15,7 +15,8 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
-use Wizaplace\SDK\File\FileService;
+use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\File\Multipart;
 use Wizaplace\SDK\User\User;
 
 class OrganisationService extends AbstractService
@@ -44,7 +45,7 @@ class OrganisationService extends AbstractService
 
         try {
             $registrationReturn = $this->client->post('organisations/registrations', [
-                RequestOptions::MULTIPART => FileService::createMultipartArray($data, $organisation->getFiles()),
+                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $organisation->getFiles()),
             ]);
 
             return $registrationReturn;
@@ -156,7 +157,7 @@ class OrganisationService extends AbstractService
 
         try {
             $response = $this->client->post("organisations/{$organisationId}/users", [
-                RequestOptions::MULTIPART => FileService::createMultipartArray($data, $files),
+                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $files),
             ]);
 
             return new User($response);
