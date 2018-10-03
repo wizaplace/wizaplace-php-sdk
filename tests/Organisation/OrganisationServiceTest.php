@@ -13,6 +13,7 @@ use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
+use Wizaplace\SDK\Organisation\OrganisationFile;
 use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
@@ -518,8 +519,8 @@ final class OrganisationServiceTest extends ApiTestCase
         $proof  = FileTestService::mockUploadedFile('minimal.pdf');
 
         $files = [
-            new OrganisationFileService("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
-            new OrganisationFileService("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
+            new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
+            new OrganisationFile("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
         ];
 
         $user = $organisationService->addNewUser((string) $organisationId, $data, $files);
