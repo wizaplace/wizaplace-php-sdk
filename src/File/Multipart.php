@@ -37,8 +37,6 @@ class Multipart
 
     /**
      * This method help to have an array compliant to Guzzle for multipart POST/PUT for the organisation process
-     * There are exception in the process for OrganisationAddress and OrganisationAdministrator which needs to be transformed to array
-     * prior to processing
      *
      * Ex:
      * ['name' => 'obiwan', ['address' => ['street' => 'main street', 'city' => 'Mos Esley']]
