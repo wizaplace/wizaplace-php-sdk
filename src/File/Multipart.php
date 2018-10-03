@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * @copyright Copyright (c) Wizacha
+ * @license Proprietary
+ */
 namespace Wizaplace\SDK\File;
 
 use Wizaplace\SDK\ArrayableInterface;
