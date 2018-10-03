@@ -5,10 +5,17 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
-- Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
-- Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
+- Added `\Wizaplace\SDK\Pim\Product::STANDBY`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
 
 ### Corrections
+
+## 1.35.0
+
+### New features
+
+- Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
 
 ## 1.34.0
 

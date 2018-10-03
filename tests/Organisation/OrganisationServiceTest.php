@@ -19,8 +19,8 @@ use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use function GuzzleHttp\Psr7\stream_for;
 use Wizaplace\SDK\User\User;
+use function GuzzleHttp\Psr7\stream_for;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -542,6 +542,25 @@ final class OrganisationServiceTest extends ApiTestCase
                 '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
                 $responseData['id']
             );
+        }
+    }
+
+    public function testGetListGroupUser()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+
+        $organisationId = $this->getOrganisationId();
+
+        if (is_string($organisationId)) {
+            $groups = $organisationService->getOrganisationGroups($organisationId);
+
+            foreach ($groups as $group) {
+                $usersList = $organisationService->getGroupUsers($group->getId());
+
+                foreach ($usersList as $user) {
+                    $this->assertInstanceOf(User::class, $user);
+                }
+            }
         }
     }
 
