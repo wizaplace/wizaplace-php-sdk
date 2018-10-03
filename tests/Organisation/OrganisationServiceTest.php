@@ -19,7 +19,7 @@ use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Tests\File\FileTest;
+use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
 
 final class OrganisationServiceTest extends ApiTestCase
@@ -32,8 +32,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', FileTest::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', FileTest::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -60,8 +60,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', FileTest::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', FileTest::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -88,8 +88,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', FileTest::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', FileTest::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
 
         $this->expectExceptionCode(403);
         $organisationService->register($organisation);
@@ -516,8 +516,8 @@ final class OrganisationServiceTest extends ApiTestCase
         ];
 
 
-        $idCard = FileTest::mockUploadedFile('minimal.pdf');
-        $proof  = FileTest::mockUploadedFile('minimal.pdf');
+        $idCard = Mock::mockUploadedFile('minimal.pdf');
+        $proof  = Mock::mockUploadedFile('minimal.pdf');
 
         $files = [
             new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),

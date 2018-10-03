@@ -14,7 +14,7 @@ use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Tests\File\FileTest;
+use Wizaplace\SDK\Tests\File\Mock;
 
 final class MultiVendorProductServiceTest extends ApiTestCase
 {
@@ -215,7 +215,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = FileTest::mockUploadedFile("favicon.png");
+        $image = Mock::mockUploadedFile("favicon.png");
 
         $files = [
             new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),

@@ -17,7 +17,7 @@ use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Tests\File\FileTest;
+use Wizaplace\SDK\Tests\File\Mock;
 
 /**
  * @see CompanyService
@@ -43,8 +43,8 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setUrl('https://acme.example.com/');
         $companyRegistration->setExtra(['driving_license_number' => '654987321']);
 
-        $companyRegistration->addUploadedFile('rib', FileTest::mockUploadedFile('minimal.pdf'));
-        $companyRegistration->addUploadedFile('idCard', FileTest::mockUploadedFile('minimal.pdf'));
+        $companyRegistration->addUploadedFile('rib', Mock::mockUploadedFile('minimal.pdf'));
+        $companyRegistration->addUploadedFile('idCard', Mock::mockUploadedFile('minimal.pdf'));
 
         $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
@@ -85,7 +85,7 @@ final class CompanyServiceTest extends ApiTestCase
 
 
         // Update file
-        $file = FileTest::mockUploadedFile('minimal.pdf');
+        $file = Mock::mockUploadedFile('minimal.pdf');
 
         $update = $companyService->updateFile($company->getId(), 'idCard', [
             'name'     => "idCard",
@@ -145,7 +145,7 @@ final class CompanyServiceTest extends ApiTestCase
     public function testUploadingBadExtensionRegistrationFiles()
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
-        $companyRegistration->addUploadedFile('rib', FileTest::mockUploadedFile('dummy.txt'));
+        $companyRegistration->addUploadedFile('rib', Mock::mockUploadedFile('dummy.txt'));
         $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
         $result = $companyService->register($companyRegistration);
