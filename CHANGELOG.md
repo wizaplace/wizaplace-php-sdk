@@ -5,6 +5,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
 
 ### Corrections
 

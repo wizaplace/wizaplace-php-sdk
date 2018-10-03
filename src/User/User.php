@@ -32,6 +32,8 @@ final class User
     private $shippingAddress;
     /** @var int|null */
     private $companyId;
+    /** @var string|null */
+    private $status;
 
     /**
      * @internal
@@ -47,6 +49,7 @@ final class User
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
         $this->companyId = $data['companyId'] ?? null;
+        $this->status = $data['status'] ?? null;
     }
 
     public function getId(): int
@@ -97,5 +100,13 @@ final class User
     public function isVendor(): bool
     {
         return $this->getCompanyId() !== null;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getStatus(): ?string
+    {
+        return $this->status;
     }
 }
