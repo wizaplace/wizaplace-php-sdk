@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
+
 ### Corrections
 
 ## 1.35.0
