@@ -6,8 +6,8 @@
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
-use Wizaplace\SDK\Organisation\OrganisationFile;
+use Wizaplace\SDK\File\FileService;
 
-class MultiVendorProductFile extends OrganisationFile
+class MultiVendorProductFile extends FileService
 {
 }

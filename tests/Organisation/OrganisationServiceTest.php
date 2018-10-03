@@ -8,19 +8,17 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
-use Wizaplace\SDK\Organisation\OrganisationFile;
 use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Tests\File\FileTestService;
 use Wizaplace\SDK\User\User;
-use function GuzzleHttp\Psr7\stream_for;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -32,8 +30,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', FileTestService::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', FileTestService::mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -60,8 +58,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', FileTestService::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', FileTestService::mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -88,8 +86,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', FileTestService::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', FileTestService::mockUploadedFile('minimal.pdf'));
 
         $this->expectExceptionCode(403);
         $organisationService->register($organisation);
@@ -516,12 +514,12 @@ final class OrganisationServiceTest extends ApiTestCase
         ];
 
 
-        $idCard = $this->mockUploadedFile('minimal.pdf');
-        $proof  = $this->mockUploadedFile('minimal.pdf');
+        $idCard = FileTestService::mockUploadedFile('minimal.pdf');
+        $proof  = FileTestService::mockUploadedFile('minimal.pdf');
 
         $files = [
-            new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
-            new OrganisationFile("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
+            new OrganisationFileService("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
+            new OrganisationFileService("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
         ];
 
         $user = $organisationService->addNewUser((string) $organisationId, $data, $files);
@@ -606,18 +604,6 @@ final class OrganisationServiceTest extends ApiTestCase
         }
 
         return new OrganisationService($apiClient);
-    }
-
-    private function mockUploadedFile(string $filename): UploadedFileInterface
-    {
-        $path = __DIR__.'/../fixtures/files/'.$filename;
-
-        /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
-        $file = $this->createMock(UploadedFileInterface::class);
-        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
-        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
-
-        return $file;
     }
 
     /**
