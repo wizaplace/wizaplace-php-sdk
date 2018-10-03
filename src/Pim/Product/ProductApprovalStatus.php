@@ -13,10 +13,12 @@ use MyCLabs\Enum\Enum;
  * @method static ProductApprovalStatus APPROVED()
  * @method static ProductApprovalStatus REJECTED()
  * @method static ProductApprovalStatus PENDING()
+ * @method static ProductApprovalStatus STANDBY()
  */
 final class ProductApprovalStatus extends Enum
 {
     private const APPROVED = 'Y';
     private const REJECTED = 'N';
     private const PENDING = 'P';
+    private const STANDBY = 'S';
 }

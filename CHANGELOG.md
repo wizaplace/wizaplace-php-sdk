@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\Product::STANDBY`
+
 ### Corrections
 
 ## 1.35.0
