@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@8ce1b53
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@79ac499
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 28 Sep 2018 14:19:52 GMT'
+            Date: 'Wed, 03 Oct 2018 10:44:43 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 643fba
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/643fba'
+            X-Debug-Token: 4f7552
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f7552'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"TDdCHjvgpm7Z+4QLQTCI2lGeLtb4SKjTYpQjnr+5"}'
+        body: '{"id":2,"apiKey":"iY40SCdF0oeN60XQXg06v4D0ec+f6RBqE9lck76u"}'
 -
     request:
         method: POST
@@ -33,24 +33,24 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=a5eae46665dc319fd5bb29b22cff3e44ce3d7db6'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@8ce1b53
-            Authorization: 'token TDdCHjvgpm7Z+4QLQTCI2lGeLtb4SKjTYpQjnr+5'
+            Content-Type: 'multipart/form-data; boundary=91eb969a94ed6676b37c180a490ee2d428b069e1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@79ac499
+            Authorization: 'token iY40SCdF0oeN60XQXg06v4D0ec+f6RBqE9lck76u'
             VCR-index: '1'
             Accept: null
-        body: !!binary LS1hNWVhZTQ2NjY1ZGMzMTlmZDViYjI5YjIyY2ZmM2U0NGNlM2Q3ZGI2DQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iYSINCkNvbnRlbnQtTGVuZ3RoOiAxNDgxDQoNColQTkcNChoKAAAADUlIRFIAAAAgAAAAIAgGAAAAc3p69AAABZBJREFUWMO9l0tsG1UUhr87M7YTx3FmJs2DhLyaNCFJW5qmb1pA4iEqFQlVFFWqVCFWbFggIYGEBEKsYAWqhMSCFRULQKggsUGCtqikLUlJU7UlDW6dpDSJncSx6zhxxo9h4WvXTtw2fXEka+S5Z+4597//Pfc/glVYU0sbgA5sArbIZxuwRrrMAD7gPNAPDAHhMb/vrnOLuwQWQD2wD3hNBtbv8J0NhGUi3wI/AZNjfp99zwk0tbS5gf3A28BGQOPeLAkMAp8Bx8b8voVVJSDhrgc+BA4Bbh7MYsA3wEfAjeXbohYJ3gp8ISF38uDmBHqATuC0bpjhSDiUG1SWOT8OHAH2Fhl7EFPknEckuisRaGppKwM+AV59yMHzt7sN8OiGeTwSDiVyCUi2HwTee0iw3ymJLuCabpgXIuFQbqUNku1uHr25ZawGAFWu/rD8Kfw/VgWM6obZr+qGaQIfA80uobDHqdPrqGA2nSBmp25P7XIvDc+8iNHRzUJwitRS/La+ZbX1NL/wMqWVVSwEJ7FTSQXwAD9qQC/wJMAuh84HnrWUCJVOrYxPY6NYdrroRrY+t4/mVw6CEDjcHkZ+OAr2yoKnOp10HDhM7danSCUsUktxpgb6kDF7FWArUA5QKhScQkHIZJrV0qIrMhUHu9xVCFVFKAo1W3ZSoptFfT31jZidG0AIFE1DcTiyQ+XAVkUWCQFwPhFlIrUEgKE42O6oKDppj+bl+eFxSmOLOYjNju6ivtU923F6vAAsBAPM+YbzgexRgPbsm6m0xdlEJDf6tNPAKwqvAA3BbqdOw0SQRv94pspoGjW9O/NXB4CjzMOa9T0gMhV/eqif+Ox0vku7ApRl/6WxOW6FmJfkW6e66dY8BZPWqS42OcrREkmeuDCMmsr4mp0b8NQ1FPhWrG3H29iSuZniiwQH/8ROF3CqbMWxu5yMcSk5D0CJUNjt1FHz7qwdDp1qJVOrzL+vwNQkAC6vnlltFl+hULN5B6qrBICI/x/C10aK1uhY/otFO8VJa44Udi5grerKJbTLqaPIhP6cGefq+bPZiNT07sRRlkHMZZhUdm3MiAQ7TWCgj+Tiihs5pgAr0jpthbkhyVirOunVMiRqU910aWUy0TS/L4WY6D+FFb0JgLexBb21A4DKro24ax4DIB6aZebiYDGOjihSNBQc4EAeGVUEzzoNSoXKHqdBuSTllWSMy8kYN8dHmRu5lPF1lVDdsw3V6aKmZzuKmvGduThILDBZTD0NKlLDRfNH0tj8Zs0SlWRc7/CwxeFlm6MCIb88aYWI2knSCYup/j7SyWSmxm7oZc36TejtXQCkrCUCA33YqRVVNQr0K8A5KSILbDiPjF6h8XppHWtlYZpOW5yRCAHMXBpkfuI6AKVV1azbfwhXhZGJcn2UsO9KMfiHgHMKMCcFZKqQjGlOWKEcGbs1Dy6ROTT9iQjXU7dq/1IkzPRQP9g2QlHxNrUihADbJjBwGms+ujx4SsacU6RiPVYMhVPWHCPJQubO2yl+WZolmU8b22ai7wSLM8EC34XgJIG/ziynWHb1x8b8PlsF0A0zKo/jS0CunC3YaYJpizbNTalQmbMTHI1P8mseMllLRKNY8zfx1DWgqBqxwAQj33+dI2h+XsD7wB+RcOhWhZEy/HPgjXxdIIAqxUmt4iJiJ7mRiheuPv+WFAKXUUmJYRIPzRIPh5bfkGngS+CdrEwXy1RxvXTY+wjESRr4GXhzzO+bKCrLI+FQVDfMPmCdFJDiIQd/a8zv+/e2fYFMIqwb5kmp3boegkiNAV8B7y4PXjSBPCROyIazEai+jy1JAgOScEfG/L7Q/TandbI5PQBsXkVzOifL+3eyOZ26r+a0SMtWIXVctj1vlcgABICr8nwPyGdkNe35fyxXASQEDJmHAAAAAElFTkSuQmCCDQotLWE1ZWFlNDY2NjVkYzMxOWZkNWJiMjliMjJjZmYzZTQ0Y2UzZDdkYjYtLQ0K
+        body: !!binary LS05MWViOTY5YTk0ZWQ2Njc2YjM3YzE4MGE0OTBlZTJkNDI4YjA2OWUxDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImZpbGUiOyBmaWxlbmFtZT0iZmF2aWNvbi5wbmciDQpDb250ZW50LUxlbmd0aDogMTQ4MQ0KQ29udGVudC1UeXBlOiBpbWFnZS9wbmcNCg0KiVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYIINCi0tOTFlYjk2OWE5NGVkNjY3NmIzN2MxODBhNDkwZWUyZDQyOGIwNjllMS0tDQo=
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 28 Sep 2018 14:19:53 GMT'
+            Date: 'Wed, 03 Oct 2018 10:44:43 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 74e1a3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/74e1a3'
+            X-Debug-Token: f6cdb2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f6cdb2'
             Content-Length: '1508'
             Content-Type: application/json
         body: '{"id":"0adaf6bc-d362-34be-b72f-42d5aa3b4a4e","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"ipsum-omnis-non-asperiores-hic-veritatis","shortDescription":"Consectetur est cumque reiciendis aspernatur incidunt voluptatem. Odio nobis aut est et.","description":"Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[11],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]}}'
