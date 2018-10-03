@@ -7,11 +7,14 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
+use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use function GuzzleHttp\Psr7\stream_for;
 
 final class MultiVendorProductServiceTest extends ApiTestCase
 {
@@ -152,7 +155,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     {
         $service = $this->buildMultiVendorProductService();
 
-        $mvp = $service->getMultiVendorProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
+        $mvp = $service->getMultiVendorProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
 
         $mvp->setName('Plop plop');
         $mvp->setStatus(MultiVendorProductStatus::HIDDEN());
@@ -160,13 +163,13 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         $service->updateMultiVendorProduct($mvp);
 
-        $updatedMvp = $service->getMultiVendorProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
+        $updatedMvp = $service->getMultiVendorProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
         $this->assertSame('Plop plop', $updatedMvp->getName());
         $this->assertTrue(MultiVendorProductStatus::HIDDEN()->equals($updatedMvp->getStatus()));
         $this->assertSame('plop-plop', $updatedMvp->getSlug());
         $this->assertSame('product', $updatedMvp->getProductTemplateType());
-        $this->assertSame('Et odio nobis aut est et. Sapiente quia dicta reprehenderit quaerat. Laboriosam magnam enim sunt atque.', $updatedMvp->getShortDescription());
-        $this->assertSame('Aliquam enim blanditiis dolorem voluptate ex. Minima in blanditiis quisquam. Impedit et dolorem non perferendis. Est qui quibusdam exercitationem consequatur doloribus. Velit impedit quo ut temporibus. Qui et molestiae facilis nisi necessitatibus repudiandae eos. Vel omnis sit ut recusandae quis enim suscipit. Nam qui velit consequatur ad rerum natus. Officiis accusantium veniam pariatur ut ad dignissimos. Ut maxime quas a cupiditate impedit in aut. Odio saepe et doloremque. Quidem non ipsam et corrupti.', $updatedMvp->getDescription());
+        $this->assertSame('Consectetur est cumque reiciendis aspernatur incidunt voluptatem. Odio nobis aut est et.', $updatedMvp->getShortDescription());
+        $this->assertSame('Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.', $updatedMvp->getDescription());
         $this->assertSame('', $updatedMvp->getSeoTitle());
         $this->assertSame('', $updatedMvp->getSeoDescription());
         $this->assertSame('', $updatedMvp->getSeoKeywords());
@@ -207,11 +210,40 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame([], $updatedMvp->getImageIds());
     }
 
+    public function testAddImageToMultiVendorProduct()
+    {
+        $service = $this->buildMultiVendorProductService();
+        $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
+
+        $image = $this->mockUploadedFile("favicon.png");
+
+        $files = [
+            new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),
+        ];
+
+        $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files);
+
+        $this->assertInstanceOf(MultiVendorProduct::class, $multiVendorProduct);
+        $this->assertEquals($uuid, $multiVendorProduct->getId());
+    }
+
     private function buildMultiVendorProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): MultiVendorProductService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($userEmail, $userPassword);
 
         return new MultiVendorProductService($apiClient);
+    }
+
+    private function mockUploadedFile(string $filename): UploadedFileInterface
+    {
+        $path = __DIR__.'/../../fixtures/files/'.$filename;
+
+        /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
+        $file = $this->createMock(UploadedFileInterface::class);
+        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
+        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
+
+        return $file;
     }
 }

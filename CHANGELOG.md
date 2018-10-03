@@ -4,6 +4,7 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
 
