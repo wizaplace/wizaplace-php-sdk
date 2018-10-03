@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
+
 ### Corrections
 
 ## 1.35.0
@@ -12,7 +14,6 @@
 
 - Added `\Wizapalce\SDK\Catalog\Review\ReviewService::canUserReviewProduct`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::createGroup`
-- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers`
 
 ## 1.34.0
 
