@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Organisation;
 
 use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
+use Wizaplace\SDK\File\FileService;
 use function theodorejb\polycast\to_string;
 
 final class Organisation
@@ -252,6 +253,6 @@ final class Organisation
 
     private function addFile(string $name, StreamInterface $contents, string $filename): void
     {
-        $this->files[$name] = new OrganisationFile($name, $contents, $filename);
+        $this->files[$name] = new FileService($name, $contents, $filename);
     }
 }
