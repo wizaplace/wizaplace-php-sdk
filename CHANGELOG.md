@@ -2,13 +2,16 @@
 
 ## Next release
 
+## 1.36.0
+
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
-- Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
 
 ### Corrections
+
+- Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 
 ## 1.35.0
 
