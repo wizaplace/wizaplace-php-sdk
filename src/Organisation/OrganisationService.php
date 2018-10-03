@@ -484,6 +484,43 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * Allow to get the list of group's users
+     *
+     * @param string $groupId
+     *
+     * @return \Iterator|User[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \Exception
+     */
+    public function getGroupUsers(string $groupId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/groups/{$groupId}/users");
+
+            $users = new \ArrayIterator();
+            foreach ($response['_embedded']['users'] as $user) {
+                $users->append(new User($user));
+            }
+
+            return $users;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new \Exception("You don't belong to the admin user group of the organisation", Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The user group doesn't exist", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
      * Allow to remove a user from the group.
      *
      * @param string $groupId
