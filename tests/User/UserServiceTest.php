@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\User;
 
 use GuzzleHttp\Psr7\Uri;
+use InvalidArgumentException;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
@@ -75,6 +76,143 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getBillingAddress()->getZipCode());
         $this->assertSame('', $user->getBillingAddress()->getCity());
         $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+    }
+
+    public function testCreateUserWithAddresses()
+    {
+        $userEmail = 'user@example.com';
+        $userPassword = 'password';
+        $userFistname = 'John';
+        $userLastname = 'Doe';
+        $userAddresses = [
+            'billing'  => [
+                'title'     => UserTitle::MR(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+            ],
+            'shipping' => [
+                'title'     => UserTitle::MR(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+            ],
+        ];
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userAddresses);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        // fetch user
+        $user = $userService->getProfileFromId($userId);
+
+        $this->assertNotNull($user, 'User exists');
+        $this->assertSame($userEmail, $user->getEmail());
+        $this->assertSame($userId, $user->getId());
+        $this->assertSame(null, $user->getTitle());
+        $this->assertSame($userFistname, $user->getFirstname());
+        $this->assertSame($userLastname, $user->getLastname());
+        $this->assertSame(null, $user->getBirthday());
+        $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
+
+        // shipping address
+        $this->assertNull($user->getShippingAddress()->getTitle());
+        $this->assertSame($userFistname, $user->getShippingAddress()->getFirstName());
+        $this->assertSame($userLastname, $user->getShippingAddress()->getLastName());
+        $this->assertSame($userAddresses['shipping']['company'], $user->getShippingAddress()->getCompany());
+        $this->assertSame($userAddresses['shipping']['phone'], $user->getShippingAddress()->getPhone());
+        $this->assertSame($userAddresses['shipping']['address'], $user->getShippingAddress()->getAddress());
+        $this->assertSame($userAddresses['shipping']['address_2'], $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame($userAddresses['shipping']['zipcode'], $user->getShippingAddress()->getZipCode());
+        $this->assertSame($userAddresses['shipping']['city'], $user->getShippingAddress()->getCity());
+        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
+
+        // billing address
+        $this->assertNull($user->getBillingAddress()->getTitle());
+        $this->assertSame($userFistname, $user->getBillingAddress()->getFirstName());
+        $this->assertSame($userLastname, $user->getBillingAddress()->getLastName());
+        $this->assertSame($userAddresses['billing']['company'], $user->getBillingAddress()->getCompany());
+        $this->assertSame($userAddresses['billing']['phone'], $user->getBillingAddress()->getPhone());
+        $this->assertSame($userAddresses['billing']['address'], $user->getBillingAddress()->getAddress());
+        $this->assertSame($userAddresses['billing']['address_2'], $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame($userAddresses['billing']['zipcode'], $user->getBillingAddress()->getZipCode());
+        $this->assertSame($userAddresses['billing']['city'], $user->getBillingAddress()->getCity());
+        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+    }
+
+    public function testCreateUserWithAddressesWithMissingData()
+    {
+        $userEmail = 'user@example.com';
+        $userPassword = 'password';
+        $userFistname = 'John';
+        $userLastname = 'Doe';
+        $userAddresses = [
+            'shipping' => [
+                'title'     => UserTitle::MR(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+            ],
+        ];
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $this->expectException(InvalidArgumentException::class);
+        $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userAddresses);
+
+
+        $userAddresses = [
+            'billing'  => [
+                'title'     => UserTitle::MR(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+            ],
+            'shipping' => [
+                'title'     => UserTitle::MR(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+            ],
+        ];
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $this->expectException(InvalidArgumentException::class);
+        $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userAddresses);
     }
 
     public function testCreateUserWithFullInfos()

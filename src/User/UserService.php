@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\User;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -90,6 +91,12 @@ final class UserService extends AbstractService
     /**
      * Register to create a user account.
      *
+     * @param string $email
+     * @param string $password
+     * @param string $firstName
+     * @param string $lastName
+     * @param array  $addresses
+     *
      * @return int ID of the created user.
      *
      * @throws UserAlreadyExists The email address is already used by a user account.
@@ -98,18 +105,34 @@ final class UserService extends AbstractService
         string $email,
         string $password,
         string $firstName = '',
-        string $lastName = ''
+        string $lastName = '',
+        array $addresses = []
     ): int {
         try {
+            $data = [
+                'email'     => $email,
+                'password'  => $password,
+                'firstName' => $firstName,
+                'lastName'  => $lastName,
+            ];
+
+            if (!empty($addresses)) {
+                if (!isset($addresses['billing']) || !isset($addresses['shipping'])) {
+                    throw new InvalidArgumentException("Addresses' parameter must be an array with both 'billing' and 'shipping'");
+                }
+
+                if (!$this->checkAddressData($addresses['billing']) || !$this->checkAddressData($addresses['shipping'])) {
+                    throw new InvalidArgumentException("Address' data invalid");
+                }
+
+                $data['billing']  = $addresses['billing'];
+                $data['shipping'] = $addresses['shipping'];
+            }
+
             $userData = $this->client->post(
                 'users',
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'email' => $email,
-                        'password' => $password,
-                        'firstName' => $firstName,
-                        'lastName' => $lastName,
-                    ],
+                    RequestOptions::FORM_PARAMS => $data,
                 ]
             );
         } catch (ClientException $e) {
@@ -238,5 +261,27 @@ final class UserService extends AbstractService
             'city' => $command->getCity(),
             'country' => $command->getCountry(),
         ]);
+    }
+
+    private function checkAddressData(array $data) : bool
+    {
+        $neededKeys = [
+            'title',
+            'firstname',
+            'lastname',
+            'company',
+            'phone',
+            'address',
+            'address_2',
+            'zipcode',
+            'city',
+            'country',
+        ];
+
+        if (!empty(array_diff($neededKeys, array_keys($data)))) {
+            return false;
+        }
+
+        return true;
     }
 }
