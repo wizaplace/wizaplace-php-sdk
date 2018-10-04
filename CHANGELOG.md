@@ -11,6 +11,7 @@
 
 ### Corrections
 
+- Added `\Wizaplace\SDK\User\UserService::UpdateuserAddresses`
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 
 ## 1.35.0
