@@ -8,8 +8,6 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
-use PHPUnit_Framework_MockObject_MockObject;
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyRegistration;
@@ -19,7 +17,7 @@ use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use function GuzzleHttp\Psr7\stream_for;
+use Wizaplace\SDK\Tests\File\Mock;
 
 /**
  * @see CompanyService
@@ -245,17 +243,5 @@ final class CompanyServiceTest extends ApiTestCase
         $apiClient->authenticate($email, $password);
 
         return new CompanyService($apiClient);
-    }
-
-    private function mockUploadedFile(string $filename): UploadedFileInterface
-    {
-        $path = __DIR__.'/../fixtures/files/'.$filename;
-
-        /** @var UploadedFileInterface|PHPUnit_Framework_MockObject_MockObject $file */
-        $file = $this->createMock(UploadedFileInterface::class);
-        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
-        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
-
-        return $file;
     }
 }

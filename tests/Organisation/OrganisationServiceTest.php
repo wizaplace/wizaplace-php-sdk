@@ -8,9 +8,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
+use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
@@ -19,8 +19,8 @@ use Wizaplace\SDK\Organisation\OrganisationGroup;
 use Wizaplace\SDK\Organisation\OrganisationOrder;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
-use function GuzzleHttp\Psr7\stream_for;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -606,18 +606,6 @@ final class OrganisationServiceTest extends ApiTestCase
         }
 
         return new OrganisationService($apiClient);
-    }
-
-    private function mockUploadedFile(string $filename): UploadedFileInterface
-    {
-        $path = __DIR__.'/../fixtures/files/'.$filename;
-
-        /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
-        $file = $this->createMock(UploadedFileInterface::class);
-        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
-        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
-
-        return $file;
     }
 
     /**

@@ -11,11 +11,12 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
-use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
+use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\File\Multipart;
 use Wizaplace\SDK\User\User;
 
 class OrganisationService extends AbstractService
@@ -44,7 +45,7 @@ class OrganisationService extends AbstractService
 
         try {
             $registrationReturn = $this->client->post('organisations/registrations', [
-                RequestOptions::MULTIPART => $this->createMultipartArray($data, $organisation->getFiles()),
+                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $organisation->getFiles()),
             ]);
 
             return $registrationReturn;
@@ -156,7 +157,7 @@ class OrganisationService extends AbstractService
 
         try {
             $response = $this->client->post("organisations/{$organisationId}/users", [
-                RequestOptions::MULTIPART => $this->createMultipartArray($data, $files),
+                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $files),
             ]);
 
             return new User($response);
@@ -635,72 +636,5 @@ class OrganisationService extends AbstractService
                     throw $e;
             }
         }
-    }
-
-    /**
-     * This method help to have an array compliant to Guzzle for multipart POST/PUT for the organisation process
-     * There are exception in the process for OrganisationAddress and OrganisationAdministrator which needs to be transformed to array
-     * prior to processing
-     *
-     * Ex:
-     * ['name' => 'obiwan', ['address' => ['street' => 'main street', 'city' => 'Mos Esley']]
-     * needs to be flatten to
-     * ['name' => 'obiwan', 'address[street]' => 'main street', 'address[city]' => 'Mos esley']
-     *
-     * @param array $array
-     * @param string $originalKey
-     * @return array
-     */
-    private function flattenArray(array $array, string $originalKey = '')
-    {
-        $output = [];
-
-        foreach ($array as $key => $value) {
-            $newKey = $originalKey;
-            if (empty($originalKey)) {
-                $newKey .= $key;
-            } else {
-                $newKey .= '['.$key.']';
-            }
-
-            if (is_array($value)) {
-                $output = array_merge($output, $this->flattenArray($value, $newKey));
-            } elseif ($value instanceof ArrayableInterface) {
-                $output = array_merge($output, $this->flattenArray($value->toArray(), $newKey));
-            } else {
-                $output[$newKey] = $value;
-            }
-        }
-
-        return $output;
-    }
-
-    /**
-     * @param array              $data
-     * @param OrganisationFile[] $files
-     *
-     * @return array
-     */
-    private function createMultipartArray(array $data, array $files) : array
-    {
-        $dataToSend = [];
-
-        $flatArray = $this->flattenArray($data);
-
-        foreach ($flatArray as $key => $value) {
-            $dataToSend[] = [
-                'name'  => $key,
-                'contents' => $value,
-            ];
-        }
-
-        foreach ($files as $file) {
-            $dataToSend[] = [
-                'name' => $file->getName(),
-                'contents' => $file->getContents(),
-            ];
-        }
-
-        return $dataToSend;
     }
 }

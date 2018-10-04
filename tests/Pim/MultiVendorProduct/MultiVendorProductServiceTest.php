@@ -7,14 +7,14 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
-use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use function GuzzleHttp\Psr7\stream_for;
+use Wizaplace\SDK\Tests\File\Mock;
 
 final class MultiVendorProductServiceTest extends ApiTestCase
 {
@@ -233,17 +233,5 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $apiClient->authenticate($userEmail, $userPassword);
 
         return new MultiVendorProductService($apiClient);
-    }
-
-    private function mockUploadedFile(string $filename): UploadedFileInterface
-    {
-        $path = __DIR__.'/../../fixtures/files/'.$filename;
-
-        /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
-        $file = $this->createMock(UploadedFileInterface::class);
-        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
-        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
-
-        return $file;
     }
 }
