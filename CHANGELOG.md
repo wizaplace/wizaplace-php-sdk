@@ -13,7 +13,7 @@
 
 ### Corrections
 
-- Added `\Wizaplace\SDK\User\UserService::UpdateuserAddresses` Fixed a issue when updating addresses from full fields to empty fields and from full fields to new full fields
+- Fixed a issue when updating user addresses from full fields to empty fields and from full fields to new full fields
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 
 ## 1.35.0
