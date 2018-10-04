@@ -118,11 +118,11 @@ final class UserService extends AbstractService
                 'lastName'  => $lastName,
             ];
 
-            if (!is_null($billing)) {
+            if ($billing instanceof UserAddress) {
                 $data['billing'] = $billing->toArray();
             }
 
-            if (!is_null($shipping)) {
+            if ($shipping instanceof UserAddress) {
                 $data['shipping'] = $shipping->toArray();
             }
 

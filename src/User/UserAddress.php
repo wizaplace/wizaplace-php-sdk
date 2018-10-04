@@ -7,7 +7,9 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\User;
 
-final class UserAddress
+use Wizaplace\SDK\ArrayableInterface;
+
+final class UserAddress implements ArrayableInterface
 {
     /** @var null|UserTitle */
     private $title;
