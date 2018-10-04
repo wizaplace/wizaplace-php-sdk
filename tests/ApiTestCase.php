@@ -12,8 +12,10 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use PHPUnit\Framework\TestCase;
 use Psr\Http\Message\RequestInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use VCR\VCR;
 use Wizaplace\SDK\ApiClient;
+use function GuzzleHttp\Psr7\stream_for;
 
 abstract class ApiTestCase extends TestCase
 {
@@ -102,6 +104,18 @@ abstract class ApiTestCase extends TestCase
         $this->cassetteName = null;
         self::$historyContainer = [];
         parent::tearDown();
+    }
+
+    protected function mockUploadedFile(string $filename): UploadedFileInterface
+    {
+        $path = __DIR__.'/fixtures/files/'.$filename;
+
+        /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
+        $file = $this->createMock(UploadedFileInterface::class);
+        $file->expects($this->once())->method('getStream')->willReturn(stream_for(fopen($path, 'r')));
+        $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
+
+        return $file;
     }
 
     private function currentCassetteExists(): bool

@@ -32,8 +32,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -60,8 +60,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
 
         $responseData = $organisationService->register($organisation);
 
@@ -88,8 +88,8 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisation = new Organisation($data);
 
-        $organisation->addUploadedFile('identityCard', Mock::mockUploadedFile('minimal.pdf'));
-        $organisation->addUploadedFile('proofOfAppointment', Mock::mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('identityCard', $this->mockUploadedFile('minimal.pdf'));
+        $organisation->addUploadedFile('proofOfAppointment', $this->mockUploadedFile('minimal.pdf'));
 
         $this->expectExceptionCode(403);
         $organisationService->register($organisation);
@@ -516,8 +516,8 @@ final class OrganisationServiceTest extends ApiTestCase
         ];
 
 
-        $idCard = Mock::mockUploadedFile('minimal.pdf');
-        $proof  = Mock::mockUploadedFile('minimal.pdf');
+        $idCard = $this->mockUploadedFile('minimal.pdf');
+        $proof  = $this->mockUploadedFile('minimal.pdf');
 
         $files = [
             new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),

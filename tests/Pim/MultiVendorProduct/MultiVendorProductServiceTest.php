@@ -215,7 +215,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $service = $this->buildMultiVendorProductService();
         $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
 
-        $image = Mock::mockUploadedFile("favicon.png");
+        $image = $this->mockUploadedFile("favicon.png");
 
         $files = [
             new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),

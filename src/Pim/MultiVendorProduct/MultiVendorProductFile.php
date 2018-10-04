@@ -6,8 +6,8 @@
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
-use Wizaplace\SDK\File\AbastractFile;
+use Wizaplace\SDK\File\AbstractFile;
 
-class MultiVendorProductFile extends AbastractFile
+class MultiVendorProductFile extends AbstractFile
 {
 }

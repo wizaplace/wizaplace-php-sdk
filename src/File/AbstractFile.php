@@ -8,7 +8,7 @@ namespace Wizaplace\SDK\File;
 
 use Psr\Http\Message\StreamInterface;
 
-abstract class AbastractFile
+abstract class AbstractFile
 {
     /** @var string */
     private $name;

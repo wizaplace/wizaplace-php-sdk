@@ -6,8 +6,8 @@
 
 namespace Wizaplace\SDK\Organisation;
 
-use Wizaplace\SDK\File\AbastractFile;
+use Wizaplace\SDK\File\AbstractFile;
 
-class OrganisationFile extends AbastractFile
+class OrganisationFile extends AbstractFile
 {
 }
