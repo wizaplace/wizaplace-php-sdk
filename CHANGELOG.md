@@ -9,7 +9,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
-- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers`
 
 ### Corrections
 
