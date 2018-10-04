@@ -2,13 +2,14 @@
 
 ## Next release
 
+- Added optionals parameters `$billing` and `$shipping` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
+
 ## 1.36.0
 
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
-- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers`
-- Added optionals parameters `$billing` and `$shipping` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers
 
 ### Corrections
 
