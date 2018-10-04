@@ -9,7 +9,6 @@ namespace Wizaplace\SDK\User;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
-use InvalidArgumentException;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -91,11 +90,13 @@ final class UserService extends AbstractService
     /**
      * Register to create a user account.
      *
-     * @param string $email
-     * @param string $password
-     * @param string $firstName
-     * @param string $lastName
-     * @param array  $addresses
+     * @param string           $email
+     * @param string           $password
+     * @param string           $firstName
+     * @param string           $lastName
+     *
+     * @param UserAddress|null $billing
+     * @param UserAddress|null $shipping
      *
      * @return int ID of the created user.
      *
@@ -106,7 +107,8 @@ final class UserService extends AbstractService
         string $password,
         string $firstName = '',
         string $lastName = '',
-        array $addresses = []
+        UserAddress $billing = null,
+        UserAddress $shipping = null
     ): int {
         try {
             $data = [
@@ -116,17 +118,12 @@ final class UserService extends AbstractService
                 'lastName'  => $lastName,
             ];
 
-            if (!empty($addresses)) {
-                if (!isset($addresses['billing']) || !isset($addresses['shipping'])) {
-                    throw new InvalidArgumentException("Addresses' parameter must be an array with both 'billing' and 'shipping'");
-                }
+            if (!is_null($billing)) {
+                $data['billing'] = $billing->toArray();
+            }
 
-                if (!$this->checkAddressData($addresses['billing']) || !$this->checkAddressData($addresses['shipping'])) {
-                    throw new InvalidArgumentException("Address' data invalid");
-                }
-
-                $data['billing']  = $addresses['billing'];
-                $data['shipping'] = $addresses['shipping'];
+            if (!is_null($shipping)) {
+                $data['shipping'] = $shipping->toArray();
             }
 
             $userData = $this->client->post(
@@ -261,27 +258,5 @@ final class UserService extends AbstractService
             'city' => $command->getCity(),
             'country' => $command->getCountry(),
         ]);
-    }
-
-    private function checkAddressData(array $data) : bool
-    {
-        $neededKeys = [
-            'title',
-            'firstname',
-            'lastname',
-            'company',
-            'phone',
-            'address',
-            'address_2',
-            'zipcode',
-            'city',
-            'country',
-        ];
-
-        if (!empty(array_diff($neededKeys, array_keys($data)))) {
-            return false;
-        }
-
-        return true;
     }
 }

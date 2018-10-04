@@ -105,4 +105,20 @@ final class UserAddress
     {
         return $this->country;
     }
+
+    public function toArray() : array
+    {
+        return [
+            'title'     => is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
+            'firstname' => $this->getFirstName(),
+            'lastname'  => $this->getLastName(),
+            'company'   => $this->getCompany(),
+            'phone'     => $this->getPhone(),
+            'address'   => $this->getAddress(),
+            'address_2' => $this->getAddressSecondLine(),
+            'zipcode'   => $this->getZipCode(),
+            'city'      => $this->getCity(),
+            'country'   => $this->getCountry(),
+        ];
+    }
 }
