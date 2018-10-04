@@ -8,6 +8,7 @@
 
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers`
+- Added optional parameter `$addresses` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
 
 ### Corrections
 
