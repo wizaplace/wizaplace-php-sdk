@@ -226,7 +226,7 @@ final class UserService extends AbstractService
 
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
     {
-        return array_filter([
+        return [
             'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
             'firstname' => $command->getFirstName(),
             'lastname' => $command->getLastName(),
@@ -237,6 +237,6 @@ final class UserService extends AbstractService
             'zipcode' => $command->getZipCode(),
             'city' => $command->getCity(),
             'country' => $command->getCountry(),
-        ]);
+        ];
     }
 }
