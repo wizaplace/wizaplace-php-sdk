@@ -5,6 +5,11 @@
 ### New features
 
 - Added optionals parameters `$billing` and `$shipping` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
+- Added `SDK\Order\Order::getCompanyName` 
+
+### Corrections
+
+- Fixed an issue in `SDK\User\UserService::updateUserAddresses` where addresses fields would not be updated
 
 ### Corrections
 
