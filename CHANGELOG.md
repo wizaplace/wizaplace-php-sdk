@@ -14,6 +14,7 @@
 
 ### Corrections
 
+- Fixed an issue in `SDK\User\UserService::updateUserAddresses` where addresses fields would not be updated
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 
 ## 1.35.0
