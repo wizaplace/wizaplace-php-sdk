@@ -189,6 +189,20 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
     }
 
+    public function testGetOrdersWhichReturnsCompanyName(): array
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+        $orders = $orderService->getOrders();
+
+        $this->assertSame('The World Company Inc.', $orders[0]->getCompanyName());
+        $this->assertSame('The World Company Inc.', $orders[1]->getCompanyName());
+        $this->assertSame('The World Company Inc.', $orders[3]->getCompanyName());
+
+        return $orders;
+    }
+
     public function testCommitOrder()
     {
         $orderService = $this->buildOrderService();
@@ -226,19 +240,4 @@ final class OrderServiceTest extends ApiTestCase
     {
         return new OrderService($this->buildApiClient());
     }
-
-    public function testGetOrdersWhichReturnsCompanyName(): array
-    {
-        $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
-        $orderService = new OrderService($apiClient);
-        $orders = $orderService->getOrders();
-
-        $this->assertSame('The World Company Inc.', $orders[0]->getCompanyName());
-        $this->assertSame('The World Company Inc.', $orders[1]->getCompanyName());
-        $this->assertSame('The World Company Inc.', $orders[3]->getCompanyName());
-
-        return $orders;
-    }
-
 }
