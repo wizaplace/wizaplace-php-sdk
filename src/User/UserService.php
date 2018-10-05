@@ -90,6 +90,14 @@ final class UserService extends AbstractService
     /**
      * Register to create a user account.
      *
+     * @param string           $email
+     * @param string           $password
+     * @param string           $firstName
+     * @param string           $lastName
+     *
+     * @param UserAddress|null $billing
+     * @param UserAddress|null $shipping
+     *
      * @return int ID of the created user.
      *
      * @throws UserAlreadyExists The email address is already used by a user account.
@@ -98,18 +106,30 @@ final class UserService extends AbstractService
         string $email,
         string $password,
         string $firstName = '',
-        string $lastName = ''
+        string $lastName = '',
+        UserAddress $billing = null,
+        UserAddress $shipping = null
     ): int {
         try {
+            $data = [
+                'email'     => $email,
+                'password'  => $password,
+                'firstName' => $firstName,
+                'lastName'  => $lastName,
+            ];
+
+            if ($billing instanceof UserAddress) {
+                $data['billing'] = $billing->toArray();
+            }
+
+            if ($shipping instanceof UserAddress) {
+                $data['shipping'] = $shipping->toArray();
+            }
+
             $userData = $this->client->post(
                 'users',
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'email' => $email,
-                        'password' => $password,
-                        'firstName' => $firstName,
-                        'lastName' => $lastName,
-                    ],
+                    RequestOptions::FORM_PARAMS => $data,
                 ]
             );
         } catch (ClientException $e) {

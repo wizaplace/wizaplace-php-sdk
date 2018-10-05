@@ -16,6 +16,7 @@ use Wizaplace\SDK\User\RegisterUserCommand;
 use Wizaplace\SDK\User\UpdateUserAddressCommand;
 use Wizaplace\SDK\User\UpdateUserAddressesCommand;
 use Wizaplace\SDK\User\UpdateUserCommand;
+use Wizaplace\SDK\User\UserAddress;
 use Wizaplace\SDK\User\UserAlreadyExists;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
@@ -75,6 +76,84 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getBillingAddress()->getZipCode());
         $this->assertSame('', $user->getBillingAddress()->getCity());
         $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+    }
+
+    public function testCreateUserWithAddresses()
+    {
+        $userEmail = 'user@example.com';
+        $userPassword = 'password';
+        $userFistname = 'John';
+        $userLastname = 'Doe';
+        $userBilling = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_b",
+            'phone'     => "Phone_b",
+            'address'   => "Address_b",
+            'address_2' => "Address 2_b",
+            'zipcode'   => "Zipcode_b",
+            'city'      => "City_b",
+            'country'   => "FR",
+        ]);
+        $userShipping = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_s",
+            'phone'     => "Phone_s",
+            'address'   => "Address_s",
+            'address_2' => "Address 2_s",
+            'zipcode'   => "Zipcode_s",
+            'city'      => "City_s",
+            'country'   => "FR",
+        ]);
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userBilling, $userShipping);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        // fetch user
+        $user = $userService->getProfileFromId($userId);
+
+        $this->assertNotNull($user, 'User exists');
+        $this->assertSame($userEmail, $user->getEmail());
+        $this->assertSame($userId, $user->getId());
+        $this->assertSame(null, $user->getTitle());
+        $this->assertSame($userFistname, $user->getFirstname());
+        $this->assertSame($userLastname, $user->getLastname());
+        $this->assertSame(null, $user->getBirthday());
+        $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
+
+        // shipping address
+        $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
+        $this->assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
+        $this->assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
+        $this->assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
+        $this->assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
+        $this->assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
+        $this->assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
+        $this->assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
+        $this->assertSame($userShipping->getCountry(), $user->getShippingAddress()->getCountry());
+
+        // billing address
+        $this->assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
+        $this->assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
+        $this->assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
+        $this->assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
+        $this->assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
+        $this->assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
+        $this->assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
+        $this->assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
+        $this->assertSame($userBilling->getCountry(), $user->getBillingAddress()->getCountry());
     }
 
     public function testCreateUserWithFullInfos()
