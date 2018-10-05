@@ -13,6 +13,8 @@ final class Order
     private $id;
     /** @var int */
     private $companyId;
+    /** @var string */
+    private $companyName;
     /** @var float */
     private $total;
     /** @var float */
@@ -43,6 +45,7 @@ final class Order
     {
         $this->id = $data['id'];
         $this->companyId = $data['companyId'];
+        $this->companyName = $data['companyName'];
         $this->total = $data['total'];
         $this->subtotal = $data['subtotal'];
         $this->taxtotal = $data['taxTotal'];
@@ -66,6 +69,11 @@ final class Order
     public function getCompanyId(): int
     {
         return $this->companyId;
+    }
+
+    public function getCompanyName(): string
+    {
+        return $this->companyName;
     }
 
     public function getTotal(): float
