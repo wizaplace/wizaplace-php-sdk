@@ -2,18 +2,17 @@
 
 ## Next release
 
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added optionals parameters `$billing` and `$shipping` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
 
 ## 1.36.0
 
 ### New features
 
-- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addImageToMultivendorProduct`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::getGroupUsers`
 
 ### Corrections
 
-- Fixed an issue in `SDK\User\UserService::updateUserAddresses` where addresses fields would not be updated
 - Added `\Wizaplace\SDK\Pim\Product::STANDBY`
 
 ## 1.35.0
