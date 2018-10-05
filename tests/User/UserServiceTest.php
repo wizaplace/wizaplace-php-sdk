@@ -410,6 +410,108 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getBillingAddress()->getZipCode());
     }
 
+    public function testUpdateUserAddressesWithMissingFieldsWhenFullFieldsBefore()
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user123@example.com', 'password', 'Paul', 'Jacques');
+
+        $client->authenticate('user123@example.com', 'password');
+
+        //test juste après création du compte
+        $user = $userService->getProfileFromId($userId);
+        $this->assertNull($user->getShippingAddress()->getTitle());
+        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
+
+        $this->assertNull($user->getBillingAddress()->getTitle());
+        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
+
+        //ajout d'adresses et de nom d'entreprise
+        $userService->updateUserAdresses(
+            (new UpdateUserAddressesCommand())
+                ->setUserId($userId)
+                ->setShippingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setTitle(UserTitle::MR())
+                        ->setAddress('49 rue des chemins')
+                        ->setCompany('Universite de Cambridge')
+                        ->setAddressSecondLine('9e étage')
+                        ->setZipCode('69009')
+                )
+                ->setBillingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setFirstName('Paul')
+                        ->setLastName('Jacques')
+                        ->setAddress('49 rue des chemins')
+                        ->setCompany('Universite de Cambridge')
+                        ->setAddressSecondLine('9e étage')
+                        ->setZipCode('69009')
+                )
+        );
+
+        $user = $userService->getProfileFromId($userId);
+
+        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+
+        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        $this->assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
+        $this->assertSame('49 rue des chemins', $user->getShippingAddress()->getAddress());
+        $this->assertSame('9e étage', $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame('69009', $user->getShippingAddress()->getZipCode());
+
+
+        $this->assertNull($user->getBillingAddress()->getTitle());
+
+        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
+        $this->assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
+        $this->assertSame('49 rue des chemins', $user->getBillingAddress()->getAddress());
+        $this->assertSame('9e étage', $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame('69009', $user->getBillingAddress()->getZipCode());
+
+        $userService->updateUserAdresses(
+            (new UpdateUserAddressesCommand())
+                ->setUserId($userId)
+                ->setShippingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setAddress('')
+                        ->setAddressSecondLine('')
+                        ->setCompany('')
+                        ->setZipCode('')
+                )
+                ->setBillingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setAddress('')
+                        ->setAddressSecondLine('')
+                        ->setCompany('')
+                        ->setZipCode('')
+                )
+        );
+
+        $user = $userService->getProfileFromId($userId);
+
+        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        $this->assertSame('', $user->getShippingAddress()->getAddress());
+        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame('', $user->getShippingAddress()->getCompany());
+        $this->assertSame('', $user->getShippingAddress()->getZipCode());
+
+        $this->assertNull($user->getBillingAddress()->getTitle());
+        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
+        $this->assertSame('', $user->getBillingAddress()->getAddress());
+        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame('', $user->getBillingAddress()->getCompany());
+        $this->assertSame('', $user->getBillingAddress()->getZipCode());
+    }
+
     public function testUpdateUserWithDefaultValuesOnly()
     {
         $client = $this->buildApiClient();
