@@ -6,7 +6,7 @@
 
 ### New features
 
-- Added optional parameters `$billing` and `$shipping` to `\Wizaplace\SDK\Organisation\OrganisationService::register`
+- Added optional parameters `$billing` and `$shipping` to `\Wizaplace\SDK\User\UserService::register`
 - Added `\Wizaplace\SDK\Order\Order::getCompanyName` 
 
 ### Corrections
