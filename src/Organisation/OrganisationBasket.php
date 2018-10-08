@@ -13,6 +13,11 @@ class OrganisationBasket
     private $id;
 
     /**
+     * @var int
+     */
+    private $userId;
+
+    /**
      * @var string
      */
     private $name;
@@ -35,6 +40,7 @@ class OrganisationBasket
     public function __construct(array $data)
     {
         $this->setId($data['basketId']);
+        $this->setUserId($data['userId']);
         $this->setName($data['name']);
         $this->setLocked($data['locked']);
         $this->setAccepted($data['accepted']);
@@ -119,5 +125,21 @@ class OrganisationBasket
     public function setCreatedAt(\DateTime $createdAt): void
     {
         $this->createdAt = $createdAt;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId(): int
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $userId
+     */
+    public function setUserId(int $userId): void
+    {
+        $this->userId = $userId;
     }
 }
