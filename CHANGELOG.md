@@ -2,6 +2,8 @@
 
 ## Next release
 
+- Added `user_id` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
+
 ### 1.37.0
 
 ### New features
