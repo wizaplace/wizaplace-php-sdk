@@ -87,6 +87,9 @@ final class Product
     /** @var string */
     private $seoDescription;
 
+    /** @var string */
+    private $seoKeywords;
+
     /** @var \DateTimeImmutable|null */
     private $createdAt;
 
@@ -143,6 +146,7 @@ final class Product
         }, $data['attachments'] ?? []);
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->seoKeywords = $data['seoData']['keywords'] ?? '';
         $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
 
@@ -387,5 +391,13 @@ final class Product
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoKeywords(): string
+    {
+        return $this->seoKeywords;
     }
 }

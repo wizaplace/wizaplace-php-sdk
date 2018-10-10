@@ -3,6 +3,8 @@
 ## Next release
 
 - Added `getUserId` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
+- Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
 
 ### 1.37.0
 

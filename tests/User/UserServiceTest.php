@@ -156,6 +156,86 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame($userBilling->getCountry(), $user->getBillingAddress()->getCountry());
     }
 
+    public function testCreateUserOnlyWithCompanyName()
+    {
+        $userEmail = 'user123@example.com';
+        $userPassword = 'password';
+        $userFistname = 'Paul';
+        $userLastname = 'Jean';
+        $userBilling = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_b",
+            'phone'     => "",
+            'address'   => "",
+            'address_2' => "",
+            'zipcode'   => "",
+            'city'      => "",
+            'country'   => "",
+        ]);
+        $userShipping = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_s",
+            'phone'     => "",
+            'address'   => "",
+            'address_2' => "",
+            'zipcode'   => "",
+            'city'      => "",
+            'country'   => "",
+        ]);
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userBilling, $userShipping);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        // fetch user
+        $user = $userService->getProfileFromId($userId);
+
+        $this->assertNotNull($user, 'User exists');
+        $this->assertSame($userEmail, $user->getEmail());
+        $this->assertSame($userId, $user->getId());
+        $this->assertSame(null, $user->getTitle());
+        $this->assertSame($userFistname, $user->getFirstname());
+        $this->assertSame($userLastname, $user->getLastname());
+        $this->assertSame(null, $user->getBirthday());
+        $this->assertNull($user->getCompanyId());
+        $this->assertFalse($user->isVendor());
+
+        //shipping adress
+        $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
+        $this->assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
+        $this->assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
+        $this->assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
+        $this->assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
+        $this->assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
+        $this->assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
+        $this->assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
+        $this->assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
+        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
+
+
+
+        //billing adress
+        $this->assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
+        $this->assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
+        $this->assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
+        $this->assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
+        $this->assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
+        $this->assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
+        $this->assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
+        $this->assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
+        $this->assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
+        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+    }
+
     public function testCreateUserWithFullInfos()
     {
         $addressCommand = new UpdateUserAddressCommand();
@@ -388,6 +468,7 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        $this->assertSame('', $user->getShippingAddress()->getFirstName());
         $this->assertSame('', $user->getShippingAddress()->getFirstName());
         $this->assertSame('', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
