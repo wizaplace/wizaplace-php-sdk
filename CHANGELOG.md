@@ -2,6 +2,9 @@
 
 ## Next release
 
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
+- Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
+
 ### 1.37.0
 
 ### New features
