@@ -400,12 +400,4 @@ final class Product
     {
         return $this->seoKeywords;
     }
-
-    /**
-     * @param string $seoKeywords
-     */
-    public function setSeoKeywords(string $seoKeywords): void
-    {
-        $this->seoKeywords = $seoKeywords;
-    }
 }
