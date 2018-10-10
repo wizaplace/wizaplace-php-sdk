@@ -2,6 +2,9 @@
 
 ## Next release
 
+- Added `seoKeywords` to `Wizaplace\SDK\Catalog\Product` with getter and setter
+- Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
+
 ### 1.37.0
 
 ### New features
