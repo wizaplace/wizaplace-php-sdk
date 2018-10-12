@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 22 Nov 2017 14:14:32 GMT'
+            Date: 'Fri, 12 Oct 2018 14:34:34 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d0cb4e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0cb4e'
-            Content-Length: '60'
+            X-Debug-Token: b17f04
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b17f04'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"Har0CGwkja+igyIEAGxY99zUSy4z6UfGIfzsQQel"}'
+        body: '{"id":2,"apiKey":"mq+V9gVkS2tGZlvJ0DBVBxs\/UAgGB0QktCv+AEX4"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
-            Authorization: 'token Har0CGwkja+igyIEAGxY99zUSy4z6UfGIfzsQQel'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token mq+V9gVkS2tGZlvJ0DBVBxs/UAgGB0QktCv+AEX4'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 22 Nov 2017 14:14:33 GMT'
+            Date: 'Fri, 12 Oct 2018 14:34:35 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0dcea0
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0dcea0'
-            Content-Length: '2186'
+            X-Debug-Token: 28f1ca
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/28f1ca'
+            Content-Length: '1940'
             Content-Type: application/json
-        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511360046,"updated_timestamp":1511360048,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":{"6":1},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_white"},{"combination":{"6":1,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":1,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":2},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_black"},{"combination":{"6":2,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":2,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":3},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_blue"},{"combination":{"6":3,"7":5},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":3,"7":6},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"6":4},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red"},{"combination":{"6":4,"7":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"6":4,"7":6},"amount":9,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}'
+        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1539354854,"updated_timestamp":1539354855,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_white_connectivity_wireles"},{"combination":{"1":1,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_white_connectivity_wired"},{"combination":{"1":2,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_black_connectivity_wireles"},{"combination":{"1":2,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_black_connectivity_wired"},{"combination":{"1":3,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_blue_connectivity_wireless"},{"combination":{"1":3,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_blue_connectivity_wired"},{"combination":{"1":4,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"1":4,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null}}'

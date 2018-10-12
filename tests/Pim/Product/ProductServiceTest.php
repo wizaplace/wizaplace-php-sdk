@@ -32,10 +32,10 @@ final class ProductServiceTest extends ApiTestCase
 {
     public function testGetProductById()
     {
-        $product = $this->buildProductService()->getProductById(5);
+        $product = $this->buildProductService()->getProductById(8);
 
         $this->assertInstanceOf(Product::class, $product);
-        $this->assertSame(5, $product->getId());
+        $this->assertSame(8, $product->getId());
         $this->assertSame('Product with complex attributes', $product->getName());
         $this->assertSame('32094574920', $product->getCode());
         $this->assertSame('TEST-ATTRIBUTES', $product->getSupplierReference());
@@ -49,7 +49,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertFalse($product->hasFreeShipping());
         $this->assertSame(1.23, $product->getWeight());
         $this->assertSame(3, $product->getCompanyId());
-        $this->assertSame(5, $product->getMainCategoryId());
+        $this->assertSame(6, $product->getMainCategoryId());
         $this->assertNull($product->getAffiliateLink());
         $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
         $this->assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
@@ -99,22 +99,22 @@ final class ProductServiceTest extends ApiTestCase
 
         $this->assertSame(2, $product->getId());
         $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
-        $this->assertCount(12, $product->getDeclinations());
+        $this->assertCount(8, $product->getDeclinations());
 
         $declination = $product->getDeclinations()[0];
         $this->assertSame(10, $declination->getQuantity());
-        $this->assertSame([6 => 1], $declination->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 5], $declination->getOptionsVariants());
         $this->assertSame(15.5, $declination->getPrice());
         $this->assertNull($declination->getCrossedOutPrice());
-        $this->assertSame('color_white', $declination->getCode());
+        $this->assertSame('color_white_connectivity_wireles', $declination->getCode());
         $this->assertNull($declination->getAffiliateLink());
     }
 
     public function testGetProductWithAttachments()
     {
-        $product = $this->buildProductService()->getProductById(7);
+        $product = $this->buildProductService()->getProductById(10);
 
-        $this->assertSame(7, $product->getId());
+        $this->assertSame(10, $product->getId());
         $attachments = $product->getAttachments();
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
         $this->assertCount(2, $attachments);
@@ -126,9 +126,9 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testGetProductWithGeolocation()
     {
-        $product = $this->buildProductService()->getProductById(6);
+        $product = $this->buildProductService()->getProductById(9);
 
-        $this->assertSame(6, $product->getId());
+        $this->assertSame(9, $product->getId());
         $geolocation = $product->getGeolocation();
         $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
 
@@ -402,6 +402,7 @@ final class ProductServiceTest extends ApiTestCase
         $data = (new CreateProductCommand())
             ->setCode("code_full")
             ->setGreenTax(0.1)
+            ->setInfiniteStock(true)
             ->setIsBrandNew(true)
             ->setName("Full product")
             ->setSupplierReference('supplierref_full')
@@ -429,11 +430,13 @@ final class ProductServiceTest extends ApiTestCase
                 (new ProductDeclinationUpsertData([7 => 1, 8 => 6, 9 => 9]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
-                    ->setQuantity(12),
+                    ->setQuantity(12)
+                    ->setInfiniteStock(true),
                 (new ProductDeclinationUpsertData([7 => 1, 8 => 5, 9 => 10]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
-                    ->setQuantity(3),
+                    ->setQuantity(3)
+                    ->setInfiniteStock(true),
             ])
             ->setGeolocation(
                 (new ProductGeolocationUpsertData(/* latitude */ 45.778848, /* longitude */ 4.800039))
@@ -466,6 +469,7 @@ final class ProductServiceTest extends ApiTestCase
             'freeAttr3' => ['freeAttr3Value', 42],
         ], $product->getFreeAttributes());
         $this->assertSame(0.1, $product->getGreenTax());
+        $this->assertTrue($product->hasInfiniteStock());
         $this->assertSame(0.2, $product->getWeight());
         $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
         $this->assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
@@ -503,6 +507,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(1000.0, $declinations[0]->getCrossedOutPrice());
         $this->assertSame(3, $declinations[0]->getQuantity());
         $this->assertSame(100.0, $declinations[0]->getPrice());
+        $this->assertTrue($declinations[0]->hasInfiniteStock());
 
         // empty declination generated automatically to complete the matrix
         $this->assertSame([7 => 1, 8 => 5, 9 => 9], $declinations[1]->getOptionsVariants());
@@ -511,6 +516,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[1]->getCrossedOutPrice());
         $this->assertNull($declinations[1]->getAffiliateLink());
         $this->assertNull($declinations[1]->getCode());
+        $this->assertFalse($declinations[1]->hasInfiniteStock());
 
         // empty declination generated automatically to complete the matrix
         $this->assertSame([7 => 1, 8 => 6, 9 => 10], $declinations[2]->getOptionsVariants());
@@ -519,12 +525,14 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[2]->getCrossedOutPrice());
         $this->assertNull($declinations[2]->getAffiliateLink());
         $this->assertNull($declinations[2]->getCode());
+        $this->assertFalse($declinations[2]->hasInfiniteStock());
 
         $this->assertSame([7 => 1, 8 => 6, 9 => 9], $declinations[3]->getOptionsVariants());
         $this->assertSame(3.5, $declinations[3]->getPrice());
         $this->assertSame(12, $declinations[3]->getQuantity());
         $this->assertNull($declinations[3]->getCrossedOutPrice());
         $this->assertNull($declinations[3]->getAffiliateLink());
+        $this->assertTrue($declinations[3]->hasInfiniteStock());
         $this->assertSame('code_full_declA', $declinations[3]->getCode());
     }
 
@@ -560,11 +568,13 @@ final class ProductServiceTest extends ApiTestCase
                 (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
-                    ->setQuantity(12),
+                    ->setQuantity(12)
+                    ->setInfiniteStock(false),
                 (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
-                    ->setQuantity(3),
+                    ->setQuantity(3)
+                    ->setInfiniteStock(true),
             ])
             ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/api/v1/doc/favicon.png')]);
         $productService = $this->buildProductService('vendor@wizaplace.com');
@@ -760,9 +770,9 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
         $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[17]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[18]);
-        $this->assertNotEquals((string) $additionalImages[17], (string) $additionalImages[18]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[15]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[16]);
+        $this->assertNotEquals((string) $additionalImages[15], (string) $additionalImages[16]);
 
         $attachments = $product->getAttachments();
         $this->assertContainsOnly(ProductAttachment::class, $attachments);

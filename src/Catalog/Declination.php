@@ -62,6 +62,9 @@ final class Declination
     /** @var bool */
     private $isAvailable;
 
+    /** @var bool */
+    private $infiniteStock;
+
     /**
      * @internal
      */
@@ -89,6 +92,7 @@ final class Declination
         }, $data['options']);
         $this->company = new CompanySummary($data['company']);
         $this->isAvailable = $data['isAvailable'];
+        $this->infiniteStock = $data['infiniteStock'];
     }
 
     public function getId(): DeclinationId
@@ -217,5 +221,10 @@ final class Declination
     public function isAvailable(): bool
     {
         return $this->isAvailable;
+    }
+
+    public function hasInfiniteStock(): bool
+    {
+        return $this->infiniteStock;
     }
 }

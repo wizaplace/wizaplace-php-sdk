@@ -33,6 +33,9 @@ final class Product extends ProductSummary
     /** @var \DateTimeImmutable */
     private $availibilityDate;
 
+    /** @var bool */
+    private $infiniteStock;
+
     /**
      * @internal
      */
@@ -51,6 +54,7 @@ final class Product extends ProductSummary
             return new ProductDeclination($declinationData);
         }, $data['inventory'] ?? []);
         $this->availibilityDate = new \DateTimeImmutable('@'.$data['avail_since']);
+        $this->infiniteStock = (bool) $data['infinite_stock'];
     }
 
     public function getFullDescription(): string
@@ -95,6 +99,11 @@ final class Product extends ProductSummary
     public function getAvailibilityDate(): \DateTimeImmutable
     {
         return $this->availibilityDate;
+    }
+
+    public function hasInfiniteStock(): bool
+    {
+        return $this->infiniteStock;
     }
 
     private static function unserializeImage(array $imageData): UriInterface

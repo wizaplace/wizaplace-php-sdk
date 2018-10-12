@@ -133,6 +133,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     1 =>
                         array(
@@ -174,6 +175,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     2 =>
                         array(
@@ -215,6 +217,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     3 =>
                         array(
@@ -256,6 +259,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     4 =>
                         array(
@@ -297,6 +301,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     5 =>
                         array(
@@ -338,6 +343,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                 ),
             'attributes' =>
@@ -442,6 +448,7 @@ final class ProductTest extends TestCase
                     'averageRating' => null,
                 ),
             'isAvailable' => true,
+            'infiniteStock' => false,
         )));
     }
 }
