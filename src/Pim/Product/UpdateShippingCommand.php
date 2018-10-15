@@ -7,6 +7,7 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -185,11 +186,11 @@ final class UpdateShippingCommand implements ArrayableInterface
 
         if (count($violations) > 0) {
             throw new SomeParametersAreInvalid('Product data validation failed: '.json_encode(array_map(function (ConstraintViolationInterface $violation): array {
-                    return [
-                        'field' => $violation->getPropertyPath(),
-                        'message' => $violation->getMessage(),
-                    ];
-                }, iterator_to_array($violations))));
+                return [
+                    'field' => $violation->getPropertyPath(),
+                    'message' => $violation->getMessage(),
+                ];
+            }, iterator_to_array($violations))));
         }
     }
 
