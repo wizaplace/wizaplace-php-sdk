@@ -81,7 +81,7 @@ final class ProductService extends AbstractService
         $this->client->delete("products/${productId}");
     }
 
-    public function getShipping(int $productId, int $shippingId)
+    public function getShipping(int $productId, int $shippingId) : Shipping
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -95,5 +95,26 @@ final class ProductService extends AbstractService
         }
 
         return new Shipping($data);
+    }
+
+    public function putShipping(int $shippingId, UpdateShippingCommand $command) : void
+    {
+        $this->client->mustBeAuthenticated();
+
+        $command->validate();
+
+        $productId = $command->getProductId();
+
+        try {
+            $this->client->put("products/${productId}/shippings/${shippingId}", [
+                RequestOptions::JSON => $command->toArray(),
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
+            }
+
+            throw $e;
+        }
     }
 }
