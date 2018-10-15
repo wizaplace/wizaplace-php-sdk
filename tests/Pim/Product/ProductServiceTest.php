@@ -25,6 +25,7 @@ use Wizaplace\SDK\Pim\Product\ProductListFilter;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Pim\Product\ProductSummary;
+use Wizaplace\SDK\Pim\Product\Shipping;
 use Wizaplace\SDK\Pim\Product\UpdateProductCommand;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -804,6 +805,13 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[3]->getCrossedOutPrice());
         $this->assertNull($declinations[3]->getAffiliateLink());
         $this->assertSame('code_full_declA2', $declinations[3]->getCode());
+    }
+
+    public function testGetProductShipping()
+    {
+        $shipping = $this->buildProductService()->getShipping(5, 1);
+
+        $this->assertInstanceOf(Shipping::class, $shipping);
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
