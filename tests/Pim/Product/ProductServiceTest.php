@@ -27,6 +27,7 @@ use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Pim\Product\ProductSummary;
 use Wizaplace\SDK\Pim\Product\Shipping;
 use Wizaplace\SDK\Pim\Product\UpdateProductCommand;
+use Wizaplace\SDK\Pim\Product\UpdateShippingCommand;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ProductServiceTest extends ApiTestCase
@@ -812,6 +813,33 @@ final class ProductServiceTest extends ApiTestCase
         $shipping = $this->buildProductService()->getShipping(5, 1);
 
         $this->assertInstanceOf(Shipping::class, $shipping);
+    }
+
+    public function testPutProductShipping()
+    {
+        $command = new UpdateShippingCommand();
+        $command->setStatus("D")
+                ->setRates([
+                    [
+                        'amount' => 0,
+                        'value'  => 100,
+                    ],
+                    [
+                        'amount' => 1,
+                        'value'  => 50,
+                    ],
+                ])
+                ->setSpecificRate(false)
+                ->setProductId(5);
+
+        $productService = $this->buildProductService();
+
+        $productService->putShipping(1, $command);
+
+        $shipping = $productService->getShipping(5, 1);
+
+        $this->assertInstanceOf(Shipping::class, $shipping);
+        $this->assertSame(100.0, $shipping->getRates()[0]['value']);
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
