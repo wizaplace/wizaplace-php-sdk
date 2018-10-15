@@ -101,6 +101,7 @@ final class UserService extends AbstractService
      * @return int ID of the created user.
      *
      * @throws UserAlreadyExists The email address is already used by a user account.
+     * @throws \Exception
      */
     public function register(
         string $email,
@@ -120,10 +121,18 @@ final class UserService extends AbstractService
 
             if ($billing instanceof UserAddress) {
                 $data['billing'] = $billing->toArray();
+
+                if (!$shipping instanceof UserAddress) {
+                    throw new \Exception("Shipping address is required if you set a billing address.");
+                }
             }
 
             if ($shipping instanceof UserAddress) {
                 $data['shipping'] = $shipping->toArray();
+
+                if (!$billing instanceof UserAddress) {
+                    throw new \Exception("Billing address is required if you set a shipping address.");
+                }
             }
 
             $userData = $this->client->post(
