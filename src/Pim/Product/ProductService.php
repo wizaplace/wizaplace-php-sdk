@@ -80,4 +80,20 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
         $this->client->delete("products/${productId}");
     }
+
+    public function getShipping(int $productId, int $shippingId)
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $data = $this->client->get("products/${productId}/shippings/${shippingId}");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
+            }
+
+            throw $e;
+        }
+
+        return new Shipping($data);
+    }
 }
