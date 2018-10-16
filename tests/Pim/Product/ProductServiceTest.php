@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Tests\Pim\Product;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pagination;
 use Wizaplace\SDK\Pim\Product\CreateProductCommand;
 use Wizaplace\SDK\Pim\Product\Product;
@@ -840,6 +841,29 @@ final class ProductServiceTest extends ApiTestCase
 
         $this->assertInstanceOf(Shipping::class, $shipping);
         $this->assertSame(100.0, $shipping->getRates()[0]['value']);
+    }
+
+    public function testUpdateShippingCommandConstraints()
+    {
+        $command = new UpdateShippingCommand();
+        $command->setStatus("Status qui n'existe pas")
+            ->setRates([
+                [
+                    'amount' => 0,
+                    'value'  => 100,
+                ],
+                [
+                    'amount' => 1,
+                    'value'  => 50,
+                ],
+            ])
+            ->setSpecificRate(false)
+            ->setProductId(-1);
+
+        $productService = $this->buildProductService();
+
+        $this->expectException(SomeParametersAreInvalid::class);
+        $productService->putShipping(1, $command);
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
