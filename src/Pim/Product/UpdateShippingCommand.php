@@ -9,10 +9,8 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
-use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationInterface;
-use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -203,26 +201,6 @@ final class UpdateShippingCommand implements ArrayableInterface
                     'message' => $violation->getMessage(),
                 ];
             }, iterator_to_array($violations))));
-        }
-    }
-
-    /**
-     * @internal
-     */
-    public static function loadValidatorMetadata(ClassMetadata $metadata): void
-    {
-        // @TODO: find something more maintainable than this array of strings...
-        $selfValidatingProperties = [
-            'status',
-            'rates',
-            'specificRate',
-            'productId',
-        ];
-
-        foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (in_array($prop->getName(), $selfValidatingProperties)) {
-                $metadata->addPropertyConstraint($prop->getName(), new Constraints\Valid());
-            }
         }
     }
 
