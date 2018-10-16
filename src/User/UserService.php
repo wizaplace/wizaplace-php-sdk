@@ -122,10 +122,8 @@ final class UserService extends AbstractService
             if ($billing instanceof UserAddress && $shipping instanceof UserAddress) {
                 $data['billing']  = $billing->toArray();
                 $data['shipping'] = $shipping->toArray();
-            } elseif ($billing instanceof UserAddress && !$shipping instanceof UserAddress) {
-                throw new \Exception("Shipping address is required if you set a billing address.");
-            } elseif (!$billing instanceof UserAddress && $shipping instanceof UserAddress) {
-                throw new \Exception("Billing address is required if you set a shipping address.");
+            } elseif ($billing instanceof UserAddress xor $shipping instanceof UserAddress) {
+                throw new \Exception("Both addresses are required if you set an address.");
             }
 
             $userData = $this->client->post(
