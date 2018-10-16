@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@c12ea2b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@43e4ca5
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 15 Oct 2018 12:19:39 GMT'
+            Date: 'Tue, 16 Oct 2018 11:43:41 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 69e49f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/69e49f'
-            Content-Length: '61'
+            X-Debug-Token: 2bca00
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2bca00'
+            Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"QOXr0Ndp\/axkxWU6+xtDGlIQchZOvEHPWMujptLS"}'
+        body: '{"id":2,"apiKey":"DKozVaUWJpaTwVYeUOQe05s+6ph+xkTHmFjJxk0g"}'
 -
     request:
         method: PUT
@@ -34,8 +34,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@c12ea2b
-            Authorization: 'token QOXr0Ndp/axkxWU6+xtDGlIQchZOvEHPWMujptLS'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@43e4ca5
+            Authorization: 'token DKozVaUWJpaTwVYeUOQe05s+6ph+xkTHmFjJxk0g'
             VCR-index: '1'
             Accept: null
         body: '{"status":"D","rates":[{"amount":0,"value":100},{"amount":1,"value":50}],"specific_rate":false,"product_id":5}'
@@ -45,12 +45,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 15 Oct 2018 12:19:39 GMT'
+            Date: 'Tue, 16 Oct 2018 11:43:41 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: c1e68e
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/c1e68e'
+            X-Debug-Token: 7cc573
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7cc573'
             Content-Length: '34'
             Content-Type: application/json
         body: '{"shipping_id":"1","product_id":5}'
@@ -61,8 +61,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@c12ea2b
-            Authorization: 'token QOXr0Ndp/axkxWU6+xtDGlIQchZOvEHPWMujptLS'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@43e4ca5
+            Authorization: 'token DKozVaUWJpaTwVYeUOQe05s+6ph+xkTHmFjJxk0g'
             VCR-index: '2'
             Accept: null
     response:
@@ -71,12 +71,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 15 Oct 2018 12:19:40 GMT'
+            Date: 'Tue, 16 Oct 2018 11:43:44 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 482aa1
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/482aa1'
+            X-Debug-Token: e0fc51
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e0fc51'
             Content-Length: '535'
             Content-Type: application/json
         body: '{"shipping_id":1,"status":"D","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":100.0},{"amount":1,"value":50.0}],"specific_rate":true,"product_id":5,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}'

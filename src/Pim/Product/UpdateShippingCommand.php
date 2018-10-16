@@ -7,7 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+use Composer\Autoload\ClassLoader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use Symfony\Component\Validator\Constraints;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
@@ -22,6 +25,7 @@ final class UpdateShippingCommand implements ArrayableInterface
     private $id;
 
     /**
+     * @Assert\Choice({"A", "D"})
      * @var string
      */
     private $status;
@@ -37,16 +41,21 @@ final class UpdateShippingCommand implements ArrayableInterface
     private $deliveryTime;
 
     /**
+     * @Assert\NotNull()
      * @var array
      */
     private $rates;
 
     /**
+     * @Assert\NotNull()
      * @var bool
      */
     private $specificRate;
 
     /**
+     * @Assert\GreaterThan(
+     *     value = 0
+     * )
      * @var int
      */
     private $productId;
@@ -174,13 +183,14 @@ final class UpdateShippingCommand implements ArrayableInterface
      */
     public function validate(): void
     {
+        /** @var ClassLoader $loader */
+        $loader = require __DIR__.'/../../../vendor/autoload.php';
+        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+
         $builder = Validation::createValidatorBuilder()
-            ->addMethodMapping('loadValidatorMetadata');
+            ->enableAnnotationMapping();
 
-        $builder->addMethodMapping('loadNullChecksValidatorMetadata');
-
-        $validator = $builder->getValidator()
-            ->startContext();
+        $validator = $builder->getValidator()->startContext();
 
         $validator->validate($this);
 
@@ -193,27 +203,6 @@ final class UpdateShippingCommand implements ArrayableInterface
                     'message' => $violation->getMessage(),
                 ];
             }, iterator_to_array($violations))));
-        }
-    }
-
-    /**
-     * Adds NotNull constraints on most properties.
-     * @internal
-     */
-    public static function loadNullChecksValidatorMetadata(ClassMetadata $metadata): void
-    {
-        // @TODO: find something more maintainable than this array of strings...
-        $nullableProperties = [
-            'status',
-            'rates',
-            'specificRate',
-            'productId',
-        ];
-
-        foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (!in_array($prop->getName(), $nullableProperties)) {
-                $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
-            }
         }
     }
 
