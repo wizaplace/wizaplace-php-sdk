@@ -1,0 +1,82 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-147-companyname-register-user@3b9d7a3
+            VCR-index: '0'
+            Accept: null
+        body: 'email=user123%40example.com&password=password&firstName=Paul&lastName=Jean&billing%5Btitle%5D=mr&billing%5Bfirstname%5D=Paul&billing%5Blastname%5D=Jean&billing%5Bcompany%5D=Company_b&billing%5Bphone%5D=&billing%5Baddress%5D=&billing%5Baddress_2%5D=&billing%5Bzipcode%5D=&billing%5Bcity%5D=&billing%5Bcountry%5D=&shipping%5Btitle%5D=mr&shipping%5Bfirstname%5D=Paul&shipping%5Blastname%5D=Jean&shipping%5Bcompany%5D=Company_s&shipping%5Bphone%5D=&shipping%5Baddress%5D=&shipping%5Baddress_2%5D=&shipping%5Bzipcode%5D=&shipping%5Bcity%5D=&shipping%5Bcountry%5D='
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Tue, 16 Oct 2018 13:34:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Content-Language: fr
+            X-Debug-Token: 8f28e8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8f28e8'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228f28e8%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '9'
+            Content-Type: application/json
+        body: '{"id":13}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcjEyM0BleGFtcGxlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-147-companyname-register-user@3b9d7a3
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 16 Oct 2018 13:34:11 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6c9b3d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c9b3d'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":13,"apiKey":"gdOmXlaBniNUAWbtrnnDjoHuCvEaGaaDKnSwkcaq"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/13'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-147-companyname-register-user@3b9d7a3
+            Authorization: 'token gdOmXlaBniNUAWbtrnnDjoHuCvEaGaaDKnSwkcaq'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 16 Oct 2018 13:34:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 7a2687
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7a2687'
+            Content-Length: '591'
+            Content-Type: application/json
+        body: '{"id":13,"title":null,"email":"user123@example.com","type":"C","companyId":null,"firstName":"Paul","lastName":"Jean","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Jean","company":"Company_b","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"Company_b","39":"Company_b"},"shipping":{"title":"mr","firstname":"Paul","lastname":"Jean","company":"Company_s","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"Company_s","39":"Company_s"}}}'
