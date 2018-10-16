@@ -358,7 +358,7 @@ class OrganisationService extends AbstractService
                     RequestOptions::FORM_PARAMS => [
                         'paymentId' => $paymentId,
                         'acceptTermsAndConditions' => $acceptTerms,
-                        'redirectUrl' => $redirectUrl
+                        'redirectUrl' => $redirectUrl,
                     ],
                 ]
             );
@@ -368,13 +368,10 @@ class OrganisationService extends AbstractService
             switch ($e->getResponse()->getStatusCode()) {
                 case 400:
                     throw new SomeParametersAreInvalid($e->getMessage(), $e->getCode(), $e);
-                    break;
                 case 403:
                     throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
-                    break;
                 case 404:
                     throw new NotFound("The organisation doesn't exist", $e);
-                    break;
             }
             throw $e;
         }
