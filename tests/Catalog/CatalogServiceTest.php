@@ -52,6 +52,26 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertCount(12, $products);
         $this->assertInstanceOf(Product::class, $products[0]);
+
+
+        // Chargement des produits Français
+        $products = iterator_to_array($catalogService->getAllProducts('fr'));
+        $this->assertCount(12, $products);
+
+        /** @var $product Product */
+        $product = $products[0];
+        $this->assertInstanceOf(Product::class, $product);
+        $this->assertSame("Test MVP", $product->getName());
+
+
+        // Chargement des produits Anglais
+        $products = iterator_to_array($catalogService->getAllProducts('en'));
+        $this->assertCount(12, $products);
+
+        /** @var $product Product */
+        $product = $products[0];
+        $this->assertInstanceOf(Product::class, $product);
+        $this->assertSame("MVP Test", $product->getName());
     }
 
     public function testGetProductById()

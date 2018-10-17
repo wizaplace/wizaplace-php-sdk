@@ -18,14 +18,22 @@ use function theodorejb\polycast\to_string;
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     /**
+     * @param string $language
+     *
      * @return \Generator|Product[] a Generator of Product
+     * @throws \Exception
      */
-    public function getAllProducts(): \Generator
+    public function getAllProducts(string $language = null): \Generator
     {
         $page = 1;
 
         while (true) {
-            $response = $this->client->get("catalog/export/{$page}");
+            $options = [];
+            if (!is_null($language)) {
+                $options[RequestOptions::HEADERS]['Accept-Language'] = $language;
+            }
+
+            $response = $this->client->get("catalog/export/{$page}", $options);
 
             if (!isset($response['result']) || !is_array($response['result'])) {
                 throw new \Exception('Results missing in response');
