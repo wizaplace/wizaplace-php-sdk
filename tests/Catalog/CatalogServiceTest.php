@@ -32,6 +32,7 @@ use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
+use Wizaplace\SDK\Catalog\Shipping;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
@@ -89,7 +90,17 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
+
         $this->assertCount(3, $product->getShippings());
+
+        /** @var Shipping $shipping */
+        $shipping = current($product->getShippings());
+        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertNull($shipping->getImage());
+        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getNextRate());
+        $this->assertSame('24h', $shipping->getDeliveryTime());
+
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
@@ -138,6 +149,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
+
+        /** @var Shipping $shipping */
+        $shipping = current($product->getShippings());
+        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertNull($shipping->getImage());
+        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getNextRate());
+        $this->assertSame('24h', $shipping->getDeliveryTime());
+
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
@@ -186,6 +206,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
+
+        /** @var Shipping $shipping */
+        $shipping = current($product->getShippings());
+        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertNull($shipping->getImage());
+        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getNextRate());
+        $this->assertSame('24h', $shipping->getDeliveryTime());
+
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
@@ -227,10 +256,10 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetMVPById()
     {
-        $mvp = $this->buildCatalogService()->getProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
+        $mvp = $this->buildCatalogService()->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
         $this->assertInstanceOf(Product::class, $mvp);
 
-        $this->assertSame('a6e53f40-f4c5-3d56-af1d-cc83fd695feb', $mvp->getId());
+        $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $mvp->getId());
         $this->assertSame('Test MVP', $mvp->getName());
         $this->assertCount(2, $mvp->getCompanies());
         $this->assertCount(2, $mvp->getDeclinations());
@@ -242,10 +271,10 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $product = $catalogService->getProductById('5');
+        $product = $catalogService->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
 
-        $this->assertSame('5', $product->getId());
-        $this->assertSame('product-with-complex-attributes', $product->getSlug());
+        $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $product->getId());
+        $this->assertSame('ipsum-omnis-non-asperiores-hic-veritatis', $product->getSlug());
 
         $expectedAttributes = [
             new ProductAttribute([
@@ -1040,7 +1069,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $expectedDeclinations = [
             new Declination([
-                'id' => '3_8_7',
+                'id' => '3_3_7',
                 'code' => 'size_13',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
@@ -1059,7 +1088,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 8,
+                        'id' => 3,
                         'name' => 'size',
                         'variantId' => 7,
                         'variantName' => '13',
@@ -1075,7 +1104,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '3_8_8',
+                'id' => '3_3_8',
                 'code' => 'size_15',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
@@ -1094,7 +1123,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 8,
+                        'id' => 3,
                         'name' => 'size',
                         'variantId' => 8,
                         'variantName' => '15',
@@ -1110,7 +1139,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '3_8_9',
+                'id' => '3_3_9',
                 'code' => 'size_17',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
@@ -1129,7 +1158,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 8,
+                        'id' => 3,
                         'name' => 'size',
                         'variantId' => 9,
                         'variantName' => '17',
@@ -1145,7 +1174,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '3_8_10',
+                'id' => '3_3_10',
                 'code' => 'size_21',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-ECRAN-001',
@@ -1164,7 +1193,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => true,
                 'options' => [
                     [
-                        'id' => 8,
+                        'id' => 3,
                         'name' => 'size',
                         'variantId' => 10,
                         'variantName' => '21',
@@ -1182,7 +1211,7 @@ final class CatalogServiceTest extends ApiTestCase
         ];
 
         $expectedOption = [
-            'id' => 8,
+            'id' => 3,
             'name' => 'size',
             'variants' => [
                 [
@@ -1222,8 +1251,8 @@ final class CatalogServiceTest extends ApiTestCase
 
         $expectedDeclinations = [
             new Declination([
-                'id' => '2_6_1',
-                'code' => 'color_white',
+                'id' => '2_1_1_2_5',
+                'code' => 'color_white_connectivity_wireles',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
@@ -1241,48 +1270,13 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
-                        'name' => 'color',
-                        'variantId' => 1,
-                        'variantName' => 'white',
-                    ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-            ]),
-            new Declination([
-                'id' => '2_6_1_7_5',
-                'code' => '90204479D2',
-                'isAvailable' => false,
-                'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
-                ],
-                'greenTax' => 0,
-                'amount' => 0,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 1,
                         'variantName' => 'white',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 5,
                         'variantName' => 'wireless',
@@ -1298,32 +1292,32 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_1_7_6',
-                'code' => '90204479D2',
-                'isAvailable' => false,
+                'id' => '2_1_1_2_6',
+                'code' => 'color_white_connectivity_wired',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
+                'price' => 15.5,
+                'originalPrice' => 15.5,
                 'crossedOutPrice' => null,
                 'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
                 ],
                 'greenTax' => 0,
-                'amount' => 0,
+                'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 1,
                         'variantName' => 'white',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 6,
                         'variantName' => 'wired',
@@ -1339,8 +1333,8 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_2',
-                'code' => 'color_black',
+                'id' => '2_1_2_2_5',
+                'code' => 'color_black_connectivity_wireles',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
@@ -1358,48 +1352,13 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
-                        'name' => 'color',
-                        'variantId' => 2,
-                        'variantName' => 'black',
-                    ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-            ]),
-            new Declination([
-                'id' => '2_6_2_7_5',
-                'code' => '90204479D2',
-                'isAvailable' => false,
-                'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
-                ],
-                'greenTax' => 0,
-                'amount' => 0,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 2,
                         'variantName' => 'black',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 5,
                         'variantName' => 'wireless',
@@ -1415,49 +1374,8 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_2_7_6',
-                'code' => '90204479D2',
-                'isAvailable' => false,
-                'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
-                ],
-                'greenTax' => 0,
-                'amount' => 0,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 6,
-                        'name' => 'color',
-                        'variantId' => 2,
-                        'variantName' => 'black',
-                    ],
-                    [
-                        'id' => 7,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
-                    ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-            ]),
-            new Declination([
-                'id' => '2_6_3',
-                'code' => 'color_blue',
+                'id' => '2_1_2_2_6',
+                'code' => 'color_black_connectivity_wired',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
@@ -1475,10 +1393,16 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
-                        'variantId' => 3,
-                        'variantName' => 'blue',
+                        'variantId' => 2,
+                        'variantName' => 'black',
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'connectivity',
+                        'variantId' => 6,
+                        'variantName' => 'wired',
                     ],
                 ],
                 'company' => [
@@ -1491,32 +1415,32 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_3_7_5',
-                'code' => '90204479D2',
-                'isAvailable' => false,
+                'id' => '2_1_3_2_5',
+                'code' => 'color_blue_connectivity_wireless',
+                'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
+                'price' => 15.5,
+                'originalPrice' => 15.5,
                 'crossedOutPrice' => null,
                 'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
+                    'priceWithTaxes' => 15.5,
+                    'priceWithoutVat' => 15.18,
+                    'vat' => 0.32,
                 ],
                 'greenTax' => 0,
-                'amount' => 0,
+                'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 3,
                         'variantName' => 'blue',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 5,
                         'variantName' => 'wireless',
@@ -1532,49 +1456,8 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_3_7_6',
-                'code' => '90204479D2',
-                'isAvailable' => false,
-                'supplierReference' => 'INFO-002',
-                'price' => 0,
-                'originalPrice' => 0,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 0,
-                    'priceWithoutVat' => 0,
-                    'vat' => 0,
-                ],
-                'greenTax' => 0,
-                'amount' => 0,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 6,
-                        'name' => 'color',
-                        'variantId' => 3,
-                        'variantName' => 'blue',
-                    ],
-                    [
-                        'id' => 7,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
-                    ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-            ]),
-            new Declination([
-                'id' => '2_6_4',
-                'code' => 'color_red',
+                'id' => '2_1_3_2_6',
+                'code' => 'color_blue_connectivity_wired',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
                 'price' => 15.5,
@@ -1592,10 +1475,16 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
-                        'variantId' => 4,
-                        'variantName' => 'red',
+                        'variantId' => 3,
+                        'variantName' => 'blue',
+                    ],
+                    [
+                        'id' => 2,
+                        'name' => 'connectivity',
+                        'variantId' => 6,
+                        'variantName' => 'wired',
                     ],
                 ],
                 'company' => [
@@ -1608,7 +1497,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_4_7_5',
+                'id' => '2_1_4_2_5',
                 'code' => 'color_red_connectivity_wireless',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
@@ -1627,13 +1516,13 @@ final class CatalogServiceTest extends ApiTestCase
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 4,
                         'variantName' => 'red',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 5,
                         'variantName' => 'wireless',
@@ -1649,7 +1538,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
             ]),
             new Declination([
-                'id' => '2_6_4_7_6',
+                'id' => '2_1_4_2_6',
                 'code' => 'color_red_connectivity_wired',
                 'isAvailable' => true,
                 'supplierReference' => 'INFO-002',
@@ -1662,19 +1551,19 @@ final class CatalogServiceTest extends ApiTestCase
                     'vat' => 0.32,
                 ],
                 'greenTax' => 0,
-                'amount' => 8,
+                'amount' => 10,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,
                 'options' => [
                     [
-                        'id' => 6,
+                        'id' => 1,
                         'name' => 'color',
                         'variantId' => 4,
                         'variantName' => 'red',
                     ],
                     [
-                        'id' => 7,
+                        'id' => 2,
                         'name' => 'connectivity',
                         'variantId' => 6,
                         'variantName' => 'wired',
@@ -1693,33 +1582,29 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertSame('2', $product->getId());
 
-        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1]));
-        $this->assertEquals($expectedDeclinations[1], $product->getDeclinationFromOptions([1, 5]));
-        $this->assertEquals($expectedDeclinations[2], $product->getDeclinationFromOptions([1, 6]));
-        $this->assertEquals($expectedDeclinations[3], $product->getDeclinationFromOptions([2]));
-        $this->assertEquals($expectedDeclinations[4], $product->getDeclinationFromOptions([2, 5]));
-        $this->assertEquals($expectedDeclinations[5], $product->getDeclinationFromOptions([2, 6]));
-        $this->assertEquals($expectedDeclinations[6], $product->getDeclinationFromOptions([3]));
-        $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([3, 5]));
-        $this->assertEquals($expectedDeclinations[8], $product->getDeclinationFromOptions([3, 6]));
-        $this->assertEquals($expectedDeclinations[9], $product->getDeclinationFromOptions([4]));
-        $this->assertEquals($expectedDeclinations[10], $product->getDeclinationFromOptions([4, 5]));
-        $this->assertEquals($expectedDeclinations[11], $product->getDeclinationFromOptions([4, 6]));
+        $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([1, 5]));
+        $this->assertEquals($expectedDeclinations[1], $product->getDeclinationFromOptions([1, 6]));
+        $this->assertEquals($expectedDeclinations[2], $product->getDeclinationFromOptions([2, 5]));
+        $this->assertEquals($expectedDeclinations[3], $product->getDeclinationFromOptions([2, 6]));
+        $this->assertEquals($expectedDeclinations[4], $product->getDeclinationFromOptions([3, 5]));
+        $this->assertEquals($expectedDeclinations[5], $product->getDeclinationFromOptions([3, 6]));
+        $this->assertEquals($expectedDeclinations[6], $product->getDeclinationFromOptions([4, 5]));
+        $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([4, 6]));
     }
 
     public function testGetProductWithGeolocation()
     {
-        $location = $this->buildCatalogService()->getProductById('6')->getGeolocation();
+        $location = $this->buildCatalogService()->getProductById('7')->getGeolocation();
         $this->assertInstanceOf(ProductLocation::class, $location);
-        $this->assertSame(45.778848, $location->getLatitude());
-        $this->assertSame(4.800039, $location->getLongitude());
-        $this->assertSame('Wizacha', $location->getLabel());
-        $this->assertSame('69009', $location->getZipcode());
+        $this->assertSame(45.75845, $location->getLatitude());
+        $this->assertSame(4.799044, $location->getLongitude());
+        $this->assertSame('Lyon 5e', $location->getLabel());
+        $this->assertSame('69005', $location->getZipcode());
     }
 
     public function testGetProductWithAttachments()
     {
-        $attachments = $this->buildCatalogService()->getProductById('7')->getAttachments();
+        $attachments = $this->buildCatalogService()->getProductById('10')->getAttachments();
 
         $this->assertCount(2, $attachments);
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
