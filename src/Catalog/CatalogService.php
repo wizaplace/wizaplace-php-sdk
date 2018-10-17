@@ -18,7 +18,7 @@ use function theodorejb\polycast\to_string;
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     /**
-     * @param string $language
+     * @param string|null $language
      *
      * @return \Generator|Product[] a Generator of Product
      * @throws \Exception
