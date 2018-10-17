@@ -39,6 +39,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '24h',
                         ),
                     1 =>
                         array(
@@ -46,6 +47,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '',
                         ),
                     2 =>
                         array(
@@ -53,6 +55,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '',
                         ),
                 ),
             'companies' =>

@@ -21,6 +21,9 @@ final class Shipping
     /** @var float */
     private $nextRate;
 
+    /** @var string|null  */
+    private $deliveryTime;
+
     /**
      * @internal
      */
@@ -30,6 +33,7 @@ final class Shipping
         $this->image = $data['image'];
         $this->firstRate = $data['firstRate'];
         $this->nextRate = $data['nextRate'];
+        $this->deliveryTime = $data['deliveryTime'];
     }
 
     public function getName(): string
@@ -50,5 +54,10 @@ final class Shipping
     public function getNextRate(): float
     {
         return $this->nextRate;
+    }
+
+    public function getDeliveryTime(): ?string
+    {
+        return $this->deliveryTime;
     }
 }
