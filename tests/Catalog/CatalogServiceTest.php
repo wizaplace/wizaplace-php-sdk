@@ -97,7 +97,7 @@ final class CatalogServiceTest extends ApiTestCase
         $shipping = current($product->getShippings());
         $this->assertSame('TNT Express', $shipping->getName());
         $this->assertNull($shipping->getImage());
-        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('24h', $shipping->getDeliveryTime());
 
@@ -154,7 +154,7 @@ final class CatalogServiceTest extends ApiTestCase
         $shipping = current($product->getShippings());
         $this->assertSame('TNT Express', $shipping->getName());
         $this->assertNull($shipping->getImage());
-        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('24h', $shipping->getDeliveryTime());
 
@@ -211,7 +211,7 @@ final class CatalogServiceTest extends ApiTestCase
         $shipping = current($product->getShippings());
         $this->assertSame('TNT Express', $shipping->getName());
         $this->assertNull($shipping->getImage());
-        $this->assertSame(0.0,$shipping->getFirstRate());
+        $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('24h', $shipping->getDeliveryTime());
 
