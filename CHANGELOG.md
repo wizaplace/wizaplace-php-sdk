@@ -6,7 +6,8 @@
 - Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
 - Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
 - Added optional parameter `$language` to `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
-- Added `deliveryTime` to `\ Wizaplace\SDK\Catalog\Shipping`
+- Added `\Wizaplace\SDK\Catalog\Shipping::getDeliveryTime`
+- Added `\Wizaplace\SDK\Basket\Shipping::getImage`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::checkoutBasket`
 
 ### 1.37.0

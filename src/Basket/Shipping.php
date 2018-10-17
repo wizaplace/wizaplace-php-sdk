@@ -27,6 +27,9 @@ final class Shipping
     /** @var Price */
     private $shippingPrice;
 
+    /** @var null|string  */
+    private $image;
+
     /**
      * @internal
      */
@@ -38,6 +41,7 @@ final class Shipping
         $this->deliveryTime = $data['deliveryTime'];
         $this->selected = $data['selected'];
         $this->shippingPrice = new Price($data['shippingPrice']);
+        $this->image = $data['image'];
     }
 
     public function getId(): int
@@ -74,5 +78,10 @@ final class Shipping
     public function getShippingPrice(): Price
     {
         return $this->shippingPrice;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
     }
 }
