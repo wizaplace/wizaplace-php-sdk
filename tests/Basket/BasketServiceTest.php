@@ -12,6 +12,7 @@ use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Basket\Payment;
 use Wizaplace\SDK\Basket\PaymentType;
 use Wizaplace\SDK\Basket\ProductComment;
+use Wizaplace\SDK\Basket\Shipping;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\BasketIsEmpty;
 use Wizaplace\SDK\Exception\BasketNotFound;
@@ -86,6 +87,18 @@ final class BasketServiceTest extends ApiTestCase
                 $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getVat());
 
                 $availableShippings = $shippingGroup->getShippings();
+
+                /** @var Shipping $shipping */
+                $shipping = current($availableShippings);
+                $this->assertEquals(1, $shipping->getId());
+                $this->assertEquals('TNT Express', $shipping->getName());
+                $this->assertEquals(0., $shipping->getPrice());
+                $this->assertEquals('24h', $shipping->getDeliveryTime());
+                $this->assertNull($shipping->getImage());
+                $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithoutVat());
+                $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithTaxes());
+                $this->assertEquals(0., $shipping->getShippingPrice()->getVat());
+
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
 
                 foreach ($shippingGroup->getItems() as $basketItem) {
