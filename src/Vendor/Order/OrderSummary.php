@@ -30,6 +30,12 @@ final class OrderSummary
     /** @var int */
     private $customerUserId;
 
+    /** @var int */
+    private $basketId;
+
+    /** @var float */
+    private $total;
+
     /**
      * @internal
      */
@@ -42,6 +48,8 @@ final class OrderSummary
         $this->status = new OrderStatus($data['status']);
         $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->customerUserId = $data['user_id'];
+        $this->basketId = $data['basket_id'];
+        $this->total = $data['total'];
     }
 
     public function getCustomerEmail(): string
@@ -77,5 +85,15 @@ final class OrderSummary
     public function getCustomerUserId(): int
     {
         return $this->customerUserId;
+    }
+
+    public function getBasketId(): int
+    {
+        return $this->basketId;
+    }
+
+    public function getTotal(): float
+    {
+        return $this->total;
     }
 }

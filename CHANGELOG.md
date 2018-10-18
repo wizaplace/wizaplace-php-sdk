@@ -9,6 +9,7 @@
 - Added `\Wizaplace\SDK\Catalog\Shipping::getDeliveryTime`
 - Added `\Wizaplace\SDK\Basket\Shipping::getImage`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::checkoutBasket`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Added `\Wizaplace\SDK\Catalog\Product::hasInfiniteStock`
 - Added `\Wizaplace\SDK\Catalog\Declination::hasInfiniteStock`
 - Added `\Wizaplace\SDK\Catalog\DeclinationSummary::hasInfiniteStock`
