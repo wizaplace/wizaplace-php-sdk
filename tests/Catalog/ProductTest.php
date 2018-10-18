@@ -29,6 +29,7 @@ final class ProductTest extends TestCase
             'minPrice' => 15.5,
             'greenTax' => 0,
             'isTransactional' => true,
+            'infiniteStock' => false,
             'weight' => 1.23,
             'averageRating' => null,
             'shippings' =>

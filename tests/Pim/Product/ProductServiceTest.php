@@ -427,12 +427,12 @@ final class ProductServiceTest extends ApiTestCase
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
             ->setDeclinations([
-                (new ProductDeclinationUpsertData([7 => 1, 8 => 6, 9 => 9]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
                     ->setInfiniteStock(true),
-                (new ProductDeclinationUpsertData([7 => 1, 8 => 5, 9 => 10]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
@@ -501,39 +501,35 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductDeclination::class, $declinations);
         $this->assertCount(4, $declinations);
 
-        $this->assertSame([7 => 1, 8 => 5, 9 => 10], $declinations[0]->getOptionsVariants());
-        $this->assertNull($declinations[0]->getCode());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        $this->assertSame('code_full_declA', $declinations[0]->getCode());
         $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertSame(1000.0, $declinations[0]->getCrossedOutPrice());
-        $this->assertSame(3, $declinations[0]->getQuantity());
-        $this->assertSame(100.0, $declinations[0]->getPrice());
-        $this->assertTrue($declinations[0]->hasInfiniteStock());
+        $this->assertNull($declinations[0]->getCrossedOutPrice());
+        $this->assertSame(12, $declinations[0]->getQuantity());
+        $this->assertSame(3.5, $declinations[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([7 => 1, 8 => 5, 9 => 9], $declinations[1]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[1]->getPrice());
         $this->assertSame(0, $declinations[1]->getQuantity());
         $this->assertNull($declinations[1]->getCrossedOutPrice());
         $this->assertNull($declinations[1]->getAffiliateLink());
         $this->assertNull($declinations[1]->getCode());
-        $this->assertFalse($declinations[1]->hasInfiniteStock());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([7 => 1, 8 => 6, 9 => 10], $declinations[2]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[2]->getPrice());
         $this->assertSame(0, $declinations[2]->getQuantity());
         $this->assertNull($declinations[2]->getCrossedOutPrice());
         $this->assertNull($declinations[2]->getAffiliateLink());
         $this->assertNull($declinations[2]->getCode());
-        $this->assertFalse($declinations[2]->hasInfiniteStock());
 
-        $this->assertSame([7 => 1, 8 => 6, 9 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(3.5, $declinations[3]->getPrice());
-        $this->assertSame(12, $declinations[3]->getQuantity());
-        $this->assertNull($declinations[3]->getCrossedOutPrice());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        $this->assertSame(100.0, $declinations[3]->getPrice());
+        $this->assertSame(3, $declinations[3]->getQuantity());
+        $this->assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
         $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertTrue($declinations[3]->hasInfiniteStock());
-        $this->assertSame('code_full_declA', $declinations[3]->getCode());
+        $this->assertNull($declinations[3]->getCode());
     }
 
     public function testPartialProductUpdate(): void
@@ -565,12 +561,12 @@ final class ProductServiceTest extends ApiTestCase
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
             ->setDeclinations([
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
-                    ->setInfiniteStock(false),
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
+                    ->setInfiniteStock(true),
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
@@ -625,15 +621,15 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductDeclination::class, $declinations);
         $this->assertCount(4, $declinations);
 
-        $this->assertSame([6 => 1, 7 => 5, 8 => 10], $declinations[0]->getOptionsVariants());
-        $this->assertNull($declinations[0]->getCode());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        $this->assertSame('code_full_declA', $declinations[0]->getCode());
         $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertSame(1000.0, $declinations[0]->getCrossedOutPrice());
-        $this->assertSame(3, $declinations[0]->getQuantity());
-        $this->assertSame(100.0, $declinations[0]->getPrice());
+        $this->assertNull($declinations[0]->getCrossedOutPrice());
+        $this->assertSame(12, $declinations[0]->getQuantity());
+        $this->assertSame(3.5, $declinations[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 5, 8 => 9], $declinations[1]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[1]->getPrice());
         $this->assertSame(0, $declinations[1]->getQuantity());
         $this->assertNull($declinations[1]->getCrossedOutPrice());
@@ -641,19 +637,19 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[1]->getCode());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 6, 8 => 10], $declinations[2]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[2]->getPrice());
         $this->assertSame(0, $declinations[2]->getQuantity());
         $this->assertNull($declinations[2]->getCrossedOutPrice());
         $this->assertNull($declinations[2]->getAffiliateLink());
         $this->assertNull($declinations[2]->getCode());
 
-        $this->assertSame([6 => 1, 7 => 6, 8 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(3.5, $declinations[3]->getPrice());
-        $this->assertSame(12, $declinations[3]->getQuantity());
-        $this->assertNull($declinations[3]->getCrossedOutPrice());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        $this->assertSame(100.0, $declinations[3]->getPrice());
+        $this->assertSame(3, $declinations[3]->getQuantity());
+        $this->assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
         $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertSame('code_full_declA', $declinations[3]->getCode());
+        $this->assertNull($declinations[3]->getCode());
     }
 
     public function testUpdateComplexProduct(): void
@@ -685,11 +681,11 @@ final class ProductServiceTest extends ApiTestCase
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
             ->setDeclinations([
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12),
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3),
@@ -731,11 +727,11 @@ final class ProductServiceTest extends ApiTestCase
             ->setShortDescription("super short description 2")
             ->setTaxIds([2, 3])
             ->setDeclinations([
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 6, 8 => 9]))
-                    ->setCode('code_full_declA2')
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                    ->setCode('code_full_declA')
                     ->setPrice(3.6)
                     ->setQuantity(13),
-                (new ProductDeclinationUpsertData([6 => 1, 7 => 5, 8 => 10]))
+                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.1)
                     ->setCrossedOutPrice(1000.2)
                     ->setQuantity(4),
@@ -785,15 +781,15 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertContainsOnly(ProductDeclination::class, $declinations);
         $this->assertCount(4, $declinations);
 
-        $this->assertSame([6 => 1, 7 => 5, 8 => 10], $declinations[0]->getOptionsVariants());
-        $this->assertNull($declinations[0]->getCode());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        $this->assertSame('code_full_declA', $declinations[0]->getCode());
         $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertSame(1000.2, $declinations[0]->getCrossedOutPrice());
-        $this->assertSame(4, $declinations[0]->getQuantity());
-        $this->assertSame(100.1, $declinations[0]->getPrice());
+        $this->assertNull($declinations[0]->getCrossedOutPrice());
+        $this->assertSame(13, $declinations[0]->getQuantity());
+        $this->assertSame(3.6, $declinations[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 5, 8 => 9], $declinations[1]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[1]->getPrice());
         $this->assertSame(0, $declinations[1]->getQuantity());
         $this->assertNull($declinations[1]->getCrossedOutPrice());
@@ -801,19 +797,19 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[1]->getCode());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([6 => 1, 7 => 6, 8 => 10], $declinations[2]->getOptionsVariants());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         $this->assertSame(0.0, $declinations[2]->getPrice());
         $this->assertSame(0, $declinations[2]->getQuantity());
         $this->assertNull($declinations[2]->getCrossedOutPrice());
         $this->assertNull($declinations[2]->getAffiliateLink());
         $this->assertNull($declinations[2]->getCode());
 
-        $this->assertSame([6 => 1, 7 => 6, 8 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(3.6, $declinations[3]->getPrice());
-        $this->assertSame(13, $declinations[3]->getQuantity());
-        $this->assertNull($declinations[3]->getCrossedOutPrice());
+        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        $this->assertSame(100.1, $declinations[3]->getPrice());
+        $this->assertSame(4, $declinations[3]->getQuantity());
+        $this->assertSame(1000.2, $declinations[3]->getCrossedOutPrice());
         $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertSame('code_full_declA2', $declinations[3]->getCode());
+        $this->assertNull($declinations[3]->getCode());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService

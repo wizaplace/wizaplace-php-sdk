@@ -90,6 +90,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
+        $this->assertFalse($product->hasInfiniteStock());
 
         $this->assertCount(3, $product->getShippings());
 
@@ -1353,6 +1354,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
                 'greenTax' => 0,
                 'amount' => 10,
+                'infiniteStock' => null,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,
@@ -1478,6 +1480,7 @@ final class CatalogServiceTest extends ApiTestCase
                 ],
                 'greenTax' => 0,
                 'amount' => 10,
+                'infiniteStock' => null,
                 'affiliateLink' => null,
                 'images' => [],
                 'isBrandNew' => false,

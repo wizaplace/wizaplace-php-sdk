@@ -9,6 +9,12 @@
 - Added `\Wizaplace\SDK\Catalog\Shipping::getDeliveryTime`
 - Added `\Wizaplace\SDK\Basket\Shipping::getImage`
 - Added `\Wizaplace\SDK\Organisation\OrganisationService::checkoutBasket`
+- Added `\Wizaplace\SDK\Catalog\Product::hasInfiniteStock`
+- Added `\Wizaplace\SDK\Catalog\Declination::hasInfiniteStock`
+- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::hasInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
 
 ### 1.37.0
 
