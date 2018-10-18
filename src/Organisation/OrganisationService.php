@@ -650,7 +650,7 @@ class OrganisationService extends AbstractService
 
             $data = [];
             foreach ($response['_embedded']['orders'] as $orderData) {
-                $data[] = new OrganisationOrder($orderData);
+                $data[] = $orderData;
             }
 
             return $data;
