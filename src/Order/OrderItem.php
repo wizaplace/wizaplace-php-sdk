@@ -17,7 +17,7 @@ final class OrderItem
     private $productName;
     /** @var string */
     private $productCode;
-    /** @var string */
+    /** @var null|string */
     private $productImageId;
     /** @var float */
     private $price;
@@ -63,7 +63,7 @@ final class OrderItem
         return $this->productCode;
     }
 
-    public function getProductImageId(): string
+    public function getProductImageId(): ?string
     {
         return $this->productImageId;
     }
