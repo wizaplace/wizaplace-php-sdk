@@ -65,6 +65,9 @@ final class DeclinationSummary
     /** @var string */
     private $shortDescription;
 
+    /** @var bool */
+    private $infiniteStock;
+
     /**
      * @internal
      */
@@ -91,6 +94,7 @@ final class DeclinationSummary
         }, $data['categoryPath']);
         $this->isAvailable = $data['isAvailable'];
         $this->shortDescription = $data['shortDescription'];
+        $this->infiniteStock = $data['infiniteStock'];
     }
 
     public function getId(): DeclinationId
@@ -185,5 +189,10 @@ final class DeclinationSummary
     public function getShortDescription(): string
     {
         return $this->shortDescription;
+    }
+
+    public function hasInfiniteStock(): bool
+    {
+        return $this->infiniteStock;
     }
 }

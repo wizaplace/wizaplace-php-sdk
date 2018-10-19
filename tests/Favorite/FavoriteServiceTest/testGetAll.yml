@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:32 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:30 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: db190b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/db190b'
-            Content-Length: '60'
+            X-Debug-Token: 0602ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0602ff'
+            Content-Length: '62'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1"}'
+        body: '{"id":7,"apiKey":"V8TWRt+j5te85\/+vrcIyqf7OgpW9QOkvWHUHJOi\/"}'
 -
     request:
         method: POST
@@ -33,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,13 +43,13 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:32 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:31 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: f26e48
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f26e48'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22f26e48%22%2C%22route%22%3A%22api_favorite_declination_add%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CFavorite%5C%5CDeclinationController%22%2C%22method%22%3A%22addToFavoriteAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FFavorite%5C%2FDeclinationController.php%22%2C%22line%22%3A83%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Debug-Token: 43b264
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/43b264'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2243b264%22%2C%22route%22%3A%22api_favorite_declination_add%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CFavorite%5C%5CDeclinationController%22%2C%22method%22%3A%22addToFavoriteAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FFavorite%5C%2FDeclinationController.php%22%2C%22line%22%3A83%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -61,8 +61,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '2'
             Accept: null
     response:
@@ -71,13 +71,13 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:32 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:31 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '1655e0'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1655e0'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221655e0%22%2C%22route%22%3A%22api_favorite_declination_add%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CFavorite%5C%5CDeclinationController%22%2C%22method%22%3A%22addToFavoriteAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FFavorite%5C%2FDeclinationController.php%22%2C%22line%22%3A83%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Debug-Token: e64b2f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e64b2f'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e64b2f%22%2C%22route%22%3A%22api_favorite_declination_add%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CFavorite%5C%5CDeclinationController%22%2C%22method%22%3A%22addToFavoriteAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FFavorite%5C%2FDeclinationController.php%22%2C%22line%22%3A83%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '2'
             Content-Type: application/json
         body: '""'
@@ -88,8 +88,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '3'
             Accept: null
     response:
@@ -98,15 +98,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:33 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:31 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: da76ea
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/da76ea'
-            Content-Length: '1339'
+            X-Debug-Token: a86b36
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a86b36'
+            Content-Length: '1383'
             Content-Type: application/json
-        body: '{"total":2,"count":2,"_embedded":{"favorites":[{"id":"1_0","productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","isAvailable":true,"slug":"test-product-slug","code":"978020137962","crossedOutPrice":null,"shortDescription":"","prices":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"amount":8,"affiliateLink":null,"mainImage":null,"isBrandNew":true,"options":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}},{"id":"2_1_1_2_5","productId":2,"name":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","isAvailable":true,"slug":"souris-sans-fil-avec-recepteur-nano-6-boutons","code":"color_white_connectivity_wireles","crossedOutPrice":null,"shortDescription":"","prices":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"amount":10,"affiliateLink":null,"mainImage":null,"isBrandNew":false,"options":[{"id":1,"name":"color","variantId":1,"variantName":"white","image":null},{"id":2,"name":"connectivity","variantId":5,"variantName":"wireless","image":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}]}}'
+        body: '{"total":2,"count":2,"_embedded":{"favorites":[{"id":"1_0","productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","isAvailable":true,"slug":"test-product-slug","code":"978020137962","crossedOutPrice":null,"shortDescription":"","prices":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"amount":8,"infiniteStock":false,"affiliateLink":null,"mainImage":null,"isBrandNew":true,"options":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}},{"id":"2_1_1_2_5","productId":2,"name":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","isAvailable":true,"slug":"souris-sans-fil-avec-recepteur-nano-6-boutons","code":"color_white_connectivity_wireles","crossedOutPrice":null,"shortDescription":"","prices":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"amount":10,"infiniteStock":false,"affiliateLink":null,"mainImage":null,"isBrandNew":false,"options":[{"id":1,"name":"color","variantId":1,"variantName":"white","image":null},{"id":2,"name":"connectivity","variantId":5,"variantName":"wireless","image":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}]}}'
 -
     request:
         method: DELETE
@@ -114,8 +114,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '4'
             Accept: null
     response:
@@ -124,12 +124,12 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:33 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:32 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: b30451
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b30451'
+            X-Debug-Token: 125c7d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/125c7d'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -138,8 +138,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '5'
             Accept: null
     response:
@@ -148,12 +148,12 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:33 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:32 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 0cf672
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0cf672'
+            X-Debug-Token: f41373
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f41373'
             Content-Type: 'text/html; charset=UTF-8'
 -
     request:
@@ -162,8 +162,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-5566_add_short_description@2b18185
-            Authorization: 'token xyf9tjpNZY5npyMlZaOERE3fdUWNBmY6AUvQ7My1'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token V8TWRt+j5te85/+vrcIyqf7OgpW9QOkvWHUHJOi/'
             VCR-index: '6'
             Accept: null
     response:
@@ -172,10 +172,10 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Tue, 28 Aug 2018 13:30:33 GMT'
+            Date: 'Fri, 12 Oct 2018 13:50:32 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: d6c866
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d6c866'
+            X-Debug-Token: f1bf5b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f1bf5b'
             Content-Type: 'text/html; charset=UTF-8'

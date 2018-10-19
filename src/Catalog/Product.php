@@ -101,6 +101,9 @@ final class Product
      */
     private $images;
 
+    /** @var bool */
+    private $infiniteStock;
+
     /**
      * @internal
      */
@@ -149,6 +152,7 @@ final class Product
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
         $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
+        $this->infiniteStock = $data['infiniteStock'];
 
         if (!isset($data['images'])) {
             $this->images = [];
@@ -399,5 +403,10 @@ final class Product
     public function getSeoKeywords(): string
     {
         return $this->seoKeywords;
+    }
+
+    public function hasInfiniteStock(): bool
+    {
+        return $this->infiniteStock;
     }
 }

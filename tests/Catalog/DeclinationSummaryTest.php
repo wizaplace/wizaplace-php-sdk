@@ -32,6 +32,7 @@ final class DeclinationSummaryTest extends TestCase
             ],
             'crossedOutPrice' => 99.99,
             'amount' => 24,
+            'infiniteStock' => false,
             'affiliateLink' => 'http://example.com',
             'options' => [
                 [
@@ -98,5 +99,6 @@ final class DeclinationSummaryTest extends TestCase
         $this->assertSame('Food', $favorite->getCategoryPath()[0]->getName());
         $this->assertSame('food', $favorite->getCategoryPath()[0]->getSlug());
         $this->assertFalse($favorite->isAvailable());
+        $this->assertFalse($favorite->hasInfiniteStock());
     }
 }

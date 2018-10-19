@@ -83,6 +83,9 @@ abstract class ProductUpsertData
     /** @var \DateTimeImmutable */
     private $availabilityDate;
 
+    /** @var null|bool */
+    private $infiniteStock;
+
     /**
      * @param string $code
      * @return $this
@@ -211,6 +214,17 @@ abstract class ProductUpsertData
     public function setIsDownloadable(?bool $isDownloadable): self
     {
         $this->isDownloadable = $isDownloadable;
+
+        return $this;
+    }
+
+    /**
+     * @param null|bool $infiniteStock
+     * @return $this
+     */
+    public function setInfiniteStock(?bool $infiniteStock): self
+    {
+        $this->infiniteStock = $infiniteStock;
 
         return $this;
     }
@@ -364,6 +378,7 @@ abstract class ProductUpsertData
             'hasFreeShipping',
             'isDownloadable',
             'additionalImages',
+            'infiniteStock',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -455,6 +470,10 @@ abstract class ProductUpsertData
 
         if (isset($this->freeAttributes)) {
             $data['free_features'] = $this->freeAttributes;
+        }
+
+        if (isset($this->infiniteStock)) {
+            $data['infinite_stock'] = $this->infiniteStock;
         }
 
         if (isset($this->declinations)) {

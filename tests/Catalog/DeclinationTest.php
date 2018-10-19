@@ -29,6 +29,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [
@@ -69,6 +70,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [
@@ -109,6 +111,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [
@@ -155,6 +158,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [
@@ -201,6 +205,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [
@@ -247,6 +252,7 @@ final class DeclinationTest extends TestCase
             ],
             'greenTax' => 0,
             'amount' => 14,
+            'infiniteStock' => false,
             'affiliateLink' => '',
             'images' => [],
             'options' => [

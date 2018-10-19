@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Date: 'Fri, 12 Oct 2018 14:26:38 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: a6de29
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6de29'
-            Content-Length: '60'
+            X-Debug-Token: 62c7a4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/62c7a4'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U"}'
+        body: '{"id":2,"apiKey":"mnNgqVv7cVEpBUH+U1LokXN1lxyMRaD6xdL\/AQYn"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
-            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token mnNgqVv7cVEpBUH+U1LokXN1lxyMRaD6xdL/AQYn'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,15 +42,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Date: 'Fri, 12 Oct 2018 14:26:38 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '063709'
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/063709'
-            Content-Length: '704'
+            X-Debug-Token: ed55f3
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/ed55f3'
+            Content-Length: '761'
             Content-Type: application/json
-        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1512740048,"updated_timestamp":1512740049,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":[],"amount":13,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}'
+        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1539354377,"updated_timestamp":1539354377,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null}}'
 -
     request:
         method: DELETE
@@ -58,8 +58,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
-            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token mnNgqVv7cVEpBUH+U1LokXN1lxyMRaD6xdL/AQYn'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,12 +68,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 08 Dec 2017 13:34:33 GMT'
+            Date: 'Fri, 12 Oct 2018 14:26:39 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1f24c2
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1f24c2'
+            X-Debug-Token: 6dd1b9
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/6dd1b9'
             Content-Length: '16'
             Content-Type: application/json
         body: '{"message":"Ok"}'
@@ -84,8 +84,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-delete-product@a25d526
-            Authorization: 'token XKZzvd73HwuUmuh99GMtSBu6Ay2uUaZc5llKsg0U'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token mnNgqVv7cVEpBUH+U1LokXN1lxyMRaD6xdL/AQYn'
             VCR-index: '3'
             Accept: null
     response:
@@ -94,12 +94,12 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Fri, 08 Dec 2017 13:34:34 GMT'
+            Date: 'Fri, 12 Oct 2018 14:26:40 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 1ef9bf
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1ef9bf'
+            X-Debug-Token: 7c63ec
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7c63ec'
             Content-Length: '50'
             Content-Type: application/json
         body: '{"message":"Not Found: Array. Array","status":404}'
