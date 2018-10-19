@@ -16,6 +16,7 @@ use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
+use Wizaplace\SDK\Order\OrderItem;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -201,6 +202,20 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('The World Company Inc.', $orders[3]->getCompanyName());
 
         return $orders;
+    }
+
+    public function testGetOrdersWhichReturnsProductImageId(): array
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+        $orders = $orderService->getOrders();
+        $item = $orders[0]->getOrderItems();
+
+        // Premier orderItem
+        $this->assertCount(0, $item[0]->getProductImageId());
+
+        return $item;
     }
 
     public function testCommitOrder()

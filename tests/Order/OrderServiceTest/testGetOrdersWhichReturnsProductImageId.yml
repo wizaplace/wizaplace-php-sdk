@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@fd51abc
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 19 Oct 2018 08:21:39 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 1ba5b5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1ba5b5'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"X0Uk1c5nBlYtxEH7hUbfaBi79o0oKiB4gI2UXRqe"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@fd51abc
+            Authorization: 'token X0Uk1c5nBlYtxEH7hUbfaBi79o0oKiB4gI2UXRqe'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 19 Oct 2018 08:21:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 59df3f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/59df3f'
+            Content-Length: '4210'
+            Content-Type: application/json
+        body: '[{"id":2,"basketId":"2b4d182f-af3f-37c4-87d7-e84dec020920","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1539937275,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":[],"price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":1,"basketId":"4fec2923-4eac-3420-a9c6-abf6dc578744","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1539937275,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":[],"price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":4,"basketId":"90c50bbf-9dbb-3497-a71a-7554303b4875","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1539937275,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"Please deliver at the front desk of my company.","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":[],"price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product.","greenTax":0}],"payment":{"type":"manual","processorName":null}},{"id":5,"basketId":"c3818958-2089-3549-b4ab-66a5c07b77dc","companyId":3,"companyName":"The World Company Inc.","total":66.7,"taxTotal":1.4,"subtotal":66.7,"timestamp":1539937275,"status":"STANDBY_VENDOR","workflow":"workflow_order_validation_pending_vendor_validation_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":[],"price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}]'
