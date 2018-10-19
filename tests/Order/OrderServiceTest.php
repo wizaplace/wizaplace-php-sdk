@@ -206,6 +206,21 @@ final class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersWhichReturnsProductImageId(): array
     {
+        $data = (new CreateProductCommand())
+            ->setCode("code_full")
+            ->setGreenTax(0.1)
+            ->setIsBrandNew(true)
+            ->setName("Full product")
+            ->setSupplierReference('supplierref_full')
+            ->setStatus(ProductStatus::ENABLED())
+            ->setMainCategoryId(4)
+            ->setMainImage(new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'))
+            ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/api/v1/doc/favicon.png')]);
+        $productService = $this->buildProductService('vendor@wizaplace.com');
+        $productId = $productService->createProduct($data);
+
+
+
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $orderService = new OrderService($apiClient);
