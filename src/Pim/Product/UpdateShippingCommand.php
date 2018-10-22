@@ -7,8 +7,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
-use Composer\Autoload\ClassLoader;
-use Doctrine\Common\Annotations\AnnotationRegistry;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Validation;
@@ -181,14 +179,6 @@ final class UpdateShippingCommand implements ArrayableInterface
      */
     public function validate(): void
     {
-        $autoload = __DIR__.'/../../../vendor/autoload.php';
-        // Le fichier n'est disponible que pour les tests en local
-        if (file_exists($autoload)) {
-            /** @var ClassLoader $loader */
-            $loader = require $autoload;
-            AnnotationRegistry::registerLoader([$loader, 'loadClass']);
-        }
-
         $builder = Validation::createValidatorBuilder()
             ->enableAnnotationMapping();
 
