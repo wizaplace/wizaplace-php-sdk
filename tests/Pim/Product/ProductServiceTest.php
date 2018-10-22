@@ -822,6 +822,15 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertInstanceOf(Shipping::class, $shipping);
     }
 
+    public function testGetProductShippings()
+    {
+        $shippings = $this->buildProductService()->getShippings(5);
+
+        foreach ($shippings as $shipping) {
+            $this->assertInstanceOf(Shipping::class, $shipping);
+        }
+    }
+
     public function testPutProductShipping()
     {
         $command = new UpdateShippingCommand();
