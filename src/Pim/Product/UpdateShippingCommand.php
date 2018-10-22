@@ -181,9 +181,13 @@ final class UpdateShippingCommand implements ArrayableInterface
      */
     public function validate(): void
     {
-        /** @var ClassLoader $loader */
-        $loader = require __DIR__.'/../../../vendor/autoload.php';
-        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+        $autoload = __DIR__.'/../../../vendor/autoload.php';
+        // Le fichier n'est disponible que pour les tests en local
+        if (file_exists($autoload)) {
+            /** @var ClassLoader $loader */
+            $loader = require $autoload;
+            AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+        }
 
         $builder = Validation::createValidatorBuilder()
             ->enableAnnotationMapping();
