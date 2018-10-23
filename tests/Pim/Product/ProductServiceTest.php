@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Product;
 
+use Composer\Autoload\ClassLoader;
+use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
@@ -827,6 +829,8 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testPutProductShipping()
     {
+        $this->loadAnnotations();
+
         $command = new UpdateShippingCommand();
         $command->setStatus("D")
                 ->setRates([
@@ -854,6 +858,8 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testUpdateShippingCommandConstraints()
     {
+        $this->loadAnnotations();
+
         $command = new UpdateShippingCommand();
         $command->setStatus("Status qui n'existe pas")
             ->setRates([
@@ -881,5 +887,12 @@ final class ProductServiceTest extends ApiTestCase
         $apiClient->authenticate($userEmail, $userPassword);
 
         return new ProductService($apiClient);
+    }
+
+    private function loadAnnotations() : void
+    {
+        /** @var ClassLoader $loader */
+        $loader = require __DIR__.'/../../../vendor/autoload.php';
+        AnnotationRegistry::registerLoader([$loader, 'loadClass']);
     }
 }
