@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.38.0
 
 - Added `getUserId` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 - Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
