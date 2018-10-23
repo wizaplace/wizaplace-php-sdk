@@ -156,6 +156,49 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame($userBilling->getCountry(), $user->getBillingAddress()->getCountry());
     }
 
+    public function testCreateUserWithAnAddress()
+    {
+        $userEmail = 'user@example.com';
+        $userPassword = 'password';
+        $userFistname = 'John';
+        $userLastname = 'Doe';
+        $userBilling = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_b",
+            'phone'     => "Phone_b",
+            'address'   => "Address_b",
+            'address_2' => "Address 2_b",
+            'zipcode'   => "Zipcode_b",
+            'city'      => "City_b",
+            'country'   => "FR",
+        ]);
+        $userShipping = new UserAddress([
+            'title'     => UserTitle::MR()->getValue(),
+            'firstname' => $userFistname,
+            'lastname'  => $userLastname,
+            'company'   => "Company_s",
+            'phone'     => "Phone_s",
+            'address'   => "Address_s",
+            'address_2' => "Address 2_s",
+            'zipcode'   => "Zipcode_s",
+            'city'      => "City_s",
+            'country'   => "FR",
+        ]);
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $this->expectException(\Exception::class);
+        $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userBilling);
+
+        // create new user
+        $this->expectException(\Exception::class);
+        $userService->register($userEmail, $userPassword, $userFistname, $userLastname, null, $userShipping);
+    }
+
     public function testCreateUserOnlyWithCompanyName()
     {
         $userEmail = 'user123@example.com';
@@ -468,7 +511,6 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
 
         $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('', $user->getShippingAddress()->getFirstName());
         $this->assertSame('', $user->getShippingAddress()->getFirstName());
         $this->assertSame('', $user->getShippingAddress()->getLastName());
         $this->assertSame('FR', $user->getShippingAddress()->getCountry());
