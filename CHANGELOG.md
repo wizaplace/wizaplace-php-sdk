@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.39.0
 
 - Added `\Wizaplace\SDK\Pim\Product::getShippings`
 
