@@ -36,6 +36,9 @@ final class OrderSummary
     /** @var float */
     private $total;
 
+    /** @var int  */
+    private $companyId;
+
     /**
      * @internal
      */
@@ -45,6 +48,7 @@ final class OrderSummary
         $this->customerFirstName = $data['customer_firstname'];
         $this->customerLastName = $data['customer_lastname'];
         $this->orderId = $data['order_id'];
+        $this->companyId = $data['company_id'];
         $this->status = new OrderStatus($data['status']);
         $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->customerUserId = $data['user_id'];
@@ -70,6 +74,11 @@ final class OrderSummary
     public function getOrderId(): int
     {
         return $this->orderId;
+    }
+
+    public function getCompanyId(): int
+    {
+        return $this->companyId;
     }
 
     public function getStatus(): OrderStatus
