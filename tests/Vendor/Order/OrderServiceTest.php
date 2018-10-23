@@ -66,6 +66,7 @@ class OrderServiceTest extends ApiTestCase
         $order = $orders[0];
         $this->assertSame(5, $order->getOrderId());
         $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame(3, $order->getCompanyId());
         $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         $this->assertSame('Paul', $order->getCustomerFirstName());
         $this->assertSame('Martin', $order->getCustomerLastName());
@@ -75,6 +76,7 @@ class OrderServiceTest extends ApiTestCase
         $order = $orders[1];
         $this->assertSame(4, $order->getOrderId());
         $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame(3, $order->getCompanyId());
         $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         $this->assertSame('Paul', $order->getCustomerFirstName());
         $this->assertSame('Martin', $order->getCustomerLastName());
@@ -92,6 +94,7 @@ class OrderServiceTest extends ApiTestCase
         $order = $orders[0];
         $this->assertSame(5, $order->getOrderId());
         $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame(3, $order->getCompanyId());
         $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         $this->assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
         $this->assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
@@ -104,6 +107,7 @@ class OrderServiceTest extends ApiTestCase
         $this->assertInstanceOf(Order::class, $order);
         $this->assertSame(5, $order->getOrderId());
         $this->assertSame(7, $order->getCustomerUserId());
+        $this->assertSame(3, $order->getCompanyId());
         $this->assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         $this->assertSame('Paul', $order->getCustomerFirstName());
         $this->assertSame('Martin', $order->getCustomerLastName());

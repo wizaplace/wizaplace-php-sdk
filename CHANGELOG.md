@@ -16,6 +16,8 @@
 - Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
+- Added `\Wizaplace\SDK\Vendor\Order\Order::getCompanyId`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderSummary::getCompanyId`
 
 ## 1.39.0
 
