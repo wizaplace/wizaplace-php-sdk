@@ -97,6 +97,35 @@ final class ProductService extends AbstractService
         return new Shipping($data);
     }
 
+    /**
+     * @param int $productId
+     *
+     * @return Shipping[]
+     * @throws NotFound
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getShippings(int $productId) : array
+    {
+        $shippings = [];
+
+        $this->client->mustBeAuthenticated();
+        try {
+            $data = $this->client->get("products/${productId}/shippings");
+
+            foreach ($data as $shipping) {
+                $shippings[] = new Shipping($shipping);
+            }
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} not found", $e);
+            }
+
+            throw $e;
+        }
+
+        return $shippings;
+    }
+
     public function putShipping(int $shippingId, UpdateShippingCommand $command) : void
     {
         $this->client->mustBeAuthenticated();
