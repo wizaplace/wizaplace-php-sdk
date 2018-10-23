@@ -6,6 +6,8 @@
     "require": {
         "php": ">=7.1",
         "clue/json-stream": "^0.1.0",
+        "doctrine/annotations": "^1.6",
+        "doctrine/cache": "^1.8",
         "guzzlehttp/guzzle": "^6.3.0",
         "guzzlehttp/psr7": "^1.4",
         "jean85/pretty-package-versions": "^1.0",

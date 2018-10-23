@@ -1,0 +1,27 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@21ec59f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 16 Oct 2018 14:43:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8a1ff7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a1ff7'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"a7MyC68\/CEQtXsrFi3wCE6RGtqAC+gP4Py11nseD"}'
