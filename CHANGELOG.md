@@ -1,5 +1,9 @@
 # Changelog
 
+## Next release
+
+- Added `\Wizaplace\SDK\Pim\Product::getShippings`
+
 ## 1.38.0
 
 - Added `getUserId` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
