@@ -2,13 +2,8 @@
 
 ## Next release
 
-- Added `\Wizaplace\SDK\Pim\Product::getShippings`
+### New features
 
-## 1.38.0
-
-- Added `getUserId` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
-- Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
 - Added optional parameter `$language` to `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
 - Added `\Wizaplace\SDK\Catalog\Shipping::getDeliveryTime`
 - Added `\Wizaplace\SDK\Basket\Shipping::getImage`
@@ -21,6 +16,26 @@
 - Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
+
+## 1.39.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product::getShippings`
+
+## 1.38.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Organisation\OrganisationBasket::getUserId`
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
+- Added `\Wizaplace\SDK\PIM\Product::getShipping`
+- Added `\Wizaplace\SDK\PIM\Product::putShipping`
+- Added `\Wizaplace\SDK\PIM\UpdateShippingCommand`
+
+### Corrections
+
+- Fixed an issue for MVP with `Wizaplace\SDK\Catalog\Product::getSeoDescription`
 
 ### 1.37.0
 
