@@ -1,17 +1,6 @@
 # Changelog
 
-## 1.39.0
-
-- Added `\Wizaplace\SDK\Pim\Product::getShippings`
-
-## 1.38.0
-
-- Added `getUserId` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
-- Fix `seoDescription` from `Wizaplace\SDK\Catalog\Product` for MVP
-- Added `\Wizaplace\SDK\Pim\Product::getShipping`
-- Added `\Wizaplace\SDK\Pim\Product::putShipping`
-- Added `\Wizaplace\SDK\Pim\UpdateShippingCommand`
+## 1.40.0
 
 ### New features
 
