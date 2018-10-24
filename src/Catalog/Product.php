@@ -87,6 +87,9 @@ final class Product
     /** @var string */
     private $seoDescription;
 
+    /** @var string */
+    private $seoKeywords;
+
     /** @var \DateTimeImmutable|null */
     private $createdAt;
 
@@ -97,6 +100,9 @@ final class Product
      * @var Image[]
      */
     private $images;
+
+    /** @var bool */
+    private $infiniteStock;
 
     /**
      * @internal
@@ -143,8 +149,10 @@ final class Product
         }, $data['attachments'] ?? []);
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->seoKeywords = $data['seoData']['keywords'] ?? '';
         $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
+        $this->infiniteStock = $data['infiniteStock'];
 
         if (!isset($data['images'])) {
             $this->images = [];
@@ -387,5 +395,18 @@ final class Product
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoKeywords(): string
+    {
+        return $this->seoKeywords;
+    }
+
+    public function hasInfiniteStock(): bool
+    {
+        return $this->infiniteStock;
     }
 }

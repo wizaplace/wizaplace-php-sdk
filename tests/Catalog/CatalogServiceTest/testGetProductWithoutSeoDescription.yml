@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@c9ac1e3
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 05 Dec 2017 09:44:03 GMT'
+            Date: 'Wed, 17 Oct 2018 07:08:31 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: cc4023
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc4023'
-            Content-Length: '1549'
+            X-Debug-Token: 52dc2a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/52dc2a'
+            Content-Length: '1758'
             Content-Type: application/json
-        body: '{"id":5,"code":"7531596248952","supplierReference":"LOGITECH-CASQUE-GAMING","name":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","shortDescription":"","description":"","slug":"casque-logitech-gaming","minPrice":61.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"name":"TNT Express","image":null,"firstRate":0,"nextRate":0},{"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0},{"name":"Colissmo","image":null,"firstRate":0,"nextRate":0}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2017-12-05T09:43:34+00:00","updatedAt":"2017-12-05T09:43:34+00:00","video":null,"seoData":{"title":"Micro-Casque Logitech Gaming","description":""},"declinations":[{"id":"5_0","code":"7531596248952","isAvailable":true,"supplierReference":"LOGITECH-CASQUE-GAMING","price":61.5,"originalPrice":61.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":61.5,"priceWithoutVat":60.24,"vat":1.26},"greenTax":0,"amount":15,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[]}'
+        body: '{"id":5,"code":"7531596248952","supplierReference":"LOGITECH-CASQUE-GAMING","name":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","shortDescription":"","description":"","slug":"casque-logitech-gaming","minPrice":61.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2018-10-17T07:07:58+00:00","updatedAt":"2018-10-17T07:07:58+00:00","infiniteStock":false,"video":null,"seoData":{"title":"Micro-Casque Logitech Gaming","description":"","keywords":""},"declinations":[{"id":"5_0","code":"7531596248952","isAvailable":true,"supplierReference":"LOGITECH-CASQUE-GAMING","price":61.5,"originalPrice":61.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":61.5,"priceWithoutVat":60.24,"vat":1.26},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product"}'

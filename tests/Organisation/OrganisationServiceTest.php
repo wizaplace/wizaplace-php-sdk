@@ -8,7 +8,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Organisation\Organisation;
@@ -21,6 +24,7 @@ use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -435,6 +439,47 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
+    public function testBasketCheckout()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+
+            $basketId = $responseData['basketId'];
+
+            //Add products to basket
+            $basketService = $this->buildBasketService('user+orga@usc.com', 'password');
+            $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+
+            $responseData = $organisationService->checkoutBasket($organisationId, $basketId, 1, true, 'http://www.google.fr');
+
+            $this->assertCount(1, $responseData['orders']);
+        }
+    }
+
+    public function testBasketCheckoutIfNotOwned()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+
+            $basketId = $responseData['basketId'];
+
+            //Add products to basket
+            $basketService = $this->buildBasketService('user+orga@usc.com', 'password');
+            $basketService->addProductToBasket($basketId, new DeclinationId('1'), 1);
+
+            $organisationService = $this->buildOrganisationService();
+            $this->expectException(UserDoesntBelongToOrganisation::class);
+
+            $organisationService->checkoutBasket($organisationId, $basketId, 1, true, 'http://www.google.fr');
+        }
+    }
+
     public function testGetOrganisationFromUser()
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
@@ -482,12 +527,12 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame(true, is_array($orders));
 
         foreach ($orders as $order) {
-            $this->assertInstanceOf(OrganisationOrder::class, $order);
+            $this->assertInstanceOf(OrderSummary::class, $order);
         }
 
         $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
         $this->assertSame(true, is_array($orders));
-        $this->assertCount(0, $orders);
+        $this->assertCount(2, $orders);
     }
 
     public function testAddUserAdminToOrganisation()
@@ -648,5 +693,24 @@ final class OrganisationServiceTest extends ApiTestCase
         ];
 
         return $data;
+    }
+
+    /**
+     * Return an Basket service
+     *
+     * @param string $email
+     * @param string $password
+     * @param bool $authenticate
+     * @return BasketService
+     * @throws BadCredentials
+     */
+    private function buildBasketService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3', bool $authenticate = true): BasketService
+    {
+        $apiClient = $this->buildApiClient();
+        if ($authenticate) {
+            $apiClient->authenticate($email, $password);
+        }
+
+        return new BasketService($apiClient);
     }
 }

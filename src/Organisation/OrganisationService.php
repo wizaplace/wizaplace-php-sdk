@@ -14,10 +14,12 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 class OrganisationService extends AbstractService
 {
@@ -346,6 +348,36 @@ class OrganisationService extends AbstractService
         }
     }
 
+    public function checkoutBasket(string $organisationId, string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->post(
+                'organisations/'.$organisationId.'/baskets/'.$basketId.'/order',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'paymentId' => $paymentId,
+                        'acceptTermsAndConditions' => $acceptTerms,
+                        'redirectUrl' => $redirectUrl,
+                    ],
+                ]
+            );
+
+            return $responseData;
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($e->getMessage(), $e->getCode(), $e);
+                case 403:
+                    throw new UserDoesntBelongToOrganisation("You don't belong to this organisation", $e);
+                case 404:
+                    throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
+    }
+
     /**
      * Allow to get the organisation's information from a user
      *
@@ -619,7 +651,7 @@ class OrganisationService extends AbstractService
 
             $data = [];
             foreach ($response['_embedded']['orders'] as $orderData) {
-                $data[] = new OrganisationOrder($orderData);
+                $data[] = new OrderSummary($orderData);
             }
 
             return $data;

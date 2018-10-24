@@ -29,6 +29,7 @@ final class ProductTest extends TestCase
             'minPrice' => 15.5,
             'greenTax' => 0,
             'isTransactional' => true,
+            'infiniteStock' => false,
             'weight' => 1.23,
             'averageRating' => null,
             'shippings' =>
@@ -39,6 +40,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '24h',
                         ),
                     1 =>
                         array(
@@ -46,6 +48,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '',
                         ),
                     2 =>
                         array(
@@ -53,6 +56,7 @@ final class ProductTest extends TestCase
                             'image' => null,
                             'firstRate' => 0,
                             'nextRate' => 0,
+                            'deliveryTime' => '',
                         ),
                 ),
             'companies' =>
@@ -130,6 +134,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     1 =>
                         array(
@@ -171,6 +176,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     2 =>
                         array(
@@ -212,6 +218,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     3 =>
                         array(
@@ -253,6 +260,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     4 =>
                         array(
@@ -294,6 +302,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                     5 =>
                         array(
@@ -335,6 +344,7 @@ final class ProductTest extends TestCase
                                     'averageRating' => null,
                                 ),
                             'isAvailable' => true,
+                            'infiniteStock' => false,
                         ),
                 ),
             'attributes' =>
@@ -439,6 +449,7 @@ final class ProductTest extends TestCase
                     'averageRating' => null,
                 ),
             'isAvailable' => true,
+            'infiniteStock' => false,
         )));
     }
 }

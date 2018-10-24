@@ -13,6 +13,43 @@
 - Added `\Wizaplace\SDK\Pim\Product::putShipping`
 - Added `\Wizaplace\SDK\Pim\UpdateShippingCommand`
 
+### New features
+
+- Added optional parameter `$language` to `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
+- Added `\Wizaplace\SDK\Catalog\Shipping::getDeliveryTime`
+- Added `\Wizaplace\SDK\Basket\Shipping::getImage`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::checkoutBasket`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Updated `\Wizaplace\SDK\Vendor\OrderSymmary`
+- Added `\Wizaplace\SDK\Catalog\Product::hasInfiniteStock`
+- Added `\Wizaplace\SDK\Catalog\Declination::hasInfiniteStock`
+- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::hasInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
+- Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
+- Added `\Wizaplace\SDK\Vendor\Order\Order::getCompanyId`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderSummary::getCompanyId`
+
+## 1.39.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product::getShippings`
+
+## 1.38.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Organisation\OrganisationBasket::getUserId`
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoKeywords`
+- Added `\Wizaplace\SDK\PIM\Product::getShipping`
+- Added `\Wizaplace\SDK\PIM\Product::putShipping`
+- Added `\Wizaplace\SDK\PIM\UpdateShippingCommand`
+
+### Corrections
+
+- Fixed an issue for MVP with `Wizaplace\SDK\Catalog\Product::getSeoDescription`
+
 ### 1.37.0
 
 ### New features

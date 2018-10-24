@@ -31,6 +31,9 @@ final class ProductDeclinationUpsertData
     /** @var int[] */
     private $optionsVariants;
 
+    /** @var null|bool */
+    private $infiniteStock;
+
     public function __construct(array $optionsVariants)
     {
         $this->setOptionsVariants($optionsVariants);
@@ -39,6 +42,13 @@ final class ProductDeclinationUpsertData
     public function setQuantity(int $quantity): self
     {
         $this->quantity = $quantity;
+
+        return $this;
+    }
+
+    public function setInfiniteStock(?bool $infiniteStock): self
+    {
+        $this->infiniteStock = $infiniteStock;
 
         return $this;
     }
@@ -104,6 +114,7 @@ final class ProductDeclinationUpsertData
             'code',
             'crossedOutPrice',
             'affiliateLink',
+            'infiniteStock',
         ];
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
             if (!in_array($prop->getName(), $nullableProperties)) {
@@ -129,6 +140,10 @@ final class ProductDeclinationUpsertData
 
         if ($this->code !== null) {
             $data['combination_code'] = $this->code;
+        }
+
+        if ($this->infiniteStock !== null) {
+            $data['infinite_stock'] = $this->infiniteStock;
         }
 
         return $data;

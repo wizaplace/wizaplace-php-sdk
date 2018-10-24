@@ -30,6 +30,15 @@ final class OrderSummary
     /** @var int */
     private $customerUserId;
 
+    /** @var int */
+    private $basketId;
+
+    /** @var float */
+    private $total;
+
+    /** @var int  */
+    private $companyId;
+
     /**
      * @internal
      */
@@ -39,9 +48,12 @@ final class OrderSummary
         $this->customerFirstName = $data['customer_firstname'];
         $this->customerLastName = $data['customer_lastname'];
         $this->orderId = $data['order_id'];
+        $this->companyId = $data['company_id'];
         $this->status = new OrderStatus($data['status']);
         $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->customerUserId = $data['user_id'];
+        $this->basketId = $data['basket_id'];
+        $this->total = $data['total'];
     }
 
     public function getCustomerEmail(): string
@@ -64,6 +76,11 @@ final class OrderSummary
         return $this->orderId;
     }
 
+    public function getCompanyId(): int
+    {
+        return $this->companyId;
+    }
+
     public function getStatus(): OrderStatus
     {
         return $this->status;
@@ -77,5 +94,15 @@ final class OrderSummary
     public function getCustomerUserId(): int
     {
         return $this->customerUserId;
+    }
+
+    public function getBasketId(): int
+    {
+        return $this->basketId;
+    }
+
+    public function getTotal(): float
+    {
+        return $this->total;
     }
 }

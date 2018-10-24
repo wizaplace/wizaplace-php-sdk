@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
             VCR-index: '0'
             Accept: null
     response:
@@ -16,24 +16,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 22 Nov 2017 14:00:44 GMT'
+            Date: 'Fri, 12 Oct 2018 14:28:56 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 2a106a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2a106a'
-            Content-Length: '60'
+            X-Debug-Token: 95909d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/95909d'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"s6W7s+79mtbowcIyMp6T5owlxZy8M3jZV5K5GFDm"}'
+        body: '{"id":2,"apiKey":"m461H0gCQQzPnB4MI8Ojtv5dsGK82Z1v8+5yU73\/"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/5'
+        url: 'http://wizaplace.loc/api/v1/products/8'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-declination-id-object@b56f8a5
-            Authorization: 'token s6W7s+79mtbowcIyMp6T5owlxZy8M3jZV5K5GFDm'
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@f75cf31
+            Authorization: 'token m461H0gCQQzPnB4MI8Ojtv5dsGK82Z1v8+5yU73/'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 22 Nov 2017 14:00:44 GMT'
+            Date: 'Fri, 12 Oct 2018 14:28:56 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: b8bda3
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b8bda3'
-            Content-Length: '1075'
+            X-Debug-Token: 98fa1c
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/98fa1c'
+            Content-Length: '1132'
             Content-Type: application/json
-        body: '{"product_id":5,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511359227,"updated_timestamp":1511359228,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[5],"main_category":5,"main_pair":[],"image_pairs":[],"video":null,"inventory":[{"combination":[],"amount":15,"price":15.0}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}'
+        body: '{"product_id":8,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1539354521,"updated_timestamp":1539354521,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[6],"main_category":6,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":15,"price":15.0}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null}}'
