@@ -523,16 +523,17 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        $orders = $organisationService->getOrganisationOrders((string) $organisationId);
-        $this->assertSame(true, is_array($orders));
+        $response = $organisationService->getOrganisationOrders((string) $organisationId);
+        $this->assertSame(true, is_array($response));
 
-        foreach ($orders as $order) {
+        foreach ($response['orders'] as $order) {
             $this->assertInstanceOf(OrderSummary::class, $order);
         }
 
-        $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
-        $this->assertSame(true, is_array($orders));
-        $this->assertCount(2, $orders);
+        $response = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
+        $this->assertSame(true, is_array($response['orders']));
+        $this->assertCount(2, $response['orders']);
+        $this->assertSame(2, $response['count']);
     }
 
     public function testAddUserAdminToOrganisation()

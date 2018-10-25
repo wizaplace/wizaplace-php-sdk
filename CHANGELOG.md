@@ -22,6 +22,7 @@
 - Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
 - Added `\Wizaplace\SDK\Vendor\Order\Order::getCompanyId`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderSummary::getCompanyId`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 
 ## 1.39.0
 
