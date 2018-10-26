@@ -17,7 +17,7 @@ final class OrderItem
     private $productName;
     /** @var string */
     private $productCode;
-    /** @var null|string */
+    /** @var string|null */
     private $productImageId;
     /** @var float */
     private $price;
