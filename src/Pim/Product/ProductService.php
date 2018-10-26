@@ -80,4 +80,70 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
         $this->client->delete("products/${productId}");
     }
+
+    public function getShipping(int $productId, int $shippingId) : Shipping
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $data = $this->client->get("products/${productId}/shippings/${shippingId}");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
+            }
+
+            throw $e;
+        }
+
+        return new Shipping($data);
+    }
+
+    /**
+     * @param int $productId
+     *
+     * @return Shipping[]
+     * @throws NotFound
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function getShippings(int $productId) : array
+    {
+        $shippings = [];
+
+        $this->client->mustBeAuthenticated();
+        try {
+            $data = $this->client->get("products/${productId}/shippings");
+
+            foreach ($data as $shipping) {
+                $shippings[] = new Shipping($shipping);
+            }
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} not found", $e);
+            }
+
+            throw $e;
+        }
+
+        return $shippings;
+    }
+
+    public function putShipping(int $shippingId, UpdateShippingCommand $command) : void
+    {
+        $this->client->mustBeAuthenticated();
+
+        $command->validate();
+
+        $productId = $command->getProductId();
+
+        try {
+            $this->client->put("products/${productId}/shippings/${shippingId}", [
+                RequestOptions::JSON => $command->toArray(),
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
 }

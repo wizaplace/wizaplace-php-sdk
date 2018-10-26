@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-customer-names-in-vendor-orders@f909ccf
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 28 May 2018 09:44:22 GMT'
+            Date: 'Tue, 23 Oct 2018 13:41:12 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 9b9e8d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9b9e8d'
-            Content-Length: '60'
+            X-Debug-Token: '844569'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/844569'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"ygDl0Itm8idfPjDmYvZknXuFOOXwfKhMuPuI1GPd"}'
+        body: '{"id":6,"apiKey":"XCzuR6SdBj+LjiMtNXI+4SabqLLN\/P7InFZps42e"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-customer-names-in-vendor-orders@f909ccf
-            Authorization: 'token ygDl0Itm8idfPjDmYvZknXuFOOXwfKhMuPuI1GPd'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
+            Authorization: 'token XCzuR6SdBj+LjiMtNXI+4SabqLLN/P7InFZps42e'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 28 May 2018 09:44:23 GMT'
+            Date: 'Tue, 23 Oct 2018 13:41:13 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e67f28
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e67f28'
-            Content-Length: '224'
+            X-Debug-Token: 473fbb
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/473fbb'
+            Content-Length: '364'
             Content-Type: application/json
-        body: '[{"order_id":5,"user_id":7,"basket_id":"b6538eaa-6866-31ee-b1e9-260b3510017a","timestamp":1527500613,"email":"customer-1@world-company.com","status":"P","total":66.7,"customer_firstname":"Paul","customer_lastname":"Martin"}]'
+        body: '[{"order_id":5,"user_id":7,"basket_id":"c3818958-2089-3549-b4ab-66a5c07b77dc","company_id":3,"timestamp":1540302013,"email":"customer-1@world-company.com","status":"P","total":66.7,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing"}]'

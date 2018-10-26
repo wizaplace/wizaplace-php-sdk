@@ -19,6 +19,7 @@ use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 class OrganisationService extends AbstractService
 {
@@ -650,7 +651,7 @@ class OrganisationService extends AbstractService
 
             $data = [];
             foreach ($response['_embedded']['orders'] as $orderData) {
-                $data[] = new OrganisationOrder($orderData);
+                $data[] = new OrderSummary($orderData);
             }
 
             return $data;

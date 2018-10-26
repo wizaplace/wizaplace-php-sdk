@@ -24,6 +24,7 @@ use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
@@ -526,12 +527,12 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame(true, is_array($orders));
 
         foreach ($orders as $order) {
-            $this->assertInstanceOf(OrganisationOrder::class, $order);
+            $this->assertInstanceOf(OrderSummary::class, $order);
         }
 
         $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
         $this->assertSame(true, is_array($orders));
-        $this->assertCount(0, $orders);
+        $this->assertCount(2, $orders);
     }
 
     public function testAddUserAdminToOrganisation()

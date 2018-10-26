@@ -71,12 +71,16 @@ final class Order
     /** @var string */
     private $comment;
 
+    /** @var int */
+    private $companyId;
+
     /**
      * @internal
      */
     public function __construct(array $data)
     {
         $this->orderId = $data['order_id'];
+        $this->companyId = $data['company_id'];
         $this->customerUserId = $data['user_id'];
         $this->customerEmail = $data['email'];
         $this->customerFirstName = $data['customer_firstname'];
@@ -112,6 +116,11 @@ final class Order
     public function getCustomerUserId(): int
     {
         return $this->customerUserId;
+    }
+
+    public function getCompanyId(): int
+    {
+        return $this->companyId;
     }
 
     public function getCustomerEmail(): string
