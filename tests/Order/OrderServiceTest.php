@@ -176,7 +176,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(1.4, $order->getTaxtotal());
         $this->assertEquals(OrderStatus::COMPLETED(), $order->getStatus());
         $this->assertSame('TNT Express', $order->getShippingName());
-        $this->assertCount(1, $order->getOrderItems());
+        $this->assertCount(2, $order->getOrderItems());
         $this->assertSame('Please deliver at the front desk of my company.', $order->getCustomerComment());
 
         // Premier orderItem
