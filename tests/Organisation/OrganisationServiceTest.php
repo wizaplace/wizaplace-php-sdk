@@ -523,15 +523,17 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId(1);
 
         $response = $organisationService->getOrganisationOrders((string) $organisationId);
-        $this->assertSame(true, is_array($response['orders']));
 
-        foreach ($response['orders'] as $order) {
-            $this->assertInstanceOf(OrderSummary::class, $order);
+        if (!empty($response['orders'])) {
+            $this->assertCount(1, $response['orders']);
+
+            foreach ($response['orders'] as $order) {
+                $this->assertInstanceOf(OrderSummary::class, $order);
+            }
         }
 
         $response = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
 
-        $this->assertSame(true, is_array($response['orders']));
         $this->assertSame(0, $response['count']);
         $this->assertSame(1, $response['total']);
     }
