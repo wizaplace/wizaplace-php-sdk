@@ -204,19 +204,16 @@ final class OrderServiceTest extends ApiTestCase
         return $orders;
     }
 
-    public function testGetOrdersWhichReturnsProductImageId(): array
+    public function testGetOrdersWhichReturnsProductImageId()
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $orderService = new OrderService($apiClient);
-        $orders = $orderService->getOrder(1);
-        $item = $orders->getOrderItems();
+        $order1 = $orderService->getOrder(1);
+        $order2 = $orderService->getOrder(4);
 
-        // Premier orderItem
-        $this->assertCount(1, $item[0]->getProductImageId());
-        //$this->assertSame('', $item[0]->getProductImageId());
-
-        return $item[0];
+        $this->assertSame('0', $order1->getOrderItems()[0]->getProductImageId());
+        $this->assertSame('0', $order2->getOrderItems()[1]->getProductImageId());
     }
 
     public function testCommitOrder()

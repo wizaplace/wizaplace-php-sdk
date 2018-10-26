@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@e2f8c98
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@3e5a28a
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 19 Oct 2018 15:02:23 GMT'
+            Date: 'Fri, 26 Oct 2018 13:07:39 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: '502916'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/502916'
+            X-Debug-Token: 2688c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2688c7'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"BM63TcCxgw4QoUbdJNBTgt+vvWOTejxQ0bPNxSN3"}'
+        body: '{"id":7,"apiKey":"5ZNKXAp+IBuHVuXoInPHOCfHBHbY4RRdgVmagc36"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@e2f8c98
-            Authorization: 'token BM63TcCxgw4QoUbdJNBTgt+vvWOTejxQ0bPNxSN3'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@3e5a28a
+            Authorization: 'token 5ZNKXAp+IBuHVuXoInPHOCfHBHbY4RRdgVmagc36'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,38 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 19 Oct 2018 15:02:23 GMT'
+            Date: 'Fri, 26 Oct 2018 13:07:40 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 54a158
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/54a158'
-            Content-Length: '1025'
+            X-Debug-Token: 6f9bf0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f9bf0'
+            Content-Length: '1245'
             Content-Type: application/json
-        body: '{"id":1,"basketId":"4fec2923-4eac-3420-a9c6-abf6dc578744","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1539961318,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+        body: '{"id":1,"basketId":"4fec2923-4eac-3420-a9c6-abf6dc578744","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1540559235,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":"0","price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0},{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":"0","price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@3e5a28a
+            Authorization: 'token 5ZNKXAp+IBuHVuXoInPHOCfHBHbY4RRdgVmagc36'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 26 Oct 2018 13:07:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: bd0a57
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd0a57'
+            Content-Length: '1357'
+            Content-Type: application/json
+        body: '{"id":4,"basketId":"90c50bbf-9dbb-3497-a71a-7554303b4875","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1540559235,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"Please deliver at the front desk of my company.","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":"0","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product.","greenTax":0},{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":"0","price":67.9,"amount":1,"options":[],"customerComment":"Please, gift wrap this product.","greenTax":0}],"payment":{"type":"manual","processorName":null}}'

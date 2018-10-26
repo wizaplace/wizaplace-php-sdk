@@ -15,7 +15,7 @@
 - Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
-- Added `\Wizapalce\SDK\Order\OrderItem::getProductImageId`
+- Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 
 ### 1.37.0
 
