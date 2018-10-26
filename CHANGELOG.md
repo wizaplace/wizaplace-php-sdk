@@ -23,6 +23,7 @@
 - Added `\Wizaplace\SDK\Vendor\Order\Order::getCompanyId`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderSummary::getCompanyId`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Updated `tests/Organisation/OrganisationServiceTest`
 
 ## 1.39.0
 
