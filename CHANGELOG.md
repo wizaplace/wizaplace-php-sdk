@@ -1,5 +1,9 @@
 # Changelog
 
+## Next release 
+
+- Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+
 ## 1.40.0
 
 ### New features
@@ -16,7 +20,6 @@
 - Added `\Wizaplace\SDK\PIM\Product\Product::hasInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductDeclinationUpsertData::setInfiniteStock`
 - Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setInfiniteStock`
-- Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Added `\Wizaplace\SDK\Vendor\Order\Order::getCompanyId`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderSummary::getCompanyId`
 
