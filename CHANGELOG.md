@@ -1,5 +1,9 @@
 # Changelog
 
+## Next release 
+
+- Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+
 ## 1.40.0
 
 ### New features
