@@ -47,8 +47,8 @@ When `master` is ready to be deployed on Packagist.org:
 - Go to the [releases](https://github.com/wizaplace/wizaplace-php-sdk/releases) page on Github
 - Click on "Draft a new release"
 - Choose a new tag, starting with a 'v', following semver (e.g. `v1.30.1`)
+- Change the target to `master` 
 - Set the release title to "Release {version}" (e.g. "Release v1.30.1")
 - Copy the relevant section of the Changelog in the release description, or if the version is a patch, just write the list of fixes in a list
 - Click on "Publish release"
 - Check that the version is published on [Packagist](https://packagist.org/packages/wizaplace/sdk)
- 
