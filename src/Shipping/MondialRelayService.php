@@ -21,6 +21,13 @@ final class MondialRelayService extends AbstractService
         ]);
     }
 
+    public function getPickupPoint(string $pickupPointId): MondialRelayPoint
+    {
+        $result = $this->client->get('mondial-relay/points-relais/'.$pickupPointId);
+
+        return new MondialRelayPoint($result);
+    }
+
     public function getBrandCode(): MondialRelayBrandCode
     {
         $result = $this->client->get('mondial-relay/brand-code');

@@ -1,0 +1,55 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-mondialrelay@12c01f1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 30 Oct 2018 14:56:03 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 634c64
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/634c64'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"gl1vZXKY3Tl\/qEpmjiRrKQvXV7hRpDvMv4ZGjbnH"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/mondial-relay/points-relais/003393'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feat-mondialrelay@12c01f1
+            Authorization: 'token gl1vZXKY3Tl/qEpmjiRrKQvXV7hRpDvMv4ZGjbnH'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 30 Oct 2018 14:56:03 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: f872c2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f872c2'
+            Content-Length: '1324'
+            Content-Type: application/json
+        body: '{"id":"003393","address":["KFE TOLSTOI PMU","","97 COURS TOLSTOI",""],"zipCode":"69100","city":"VILLEURBANNE","country":"FR","location1":"","location2":"","latitude":"45,7622380","longitude":"04,8804019","activityType":"000","information":"","openingHours":[{"day":0,"openingHour1":"0900","openingHour2":"1500","openingHour3":"0000","openingHour4":"0000"},{"day":1,"openingHour1":"0900","openingHour2":"1500","openingHour3":"1730","openingHour4":"2000"},{"day":2,"openingHour1":"0900","openingHour2":"1500","openingHour3":"1730","openingHour4":"2000"},{"day":3,"openingHour1":"0900","openingHour2":"1500","openingHour3":"1730","openingHour4":"2000"},{"day":4,"openingHour1":"0900","openingHour2":"1500","openingHour3":"1730","openingHour4":"2200"},{"day":5,"openingHour1":"1100","openingHour2":"1530","openingHour3":"1800","openingHour4":"2200"},{"day":6,"openingHour1":"1100","openingHour2":"1530","openingHour3":"0000","openingHour4":"0000"}],"availabilityInformation":null,"urlPicture":"https:\/\/ww2.mondialrelay.com\/public\/permanent\/photo_relais.aspx?ens=CC______41\u0026num=003393\u0026pays=FR\u0026crc=579966753D9EE050A340DCDC50842C3D","urlMap":"https:\/\/ww2.mondialrelay.com\/public\/permanent\/plan_relais.aspx?ens=BDTEST1311\u0026num=003393\u0026pays=FR\u0026crc=30ED83CB00D7DC4EFC5B3281E987FE58","distance":0}'
