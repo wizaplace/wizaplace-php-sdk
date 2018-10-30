@@ -423,7 +423,8 @@ final class BasketService extends AbstractService
     }
 
     /**
-     * Sets a pickup point as the basket's shipping destination.
+     * Sets a pickup point as the basket's shipping destination for a
+     * Chrono Relais shipping type.
      *
      * @param SetPickupPointCommand $command
      * @throws SomeParametersAreInvalid
@@ -443,7 +444,8 @@ final class BasketService extends AbstractService
     }
 
     /**
-     * Sets a pickup point as the basket's shipping destination.
+     * Sets a pickup point as the basket's shipping destination for a
+     * Mondial Relay shipping type.
      *
      * @param SetPickupPointCommand $command
      *
@@ -451,7 +453,7 @@ final class BasketService extends AbstractService
      *
      * @throws SomeParametersAreInvalid
      */
-    public function setMRPickupPoint(SetPickupPointCommand $command): array
+    public function setMondialrelayPickupPoint(SetPickupPointCommand $command): array
     {
         $command->validate();
 
