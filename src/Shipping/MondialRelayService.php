@@ -20,4 +20,11 @@ final class MondialRelayService extends AbstractService
             ],
         ]);
     }
+
+    public function getBrandCode(): MondialRelayBrandCode
+    {
+        $result = $this->client->get('mondial-relay/brand-code');
+
+        return new MondialRelayBrandCode($result['brandCode']);
+    }
 }
