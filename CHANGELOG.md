@@ -3,6 +3,7 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+- Added `\Wizaplace\SDK\Division\Division` for `\Wizaplace\SDK\Catalog\Product`
 
 ## 1.40.0
 

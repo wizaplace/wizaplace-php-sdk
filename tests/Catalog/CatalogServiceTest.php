@@ -33,6 +33,7 @@ use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Catalog\Shipping;
+use Wizaplace\SDK\Division\Division;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
@@ -128,6 +129,11 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
 
         $this->assertEmpty($product->getImages());
+
+        foreach ($product->getDivisions() as $productId => $divisions) {
+            $this->assertTrue(is_numeric($productId));
+            $this->divisionTester($divisions);
+        }
     }
 
     public function testGetProducstByCode()
@@ -1805,5 +1811,20 @@ final class CatalogServiceTest extends ApiTestCase
     private function compareAttributesById(ProductAttribute $a, ProductAttribute $b): int
     {
         return $a->getId() <=> $b->getId();
+    }
+
+    /**
+     * Recursive test for divisions
+     *
+     * @param Division[] $divisions
+     */
+    private function divisionTester(array $divisions)
+    {
+        foreach ($divisions as $division) {
+            $this->assertInstanceOf(Division::class, $division);
+            if (!empty($division->getChildren())) {
+                $this->divisionTester($division->getChildren());
+            }
+        }
     }
 }
