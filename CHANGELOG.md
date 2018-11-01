@@ -3,7 +3,8 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
-
+- Added `\Wizaplace\SDK\User\User::getType`
+ 
 ## 1.40.0
 
 ### New features

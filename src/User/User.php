@@ -34,6 +34,8 @@ final class User
     private $companyId;
     /** @var string|null */
     private $status;
+    /** @var string|null */
+    private $type;
 
     /**
      * @internal
@@ -50,6 +52,7 @@ final class User
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
         $this->companyId = $data['companyId'] ?? null;
         $this->status = $data['status'] ?? null;
+        $this->type = $data['type'] ?? null;
     }
 
     public function getId(): int
@@ -108,5 +111,10 @@ final class User
     public function getStatus(): ?string
     {
         return $this->status;
+    }
+
+    public function getType(): ?string
+    {
+        return $this->type;
     }
 }
