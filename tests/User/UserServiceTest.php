@@ -84,30 +84,29 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'John';
         $userLastname = 'Doe';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "Phone_b",
-            'address'   => "Address_b",
-            'address_2' => "Address 2_b",
-            'zipcode'   => "Zipcode_b",
-            'city'      => "City_b",
-            'country'   => "FR",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "Phone_s",
-            'address'   => "Address_s",
-            'address_2' => "Address 2_s",
-            'zipcode'   => "Zipcode_s",
-            'city'      => "City_s",
-            'country'   => "FR",
-        ]);
+        $userBilling = new UpdateUserAddressCommand();
+        $userBilling->setTitle(UserTitle::MR());
+        $userBilling->setFirstName($userFistname);
+        $userBilling->setLastName($userLastname);
+        $userBilling->setPhone('Phone_b');
+        $userBilling->setAddress('Address_b');
+        $userBilling->setAddressSecondLine('Address 2_b');
+        $userBilling->setCompany('Company_b');
+        $userBilling->setZipCode('Zipcode_b');
+        $userBilling->setCity('City_b');
+        $userBilling->setCountry('FR');
+
+        $userShipping = new UpdateUserAddressCommand();
+        $userShipping->setTitle(UserTitle::MR());
+        $userShipping->setFirstName($userFistname);
+        $userShipping->setLastName($userLastname);
+        $userShipping->setPhone('Phone_s');
+        $userShipping->setAddress('Address_s');
+        $userShipping->setAddressSecondLine('Address 2_s');
+        $userShipping->setCompany('Company_s');
+        $userShipping->setZipCode('Zipcode_s');
+        $userShipping->setCity('City_s');
+        $userShipping->setCountry('FR');
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -162,30 +161,29 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'John';
         $userLastname = 'Doe';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "Phone_b",
-            'address'   => "Address_b",
-            'address_2' => "Address 2_b",
-            'zipcode'   => "Zipcode_b",
-            'city'      => "City_b",
-            'country'   => "FR",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "Phone_s",
-            'address'   => "Address_s",
-            'address_2' => "Address 2_s",
-            'zipcode'   => "Zipcode_s",
-            'city'      => "City_s",
-            'country'   => "FR",
-        ]);
+        $userBilling = new UpdateUserAddressCommand();
+        $userBilling->setTitle(UserTitle::MR());
+        $userBilling->setFirstName($userFistname);
+        $userBilling->setLastName($userLastname);
+        $userBilling->setPhone('Phone_b');
+        $userBilling->setAddress('Address_b');
+        $userBilling->setAddressSecondLine('Address 2_b');
+        $userBilling->setCompany('Company_b');
+        $userBilling->setZipCode('Zipcode_b');
+        $userBilling->setCity('City_b');
+        $userBilling->setCountry('FR');
+
+        $userShipping = new UpdateUserAddressCommand();
+        $userShipping->setTitle(UserTitle::MR());
+        $userShipping->setFirstName($userFistname);
+        $userShipping->setLastName($userLastname);
+        $userShipping->setPhone('Phone_s');
+        $userShipping->setAddress('Address_s');
+        $userShipping->setAddressSecondLine('Address 2_s');
+        $userShipping->setCompany('Company_s');
+        $userShipping->setZipCode('Zipcode_s');
+        $userShipping->setCity('City_s');
+        $userShipping->setCountry('FR');
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -205,30 +203,29 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'Paul';
         $userLastname = 'Jean';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "",
-            'address'   => "",
-            'address_2' => "",
-            'zipcode'   => "",
-            'city'      => "",
-            'country'   => "",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "",
-            'address'   => "",
-            'address_2' => "",
-            'zipcode'   => "",
-            'city'      => "",
-            'country'   => "",
-        ]);
+        $userBilling = new UpdateUserAddressCommand();
+        $userBilling->setTitle(UserTitle::MR());
+        $userBilling->setFirstName($userFistname);
+        $userBilling->setLastName($userLastname);
+        $userBilling->setPhone("");
+        $userBilling->setAddress("");
+        $userBilling->setAddressSecondLine("");
+        $userBilling->setCompany('Company_b');
+        $userBilling->setZipCode("");
+        $userBilling->setCity("");
+        $userBilling->setCountry("");
+
+        $userShipping = new UpdateUserAddressCommand();
+        $userShipping->setTitle(UserTitle::MR());
+        $userShipping->setFirstName($userFistname);
+        $userShipping->setLastName($userLastname);
+        $userShipping->setPhone("");
+        $userShipping->setAddress("");
+        $userShipping->setAddressSecondLine("");
+        $userShipping->setCompany('Company_s');
+        $userShipping->setZipCode("");
+        $userShipping->setCity("");
+        $userShipping->setCountry("");
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);

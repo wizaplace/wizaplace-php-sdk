@@ -3,6 +3,7 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+- Updated type hint optional parameters `$billing` and `$shipping` `\Wizaplace\SDK\User\UserService::register`
 
 ## 1.40.0
 

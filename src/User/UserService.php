@@ -95,8 +95,8 @@ final class UserService extends AbstractService
      * @param string           $firstName
      * @param string           $lastName
      *
-     * @param UserAddress|null $billing
-     * @param UserAddress|null $shipping
+     * @param UpdateUserAddressCommand|null $billing
+     * @param UpdateUserAddressCommand|null $shipping
      *
      * @return int ID of the created user.
      *
@@ -108,8 +108,8 @@ final class UserService extends AbstractService
         string $password,
         string $firstName = '',
         string $lastName = '',
-        UserAddress $billing = null,
-        UserAddress $shipping = null
+        UpdateUserAddressCommand $billing = null,
+        UpdateUserAddressCommand $shipping = null
     ): int {
         try {
             $data = [
@@ -119,10 +119,10 @@ final class UserService extends AbstractService
                 'lastName'  => $lastName,
             ];
 
-            if ($billing instanceof UserAddress && $shipping instanceof UserAddress) {
-                $data['billing']  = $billing->toArray();
-                $data['shipping'] = $shipping->toArray();
-            } elseif ($billing instanceof UserAddress xor $shipping instanceof UserAddress) {
+            if ($billing instanceof UpdateUserAddressCommand && $shipping instanceof UpdateUserAddressCommand) {
+                $data['billing']  = self::serializeUserAddressUpdate($billing);
+                $data['shipping'] = self::serializeUserAddressUpdate($shipping);
+            } elseif ($billing instanceof UpdateUserAddressCommand xor $shipping instanceof UpdateUserAddressCommand) {
                 throw new \Exception("Both addresses are required if you set an address.");
             }
 
