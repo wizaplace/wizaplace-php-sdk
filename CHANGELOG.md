@@ -16,6 +16,8 @@ Compatible with Wizaplace 1.27.0
 - Added enum `\Wizaplace\SDK\User\UserType`
 - Added pagination data to the array returned by `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
+- Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
+- Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
 
 ## 1.40.0
 
@@ -61,7 +63,7 @@ Compatible with Wizaplace 1.27.0
 ### New features
 
 - Added optional parameters `$billing` and `$shipping` to `\Wizaplace\SDK\User\UserService::register`
-- Added `\Wizaplace\SDK\Order\Order::getCompanyName` 
+- Added `\Wizaplace\SDK\Order\Order::getCompanyName`
 
 ### Corrections
 
