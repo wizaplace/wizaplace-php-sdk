@@ -14,15 +14,21 @@ final class MondialRelayService extends AbstractService
 {
     public function searchPickupPoints(string $zipCode): array
     {
-        return $this->client->get('mondial-relay/points-relais', [
+        $results = $this->client->get('mondial-relay/points-relais', [
             RequestOptions::QUERY => [
                 'zipCode' => $zipCode,
             ],
         ]);
+
+        return array_map(function ($elt) {
+            return new MondialRelayPoint($elt);
+        }, $results);
     }
 
     public function getPickupPoint(string $pickupPointId): MondialRelayPoint
     {
+        $this->client->mustBeAuthenticated();
+
         $result = $this->client->get('mondial-relay/points-relais/'.$pickupPointId);
 
         return new MondialRelayPoint($result);
