@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Shipping;
 
 use Wizaplace\SDK\Shipping\MondialRelayOpening;
+use Wizaplace\SDK\Shipping\MondialRelayPoint;
 use Wizaplace\SDK\Shipping\MondialRelayService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -20,6 +21,16 @@ final class MondialRelayServiceTest extends ApiTestCase
         $brandCode = $mondialRelay->getBrandCode();
 
         $this->assertSame($brandCode->getValue(), 'BDTEST13');
+    }
+
+    public function testSearchPickupPoints()
+    {
+        $mondialRelay = $this->buildMondialRelayService();
+
+        $results = $mondialRelay->searchPickupPoints('69100');
+
+        $this->assertCount(10, $results);
+        $this->assertContainsOnlyInstancesOf(MondialRelayPoint::class, $results);
     }
 
     public function testGetPickupPoint()

@@ -453,7 +453,7 @@ final class BasketService extends AbstractService
      *
      * @throws SomeParametersAreInvalid
      */
-    public function setMondialrelayPickupPoint(SetPickupPointCommand $command): array
+    public function setMondialRelayPickupPoint(SetPickupPointCommand $command): array
     {
         $command->validate();
 
