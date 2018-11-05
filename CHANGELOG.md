@@ -3,6 +3,7 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+- Removed phpdoc `@internal` in `\Wizaplace\SDK\User\UserAddress`
 
 ## 1.40.0
 
