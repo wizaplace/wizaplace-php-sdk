@@ -4,7 +4,8 @@
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Added `\Wizaplace\SDK\User\User::getType`
- 
+- Added enum `\Wizaplace\SDK\User\UserType`
+
 ## 1.40.0
 
 ### New features
