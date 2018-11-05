@@ -520,19 +520,22 @@ final class OrganisationServiceTest extends ApiTestCase
     public function testGetOrganisationOrders()
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
 
-        $organisationId = $this->getOrganisationId();
+        $response = $organisationService->getOrganisationOrders((string) $organisationId);
 
-        $orders = $organisationService->getOrganisationOrders((string) $organisationId);
-        $this->assertSame(true, is_array($orders));
+        if (!empty($response['orders'])) {
+            $this->assertCount(1, $response['orders']);
 
-        foreach ($orders as $order) {
-            $this->assertInstanceOf(OrderSummary::class, $order);
+            foreach ($response['orders'] as $order) {
+                $this->assertInstanceOf(OrderSummary::class, $order);
+            }
         }
 
-        $orders = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
-        $this->assertSame(true, is_array($orders));
-        $this->assertCount(2, $orders);
+        $response = $organisationService->getOrganisationOrders((string) $organisationId, 500, 10);
+
+        $this->assertSame(0, $response['count']);
+        $this->assertSame(1, $response['total']);
     }
 
     public function testAddUserAdminToOrganisation()
