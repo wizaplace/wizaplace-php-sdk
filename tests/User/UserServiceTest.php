@@ -20,6 +20,7 @@ use Wizaplace\SDK\User\UserAddress;
 use Wizaplace\SDK\User\UserAlreadyExists;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
+use Wizaplace\SDK\User\UserType;
 
 /**
  * @see UserService
@@ -52,7 +53,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
         $this->assertNull($user->getShippingAddress()->getTitle());
@@ -131,7 +132,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
         $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
@@ -253,7 +254,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         //shipping adress
         $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
@@ -326,7 +327,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('1998-07-12', $user->getBirthday()->format('Y-m-d'));
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
         $this->assertTrue($addressCommand->getTitle()->equals($user->getShippingAddress()->getTitle()));
@@ -380,7 +381,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame(null, $user->getBirthday());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -402,7 +403,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
     }
 
     public function testUpdateUserAddresses()
@@ -655,7 +656,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jean', $user->getFirstname());
         $this->assertSame('Paul', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -673,7 +674,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('Jacques', $user->getFirstname());
         $this->assertSame('Jules', $user->getLastname());
         $this->assertNull($user->getBirthday());
-        $this->assertSame('C', $user->getType());
+        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
     }
 
     public function testRecoverPassword()

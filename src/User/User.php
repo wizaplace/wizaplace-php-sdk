@@ -34,7 +34,7 @@ final class User
     private $companyId;
     /** @var string|null */
     private $status;
-    /** @var string|null */
+    /** @var UserType|null */
     private $type;
 
     /**
@@ -52,7 +52,7 @@ final class User
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
         $this->companyId = $data['companyId'] ?? null;
         $this->status = $data['status'] ?? null;
-        $this->type = $data['type'] ?? null;
+        $this->type = empty($data['type']) ? null : new UserType($data['type']);
     }
 
     public function getId(): int
@@ -113,7 +113,7 @@ final class User
         return $this->status;
     }
 
-    public function getType(): ?string
+    public function getType(): ?UserType
     {
         return $this->type;
     }
