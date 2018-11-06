@@ -3,6 +3,7 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 
 ## 1.40.0
 
