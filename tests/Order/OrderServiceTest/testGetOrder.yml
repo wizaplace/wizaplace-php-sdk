@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@bb180db
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
             VCR-index: '0'
             Accept: null
     response:
@@ -16,38 +16,38 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 26 Oct 2018 14:15:53 GMT'
+            Date: 'Mon, 05 Nov 2018 15:54:52 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 9b7c42
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9b7c42'
+            X-Debug-Token: 8020c4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8020c4'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"+2e1IrGuunJRFctlqV8t6fLRo195fXptedEeBTJq"}'
+        body: '{"id":7,"apiKey":"KtODJQ3tKIDxV44a5fsJUDUXdYIrVbeZdUkXQZv6"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/user/orders/2'
+        url: 'http://wizaplace.loc/api/v1/user/orders/9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@bb180db
-            Authorization: 'token +2e1IrGuunJRFctlqV8t6fLRo195fXptedEeBTJq'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token KtODJQ3tKIDxV44a5fsJUDUXdYIrVbeZdUkXQZv6'
             VCR-index: '1'
             Accept: null
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '404'
+            message: 'Not Found'
         headers:
-            Date: 'Fri, 26 Oct 2018 14:15:54 GMT'
+            Date: 'Mon, 05 Nov 2018 15:54:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ca439d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca439d'
-            Content-Length: '1053'
+            X-Debug-Token: cd91ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cd91ed'
+            Content-Length: '73'
             Content-Type: application/json
-        body: '{"id":2,"basketId":"2b4d182f-af3f-37c4-87d7-e84dec020920","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1540563328,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+        body: '{"error":{"code":14,"message":"order not found","context":{"orderId":9}}}'

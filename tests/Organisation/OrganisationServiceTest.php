@@ -14,6 +14,7 @@ use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
@@ -606,6 +607,30 @@ final class OrganisationServiceTest extends ApiTestCase
                     $this->assertInstanceOf(User::class, $user);
                 }
             }
+        }
+    }
+
+    /**
+     * We try to get all the orga's order and foreach one, get the order détails individualy.
+     *
+     * Note: Would be better Check if the order user is différent of the user authenticate but for now we don't have the user in the order Entity
+     * @throws BadCredentials
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
+    public function testGetOrder()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+
+        // Get all the organisation orders
+        $orders = $organisationService->getOrganisationOrders($organisationId);
+
+        foreach ($orders as $order) {
+            $orderId = $order->getOrderId();
+            // Get the order details
+            $orderDetails = $organisationService->getOrder($orderId);
+            $this->assertInstanceOf(Order::class, $orderDetails);
         }
     }
 
