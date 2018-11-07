@@ -696,5 +696,4 @@ class OrganisationService extends AbstractService
             }
         }
     }
-
 }

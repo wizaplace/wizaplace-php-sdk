@@ -614,22 +614,25 @@ final class OrganisationServiceTest extends ApiTestCase
     }
 
     /**
-     * We try to get all the orga's order and foreach one, get the order détails individualy.
+     * We try to get all the orga's order and foreach one, get the order détails.
      *
-     * Note: Would be better Check if the order user is différent of the user authenticate but for now we don't have the user in the order Entity
+     * Note: Would be a better check if we could be sur than the order user is différent of the admin user authenticated
+     *       but for now we don't have the user in the order Entity
+     *
      * @throws BadCredentials
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\NotFound
      */
     public function testGetOrder()
     {
+        // Organisation admin user
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
 
         // Get all the organisation orders
         $orders = $organisationService->getOrganisationOrders($organisationId);
 
-        foreach ($orders as $order) {
+        foreach ($orders['orders'] as $order) {
             $orderId = $order->getOrderId();
             // Get the order details
             $orderDetails = $organisationService->getOrder($orderId);
