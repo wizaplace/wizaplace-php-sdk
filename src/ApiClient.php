@@ -54,9 +54,13 @@ final class ApiClient
     /** @var null|string */
     private $applicationToken;
 
-    public function __construct(Client $client)
+    /** @var null|RequestLogger */
+    private $requestLogger;
+
+    public function __construct(Client $client, RequestLogger $requestLogger = null)
     {
         $this->httpClient = $client;
+        $this->requestLogger = $requestLogger;
 
         try {
             $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
@@ -195,7 +199,15 @@ final class ApiClient
         }
 
         try {
-            return $this->httpClient->request($method, $uri, $this->addAuth($options));
+            $start = microtime(true);
+            $response =  $this->httpClient->request($method, $uri, $this->addAuth($options));
+            $requestExecutionTime = microtime(true) - $start;
+
+            if ($this->requestLogger !== null) {
+                $this->requestLogger->log($method, (string) $this->getBaseUri() . $uri, (int) $requestExecutionTime);
+            }
+
+            return $response;
         } catch (BadResponseException $e) {
             $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
