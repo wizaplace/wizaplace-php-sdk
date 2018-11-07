@@ -18,6 +18,9 @@ final class CreateShipmentCommand
     private $trackingNumber;
 
     /** @var string */
+    private $labelUrl;
+
+    /** @var string */
     private $comment;
 
     /** @var int[] map of (int) itemId to (int) quantity shipped */
@@ -36,6 +39,13 @@ final class CreateShipmentCommand
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    public function setLabelUrl(string $labelUrl): self
+    {
+        $this->labelUrl = $labelUrl;
 
         return $this;
     }
@@ -71,6 +81,7 @@ final class CreateShipmentCommand
             'tracking_number' => $this->trackingNumber,
             'comments' => $this->comment,
             'products' => $this->shippedQuantityByItemId,
+            'label_url' => $this->labelUrl,
         ];
     }
 }

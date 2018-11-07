@@ -196,6 +196,7 @@ class OrderServiceTest extends ApiTestCase
         $shipmentId = $orderService->createShipment(
             (new CreateShipmentCommand($orderId, '0ABC0123456798'))
             ->setComment('great shipment')
+            ->setLabelUrl('http://mondialrelay.com/shipment-created')
             ->setShippedQuantityByItemId($itemsShipped)
         );
 
@@ -213,6 +214,7 @@ class OrderServiceTest extends ApiTestCase
         $this->assertSame($itemsShipped, $shipments[0]->getShippedQuantityByItemId());
         $this->assertSame('TNT Express', $shipments[0]->getShippingName());
         $this->assertSame('0ABC0123456798', $shipments[0]->getTrackingNumber());
+        $this->assertSame('http://mondialrelay.com/shipment-created', $shipments[0]->getLabelUrl());
         $this->assertSame(1, $shipments[0]->getShippingId());
         $this->assertGreaterThanOrEqual(1500000000, $shipments[0]->getCreatedAt()->getTimestamp());
 
