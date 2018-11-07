@@ -627,16 +627,22 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         // Organisation admin user
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        // "University of Southern California" organisation with few orders
         $organisationId = $this->getOrganisationId(1);
+        $this->assertInternalType('string', $organisationId);
 
-        // Get all the organisation orders
-        $orders = $organisationService->getOrganisationOrders($organisationId);
+        if (is_string($organisationId)) {
+            // Get all the organisation orders
+            $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
 
-        foreach ($orders['orders'] as $order) {
-            $orderId = $order->getOrderId();
-            // Get the order details
-            $orderDetails = $organisationService->getOrder($orderId);
-            $this->assertInstanceOf(Order::class, $orderDetails);
+            if (!empty($organisationOrders['orders'])) {
+                foreach ($organisationOrders['orders'] as $order) {
+                    // Get the order details
+                    $orderId = $order->getOrderId();
+                    $orderDetails = $organisationService->getOrder($orderId);
+                    $this->assertInstanceOf(Order::class, $orderDetails);
+                }
+            }
         }
     }
 
