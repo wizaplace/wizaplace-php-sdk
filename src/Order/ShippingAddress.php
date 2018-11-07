@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Order;
 
 final class ShippingAddress extends Address
 {
-    /** @var string */
+    /** @var string|null */
     private $pickupPointId;
 
     /**
@@ -21,7 +21,7 @@ final class ShippingAddress extends Address
         $this->pickupPointId = $data['pickupPointId'];
     }
 
-    public function getPickupPointId(): string
+    public function getPickupPointId(): ?string
     {
         return $this->pickupPointId;
     }
