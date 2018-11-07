@@ -3,7 +3,10 @@
 ## Next release 
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
-- Added `\Wizaplace\SDK\Division\Division` for `\Wizaplace\SDK\Catalog\Product`
+- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
+- Added `\Wizaplace\SDK\Division\DivisionService::get`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Updated `tests/Organisation/OrganisationServiceTest`
 
 ## 1.40.0
 

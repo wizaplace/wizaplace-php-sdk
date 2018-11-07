@@ -8,8 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
-use Wizaplace\SDK\Division\Division;
-use Wizaplace\SDK\Division\DivisionService;
+use Wizaplace\SDK\Division\DivisionUtils;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_float;
@@ -168,12 +167,8 @@ final class Product
         }
 
         if (isset($data['availableOffers'])) {
-            foreach ($data['availableOffers'] as $productId => $availableOffers) {
-                $this->createDivisions($availableOffers, $productId);
-            }
-            foreach ($this->divisions as $key => $divisions) {
-                $this->divisions[$key] = DivisionService::imbricate($divisions);
-            }
+            $divisionUtils = new DivisionUtils();
+            $this->divisions = $divisionUtils->getDivisions($data['availableOffers'], true);
         }
     }
 
@@ -430,20 +425,5 @@ final class Product
     public function getDivisions(): array
     {
         return $this->divisions;
-    }
-
-    /**
-     * @param array $availableOffers
-     * @param int   $productId
-     */
-    private function createDivisions(array $availableOffers, int $productId)
-    {
-        foreach ($availableOffers as $availableOffer) {
-            $this->divisions[$productId][] = new Division($availableOffer);
-
-            if (isset($availableOffer['children']) && !empty($availableOffer['children'])) {
-                $this->createDivisions($availableOffer['children'], $productId);
-            }
-        }
     }
 }

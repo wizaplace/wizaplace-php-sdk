@@ -649,9 +649,12 @@ class OrganisationService extends AbstractService
                 ],
             ]);
 
-            $data = [];
+            $data['total'] = $response['total'];
+            $data['count'] = $response['count'];
+            $data['orders'] = [];
+
             foreach ($response['_embedded']['orders'] as $orderData) {
-                $data[] = new OrderSummary($orderData);
+                $data['orders'][] = new OrderSummary($orderData);
             }
 
             return $data;

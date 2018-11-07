@@ -6,34 +6,42 @@
 
 namespace Wizaplace\SDK\Division;
 
-class DivisionService
+use GuzzleHttp\Exception\ClientException;
+use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\FeatureNotEnabled;
+use Wizaplace\SDK\Exception\NotFound;
+
+class DivisionService extends AbstractService
 {
     /**
-     * Imbricate array to get a tree of divisions
+     * Get all divisions from the MP
+     * If $code is specified, you will have the specific division and his children
      *
-     * @param Division[] $divisions
+     * @param null|string $code
      *
-     * @return object[]
+     * @return array
+     * @throws FeatureNotEnabled
+     * @throws NotFound
      */
-    public static function imbricate(array $divisions) : array
+    public function get(?string $code = null)
     {
-        /** @var Division[] $objectsById */
-        $objectsById = array();
-        foreach ($divisions as $d) {
-            $objectsById[$d->getCode()] = $d;
+        $url = "divisions";
+        if (!is_null($code)) {
+            $url = $url."/${code}";
         }
 
-        foreach ($divisions as $key => $d) {
-            if (!is_null($d->getParentCode())) {
-                if (isset($objectsById[$d->getParentCode()])) {
-                    // Ajout de l'enfant dans le parent
-                    $objectsById[$d->getParentCode()]->addChild($d);
-                }
+        try {
+            $divisionUtils = new DivisionUtils();
 
-                unset($divisions[$key]);
+            return $divisionUtils->getDivisions($this->client->get($url));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The division doesn't exist", $e);
             }
+            if ($e->getResponse()->getStatusCode() === 501) {
+                throw new FeatureNotEnabled("The feature is not enabled", $e);
+            }
+            throw $e;
         }
-
-        return $divisions;
     }
 }
