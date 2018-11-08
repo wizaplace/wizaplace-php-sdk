@@ -205,7 +205,12 @@ final class ApiClient
             $requestExecutionTime = microtime(true) - $start;
 
             if ($this->requestLogger !== null) {
-                $this->requestLogger->info($method, (string) $this->getBaseUri().$uri, (int) $requestExecutionTime);
+                $this->requestLogger->info(sprintf(
+                    '%s %s %d',
+                    $method,
+                    (string) $this->getBaseUri().$uri,
+                    (int) $requestExecutionTime
+                ));
             }
 
             return $response;
