@@ -14,6 +14,7 @@ use GuzzleHttp\RequestOptions;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Log\LoggerInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
@@ -54,10 +55,10 @@ final class ApiClient
     /** @var null|string */
     private $applicationToken;
 
-    /** @var null|RequestLogger */
+    /** @var null|LoggerInterface */
     private $requestLogger;
 
-    public function __construct(Client $client, RequestLogger $requestLogger = null)
+    public function __construct(Client $client, LoggerInterface $requestLogger = null)
     {
         $this->httpClient = $client;
         $this->requestLogger = $requestLogger;
@@ -204,7 +205,7 @@ final class ApiClient
             $requestExecutionTime = microtime(true) - $start;
 
             if ($this->requestLogger !== null) {
-                $this->requestLogger->log($method, (string) $this->getBaseUri().$uri, (int) $requestExecutionTime);
+                $this->requestLogger->info($method, (string) $this->getBaseUri().$uri, (int) $requestExecutionTime);
             }
 
             return $response;
