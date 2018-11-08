@@ -5,6 +5,7 @@
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`
+- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
 ## 1.40.0
 
