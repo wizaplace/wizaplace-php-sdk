@@ -29,6 +29,7 @@ Compatible with Wizaplace 1.27.0
 - Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 - Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
 - Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
 
 ## 1.40.0
 
