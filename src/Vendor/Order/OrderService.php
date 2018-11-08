@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
 class OrderService extends AbstractService
 {
@@ -125,6 +126,17 @@ class OrderService extends AbstractService
                 'code' => $deliveryCode,
             ],
         ]);
+    }
+
+    public function generateMondialRelayLabel(int $orderId, CreateLabelCommand $command)
+    {
+        $command->validate();
+
+        $result = $this->client->post("orders/${orderId}/mondialRelayLabel", [
+            RequestOptions::JSON => $command->toArray(),
+        ]);
+
+        return new MondialRelayLabel($result);
     }
 
     private function setOrderIsAccepted(int $orderId, bool $accepted): void

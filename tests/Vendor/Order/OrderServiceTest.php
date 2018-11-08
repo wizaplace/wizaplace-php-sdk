@@ -7,7 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
 
+use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Order\OrderService as BaseOrderService;
+use Wizaplace\SDK\Vendor\Order\CreateLabelCommand;
 use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
@@ -237,6 +240,29 @@ class OrderServiceTest extends ApiTestCase
             $this->assertInternalType('string', $tax->getName());
             $this->assertNotEmpty($tax->getName());
         }
+    }
+
+    public function testGenerateMondialRelayLabel(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $orderId = 10;
+        $orderService->acceptOrder($orderId);
+
+        $order = $orderService->getOrderById($orderId);
+
+        $itemsShipped = [];
+        foreach ($order->getItems() as $item) {
+            $itemsShipped[$item->getItemId()] = $item->getQuantityToShip();
+        }
+
+        $result = $orderService->generateMondialRelayLabel(
+            $orderId,
+            (new CreateLabelCommand())
+                ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        $this->assertInstanceOf(MondialRelayLabel::class, $result);
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
