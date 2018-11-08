@@ -194,6 +194,10 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
         }
 
+        if (! empty($_SERVER['HTTP_X_REQUEST_ID'])) {
+            $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
+        }
+
         try {
             return $this->httpClient->request($method, $uri, $this->addAuth($options));
         } catch (BadResponseException $e) {
