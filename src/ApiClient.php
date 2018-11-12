@@ -11,6 +11,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use GuzzleHttp\TransferStats;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
@@ -199,21 +200,20 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
         }
 
-        try {
-            $start = microtime(true);
-            $response =  $this->httpClient->request($method, $uri, $this->addAuth($options));
-            $requestExecutionTime = microtime(true) - $start;
-
-            if ($this->requestLogger !== null) {
-                $this->requestLogger->info(sprintf(
-                    '%s %s %d',
-                    $method,
-                    (string) $this->getBaseUri().$uri,
-                    (int) $requestExecutionTime
+        if ($this->requestLogger !== null) {
+            $logger = $this->requestLogger;
+            $options[RequestOptions::ON_STATS] = function (TransferStats $stats) use ($logger) {
+                $logger->info(sprintf(
+                    '%s %s %f',
+                    $stats->getRequest()->getMethod(),
+                    $stats->getRequest()->getUri(),
+                    $stats->getTransferTime()
                 ));
-            }
+            };
+        }
 
-            return $response;
+        try {
+            return $this->httpClient->request($method, $uri, $this->addAuth($options));
         } catch (BadResponseException $e) {
             $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
