@@ -5,6 +5,7 @@
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`
+- Added `Wizaplace\SDK\Pim\Product\ProductSummary::getShippings`
 
 ## 1.40.0
 

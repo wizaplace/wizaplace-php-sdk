@@ -96,6 +96,9 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declination->getCrossedOutPrice());
         $this->assertNull($declination->getCode());
         $this->assertNull($declination->getAffiliateLink());
+        foreach ($product->getShippings() as $shipping) {
+            $this->assertInstanceOf(Shipping::class, $shipping);
+        }
     }
 
     public function testGetProductWithOptionsById()
