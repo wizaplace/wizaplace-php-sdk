@@ -6,6 +6,7 @@
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`
 - Added `Wizaplace\SDK\Pim\Product\ProductSummary::getShippings`
+- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
 ## 1.40.0
 
