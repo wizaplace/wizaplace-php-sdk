@@ -1,9 +1,13 @@
 # Changelog
 
-## Next release 
+## Next release
 
+- Added optional parameter `$requestLogger` to `\Wizaplace\SDK\ApiClient`
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Removed phpdoc `@internal` in `\Wizaplace\SDK\User\UserAddress`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Updated `tests/Organisation/OrganisationServiceTest`
+- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
 ## 1.40.0
 
