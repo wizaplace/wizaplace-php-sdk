@@ -132,7 +132,7 @@ class OrderService extends AbstractService
     {
         $command->validate();
 
-        $result = $this->client->post("orders/${orderId}/mondialRelayLabel", [
+        $result = $this->client->post("_orders/${orderId}/mondialRelayLabel", [
             RequestOptions::JSON => $command->toArray(),
         ]);
 
