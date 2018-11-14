@@ -422,6 +422,24 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
+    public function testHideBasket()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+
+        $organisationId = $this->getOrganisationId(1);
+
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+
+            $basketId = $responseData['basketId'];
+
+            $responseData = $organisationService->hideBasket($organisationId, $basketId);
+
+            $this->assertSame("Mon nouveau panier", $responseData['name']);
+            $this->assertSame(true, $responseData['hidden']);
+        }
+    }
+
     public function testCannotValidateBasketIfNotOwned()
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');

@@ -380,6 +380,32 @@ class OrganisationService extends AbstractService
     }
 
     /**
+     * Hide a basket, set hide flag to true
+     *
+     * @param string $organisationId
+     * @param string $basketId
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function hideBasket(string $organisationId, string $basketId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/hide');
+
+            return $responseData;
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("The organisation doesn't exist", $e);
+            }
+            throw $e;
+        }
+    }
+
+
+    /**
      * Allow to get the organisation's information from a user
      *
      * @param int $userId

@@ -38,6 +38,11 @@ class OrganisationBasket
     private $accepted;
 
     /**
+     * @var boolean
+     */
+    private $hidden;
+
+    /**
      * @var \DateTime
      */
     private $createdAt;
@@ -50,6 +55,7 @@ class OrganisationBasket
         $this->setLocked($data['locked']);
         $this->setCheckout($data['checkout']);
         $this->setAccepted($data['accepted']);
+        $this->setHidden($data['hidden']);
         $this->setCreatedAt(\DateTime::createFromFormat(\DateTime::RFC3339, $data['createdAt']));
     }
 
@@ -131,6 +137,22 @@ class OrganisationBasket
     public function setCheckout(bool $checkout): void
     {
         $this->checkout = $checkout;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHidden(): bool
+    {
+        return $this->hidden;
+    }
+
+    /**
+     * @param bool $hidden
+     */
+    public function setHidden(bool $hidden): void
+    {
+        $this->hidden = $hidden;
     }
 
     /**
