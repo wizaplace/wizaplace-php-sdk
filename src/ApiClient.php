@@ -207,7 +207,7 @@ final class ApiClient
                     '%s %s %s %f',
                     $stats->getRequest()->getMethod(),
                     $stats->getRequest()->getUri(),
-                    $_SERVER['HTTP_X_REQUEST_ID'] ?? '',
+                    $_SERVER['HTTP_X_REQUEST_ID'] ?? '-',
                     $stats->getTransferTime()
                 ));
             };
