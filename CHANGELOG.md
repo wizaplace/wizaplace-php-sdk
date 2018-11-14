@@ -1,7 +1,8 @@
 # Changelog
 
-## Next release 
+## Next release
 
+- Added optional parameter `$requestLogger` to `\Wizaplace\SDK\ApiClient`
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`

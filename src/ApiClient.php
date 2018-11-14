@@ -11,9 +11,11 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use GuzzleHttp\TransferStats;
 use Jean85\PrettyVersions;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UriInterface;
+use Psr\Log\LoggerInterface;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
@@ -54,9 +56,13 @@ final class ApiClient
     /** @var null|string */
     private $applicationToken;
 
-    public function __construct(Client $client)
+    /** @var null|LoggerInterface */
+    private $requestLogger;
+
+    public function __construct(Client $client, LoggerInterface $requestLogger = null)
     {
         $this->httpClient = $client;
+        $this->requestLogger = $requestLogger;
 
         try {
             $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
@@ -192,6 +198,19 @@ final class ApiClient
         $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/'.$this->version;
         if ($this->language !== null) {
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+        }
+
+        if ($this->requestLogger !== null) {
+            $logger = $this->requestLogger;
+            $options[RequestOptions::ON_STATS] = function (TransferStats $stats) use ($logger) {
+                $logger->info(sprintf(
+                    '%s %s %s %f',
+                    $stats->getRequest()->getMethod(),
+                    $stats->getRequest()->getUri(),
+                    $_SERVER['HTTP_X_REQUEST_ID'] ?? '-',
+                    $stats->getTransferTime()
+                ));
+            };
         }
 
         if (! empty($_SERVER['HTTP_X_REQUEST_ID'])) {
