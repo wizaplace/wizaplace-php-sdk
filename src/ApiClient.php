@@ -204,12 +204,17 @@ final class ApiClient
             $logger = $this->requestLogger;
             $options[RequestOptions::ON_STATS] = function (TransferStats $stats) use ($logger) {
                 $logger->info(sprintf(
-                    '%s %s %f',
+                    '%s %s %s %f',
                     $stats->getRequest()->getMethod(),
                     $stats->getRequest()->getUri(),
+                    $_SERVER['HTTP_X_REQUEST_ID'] ?? '',
                     $stats->getTransferTime()
                 ));
             };
+        }
+
+        if (! empty($_SERVER['HTTP_X_REQUEST_ID'])) {
+            $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
         }
 
         try {

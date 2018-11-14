@@ -30,6 +30,11 @@ class OrganisationBasket
     /**
      * @var boolean
      */
+    private $checkout;
+
+    /**
+     * @var boolean
+     */
     private $accepted;
 
     /**
@@ -43,6 +48,7 @@ class OrganisationBasket
         $this->setUserId($data['userId']);
         $this->setName($data['name']);
         $this->setLocked($data['locked']);
+        $this->setCheckout($data['checkout']);
         $this->setAccepted($data['accepted']);
         $this->setCreatedAt(\DateTime::createFromFormat(\DateTime::RFC3339, $data['createdAt']));
     }
@@ -109,6 +115,22 @@ class OrganisationBasket
     public function setAccepted(bool $accepted): void
     {
         $this->accepted = $accepted;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCheckout(): bool
+    {
+        return $this->checkout;
+    }
+
+    /**
+     * @param bool $checkout
+     */
+    public function setCheckout(bool $checkout): void
+    {
+        $this->checkout = $checkout;
     }
 
     /**
