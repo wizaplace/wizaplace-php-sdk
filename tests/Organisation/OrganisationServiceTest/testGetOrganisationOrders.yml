@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-198-organisation-orders-pagination-total@4cdc362
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 23 Oct 2018 14:03:14 GMT'
+            Date: 'Fri, 26 Oct 2018 13:38:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
+            Cache-Control: 'max-age=0, must-revalidate, private'
             Content-Language: fr
-            X-Debug-Token: ab7fb6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab7fb6'
+            X-Debug-Token: c5a0f3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5a0f3'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"LvselfVoBpL3hEZASwBrOjjavvHpKYpAL4DVVmLc"}'
+        body: '{"id":2,"apiKey":"QdmBJCsbLuEj7KQ2+6DL+TSrfCpnNU0ci3Afy3Cs"}'
 -
     request:
         method: GET
@@ -33,7 +33,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-198-organisation-orders-pagination-total@4cdc362
             VCR-index: '1'
             Accept: null
     response:
@@ -42,15 +42,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 23 Oct 2018 14:03:16 GMT'
+            Date: 'Fri, 26 Oct 2018 13:38:53 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
+            Cache-Control: 'max-age=0, must-revalidate, private'
             Content-Language: fr
-            X-Debug-Token: c33718
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c33718'
+            X-Debug-Token: fc2d0d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc2d0d'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"LvselfVoBpL3hEZASwBrOjjavvHpKYpAL4DVVmLc"}'
+        body: '{"id":2,"apiKey":"QdmBJCsbLuEj7KQ2+6DL+TSrfCpnNU0ci3Afy3Cs"}'
 -
     request:
         method: GET
@@ -58,8 +58,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
-            Authorization: 'token LvselfVoBpL3hEZASwBrOjjavvHpKYpAL4DVVmLc'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-198-organisation-orders-pagination-total@4cdc362
+            Authorization: 'token QdmBJCsbLuEj7KQ2+6DL+TSrfCpnNU0ci3Afy3Cs'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,24 +68,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 23 Oct 2018 14:03:17 GMT'
+            Date: 'Fri, 26 Oct 2018 13:38:54 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
+            Cache-Control: 'max-age=0, must-revalidate, private'
             Content-Language: fr
-            X-Debug-Token: 837d1d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/837d1d'
+            X-Debug-Token: 9367bd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9367bd'
             Content-Length: '1146'
             Content-Type: application/json
-        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"408bad7c-d6cc-11e8-8605-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"40d2463a-d6cc-11e8-8605-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"6479b237-d924-11e8-80e0-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"649ad5d4-d924-11e8-80e0-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/408bad7c-d6cc-11e8-8605-080027ea4cb6/orders?start=0&limit=10'
+        url: 'http://wizaplace.loc/api/v1/organisations/649ad5d4-d924-11e8-80e0-080027ea4cb6/orders?start=0&limit=10'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
-            Authorization: 'token LvselfVoBpL3hEZASwBrOjjavvHpKYpAL4DVVmLc'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-198-organisation-orders-pagination-total@4cdc362
+            Authorization: 'token QdmBJCsbLuEj7KQ2+6DL+TSrfCpnNU0ci3Afy3Cs'
             VCR-index: '3'
             Accept: null
     response:
@@ -94,24 +94,24 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 23 Oct 2018 14:03:18 GMT'
+            Date: 'Fri, 26 Oct 2018 13:38:54 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
+            Cache-Control: 'max-age=0, must-revalidate, private'
             Content-Language: fr
-            X-Debug-Token: c2c285
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c2c285'
-            Content-Length: '801'
+            X-Debug-Token: 1a238c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a238c'
+            Content-Length: '449'
             Content-Type: application/json
-        body: '{"total":0,"count":2,"start":"0","limit":"10","_embedded":{"orders":[{"order_id":5,"user_id":7,"basket_id":"c3818958-2089-3549-b4ab-66a5c07b77dc","company_id":3,"timestamp":1540303329,"email":"customer-1@world-company.com","status":"P","total":66.7,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing"},{"order_id":4,"user_id":7,"basket_id":"90c50bbf-9dbb-3497-a71a-7554303b4875","company_id":3,"timestamp":1540303329,"email":"customer-1@world-company.com","status":"H","total":67.9,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"}]}}'
+        body: '{"total":1,"count":1,"start":"0","limit":"10","_embedded":{"orders":[{"order_id":7,"user_id":12,"basket_id":"55d53e5f-52ee-3dbc-8bfb-cee99f4f2ba8","company_id":3,"timestamp":1540561092,"email":"user+orga@usc.com","status":"H","total":67.9,"customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null},"workflow":"workflow_wait_payment_deferment_pending_redirection_to_payment_processor_processing"}]}}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/408bad7c-d6cc-11e8-8605-080027ea4cb6/orders?start=500&limit=10'
+        url: 'http://wizaplace.loc/api/v1/organisations/649ad5d4-d924-11e8-80e0-080027ea4cb6/orders?start=500&limit=10'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-171-add-companyId-orders@3e813fb
-            Authorization: 'token LvselfVoBpL3hEZASwBrOjjavvHpKYpAL4DVVmLc'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-198-organisation-orders-pagination-total@4cdc362
+            Authorization: 'token QdmBJCsbLuEj7KQ2+6DL+TSrfCpnNU0ci3Afy3Cs'
             VCR-index: '4'
             Accept: null
     response:
@@ -120,12 +120,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 23 Oct 2018 14:03:19 GMT'
+            Date: 'Fri, 26 Oct 2018 13:38:54 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
+            Cache-Control: 'max-age=0, must-revalidate, private'
             Content-Language: fr
-            X-Debug-Token: e19c69
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e19c69'
-            Content-Length: '803'
+            X-Debug-Token: ce56bb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce56bb'
+            Content-Length: '74'
             Content-Type: application/json
-        body: '{"total":0,"count":2,"start":"500","limit":"10","_embedded":{"orders":[{"order_id":5,"user_id":7,"basket_id":"c3818958-2089-3549-b4ab-66a5c07b77dc","company_id":3,"timestamp":1540303329,"email":"customer-1@world-company.com","status":"P","total":66.7,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing"},{"order_id":4,"user_id":7,"basket_id":"90c50bbf-9dbb-3497-a71a-7554303b4875","company_id":3,"timestamp":1540303329,"email":"customer-1@world-company.com","status":"H","total":67.9,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"}]}}'
+        body: '{"total":1,"count":0,"start":"500","limit":"10","_embedded":{"orders":[]}}'

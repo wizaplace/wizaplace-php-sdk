@@ -1,10 +1,15 @@
 # Changelog
 
-## Next release 
+## Next release
 
+- Added optional parameter `$requestLogger` to `\Wizaplace\SDK\ApiClient`
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Added `\Wizaplace\SDK\User\User::getType`
 - Added enum `\Wizaplace\SDK\User\UserType`
+- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Updated `tests/Organisation/OrganisationServiceTest`
+- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
+
 
 ## 1.40.0
 
