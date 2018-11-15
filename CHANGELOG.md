@@ -6,6 +6,7 @@
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Added `\Wizaplace\SDK\User\User::getType`
 - Added enum `\Wizaplace\SDK\User\UserType`
+- Removed phpdoc `@internal` in `\Wizaplace\SDK\User\UserAddress`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`
 - Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
