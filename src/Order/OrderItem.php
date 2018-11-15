@@ -17,6 +17,8 @@ final class OrderItem
     private $productName;
     /** @var string */
     private $productCode;
+    /** @var string|null */
+    private $productImageId;
     /** @var float */
     private $price;
     /** @var int */
@@ -36,6 +38,7 @@ final class OrderItem
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productName = $data['productName'];
         $this->productCode = $data['productCode'];
+        $this->productImageId = $data['productImageId'];
         $this->price = $data['price'];
         $this->amount = $data['amount'];
         $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
@@ -58,6 +61,11 @@ final class OrderItem
     public function getProductCode(): string
     {
         return $this->productCode;
+    }
+
+    public function getProductImageId(): ?string
+    {
+        return $this->productImageId;
     }
 
     public function getPrice(): float

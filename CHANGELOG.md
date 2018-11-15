@@ -1,5 +1,22 @@
 # Changelog
 
+## 1.41.0
+
+Compatible with Wizaplace 1.27.0
+
+### New requirements
+
+- "psr/log": "^1.0"
+
+### New features
+
+- Added optional parameter `$requestLogger` to the constructor of `\Wizaplace\SDK\ApiClient`
+- Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
+- Added `\Wizaplace\SDK\User\User::getType`
+- Added enum `\Wizaplace\SDK\User\UserType`
+- Added pagination data to the array returned by `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
+
 ## 1.40.0
 
 ### New features
