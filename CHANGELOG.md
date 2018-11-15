@@ -1,16 +1,17 @@
 # Changelog
 
-## Next release
+## 1.41.0
 
-- Added optional parameter `$requestLogger` to `\Wizaplace\SDK\ApiClient`
+Compatible with Wizaplace 1.27.0
+
+### New features
+
+- Added optional parameter `$requestLogger` to the constructor of `\Wizaplace\SDK\ApiClient`
 - Added `\Wizaplace\SDK\Order\OrderItem::getProductImageId`
 - Added `\Wizaplace\SDK\User\User::getType`
 - Added enum `\Wizaplace\SDK\User\UserType`
-- Removed phpdoc `@internal` in `\Wizaplace\SDK\User\UserAddress`
-- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
-- Updated `tests/Organisation/OrganisationServiceTest`
-- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-
+- Added pagination data to the array returned by `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
+- Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
 
 ## 1.40.0
 
