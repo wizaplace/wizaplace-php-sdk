@@ -4,6 +4,10 @@
 
 Compatible with Wizaplace 1.27.0
 
+### New requirements
+
+- "psr/log": "^1.0"
+
 ### New features
 
 - Added optional parameter `$requestLogger` to the constructor of `\Wizaplace\SDK\ApiClient`
