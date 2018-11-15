@@ -41,9 +41,6 @@ final class UserAddress implements ArrayableInterface
     /** @var string */
     private $country;
 
-    /**
-     * @internal
-     */
     public function __construct(array $data)
     {
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
