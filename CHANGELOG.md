@@ -5,6 +5,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
+- Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
 ## 1.41.0
 
