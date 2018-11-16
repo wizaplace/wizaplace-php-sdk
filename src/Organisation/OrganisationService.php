@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
@@ -666,6 +667,29 @@ class OrganisationService extends AbstractService
 
                 case Response::HTTP_NOT_FOUND:
                     throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    public function getOrder(int $orderId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("organisations/order/{$orderId}");
+
+            return new Order($response);
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    $response = json_decode($e->getResponse());
+                    throw new \Exception($response->message, Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("This order doesn't exists.", $e);
 
                 default:
                     throw $e;
