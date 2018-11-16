@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-116-expose-userid-basket-organisation@9dc5f01
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-181-organisation-basket-status-sdk@21733aa
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 08 Oct 2018 09:40:23 GMT'
+            Date: 'Wed, 07 Nov 2018 10:23:14 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 278d25
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/278d25'
-            Content-Length: '61'
+            X-Debug-Token: 3aad5c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3aad5c'
+            Content-Length: '63'
             Content-Type: application/json
-        body: '{"id":12,"apiKey":"pgxomuJk+k+QnUQTCwPLI3CVUtDFk50cKdHergoF"}'
+        body: '{"id":12,"apiKey":"4TYe+6c94lZw07Ff\/JcqF\/LJsShmQoHDgliShNOL"}'
 -
     request:
         method: GET
@@ -33,7 +33,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-116-expose-userid-basket-organisation@9dc5f01
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-181-organisation-basket-status-sdk@21733aa
             VCR-index: '1'
             Accept: null
     response:
@@ -42,15 +42,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 08 Oct 2018 09:40:23 GMT'
+            Date: 'Wed, 07 Nov 2018 10:23:15 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: e4ffb5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4ffb5'
+            X-Debug-Token: 9f2d39
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9f2d39'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"NCccmUzJwkuW0ARGBx6wGSO3e9b5+6OHN7j8uRn2"}'
+        body: '{"id":2,"apiKey":"L6OIH0szaA6TLONCXs+55OlLkiZc0LvIQG5D4QE1"}'
 -
     request:
         method: GET
@@ -58,8 +58,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-116-expose-userid-basket-organisation@9dc5f01
-            Authorization: 'token NCccmUzJwkuW0ARGBx6wGSO3e9b5+6OHN7j8uRn2'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-181-organisation-basket-status-sdk@21733aa
+            Authorization: 'token L6OIH0szaA6TLONCXs+55OlLkiZc0LvIQG5D4QE1'
             VCR-index: '2'
             Accept: null
     response:
@@ -68,26 +68,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 08 Oct 2018 09:40:24 GMT'
+            Date: 'Wed, 07 Nov 2018 10:23:15 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 872c01
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/872c01'
+            X-Debug-Token: ec34e3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec34e3'
             Content-Length: '1146'
             Content-Type: application/json
-        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"1f245bea-cade-11e8-800c-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"1f42407b-cade-11e8-800c-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"110d3715-e277-11e8-8f52-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"1138301e-e277-11e8-8f52-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/organisations/1f42407b-cade-11e8-800c-080027ea4cb6/baskets'
+        url: 'http://wizaplace.loc/api/v1/organisations/1138301e-e277-11e8-8f52-080027ea4cb6/baskets'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-116-expose-userid-basket-organisation@9dc5f01
-            Authorization: 'token pgxomuJk+k+QnUQTCwPLI3CVUtDFk50cKdHergoF'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-181-organisation-basket-status-sdk@21733aa
+            Authorization: 'token 4TYe+6c94lZw07Ff/JcqF/LJsShmQoHDgliShNOL'
             VCR-index: '3'
             Accept: null
         body: name=fake_basket
@@ -97,25 +97,25 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 08 Oct 2018 09:40:24 GMT'
+            Date: 'Wed, 07 Nov 2018 10:23:16 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 602bb1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/602bb1'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22602bb1%22%2C%22route%22%3A%22api_organisation_create_basket%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationBasketController.php%22%2C%22line%22%3A45%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Content-Length: '156'
+            X-Debug-Token: 7e687c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e687c'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%227e687c%22%2C%22route%22%3A%22api_organisation_create_basket%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationBasketController.php%22%2C%22line%22%3A47%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '173'
             Content-Type: application/json
-        body: '{"userId":12,"basketId":"a3737191-16b8-4d60-833f-72210395454e","name":"fake_basket","locked":false,"accepted":false,"createdAt":"2018-10-08T11:40:24+02:00"}'
+        body: '{"userId":12,"basketId":"15e3646d-b6c6-4693-afe9-25b7cefb0854","name":"fake_basket","locked":false,"accepted":false,"checkout":false,"createdAt":"2018-11-07T11:23:16+01:00"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/1f42407b-cade-11e8-800c-080027ea4cb6/baskets'
+        url: 'http://wizaplace.loc/api/v1/organisations/1138301e-e277-11e8-8f52-080027ea4cb6/baskets'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-116-expose-userid-basket-organisation@9dc5f01
-            Authorization: 'token pgxomuJk+k+QnUQTCwPLI3CVUtDFk50cKdHergoF'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-181-organisation-basket-status-sdk@21733aa
+            Authorization: 'token 4TYe+6c94lZw07Ff/JcqF/LJsShmQoHDgliShNOL'
             VCR-index: '4'
             Accept: null
     response:
@@ -124,12 +124,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 08 Oct 2018 09:40:24 GMT'
+            Date: 'Wed, 07 Nov 2018 10:23:16 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: ac0ac1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac0ac1'
-            Content-Length: '204'
+            X-Debug-Token: 42700e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/42700e'
+            Content-Length: '221'
             Content-Type: application/json
-        body: '{"total":1,"count":1,"_embedded":{"baskets":[{"userId":12,"basketId":"a3737191-16b8-4d60-833f-72210395454e","name":"fake_basket","locked":false,"accepted":false,"createdAt":"2018-10-08T11:40:24+02:00"}]}}'
+        body: '{"total":1,"count":1,"_embedded":{"baskets":[{"userId":12,"basketId":"15e3646d-b6c6-4693-afe9-25b7cefb0854","name":"fake_basket","locked":false,"accepted":false,"checkout":false,"createdAt":"2018-11-07T11:23:16+01:00"}]}}'
