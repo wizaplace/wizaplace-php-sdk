@@ -22,8 +22,6 @@ Compatible with Wizaplace 1.27.0
 - Added enum `\Wizaplace\SDK\User\UserType`
 - Added pagination data to the array returned by `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
-- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
-- Updated `tests/Organisation/OrganisationServiceTest`
 
 ## 1.40.0
 
