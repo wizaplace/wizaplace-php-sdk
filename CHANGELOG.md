@@ -1,5 +1,11 @@
 # Changelog
 
+## Next Release
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
+
 ## 1.41.0
 
 Compatible with Wizaplace 1.27.0
@@ -18,7 +24,6 @@ Compatible with Wizaplace 1.27.0
 - Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
 - Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Updated `tests/Organisation/OrganisationServiceTest`
-- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 
 ## 1.40.0
 
