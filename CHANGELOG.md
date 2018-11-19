@@ -4,6 +4,9 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
+- Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
@@ -23,13 +26,6 @@ Compatible with Wizaplace 1.27.0
 - Added enum `\Wizaplace\SDK\User\UserType`
 - Added pagination data to the array returned by `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 - Added `\Wizaplace\SDK\Organisation\OrganisationBasket::isCheckout`
-- Removed phpdoc `@internal` in `\Wizaplace\SDK\User\UserAddress`
-- Updated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
-- Updated `tests/Organisation/OrganisationServiceTest`
-- Added attribute `checkout` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-- Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
-- Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
-- Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
 
 ## 1.40.0
 
