@@ -4,6 +4,9 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
+- Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
@@ -68,7 +71,7 @@ Compatible with Wizaplace 1.27.0
 ### New features
 
 - Added optional parameters `$billing` and `$shipping` to `\Wizaplace\SDK\User\UserService::register`
-- Added `\Wizaplace\SDK\Order\Order::getCompanyName` 
+- Added `\Wizaplace\SDK\Order\Order::getCompanyName`
 
 ### Corrections
 
