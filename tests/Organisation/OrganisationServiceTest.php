@@ -14,6 +14,7 @@ use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
@@ -421,6 +422,24 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
+    public function testHideBasket()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+
+        $organisationId = $this->getOrganisationId(1);
+
+        if (is_string($organisationId)) {
+            $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
+
+            $basketId = $responseData['basketId'];
+
+            $responseData = $organisationService->hideBasket($organisationId, $basketId);
+
+            $this->assertSame("Mon nouveau panier", $responseData['name']);
+            $this->assertSame(true, $responseData['hidden']);
+        }
+    }
+
     public function testCannotValidateBasketIfNotOwned()
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
@@ -607,6 +626,39 @@ final class OrganisationServiceTest extends ApiTestCase
 
                 foreach ($usersList as $user) {
                     $this->assertInstanceOf(User::class, $user);
+                }
+            }
+        }
+    }
+
+    /**
+     * We try to get all the orga's order and foreach one, get the order détails.
+     *
+     * Note: Would be a better check if we could be sur than the order user is différent of the admin user authenticated
+     *       but for now we don't have the user in the order Entity
+     *
+     * @throws BadCredentials
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
+    public function testGetOrder()
+    {
+        // Organisation admin user
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        // "University of Southern California" organisation with few orders
+        $organisationId = $this->getOrganisationId(1);
+        $this->assertInternalType('string', $organisationId);
+
+        if (is_string($organisationId)) {
+            // Get all the organisation orders
+            $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
+
+            if (!empty($organisationOrders['orders'])) {
+                foreach ($organisationOrders['orders'] as $order) {
+                    // Get the order details
+                    $orderId = $order->getOrderId();
+                    $orderDetails = $organisationService->getOrder($orderId);
+                    $this->assertInstanceOf(Order::class, $orderDetails);
                 }
             }
         }

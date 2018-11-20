@@ -78,7 +78,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca06c4'
             Content-Length: '505'
             Content-Type: application/json
-        body: '{"id":11,"title":null,"email":"user42@example.com","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":11,"title":null,"email":"user42@example.com","type":"C","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
 -
     request:
         method: PUT
@@ -159,4 +159,4 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb3b55'
             Content-Length: '509'
             Content-Type: application/json
-        body: '{"id":11,"title":null,"email":"user43@example.com","companyId":null,"firstName":"Jacques","lastName":"Jules","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+        body: '{"id":11,"title":null,"email":"user43@example.com","type":"C","companyId":null,"firstName":"Jacques","lastName":"Jules","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'

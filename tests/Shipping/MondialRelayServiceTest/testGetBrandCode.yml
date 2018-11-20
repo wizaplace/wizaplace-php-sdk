@@ -1,0 +1,55 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/v1.40.0
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 30 Oct 2018 13:57:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0b224b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0b224b'
+            Content-Length: '62'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"joU3IzE1zWYTuBx3o9SKAr29cdtzv\/j0fy\/Z2tvn"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/mondial-relay/brand-code'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/v1.40.0
+            Authorization: 'token joU3IzE1zWYTuBx3o9SKAr29cdtzv/j0fy/Z2tvn'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 30 Oct 2018 13:57:41 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            X-Protected-By: Sqreen
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: aa6a91
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aa6a91'
+            Content-Length: '24'
+            Content-Type: application/json
+        body: '{"brandCode":"BDTEST13"}'

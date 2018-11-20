@@ -11,10 +11,12 @@ use MyCLabs\Enum\Enum;
 
 /**
  * @method static UserType ADMIN()
+ * @method static UserType CLIENT()
  * @method static UserType VENDOR()
  */
 final class UserType extends Enum
 {
-    const ADMIN = 'A';
-    const VENDOR = 'V';
+    private const ADMIN = 'A';
+    private const CLIENT = 'C';
+    private const VENDOR = 'V';
 }
