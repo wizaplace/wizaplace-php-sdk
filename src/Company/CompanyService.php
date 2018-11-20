@@ -226,6 +226,21 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * Allow to get a list of countries codes of enabled divisions for the company
+     *
+     * @param int $companyId
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     */
+    public function getDivisionsCountriesCodes(int $companyId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("companies/{$companyId}/divisions");
+    }
+
+    /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */

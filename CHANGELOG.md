@@ -11,6 +11,7 @@
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
 
 ## 1.41.0
 

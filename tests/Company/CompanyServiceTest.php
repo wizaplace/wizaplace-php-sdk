@@ -237,6 +237,15 @@ final class CompanyServiceTest extends ApiTestCase
         $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor')->getCompany(1);
     }
 
+    public function testGettingAListOfDivisionsCountriesCode(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $countriesCodes = $service->getDivisionsCountriesCodes(3);
+        $this->assertCount(1, $countriesCodes);
+        $this->assertEquals("FR", $countriesCodes[0]);
+    }
+
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
         $apiClient = $this->buildApiClient();
