@@ -18,6 +18,7 @@ use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
+use Wizaplace\SDK\User\UserType;
 
 /**
  * @see CompanyService
@@ -244,6 +245,34 @@ final class CompanyServiceTest extends ApiTestCase
         $countriesCodes = $service->getDivisionsCountriesCodes(3);
         $this->assertCount(1, $countriesCodes);
         $this->assertEquals("FR", $countriesCodes[0]);
+    }
+
+    public function testGettingAListOfDivisionsBlacklists(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->getDivisions(3, 'FR');
+        $this->assertCount(126, $divisions);
+
+        foreach ($divisions as $division) {
+            switch ($division->getCode()) {
+                case 'FR':
+                case 'FR-ARA':
+                case 'FR-03':
+                    $this->assertEquals(true, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+                case 'FR-69':
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
+                    $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
+                    break;
+                default:
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+            }
+        }
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService

@@ -23,23 +23,23 @@ final class Division
     /**
      * @var int
      */
-
     private $level;
+
     /**
      * @var bool
      */
-
     private $isEnabled;
+
     /**
      * @var string
      */
-
     private $description;
+
     /**
      * @var null|int
      */
-
     private $companyId;
+
     /**
      * @var null|UserType
      */

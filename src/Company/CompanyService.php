@@ -12,6 +12,7 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Division\DivisionBlacklist;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 
 final class CompanyService extends AbstractService
@@ -238,6 +239,22 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         return $this->client->get("companies/{$companyId}/divisions");
+    }
+
+    /**
+     * @param int    $companyId
+     * @param string $countryCode
+     *
+     * @return DivisionBlacklist[]
+     * @throws AuthenticationRequired
+     */
+    public function getDivisions(int $companyId, string $countryCode)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return array_map(function ($datas) {
+            return new DivisionBlacklist($datas);
+        }, $this->client->get("companies/{$companyId}/divisions/{$countryCode}"));
     }
 
     /**

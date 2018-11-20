@@ -12,6 +12,8 @@
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Division\DivisionBlacklist`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
 
 ## 1.41.0
 
