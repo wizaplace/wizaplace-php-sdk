@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@8f6d7c2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 20 Nov 2018 14:25:02 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: f32337
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f32337'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"lEqV+Pv2bofnk5RCddTYtBbXmbxQv13Cnx0AyTeO"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions/FR'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@8f6d7c2
+            Authorization: 'token lEqV+Pv2bofnk5RCddTYtBbXmbxQv13Cnx0AyTeO'
+            VCR-index: '1'
+            Accept: null
+        body: 'code%5B0%5D=FR-03&code%5B1%5D=FR-69'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 20 Nov 2018 14:25:03 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8f43ec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8f43ec'
+            Content-Length: '6940'
+            Content-Type: application/json
+        body: '[{"code":"FR","is_enabled":true,"disabled_by":null},{"code":"FR-ARA","is_enabled":true,"disabled_by":null},{"code":"FR-01","is_enabled":false,"disabled_by":null},{"code":"FR-03","is_enabled":false,"disabled_by":"V"},{"code":"FR-07","is_enabled":false,"disabled_by":null},{"code":"FR-15","is_enabled":false,"disabled_by":null},{"code":"FR-26","is_enabled":false,"disabled_by":null},{"code":"FR-43","is_enabled":false,"disabled_by":null},{"code":"FR-74","is_enabled":false,"disabled_by":null},{"code":"FR-38","is_enabled":false,"disabled_by":null},{"code":"FR-42","is_enabled":false,"disabled_by":null},{"code":"FR-63","is_enabled":false,"disabled_by":null},{"code":"FR-69","is_enabled":false,"disabled_by":"V"},{"code":"FR-73","is_enabled":false,"disabled_by":null},{"code":"FR-BFC","is_enabled":false,"disabled_by":null},{"code":"FR-21","is_enabled":false,"disabled_by":null},{"code":"FR-25","is_enabled":false,"disabled_by":null},{"code":"FR-70","is_enabled":false,"disabled_by":null},{"code":"FR-39","is_enabled":false,"disabled_by":null},{"code":"FR-58","is_enabled":false,"disabled_by":null},{"code":"FR-71","is_enabled":false,"disabled_by":null},{"code":"FR-90","is_enabled":false,"disabled_by":null},{"code":"FR-89","is_enabled":false,"disabled_by":null},{"code":"FR-BRE","is_enabled":false,"disabled_by":null},{"code":"FR-22","is_enabled":false,"disabled_by":null},{"code":"FR-29","is_enabled":false,"disabled_by":null},{"code":"FR-35","is_enabled":false,"disabled_by":null},{"code":"FR-56","is_enabled":false,"disabled_by":null},{"code":"FR-CVL","is_enabled":false,"disabled_by":null},{"code":"FR-18","is_enabled":false,"disabled_by":null},{"code":"FR-28","is_enabled":false,"disabled_by":null},{"code":"FR-36","is_enabled":false,"disabled_by":null},{"code":"FR-37","is_enabled":false,"disabled_by":null},{"code":"FR-41","is_enabled":false,"disabled_by":null},{"code":"FR-45","is_enabled":false,"disabled_by":null},{"code":"FR-CP","is_enabled":false,"disabled_by":null},{"code":"FR-COR","is_enabled":false,"disabled_by":null},{"code":"FR-2A","is_enabled":false,"disabled_by":null},{"code":"FR-2B","is_enabled":false,"disabled_by":null},{"code":"FR-PF","is_enabled":false,"disabled_by":null},{"code":"FR-TF","is_enabled":false,"disabled_by":null},{"code":"FR-GES","is_enabled":false,"disabled_by":null},{"code":"FR-08","is_enabled":false,"disabled_by":null},{"code":"FR-10","is_enabled":false,"disabled_by":null},{"code":"FR-67","is_enabled":false,"disabled_by":null},{"code":"FR-68","is_enabled":false,"disabled_by":null},{"code":"FR-52","is_enabled":false,"disabled_by":null},{"code":"FR-51","is_enabled":false,"disabled_by":null},{"code":"FR-54","is_enabled":false,"disabled_by":null},{"code":"FR-55","is_enabled":false,"disabled_by":null},{"code":"FR-57","is_enabled":false,"disabled_by":null},{"code":"FR-88","is_enabled":false,"disabled_by":null},{"code":"FR-GUA","is_enabled":false,"disabled_by":null},{"code":"FR-GP","is_enabled":false,"disabled_by":null},{"code":"FR-GF","is_enabled":false,"disabled_by":null},{"code":"FR-HDF","is_enabled":false,"disabled_by":null},{"code":"FR-02","is_enabled":false,"disabled_by":null},{"code":"FR-59","is_enabled":false,"disabled_by":null},{"code":"FR-60","is_enabled":false,"disabled_by":null},{"code":"FR-62","is_enabled":false,"disabled_by":null},{"code":"FR-80","is_enabled":false,"disabled_by":null},{"code":"FR-IDF","is_enabled":false,"disabled_by":null},{"code":"FR-91","is_enabled":false,"disabled_by":null},{"code":"FR-92","is_enabled":false,"disabled_by":null},{"code":"FR-75","is_enabled":false,"disabled_by":null},{"code":"FR-77","is_enabled":false,"disabled_by":null},{"code":"FR-93","is_enabled":false,"disabled_by":null},{"code":"FR-95","is_enabled":false,"disabled_by":null},{"code":"FR-94","is_enabled":false,"disabled_by":null},{"code":"FR-78","is_enabled":false,"disabled_by":null},{"code":"FR-LRE","is_enabled":false,"disabled_by":null},{"code":"FR-RE","is_enabled":false,"disabled_by":null},{"code":"FR-MQ","is_enabled":false,"disabled_by":null},{"code":"FR-MAY","is_enabled":false,"disabled_by":null},{"code":"FR-YT","is_enabled":false,"disabled_by":null},{"code":"FR-NC","is_enabled":false,"disabled_by":null},{"code":"FR-NOR","is_enabled":false,"disabled_by":null},{"code":"FR-14","is_enabled":false,"disabled_by":null},{"code":"FR-27","is_enabled":false,"disabled_by":null},{"code":"FR-50","is_enabled":false,"disabled_by":null},{"code":"FR-61","is_enabled":false,"disabled_by":null},{"code":"FR-76","is_enabled":false,"disabled_by":null},{"code":"FR-NAQ","is_enabled":false,"disabled_by":null},{"code":"FR-16","is_enabled":false,"disabled_by":null},{"code":"FR-17","is_enabled":false,"disabled_by":null},{"code":"FR-19","is_enabled":false,"disabled_by":null},{"code":"FR-23","is_enabled":false,"disabled_by":null},{"code":"FR-79","is_enabled":false,"disabled_by":null},{"code":"FR-24","is_enabled":false,"disabled_by":null},{"code":"FR-33","is_enabled":false,"disabled_by":null},{"code":"FR-87","is_enabled":false,"disabled_by":null},{"code":"FR-40","is_enabled":false,"disabled_by":null},{"code":"FR-47","is_enabled":false,"disabled_by":null},{"code":"FR-64","is_enabled":false,"disabled_by":null},{"code":"FR-86","is_enabled":false,"disabled_by":null},{"code":"FR-OCC","is_enabled":false,"disabled_by":null},{"code":"FR-09","is_enabled":false,"disabled_by":null},{"code":"FR-11","is_enabled":false,"disabled_by":null},{"code":"FR-12","is_enabled":false,"disabled_by":null},{"code":"FR-30","is_enabled":false,"disabled_by":null},{"code":"FR-32","is_enabled":false,"disabled_by":null},{"code":"FR-31","is_enabled":false,"disabled_by":null},{"code":"FR-65","is_enabled":false,"disabled_by":null},{"code":"FR-34","is_enabled":false,"disabled_by":null},{"code":"FR-46","is_enabled":false,"disabled_by":null},{"code":"FR-48","is_enabled":false,"disabled_by":null},{"code":"FR-66","is_enabled":false,"disabled_by":null},{"code":"FR-81","is_enabled":false,"disabled_by":null},{"code":"FR-82","is_enabled":false,"disabled_by":null},{"code":"FR-PDL","is_enabled":false,"disabled_by":null},{"code":"FR-44","is_enabled":false,"disabled_by":null},{"code":"FR-49","is_enabled":false,"disabled_by":null},{"code":"FR-53","is_enabled":false,"disabled_by":null},{"code":"FR-72","is_enabled":false,"disabled_by":null},{"code":"FR-85","is_enabled":false,"disabled_by":null},{"code":"FR-PAC","is_enabled":false,"disabled_by":null},{"code":"FR-04","is_enabled":false,"disabled_by":null},{"code":"FR-06","is_enabled":false,"disabled_by":null},{"code":"FR-13","is_enabled":false,"disabled_by":null},{"code":"FR-05","is_enabled":false,"disabled_by":null},{"code":"FR-83","is_enabled":false,"disabled_by":null},{"code":"FR-84","is_enabled":false,"disabled_by":null},{"code":"FR-BL","is_enabled":false,"disabled_by":null},{"code":"FR-MF","is_enabled":false,"disabled_by":null},{"code":"FR-PM","is_enabled":false,"disabled_by":null},{"code":"FR-WF","is_enabled":false,"disabled_by":null}]'

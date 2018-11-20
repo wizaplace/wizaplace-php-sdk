@@ -14,6 +14,8 @@
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
 - Added `\Wizaplace\SDK\Division\DivisionBlacklist`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
+- Added `\Wizaplace\SDK\ApiClient::patch`
+- Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
 
 ## 1.41.0
 

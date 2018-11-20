@@ -275,6 +275,34 @@ final class CompanyServiceTest extends ApiTestCase
         }
     }
 
+    public function testSettingDivisionsBlacklists(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->setDivisions(3, 'FR', ['FR-03', 'FR-69']);
+        $this->assertCount(126, $divisions);
+
+        foreach ($divisions as $division) {
+            switch ($division->getCode()) {
+                case 'FR':
+                case 'FR-ARA':
+                    $this->assertEquals(true, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+                case 'FR-03':
+                case 'FR-69':
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
+                    $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
+                    break;
+                default:
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+            }
+        }
+    }
+
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
         $apiClient = $this->buildApiClient();
