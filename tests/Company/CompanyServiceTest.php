@@ -258,6 +258,7 @@ final class CompanyServiceTest extends ApiTestCase
             switch ($division->getCode()) {
                 case 'FR':
                 case 'FR-ARA':
+                case 'FR-01':
                 case 'FR-03':
                     $this->assertEquals(true, $division->isEnabled());
                     $this->assertNull($division->getDisabledBy());
@@ -286,6 +287,7 @@ final class CompanyServiceTest extends ApiTestCase
             switch ($division->getCode()) {
                 case 'FR':
                 case 'FR-ARA':
+                case 'FR-01':
                     $this->assertEquals(true, $division->isEnabled());
                     $this->assertNull($division->getDisabledBy());
                     break;
