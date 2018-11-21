@@ -86,7 +86,6 @@ final class CompanyServiceTest extends ApiTestCase
 
         // Update file
         $file = $this->mockUploadedFile('minimal.pdf');
-
         $update = $companyService->updateFile($company->getId(), 'idCard', [
             'name'     => "idCard",
             'contents' => $file->getStream(),
@@ -229,6 +228,31 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('FR', $company->getCountry());
         $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
         $this->assertSame('the-world-company-inc.', $company->getSlug());
+    }
+
+    public function testRegisteringAC2CCVendorWithUploadFiles(): void
+    {
+        $service = $this->buildUserCompanyService();
+        $file = [
+                    [
+                        'name'     => 'idCard',
+                        'contents' => fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r'),
+                        'filename' => 'minimal.pdf',
+                    ],
+            ];
+        $result = $service->registerC2CCompany('C2C Vendor', $file);
+
+        $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
+
+        $company = $result->getCompany();
+        $this->assertInstanceOf(Company::class, $company);
+
+        $this->assertSame('C2C Vendor', $company->getName());
+        $this->assertSame('customer-3@world-company.com', $company->getEmail());
+        $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
+
+        $files = $service->getCompanyFiles($company->getId());
+        $this->assertCount(3, $files);
     }
 
     public function testCannotGetOtherCompanyInfoWithVendorAccount(): void
