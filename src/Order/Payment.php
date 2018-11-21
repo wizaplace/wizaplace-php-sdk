@@ -14,6 +14,8 @@ class Payment
     private $type;
     /** @var string|null */
     private $processorName;
+    /** @var \DateTimeImmutable|null */
+    private $commitmentDate;
 
     /**
      * @internal
@@ -22,6 +24,7 @@ class Payment
     {
         $this->type = $data['type'];
         $this->processorName = $data['processorName'];
+        $this->commitmentDate = $data['commitmentDate'] ?  new \DateTimeImmutable($data['commitmentDate']) : null;
     }
 
     public function getType(): string
@@ -32,5 +35,13 @@ class Payment
     public function getProcessorName(): ?string
     {
         return $this->processorName;
+    }
+
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getCommitmentDate(): ?\DateTimeImmutable
+    {
+        return $this->commitmentDate;
     }
 }
