@@ -280,7 +280,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
 
-        $divisions = $service->setDivisions(3, 'FR', ['FR-03', 'FR-69']);
+        $divisions = $service->putDivisions(3, 'FR', ['FR-03', 'FR-69']);
         $this->assertCount(126, $divisions);
 
         foreach ($divisions as $division) {

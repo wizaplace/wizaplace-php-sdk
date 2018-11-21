@@ -912,7 +912,7 @@ final class ProductServiceTest extends ApiTestCase
     {
         $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
 
-        $divisions = $service->setDivisions(1, 'FR', ['FR-01', 'FR-03']);
+        $divisions = $service->putDivisions(1, 'FR', ['FR-01', 'FR-03']);
         $this->assertCount(4, $divisions);
 
         $this->assertTrue(in_array('FR', $divisions));

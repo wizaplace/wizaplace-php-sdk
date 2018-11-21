@@ -288,12 +288,12 @@ final class CompanyService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      */
-    public function setDivisions(int $companyId, string $countryCode, array $codes): array
+    public function putDivisions(int $companyId, string $countryCode, array $codes): array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $divisions = $this->client->patch("companies/{$companyId}/divisions/{$countryCode}", [
+            $divisions = $this->client->put("companies/{$companyId}/divisions/{$countryCode}", [
                 RequestOptions::FORM_PARAMS => [
                     'code' => $codes,
                 ],

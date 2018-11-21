@@ -206,12 +206,12 @@ final class ProductService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      */
-    public function setDivisions(int $productId, string $countryCode, array $codes): array
+    public function putDivisions(int $productId, string $countryCode, array $codes): array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->patch("products/{$productId}/divisions/{$countryCode}", [
+            return $this->client->put("products/{$productId}/divisions/{$countryCode}", [
                 RequestOptions::FORM_PARAMS => [
                     'code' => $codes,
                 ],

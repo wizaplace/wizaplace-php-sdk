@@ -16,18 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 21 Nov 2018 08:31:25 GMT'
+            Date: 'Wed, 21 Nov 2018 15:01:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 40ffa1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/40ffa1'
+            X-Debug-Token: 3dd2e3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3dd2e3'
             Content-Length: '60'
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"ZZ7c3tLDM8X4wMRMBpQjrmecbZP+4FjiFB2JHkhr"}'
+        body: '{"id":6,"apiKey":"VnjYV9I8l+TKEhHfbAvBLTni2D9Jv1mx776AuzCB"}'
 -
     request:
-        method: PATCH
+        method: PUT
         url: 'http://wizaplace.loc/api/v1/products/1/divisions/FR'
         headers:
             Host: wizaplace.loc
@@ -35,22 +35,22 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
-            Authorization: 'token ZZ7c3tLDM8X4wMRMBpQjrmecbZP+4FjiFB2JHkhr'
+            Authorization: 'token VnjYV9I8l+TKEhHfbAvBLTni2D9Jv1mx776AuzCB'
             VCR-index: '1'
             Accept: null
         body: 'code%5B0%5D=FR-01&code%5B1%5D=FR-03'
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '405'
+            message: 'Method Not Allowed'
         headers:
-            Date: 'Wed, 21 Nov 2018 08:31:25 GMT'
+            Date: 'Wed, 21 Nov 2018 15:01:48 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 97ad2e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97ad2e'
-            Content-Length: '31'
+            X-Debug-Token: 445ad9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/445ad9'
+            Content-Length: '126'
             Content-Type: application/json
-        body: '["FR","FR-ARA","FR-01","FR-03"]'
+        body: '{"message":"No route found for \u0022PUT \/api\/v1\/products\/1\/divisions\/FR\u0022: Method Not Allowed (Allow: GET, PATCH)"}'
