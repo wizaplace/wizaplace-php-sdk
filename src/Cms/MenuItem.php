@@ -22,15 +22,20 @@ final class MenuItem
 
     /** @var MenuItem[] */
     private $children;
+    /**
+     * @var bool
+     */
+    private $targetBlank;
 
     /**
      * @internal
      */
-    public function __construct(string $name, int $position, UriInterface $url, array $children)
+    public function __construct(string $name, int $position, UriInterface $url, bool $targetBlank, array $children)
     {
         $this->name = $name;
         $this->position = $position;
         $this->url = $url;
+        $this->targetBlank = $targetBlank;
         $this->children = $children;
     }
 
@@ -47,6 +52,11 @@ final class MenuItem
     public function getUrl(): UriInterface
     {
         return $this->url;
+    }
+
+    public function isTargetBlank(): bool
+    {
+        return $this->targetBlank;
     }
 
     /**
