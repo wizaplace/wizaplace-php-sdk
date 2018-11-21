@@ -15,11 +15,13 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
+use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
 use Wizaplace\SDK\Order\OrderItem;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
+use Wizaplace\SDK\Order\Payment;
 use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -65,7 +67,6 @@ final class OrderServiceTest extends ApiTestCase
     public function testCreateOrderReturn()
     {
         $orderService = $this->buildOrderService();
-
         $creationCommand = new CreateOrderReturn(1, "Broken on arrival");
         $creationCommand->addItem(new DeclinationId('1_0'), 1, 1);
 
@@ -176,7 +177,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(1.4, $order->getTaxtotal());
         $this->assertEquals(OrderStatus::COMPLETED(), $order->getStatus());
         $this->assertSame('TNT Express', $order->getShippingName());
-        $this->assertCount(2, $order->getOrderItems());
+        $this->assertCount(1, $order->getOrderItems());
         $this->assertSame('Please deliver at the front desk of my company.', $order->getCustomerComment());
 
         // Premier orderItem
@@ -212,8 +213,7 @@ final class OrderServiceTest extends ApiTestCase
         $order1 = $orderService->getOrder(1);
         $order2 = $orderService->getOrder(4);
 
-        $this->assertSame('0', $order1->getOrderItems()[0]->getProductImageId());
-        $this->assertSame('0', $order2->getOrderItems()[1]->getProductImageId());
+        $this->assertSame(null, $order1->getOrderItems()[0]->getProductImageId());
     }
 
     public function testCommitOrder()
@@ -239,6 +239,23 @@ final class OrderServiceTest extends ApiTestCase
 
         $this->expectException(NotFound::class);
         $this->buildOrderService()->commitOrder($commitCommand);
+    }
+
+    public function testGetOrderWithCommitmentDate()
+    {
+        $orderService = $this->buildOrderService();
+        $order = $orderService->getOrder(6);
+
+        $order->getPayment();
+        $this->assertSame(6, $order->getId());
+        $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
+        $this->assertNotEmpty($order->getPayment());
+
+        //Check infos in Payment
+        $payment = $order->getPayment();
+        $date = '2018-11-30';
+        $this->assertInstanceOf(DateTimeImmutable::class, $payment->getCommitmentDate());
+        $this->assertEquals($date, $payment->getCommitmentDate()->format('Y-m-d'));
     }
 
     private function buildOrderService(): OrderService

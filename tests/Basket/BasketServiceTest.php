@@ -156,7 +156,7 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $order->getBillingAddress()->getAddress());
 
         $orderItems = $order->getOrderItems();
-        $this->assertCount(2, $orderItems);
+        $this->assertCount(1, $orderItems);
         $this->assertTrue((new DeclinationId('1_0'))->equals($orderItems[0]->getDeclinationId()));
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $orderItems[0]->getProductName());
         $this->assertSame('978020137962', $orderItems[0]->getProductCode());
