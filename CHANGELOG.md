@@ -19,6 +19,7 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
+- Added `\Wizaplace\SDK\Division\DivisionService::set`
 
 ## 1.41.0
 

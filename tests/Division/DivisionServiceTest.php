@@ -31,9 +31,31 @@ class DivisionServiceTest extends ApiTestCase
         $divisionService->get("TEST");
     }
 
-    private function buildDivisionService()
+    public function testSetDivision()
+    {
+        $divisionService = $this->buildDivisionService('admin@wizaplace.com', 'password');
+
+        /** @var Division[] $result */
+        $result = $divisionService->set("FR-42", true);
+
+        $this->assertCount(1, $result);
+        $this->assertInstanceOf(Division::class, $result[0]);
+        $this->assertTrue($result[0]->isEnabled());
+
+        /** @var Division[] $result */
+        $result = $divisionService->set("FR-42", false);
+
+        $this->assertCount(1, $result);
+        $this->assertInstanceOf(Division::class, $result[0]);
+        $this->assertFalse($result[0]->isEnabled());
+    }
+
+    private function buildDivisionService(string $email = null, string $password = null)
     {
         $apiClient = $this->buildApiClient();
+        if (!is_null($email) && !is_null($password)) {
+            $apiClient->authenticate($email, $password);
+        }
 
         return new DivisionService($apiClient);
     }
