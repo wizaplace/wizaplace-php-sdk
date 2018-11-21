@@ -24,8 +24,8 @@ final class NumericFacet extends Facet
     public function __construct(array $data)
     {
         parent::__construct($data);
-        $this->min = $data['values']['min'];
-        $this->max = $data['values']['max'];
+        $this->min = (float) $data['values']['min'];
+        $this->max = (float) $data['values']['max'];
     }
 
     public function getMin(): float

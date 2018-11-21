@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.40.1
+
+### Corrections
+
+- Fixed construct of numeric facet
+
 ## 1.40.0
 
 ### New features
