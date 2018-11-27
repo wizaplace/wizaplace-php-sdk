@@ -30,6 +30,11 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
         return $this->decorated->getProductById($id);
     }
 
+    public function getDeclinationById(string $id): Declination
+    {
+        return $this->decorated->getDeclinationById($id);
+    }
+
     /**
      * @return Product[]
      */
