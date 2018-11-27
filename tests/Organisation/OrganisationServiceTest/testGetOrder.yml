@@ -1,0 +1,183 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '186996'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/186996'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":12,"apiKey":"wD8GnxAoymSjAQSmkP6FwDzKX5JgocD8n585Q+hy"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 57dd0a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/57dd0a'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"BeZFhjvhLWyQfblEtAn1PorBhHSrN3Jyv97BVkMR"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token BeZFhjvhLWyQfblEtAn1PorBhHSrN3Jyv97BVkMR'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '982678'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/982678'
+            Content-Length: '1146'
+            Content-Type: application/json
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"814cdd73-e1b1-11e8-9b50-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"818d83c8-e1b1-11e8-9b50-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/818d83c8-e1b1-11e8-9b50-080027ea4cb6/orders?start=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token wD8GnxAoymSjAQSmkP6FwDzKX5JgocD8n585Q+hy'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 1a212c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a212c'
+            Content-Length: '1138'
+            Content-Type: application/json
+        body: '{"total":3,"count":3,"start":"0","limit":"10","_embedded":{"orders":[{"order_id":9,"user_id":14,"basket_id":"83114012-c3cf-32bc-ab21-42b8aae7712d","company_id":3,"timestamp":1541501304,"email":"user2@usc.com","status":"H","total":54.2,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"},{"order_id":8,"user_id":13,"basket_id":"d29c05dc-a220-3c66-a7fb-5342dbc7f6cd","company_id":3,"timestamp":1541501304,"email":"user@usc.com","status":"H","total":147.4,"customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"},{"order_id":7,"user_id":12,"basket_id":"e787f554-3cea-3c9a-9de0-25479dffc8c2","company_id":3,"timestamp":1541501304,"email":"user+orga@usc.com","status":"H","total":67.9,"customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/order/9'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token wD8GnxAoymSjAQSmkP6FwDzKX5JgocD8n585Q+hy'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4b9554
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b9554'
+            Content-Length: '1032'
+            Content-Type: application/json
+        body: '{"id":9,"basketId":"83114012-c3cf-32bc-ab21-42b8aae7712d","companyId":3,"companyName":"The World Company Inc.","total":54.2,"taxTotal":1.11,"subtotal":54.2,"timestamp":1541501304,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","price":54.2,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/order/8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token wD8GnxAoymSjAQSmkP6FwDzKX5JgocD8n585Q+hy'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 9e8c6b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e8c6b'
+            Content-Length: '1037'
+            Content-Type: application/json
+        body: '{"id":8,"basketId":"d29c05dc-a220-3c66-a7fb-5342dbc7f6cd","companyId":3,"companyName":"The World Company Inc.","total":147.4,"taxTotal":3.03,"subtotal":147.4,"timestamp":1541501304,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":""},"items":[{"itemId":"856805359","declinationId":"6_0","productName":"Casque Gaming Razer ManO\u0027War Sans fil 7.1 Surround (PC\/PS4)","productCode":"7531596248953","price":73.7,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/order/7'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-185-New-organisation-order-endpoint@39bc86a
+            Authorization: 'token wD8GnxAoymSjAQSmkP6FwDzKX5JgocD8n585Q+hy'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 06 Nov 2018 10:49:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6a996c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6a996c'
+            Content-Length: '1077'
+            Content-Type: application/json
+        body: '{"id":7,"basketId":"e787f554-3cea-3c9a-9de0-25479dffc8c2","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1541501304,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Antonio","lastname":"Damasio","address":"99410 Dach Views Apt. 994","address2":"","city":"West Geraldport","zipcode":"00229","country":"FR","company":"University of Southern California"},"billingAddress":{"title":"mr","firstname":"Antonio","lastname":"Damasio","address":"42228 Hunter Summit Suite 058","address2":"","city":"Bettyeburgh","zipcode":"13736-4550","country":"FR","company":"University of Southern California"},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'

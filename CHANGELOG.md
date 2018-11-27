@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.42.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
+- Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
+
 ## 1.41.0
 
 Compatible with Wizaplace 1.27.0
