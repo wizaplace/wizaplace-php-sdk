@@ -18,6 +18,9 @@ final class Option
     /** @var OptionVariant[] */
     private $variants;
 
+    /** @var OptionStatus */
+    private $status;
+
     /**
      * @internal
      */
@@ -25,6 +28,7 @@ final class Option
     {
         $this->id = $data['option_id'];
         $this->name = $data['option_name'];
+        $this->status = new OptionStatus($data['status']);
         $this->variants = array_map(function (array $variantData): OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);
@@ -38,6 +42,21 @@ final class Option
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getStatus(): OptionStatus
+    {
+        return $this->status;
+    }
+
+    public function isEnabled(): bool
+    {
+        return $this->status->getKey() === OptionStatus::ENABLED()->getKey();
+    }
+
+    public function isDisabled(): bool
+    {
+        return $this->status->getKey() === OptionStatus::DISABLED()->getKey();
     }
 
     /**

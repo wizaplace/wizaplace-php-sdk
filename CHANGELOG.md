@@ -10,6 +10,10 @@
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 - Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
+- Added `\Wizaplace\SDK\Pim\Option::getStatus`
+- Added `\Wizaplace\SDK\Pim\Option::isEnabled`
+- Added `\Wizaplace\SDK\Pim\Option::isDisabled`
+- Added `\Wizaplace\SDK\Pim\OptionStatus`
 
 ## 1.41.0
 
