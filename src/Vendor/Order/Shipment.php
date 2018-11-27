@@ -25,6 +25,9 @@ final class Shipment
     private $trackingNumber;
 
     /** @var string */
+    private $labelUrl;
+
+    /** @var string */
     private $comment;
 
     /** @var \DateTimeImmutable */
@@ -43,6 +46,7 @@ final class Shipment
         $this->shippingId = $data['shipping_id'];
         $this->shippingName = $data['shipping'];
         $this->trackingNumber = $data['tracking_number'];
+        $this->labelUrl = $data['label_url'];
         $this->comment = $data['comments'];
         $this->createdAt = new \DateTimeImmutable('@'.$data['shipment_timestamp']);
         $this->shippedQuantityByItemId = $data['products'];
@@ -71,6 +75,11 @@ final class Shipment
     public function getTrackingNumber(): string
     {
         return $this->trackingNumber;
+    }
+
+    public function getLabelUrl(): string
+    {
+        return $this->labelUrl;
     }
 
     public function getComment(): string
