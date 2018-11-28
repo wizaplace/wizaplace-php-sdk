@@ -33,13 +33,26 @@ class OrderServiceTest extends ApiTestCase
         $this->assertTrue(OrderStatus::PROCESSING_SHIPPING()->equals($orderService->getOrderById(5)->getStatus()));
     }
 
-    public function testDecliningAnOrder()
+    public function testDecliningAnOrderWithoutReason()
     {
         $orderService = $this->buildVendorOrderService();
 
         $orderService->declineOrder(5);
 
-        $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($orderService->getOrderById(5)->getStatus()));
+        $order = $orderService->getOrderById(5);
+        $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($order->getStatus()));
+        $this->assertEmpty($order->getDeclineReason());
+    }
+
+    public function testDecliningAnOrderWithReason()
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $orderService->declineOrder(5, 'Product out of stock');
+
+        $order = $orderService->getOrderById(5);
+        $this->assertTrue(OrderStatus::VENDOR_DECLINED()->equals($order->getStatus()));
+        $this->assertSame('Product out of stock', $order->getDeclineReason());
     }
 
     public function testSetInvoiceNumber(): void
