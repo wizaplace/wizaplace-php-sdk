@@ -4,10 +4,19 @@
 
 ### New features
 
+- Added optional parameter `$declineReason` to `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getDeclineReason`
 - Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
 - Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
 - Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
+- Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
+- Added `\Wizaplace\SDK\Pim\Option::getStatus`
+- Added `\Wizaplace\SDK\Pim\Option::isEnabled`
+- Added `\Wizaplace\SDK\Pim\Option::isDisabled`
+- Added `\Wizaplace\SDK\Pim\OptionStatus`
+- Added `Wizaplace\SDK\Catalog\CatalogService::getDeclinationById`
+- Updated `Wizaplace\SDK\Catalog\Declination`
 
 ## 1.42.0
 
