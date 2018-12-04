@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/declinations/3_3_8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-280-api-declinaison-detail-sdk@0e72ee8
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 27 Nov 2018 10:20:58 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: cabc8d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cabc8d'
+            Content-Length: '1129'
+            Content-Type: application/json
+        body: '{"id":"3_3_8","code":"size_15","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"size","variantId":8,"variantName":"15","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null},"shippings":{"1":{"shipping_id":1,"name":"TNT Express","image":{"id":0,"path":null},"delivery_time":"24h","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"delivery_type":"S"},"38":{"shipping_id":38,"name":"Lettre prioritaire","image":{"id":0,"path":null},"delivery_time":"","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"delivery_type":"S"},"39":{"shipping_id":39,"name":"Colissmo","image":{"id":0,"path":null},"delivery_time":"","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"delivery_type":"S"}}}'
