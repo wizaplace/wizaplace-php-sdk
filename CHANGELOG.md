@@ -16,6 +16,8 @@
 - Added `\Wizaplace\SDK\Pim\Option::isEnabled`
 - Added `\Wizaplace\SDK\Pim\Option::isDisabled`
 - Added `\Wizaplace\SDK\Pim\OptionStatus`
+- Added `Wizaplace\SDK\Catalog\CatalogService::getDeclinationById`
+- Updated `Wizaplace\SDK\Catalog\Declination`
 
 ## 1.41.0
 
