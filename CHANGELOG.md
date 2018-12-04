@@ -9,8 +9,7 @@
 - Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
 - Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
-- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
-- Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
+- Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
 - Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
 - Added `\Wizaplace\SDK\Pim\Option::getStatus`
 - Added `\Wizaplace\SDK\Pim\Option::isEnabled`
@@ -18,6 +17,13 @@
 - Added `\Wizaplace\SDK\Pim\OptionStatus`
 - Added `Wizaplace\SDK\Catalog\CatalogService::getDeclinationById`
 - Updated `Wizaplace\SDK\Catalog\Declination`
+
+## 1.42.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
+- Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
 
 ## 1.41.0
 
