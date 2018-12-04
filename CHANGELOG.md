@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added optional parameter `$declineReason` to `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getDeclineReason`
 - Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
 - Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
