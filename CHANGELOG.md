@@ -1,6 +1,6 @@
 # Changelog
 
-## Next Release
+## 1.43.0
 
 ### New features
 
@@ -9,7 +9,6 @@
 - Added `Wizaplace\SDK\Basket\BasketService::setMondialRelayPickupPoint`
 - Added `Wizaplace\SDK\Shipping\MondialRelayService` and its associated classes
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::generateMondialRelayLabel`
-- Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
 - Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
 - Added `\Wizaplace\SDK\Pim\Option::getStatus`
 - Added `\Wizaplace\SDK\Pim\Option::isEnabled`
