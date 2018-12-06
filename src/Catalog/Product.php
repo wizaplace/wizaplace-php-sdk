@@ -418,9 +418,9 @@ final class Product
     }
 
     /**
-     * @return array
+     * @return null|array
      */
-    public function getOffers(): array
+    public function getOffers(): ?array
     {
         return $this->offers;
     }
