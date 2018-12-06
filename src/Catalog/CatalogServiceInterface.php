@@ -21,6 +21,8 @@ interface CatalogServiceInterface
 
     public function getProductById(string $id): Product;
 
+    public function getDeclinationById(string $id): Declination;
+
     /**
      * @return Product[]
      */

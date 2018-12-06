@@ -15,12 +15,23 @@ class OrderService extends AbstractService
 {
     public function acceptOrder(int $orderId): void
     {
-        $this->setOrderIsAccepted($orderId, true);
+        $this->client->mustBeAuthenticated();
+        $this->client->put("orders/${orderId}", [
+            RequestOptions::JSON => [
+                'approved' => true,
+            ],
+        ]);
     }
 
-    public function declineOrder(int $orderId): void
+    public function declineOrder(int $orderId, $declineReason = ''): void
     {
-        $this->setOrderIsAccepted($orderId, false);
+        $this->client->mustBeAuthenticated();
+        $this->client->put("orders/${orderId}", [
+            RequestOptions::JSON => [
+                'approved' => false,
+                'decline_reason' => $declineReason,
+            ],
+        ]);
     }
 
     /**
@@ -137,15 +148,5 @@ class OrderService extends AbstractService
         ]);
 
         return new MondialRelayLabel($result);
-    }
-
-    private function setOrderIsAccepted(int $orderId, bool $accepted): void
-    {
-        $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'approved' => $accepted,
-            ],
-        ]);
     }
 }

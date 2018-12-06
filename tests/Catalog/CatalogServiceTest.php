@@ -136,6 +136,36 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetDeclinationByID()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $declination = $catalogService->getDeclinationById('3_3_8');
+
+        $this->assertSame('size_15', $declination->getCode());
+        $this->assertTrue($declination->isAvailable());
+        $this->assertSame('INFO-ECRAN-001', $declination->getSupplierReference());
+
+        $this->assertSame(15.5, $declination->getPrice());
+        $this->assertSame(15.5, $declination->getOriginalPrice());
+        $this->assertNull($declination->getCrossedOutPrice());
+
+        $this->assertSame(0.0, $declination->getGreenTax());
+        $this->assertSame(10, $declination->getAmount());
+        $this->assertFalse($declination->hasInfiniteStock());
+        $this->assertNull($declination->getAffiliateLink());
+        $this->assertEmpty($declination->getImages());
+        $this->assertCount(1, $declination->getOptions());
+        $this->assertTrue($declination->isBrandNew());
+
+        $this->assertSame('The World Company Inc.', $declination->getCompany()->getName());
+        $this->assertSame('the-world-company-inc.', $declination->getCompany()->getSlug());
+        $this->assertTrue($declination->getCompany()->isProfessional());
+        $this->assertNull($declination->getCompany()->getImage());
+
+        $this->assertCount(3, $declination->getShippings());
+    }
+
     public function testGetProducstByCode()
     {
         $catalogService = $this->buildCatalogService();

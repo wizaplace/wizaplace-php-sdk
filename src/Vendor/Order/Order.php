@@ -32,6 +32,9 @@ final class Order
     /** @var string */
     private $invoiceNumber;
 
+    /** @var string */
+    private $declineReason;
+
     /** @var bool */
     private $needsShipping;
 
@@ -87,6 +90,7 @@ final class Order
         $this->customerLastName = $data['customer_lastname'];
         $this->discountAmount = $data['discount'];
         $this->invoiceNumber = $data['invoice_number'];
+        $this->declineReason = $data['decline_reason'] ?? '';
         $this->needsShipping = $data['need_shipping'];
         $this->shipmentsIds = array_map(static function ($v): int {
             return to_int($v);
@@ -146,6 +150,11 @@ final class Order
     public function getInvoiceNumber(): string
     {
         return $this->invoiceNumber;
+    }
+
+    public function getDeclineReason(): string
+    {
+        return $this->declineReason;
     }
 
     public function needsShipping(): bool

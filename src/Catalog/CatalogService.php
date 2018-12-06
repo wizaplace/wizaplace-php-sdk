@@ -62,6 +62,17 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param string $id
+     * @return Declination
+     */
+    public function getDeclinationById(string $id): Declination
+    {
+        $response = $this->client->get("catalog/declinations/{$id}");
+
+        return new Declination($response);
+    }
+
+    /**
      * @return Product[]
      */
     public function getProductsByCode(string $code) : array

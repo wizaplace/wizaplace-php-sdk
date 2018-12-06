@@ -30,6 +30,7 @@ final class CmsServiceTest extends ApiTestCase
         $this->assertSame('Contact', $firstItem->getName());
         $this->assertSame(0, $firstItem->getPosition());
         $this->assertSame('https://wizaplace.loc/contact.html', $firstItem->getUrl()->__toString());
+        $this->assertSame(false, $firstItem->isTargetBlank());
         $this->assertSame(1, count($firstItem->getChildren()));
 
         $firstChild = $firstItem->getChildren()[0];
@@ -37,6 +38,7 @@ final class CmsServiceTest extends ApiTestCase
         $this->assertSame('Qui sommes-nous ?', $firstChild->getName());
         $this->assertSame(0, $firstChild->getPosition());
         $this->assertSame('https://wizaplace.loc/about-us.html', $firstChild->getUrl()->__toString());
+        $this->assertSame(false, $firstItem->isTargetBlank());
         $this->assertSame(0, count($firstChild->getChildren()));
     }
 
