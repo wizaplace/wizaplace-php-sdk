@@ -12,7 +12,7 @@
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
-- Added `\Wizaplace\SDK\Division\DivisionBlacklist`
+- Added `\Wizaplace\SDK\Division\DivisionCompany`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
 - Added `\Wizaplace\SDK\ApiClient::patch`
 - Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`

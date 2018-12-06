@@ -8,7 +8,6 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
-use Wizaplace\SDK\Division\DivisionUtils;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_float;
@@ -106,7 +105,7 @@ final class Product
     private $infiniteStock;
 
     /** @var array */
-    private $divisions;
+    private $offers;
 
     /**
      * @internal
@@ -166,9 +165,8 @@ final class Product
             }, $data['images']);
         }
 
-        if (isset($data['availableOffers'])) {
-            $divisionUtils = new DivisionUtils();
-            $this->divisions = $divisionUtils->getDivisions($data['availableOffers'], true);
+        if (isset($data['offers'])) {
+            $this->offers = $data['offers'];
         }
     }
 
@@ -422,8 +420,8 @@ final class Product
     /**
      * @return array
      */
-    public function getDivisions(): array
+    public function getOffers(): array
     {
-        return $this->divisions;
+        return $this->offers;
     }
 }

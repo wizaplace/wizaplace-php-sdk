@@ -13,7 +13,7 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
-use Wizaplace\SDK\Division\DivisionBlacklist;
+use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 
@@ -257,7 +257,7 @@ final class CompanyService extends AbstractService
      * @param int    $companyId
      * @param string $countryCode
      *
-     * @return DivisionBlacklist[]
+     * @return DivisionCompany[]
      * @throws AuthenticationRequired
      * @throws NotFound
      */
@@ -267,7 +267,7 @@ final class CompanyService extends AbstractService
 
         try {
             return array_map(function ($datas) {
-                return new DivisionBlacklist($datas);
+                return new DivisionCompany($datas);
             }, $this->client->get("companies/{$companyId}/divisions/{$countryCode}"));
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
@@ -284,7 +284,7 @@ final class CompanyService extends AbstractService
      * @param string $countryCode
      * @param array  $codes
      *
-     * @return DivisionBlacklist[]
+     * @return DivisionCompany[]
      * @throws AuthenticationRequired
      * @throws NotFound
      */
@@ -300,7 +300,7 @@ final class CompanyService extends AbstractService
             ]);
 
             return array_map(function ($datas) {
-                return new DivisionBlacklist($datas);
+                return new DivisionCompany($datas);
             }, $divisions);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {

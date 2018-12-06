@@ -8,7 +8,7 @@ namespace Wizaplace\SDK\Division;
 
 use Wizaplace\SDK\User\UserType;
 
-final class DivisionBlacklist
+final class DivisionCompany
 {
     /**
      * @var string

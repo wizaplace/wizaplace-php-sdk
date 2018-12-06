@@ -130,7 +130,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertEmpty($product->getImages());
 
-        foreach ($product->getDivisions() as $productId => $divisions) {
+        foreach ($product->getOffers() as $productId => $divisions) {
             $this->assertTrue(is_numeric($productId));
             $this->divisionTester($divisions);
         }
