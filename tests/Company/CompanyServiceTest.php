@@ -18,6 +18,7 @@ use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
+use Wizaplace\SDK\User\User;
 
 /**
  * @see CompanyService
@@ -210,7 +211,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getAddress());
         $this->assertSame('Paris', $company->getCity());
         $this->assertSame('FR', $company->getCountry());
-        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
+        $this->assertSame('0987654321', $company->getPhoneNumber());
         $this->assertSame('the-world-company-inc.', $company->getSlug());
     }
 
@@ -227,7 +228,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getAddress());
         $this->assertSame('Paris', $company->getCity());
         $this->assertSame('FR', $company->getCountry());
-        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
+        $this->assertSame('0987654321', $company->getPhoneNumber());
         $this->assertSame('the-world-company-inc.', $company->getSlug());
     }
 
@@ -235,6 +236,25 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $this->expectException(ClientException::class);
         $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor')->getCompany(1);
+    }
+
+    public function testAddACompanyImageAndDeleteIt()
+    {
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+        $companyId = $service->getCompany(2)->getId();
+
+        $file = $this->mockUploadedFile('favicon.png');
+
+        $imageId = $service->updateCompanyImage($companyId, [
+            'name'     => "file",
+            'contents' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ]);
+        $this->assertGreaterThan(0, $imageId);
+
+        $result = $service->deleteCompanyImage($companyId, $imageId);
+        $this->assertEquals(true, $result["success"]);
+        $this->assertEquals("Image ".$imageId." successfully deleted", $result["message"]);
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService

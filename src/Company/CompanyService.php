@@ -226,6 +226,38 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param int $companyId
+     * @param array $imageFile
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function updateCompanyImage(int $companyId, array $imageFile): int
+    {
+        $this->client->mustBeAuthenticated();
+
+        return (int) $this->client->rawRequest("POST", "companies/{$companyId}/image", [
+            RequestOptions::MULTIPART => [
+                'file' => $imageFile,
+            ],
+        ])
+            ->getBody()
+            ->getContents();
+    }
+
+    /**
+     * @param int $companyId
+     * @param int $imageId
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
+    public function deleteCompanyImage(int $companyId, int $imageId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->delete("companies/{$companyId}/image/{$imageId}");
+    }
+
+    /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */
