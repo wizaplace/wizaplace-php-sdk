@@ -29,9 +29,14 @@ abstract class ApiTestCase extends TestCase
     private $cassettePath = null;
     private $cassetteName = null;
 
-    public static function getApiBaseUrl(): string
+    public function getBaseUrl(): string
     {
-        return 'http://wizaplace.loc/api/v1/';
+        return 'http://wizaplace.test';
+    }
+
+    public function getApiBaseUrl(): string
+    {
+        return $this->getBaseUrl().'/api/v1/';
     }
 
     public function buildApiClient(): ApiClient
@@ -52,7 +57,7 @@ abstract class ApiTestCase extends TestCase
 
         return new ApiClient(new Client([
             'handler' => $handlerStack,
-            'base_uri' => self::getApiBaseUrl(),
+            'base_uri' => $this->getApiBaseUrl(),
         ]));
     }
 
@@ -67,13 +72,6 @@ abstract class ApiTestCase extends TestCase
         VCR::configure()->setCassettePath($this->cassettePath);
 
         $this->cassetteName = $reflectionClass->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
-
-        // Si la cassette n'existe pas...
-        if (!$this->currentCassetteExists()) {
-            // ...on ré-initialise les données de la marketplace
-            // pour une génération idempotente de la cassette.
-            $this->resetMarketplaceTestData();
-        }
 
         VCR::turnOn();
         VCR::insertCassette($this->cassetteName);
@@ -116,22 +114,5 @@ abstract class ApiTestCase extends TestCase
         $file->expects($this->once())->method('getClientFilename')->willReturn($filename);
 
         return $file;
-    }
-
-    private function currentCassetteExists(): bool
-    {
-        return file_exists(sprintf("%s/%s", $this->cassettePath, $this->cassetteName));
-    }
-
-    private function resetMarketplaceTestData(): void
-    {
-        $httpClient = new \GuzzleHttp\Client(['base_uri' => 'http://wizaplace.test/api/v1/']);
-        $client = new ApiClient($httpClient);
-
-        $response = $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
-
-        if ($response->getStatusCode() !== 200) {
-            throw new \Exception('Marketplace reset failed.');
-        }
     }
 }

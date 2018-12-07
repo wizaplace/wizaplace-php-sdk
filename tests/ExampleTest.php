@@ -19,10 +19,8 @@ final class ExampleTest extends ApiTestCase
      */
     public function basicUsage()
     {
-        // Setup
-        $marketplaceApiUri = 'http://wizaplace.loc/api/v1/'; // replace that value with your own
         $httpClient = new \GuzzleHttp\Client([
-            'base_uri' => $marketplaceApiUri,
+            'base_uri' => $this->getApiBaseUrl(),
         ]);
         $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
         $catalogService = new \Wizaplace\SDK\Catalog\CatalogService($wizaplaceClient);
@@ -40,10 +38,8 @@ final class ExampleTest extends ApiTestCase
      */
     public function authenticationUsage()
     {
-        // Setup
-        $marketplaceApiUri = 'http://wizaplace.loc/api/v1/'; // replace that value with your own
         $httpClient = new \GuzzleHttp\Client([
-            'base_uri' => $marketplaceApiUri,
+            'base_uri' => $this->getApiBaseUrl(),
         ]);
         $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
         $orderService = new \Wizaplace\SDK\Order\OrderService($wizaplaceClient);
