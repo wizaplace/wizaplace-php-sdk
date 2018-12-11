@@ -21,6 +21,9 @@ final class BasketItem
     /** @var string */
     private $productName;
 
+    /** @var string */
+    private $productCode;
+
     /** @var float */
     private $individualPrice;
 
@@ -59,6 +62,7 @@ final class BasketItem
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productId = $data['productId'];
         $this->productName = $data['productName'];
+        $this->productCode = $data['productCode'];
         $this->individualPrice = $data['individualPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         if ($data['mainImage']) {
