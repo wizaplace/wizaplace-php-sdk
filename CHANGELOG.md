@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.44.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+
 ## 1.44.1
 
 ### New features
