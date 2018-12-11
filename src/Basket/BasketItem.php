@@ -102,6 +102,11 @@ final class BasketItem
         return $this->productName;
     }
 
+    public function getProductCode(): string
+    {
+        return $this->productCode;
+    }
+
     /**
      * @deprecated {@see \Wizaplace\SDK\Basket\BasketItem::getUnitPrice} instead
      */
