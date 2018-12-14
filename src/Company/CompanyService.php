@@ -258,6 +258,18 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param int $companyId
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function getCompanyImageId(int $companyId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("companies/{$companyId}/image");
+    }
+
+    /**
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
      * @return FileUploadResult[] a map of result by uploaded file.
      */

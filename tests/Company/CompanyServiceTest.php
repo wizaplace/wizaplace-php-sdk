@@ -252,7 +252,10 @@ final class CompanyServiceTest extends ApiTestCase
         ]);
         $this->assertGreaterThan(0, $imageId);
 
-        $result = $service->deleteCompanyImage($companyId, $imageId);
+        $companyImageId = $service->getCompanyImageId($companyId);
+        $this->assertEquals(13, $companyImageId);
+
+        $result = $service->deleteCompanyImage($companyId, $companyImageId);
         $this->assertEquals(true, $result["success"]);
         $this->assertEquals("Image ".$imageId." successfully deleted", $result["message"]);
     }

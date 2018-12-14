@@ -3,6 +3,8 @@
 ### Next release
 
 - Added `Wizaplace\SDK\Vendor\Order\Payment::getCommitmentDate`
+- Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
+- Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 
 ## 1.43.0
 
