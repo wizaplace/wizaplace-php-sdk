@@ -3,6 +3,7 @@
 ### Next release
 
 - Added `Wizaplace\SDK\Vendor\Order\Payment::getCommitmentDate`
+- Fixed `Wizaplace\SDK\User\UserService::enable` and `Wizaplace\SDK\User\UserService::disable`
 
 ## 1.43.0
 
