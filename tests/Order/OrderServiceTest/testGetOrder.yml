@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-due-date-in-orders@6c1cef6
             VCR-index: '0'
             Accept: null
     response:
@@ -16,16 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Nov 2018 15:19:35 GMT'
+            Date: 'Wed, 21 Nov 2018 12:31:51 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 6930c3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6930c3'
-            Content-Length: '60'
+            X-Debug-Token: c5c62b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5c62b'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"Unx5UubYe+QIPC7y8wJy1G0T7qm1DuLy8beEbB73"}'
+        body: '{"id":7,"apiKey":"u4AKxu7QZf00b7TZxqTYRjrvM18\/Xn8GrcinB2mb"}'
 -
     request:
         method: GET
@@ -33,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Authorization: 'token Unx5UubYe+QIPC7y8wJy1G0T7qm1DuLy8beEbB73'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-due-date-in-orders@6c1cef6
+            Authorization: 'token u4AKxu7QZf00b7TZxqTYRjrvM18/Xn8GrcinB2mb'
             VCR-index: '1'
             Accept: null
     response:
@@ -43,13 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Nov 2018 15:19:36 GMT'
+            Date: 'Wed, 21 Nov 2018 12:31:52 GMT'
             Server: 'Apache/2.4.25 (Debian)'
-            X-Protected-By: Sqreen
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 86082e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/86082e'
-            Content-Length: '1095'
+            X-Debug-Token: '196047'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/196047'
+            Content-Length: '1117'
             Content-Type: application/json
-        body: '{"id":2,"basketId":"5290d2f4-4634-37a5-9f6a-51cea467e014","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1542381535,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null}}'
+        body: '{"id":2,"basketId":"2b4d182f-af3f-37c4-87d7-e84dec020920","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"timestamp":1542803481,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"manual","processorName":null,"commitmentDate":null}}'
