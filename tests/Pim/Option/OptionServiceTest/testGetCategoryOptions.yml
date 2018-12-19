@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-306-get-status-category-options@84f2f2e
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 15:46:04 GMT'
+            Date: 'Tue, 27 Nov 2018 10:54:28 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: 2a5ecd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2a5ecd'
-            Content-Length: '60'
+            X-Debug-Token: b2530e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b2530e'
+            Content-Length: '61'
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"i4mNlKcrLG8F+kLXrVKUdPTgszjz4KjKvae9KsE5"}'
+        body: '{"id":2,"apiKey":"rGbGpMOrVj15kRyXVpW620UBPYzXb\/kie2dwFHqf"}'
 -
     request:
         method: GET
@@ -32,8 +32,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Authorization: 'token i4mNlKcrLG8F+kLXrVKUdPTgszjz4KjKvae9KsE5'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-306-get-status-category-options@84f2f2e
+            Authorization: 'token rGbGpMOrVj15kRyXVpW620UBPYzXb/kie2dwFHqf'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +42,12 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 13 Dec 2017 15:46:05 GMT'
+            Date: 'Tue, 27 Nov 2018 10:54:30 GMT'
             Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
             Content-Language: fr
-            X-Debug-Token: bf2b28
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/bf2b28'
-            Content-Length: '982'
+            X-Debug-Token: 66eace
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/66eace'
+            Content-Length: '689'
             Content-Type: application/json
-        body: '{"7":{"option_id":7,"option_name":"connectivity","variants":{"6":{"variant_id":6,"variant_name":"wired"},"5":{"variant_id":5,"variant_name":"wireless"}},"pending":false},"8":{"option_id":8,"option_name":"size","variants":{"10":{"variant_id":10,"variant_name":"21"},"9":{"variant_id":9,"variant_name":"17"},"8":{"variant_id":8,"variant_name":"15"},"7":{"variant_id":7,"variant_name":"13"}},"pending":false},"6":{"option_id":6,"option_name":"color","variants":{"4":{"variant_id":4,"variant_name":"red"},"3":{"variant_id":3,"variant_name":"blue"},"2":{"variant_id":2,"variant_name":"black"},"1":{"variant_id":1,"variant_name":"white"}},"pending":false},"5":{"option_id":5,"option_name":"D\u00e9clinaison","variants":[],"pending":false},"4":{"option_id":4,"option_name":"D\u00e9clinaison","variants":[],"pending":false},"2":{"option_id":2,"option_name":"D\u00e9clinaison","variants":[],"pending":false},"1":{"option_id":1,"option_name":"D\u00e9clinaison","variants":[],"pending":false}}'
+        body: '{"1":{"option_id":1,"option_name":"color","status":"A","variants":{"4":{"variant_id":4,"variant_name":"red"},"3":{"variant_id":3,"variant_name":"blue"},"2":{"variant_id":2,"variant_name":"black"},"1":{"variant_id":1,"variant_name":"white"}},"pending":false},"3":{"option_id":3,"option_name":"size","status":"A","variants":{"9":{"variant_id":9,"variant_name":"17"},"8":{"variant_id":8,"variant_name":"15"},"7":{"variant_id":7,"variant_name":"13"},"10":{"variant_id":10,"variant_name":"21"}},"pending":false},"2":{"option_id":2,"option_name":"connectivity","status":"A","variants":{"6":{"variant_id":6,"variant_name":"wired"},"5":{"variant_id":5,"variant_name":"wireless"}},"pending":false}}'
