@@ -227,7 +227,7 @@ final class UserService extends AbstractService
     public function enable(int $userId) : void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->post("/users/{$userId}/enable");
+        $this->client->post("users/{$userId}/enable");
     }
 
     /**
@@ -241,7 +241,7 @@ final class UserService extends AbstractService
     public function disable(int $userId) : void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->post("/users/{$userId}/disable");
+        $this->client->post("users/{$userId}/disable");
     }
 
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array

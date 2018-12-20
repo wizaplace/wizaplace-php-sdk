@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-82-add-due-date-in-orders@6444df6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 30 Nov 2018 12:56:16 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 5c2ff6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5c2ff6'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"my5LRssureVkqUrEftPSy2iJIoYXmJMdO2XKaupo"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-82-add-due-date-in-orders@6444df6
+            Authorization: 'token my5LRssureVkqUrEftPSy2iJIoYXmJMdO2XKaupo'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 30 Nov 2018 12:56:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 43b974
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/43b974'
+            Content-Length: '1120'
+            Content-Type: application/json
+        body: '{"id":6,"basketId":"ddc48146-e4b1-3f07-a6a0-40f856aa78f6","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"timestamp":1543582551,"status":"STANDBY_BILLING","workflow":"workflow_order_confirmation_pending_order_confirmation_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"amount":1,"options":[],"customerComment":"","greenTax":0}],"payment":{"type":"payment-deferment","processorName":"stripe","commitmentDate":"2018-11-30"}}'
