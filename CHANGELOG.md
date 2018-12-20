@@ -1,5 +1,11 @@
 # Changelog
 
+### Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+
 ### 1.44.0
 
 ### New features

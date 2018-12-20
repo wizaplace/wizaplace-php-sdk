@@ -128,6 +128,13 @@ class OrderService extends AbstractService
         }, $taxesData);
     }
 
+    public function getHandDeliveryCodes(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("orders/${orderId}/handDelivery");
+    }
+
     public function reportHandDelivery(int $orderId, ?string $deliveryCode): void
     {
         $this->client->mustBeAuthenticated();
