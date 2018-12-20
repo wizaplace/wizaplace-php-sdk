@@ -1,5 +1,22 @@
 # Changelog
 
+### Next release
+
+### New features
+
+- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
+- Added `\Wizaplace\SDK\Division\DivisionService::get`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Division\DivisionCompany`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
+- Added `\Wizaplace\SDK\ApiClient::patch`
+- Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
+- Added `\Wizaplace\SDK\Division\DivisionService::set`
+- Added `\Wizaplace\SDK\User\UserAddress::getDivision`
+
 ### 1.44.0
 
 ### New features
@@ -33,17 +50,6 @@
 
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
-- Added `\Wizaplace\SDK\Division\DivisionService::get`
-- Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
-- Added `\Wizaplace\SDK\Division\DivisionCompany`
-- Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
-- Added `\Wizaplace\SDK\ApiClient::patch`
-- Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
-- Added `\Wizaplace\SDK\Division\DivisionService::set`
 
 ## 1.41.0
 
