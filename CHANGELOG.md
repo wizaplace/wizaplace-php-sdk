@@ -1,6 +1,8 @@
 # Changelog
 
-### Next release
+## 1.43.3
+
+### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\Payment::getCommitmentDate`
 
