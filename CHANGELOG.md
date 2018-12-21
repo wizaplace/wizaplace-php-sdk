@@ -9,7 +9,6 @@
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
 - Added `\Wizaplace\SDK\Division\DivisionCompany`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
-- Added `\Wizaplace\SDK\ApiClient::patch`
 - Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
