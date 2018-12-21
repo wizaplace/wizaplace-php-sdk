@@ -5,6 +5,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 
 ### 1.44.0
 
