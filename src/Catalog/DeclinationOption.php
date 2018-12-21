@@ -26,6 +26,9 @@ final class DeclinationOption implements \JsonSerializable
     /** @var null|Image */
     private $image;
 
+    /** @var integer */
+    private $position;
+
     /**
      * @internal
      */
@@ -36,6 +39,7 @@ final class DeclinationOption implements \JsonSerializable
         $this->variantId = $data['variantId'];
         $this->variantName = $data['variantName'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->position = $data['position'];
     }
 
     public function getId(): int
@@ -63,6 +67,11 @@ final class DeclinationOption implements \JsonSerializable
         return $this->image;
     }
 
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
     public function jsonSerialize(): array
     {
         return [
@@ -71,6 +80,7 @@ final class DeclinationOption implements \JsonSerializable
             "variantId" => $this->getVariantId(),
             "variantName" => $this->getVariantName(),
             'image' => $this->getImage() ? ['id' => $this->getImage()->getId()] : null,
+            'position' => $this->getPosition(),
         ];
     }
 }
