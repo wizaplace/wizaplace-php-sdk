@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@37d9fb8
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
             VCR-index: '0'
             Accept: null
     response:
@@ -22,10 +22,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 13:34:09 GMT'
+            Date: 'Fri, 21 Dec 2018 15:57:42 GMT'
             Content-Language: fr
-            X-Debug-Token: f2567b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f2567b'
+            X-Debug-Token: f2e1d4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f2e1d4'
         body: '{"id":2,"apiKey":"Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo"}'
 -
     request:
@@ -34,7 +34,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@37d9fb8
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
             Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
             VCR-index: '1'
             Accept: null
@@ -50,10 +50,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 13:34:09 GMT'
+            Date: 'Fri, 21 Dec 2018 15:57:42 GMT'
             Content-Language: fr
-            X-Debug-Token: f893f2
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f893f2'
+            X-Debug-Token: c5721e
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/c5721e'
         body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1545397535,"updated_timestamp":1545397536,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":11,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":null}'
 -
     request:
@@ -64,7 +64,7 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@37d9fb8
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
             Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
             VCR-index: '2'
             Accept: null
@@ -81,12 +81,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 13:34:23 GMT'
+            Date: 'Fri, 21 Dec 2018 15:58:00 GMT'
             Content-Language: fr
-            X-Debug-Token: '137798'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/137798'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22137798%22%2C%22route%22%3A%22api_product_video_post%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.product.api.productcontroller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-        body: '{"id":"63e4bb43-4ccb-4d11-acc4-483eee090528"}'
+            X-Debug-Token: '8821e5'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8821e5'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228821e5%22%2C%22route%22%3A%22api_product_video_post%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.product.api.productcontroller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":"f45b4df6-be57-4eb3-a2c8-bf1a587359da"}'
 -
     request:
         method: DELETE
@@ -94,7 +94,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@37d9fb8
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
             Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
             VCR-index: '3'
             Accept: null
@@ -109,7 +109,7 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 13:34:24 GMT'
+            Date: 'Fri, 21 Dec 2018 15:58:00 GMT'
             Content-Language: fr
-            X-Debug-Token: cb87d6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb87d6'
+            X-Debug-Token: f0c3a7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0c3a7'
