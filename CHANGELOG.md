@@ -1,10 +1,21 @@
 # Changelog
 
-## Next release
+### Next release
 
 ### New features
 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
 - Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+
+### 1.44.0
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Payment::getCommitmentDate`
+
+### Corrections
+
+- Fixed an issue with `Wizaplace\SDK\User\UserService::enable` and `Wizaplace\SDK\User\UserService::disable`
 
 ## 1.43.0
 
