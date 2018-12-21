@@ -16,6 +16,9 @@ final class Option implements \JsonSerializable
     /** @var string */
     private $name;
 
+    /** @var int */
+    private $position;
+
     /** @var OptionVariant[] */
     private $variants;
 
@@ -26,6 +29,7 @@ final class Option implements \JsonSerializable
     {
         $this->id = $data['id'];
         $this->name = $data['name'];
+        $this->position = $data['position'];
         $this->variants = array_map(static function (array $variantData) : OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);
@@ -41,6 +45,11 @@ final class Option implements \JsonSerializable
         return $this->name;
     }
 
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
     /**
      * @return OptionVariant[]
      */
@@ -54,6 +63,7 @@ final class Option implements \JsonSerializable
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
+            'position' => $this->getPosition(),
             'variants' => $this->getVariants(),
         ];
     }
