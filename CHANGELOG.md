@@ -1,6 +1,6 @@
 # Changelog
 
-### Next release
+## 1.44.1
 
 ### New features
 
