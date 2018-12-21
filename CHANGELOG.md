@@ -2,6 +2,9 @@
 
 ## 1.44.9
 
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
 ### New features
 
 - Added `\Wizaplace\SDK\Basket\BasketItem::getDivisions`
@@ -106,8 +109,6 @@
 - Added `\Wizaplace\SDK\Pim\OptionStatus`
 - Added `Wizaplace\SDK\Catalog\CatalogService::getDeclinationById`
 - Updated `Wizaplace\SDK\Catalog\Declination`
-- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
-- Updated `Wizaplace\SDK\Catalog\Option`
 
 ## 1.42.0
 
