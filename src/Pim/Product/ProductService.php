@@ -146,4 +146,42 @@ final class ProductService extends AbstractService
             throw $e;
         }
     }
+
+    public function addVideo(int $productId, string $url) : array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->post("products/${productId}/video", [
+                RequestOptions::FORM_PARAMS => [
+                    'url' => $url,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new \Exception("Product #${productId} not found", $e);
+            }
+
+            if ($e->getCode() === 500) {
+                throw new \Exception("Unable to upload video", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function deleteVideo(int $productId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->rawRequest("DELETE", "products/${productId}/video");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new \Exception("Product #${productId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
 }
