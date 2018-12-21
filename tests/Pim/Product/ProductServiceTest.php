@@ -933,7 +933,7 @@ final class ProductServiceTest extends ApiTestCase
         $video = $productService->addVideo($productId, 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4');
 
         $this->assertTrue(is_array($video));
-        $this->assertRegexp(
+        $this->assertRegExp(
             '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
             $video['id']
         );
