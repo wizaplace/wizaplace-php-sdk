@@ -890,7 +890,7 @@ final class ProductServiceTest extends ApiTestCase
     public function testAddVideo()
     {
         $data = (new CreateProductCommand())
-            ->setCode(uniqid('code', true))
+            ->setCode('code_full_product')
             ->setGreenTax(0.1)
             ->setIsBrandNew(true)
             ->setName("Full product")

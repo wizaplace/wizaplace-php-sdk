@@ -22,10 +22,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 15:57:42 GMT'
+            Date: 'Mon, 24 Dec 2018 08:42:18 GMT'
             Content-Language: fr
-            X-Debug-Token: f2e1d4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f2e1d4'
+            X-Debug-Token: '355345'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/355345'
         body: '{"id":2,"apiKey":"Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo"}'
 -
     request:
@@ -50,10 +50,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 15:57:42 GMT'
+            Date: 'Mon, 24 Dec 2018 08:42:19 GMT'
             Content-Language: fr
-            X-Debug-Token: c5721e
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/c5721e'
+            X-Debug-Token: e0a625
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e0a625'
         body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1545397535,"updated_timestamp":1545397536,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":11,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":null}'
 -
     request:
@@ -81,12 +81,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 15:58:00 GMT'
+            Date: 'Mon, 24 Dec 2018 08:42:37 GMT'
             Content-Language: fr
-            X-Debug-Token: '8821e5'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8821e5'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228821e5%22%2C%22route%22%3A%22api_product_video_post%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.product.api.productcontroller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-        body: '{"id":"f45b4df6-be57-4eb3-a2c8-bf1a587359da"}'
+            X-Debug-Token: '1e4332'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1e4332'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221e4332%22%2C%22route%22%3A%22api_product_video_post%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.product.api.productcontroller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":"9df1d031-fa7d-4e1e-9e6a-b28f02b434d3"}'
 -
     request:
         method: DELETE
@@ -109,7 +109,7 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 21 Dec 2018 15:58:00 GMT'
+            Date: 'Mon, 24 Dec 2018 08:42:38 GMT'
             Content-Language: fr
-            X-Debug-Token: f0c3a7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0c3a7'
+            X-Debug-Token: '988032'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/988032'
