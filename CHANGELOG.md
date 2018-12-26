@@ -5,7 +5,8 @@
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` with try/catch
 
 ### 1.44.0
 

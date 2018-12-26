@@ -7,8 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
 class OrderService extends AbstractService
@@ -139,11 +141,24 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/${orderId}/handDelivery", [
-            RequestOptions::JSON => [
-                'code' => $deliveryCode,
-            ],
-        ]);
+        try {
+            $this->client->post("orders/${orderId}/handDelivery", [
+                RequestOptions::JSON => [
+                    'code' => $deliveryCode,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 400) {
+                $body = json_decode($e->getResponse()->getBody());
+                throw new SomeParametersAreInvalid($body->error->message, 400, $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new \Exception("You're not allowed to access to this order", 403);
+            }
+
+            throw $e;
+        }
     }
 
     public function generateMondialRelayLabel(int $orderId, CreateLabelCommand $command)
