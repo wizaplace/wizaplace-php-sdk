@@ -1,5 +1,12 @@
 # Changelog
 
+### 1.43.6
+
+## New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` with try/catch
+
 ## 1.43.5
 
 ### New features
