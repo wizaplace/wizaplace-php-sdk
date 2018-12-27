@@ -1,10 +1,9 @@
 # Changelog
 
-## 1.44.2
+## 1.44.3
 
-### New features
+## New features
 
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
@@ -18,6 +17,12 @@
 - Added `\Wizaplace\SDK\User\UserAddress::getDivision`
 - Added `\Wizaplace\SDK\Catalog\ProductOffer`
 - Added `\Wizaplace\SDK\Catalog\Product::getOffers`
+
+## 1.44.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 
 ## 1.44.1
 
