@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
