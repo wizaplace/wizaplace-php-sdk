@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/divisions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@050df18
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Nov 2018 11:33:02 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ac7844
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac7844'
+            Content-Length: '1317'
+            Content-Type: application/json
+        body: '[{"code":"FR","parentCode":null,"level":0,"isEnabled":true,"description":"France","children":[{"code":"FR-ARA","parentCode":"FR","level":1,"isEnabled":true,"description":"Auvergne-Rh\u00f4ne-Alpes","children":[{"code":"FR-01","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Ain"},{"code":"FR-03","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Allier"},{"code":"FR-07","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Ard\u00e8che"},{"code":"FR-15","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Cantal"},{"code":"FR-26","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Dr\u00f4me"},{"code":"FR-43","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Haute-Loire"},{"code":"FR-74","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Haute-Savoie"},{"code":"FR-38","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Is\u00e8re"},{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Loire"},{"code":"FR-63","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Puy-de-D\u00f4me"},{"code":"FR-69","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Rh\u00f4ne"},{"code":"FR-73","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Savoie"}]}]}]'
