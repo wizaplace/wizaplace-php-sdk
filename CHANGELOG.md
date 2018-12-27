@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.44.6
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder` you can set a invoice number
+
 ## 1.44.5
 
 ### Breaking Changes
