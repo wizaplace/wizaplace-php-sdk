@@ -1,0 +1,85 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 21 Nov 2018 12:36:11 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 7a1144
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7a1144'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz\/kcc2biMr"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/divisions/FR-42'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            Authorization: 'token e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz/kcc2biMr'
+            VCR-index: '1'
+            Accept: null
+        body: is_enabled=1
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 21 Nov 2018 12:36:11 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: ed7ce9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ed7ce9'
+            Content-Length: '87'
+            Content-Type: application/json
+        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Loire"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/divisions/FR-42'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            Authorization: 'token e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz/kcc2biMr'
+            VCR-index: '2'
+            Accept: null
+        body: is_enabled=0
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 21 Nov 2018 12:36:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6f34ae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f34ae'
+            Content-Length: '88'
+            Content-Type: application/json
+        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":false,"description":"Loire"}'

@@ -8,11 +8,14 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Exception\BadResponseException;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\CompanyNotFound;
+use Wizaplace\SDK\Exception\NotFound;
 
 final class CompanyService extends AbstractService
 {
@@ -223,6 +226,88 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         return $this->client->delete("companies/{$companyId}/files/{$filename}");
+    }
+
+    /**
+     * Allow to get a list of countries codes of enabled divisions for the company
+     *
+     * @param int $companyId
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getDivisionsCountriesCodes(int $companyId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->get("companies/{$companyId}/divisions");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to get a list of divsions enabled for the company
+     *
+     * @param int    $companyId
+     * @param string $countryCode
+     *
+     * @return DivisionCompany[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getDivisions(int $companyId, string $countryCode): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(function ($datas) {
+                return new DivisionCompany($datas);
+            }, $this->client->get("companies/{$companyId}/divisions/{$countryCode}"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to disable divisions for the company
+     *
+     * @param int    $companyId
+     * @param string $countryCode
+     * @param array  $codes
+     *
+     * @return DivisionCompany[]
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function putDivisions(int $companyId, string $countryCode, array $codes): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $divisions = $this->client->put("companies/{$companyId}/divisions/{$countryCode}", [
+                RequestOptions::FORM_PARAMS => [
+                    'code' => $codes,
+                ],
+            ]);
+
+            return array_map(function ($datas) {
+                return new DivisionCompany($datas);
+            }, $divisions);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
     }
 
     /**

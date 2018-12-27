@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/divisions/TEST'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@050df18
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Wed, 07 Nov 2018 11:33:39 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 417bc8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/417bc8'
+            Content-Length: '2'
+            Content-Type: application/json
+        body: '[]'
