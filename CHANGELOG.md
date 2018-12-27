@@ -1,13 +1,20 @@
 # Changelog
 
-### Next release
+## Next release
+
+## 1.44.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+
+## 1.44.1
 
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 
-### 1.44.0
+## 1.44.0
 
 ### New features
 
