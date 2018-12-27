@@ -131,9 +131,10 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEmpty($product->getImages());
 
         foreach ($product->getOffers() as $offer) {
-            $this->assertSame(1, $offer['productId']);
-            $this->assertSame(3, $offer['companyId']);
-            $this->assertSame(67.9, $offer['price']);
+            $this->assertSame(1, $offer->getProductId());
+            $this->assertSame(3, $offer->getCompanyId());
+            $this->assertSame(67.9, $offer->getPrice());
+            $this->assertSame([], $offer->getDivisions());
         }
     }
 

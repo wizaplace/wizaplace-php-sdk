@@ -17,6 +17,8 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
 - Added `\Wizaplace\SDK\Division\DivisionService::set`
 - Added `\Wizaplace\SDK\User\UserAddress::getDivision`
+- Added `\Wizaplace\SDK\Catalog\ProductOffer`
+- Added `\Wizaplace\SDK\Catalog\Product::getOffers`
 
 ### 1.44.0
 

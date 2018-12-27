@@ -104,7 +104,7 @@ final class Product
     /** @var bool */
     private $infiniteStock;
 
-    /** @var array */
+    /** @var null|ProductOffer[] */
     private $offers;
 
     /**
@@ -166,7 +166,9 @@ final class Product
         }
 
         if (isset($data['offers'])) {
-            $this->offers = $data['offers'];
+            $this->offers = array_map(function (array $offer): ProductOffer {
+                return new ProductOffer($offer);
+            }, $data['offers']);
         }
     }
 
@@ -418,7 +420,7 @@ final class Product
     }
 
     /**
-     * @return null|array
+     * @return null|ProductOffer[]
      */
     public function getOffers(): ?array
     {
