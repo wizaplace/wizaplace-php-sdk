@@ -12,7 +12,7 @@
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
 
-### 1.44.0
+## 1.44.0
 
 ### New features
 
