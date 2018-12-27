@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Vendor\Order;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
@@ -154,7 +155,7 @@ class OrderService extends AbstractService
             }
 
             if ($e->getResponse()->getStatusCode() === 403) {
-                throw new \Exception("You're not allowed to access to this order", 403);
+                throw new AccessDenied("You're not allowed to access to this order", 403);
             }
 
             throw $e;

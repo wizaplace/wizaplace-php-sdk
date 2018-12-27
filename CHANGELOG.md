@@ -4,7 +4,7 @@
 
 ### New features
 
-- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` with try/catch
+- `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
 
 ## 1.44.3
 
