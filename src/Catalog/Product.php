@@ -104,6 +104,9 @@ final class Product
     /** @var bool */
     private $infiniteStock;
 
+    /** @var null|ProductOffer[] */
+    private $offers;
+
     /**
      * @internal
      */
@@ -160,6 +163,12 @@ final class Product
             $this->images = array_map(static function (array $imageData) : Image {
                 return new Image($imageData);
             }, $data['images']);
+        }
+
+        if (isset($data['offers'])) {
+            $this->offers = array_map(function (array $offer): ProductOffer {
+                return new ProductOffer($offer);
+            }, $data['offers']);
         }
     }
 
@@ -408,5 +417,13 @@ final class Product
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;
+    }
+
+    /**
+     * @return null|ProductOffer[]
+     */
+    public function getOffers(): ?array
+    {
+        return $this->offers;
     }
 }

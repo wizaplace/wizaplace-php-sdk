@@ -33,6 +33,7 @@ use Wizaplace\SDK\Catalog\ProductSummary;
 use Wizaplace\SDK\Catalog\ProductVideo;
 use Wizaplace\SDK\Catalog\SearchProductAttribute;
 use Wizaplace\SDK\Catalog\Shipping;
+use Wizaplace\SDK\Division\Division;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
@@ -107,7 +108,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertNull($product->getAverageRating());
+        $this->assertEquals(3, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -120,7 +121,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
-        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertEquals(5, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -128,6 +129,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
 
         $this->assertEmpty($product->getImages());
+
+        foreach ($product->getOffers() as $offer) {
+            $this->assertSame(1, $offer->getProductId());
+            $this->assertSame(3, $offer->getCompanyId());
+            $this->assertSame(67.9, $offer->getPrice());
+            $this->assertSame([], $offer->getDivisions());
+        }
     }
 
     public function testGetDeclinationByID()
@@ -1835,5 +1843,20 @@ final class CatalogServiceTest extends ApiTestCase
     private function compareAttributesById(ProductAttribute $a, ProductAttribute $b): int
     {
         return $a->getId() <=> $b->getId();
+    }
+
+    /**
+     * Recursive test for divisions
+     *
+     * @param Division[] $divisions
+     */
+    private function divisionTester(array $divisions)
+    {
+        foreach ($divisions as $division) {
+            $this->assertInstanceOf(Division::class, $division);
+            if (!empty($division->getChildren())) {
+                $this->divisionTester($division->getChildren());
+            }
+        }
     }
 }

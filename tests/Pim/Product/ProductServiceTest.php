@@ -887,6 +887,40 @@ final class ProductServiceTest extends ApiTestCase
         $productService->putShipping(1, $command);
     }
 
+    public function testGettingAListOfDivisionsCountriesCode(): void
+    {
+        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
+
+        $countriesCodes = $service->getDivisionsCountriesCodes(1);
+        $this->assertCount(1, $countriesCodes);
+        $this->assertEquals("FR", $countriesCodes[0]);
+    }
+
+    public function testGettingAListOfDivisionsProducts(): void
+    {
+        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->getDivisions(1, 'FR');
+        $this->assertCount(3, $divisions);
+
+        $this->assertTrue(in_array('FR', $divisions));
+        $this->assertTrue(in_array('FR-ARA', $divisions));
+        $this->assertTrue(in_array('FR-03', $divisions));
+    }
+
+    public function testSettingDivisionsProducts(): void
+    {
+        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->putDivisions(1, 'FR', ['FR-01', 'FR-03']);
+        $this->assertCount(4, $divisions);
+
+        $this->assertTrue(in_array('FR', $divisions));
+        $this->assertTrue(in_array('FR-ARA', $divisions));
+        $this->assertTrue(in_array('FR-01', $divisions));
+        $this->assertTrue(in_array('FR-03', $divisions));
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();

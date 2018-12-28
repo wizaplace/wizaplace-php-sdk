@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@8f6d7c2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 20 Nov 2018 13:33:40 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 5cbdc9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5cbdc9'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"CWeDeXijectsgbqJCyDuGhqYBotBYYKqQLSD898q"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@8f6d7c2
+            Authorization: 'token CWeDeXijectsgbqJCyDuGhqYBotBYYKqQLSD898q'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 20 Nov 2018 13:33:41 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: c43d9e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c43d9e'
+            Content-Length: '6'
+            Content-Type: application/json
+        body: '["FR"]'
