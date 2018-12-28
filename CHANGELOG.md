@@ -1,12 +1,43 @@
 # Changelog
 
-### Next release
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
+
+## 1.44.3
+
+## New features
+
+- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
+- Added `\Wizaplace\SDK\Division\DivisionService::get`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Division\DivisionCompany`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
+- Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
+- Added `\Wizaplace\SDK\Division\DivisionService::set`
+- Added `\Wizaplace\SDK\User\UserAddress::getDivision`
+- Added `\Wizaplace\SDK\Catalog\ProductOffer`
+- Added `\Wizaplace\SDK\Catalog\Product::getOffers`
+
+## 1.44.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+
+## 1.44.1
 
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
 
-### 1.44.0
+## 1.44.0
 
 ### New features
 
