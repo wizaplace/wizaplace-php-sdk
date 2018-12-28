@@ -1,5 +1,12 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
+
 ## 1.44.3
 
 ## New features
@@ -22,7 +29,7 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
 
 ## 1.44.1
 
