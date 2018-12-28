@@ -1,0 +1,115 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 24 Dec 2018 08:42:18 GMT'
+            Content-Language: fr
+            X-Debug-Token: '355345'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/355345'
+        body: '{"id":2,"apiKey":"Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
+            Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 24 Dec 2018 08:42:19 GMT'
+            Content-Language: fr
+            X-Debug-Token: e0a625
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e0a625'
+        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1545397535,"updated_timestamp":1545397536,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":11,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":null}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/video'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
+            Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
+            VCR-index: '2'
+            Accept: null
+        body: url=http%3A%2F%2Fcommondatastorage.googleapis.com%2Fgtv-videos-bucket%2Fsample%2FForBiggerEscapes.mp4
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 24 Dec 2018 08:42:37 GMT'
+            Content-Language: fr
+            X-Debug-Token: '1e4332'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1e4332'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221e4332%22%2C%22route%22%3A%22api_product_video_post%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.product.api.productcontroller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":"9df1d031-fa7d-4e1e-9e6a-b28f02b434d3"}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/products/1/video'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-27-api-product-video@48b32c1
+            Authorization: 'token Qnz+3BRIGePphp1LtE1VTPBChUAucDBKFzXw8WWo'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 24 Dec 2018 08:42:38 GMT'
+            Content-Language: fr
+            X-Debug-Token: '988032'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/988032'
