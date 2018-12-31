@@ -29,7 +29,7 @@ final class Option implements \JsonSerializable
     {
         $this->id = $data['id'];
         $this->name = $data['name'];
-        $this->position = $data['position'];
+        $this->position = isset($data['position']) ? $data['position'] : 0;
         $this->variants = array_map(static function (array $variantData) : OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);

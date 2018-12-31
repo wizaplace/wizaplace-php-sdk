@@ -27,7 +27,8 @@ final class DeclinationOptionTest extends TestCase
     "name": "size",
     "variantId": 1,
     "variantName": "xs",
-    "image": null
+    "image": null,
+    "position": 0
 }
 JSON;
         $this->assertSame($expected, $result);
