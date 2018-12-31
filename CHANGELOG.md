@@ -4,12 +4,14 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
 - `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
 
 ## 1.44.3
 
-## New features
+### New features
 
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
