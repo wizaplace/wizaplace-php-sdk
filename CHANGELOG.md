@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.44.5
+
+### Breaking Changes
+
+- Rename `\Wizaplace\SDK\Division\Division::getDescription` into `\Wizaplace\SDK\Division\Division::getName`
+
+### Corrections
+
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::isEnabled`
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy` 
+
 ## 1.44.4
 
 ### New features
