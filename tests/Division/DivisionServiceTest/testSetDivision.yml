@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@bee0203
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 21 Nov 2018 12:36:11 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 7a1144
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7a1144'
-            Content-Length: '61'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz\/kcc2biMr"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 28 Dec 2018 10:12:32 GMT'
+            Content-Language: fr
+            X-Debug-Token: 453d0b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/453d0b'
+        body: '{"id":2,"apiKey":"Zv7qkEhS2rkilOzCf7EwQSkisAkunOPE2Ee7irkK"}'
 -
     request:
         method: PATCH
@@ -34,8 +36,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
-            Authorization: 'token e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz/kcc2biMr'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@bee0203
+            Authorization: 'token Zv7qkEhS2rkilOzCf7EwQSkisAkunOPE2Ee7irkK'
             VCR-index: '1'
             Accept: null
         body: is_enabled=1
@@ -45,15 +47,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 21 Nov 2018 12:36:11 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: ed7ce9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ed7ce9'
-            Content-Length: '87'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":true,"description":"Loire"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 28 Dec 2018 10:12:33 GMT'
+            Content-Language: fr
+            X-Debug-Token: caf2a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/caf2a3'
+        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":true,"name":"Loire"}'
 -
     request:
         method: PATCH
@@ -63,8 +67,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
-            Authorization: 'token e2qKYKy7l2B67tJ37TgcXuOaVLOnEsz/kcc2biMr'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@bee0203
+            Authorization: 'token Zv7qkEhS2rkilOzCf7EwQSkisAkunOPE2Ee7irkK'
             VCR-index: '2'
             Accept: null
         body: is_enabled=0
@@ -74,12 +78,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 21 Nov 2018 12:36:12 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 6f34ae
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f34ae'
-            Content-Length: '88'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":false,"description":"Loire"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 28 Dec 2018 10:12:33 GMT'
+            Content-Language: fr
+            X-Debug-Token: 18f4ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/18f4ed'
+        body: '{"code":"FR-42","parentCode":"FR-ARA","level":2,"isEnabled":false,"name":"Loire"}'
