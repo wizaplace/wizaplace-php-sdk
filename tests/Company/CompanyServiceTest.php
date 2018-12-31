@@ -243,8 +243,7 @@ final class CompanyServiceTest extends ApiTestCase
         $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
 
         $countriesCodes = $service->getDivisionsCountriesCodes(3);
-        $this->assertCount(1, $countriesCodes);
-        $this->assertEquals("FR", $countriesCodes[0]);
+        $this->assertCount(200, $countriesCodes);
     }
 
     public function testGettingAListOfDivisionsBlacklists(): void
@@ -252,7 +251,7 @@ final class CompanyServiceTest extends ApiTestCase
         $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
 
         $divisions = $service->getDivisions(3, 'FR');
-        $this->assertCount(126, $divisions);
+        $this->assertCount(125, $divisions);
 
         foreach ($divisions as $division) {
             switch ($division->getCode()) {
@@ -267,10 +266,6 @@ final class CompanyServiceTest extends ApiTestCase
                     $this->assertEquals(false, $division->isEnabled());
                     $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
                     $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
-                    break;
-                default:
-                    $this->assertEquals(false, $division->isEnabled());
-                    $this->assertNull($division->getDisabledBy());
                     break;
             }
         }
@@ -281,25 +276,21 @@ final class CompanyServiceTest extends ApiTestCase
         $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
 
         $divisions = $service->putDivisions(3, 'FR', ['FR-03', 'FR-69']);
-        $this->assertCount(126, $divisions);
+        $this->assertCount(125, $divisions);
 
         foreach ($divisions as $division) {
             switch ($division->getCode()) {
                 case 'FR':
                 case 'FR-ARA':
-                case 'FR-01':
+                case 'FR-03':
+                case 'FR-69':
                     $this->assertEquals(true, $division->isEnabled());
                     $this->assertNull($division->getDisabledBy());
                     break;
-                case 'FR-03':
-                case 'FR-69':
+                case 'FR-01':
                     $this->assertEquals(false, $division->isEnabled());
                     $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
                     $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
-                    break;
-                default:
-                    $this->assertEquals(false, $division->isEnabled());
-                    $this->assertNull($division->getDisabledBy());
                     break;
             }
         }
