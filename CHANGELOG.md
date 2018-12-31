@@ -8,6 +8,7 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
 - `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
+- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
 
 ## 1.44.3
 
