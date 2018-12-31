@@ -2,7 +2,7 @@
 
 ## 1.44.5
 
-### Breaking Changes
+### Breaking Changes
 
 - Rename `\Wizaplace\SDK\Division\Division::getDescription` into `\Wizaplace\SDK\Division\Division::getName`
 
