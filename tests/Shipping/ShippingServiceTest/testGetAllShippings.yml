@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-478-add-shipping-service@4259983
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 03 Jan 2019 14:17:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 5a9958
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5a9958'
+        body: '{"id":2,"apiKey":"MaPef+TA8KNJihz5wY5PtAmVuUw1HSgi589rXNcc"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/shippings'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-478-add-shipping-service@4259983
+            Authorization: 'token MaPef+TA8KNJihz5wY5PtAmVuUw1HSgi589rXNcc'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 03 Jan 2019 14:17:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 69300a
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/69300a'
+        body: '{"40":{"shipping_id":40,"status":"D","shipping":"Remise en main propre (avec code)","delivery_time":""},"37":{"shipping_id":37,"status":"D","shipping":"AGEDISS GIRARD","delivery_time":"24h-72h"},"36":{"shipping_id":36,"status":"D","shipping":"Retrait en magasin","delivery_time":""},"28":{"shipping_id":28,"status":"D","shipping":"Remise en main propre","delivery_time":""},"27":{"shipping_id":27,"status":"D","shipping":"Livraison \u00e0 domicile avec Suivi","delivery_time":"48h - 72h"},"21":{"shipping_id":21,"status":"D","shipping":"Colis suivi","delivery_time":"48h - 72h"},"3":{"shipping_id":3,"status":"D","shipping":"Colissimo","delivery_time":"48h - 72h"},"2":{"shipping_id":2,"status":"D","shipping":"Chronopost","delivery_time":"24h"},"1":{"shipping_id":1,"status":"D","shipping":"TNT Express","delivery_time":"24h"},"13":{"shipping_id":13,"status":"D","shipping":"France Express","delivery_time":"24h"},"6":{"shipping_id":6,"status":"D","shipping":"Fedex Express","delivery_time":"24h"},"9":{"shipping_id":9,"status":"D","shipping":"UPS express","delivery_time":"24h"},"26":{"shipping_id":26,"status":"D","shipping":"UPS Standard","delivery_time":"48 \/ 72h"},"5":{"shipping_id":5,"status":"D","shipping":"DHL","delivery_time":"24h"},"10":{"shipping_id":10,"status":"D","shipping":"GLS","delivery_time":"48h - 72h"},"7":{"shipping_id":7,"status":"D","shipping":"Fedex@home","delivery_time":"48h - 72h"},"8":{"shipping_id":8,"status":"D","shipping":"Geodis Calberson","delivery_time":"24h"},"31":{"shipping_id":31,"status":"D","shipping":"Geodis","delivery_time":"48h \u00e0 7jours ouvr\u00e9s"},"11":{"shipping_id":11,"status":"D","shipping":"Exapaq","delivery_time":"48h - 72h"},"14":{"shipping_id":14,"status":"D","shipping":"Colis Priv\u00e9","delivery_time":"48h - 72h"},"25":{"shipping_id":25,"status":"D","shipping":"Heppner","delivery_time":"48h - 72h"},"15":{"shipping_id":15,"status":"D","shipping":"Evertrans","delivery_time":"24h"},"33":{"shipping_id":33,"status":"D","shipping":"GEFCO","delivery_time":"48h \u00e0 7jours ouvr\u00e9s"},"32":{"shipping_id":32,"status":"D","shipping":"DPD","delivery_time":"48h \u00e0 7jours ouvr\u00e9s"},"23":{"shipping_id":23,"status":"D","shipping":"Groupe Mazet","delivery_time":"72h"},"30":{"shipping_id":30,"status":"D","shipping":"Groupe Guisnel","delivery_time":"3 \u00e0 5 jours"},"29":{"shipping_id":29,"status":"D","shipping":"SIC EXPRESS","delivery_time":"24h- 72h"},"24":{"shipping_id":24,"status":"D","shipping":"Schenker-Joyau","delivery_time":"24h - 48h"},"22":{"shipping_id":22,"status":"D","shipping":"Rodis (Groupe STJ Jeantet)","delivery_time":"72h"}}'
