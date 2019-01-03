@@ -6,7 +6,12 @@
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
-- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getAll`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getById`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::put`
+- Added `\Wizaplace\SDK\Shipping\ShippingRate`
+- Added `\Wizaplace\SDK\Shipping\ShippingStatus`
 
 ## 1.44.5
 
