@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.44.8
+
+### New features
+
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getAll`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getById`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::put`
+- Added `\Wizaplace\SDK\Shipping\ShippingRate`
+- Added `\Wizaplace\SDK\Shipping\ShippingStatus`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+
 ## 1.44.7
 
 ### New features
@@ -34,7 +46,7 @@
 
 ## 1.44.3
 
-### New features
+## New features
 
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
@@ -54,7 +66,7 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
 
 ## 1.44.1
 
