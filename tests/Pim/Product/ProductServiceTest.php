@@ -166,6 +166,7 @@ final class ProductServiceTest extends ApiTestCase
             $this->assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
             $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
             $this->assertGreaterThan(0, $product->getCompanyId());
+            $this->assertTrue(is_array($product->getDivisions()));
         }
     }
 

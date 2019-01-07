@@ -6,7 +6,8 @@
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
-- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getDivisions`
 
 ## 1.44.5
 
