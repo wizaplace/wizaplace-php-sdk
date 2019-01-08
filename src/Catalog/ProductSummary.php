@@ -54,6 +54,8 @@ final class ProductSummary
     private $geolocation;
     /** @var null|DeclinationId */
     private $mainDeclinationId;
+    /** @var null|ProductOffer[] */
+    private $offers;
 
     /**
      * @internal
@@ -90,6 +92,11 @@ final class ProductSummary
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
         if (isset($data['mainDeclination']['id'])) {
             $this->mainDeclinationId = new DeclinationId($data['mainDeclination']['id']);
+        }
+        if (isset($data['offers'])) {
+            $this->offers = array_map(function (array $offer): ProductOffer {
+                return new ProductOffer($offer);
+            }, $data['offers']);
         }
     }
 
@@ -207,5 +214,10 @@ final class ProductSummary
     public function getMainDeclinationId(): ?DeclinationId
     {
         return $this->mainDeclinationId;
+    }
+
+    public function getOffers(): array
+    {
+        return $this->offers;
     }
 }

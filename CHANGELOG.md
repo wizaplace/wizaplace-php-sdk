@@ -7,6 +7,12 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 
+## 1.44.7
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getOffers`
+
 ## 1.44.6
 
 ### New features
