@@ -28,8 +28,8 @@ final class DivisionCompany
     public function __construct(array $data)
     {
         $this->code       = $data['code'];
-        $this->isEnabled  = $data['is_enabled'];
-        $this->disabledBy = $data['disabled_by'] ?? null;
+        $this->isEnabled  = $data['isEnabled'];
+        $this->disabledBy = $data['disabledBy'] ?? null;
     }
 
     /**

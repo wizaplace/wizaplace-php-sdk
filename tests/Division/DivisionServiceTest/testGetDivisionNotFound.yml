@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@050df18
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@bee0203
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,14 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Wed, 07 Nov 2018 11:33:39 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 417bc8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/417bc8'
-            Content-Length: '2'
+            Server: nginx/1.14.2
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 28 Dec 2018 10:12:32 GMT'
+            Content-Language: fr
+            X-Debug-Token: 0263c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0263c8'
         body: '[]'

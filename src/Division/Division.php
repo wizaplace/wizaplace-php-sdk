@@ -33,7 +33,7 @@ final class Division
     /**
      * @var string
      */
-    private $description;
+    private $name;
 
     /**
      * @var null|int
@@ -57,15 +57,15 @@ final class Division
 
     public function __construct(array $data)
     {
-        $this->code        = $data['code'];
-        $this->parentCode  = $data['parentCode'];
-        $this->level       = $data['level'];
-        $this->isEnabled   = $data['isEnabled'];
-        $this->description = $data['description'];
-        $this->companyId   = $data['companyId'] ?? null;
-        $this->disabledBy  = $data['disabledBy'] ?? null;
-        $this->productId   = $data['productId'] ?? null;
-        $this->children    = [];
+        $this->code       = $data['code'];
+        $this->parentCode = $data['parentCode'];
+        $this->level      = $data['level'];
+        $this->isEnabled  = $data['isEnabled'];
+        $this->name       = $data['name'];
+        $this->companyId  = $data['companyId'] ?? null;
+        $this->disabledBy = $data['disabledBy'] ?? null;
+        $this->productId  = $data['productId'] ?? null;
+        $this->children   = [];
     }
 
     /**
@@ -103,9 +103,9 @@ final class Division
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getName(): string
     {
-        return $this->description;
+        return $this->name;
     }
 
     /**

@@ -1,15 +1,34 @@
 # Changelog
 
-## Next release
+## 1.44.6
 
 ### New features
 
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder` you can set a invoice number
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getDivisions`
+
+## 1.44.5
+
+### Breaking Changes
+
+- Rename `\Wizaplace\SDK\Division\Division::getDescription` into `\Wizaplace\SDK\Division\Division::getName`
+
+### Corrections
+
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::isEnabled`
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy` 
+
+## 1.44.4
+
+### New features
+
 - `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
 
 ## 1.44.3
 
-## New features
+### New features
 
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
