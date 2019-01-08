@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.44.7
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getOffers`
+
 ## 1.44.6
 
 ### New features
