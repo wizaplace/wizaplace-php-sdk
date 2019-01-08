@@ -1,5 +1,12 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+
 ## 1.44.6
 
 ### New features
