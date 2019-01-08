@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.44.6
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder` you can set a invoice number
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getDivisions`
+
 ## 1.44.5
 
 ### Breaking Changes
@@ -19,7 +28,7 @@
 
 ## 1.44.3
 
-## New features
+### New features
 
 - Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
@@ -39,7 +48,7 @@
 
 ### New features
 
-- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`.
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
 
 ## 1.44.1
 

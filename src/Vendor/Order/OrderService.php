@@ -16,13 +16,28 @@ use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
 class OrderService extends AbstractService
 {
-    public function acceptOrder(int $orderId): void
+    public function acceptOrder(int $orderId, bool $createInvoice = false, string $invoiceNumber = "", bool $createBillingNumber = false): void
     {
+        if ($createInvoice && empty($invoiceNumber) && !$createBillingNumber) {
+            throw new SomeParametersAreInvalid("If you choose to create an invoice, you need to set a number");
+        }
+
+        $options = [
+            'approved' => true,
+        ];
+
+        if ($createBillingNumber) {
+            $options['create_automatic_billing_number'] = true;
+        } else {
+            $options['do_not_create_invoice'] = $createInvoice;
+            if ($createInvoice) {
+                $options['invoice_number'] = $invoiceNumber;
+            }
+        }
+
         $this->client->mustBeAuthenticated();
         $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'approved' => true,
-            ],
+            RequestOptions::JSON => $options,
         ]);
     }
 
