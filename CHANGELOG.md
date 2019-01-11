@@ -2,6 +2,9 @@
 
 ## Next release
 
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`

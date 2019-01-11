@@ -44,6 +44,7 @@ final class OptionTest extends TestCase
 {
     "id": 7,
     "name": "size",
+    "position": 0,
     "variants": [
         {
             "id": 1,
