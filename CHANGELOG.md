@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.44.9
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getDivisions`
+
 ## 1.44.8
 
 ### New features
