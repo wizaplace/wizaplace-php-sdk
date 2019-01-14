@@ -6,6 +6,7 @@
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
 
 ## 1.44.10
 
@@ -29,8 +30,6 @@
 - Added `\Wizaplace\SDK\Shipping\ShippingService::put`
 - Added `\Wizaplace\SDK\Shipping\ShippingRate`
 - Added `\Wizaplace\SDK\Shipping\ShippingStatus`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
-- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 
 ## 1.44.7
 

@@ -51,6 +51,11 @@ final class Division
     private $productId;
 
     /**
+     * @var null|int
+     */
+    private $maxLevel;
+
+    /**
      * @var Division[]
      */
     private $children;
@@ -65,6 +70,7 @@ final class Division
         $this->companyId  = $data['companyId'] ?? null;
         $this->disabledBy = $data['disabledBy'] ?? null;
         $this->productId  = $data['productId'] ?? null;
+        $this->maxLevel   = $data['maxLevel'] ?? null;
         $this->children   = [];
     }
 
@@ -134,6 +140,14 @@ final class Division
     public function getProductId(): ?int
     {
         return $this->productId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxLevel(): ?int
+    {
+        return $this->maxLevel;
     }
 
     /**
