@@ -1,9 +1,13 @@
 # Changelog
 
-## 1.44.9
+## 1.44.10
+
+### New features
 
 - Updated `Wizaplace\SDK\Catalog\DeclinationOption`
 - Updated `Wizaplace\SDK\Catalog\Option`
+
+## 1.44.9
 
 ### New features
 
