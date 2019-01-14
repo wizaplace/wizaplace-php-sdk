@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.44.10
+
+### New features
+
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
+## 1.44.9
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getDivisions`
+
 ## 1.44.8
 
 ### New features
