@@ -23,8 +23,8 @@ class ProductOffer
     {
         $this->productId = (int) $data['productId'];
         $this->companyId = (int) $data['companyId'];
-        $this->price = (float) $data['price'];
-        $this->divisions = array_filter($data['divisions']);
+        $this->price     = (float) $data['price'];
+        $this->divisions = is_array($data['divisions']) ? array_filter($data['divisions']) : [];
     }
 
     public function getProductId(): int

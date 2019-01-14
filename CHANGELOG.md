@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.44.11
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Catalog\ProductOffer` with null `$data['divisions']`
+- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null 
+
 ## 1.44.10
 
 ### New features
