@@ -2,13 +2,23 @@
 
 ## Next release
 
-- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
-- Updated `Wizaplace\SDK\Catalog\Option`
-
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+
+## 1.44.10
+
+### New features
+
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
+## 1.44.9
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getDivisions`
 
 ## 1.44.8
 
@@ -19,6 +29,8 @@
 - Added `\Wizaplace\SDK\Shipping\ShippingService::put`
 - Added `\Wizaplace\SDK\Shipping\ShippingRate`
 - Added `\Wizaplace\SDK\Shipping\ShippingStatus`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 
 ## 1.44.7
 
