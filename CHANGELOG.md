@@ -7,6 +7,8 @@
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 - Added `Wizaplace\SDK\Division\Division::getMaxLevel`
+- Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
+- Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 
 ## 1.44.10
 

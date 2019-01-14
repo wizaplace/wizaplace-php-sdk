@@ -229,6 +229,50 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param int $companyId
+     * @param array $imageFile
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function updateCompanyImage(int $companyId, array $imageFile): int
+    {
+        $this->client->mustBeAuthenticated();
+
+        return (int) $this->client->rawRequest("POST", "companies/{$companyId}/image", [
+            RequestOptions::MULTIPART => [
+                'file' => $imageFile,
+            ],
+        ])
+            ->getBody()
+            ->getContents();
+    }
+
+    /**
+     * @param int $companyId
+     * @param int $imageId
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
+    public function deleteCompanyImage(int $companyId, int $imageId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->delete("companies/{$companyId}/image/{$imageId}");
+    }
+
+    /**
+     * @param int $companyId
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function getCompanyImageId(int $companyId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("companies/{$companyId}/image");
+    }
+
+    /**
      * Allow to get a list of countries codes of enabled divisions for the company
      *
      * @param int $companyId

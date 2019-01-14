@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Jul 2018 12:05:49 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: d4361b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d4361b'
-            Content-Length: '60'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"2UA5TGBKBQe3Kx+h8ZKibQLBOCb1lKu1hNozhnF7"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Set-Cookie: 'sid_customer_94253=45c252c295e5b1c466610c34b1e9cb9b_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 14 Dec 2018 08:58:48 GMT'
+            Content-Language: fr
+            X-Debug-Token: b20359
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b20359'
+        body: '{"id":6,"apiKey":"BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy"}'
 -
     request:
         method: GET
@@ -32,8 +35,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
-            Authorization: 'token 2UA5TGBKBQe3Kx+h8ZKibQLBOCb1lKu1hNozhnF7'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
+            Authorization: 'token BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +45,15 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Mon, 23 Jul 2018 12:05:50 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 1c6069
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c6069'
-            Content-Length: '45'
+            Server: nginx/1.14.2
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Set-Cookie: 'sid_customer_94253=0497b5896e0114706a12693566d545e7_C; expires=Fri, 28-Dec-2018 08:58:48 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 14 Dec 2018 08:58:48 GMT'
+            Content-Language: fr
+            X-Debug-Token: 812f62
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/812f62'
         body: '{"message":"Company \u00221\u0022 not found"}'
