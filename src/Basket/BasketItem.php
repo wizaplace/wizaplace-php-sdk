@@ -54,6 +54,9 @@ final class BasketItem
     /** @var float */
     private $greenTax;
 
+    /** @var array  */
+    private $divisions;
+
     /**
      * @internal
      */
@@ -77,6 +80,7 @@ final class BasketItem
         $this->unitPrice = new Price($data['unitPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
         $this->greenTax = $data['greenTax'];
+        $this->divisions = $data['divisions'] ?? [];
     }
 
     public function getDeclinationId(): DeclinationId
@@ -156,5 +160,10 @@ final class BasketItem
     public function getGreenTax(): float
     {
         return $this->greenTax;
+    }
+
+    public function getDivisions(): array
+    {
+        return $this->divisions;
     }
 }
