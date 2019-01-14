@@ -106,6 +106,7 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertGreaterThan(0, $basketItem->getProductId());
                     $this->assertGreaterThan(0, $basketItem->getQuantity());
                     $this->assertNotEmpty($basketItem->getProductName());
+                    $this->assertNotEmpty($basketItem->getProductCode());
                     $this->assertNotEmpty($basketItem->getDeclinationId());
                     $this->assertSame([], $basketItem->getDeclinationOptions());
                     $this->assertGreaterThan(0, $basketItem->getIndividualPrice());
@@ -116,6 +117,7 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithTaxes(), $basketItem->getTotalPrice()->getPriceWithTaxes());
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithoutVat(), $basketItem->getTotalPrice()->getPriceWithoutVat());
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getVat(), $basketItem->getTotalPrice()->getVat());
+                    $this->assertTrue(is_array($basketItem->getDivisions()));
                     $basketItem->getMainImage();
                     $basketItem->getCrossedOutPrice();
                 }

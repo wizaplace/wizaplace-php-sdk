@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Pim\Product;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_int;
 
@@ -141,6 +142,120 @@ final class ProductService extends AbstractService
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to get a list of countries codes of enabled divisions for the product
+     *
+     * @param int $productId
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getDivisionsCountriesCodes(int $productId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->get("products/{$productId}/divisions");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to get a list of divsions enabled for the product
+     *
+     * @param int    $productId
+     * @param string $countryCode
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function getDivisions(int $productId, string $countryCode): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->get("products/{$productId}/divisions/{$countryCode}");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * Allow to disable divisions for the product
+     *
+     * @param int    $productId
+     * @param string $countryCode
+     * @param array  $codes
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     */
+    public function putDivisions(int $productId, string $countryCode, array $codes): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->put("products/{$productId}/divisions/{$countryCode}", [
+                RequestOptions::FORM_PARAMS => [
+                    'code' => $codes,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($e);
+            }
+            throw $e;
+        }
+    }
+
+    public function addVideo(int $productId, string $url) : array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->post("products/${productId}/video", [
+                RequestOptions::FORM_PARAMS => [
+                    'url' => $url,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new \Exception("Product #${productId} not found", $e);
+            }
+
+            if ($e->getCode() === 500) {
+                throw new \Exception("Unable to upload video", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function deleteVideo(int $productId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->rawRequest("DELETE", "products/${productId}/video");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new \Exception("Product #${productId} not found", $e);
             }
 
             throw $e;

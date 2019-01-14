@@ -1,10 +1,109 @@
 # Changelog
 
-### Next release
+## Next release
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
+
+## 1.44.10
+
+### New features
+
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
+## 1.44.9
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getDivisions`
+
+## 1.44.8
+
+### New features
+
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getAll`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getById`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::put`
+- Added `\Wizaplace\SDK\Shipping\ShippingRate`
+- Added `\Wizaplace\SDK\Shipping\ShippingStatus`
+
+## 1.44.7
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getOffers`
+
+## 1.44.6
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder` you can set a invoice number
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getDivisions`
+
+## 1.44.5
+
+### Breaking Changes
+
+- Rename `\Wizaplace\SDK\Division\Division::getDescription` into `\Wizaplace\SDK\Division\Division::getName`
+
+### Corrections
+
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::isEnabled`
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy` 
+
+## 1.44.4
+
+### New features
+
+- `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
+
+## 1.44.3
+
+### New features
+
+- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
+- Added `\Wizaplace\SDK\Division\DivisionService::get`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Division\DivisionCompany`
+- Added `\Wizaplace\SDK\Company\CompanyService::getDivisions`
+- Added `\Wizaplace\SDK\Company\CompanyService::setDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisionsCountriesCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getDivisions`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::setDivisions`
+- Added `\Wizaplace\SDK\Division\DivisionService::set`
+- Added `\Wizaplace\SDK\User\UserAddress::getDivision`
+- Added `\Wizaplace\SDK\Catalog\ProductOffer`
+- Added `\Wizaplace\SDK\Catalog\Product::getOffers`
+
+## 1.44.2
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+
+## 1.44.1
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+
+## 1.44.0
+
+### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\Payment::getCommitmentDate`
 - Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+
+### Corrections
+
+- Fixed an issue with `Wizaplace\SDK\User\UserService::enable` and `Wizaplace\SDK\User\UserService::disable`
 
 ## 1.43.0
 

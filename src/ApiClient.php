@@ -181,6 +181,15 @@ final class ApiClient
         );
     }
 
+    public function patch(string $endpoint, array $options = [])
+    {
+        return $this->jsonDecode(
+            $this->rawRequest("PATCH", $endpoint, $options)
+                ->getBody()
+                ->getContents()
+        );
+    }
+
     public function delete(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(

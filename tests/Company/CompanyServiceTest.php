@@ -19,6 +19,7 @@ use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\User\UserType;
 
 /**
  * @see CompanyService
@@ -258,6 +259,64 @@ final class CompanyServiceTest extends ApiTestCase
         $result = $service->deleteCompanyImage($companyId, $companyImageId);
         $this->assertEquals(true, $result["success"]);
         $this->assertEquals("Image ".$imageId." successfully deleted", $result["message"]);
+    }
+
+    public function testGettingAListOfDivisionsCountriesCode(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $countriesCodes = $service->getDivisionsCountriesCodes(3);
+        $this->assertCount(200, $countriesCodes);
+    }
+
+    public function testGettingAListOfDivisionsBlacklists(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->getDivisions(3, 'FR');
+        $this->assertCount(125, $divisions);
+
+        foreach ($divisions as $division) {
+            switch ($division->getCode()) {
+                case 'FR':
+                case 'FR-ARA':
+                case 'FR-01':
+                case 'FR-03':
+                    $this->assertEquals(true, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+                case 'FR-69':
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
+                    $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
+                    break;
+            }
+        }
+    }
+
+    public function testSettingDivisionsBlacklists(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+
+        $divisions = $service->putDivisions(3, 'FR', ['FR-03', 'FR-69']);
+        $this->assertCount(125, $divisions);
+
+        foreach ($divisions as $division) {
+            switch ($division->getCode()) {
+                case 'FR':
+                case 'FR-ARA':
+                case 'FR-03':
+                case 'FR-69':
+                    $this->assertEquals(true, $division->isEnabled());
+                    $this->assertNull($division->getDisabledBy());
+                    break;
+                case 'FR-01':
+                    $this->assertEquals(false, $division->isEnabled());
+                    $this->assertInstanceOf(UserType::class, $division->getDisabledBy());
+                    $this->assertEquals(UserType::VENDOR(), $division->getDisabledBy());
+                    break;
+            }
+        }
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService

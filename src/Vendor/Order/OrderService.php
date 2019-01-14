@@ -7,19 +7,37 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Exception\AccessDenied;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
 class OrderService extends AbstractService
 {
-    public function acceptOrder(int $orderId): void
+    public function acceptOrder(int $orderId, bool $createInvoice = false, string $invoiceNumber = "", bool $createBillingNumber = false): void
     {
+        if ($createInvoice && empty($invoiceNumber) && !$createBillingNumber) {
+            throw new SomeParametersAreInvalid("If you choose to create an invoice, you need to set a number");
+        }
+
+        $options = [
+            'approved' => true,
+        ];
+
+        if ($createBillingNumber) {
+            $options['create_automatic_billing_number'] = true;
+        } else {
+            $options['do_not_create_invoice'] = $createInvoice;
+            if ($createInvoice) {
+                $options['invoice_number'] = $invoiceNumber;
+            }
+        }
+
         $this->client->mustBeAuthenticated();
         $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'approved' => true,
-            ],
+            RequestOptions::JSON => $options,
         ]);
     }
 
@@ -128,15 +146,35 @@ class OrderService extends AbstractService
         }, $taxesData);
     }
 
+    public function getHandDeliveryCodes(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("orders/${orderId}/handDelivery");
+    }
+
     public function reportHandDelivery(int $orderId, ?string $deliveryCode): void
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/${orderId}/handDelivery", [
-            RequestOptions::JSON => [
-                'code' => $deliveryCode,
-            ],
-        ]);
+        try {
+            $this->client->post("orders/${orderId}/handDelivery", [
+                RequestOptions::JSON => [
+                    'code' => $deliveryCode,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 400) {
+                $body = json_decode($e->getResponse()->getBody());
+                throw new SomeParametersAreInvalid($body->error->message, 400, $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new AccessDenied("You're not allowed to access to this order", 403);
+            }
+
+            throw $e;
+        }
     }
 
     public function generateMondialRelayLabel(int $orderId, CreateLabelCommand $command)
