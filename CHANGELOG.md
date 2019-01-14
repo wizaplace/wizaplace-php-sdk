@@ -9,6 +9,7 @@
 - Added `Wizaplace\SDK\Division\Division::getMaxLevel`
 - Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
 
 ## 1.44.10
 
