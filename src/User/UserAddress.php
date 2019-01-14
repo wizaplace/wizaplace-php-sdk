@@ -41,6 +41,9 @@ final class UserAddress implements ArrayableInterface
     /** @var string */
     private $country;
 
+    /** @var string */
+    private $divisionCode;
+
     public function __construct(array $data)
     {
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
@@ -53,6 +56,7 @@ final class UserAddress implements ArrayableInterface
         $this->zipCode = $data['zipcode'];
         $this->city = $data['city'];
         $this->country = $data['country'];
+        $this->divisionCode = $data['division_code'] ?? "";
     }
 
     public function getTitle(): ?UserTitle
@@ -105,19 +109,25 @@ final class UserAddress implements ArrayableInterface
         return $this->country;
     }
 
+    public function getDivisionCode(): string
+    {
+        return $this->divisionCode;
+    }
+
     public function toArray() : array
     {
         return [
-            'title'     => is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
-            'firstname' => $this->getFirstName(),
-            'lastname'  => $this->getLastName(),
-            'company'   => $this->getCompany(),
-            'phone'     => $this->getPhone(),
-            'address'   => $this->getAddress(),
-            'address_2' => $this->getAddressSecondLine(),
-            'zipcode'   => $this->getZipCode(),
-            'city'      => $this->getCity(),
-            'country'   => $this->getCountry(),
+            'title'         => is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
+            'firstname'     => $this->getFirstName(),
+            'lastname'      => $this->getLastName(),
+            'company'       => $this->getCompany(),
+            'phone'         => $this->getPhone(),
+            'address'       => $this->getAddress(),
+            'address_2'     => $this->getAddressSecondLine(),
+            'zipcode'       => $this->getZipCode(),
+            'city'          => $this->getCity(),
+            'country'       => $this->getCountry(),
+            'division_code' => $this->getDivisionCode(),
         ];
     }
 }

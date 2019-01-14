@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-478-add-shipping-service@cd51608
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 04 Jan 2019 07:27:48 GMT'
+            Content-Language: fr
+            X-Debug-Token: f2c9ca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f2c9ca'
+        body: '{"id":4,"apiKey":"jLbyPKJfcZWfcim+xZILRMSbROeZ\/UIL1y+9k7JN"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/shippings/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-478-add-shipping-service@cd51608
+            Authorization: 'token jLbyPKJfcZWfcim+xZILRMSbROeZ/UIL1y+9k7JN'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 04 Jan 2019 07:27:48 GMT'
+            Content-Language: fr
+            X-Debug-Token: ee101d
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/ee101d'
+        body: '{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":10},{"amount":1,"value":10}],"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}'

@@ -1,0 +1,60 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@6f8e276
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 31 Dec 2018 10:20:30 GMT'
+            Content-Language: fr
+            X-Debug-Token: 2b2963
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2b2963'
+        body: '{"id":6,"apiKey":"zNXlkaC9gm5e1NKpI6n\/SZg2AL6jzrhxgIeZeRiy"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions/FR'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-457-fix-divisions-snake-case@6f8e276
+            Authorization: 'token zNXlkaC9gm5e1NKpI6n/SZg2AL6jzrhxgIeZeRiy'
+            VCR-index: '1'
+            Accept: null
+        body: 'code%5B0%5D=FR-03&code%5B1%5D=FR-69'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 31 Dec 2018 10:20:30 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4dbf09
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4dbf09'
+        body: '[{"code":"FR-ARA","isEnabled":true,"disabledBy":null},{"code":"FR-01","isEnabled":false,"disabledBy":"V"},{"code":"FR-03","isEnabled":true,"disabledBy":null},{"code":"FR-07","isEnabled":false,"disabledBy":"A"},{"code":"FR-15","isEnabled":false,"disabledBy":"A"},{"code":"FR-26","isEnabled":false,"disabledBy":"A"},{"code":"FR-43","isEnabled":false,"disabledBy":"A"},{"code":"FR-74","isEnabled":false,"disabledBy":"A"},{"code":"FR-38","isEnabled":false,"disabledBy":"A"},{"code":"FR-42","isEnabled":false,"disabledBy":"A"},{"code":"FR-63","isEnabled":false,"disabledBy":"A"},{"code":"FR-69","isEnabled":true,"disabledBy":null},{"code":"FR-73","isEnabled":false,"disabledBy":"A"},{"code":"FR-BFC","isEnabled":false,"disabledBy":"A"},{"code":"FR-21","isEnabled":false,"disabledBy":"A"},{"code":"FR-25","isEnabled":false,"disabledBy":"A"},{"code":"FR-70","isEnabled":false,"disabledBy":"A"},{"code":"FR-39","isEnabled":false,"disabledBy":"A"},{"code":"FR-58","isEnabled":false,"disabledBy":"A"},{"code":"FR-71","isEnabled":false,"disabledBy":"A"},{"code":"FR-90","isEnabled":false,"disabledBy":"A"},{"code":"FR-89","isEnabled":false,"disabledBy":"A"},{"code":"FR-BRE","isEnabled":false,"disabledBy":"A"},{"code":"FR-22","isEnabled":false,"disabledBy":"A"},{"code":"FR-29","isEnabled":false,"disabledBy":"A"},{"code":"FR-35","isEnabled":false,"disabledBy":"A"},{"code":"FR-56","isEnabled":false,"disabledBy":"A"},{"code":"FR-CVL","isEnabled":false,"disabledBy":"A"},{"code":"FR-18","isEnabled":false,"disabledBy":"A"},{"code":"FR-28","isEnabled":false,"disabledBy":"A"},{"code":"FR-36","isEnabled":false,"disabledBy":"A"},{"code":"FR-37","isEnabled":false,"disabledBy":"A"},{"code":"FR-41","isEnabled":false,"disabledBy":"A"},{"code":"FR-45","isEnabled":false,"disabledBy":"A"},{"code":"FR-CP","isEnabled":false,"disabledBy":"A"},{"code":"FR-COR","isEnabled":false,"disabledBy":"A"},{"code":"FR-2A","isEnabled":false,"disabledBy":"A"},{"code":"FR-2B","isEnabled":false,"disabledBy":"A"},{"code":"FR-PF","isEnabled":false,"disabledBy":"A"},{"code":"FR-TF","isEnabled":false,"disabledBy":"A"},{"code":"FR-GES","isEnabled":false,"disabledBy":"A"},{"code":"FR-08","isEnabled":false,"disabledBy":"A"},{"code":"FR-10","isEnabled":false,"disabledBy":"A"},{"code":"FR-67","isEnabled":false,"disabledBy":"A"},{"code":"FR-68","isEnabled":false,"disabledBy":"A"},{"code":"FR-52","isEnabled":false,"disabledBy":"A"},{"code":"FR-51","isEnabled":false,"disabledBy":"A"},{"code":"FR-54","isEnabled":false,"disabledBy":"A"},{"code":"FR-55","isEnabled":false,"disabledBy":"A"},{"code":"FR-57","isEnabled":false,"disabledBy":"A"},{"code":"FR-88","isEnabled":false,"disabledBy":"A"},{"code":"FR-GUA","isEnabled":false,"disabledBy":"A"},{"code":"FR-GP","isEnabled":false,"disabledBy":"A"},{"code":"FR-GF","isEnabled":false,"disabledBy":"A"},{"code":"FR-HDF","isEnabled":false,"disabledBy":"A"},{"code":"FR-02","isEnabled":false,"disabledBy":"A"},{"code":"FR-59","isEnabled":false,"disabledBy":"A"},{"code":"FR-60","isEnabled":false,"disabledBy":"A"},{"code":"FR-62","isEnabled":false,"disabledBy":"A"},{"code":"FR-80","isEnabled":false,"disabledBy":"A"},{"code":"FR-IDF","isEnabled":false,"disabledBy":"A"},{"code":"FR-91","isEnabled":false,"disabledBy":"A"},{"code":"FR-92","isEnabled":false,"disabledBy":"A"},{"code":"FR-75","isEnabled":false,"disabledBy":"A"},{"code":"FR-77","isEnabled":false,"disabledBy":"A"},{"code":"FR-93","isEnabled":false,"disabledBy":"A"},{"code":"FR-95","isEnabled":false,"disabledBy":"A"},{"code":"FR-94","isEnabled":false,"disabledBy":"A"},{"code":"FR-78","isEnabled":false,"disabledBy":"A"},{"code":"FR-LRE","isEnabled":false,"disabledBy":"A"},{"code":"FR-RE","isEnabled":false,"disabledBy":"A"},{"code":"FR-MQ","isEnabled":false,"disabledBy":"A"},{"code":"FR-MAY","isEnabled":false,"disabledBy":"A"},{"code":"FR-YT","isEnabled":false,"disabledBy":"A"},{"code":"FR-NC","isEnabled":false,"disabledBy":"A"},{"code":"FR-NOR","isEnabled":false,"disabledBy":"A"},{"code":"FR-14","isEnabled":false,"disabledBy":"A"},{"code":"FR-27","isEnabled":false,"disabledBy":"A"},{"code":"FR-50","isEnabled":false,"disabledBy":"A"},{"code":"FR-61","isEnabled":false,"disabledBy":"A"},{"code":"FR-76","isEnabled":false,"disabledBy":"A"},{"code":"FR-NAQ","isEnabled":false,"disabledBy":"A"},{"code":"FR-16","isEnabled":false,"disabledBy":"A"},{"code":"FR-17","isEnabled":false,"disabledBy":"A"},{"code":"FR-19","isEnabled":false,"disabledBy":"A"},{"code":"FR-23","isEnabled":false,"disabledBy":"A"},{"code":"FR-79","isEnabled":false,"disabledBy":"A"},{"code":"FR-24","isEnabled":false,"disabledBy":"A"},{"code":"FR-33","isEnabled":false,"disabledBy":"A"},{"code":"FR-87","isEnabled":false,"disabledBy":"A"},{"code":"FR-40","isEnabled":false,"disabledBy":"A"},{"code":"FR-47","isEnabled":false,"disabledBy":"A"},{"code":"FR-64","isEnabled":false,"disabledBy":"A"},{"code":"FR-86","isEnabled":false,"disabledBy":"A"},{"code":"FR-OCC","isEnabled":false,"disabledBy":"A"},{"code":"FR-09","isEnabled":false,"disabledBy":"A"},{"code":"FR-11","isEnabled":false,"disabledBy":"A"},{"code":"FR-12","isEnabled":false,"disabledBy":"A"},{"code":"FR-30","isEnabled":false,"disabledBy":"A"},{"code":"FR-32","isEnabled":false,"disabledBy":"A"},{"code":"FR-31","isEnabled":false,"disabledBy":"A"},{"code":"FR-65","isEnabled":false,"disabledBy":"A"},{"code":"FR-34","isEnabled":false,"disabledBy":"A"},{"code":"FR-46","isEnabled":false,"disabledBy":"A"},{"code":"FR-48","isEnabled":false,"disabledBy":"A"},{"code":"FR-66","isEnabled":false,"disabledBy":"A"},{"code":"FR-81","isEnabled":false,"disabledBy":"A"},{"code":"FR-82","isEnabled":false,"disabledBy":"A"},{"code":"FR-PDL","isEnabled":false,"disabledBy":"A"},{"code":"FR-44","isEnabled":false,"disabledBy":"A"},{"code":"FR-49","isEnabled":false,"disabledBy":"A"},{"code":"FR-53","isEnabled":false,"disabledBy":"A"},{"code":"FR-72","isEnabled":false,"disabledBy":"A"},{"code":"FR-85","isEnabled":false,"disabledBy":"A"},{"code":"FR-PAC","isEnabled":false,"disabledBy":"A"},{"code":"FR-04","isEnabled":false,"disabledBy":"A"},{"code":"FR-06","isEnabled":false,"disabledBy":"A"},{"code":"FR-13","isEnabled":false,"disabledBy":"A"},{"code":"FR-05","isEnabled":false,"disabledBy":"A"},{"code":"FR-83","isEnabled":false,"disabledBy":"A"},{"code":"FR-84","isEnabled":false,"disabledBy":"A"},{"code":"FR-BL","isEnabled":false,"disabledBy":"A"},{"code":"FR-MF","isEnabled":false,"disabledBy":"A"},{"code":"FR-PM","isEnabled":false,"disabledBy":"A"},{"code":"FR-WF","isEnabled":false,"disabledBy":"A"}]'

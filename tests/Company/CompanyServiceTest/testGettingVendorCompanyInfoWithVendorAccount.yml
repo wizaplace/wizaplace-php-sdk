@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Jul 2018 09:17:57 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 59c481
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/59c481'
-            Content-Length: '60'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"dAe8Lwv31SbhFyS8X66eBTkjUUjoLQCU8GvQByMn"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Set-Cookie: 'sid_customer_94253=c929548fc9eeda79008544c159fc7121_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 14 Dec 2018 08:58:47 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9c2556
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9c2556'
+        body: '{"id":6,"apiKey":"BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy"}'
 -
     request:
         method: GET
@@ -32,8 +35,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@53d6c1f
-            Authorization: 'token dAe8Lwv31SbhFyS8X66eBTkjUUjoLQCU8GvQByMn'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
+            Authorization: 'token BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +45,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Jul 2018 09:17:58 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 6840dd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6840dd'
-            Content-Length: '509'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"01 02 03 04 05","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Set-Cookie: 'sid_customer_94253=d1026253a711787e352d3eb24711b94a_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 14 Dec 2018 08:58:47 GMT'
+            Content-Language: fr
+            X-Debug-Token: 59b9c4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/59b9c4'
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'

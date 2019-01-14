@@ -21,6 +21,9 @@ final class BasketItem
     /** @var string */
     private $productName;
 
+    /** @var string */
+    private $productCode;
+
     /** @var float */
     private $individualPrice;
 
@@ -51,6 +54,9 @@ final class BasketItem
     /** @var float */
     private $greenTax;
 
+    /** @var array  */
+    private $divisions;
+
     /**
      * @internal
      */
@@ -59,6 +65,7 @@ final class BasketItem
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productId = $data['productId'];
         $this->productName = $data['productName'];
+        $this->productCode = $data['productCode'];
         $this->individualPrice = $data['individualPrice'];
         $this->crossedOutPrice = $data['crossedOutPrice'];
         if ($data['mainImage']) {
@@ -73,6 +80,7 @@ final class BasketItem
         $this->unitPrice = new Price($data['unitPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
         $this->greenTax = $data['greenTax'];
+        $this->divisions = $data['divisions'] ?? [];
     }
 
     public function getDeclinationId(): DeclinationId
@@ -96,6 +104,11 @@ final class BasketItem
     public function getProductName(): string
     {
         return $this->productName;
+    }
+
+    public function getProductCode(): string
+    {
+        return $this->productCode;
     }
 
     /**
@@ -147,5 +160,10 @@ final class BasketItem
     public function getGreenTax(): float
     {
         return $this->greenTax;
+    }
+
+    public function getDivisions(): array
+    {
+        return $this->divisions;
     }
 }

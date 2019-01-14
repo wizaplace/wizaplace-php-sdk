@@ -1,0 +1,56 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 22 Nov 2018 09:20:36 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 63621d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/63621d'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"zLkiP47B55sUwvDBgtxSbqjVanXcBl2I3xg8rw3E"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/products/1/divisions/FR'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-187-dispo-des-offres@23e6e8e
+            Authorization: 'token zLkiP47B55sUwvDBgtxSbqjVanXcBl2I3xg8rw3E'
+            VCR-index: '1'
+            Accept: null
+        body: 'code%5B0%5D=FR-01&code%5B1%5D=FR-03'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 22 Nov 2018 09:20:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4bc637
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bc637'
+            Content-Length: '31'
+            Content-Type: application/json
+        body: '["FR","FR-ARA","FR-01","FR-03"]'
