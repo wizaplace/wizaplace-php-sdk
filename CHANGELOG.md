@@ -9,6 +9,7 @@
 - Added `Wizaplace\SDK\Division\Division::getMaxLevel`
 - Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
 
 ## 1.44.10
 
@@ -107,8 +108,6 @@
 
 ## 1.43.0
 
-- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
-
 ### New features
 
 - Added optional parameter `$declineReason` to `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
@@ -130,8 +129,6 @@
 
 - Added `\Wizaplace\SDK\Order\OrganisationOrderService::getOrder`
 - Added attribute `hidden` to `\Wizaplace\SDK\Organisation\OrganisationBasket`
-- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
-- Added `\Wizaplace\SDK\Cms\MenuItem::isTargetBlank`
 
 ## 1.41.0
 
