@@ -52,13 +52,13 @@ final class CatalogServiceTest extends ApiTestCase
 
         $products = iterator_to_array($catalogService->getAllProducts());
 
-        $this->assertCount(12, $products);
+        $this->assertCount(30, $products);
         $this->assertInstanceOf(Product::class, $products[0]);
 
 
         // Chargement des produits Français
         $products = iterator_to_array($catalogService->getAllProducts('fr'));
-        $this->assertCount(12, $products);
+        $this->assertCount(30, $products);
 
         /** @var Product $product */
         $product = $products[0];
@@ -68,7 +68,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         // Chargement des produits Anglais
         $products = iterator_to_array($catalogService->getAllProducts('en'));
-        $this->assertCount(12, $products);
+        $this->assertCount(30, $products);
 
         /** @var Product $product */
         $product = $products[0];
@@ -1137,7 +1137,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'company' => [
                     'id' => 3,
                     'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
+                    'slug' => 'the-world-company-inc',
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
@@ -1173,7 +1173,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'company' => [
                     'id' => 3,
                     'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
+                    'slug' => 'the-world-company-inc',
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
@@ -1209,7 +1209,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'company' => [
                     'id' => 3,
                     'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
+                    'slug' => 'the-world-company-inc',
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
@@ -1245,7 +1245,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'company' => [
                     'id' => 3,
                     'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
+                    'slug' => 'the-world-company-inc',
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,

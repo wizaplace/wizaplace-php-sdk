@@ -2,11 +2,54 @@
 
 ## Next release
 
+- Updated `Wizaplace\SDK\Catalog\DeclinationOption`
+- Updated `Wizaplace\SDK\Catalog\Option`
+
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
+
+## 1.44.8
+
+### New features
+
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getAll`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::getById`
+- Added `\Wizaplace\SDK\Shipping\ShippingService::put`
+- Added `\Wizaplace\SDK\Shipping\ShippingRate`
+- Added `\Wizaplace\SDK\Shipping\ShippingStatus`
+
+## 1.44.7
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getOffers`
+
+## 1.44.6
+
+### New features
+
+- Added `\Wizaplace\SDK\Basket\BasketItem::getProductCode`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder` you can set a invoice number
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getHandDeliveryCodes`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getDivisions`
+
+## 1.44.5
+
+### Breaking Changes
+
+- Rename `\Wizaplace\SDK\Division\Division::getDescription` into `\Wizaplace\SDK\Division\Division::getName`
+
+### Corrections
+
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::isEnabled`
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy` 
+
+## 1.44.4
+
+### New features
+
 - `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery` can now throw SomeParametersAreInvalid and AccessDenied
 - Added `Wizaplace\SDK\Division\Division::getMaxLevel`
 

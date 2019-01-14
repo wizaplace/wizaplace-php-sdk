@@ -70,6 +70,9 @@ class ProductSummary
     /** @var ProductAttachment[] */
     private $attachments;
 
+    /** @var array */
+    private $divisions;
+
     /**
      * @internal
      */
@@ -100,6 +103,7 @@ class ProductSummary
         $this->attachments = array_map(static function (array $attachmentData): ProductAttachment {
             return new ProductAttachment($attachmentData);
         }, $data['attachments'] ?? []);
+        $this->divisions = $data['divisions'] ?? [];
     }
 
     public function getId(): int
@@ -201,5 +205,10 @@ class ProductSummary
     public function getAttachments(): array
     {
         return $this->attachments;
+    }
+
+    public function getDivisions(): array
+    {
+        return $this->divisions;
     }
 }
