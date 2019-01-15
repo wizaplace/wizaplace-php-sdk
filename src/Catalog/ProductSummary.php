@@ -216,7 +216,10 @@ final class ProductSummary
         return $this->mainDeclinationId;
     }
 
-    public function getOffers(): array
+    /**
+     * @return null|ProductOffer[]
+     */
+    public function getOffers(): ?array
     {
         return $this->offers;
     }
