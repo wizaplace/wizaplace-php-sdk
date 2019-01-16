@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.44.12
+
+### New features
+
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::getDivisionCode`
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::setDivisionCode`
+
 ## 1.44.11
 
 ### Bugfixes
