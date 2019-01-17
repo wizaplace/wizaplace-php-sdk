@@ -207,4 +207,19 @@ final class OrderService extends AbstractService
             throw $e;
         }
     }
+
+    public function getPayment(int $orderId): Payment
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return new Payment($this->client->get("orders/{$orderId}/payment"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
 }

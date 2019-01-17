@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-83-endpoint-payment@cbd286b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 16 Jan 2019 15:07:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9e8e17
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e8e17'
+        body: '{"id":2,"apiKey":"3VEthUcs6iW6IHvJhUVSrH4YTbA0OyxKeWxUlpk6"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/6/payment'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-83-endpoint-payment@cbd286b
+            Authorization: 'token 3VEthUcs6iW6IHvJhUVSrH4YTbA0OyxKeWxUlpk6'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 16 Jan 2019 15:07:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: c81906
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c81906'
+        body: '{"type":"payment-deferment","processor_name":"stripe","commitment_date":null,"processor_informations":{}}'
