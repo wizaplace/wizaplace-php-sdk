@@ -4,7 +4,7 @@
 
  ### New features
 
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::setIban`
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::getBic`
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::setBic`

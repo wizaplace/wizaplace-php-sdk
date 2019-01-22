@@ -22,11 +22,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:34:57 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
             Content-Language: fr
-            X-Debug-Token: 1a4f6b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a4f6b'
-        body: '{"id":9,"apiKey":"Yr4i9wEkbcoH5CKt1JTurqRPMR\/YbvNcc\/hmrmxY"}'
+            X-Debug-Token: c911f8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c911f8'
+        body: '{"id":9,"apiKey":"OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY"}'
 -
     request:
         method: POST
@@ -37,7 +37,7 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token Yr4i9wEkbcoH5CKt1JTurqRPMR/YbvNcc/hmrmxY'
+            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
             VCR-index: '1'
             Accept: null
         body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[]}'
@@ -53,8 +53,8 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:34:57 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
             Content-Language: fr
-            X-Debug-Token: '031e20'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/031e20'
+            X-Debug-Token: 466ecb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/466ecb'
         body: '{"message":"Failed to create company: Le nom de la soci\u00e9t\u00e9 ne peut pas \u00eatre vide."}'

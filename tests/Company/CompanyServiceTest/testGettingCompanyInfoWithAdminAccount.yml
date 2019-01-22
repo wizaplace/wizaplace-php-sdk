@@ -22,11 +22,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:35:00 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: ff37a9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ff37a9'
-        body: '{"id":2,"apiKey":"eoc\/4QCo+RxhnuuVfvxEsDetaPOBElIF3FxxNgCA"}'
+            X-Debug-Token: e957f1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e957f1'
+        body: '{"id":2,"apiKey":"UG6Xgvl7vjYn+qodOmPWZdOkIVjKEqba+Tq61U+0"}'
 -
     request:
         method: GET
@@ -35,7 +35,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token eoc/4QCo+RxhnuuVfvxEsDetaPOBElIF3FxxNgCA'
+            Authorization: 'token UG6Xgvl7vjYn+qodOmPWZdOkIVjKEqba+Tq61U+0'
             VCR-index: '1'
             Accept: null
     response:
@@ -50,8 +50,8 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:35:00 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: 76dc26
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/76dc26'
+            X-Debug-Token: 64d7b2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64d7b2'
         body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'

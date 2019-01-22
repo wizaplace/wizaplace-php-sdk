@@ -24,9 +24,9 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:34:58 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:32 GMT'
             Content-Language: fr
-            X-Debug-Token: 9aeb7e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9aeb7e'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229aeb7e%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A47%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Debug-Token: b348cb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b348cb'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22b348cb%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A47%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
         body: '{"id":10,"name":"ACME Test Inc","slug":"acme-test-inc-2","email":"acme5@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"John","legalRepresentativeLastName":"Doe","extra":[]}'

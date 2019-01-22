@@ -298,7 +298,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testRegisterACompanyWithIbanAndBic()
     {
-        $companyRegistration = new CompanyRegistration('ACME4 Test Inc', 'acme4@example.com');
+        $companyRegistration = new CompanyRegistration('ACME-2019 Test Inc', 'acme-2019@example.com');
         $companyRegistration->setAddress('24 rue de la gare');
         $companyRegistration->setCapital('1 000 000 000 $');
         $companyRegistration->setCity('Lyon');

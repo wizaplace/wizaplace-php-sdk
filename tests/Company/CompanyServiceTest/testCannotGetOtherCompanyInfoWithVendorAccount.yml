@@ -22,11 +22,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:35:01 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: 80ba75
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80ba75'
-        body: '{"id":6,"apiKey":"s0INWL96OpS3mmHBxrXBO09hPsjL2QJZsDT5oX8U"}'
+            X-Debug-Token: a5cddf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a5cddf'
+        body: '{"id":6,"apiKey":"6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y"}'
 -
     request:
         method: GET
@@ -35,7 +35,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token s0INWL96OpS3mmHBxrXBO09hPsjL2QJZsDT5oX8U'
+            Authorization: 'token 6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y'
             VCR-index: '1'
             Accept: null
     response:
@@ -50,8 +50,8 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:35:01 GMT'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: '513642'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/513642'
+            X-Debug-Token: 8a0fcf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a0fcf'
         body: '{"message":"Company \u00221\u0022 not found"}'
