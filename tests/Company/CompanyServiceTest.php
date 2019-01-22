@@ -47,7 +47,7 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
 
-        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
 
         $result = $companyService->register($companyRegistration);
 
@@ -113,7 +113,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
-        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register($companyRegistration);
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
@@ -127,14 +127,14 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
 
         $this->expectException(ClientException::class); // @TODO: decorate?
-        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register($companyRegistration);
     }
 
     public function testRegisteringACompanyWithEmptyRequiredFields()
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(400);
-        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register(new CompanyRegistration('', ''));
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register(new CompanyRegistration('', ''));
     }
 
     public function testRegisteringACompanyAnonymously()
@@ -147,7 +147,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
-        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
 
         $result = $companyService->register($companyRegistration);
         $this->assertGreaterThan(0, $result->getCompany()->getId());
@@ -171,7 +171,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testRegisteringAC2CCompany(): void
     {
-        $service = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
 
         $result = $service->registerC2CCompany('Super C2C Company');
         $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
@@ -185,7 +185,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testUpdatingACompany(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
 
         $company = $service->update((new CompanyUpdateCommand(3))->setPhoneNumber('0987654321'));
 
@@ -211,13 +211,13 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getAddress());
         $this->assertSame('Paris', $company->getCity());
         $this->assertSame('FR', $company->getCountry());
-        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
-        $this->assertSame('the-world-company-inc.', $company->getSlug());
+        $this->assertSame('0987654321', $company->getPhoneNumber());
+        $this->assertSame('the-world-company-inc', $company->getSlug());
     }
 
     public function testGettingVendorCompanyInfoWithVendorAccount(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
         $company = $service->getCompany(3);
 
         $this->assertEquals(3, $company->getId());
@@ -228,19 +228,19 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('40 rue Laure Diebold', $company->getAddress());
         $this->assertSame('Paris', $company->getCity());
         $this->assertSame('FR', $company->getCountry());
-        $this->assertSame('01 02 03 04 05', $company->getPhoneNumber());
-        $this->assertSame('the-world-company-inc.', $company->getSlug());
+        $this->assertSame('0987654321', $company->getPhoneNumber());
+        $this->assertSame('the-world-company-inc', $company->getSlug());
     }
 
     public function testCannotGetOtherCompanyInfoWithVendorAccount(): void
     {
         $this->expectException(ClientException::class);
-        $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor')->getCompany(1);
+        $this->buildUserCompanyService('vendor@world-company.com', 'password')->getCompany(1);
     }
 
     public function testGettingAListOfDivisionsCountriesCode(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
 
         $countriesCodes = $service->getDivisionsCountriesCodes(3);
         $this->assertCount(200, $countriesCodes);
@@ -248,7 +248,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testGettingAListOfDivisionsBlacklists(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
 
         $divisions = $service->getDivisions(3, 'FR');
         $this->assertCount(125, $divisions);
@@ -273,7 +273,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testSettingDivisionsBlacklists(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password-vendor');
+        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
 
         $divisions = $service->putDivisions(3, 'FR', ['FR-03', 'FR-69']);
         $this->assertCount(125, $divisions);
@@ -296,7 +296,50 @@ final class CompanyServiceTest extends ApiTestCase
         }
     }
 
-    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
+    public function testRegisterACompanyWithIbanAndBic()
+    {
+        $companyRegistration = new CompanyRegistration('ACME2 Test Inc', 'acme3@example.com');
+        $companyRegistration->setAddress('24 rue de la gare');
+        $companyRegistration->setCapital('1 000 000 000 $');
+        $companyRegistration->setCity('Lyon');
+        $companyRegistration->setCountry('FR');
+        $companyRegistration->setDescription('Super ACME company');
+        $companyRegistration->setFax('01 02 03 04 05');
+        $companyRegistration->setLegalStatus('SARL');
+        $companyRegistration->setPhoneNumber('01 02 03 04 05 06');
+        $companyRegistration->setRcs('RCS VANNES B 514 919 844');
+        $companyRegistration->setVatNumber('12345678901');
+        $companyRegistration->setZipcode('69009');
+        $companyRegistration->setSiretNumber('732 829 320 00074');
+        $companyRegistration->setSlug('acme-inc');
+        $companyRegistration->setUrl('https://acme.example.com/');
+        $companyRegistration->setIban("AD1200012030200359100100");
+        $companyRegistration->setBic("AGFBFRCC");
+        $companyRegistration->setExtra(['driving_license_number' => '654987321']);
+
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
+
+        $result = $companyService->register($companyRegistration);
+
+        $company = $result->getCompany();
+
+        $this->assertSame("AD1200012030200359100100", $company->getIban());
+        $this->assertSame("AGFBFRCC", $company->getBic());
+    }
+
+    public function testRegisterACompanyC2CWithIbanAndBic()
+    {
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
+
+        $result = $companyService->registerC2CCompany("Super nom", "AD1200012030200359100100", "AGFBFRCC");
+
+        $company = $result->getCompany();
+
+        $this->assertSame("AD1200012030200359100100", $company->getIban());
+        $this->assertSame("AGFBFRCC", $company->getBic());
+    }
+
+    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password'): CompanyService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);

@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 14:27:03 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 3079b3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3079b3'
-            Content-Length: '61'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"Pw60GJYzLfzY6b1NFSS1ZJ6L49dRvSuk\/L8JhqWo"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 10:58:05 GMT'
+            Content-Language: fr
+            X-Debug-Token: '044453'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/044453'
+        body: '{"id":9,"apiKey":"QN2wb7GU\/\/B4JoO9J819cF9NfgXWTnz8wZ38GwTt"}'
 -
     request:
         method: POST
@@ -34,24 +36,26 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
-            Authorization: 'token Pw60GJYzLfzY6b1NFSS1ZJ6L49dRvSuk/L8JhqWo'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token QN2wb7GU//B4JoO9J819cF9NfgXWTnz8wZ38GwTt'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"Super C2C Company"}'
+        body: '{"name":"Super C2C Company","iban":"","bic":""}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Tue, 26 Jun 2018 14:27:04 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 6ed42a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6ed42a'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%226ed42a%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A49%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Content-Length: '381'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":6,"name":"Super C2C Company","slug":"super-c2c-company","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[]}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 10:58:06 GMT'
+            Content-Language: fr
+            X-Debug-Token: f0a38a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0a38a'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22f0a38a%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A65%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":11,"name":"Super C2C Company","slug":"super-c2c-company","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[]}'

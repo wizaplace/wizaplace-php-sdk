@@ -22,15 +22,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 10:58:07 GMT'
+            Date: 'Tue, 22 Jan 2019 10:58:09 GMT'
             Content-Language: fr
-            X-Debug-Token: e3a76b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e3a76b'
+            X-Debug-Token: 6f8e85
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f8e85'
         body: '{"id":9,"apiKey":"QN2wb7GU\/\/B4JoO9J819cF9NfgXWTnz8wZ38GwTt"}'
 -
     request:
-        method: PUT
-        url: 'http://wizaplace.loc/api/v1/companies/404'
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
         headers:
             Host: wizaplace.loc
             Expect: null
@@ -40,12 +40,12 @@
             Authorization: 'token QN2wb7GU//B4JoO9J819cF9NfgXWTnz8wZ38GwTt'
             VCR-index: '1'
             Accept: null
-        body: '{"phoneNumber":"0123456789"}'
+        body: '{"name":"ACME2 Test Inc","email":"acme3@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":"AD1200012030200359100100","bic":"AGFBFRCC","extra":{"driving_license_number":"654987321"}}'
     response:
         status:
             http_version: '1.1'
-            code: '404'
-            message: 'Not Found'
+            code: '403'
+            message: Forbidden
         headers:
             Server: nginx/1.14.2
             Content-Type: application/json
@@ -53,8 +53,8 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 10:58:07 GMT'
+            Date: 'Tue, 22 Jan 2019 10:58:09 GMT'
             Content-Language: fr
-            X-Debug-Token: 42ffdd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/42ffdd'
-        body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'
+            X-Debug-Token: '979794'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/979794'
+        body: '{"message":"You cannot register more than one company"}'

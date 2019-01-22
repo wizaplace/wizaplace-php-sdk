@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 14:27:53 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 52f50e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/52f50e'
-            Content-Length: '61'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":6,"apiKey":"Knuwv+T0kBB6b36neO6i7xamPrpcZqDD7G\/DFvUg"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 10:58:06 GMT'
+            Content-Language: fr
+            X-Debug-Token: e20143
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e20143'
+        body: '{"id":6,"apiKey":"m\/lMnO6bIGKcRnroDTJAh6rnh+3nqJ+w0amjvD+h"}'
 -
     request:
         method: PUT
@@ -34,8 +36,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
-            Authorization: 'token Knuwv+T0kBB6b36neO6i7xamPrpcZqDD7G/DFvUg'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token m/lMnO6bIGKcRnroDTJAh6rnh+3nqJ+w0amjvD+h'
             VCR-index: '1'
             Accept: null
         body: '{"phoneNumber":"0987654321"}'
@@ -45,12 +47,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 14:27:53 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: fbccda
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fbccda'
-            Content-Length: '505'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 10:58:07 GMT'
+            Content-Language: fr
+            X-Debug-Token: ba929a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ba929a'
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'

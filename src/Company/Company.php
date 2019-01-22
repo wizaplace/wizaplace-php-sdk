@@ -65,6 +65,12 @@ final class Company
     /** @var string */
     private $slug;
 
+    /** @var null|string */
+    private $iban;
+
+    /** @var string */
+    private $bic;
+
     /**
      * @var string
      */
@@ -102,6 +108,8 @@ final class Company
         $this->capital = to_string($data['capital']);
         $this->rcs = to_string($data['rcs']);
         $this->slug = to_string($data['slug']);
+        $this->iban = (!isset($data['iban']) && is_null($data['iban'])) ? "" : to_string($data['iban']);
+        $this->bic = (!isset($data['bic']) && is_null($data['bic'])) ? "" : to_string($data['bic']);
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
@@ -205,5 +213,15 @@ final class Company
     public function getExtra(): array
     {
         return $this->extra;
+    }
+
+    public function getIban(): ?string
+    {
+        return $this->iban;
+    }
+
+    public function getBic(): string
+    {
+        return $this->bic;
     }
 }

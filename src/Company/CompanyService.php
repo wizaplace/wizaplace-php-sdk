@@ -20,6 +20,9 @@ use Wizaplace\SDK\Exception\NotFound;
 final class CompanyService extends AbstractService
 {
     /**
+     * @param CompanyRegistration $companyRegistration
+     *
+     * @return CompanyRegistrationResult
      * @throws AuthenticationRequired
      */
     public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
@@ -44,6 +47,8 @@ final class CompanyService extends AbstractService
                 'rcs' => $companyRegistration->getRcs(),
                 'legalStatus' => $companyRegistration->getLegalStatus(),
                 'capital' => $companyRegistration->getCapital(),
+                'iban' => $companyRegistration->getIban(),
+                'bic' => $companyRegistration->getBic(),
                 'extra' => $companyRegistration->getExtra(),
             ],
         ]);
@@ -59,15 +64,22 @@ final class CompanyService extends AbstractService
     /**
      * Register a new C2C company (Customer-To-Customer, aka private individual).
      *
+     * @param string      $companyName
+     * @param string|null $iban
+     * @param string|null $bic
+     *
+     * @return CompanyRegistrationResult
      * @throws AuthenticationRequired
      */
-    public function registerC2CCompany($companyName = ''): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
         $responseData = $this->client->post('companies/c2c', [
             RequestOptions::JSON => [
                 'name' => $companyName,
+                'iban' => $iban ?? "",
+                'bic'  => $bic ?? "",
             ],
         ]);
 
