@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Tue, 26 Jun 2018 13:58:57 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 32c2d1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/32c2d1'
-            Content-Length: '61'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":9,"apiKey":"h\/W2CQcQbZzYsoPsQOR5SNWKjq37pMNE7n9mk1fk"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
+            Content-Language: fr
+            X-Debug-Token: c911f8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c911f8'
+        body: '{"id":9,"apiKey":"OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY"}'
 -
     request:
         method: POST
@@ -34,24 +36,25 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-company-extra@7468bca
-            Authorization: 'token h/W2CQcQbZzYsoPsQOR5SNWKjq37pMNE7n9mk1fk'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"extra":[]}'
+        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[]}'
     response:
         status:
             http_version: '1.1'
             code: '400'
             message: 'Bad Request'
         headers:
-            Date: 'Tue, 26 Jun 2018 13:58:58 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 319b99
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/319b99'
-            Content-Length: '98'
-            Connection: close
+            Server: nginx/1.14.2
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
+            Content-Language: fr
+            X-Debug-Token: 466ecb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/466ecb'
         body: '{"message":"Failed to create company: Le nom de la soci\u00e9t\u00e9 ne peut pas \u00eatre vide."}'
