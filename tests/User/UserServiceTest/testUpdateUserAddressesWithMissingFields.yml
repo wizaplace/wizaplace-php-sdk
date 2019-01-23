@@ -8,7 +8,7 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-535-division-user-update-address@ef36401
             VCR-index: '0'
             Accept: null
         body: 'email=user13%40example.com&password=password&firstName=Jean&lastName=Paul'
@@ -18,15 +18,18 @@
             code: '201'
             message: Created
         headers:
-            Date: 'Wed, 20 Dec 2017 08:57:49 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 6c9020
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c9020'
-            Content-Length: '9'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":11}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 15 Jan 2019 15:36:38 GMT'
+            Content-Language: fr
+            X-Debug-Token: ac94d1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac94d1'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22ac94d1%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":17}'
 -
     request:
         method: GET
@@ -35,7 +38,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjEzQGV4YW1wbGUuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-535-division-user-update-address@ef36401
             VCR-index: '1'
             Accept: null
     response:
@@ -44,24 +47,26 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 20 Dec 2017 08:57:50 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: eaed7d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eaed7d'
-            Content-Length: '61'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":11,"apiKey":"LEINvej5UoN4XUYufwYuyNocuAjIZYnCcMnhO2pq"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 15 Jan 2019 15:36:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: 0921f4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0921f4'
+        body: '{"id":17,"apiKey":"kID4rz4u3AqoFm6YE6+E1Oj+Y7Y6+umlAgBwNwwK"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/11'
+        url: 'http://wizaplace.loc/api/v1/users/17'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
-            Authorization: 'token LEINvej5UoN4XUYufwYuyNocuAjIZYnCcMnhO2pq'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-535-division-user-update-address@ef36401
+            Authorization: 'token kID4rz4u3AqoFm6YE6+E1Oj+Y7Y6+umlAgBwNwwK'
             VCR-index: '2'
             Accept: null
     response:
@@ -70,26 +75,28 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 20 Dec 2017 08:57:50 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b691d3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b691d3'
-            Content-Length: '505'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":11,"title":null,"email":"user13@example.com","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 15 Jan 2019 15:36:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: 85253d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/85253d'
+        body: '{"id":17,"title":null,"email":"user13@example.com","type":"C","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}}}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/users/11/addresses'
+        url: 'http://wizaplace.loc/api/v1/users/17/addresses'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
-            Authorization: 'token LEINvej5UoN4XUYufwYuyNocuAjIZYnCcMnhO2pq'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-535-division-user-update-address@ef36401
+            Authorization: 'token kID4rz4u3AqoFm6YE6+E1Oj+Y7Y6+umlAgBwNwwK'
             VCR-index: '3'
             Accept: null
         body: 'billing%5Bfirstname%5D=Jeanne&billing%5Blastname%5D=Paulette&shipping%5Btitle%5D=mr'
@@ -99,22 +106,24 @@
             code: '204'
             message: 'No Content'
         headers:
-            Date: 'Wed, 20 Dec 2017 08:57:50 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: '934e40'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/934e40'
+            Server: nginx/1.14.2
             Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 15 Jan 2019 15:36:40 GMT'
+            Content-Language: fr
+            X-Debug-Token: bf7804
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bf7804'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/11'
+        url: 'http://wizaplace.loc/api/v1/users/17'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-PIM-user-get-company@abd2ae5
-            Authorization: 'token LEINvej5UoN4XUYufwYuyNocuAjIZYnCcMnhO2pq'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-535-division-user-update-address@ef36401
+            Authorization: 'token kID4rz4u3AqoFm6YE6+E1Oj+Y7Y6+umlAgBwNwwK'
             VCR-index: '4'
             Accept: null
     response:
@@ -123,12 +132,14 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 20 Dec 2017 08:57:51 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b4dc4a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b4dc4a'
-            Content-Length: '527'
+            Server: nginx/1.14.2
             Content-Type: application/json
-        body: '{"id":11,"title":null,"email":"user13@example.com","companyId":null,"firstName":"Jeanne","lastName":"Paulette","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jeanne","lastname":"Paulette","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"mr","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":4,"38":4,"40":"","39":""}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 15 Jan 2019 15:36:40 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4b4bef
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b4bef'
+        body: '{"id":17,"title":null,"email":"user13@example.com","type":"C","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jeanne","lastname":"Paulette","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","37":3,"38":3,"40":"","39":""},"shipping":{"title":"mr","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":4,"38":4,"40":"","39":""}}}'

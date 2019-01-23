@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=41ba96ce0b01142c51d4a180d8a77e3b_C; expires=Fri, 28-Dec-2018 09:39:32 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 09:39:32 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
             Content-Language: fr
-            X-Debug-Token: ea2907
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ea2907'
-        body: '{"id":9,"apiKey":"zBdBozJwacfr58ccnQKHCBY30f0\/sgQBpRXi4fKz"}'
+            X-Debug-Token: f804ab
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f804ab'
+        body: '{"id":9,"apiKey":"OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY"}'
 -
     request:
         method: POST
@@ -37,11 +36,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Authorization: 'token zBdBozJwacfr58ccnQKHCBY30f0/sgQBpRXi4fKz'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME Test Inc","email":"acme@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"extra":[]}'
+        body: '{"name":"ACME Test Inc","email":"acme@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[]}'
     response:
         status:
             http_version: '1.1'
@@ -52,11 +51,11 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=1310adfc1bcb4daeebdf255e8c3ab464_C; expires=Fri, 28-Dec-2018 09:39:33 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly, sf_redirect=%7B%22token%22%3A%22438aee%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A36%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 09:39:33 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:31 GMT'
             Content-Language: fr
-            X-Debug-Token: 438aee
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/438aee'
-        body: '{"id":8,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":[]}'
+            X-Debug-Token: 90bd49
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90bd49'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2290bd49%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A47%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":8,"name":"ACME Test Inc","slug":"acme-test-inc","email":"acme@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":[]}'
