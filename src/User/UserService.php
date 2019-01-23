@@ -257,6 +257,7 @@ final class UserService extends AbstractService
             'zipcode' => $command->getZipCode(),
             'city' => $command->getCity(),
             'country' => $command->getCountry(),
+            'division_code' => $command->getDivisionCode(),
         ];
     }
 }
