@@ -12,6 +12,25 @@
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 - Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
 
+## 1.44.13
+
+ ### New features
+
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::setIban`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getBic`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::setBic`
+- Added `\Wizaplace\SDK\Company\Company::getIban`
+- Added `\Wizaplace\SDK\Company\Company::getBic`
+- Updated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` add 2 optional params `$iban` and `$bic`
+
+## 1.44.12
+
+### New features
+
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::getDivisionCode`
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::setDivisionCode`
+
 ## 1.44.11
 
 ### Bugfixes
