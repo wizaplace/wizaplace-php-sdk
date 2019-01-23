@@ -38,7 +38,7 @@
             Authorization: 'token 7KcOxHNfz7xkNgObwjPmfp2Ywc285tRGz5RAQrz3'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"C2C Vendor"}'
+        body: '{"name":"C2C Vendor","iban":"","bic":""}'
     response:
         status:
             http_version: '1.1'
@@ -54,7 +54,7 @@
             Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22de121f%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A52%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             Content-Length: '367'
             Content-Type: application/json
-        body: '{"id":6,"name":"C2C Vendor","slug":"c2c-vendor","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[]}'
+        body: '{"id":6,"name":"C2C Vendor","slug":"c2c-vendor","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","iban":"","bic":"","extra":[]}'
 -
     request:
         method: POST
