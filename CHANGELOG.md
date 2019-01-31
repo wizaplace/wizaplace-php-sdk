@@ -1,5 +1,7 @@
 # Changelog
 
+# 1.47.0
+
 ## 1.46.0
 
 ### New features
@@ -11,6 +13,14 @@
 - Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 - Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+
+## 1.45.0
+
+## 1.44.14
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Vendor\Order\OrderStatus` with new status
 
 ## 1.44.13
 
