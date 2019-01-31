@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.44.14
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Vendor\Order\OrderStatus` with new status
+
 ## 1.44.13
 
  ### New features
