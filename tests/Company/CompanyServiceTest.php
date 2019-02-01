@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\CompanyAddress;
 use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyRegistrationResult;
@@ -377,6 +378,24 @@ final class CompanyServiceTest extends ApiTestCase
         $company = $result->getCompany();
         $this->assertSame("AD1200012030200359100100", $company->getIban());
         $this->assertSame("AGFBFRCC", $company->getBic());
+    }
+
+    public function testRegisterACompanyC2CWithIbanAndBicAndAddress()
+    {
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
+        $result = $companyService->registerC2CCompany("Super nom", "AD1200012030200359100100", "AGFBFRCC", [], new CompanyAddress([
+            'address' => 'address',
+            'zipCode' => 'zipCode',
+            'city'    => 'city',
+            'country' => 'FR',
+        ]));
+        $company = $result->getCompany();
+        $this->assertSame("AD1200012030200359100100", $company->getIban());
+        $this->assertSame("AGFBFRCC", $company->getBic());
+        $this->assertSame("address", $company->getAddress());
+        $this->assertSame("zipCode", $company->getZipcode());
+        $this->assertSame("city", $company->getCity());
+        $this->assertSame("FR", $company->getCountry());
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password'): CompanyService

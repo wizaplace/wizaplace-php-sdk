@@ -13,6 +13,7 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Catalog\CompanyAddress;
 use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
@@ -63,16 +64,27 @@ final class CompanyService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = [], CompanyAddress $companyAddress = null): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
+        $json = [
+            'name' => $companyName,
+            'iban' => $iban ?? "",
+            'bic'  => $bic ?? "",
+        ];
+
+        if (!is_null($companyAddress)) {
+            $json = $json + [
+                    'address' => $companyAddress->getAddress(),
+                    'country' => $companyAddress->getCountry(),
+                    'zipcode' => $companyAddress->getZipCode(),
+                    'city'    => $companyAddress->getCity(),
+            ];
+        }
+
         $responseData = $this->client->post('companies/c2c', [
-            RequestOptions::JSON => [
-                'name' => $companyName,
-                'iban' => $iban ?? "",
-                'bic'  => $bic ?? "",
-            ],
+            RequestOptions::JSON => $json,
         ]);
 
         $company = new Company($responseData);

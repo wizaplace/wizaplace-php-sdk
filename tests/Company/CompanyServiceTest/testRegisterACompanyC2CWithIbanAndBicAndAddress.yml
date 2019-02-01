@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-release/1.46.0@715be68
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 01 Feb 2019 14:39:32 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9ad4f9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9ad4f9'
+        body: '{"id":3,"apiKey":"gg0vZpGbJjbrvb3Pag9oZEw01GS+Z0p2fixO1jwp"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/c2c'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-release/1.46.0@715be68
+            Authorization: 'token gg0vZpGbJjbrvb3Pag9oZEw01GS+Z0p2fixO1jwp'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Super nom","iban":"AD1200012030200359100100","bic":"AGFBFRCC","address":"address","country":"FR","zipcode":"zipCode","city":"city"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 01 Feb 2019 14:39:34 GMT'
+            Content-Language: fr
+            X-Debug-Token: dac144
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dac144'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22dac144%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A70%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":912,"name":"Super nom","slug":"super-nom","email":"user@wizaplace.com","description":"","zipcode":"zipCode","address":"address","city":"city","state":"","country":"FR","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":"AD1200012030200359100100","bic":"AGFBFRCC","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[]}'
