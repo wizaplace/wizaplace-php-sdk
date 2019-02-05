@@ -13,7 +13,6 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
-use Wizaplace\SDK\Catalog\CompanyAddress;
 use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
@@ -27,7 +26,9 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $responseData = $this->client->post('companies', [
+        $endpoint = $companyRegistration->isC2C() ? 'companies/c2c' : 'companies';
+
+        $responseData = $this->client->post($endpoint, [
             RequestOptions::JSON => [
                 'name' => $companyRegistration->getName(),
                 'email' => $companyRegistration->getEmail(),
@@ -63,28 +64,21 @@ final class CompanyService extends AbstractService
      * Register a new C2C company (Customer-To-Customer, aka private individual).
      *
      * @throws AuthenticationRequired
+     *
+     * @deprecated
      */
-    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = [], CompanyAddress $companyAddress = null): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
+        @trigger_error('The method "registerC2CCompany" is deprecated, use "register" with CompanyRegistration::isC2C instead.', E_USER_DEPRECATED);
+
         $this->client->mustBeAuthenticated();
 
-        $json = [
-            'name' => $companyName,
-            'iban' => $iban ?? "",
-            'bic'  => $bic ?? "",
-        ];
-
-        if (!is_null($companyAddress)) {
-            $json = $json + [
-                    'address' => $companyAddress->getAddress(),
-                    'country' => $companyAddress->getCountry(),
-                    'zipcode' => $companyAddress->getZipCode(),
-                    'city'    => $companyAddress->getCity(),
-            ];
-        }
-
         $responseData = $this->client->post('companies/c2c', [
-            RequestOptions::JSON => $json,
+            RequestOptions::JSON => [
+                'name' => $companyName,
+                'iban' => $iban ?? "",
+                'bic'  => $bic ?? "",
+            ],
         ]);
 
         $company = new Company($responseData);

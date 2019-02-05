@@ -69,196 +69,383 @@ class CompanyRegistration
     /** @var array */
     private $extra = [];
 
+    /** @var bool */
+    // phpcs:ignore
+    private $isC2C = false;
+
     /**
      * @var array
      * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
      */
     private $files = [];
 
+    /**
+     * CompanyRegistration constructor.
+     *
+     * @param string $name
+     * @param string $email
+     */
     public function __construct(string $name, string $email)
     {
         $this->name = $name;
         $this->email = $email;
     }
 
-
+    /**
+     * @return string
+     */
     final public function getName(): string
     {
         return $this->name;
     }
 
-    final public function setName(string $name): void
+    /**
+     * @param string $name
+     *
+     * @return CompanyRegistration
+     */
+    final public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
     }
 
+    /**
+     * @return string
+     */
     final public function getEmail(): string
     {
         return $this->email;
     }
 
-    final public function setEmail(string $email): void
+    /**
+     * @param string $email
+     *
+     * @return CompanyRegistration
+     */
+    final public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getDescription(): ?string
     {
         return $this->description;
     }
 
-    final public function setDescription(?string $description): void
+    /**
+     * @param string|null $description
+     *
+     * @return CompanyRegistration
+     */
+    final public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getZipcode(): ?string
     {
         return $this->zipcode;
     }
 
-    final public function setZipcode(?string $zipcode): void
+    /**
+     * @param string|null $zipcode
+     *
+     * @return CompanyRegistration
+     */
+    final public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getAddress(): ?string
     {
         return $this->address;
     }
 
-    final public function setAddress(?string $address): void
+    /**
+     * @param string|null $address
+     *
+     * @return CompanyRegistration
+     */
+    final public function setAddress(?string $address): self
     {
         $this->address = $address;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getCity(): ?string
     {
         return $this->city;
     }
 
-    final public function setCity(?string $city): void
+    /**
+     * @param string|null $city
+     *
+     * @return CompanyRegistration
+     */
+    final public function setCity(?string $city): self
     {
         $this->city = $city;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getCountry(): ?string
     {
         return $this->country;
     }
 
-    final public function setCountry(?string $country): void
+    /**
+     * @param string|null $country
+     *
+     * @return CompanyRegistration
+     */
+    final public function setCountry(?string $country): self
     {
         $this->country = $country;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getPhoneNumber(): ?string
     {
         return $this->phoneNumber;
     }
 
-    final public function setPhoneNumber(?string $phoneNumber): void
+    /**
+     * @param string|null $phoneNumber
+     *
+     * @return CompanyRegistration
+     */
+    final public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getFax(): ?string
     {
         return $this->fax;
     }
 
-    final public function setFax(?string $fax): void
+    /**
+     * @param string|null $fax
+     *
+     * @return CompanyRegistration
+     */
+    final public function setFax(?string $fax): self
     {
         $this->fax = $fax;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getUrl(): ?string
     {
         return $this->url;
     }
 
-    final public function setUrl(?string $url): void
+    /**
+     * @param string|null $url
+     *
+     * @return CompanyRegistration
+     */
+    final public function setUrl(?string $url): self
     {
         $this->url = $url;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getLegalStatus(): ?string
     {
         return $this->legalStatus;
     }
 
-    final public function setLegalStatus(?string $legalStatus): void
+    /**
+     * @param string|null $legalStatus
+     *
+     * @return CompanyRegistration
+     */
+    final public function setLegalStatus(?string $legalStatus): self
     {
         $this->legalStatus = $legalStatus;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getSiretNumber(): ?string
     {
         return $this->siretNumber;
     }
 
-    final public function setSiretNumber(?string $siretNumber): void
+    /**
+     * @param string|null $siretNumber
+     *
+     * @return CompanyRegistration
+     */
+    final public function setSiretNumber(?string $siretNumber): self
     {
         $this->siretNumber = $siretNumber;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getVatNumber(): ?string
     {
         return $this->vatNumber;
     }
 
-    final public function setVatNumber(?string $vatNumber): void
+    /**
+     * @param string|null $vatNumber
+     *
+     * @return CompanyRegistration
+     */
+    final public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getCapital(): ?string
     {
         return $this->capital;
     }
 
-    final public function setCapital(?string $capital): void
+    /**
+     * @param string|null $capital
+     *
+     * @return CompanyRegistration
+     */
+    final public function setCapital(?string $capital): self
     {
         $this->capital = $capital;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getRcs(): ?string
     {
         return $this->rcs;
     }
 
-    final public function setRcs(?string $rcs): void
+    /**
+     * @param string|null $rcs
+     *
+     * @return CompanyRegistration
+     */
+    final public function setRcs(?string $rcs): self
     {
         $this->rcs = $rcs;
+
+        return $this;
     }
 
+    /**
+     * @return string|null
+     */
     final public function getSlug(): ?string
     {
         return $this->slug;
     }
 
-    final public function setSlug(?string $slug): void
+    /**
+     * @param string|null $slug
+     *
+     * @return CompanyRegistration
+     */
+    final public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
     }
 
+    /**
+     * @return array
+     */
     final public function getExtra(): array
     {
         return $this->extra;
     }
 
-    final public function setExtra(array $extra): void
+    /**
+     * @param array $extra
+     *
+     * @return CompanyRegistration
+     */
+    final public function setExtra(array $extra): self
     {
         $this->extra = $extra;
+
+        return $this;
     }
 
-    final public function addUploadedFile(string $name, UploadedFileInterface $file): void
+    /**
+     * @param string                $name
+     * @param UploadedFileInterface $file
+     *
+     * @return CompanyRegistration
+     */
+    final public function addUploadedFile(string $name, UploadedFileInterface $file): self
     {
         $this->addFile(
             $name,
             $file->getStream(),
             $file->getClientFilename()
         );
+
+        return $this;
     }
 
     /**
@@ -280,10 +467,14 @@ class CompanyRegistration
 
     /**
      * @param string|null $iban
+     *
+     * @return CompanyRegistration
      */
-    final public function setIban(?string $iban): void
+    final public function setIban(?string $iban): self
     {
         $this->iban = $iban;
+
+        return $this;
     }
 
     /**
@@ -296,10 +487,34 @@ class CompanyRegistration
 
     /**
      * @param string|null $bic
+     *
+     * @return CompanyRegistration
      */
-    final public function setBic(?string $bic): void
+    final public function setBic(?string $bic): self
     {
         $this->bic = $bic;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    final public function isC2C(): bool
+    {
+        return $this->isC2C;
+    }
+
+    /**
+     * @param bool $isC2C
+     *
+     * @return CompanyRegistration
+     */
+    final public function setIsC2C(bool $isC2C): self
+    {
+        $this->isC2C = $isC2C;
+
+        return $this;
     }
 
     final private function addFile(string $name, StreamInterface $contents, string $filename): void

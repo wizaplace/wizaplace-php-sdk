@@ -383,12 +383,18 @@ final class CompanyServiceTest extends ApiTestCase
     public function testRegisterACompanyC2CWithIbanAndBicAndAddress()
     {
         $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
-        $result = $companyService->registerC2CCompany("Super nom", "AD1200012030200359100100", "AGFBFRCC", [], new CompanyAddress([
-            'address' => 'address',
-            'zipCode' => 'zipCode',
-            'city'    => 'city',
-            'country' => 'FR',
-        ]));
+
+        $companyRegistration = new CompanyRegistration("Super nom", 'user@wizaplace.com');
+        $companyRegistration->setIban("AD1200012030200359100100")
+            ->setBic("AGFBFRCC")
+            ->setAddress("address")
+            ->setZipcode("zipCode")
+            ->setCity("city")
+            ->setCountry("FR")
+            ->setIsC2C(true);
+
+        $result = $companyService->register($companyRegistration);
+
         $company = $result->getCompany();
         $this->assertSame("AD1200012030200359100100", $company->getIban());
         $this->assertSame("AGFBFRCC", $company->getBic());

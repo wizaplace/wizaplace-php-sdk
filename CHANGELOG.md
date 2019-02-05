@@ -2,7 +2,8 @@
 
 ## 1.46.1
 
-- Updated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` add optional param `CompanyAddress $address`
+- Deprecated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` use `CompanyService::register` instead
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::isC2C`
 
 ## 1.46.0
 
