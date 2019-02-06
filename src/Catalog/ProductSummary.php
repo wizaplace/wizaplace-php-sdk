@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ProductSummary
+ * @package Wizaplace\SDK\Catalog
+ */
 final class ProductSummary
 {
     /** @var string  */
@@ -59,6 +63,10 @@ final class ProductSummary
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -100,61 +108,97 @@ final class ProductSummary
         }
     }
 
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->productId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getSubtitle(): string
     {
         return $this->subtitle;
     }
 
+    /**
+     * @return string
+     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;
     }
 
+    /**
+     * @return float
+     */
     public function getMinimumPrice(): float
     {
         return $this->minimumPrice;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
+    /**
+     * @return bool
+     */
     public function isAvailable(): bool
     {
         return $this->isAvailable;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getUpdatedAt(): \DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
+    /**
+     * @return int
+     */
     public function getDeclinationCount(): int
     {
         return $this->declinationCount;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAffiliateLink(): ?string
     {
         return $this->affiliateLink;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getMainImage(): ?Image
     {
         return $this->mainImage;
@@ -193,6 +237,9 @@ final class ProductSummary
         return $this->categoryPath;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
@@ -206,11 +253,17 @@ final class ProductSummary
         return $this->companies;
     }
 
+    /**
+     * @return ProductLocation|null
+     */
     public function getGeolocation(): ?ProductLocation
     {
         return $this->geolocation;
     }
 
+    /**
+     * @return DeclinationId|null
+     */
     public function getMainDeclinationId(): ?DeclinationId
     {
         return $this->mainDeclinationId;

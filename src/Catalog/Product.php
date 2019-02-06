@@ -13,6 +13,10 @@ use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class Product
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Product
 {
     /** @var string */
@@ -109,6 +113,9 @@ final class Product
 
     /**
      * @internal
+     *
+     * @param array        $data
+     * @param UriInterface $apiBaseUrl
      */
     public function __construct(array $data, UriInterface $apiBaseUrl)
     {
@@ -172,46 +179,73 @@ final class Product
         }
     }
 
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @return string
+     */
     public function getSupplierReference(): string
     {
         return $this->supplierReference;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return float
+     */
     public function getMinPrice(): float
     {
         return $this->minPrice;
     }
 
+    /**
+     * @return float
+     */
     public function getGreenTax(): float
     {
         return $this->greenTax;
@@ -225,16 +259,25 @@ final class Product
         return $this->attributes;
     }
 
+    /**
+     * @return bool
+     */
     public function isTransactional(): bool
     {
         return $this->isTransactional;
     }
 
+    /**
+     * @return float
+     */
     public function getWeight(): float
     {
         return $this->weight;
     }
 
+    /**
+     * @return float|null
+     */
     public function getAverageRating(): ?float
     {
         return $this->averageRating;
@@ -297,6 +340,8 @@ final class Product
 
     /**
      * @param int[] $variantIds
+     *
+     * @return Declination
      * @throws NotFound
      */
     public function getDeclinationFromOptions(array $variantIds): Declination
@@ -312,6 +357,9 @@ final class Product
 
     /**
      * Get offers from other vendors for a given declination (in the context of multi-vendor products).
+     *
+     * @param Declination $currentOffer
+     *
      * @return Declination[]
      */
     public function getOtherOffers(Declination $currentOffer): array
@@ -360,11 +408,17 @@ final class Product
         return $result;
     }
 
+    /**
+     * @return ProductLocation|null
+     */
     public function getGeolocation(): ?ProductLocation
     {
         return $this->geolocation;
     }
 
+    /**
+     * @return ProductVideo|null
+     */
     public function getVideo(): ?ProductVideo
     {
         return $this->video;
@@ -378,21 +432,33 @@ final class Product
         return $this->attachments;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoTitle(): string
     {
         return $this->seoTitle;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
@@ -414,6 +480,9 @@ final class Product
         return $this->seoKeywords;
     }
 
+    /**
+     * @return bool
+     */
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;

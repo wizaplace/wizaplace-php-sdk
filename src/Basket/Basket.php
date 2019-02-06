@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+/**
+ * Class Basket
+ * @package Wizaplace\SDK\Basket
+ */
 final class Basket
 {
     /** @var string */
@@ -88,6 +92,9 @@ final class Basket
         }, $data['companyGroups']);
     }
 
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->id;
@@ -117,6 +124,9 @@ final class Basket
         return $this->subtotal;
     }
 
+    /**
+     * @return float
+     */
     public function getTotalDiscount(): float
     {
         return $this->totalDiscount;
@@ -146,26 +156,41 @@ final class Basket
         return $this->total;
     }
 
+    /**
+     * @return Price
+     */
     public function getItemsPrice(): Price
     {
         return $this->itemsPrice;
     }
 
+    /**
+     * @return Price
+     */
     public function getShippingPrice(): Price
     {
         return $this->shippingPrice;
     }
 
+    /**
+     * @return Price
+     */
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
     }
 
+    /**
+     * @return int
+     */
     public function getTotalQuantity(): int
     {
         return $this->totalQuantity;
     }
 
+    /**
+     * @return string
+     */
     public function getComment(): string
     {
         return $this->comment;
@@ -191,11 +216,19 @@ final class Basket
         return $this->isPickupPointsShipping;
     }
 
+    /**
+     * @return Address|null
+     */
     public function getShippingAddress(): ?Address
     {
         return $this->shippingAddress;
     }
 
+    /**
+     * @param string $id
+     *
+     * @return Basket
+     */
     public static function createEmpty(string $id): self
     {
         return new self([

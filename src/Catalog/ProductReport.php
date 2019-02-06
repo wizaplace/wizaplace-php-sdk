@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
+ * Class ProductOffer
+ * @package Wizaplace\SDK\Catalog
+ *
  * @see \Wizaplace\SDK\Catalog\CatalogService::reportProduct
  */
 final class ProductReport
@@ -26,11 +29,19 @@ final class ProductReport
     /** @var string */
     private $message;
 
+    /**
+     * @return string
+     */
     public function getProductId(): string
     {
         return $this->productId;
     }
 
+    /**
+     * @param string $productId
+     *
+     * @return ProductReport
+     */
     public function setProductId(string $productId): self
     {
         $this->productId = $productId;
@@ -38,11 +49,19 @@ final class ProductReport
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getReporterEmail(): string
     {
         return $this->reporterEmail;
     }
 
+    /**
+     * @param string $reporterEmail
+     *
+     * @return ProductReport
+     */
     public function setReporterEmail(string $reporterEmail): self
     {
         $this->reporterEmail = $reporterEmail;
@@ -50,11 +69,19 @@ final class ProductReport
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getReporterName(): string
     {
         return $this->reporterName;
     }
 
+    /**
+     * @param string $reporterName
+     *
+     * @return ProductReport
+     */
     public function setReporterName(string $reporterName): self
     {
         $this->reporterName = $reporterName;
@@ -62,11 +89,19 @@ final class ProductReport
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage(): string
     {
         return $this->message;
     }
 
+    /**
+     * @param string $message
+     *
+     * @return ProductReport
+     */
     public function setMessage(string $message): self
     {
         $this->message = $message;

@@ -8,6 +8,10 @@ namespace Wizaplace\SDK\Division;
 
 use Wizaplace\SDK\User\UserType;
 
+/**
+ * Class Division
+ * @package Wizaplace\SDK\Division
+ */
 final class Division
 {
     /**
@@ -60,6 +64,11 @@ final class Division
      */
     private $children;
 
+    /**
+     * Division constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->code       = $data['code'];
@@ -158,6 +167,9 @@ final class Division
         return $this->children;
     }
 
+    /**
+     * @param Division $child
+     */
     public function addChild(Division $child): void
     {
         $this->children[] = $child;

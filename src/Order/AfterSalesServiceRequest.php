@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Order;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class AfterSalesServiceRequest
+ * @package Wizaplace\SDK\Order
+ */
 final class AfterSalesServiceRequest
 {
     /** @var int */
@@ -20,11 +24,19 @@ final class AfterSalesServiceRequest
     /** @var string[] */
     private $itemsDeclinationsIds;
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @param int $orderId
+     *
+     * @return AfterSalesServiceRequest
+     */
     public function setOrderId(int $orderId): self
     {
         $this->orderId = $orderId;
@@ -32,11 +44,19 @@ final class AfterSalesServiceRequest
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getComments(): string
     {
         return $this->comments;
     }
 
+    /**
+     * @param string $comments
+     *
+     * @return AfterSalesServiceRequest
+     */
     public function setComments(string $comments): self
     {
         $this->comments = $comments;
@@ -54,6 +74,8 @@ final class AfterSalesServiceRequest
 
     /**
      * @param string[] $itemsDeclinationsIds
+     *
+     * @return AfterSalesServiceRequest
      */
     public function setItemsDeclinationsIds(array $itemsDeclinationsIds): self
     {

@@ -12,6 +12,10 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 
+/**
+ * Class ProductImageUpload
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class ProductImageUpload
 {
     /** @var string */
@@ -23,6 +27,11 @@ final class ProductImageUpload
     /** @var string */
     private $data;
 
+    /**
+     * @param string $name
+     *
+     * @return ProductImageUpload
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -30,6 +39,11 @@ final class ProductImageUpload
         return $this;
     }
 
+    /**
+     * @param string $mimeType
+     *
+     * @return ProductImageUpload
+     */
     public function setMimeType(string $mimeType): self
     {
         $this->mimeType = $mimeType;
@@ -37,6 +51,11 @@ final class ProductImageUpload
         return $this;
     }
 
+    /**
+     * @param string $base64Data
+     *
+     * @return ProductImageUpload
+     */
     public function setBase64Data(string $base64Data): self
     {
         $this->data = $base64Data;
@@ -46,6 +65,8 @@ final class ProductImageUpload
 
     /**
      * @internal
+     *
+     * @param ClassMetadata $metadata
      */
     public static function loadValidatorMetadata(ClassMetadata $metadata): void
     {
@@ -67,6 +88,11 @@ final class ProductImageUpload
         ];
     }
 
+    /**
+     * @param UploadedFileInterface $uploadedFile
+     *
+     * @return ProductImageUpload
+     */
     public static function createFromPSR7UploadedFile(UploadedFileInterface $uploadedFile): self
     {
         $object = new self();
@@ -83,6 +109,11 @@ final class ProductImageUpload
         return $object;
     }
 
+    /**
+     * @param UploadedFile $uploadedFile
+     *
+     * @return ProductImageUpload
+     */
     public static function createFromSymfonyUploadedFile(UploadedFile $uploadedFile): self
     {
         $object = new self();

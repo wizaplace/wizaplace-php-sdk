@@ -11,12 +11,19 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class TranslationService
+ * @package Wizaplace\SDK\Translation
+ */
 final class TranslationService extends AbstractService
 {
     /**
      * @param string|StreamInterface $xliffCatalog
-     * @param string $locale
-     * @param string $password special system user's password, needed for authentication
+     * @param string                 $locale
+     * @param string                 $password special system user's password, needed for authentication
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function pushXliffCatalog($xliffCatalog, string $locale, string $password)
     {
@@ -31,6 +38,12 @@ final class TranslationService extends AbstractService
         $this->client->post("translations/front/".$locale, $options);
     }
 
+    /**
+     * @param string $locale
+     *
+     * @return StreamInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function getXliffCatalog(string $locale): StreamInterface
     {
         $options = [

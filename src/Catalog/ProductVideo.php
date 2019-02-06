@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Catalog;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class ProductVideo
+ * @package Wizaplace\SDK\Catalog
+ */
 final class ProductVideo
 {
     /** @var UriInterface */
@@ -20,6 +24,8 @@ final class ProductVideo
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -27,11 +33,17 @@ final class ProductVideo
         $this->videoUrl = new Uri($data['videoUrl']);
     }
 
+    /**
+     * @return UriInterface
+     */
     public function getThumbnailUrl(): UriInterface
     {
         return $this->thumbnailUrl;
     }
 
+    /**
+     * @return UriInterface
+     */
     public function getVideoUrl(): UriInterface
     {
         return $this->videoUrl;

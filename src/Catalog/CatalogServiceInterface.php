@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Interface CatalogServiceInterface
+ * @package Wizaplace\SDK\Catalog
+ */
 interface CatalogServiceInterface
 {
     /**
@@ -19,16 +23,30 @@ interface CatalogServiceInterface
      */
     public function getAllProducts(string $language = null): \Generator;
 
+    /**
+     * @param string $id
+     *
+     * @return Product
+     */
     public function getProductById(string $id): Product;
 
+    /**
+     * @param string $id
+     *
+     * @return Declination
+     */
     public function getDeclinationById(string $id): Declination;
 
     /**
+     * @param string $code
+     *
      * @return Product[]
      */
     public function getProductsByCode(string $code): array;
 
     /**
+     * @param string $supplierReference
+     *
      * @return Product[]
      */
     public function getProductsBySupplierReference(string $supplierReference): array;
@@ -38,6 +56,11 @@ interface CatalogServiceInterface
      */
     public function getCategoryTree(): array;
 
+    /**
+     * @param int $id
+     *
+     * @return Category
+     */
     public function getCategory(int $id): Category;
 
     /**
@@ -45,6 +68,16 @@ interface CatalogServiceInterface
      */
     public function getCategories(): array;
 
+    /**
+     * @param string         $query
+     * @param array          $filters
+     * @param array          $sorting
+     * @param int            $resultsPerPage
+     * @param int            $page
+     * @param GeoFilter|null $geoFilter
+     *
+     * @return SearchResult
+     */
     public function search(
         string $query = '',
         array $filters = [],
@@ -54,6 +87,11 @@ interface CatalogServiceInterface
         ?GeoFilter $geoFilter = null
     ): SearchResult;
 
+    /**
+     * @param int $id
+     *
+     * @return CompanyDetail
+     */
     public function getCompanyById(int $id): CompanyDetail;
 
     /**
@@ -66,8 +104,18 @@ interface CatalogServiceInterface
      */
     public function getAttributes(): array;
 
+    /**
+     * @param int $attributeId
+     *
+     * @return Attribute
+     */
     public function getAttribute(int $attributeId): Attribute;
 
+    /**
+     * @param int $variantId
+     *
+     * @return AttributeVariant
+     */
     public function getAttributeVariant(int $variantId): AttributeVariant;
 
     /**
@@ -92,7 +140,17 @@ interface CatalogServiceInterface
      */
     public function getBrand($product): ?ProductAttributeValue;
 
+    /**
+     * @param ProductSummary $product
+     *
+     * @return ProductAttributeValue|null
+     */
     public function getBrandFromProductSummary(ProductSummary $product): ?ProductAttributeValue;
 
+    /**
+     * @param Product $product
+     *
+     * @return ProductAttributeValue|null
+     */
     public function getBrandFromProduct(Product $product): ?ProductAttributeValue;
 }

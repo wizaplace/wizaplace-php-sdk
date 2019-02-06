@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Basket;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class PaymentInformation
+ * @package Wizaplace\SDK\Basket
+ */
 final class PaymentInformation
 {
     /** @var BasketOrder[] */
@@ -21,6 +25,8 @@ final class PaymentInformation
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -39,11 +45,17 @@ final class PaymentInformation
         return $this->orders;
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getRedirectUrl(): ?UriInterface
     {
         return $this->redirectUrl;
     }
 
+    /**
+     * @return string
+     */
     public function getHtml(): string
     {
         return $this->html;

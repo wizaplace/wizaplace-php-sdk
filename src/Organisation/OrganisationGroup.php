@@ -5,6 +5,10 @@
  */
 namespace Wizaplace\SDK\Organisation;
 
+/**
+ * Class OrganisationGroup
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationGroup
 {
     /**
@@ -22,6 +26,11 @@ class OrganisationGroup
      */
     private $type;
 
+    /**
+     * OrganisationGroup constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->setId($data['id']);

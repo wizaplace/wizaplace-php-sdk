@@ -20,6 +20,8 @@ final class NumericFacet extends Facet
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {

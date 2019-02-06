@@ -9,10 +9,16 @@ namespace Wizaplace\SDK\User;
 
 use Throwable;
 
+/**
+ * Class UserAlreadyExists
+ * @package Wizaplace\SDK\User
+ */
 final class UserAlreadyExists extends \Exception
 {
     /**
      * @internal
+     *
+     * @param Throwable|null $previous
      */
     public function __construct(Throwable $previous = null)
     {

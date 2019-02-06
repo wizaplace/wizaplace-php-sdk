@@ -27,6 +27,10 @@ use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class BasketPromotion
+ * @package Wizaplace\SDK\Vendor\Promotion
+ */
 final class BasketPromotion implements \JsonSerializable
 {
     /** @var string */
@@ -55,6 +59,10 @@ final class BasketPromotion implements \JsonSerializable
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -68,26 +76,41 @@ final class BasketPromotion implements \JsonSerializable
         $this->coupon = isset($data['coupon']) ? to_string($data['coupon']) : null;
     }
 
+    /**
+     * @return string
+     */
     public function getPromotionId(): string
     {
         return $this->promotionId;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return bool
+     */
     public function isActive(): bool
     {
         return $this->active;
     }
 
+    /**
+     * @return BasketRule
+     */
     public function getRule(): BasketRule
     {
         return $this->rule;
@@ -101,11 +124,17 @@ final class BasketPromotion implements \JsonSerializable
         return $this->discounts;
     }
 
+    /**
+     * @return PromotionPeriod
+     */
     public function getPeriod(): PromotionPeriod
     {
         return $this->period;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCoupon(): ?string
     {
         return $this->coupon;
@@ -113,6 +142,8 @@ final class BasketPromotion implements \JsonSerializable
 
     /**
      * @inheritdoc
+     *
+     * @return array
      */
     public function jsonSerialize(): array
     {
@@ -125,6 +156,12 @@ final class BasketPromotion implements \JsonSerializable
         return $serializer->normalize($this);
     }
 
+    /**
+     * @param array $discountData
+     *
+     * @return Discount
+     * @throws \Exception
+     */
     private static function denormalizeDiscount(array $discountData): Discount
     {
         $type = new DiscountType($discountData['type']);
@@ -139,6 +176,12 @@ final class BasketPromotion implements \JsonSerializable
         }
     }
 
+    /**
+     * @param array $periodData
+     *
+     * @return PromotionPeriod
+     * @throws \Exception
+     */
     private static function denormalizePeriod(array $periodData): PromotionPeriod
     {
         return new PromotionPeriod(
@@ -147,6 +190,12 @@ final class BasketPromotion implements \JsonSerializable
         );
     }
 
+    /**
+     * @param array $ruleData
+     *
+     * @return BasketRule
+     * @throws \Exception
+     */
     private static function denormalizeRule(array $ruleData): BasketRule
     {
         $type = new BasketRuleType($ruleData['type']);

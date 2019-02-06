@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class Declination
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Declination
 {
     /** @var DeclinationId */
@@ -70,6 +74,8 @@ final class Declination
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -102,61 +108,97 @@ final class Declination
         }
     }
 
+    /**
+     * @return DeclinationId
+     */
     public function getId(): DeclinationId
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @return string
+     */
     public function getSupplierReference(): string
     {
         return $this->supplierReference;
     }
 
+    /**
+     * @return float
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
+    /**
+     * @return float
+     */
     public function getOriginalPrice(): float
     {
         return $this->originalPrice;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithTaxes(): float
     {
         return $this->priceWithTaxes;
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithoutVat(): float
     {
         return $this->priceWithoutVat;
     }
 
+    /**
+     * @return float
+     */
     public function getVat(): float
     {
         return $this->vat;
     }
 
+    /**
+     * @return float
+     */
     public function getGreenTax(): float
     {
         return $this->greenTax;
     }
 
+    /**
+     * @return int
+     */
     public function getAmount(): int
     {
         return $this->amount;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAffiliateLink(): ?string
     {
         return $this->affiliateLink;
@@ -190,7 +232,10 @@ final class Declination
      * This function checks if the declination has the requested variantsIds and only those
      *
      * example : if the requested Ids are [1, 2] and the declination variantIds are [1, 2, 3], it won't be valid
+     *
      * @param int[] $variantIds
+     *
+     * @return bool
      */
     public function hasVariants(array $variantIds): bool
     {
@@ -220,26 +265,41 @@ final class Declination
         return (count($variantIds) === $foundIds && count($variantIds) === count($declinationVariantIds));
     }
 
+    /**
+     * @return CompanySummary
+     */
     public function getCompany(): CompanySummary
     {
         return $this->company;
     }
 
+    /**
+     * @return bool
+     */
     public function isAvailable(): bool
     {
         return $this->isAvailable;
     }
 
+    /**
+     * @return bool
+     */
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;
     }
 
+    /**
+     * @return array|null
+     */
     public function getShippings(): ?array
     {
         return $this->shippings;
     }
 
+    /**
+     * @param array|null $shippings
+     */
     public function setShippings(?array $shippings): void
     {
         $this->shippings = $shippings;

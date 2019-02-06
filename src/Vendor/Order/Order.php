@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class Order
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class Order
 {
     /** @var int */
@@ -79,6 +83,10 @@ final class Order
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -112,51 +120,81 @@ final class Order
         $this->comment = $data['notes'] ?? '';
     }
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @return int
+     */
     public function getCustomerUserId(): int
     {
         return $this->customerUserId;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerEmail(): string
     {
         return $this->customerEmail;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerFirstName(): string
     {
         return $this->customerFirstName;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerLastName(): string
     {
         return $this->customerLastName;
     }
 
+    /**
+     * @return float
+     */
     public function getDiscountAmount(): float
     {
         return $this->discountAmount;
     }
 
+    /**
+     * @return string
+     */
     public function getInvoiceNumber(): string
     {
         return $this->invoiceNumber;
     }
 
+    /**
+     * @return string
+     */
     public function getDeclineReason(): string
     {
         return $this->declineReason;
     }
 
+    /**
+     * @return bool
+     */
     public function needsShipping(): bool
     {
         return $this->needsShipping;
@@ -170,41 +208,65 @@ final class Order
         return $this->shipmentsIds;
     }
 
+    /**
+     * @return float
+     */
     public function getShippingCost(): float
     {
         return $this->shippingCost;
     }
 
+    /**
+     * @return string
+     */
     public function getNotes(): string
     {
         return $this->notes;
     }
 
+    /**
+     * @return float
+     */
     public function getTaxSubtotal(): float
     {
         return $this->taxSubtotal;
     }
 
+    /**
+     * @return float
+     */
     public function getTotal(): float
     {
         return $this->total;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return OrderStatus
+     */
     public function getStatus(): OrderStatus
     {
         return $this->status;
     }
 
+    /**
+     * @return OrderAddress
+     */
     public function getBillingAddress(): OrderAddress
     {
         return $this->billingAddress;
     }
 
+    /**
+     * @return OrderAddress
+     */
     public function getShippingAddress(): OrderAddress
     {
         return $this->shippingAddress;
@@ -226,6 +288,9 @@ final class Order
         return $this->items;
     }
 
+    /**
+     * @return string
+     */
     public function getComment(): string
     {
         return $this->comment;

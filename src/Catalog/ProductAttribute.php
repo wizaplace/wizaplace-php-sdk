@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ProductAttribute
+ * @package Wizaplace\SDK\Catalog
+ */
 final class ProductAttribute
 {
     /** @var int|null */
@@ -46,6 +50,8 @@ final class ProductAttribute
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -73,11 +79,17 @@ final class ProductAttribute
         return $this->children;
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
@@ -110,6 +122,9 @@ final class ProductAttribute
         return $this->imageUrls;
     }
 
+    /**
+     * @return AttributeType
+     */
     public function getType(): AttributeType
     {
         return $this->type;

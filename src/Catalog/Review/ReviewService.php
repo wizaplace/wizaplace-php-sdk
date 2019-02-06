@@ -15,6 +15,9 @@ use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 
 /**
+ * Class ReviewService
+ * @package Wizaplace\SDK\Catalog\Review
+ *
  * This service helps getting and creating reviews for products or companies
  *
  * Example :
@@ -43,7 +46,11 @@ final class ReviewService extends AbstractService
     private const AUTHORIZATION_PRODUCT_ENDPOINT = "catalog/products/%s/reviews/authorized";
 
     /**
+     * @param string $productId
+     *
      * @return Review[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductReviews(string $productId): array
     {
@@ -58,6 +65,12 @@ final class ReviewService extends AbstractService
     }
 
     /**
+     * @param string $productId
+     * @param string $author
+     * @param string $message
+     * @param int    $rating
+     *
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws ProductNotFound
      * @throws ReviewsAreDisabled
      */
@@ -97,6 +110,13 @@ final class ReviewService extends AbstractService
         return $companyReviews;
     }
 
+    /**
+     * @param int    $companyId
+     * @param string $message
+     * @param int    $rating
+     *
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function reviewCompany(int $companyId, string $message, int $rating): void
     {
         $review = ['message' => $message, 'rating' => $rating];
@@ -104,6 +124,12 @@ final class ReviewService extends AbstractService
         $this->client->post(sprintf(self::COMPANY_ENDPOINT, $companyId), [RequestOptions::JSON => $review]);
     }
 
+    /**
+     * @param int $companyId
+     *
+     * @return bool
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function canUserReviewCompany(int $companyId): bool
     {
         try {
@@ -119,6 +145,12 @@ final class ReviewService extends AbstractService
         return true;
     }
 
+    /**
+     * @param string $productId
+     *
+     * @return bool
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function canUserReviewProduct(string $productId) : bool
     {
         try {
@@ -133,6 +165,11 @@ final class ReviewService extends AbstractService
         return true;
     }
 
+    /**
+     * @param array $review
+     *
+     * @return Review
+     */
     private function createReview(array $review): Review
     {
         if (is_array($review['author'])) {
@@ -150,6 +187,13 @@ final class ReviewService extends AbstractService
         );
     }
 
+    /**
+     * @param string      $name
+     * @param int|null    $id
+     * @param string|null $email
+     *
+     * @return Author
+     */
     private function createAuthor(string $name, ?int $id = null, ?string $email = null): Author
     {
         return new Author($name, $id, $email);

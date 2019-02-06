@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Attribute;
 
+/**
+ * Class AttributeVariant
+ * @package Wizaplace\SDK\Pim\Attribute
+ */
 final class AttributeVariant
 {
     /** @var int */
@@ -17,6 +21,8 @@ final class AttributeVariant
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -24,11 +30,17 @@ final class AttributeVariant
         $this->name = $data['variant'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;

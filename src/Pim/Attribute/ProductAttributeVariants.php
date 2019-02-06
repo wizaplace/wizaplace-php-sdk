@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Attribute;
 
+/**
+ * Class ProductAttributeVariants
+ * @package Wizaplace\SDK\Pim\Attribute
+ */
 final class ProductAttributeVariants extends ProductAttribute
 {
     /** @var AttributeVariant[] */
@@ -14,6 +18,8 @@ final class ProductAttributeVariants extends ProductAttribute
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {

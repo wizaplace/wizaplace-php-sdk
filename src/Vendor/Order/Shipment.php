@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+/**
+ * Class Shipment
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class Shipment
 {
     /** @var int */
@@ -38,6 +42,10 @@ final class Shipment
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -52,41 +60,65 @@ final class Shipment
         $this->shippedQuantityByItemId = $data['products'];
     }
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @return int
+     */
     public function getShipmentId(): int
     {
         return $this->shipmentId;
     }
 
+    /**
+     * @return int
+     */
     public function getShippingId(): int
     {
         return $this->shippingId;
     }
 
+    /**
+     * @return string
+     */
     public function getShippingName(): string
     {
         return $this->shippingName;
     }
 
+    /**
+     * @return string
+     */
     public function getTrackingNumber(): string
     {
         return $this->trackingNumber;
     }
 
+    /**
+     * @return string
+     */
     public function getLabelUrl(): string
     {
         return $this->labelUrl;
     }
 
+    /**
+     * @return string
+     */
     public function getComment(): string
     {
         return $this->comment;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;

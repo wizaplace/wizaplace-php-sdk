@@ -11,6 +11,9 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use function theodorejb\polycast\to_string;
 
 /**
+ * Class CreateOrderReturn
+ * @package Wizaplace\SDK\Order
+ *
  * @see \Wizaplace\SDK\Order\OrderService::createOrderReturn
  */
 final class CreateOrderReturn
@@ -46,11 +49,17 @@ final class CreateOrderReturn
         ];
     }
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @return string
+     */
     public function getComments(): string
     {
         return $this->comments;

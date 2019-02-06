@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\User;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class UserTitle
+ * @package Wizaplace\SDK\User
+ *
  * @method static UserTitle MR()
  * @method static UserTitle MRS()
  */

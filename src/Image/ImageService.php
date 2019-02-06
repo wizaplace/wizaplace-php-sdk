@@ -12,6 +12,10 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ImageService
+ * @package Wizaplace\SDK\Image
+ */
 final class ImageService extends AbstractService
 {
     /**

@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\User;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class UpdateUserCommand
+ * @package Wizaplace\SDK\User
+ */
 final class UpdateUserCommand
 {
     /** @var int */
@@ -29,36 +33,59 @@ final class UpdateUserCommand
     /** @var \DateTimeInterface|null */
     private $birthday;
 
+    /**
+     * @return int
+     */
     public function getUserId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return $this->firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
+    /**
+     * @return UserTitle|null
+     */
     public function getTitle(): ?UserTitle
     {
         return $this->title;
     }
 
+    /**
+     * @return \DateTimeInterface|null
+     */
     public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
     }
 
+    /**
+     * @param int $userId
+     *
+     * @return UpdateUserCommand
+     */
     public function setUserId(int $userId): self
     {
         $this->id = $userId;
@@ -66,6 +93,11 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /**
+     * @param string $email
+     *
+     * @return UpdateUserCommand
+     */
     public function setEmail(string $email): self
     {
         $this->email = $email;
@@ -73,6 +105,11 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /**
+     * @param string $firstName
+     *
+     * @return UpdateUserCommand
+     */
     public function setFirstName(string $firstName): self
     {
         $this->firstName = $firstName;
@@ -80,6 +117,11 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /**
+     * @param string $lastName
+     *
+     * @return UpdateUserCommand
+     */
     public function setLastName(string $lastName): self
     {
         $this->lastName = $lastName;
@@ -87,6 +129,11 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /**
+     * @param UserTitle|null $title
+     *
+     * @return UpdateUserCommand
+     */
     public function setTitle(?UserTitle $title): self
     {
         $this->title = $title;
@@ -94,6 +141,11 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /**
+     * @param \DateTimeInterface|null $birthday
+     *
+     * @return UpdateUserCommand
+     */
     public function setBirthday(?\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;

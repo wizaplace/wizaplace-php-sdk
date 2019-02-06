@@ -11,6 +11,10 @@ use Psr\Http\Message\StreamInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class Organisation
+ * @package Wizaplace\SDK\Organisation
+ */
 final class Organisation
 {
     /** @var string */
@@ -49,6 +53,11 @@ final class Organisation
     /** @var array */
     private $files = [];
 
+    /**
+     * Organisation constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->id = isset($data['id']) ? to_string($data['id']) : null;
@@ -232,6 +241,10 @@ final class Organisation
         $this->administrator = $administrator;
     }
 
+    /**
+     * @param string                $name
+     * @param UploadedFileInterface $file
+     */
     public function addUploadedFile(string $name, UploadedFileInterface $file): void
     {
         $this->addFile(
@@ -250,6 +263,11 @@ final class Organisation
         return $this->files;
     }
 
+    /**
+     * @param string          $name
+     * @param StreamInterface $contents
+     * @param string          $filename
+     */
     private function addFile(string $name, StreamInterface $contents, string $filename): void
     {
         $this->files[$name] = new OrganisationFile($name, $contents, $filename);

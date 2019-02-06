@@ -16,8 +16,21 @@ use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class MultiVendorProductService
+ * @package Wizaplace\SDK\Pim\MultiVendorProduct
+ */
 final class MultiVendorProductService extends AbstractService
 {
+    /**
+     * @param string $id
+     *
+     * @return MultiVendorProduct
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getMultiVendorProductById(string $id): MultiVendorProduct
     {
         $this->client->mustBeAuthenticated();
@@ -33,6 +46,15 @@ final class MultiVendorProductService extends AbstractService
         return new MultiVendorProduct($response);
     }
 
+    /**
+     * @param MultiVendorProduct $mvp
+     *
+     * @return string
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function createMultiVendorProduct(MultiVendorProduct $mvp): string
     {
         $this->client->mustBeAuthenticated();
@@ -45,6 +67,15 @@ final class MultiVendorProductService extends AbstractService
         return to_string($response['id']);
     }
 
+    /**
+     * @param MultiVendorProduct $mvp
+     *
+     * @return string
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function updateMultiVendorProduct(MultiVendorProduct $mvp): string
     {
         $this->client->mustBeAuthenticated();
@@ -61,11 +92,14 @@ final class MultiVendorProductService extends AbstractService
 
     /**
      * @param string $mvpId
-     * @param array $files
+     * @param array  $files
+     *
      * @return MultiVendorProduct
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addImageToMultiVendorProduct(string $mvpId, array $files) : MultiVendorProduct
     {

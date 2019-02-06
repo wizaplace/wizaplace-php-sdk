@@ -10,8 +10,19 @@ namespace Wizaplace\SDK\Shipping;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class MondialRelayService
+ * @package Wizaplace\SDK\Shipping
+ */
 final class MondialRelayService extends AbstractService
 {
+    /**
+     * @param string $zipCode
+     *
+     * @return array
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function searchPickupPoints(string $zipCode): array
     {
         $results = $this->client->get('mondial-relay/points-relais', [
@@ -25,6 +36,14 @@ final class MondialRelayService extends AbstractService
         }, $results);
     }
 
+    /**
+     * @param string $pickupPointId
+     *
+     * @return MondialRelayPoint
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getPickupPoint(string $pickupPointId): MondialRelayPoint
     {
         $this->client->mustBeAuthenticated();
@@ -34,6 +53,11 @@ final class MondialRelayService extends AbstractService
         return new MondialRelayPoint($result);
     }
 
+    /**
+     * @return MondialRelayBrandCode
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getBrandCode(): MondialRelayBrandCode
     {
         $result = $this->client->get('mondial-relay/brand-code');

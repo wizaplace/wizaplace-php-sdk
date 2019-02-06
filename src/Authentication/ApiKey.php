@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Authentication;
 use Wizaplace\SDK\ApiClient;
 
 /**
+ * Class ApiKey
+ * @package Wizaplace\SDK\Authentication
+ *
  * @see ApiClient::authenticate()
  */
 final class ApiKey
@@ -22,6 +25,8 @@ final class ApiKey
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -29,11 +34,17 @@ final class ApiKey
         $this->id = $data['id'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getKey(): string
     {
         return $this->key;

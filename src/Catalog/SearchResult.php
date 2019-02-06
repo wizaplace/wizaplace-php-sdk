@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Catalog\Facet\Facet;
 use Wizaplace\SDK\Pagination;
 
+/**
+ * Class SearchResult
+ * @package Wizaplace\SDK\Catalog
+ */
 final class SearchResult
 {
     /** @var ProductSummary[] */
@@ -21,6 +25,8 @@ final class SearchResult
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -41,6 +47,9 @@ final class SearchResult
         return $this->products;
     }
 
+    /**
+     * @return Pagination
+     */
     public function getPagination(): Pagination
     {
         return $this->pagination;
