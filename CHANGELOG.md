@@ -1,6 +1,16 @@
 # Changelog
 
-# 1.47.0
+# 1.48.0
+
+## 1.47.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::addHostedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::addUploadedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::deleteVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProduct::getVideo`
+- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductVideo`
 
 ## 1.46.0
 

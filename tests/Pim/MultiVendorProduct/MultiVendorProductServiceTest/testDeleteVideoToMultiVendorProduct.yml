@@ -1,0 +1,115 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:00:56 GMT'
+            Content-Language: fr
+            X-Debug-Token: cb77b8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb77b8'
+        body: '{"id":2,"apiKey":"S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/a6e53f40-f4c5-3d56-af1d-cc83fd695feb/video'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            Authorization: 'token S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72'
+            VCR-index: '1'
+            Accept: null
+        body: file=http%3A%2F%2Fcommondatastorage.googleapis.com%2Fgtv-videos-bucket%2Fsample%2FForBiggerEscapes.mp4
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:01:15 GMT'
+            Content-Language: fr
+            X-Debug-Token: 49504e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/49504e'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2249504e%22%2C%22route%22%3A%22api_multi_vendor_product_add_video%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.multi_vendor_product.api.controller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":"b92f5af4-19fe-408d-a75a-e3dfa4a25edb","thumb":"\/\/s3-eu-west-1.amazonaws.com\/wizaplace-alexandbox\/videos\/b92f5af4-19fe-408d-a75a-e3dfa4a25edb\/480-00001.png","path":"\/\/s3-eu-west-1.amazonaws.com\/wizaplace-alexandbox\/videos\/b92f5af4-19fe-408d-a75a-e3dfa4a25edb\/480.mp4"}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/a6e53f40-f4c5-3d56-af1d-cc83fd695feb/video'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            Authorization: 'token S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:01:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: 6ec38c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6ec38c'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/a6e53f40-f4c5-3d56-af1d-cc83fd695feb'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            Authorization: 'token S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:01:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: ca1844
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca1844'
+        body: '{"id":"a6e53f40-f4c5-3d56-af1d-cc83fd695feb","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"eaque-error-consectetur-est","shortDescription":"Aspernatur incidunt voluptatem et odio nobis aut est et. Sapiente quia dicta reprehenderit quaerat. Laboriosam magnam enim sunt atque. Praesentium iusto qui sapiente ut.","description":"In blanditiis quisquam qui impedit. Dolorem non perferendis maiores nihil est qui quibusdam. Doloribus sit velit impedit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Suscipit cum nam qui velit consequatur. Rerum natus cupiditate laborum officiis. Veniam pariatur ut ad. Ut maxime quas a cupiditate impedit in aut. Odio saepe et doloremque. Quidem non ipsam et corrupti.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"video":{"id":null,"thumb":null,"path":null}}'

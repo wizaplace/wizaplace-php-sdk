@@ -87,4 +87,87 @@ final class MultiVendorProductService extends AbstractService
 
         return new MultiVendorProduct($response);
     }
+
+    /**
+     * @param string $mvpId
+     * @param string $file
+     * @return MultiVendorProductVideo
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function addHostedVideoToMultiVendorProduct(string $mvpId, string $file): MultiVendorProductVideo
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
+                RequestOptions::FORM_PARAMS => [
+                    'file' => $file,
+                ],
+            ]);
+
+            return new MultiVendorProductVideo($response);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
+            }
+            if ($e->getCode() === 400) {
+                throw new SomeParametersAreInvalid($e->getMessage());
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * @param string $mvpId
+     * @param MultiVendorProductFile $file
+     * @return MultiVendorProductVideo
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function addUploadedVideoToMultiVendorProduct(string $mvpId, MultiVendorProductFile $file): MultiVendorProductVideo
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
+                RequestOptions::MULTIPART => Multipart::createMultipartArray([], [$file]),
+            ]);
+
+            return new MultiVendorProductVideo($response);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
+            }
+            if ($e->getCode() === 400) {
+                throw new SomeParametersAreInvalid($e->getMessage());
+            }
+            throw $e;
+        }
+    }
+
+    /**
+     * @param string $mvpId
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     */
+    public function deleteVideoToMultiVendorProduct(string $mvpId): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->delete("pim/multi-vendor-products/{$mvpId}/video");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
+            }
+            if ($e->getCode() === 400) {
+                throw new SomeParametersAreInvalid($e->getMessage());
+            }
+            throw $e;
+        }
+    }
 }

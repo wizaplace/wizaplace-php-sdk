@@ -68,6 +68,9 @@ final class MultiVendorProduct
     /** @var array */
     private $imageIds;
 
+    /** @var null|MultiVendorProductVideo */
+    private $video;
+
     public function __construct(array $data = [])
     {
         $this->id = isset($data['id']) ? to_string($data['id']) : null;
@@ -86,6 +89,7 @@ final class MultiVendorProduct
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
         $this->attributes = $data['attributes'] ?? null;
+        $this->video = isset($data['video']) ? new MultiVendorProductVideo($data['video']) : null;
     }
 
     public function getId(): string
@@ -269,6 +273,18 @@ final class MultiVendorProduct
     public function setImageIds(?array $imageIds): self
     {
         $this->imageIds = $imageIds;
+
+        return $this;
+    }
+
+    public function getVideo():? MultiVendorProductVideo
+    {
+        return $this->video;
+    }
+
+    public function setVideo(?MultiVendorProductVideo $video): self
+    {
+        $this->video = $video;
 
         return $this;
     }
