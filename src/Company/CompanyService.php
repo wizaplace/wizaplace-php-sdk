@@ -22,7 +22,7 @@ final class CompanyService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
+    public function register(AbstractCompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
@@ -69,7 +69,7 @@ final class CompanyService extends AbstractService
      */
     public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
-        @trigger_error('The method "registerC2CCompany" is deprecated, use "register" with CompanyRegistration::isC2C instead.', E_USER_DEPRECATED);
+        @trigger_error('The method "registerC2CCompany" is deprecated, use "register" with CompanyC2CRegistration::class instead.', E_USER_DEPRECATED);
 
         $this->client->mustBeAuthenticated();
 

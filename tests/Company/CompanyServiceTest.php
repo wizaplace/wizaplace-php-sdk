@@ -9,8 +9,8 @@ namespace Wizaplace\SDK\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
-use Wizaplace\SDK\Catalog\CompanyAddress;
 use Wizaplace\SDK\Company\Company;
+use Wizaplace\SDK\Company\CompanyC2CRegistration;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyRegistrationResult;
 use Wizaplace\SDK\Company\CompanyService;
@@ -19,7 +19,6 @@ use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
-use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\User\UserType;
 
 /**
@@ -384,14 +383,14 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
 
-        $companyRegistration = new CompanyRegistration("Super nom", 'user@wizaplace.com');
-        $companyRegistration->setIban("AD1200012030200359100100")
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName("Super nom")
+            ->setIban("AD1200012030200359100100")
             ->setBic("AGFBFRCC")
             ->setAddress("address")
             ->setZipcode("zipCode")
             ->setCity("city")
-            ->setCountry("FR")
-            ->setIsC2C(true);
+            ->setCountry("FR");
 
         $result = $companyService->register($companyRegistration);
 
