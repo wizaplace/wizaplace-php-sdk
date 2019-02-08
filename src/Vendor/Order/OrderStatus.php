@@ -51,4 +51,8 @@ final class OrderStatus extends Enum
     private const STANDBY_SUPPLYING = 'B';
 
     private const REFUNDED = 'A';
+
+    private const UNPAID = 'G';
+
+    private const CANCELED = 'I';
 }

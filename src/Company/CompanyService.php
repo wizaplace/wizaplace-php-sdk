@@ -44,6 +44,8 @@ final class CompanyService extends AbstractService
                 'rcs' => $companyRegistration->getRcs(),
                 'legalStatus' => $companyRegistration->getLegalStatus(),
                 'capital' => $companyRegistration->getCapital(),
+                'iban' => $companyRegistration->getIban(),
+                'bic' => $companyRegistration->getBic(),
                 'extra' => $companyRegistration->getExtra(),
             ],
         ]);
@@ -61,12 +63,15 @@ final class CompanyService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function registerC2CCompany($companyName = '', array $files = []): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
+
         $responseData = $this->client->post('companies/c2c', [
             RequestOptions::JSON => [
                 'name' => $companyName,
+                'iban' => $iban ?? "",
+                'bic'  => $bic ?? "",
             ],
         ]);
 

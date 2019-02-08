@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=45c252c295e5b1c466610c34b1e9cb9b_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 08:58:48 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: b20359
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b20359'
-        body: '{"id":6,"apiKey":"BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy"}'
+            X-Debug-Token: a5cddf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a5cddf'
+        body: '{"id":6,"apiKey":"6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y"}'
 -
     request:
         method: GET
@@ -35,8 +34,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
-            Authorization: 'token BQYrQ2RRljRP3RqkBDxKRTL7iND58Fsl037i+qRy'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token 6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y'
             VCR-index: '1'
             Accept: null
     response:
@@ -49,11 +48,10 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=0497b5896e0114706a12693566d545e7_C; expires=Fri, 28-Dec-2018 08:58:48 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 08:58:48 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: 812f62
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/812f62'
+            X-Debug-Token: 8a0fcf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a0fcf'
         body: '{"message":"Company \u00221\u0022 not found"}'

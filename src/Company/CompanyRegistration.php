@@ -60,6 +60,12 @@ class CompanyRegistration
     /** @var null|string */
     private $slug;
 
+    /** @var null|string */
+    private $iban;
+
+    /** @var null|string */
+    private $bic;
+
     /** @var array */
     private $extra = [];
 
@@ -262,6 +268,38 @@ class CompanyRegistration
     final public function getFiles(): array
     {
         return $this->files;
+    }
+
+    /**
+     * @return string|null
+     */
+    final public function getIban(): ?string
+    {
+        return $this->iban;
+    }
+
+    /**
+     * @param string|null $iban
+     */
+    final public function setIban(?string $iban): void
+    {
+        $this->iban = $iban;
+    }
+
+    /**
+     * @return string|null
+     */
+    final public function getBic(): ?string
+    {
+        return $this->bic;
+    }
+
+    /**
+     * @param string|null $bic
+     */
+    final public function setBic(?string $bic): void
+    {
+        $this->bic = $bic;
     }
 
     final private function addFile(string $name, StreamInterface $contents, string $filename): void
