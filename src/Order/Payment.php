@@ -20,6 +20,8 @@ class Payment
     private $processorName;
     /** @var \DateTimeImmutable|null */
     private $commitmentDate;
+    /** @var array */
+    private $processorInformations;
 
     /**
      * @internal
@@ -31,8 +33,9 @@ class Payment
     public function __construct(array $data)
     {
         $this->type = $data['type'];
-        $this->processorName = $data['processorName'];
-        $this->commitmentDate = $data['commitmentDate'] ?  new \DateTimeImmutable($data['commitmentDate']) : null;
+        $this->processorName = $data['processorName'] ?? $data['processor_name'] ?? null;
+        $this->commitmentDate = (isset($data['commitmentDate'])) ? new \DateTimeImmutable($data['commitmentDate']) : null;
+        $this->processorInformations = $data['processorInformation'] ?? [];
     }
 
     /**
@@ -57,5 +60,13 @@ class Payment
     public function getCommitmentDate(): ?\DateTimeImmutable
     {
         return $this->commitmentDate;
+    }
+
+    /**
+     * @return array
+     */
+    public function getProcessorInformations(): array
+    {
+        return $this->processorInformations;
     }
 }
