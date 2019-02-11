@@ -11,6 +11,10 @@ use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use function theodorejb\polycast\to_float;
 
+/**
+ * Class ProductSummary
+ * @package Wizaplace\SDK\Pim\Product
+ */
 class ProductSummary
 {
     /** @var int */
@@ -75,6 +79,10 @@ class ProductSummary
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -106,86 +114,137 @@ class ProductSummary
         $this->divisions = $data['divisions'] ?? [];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @return string
+     */
     public function getSupplierReference(): string
     {
         return $this->supplierReference;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getLastUpdateAt(): \DateTimeInterface
     {
         return $this->lastUpdateAt;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return int
+     */
     public function getMainCategoryId(): int
     {
         return $this->mainCategoryId;
     }
 
+    /**
+     * @return bool
+     */
     public function hasFreeShipping(): bool
     {
         return $this->hasFreeShipping;
     }
 
+    /**
+     * @return float
+     */
     public function getWeight(): float
     {
         return $this->weight;
     }
 
+    /**
+     * @return bool
+     */
     public function isDownloadable(): bool
     {
         return $this->isDownloadable;
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getAffiliateLink(): ?UriInterface
     {
         return $this->affiliateLink;
     }
 
+    /**
+     * @return ProductStatus
+     */
     public function getStatus(): ProductStatus
     {
         return $this->status;
     }
 
+    /**
+     * @return ProductApprovalStatus
+     */
     public function getApprovalStatus(): ProductApprovalStatus
     {
         return $this->approvalStatus;
     }
 
+    /**
+     * @return float
+     */
     public function getGreenTax(): float
     {
         return $this->greenTax;
     }
 
+    /**
+     * @return ProductGeolocation|null
+     */
     public function getGeolocation(): ?ProductGeolocation
     {
         return $this->geolocation;
     }
 
+    /**
+     * @return bool
+     */
     public function isBrandNew(): bool
     {
         return $this->isBrandNew;
@@ -207,6 +266,9 @@ class ProductSummary
         return $this->attachments;
     }
 
+    /**
+     * @return array
+     */
     public function getDivisions(): array
     {
         return $this->divisions;

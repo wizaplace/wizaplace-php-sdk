@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Promotion\Rules;
 
 use Wizaplace\SDK\Vendor\Promotion\BasketRuleType;
 
+/**
+ * Class BasketHasProductInListRule
+ * @package Wizaplace\SDK\Vendor\Promotion\Rules
+ */
 final class BasketHasProductInListRule implements BasketRule
 {
     /**
@@ -16,6 +20,11 @@ final class BasketHasProductInListRule implements BasketRule
      */
     private $productsIds;
 
+    /**
+     * BasketHasProductInListRule constructor.
+     *
+     * @param int ...$productsIds
+     */
     public function __construct(int ...$productsIds)
     {
         $this->productsIds = $productsIds;

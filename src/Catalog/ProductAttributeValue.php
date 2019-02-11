@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class ProductAttributeValue
+ * @package Wizaplace\SDK\Catalog
+ */
 final class ProductAttributeValue
 {
     /** @var null|int */
@@ -24,6 +28,8 @@ final class ProductAttributeValue
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -34,26 +40,41 @@ final class ProductAttributeValue
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return int|null
+     */
     public function getAttributeId(): ?int
     {
         return $this->attributeId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;

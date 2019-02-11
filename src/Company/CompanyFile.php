@@ -6,6 +6,10 @@
 
 namespace Wizaplace\SDK\Company;
 
+/**
+ * Class CompanyFile
+ * @package Wizaplace\SDK\Company
+ */
 final class CompanyFile
 {
     /** @var int */
@@ -16,6 +20,9 @@ final class CompanyFile
 
     /**
      * @internal
+     *
+     * @param int    $companyId
+     * @param string $filename
      */
     public function __construct(int $companyId, string $filename)
     {
@@ -23,11 +30,17 @@ final class CompanyFile
         $this->filename = $filename;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string
+     */
     public function getFilename(): string
     {
         return $this->filename;

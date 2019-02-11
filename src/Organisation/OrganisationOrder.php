@@ -5,6 +5,10 @@
  */
 namespace Wizaplace\SDK\Organisation;
 
+/**
+ * Class OrganisationOrder
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationOrder
 {
     /**
@@ -17,6 +21,11 @@ class OrganisationOrder
      */
     private $organisationId;
 
+    /**
+     * OrganisationOrder constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->setOrderId($data['orderId']);

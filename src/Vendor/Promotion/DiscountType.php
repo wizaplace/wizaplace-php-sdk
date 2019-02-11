@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Class DiscountType
+ * @package Wizaplace\SDK\Vendor\Promotion
+ *
  * @internal for serialization purposes only
  * @method static DiscountType PERCENTAGE()
  * @method static DiscountType FIXED()

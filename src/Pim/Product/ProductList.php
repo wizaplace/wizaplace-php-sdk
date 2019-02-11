@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Pim\Product;
 use Wizaplace\SDK\Pagination;
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class ProductList
+ * @package Wizaplace\SDK\Pim\Product
+ */
 class ProductList
 {
     /** @var ProductSummary[] */
@@ -20,6 +24,8 @@ class ProductList
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -42,11 +48,20 @@ class ProductList
         return $this->products;
     }
 
+    /**
+     * @return Pagination
+     */
     public function getPagination(): Pagination
     {
         return $this->pagination;
     }
 
+    /**
+     * @param int $itemsPerPage
+     * @param int $totalItems
+     *
+     * @return int
+     */
     private function calculateNbPages(int $itemsPerPage, int $totalItems) : int
     {
         $nbPages = to_int(floor($totalItems / $itemsPerPage));

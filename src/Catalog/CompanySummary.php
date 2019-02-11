@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class CompanySummary
+ * @package Wizaplace\SDK\Catalog
+ */
 final class CompanySummary
 {
     /** @var int */
@@ -31,6 +35,8 @@ final class CompanySummary
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -42,31 +48,49 @@ final class CompanySummary
         $this->averageRating = $data['averageRating'] ?? null;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
+    /**
+     * @return bool
+     */
     public function isProfessional(): bool
     {
         return $this->professional;
     }
 
+    /**
+     * @return float|null
+     */
     public function getAverageRating(): ?float
     {
         return $this->averageRating;

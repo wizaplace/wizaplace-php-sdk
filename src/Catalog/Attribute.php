@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class Attribute
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Attribute
 {
     /** @var int */
@@ -22,6 +26,12 @@ final class Attribute
 
     /**
      * @internal
+     *
+     * @param int           $id
+     * @param string        $name
+     * @param AttributeType $type
+     * @param int           $position
+     * @param int|null      $parentId
      */
     public function __construct(int $id, string $name, AttributeType $type, int $position, ?int $parentId)
     {
@@ -32,26 +42,41 @@ final class Attribute
         $this->parentId = $parentId;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return AttributeType
+     */
     public function getType(): AttributeType
     {
         return $this->type;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition()
     {
         return $this->position;
     }
 
+    /**
+     * @return int|null
+     */
     public function getParentId(): ?int
     {
         return $this->parentId;

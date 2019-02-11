@@ -8,6 +8,10 @@ namespace Wizaplace\SDK\Division;
 
 use Wizaplace\SDK\User\UserType;
 
+/**
+ * Class DivisionCompany
+ * @package Wizaplace\SDK\Division
+ */
 final class DivisionCompany
 {
     /**
@@ -25,6 +29,11 @@ final class DivisionCompany
      */
     private $disabledBy;
 
+    /**
+     * DivisionCompany constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->code       = $data['code'];

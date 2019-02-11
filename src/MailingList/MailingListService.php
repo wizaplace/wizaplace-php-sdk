@@ -20,6 +20,8 @@ final class MailingListService extends AbstractService
 {
     /**
      * @return MailingList[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getMailingLists(): array
     {
@@ -34,7 +36,12 @@ final class MailingListService extends AbstractService
     }
 
     /**
+     * @param int    $mailingListId
+     * @param string $email
+     *
+     * @throws MailingListDoesNotExist
      * @throws UserAlreadySubscribed
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function subscribe(int $mailingListId, string $email)
     {
@@ -52,6 +59,13 @@ final class MailingListService extends AbstractService
         }
     }
 
+    /**
+     * @param int    $mailingListId
+     * @param string $email
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function unsubscribe(int $mailingListId, string $email)
     {
         $this->client->delete("mailinglists/$mailingListId/subscriptions/$email");
@@ -59,9 +73,13 @@ final class MailingListService extends AbstractService
 
     /**
      * Check if the current authenticated user is subscribed
+     *
      * @param int $mailingListId
+     *
      * @return bool
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function isSubscribed(int $mailingListId): bool
     {

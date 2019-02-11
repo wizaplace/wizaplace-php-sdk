@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Image;
 
+/**
+ * Class Image
+ * @package Wizaplace\SDK\Image
+ */
 final class Image
 {
     /** @var int */
@@ -14,12 +18,17 @@ final class Image
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;

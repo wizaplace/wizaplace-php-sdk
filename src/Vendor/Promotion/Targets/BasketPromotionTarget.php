@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Promotion\Targets;
 
 use Wizaplace\SDK\Vendor\Promotion\BasketPromotionTargetType;
 
+/**
+ * Interface BasketPromotionTarget
+ * @package Wizaplace\SDK\Vendor\Promotion\Targets
+ */
 interface BasketPromotionTarget
 {
     /**

@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class AttributeVariant
+ * @package Wizaplace\SDK\Catalog
+ */
 final class AttributeVariant
 {
     /** @var int */
@@ -30,6 +34,8 @@ final class AttributeVariant
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -43,41 +49,65 @@ final class AttributeVariant
         $this->seoDescription = $data['seoData']['description'] ?? '';
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return int
+     */
     public function getAttributeId(): int
     {
         return $this->attributeId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoTitle(): string
     {
         return $this->seoTitle;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoDescription(): string
     {
         return $this->seoDescription;

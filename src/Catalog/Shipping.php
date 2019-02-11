@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class Shipping
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Shipping
 {
     /** @var string */
@@ -26,6 +30,8 @@ final class Shipping
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -36,26 +42,41 @@ final class Shipping
         $this->deliveryTime = $data['deliveryTime'];
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string|null
+     */
     public function getImage(): ?string
     {
         return $this->image;
     }
 
+    /**
+     * @return float
+     */
     public function getFirstRate(): float
     {
         return $this->firstRate;
     }
 
+    /**
+     * @return float
+     */
     public function getNextRate(): float
     {
         return $this->nextRate;
     }
 
+    /**
+     * @return string|null
+     */
     public function getDeliveryTime(): ?string
     {
         return $this->deliveryTime;

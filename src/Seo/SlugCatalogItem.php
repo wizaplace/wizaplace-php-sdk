@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Seo;
 
+/**
+ * Class SlugCatalogItem
+ * @package Wizaplace\SDK\Seo
+ */
 class SlugCatalogItem
 {
     /** @var string */
@@ -18,6 +22,8 @@ class SlugCatalogItem
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -28,11 +34,17 @@ class SlugCatalogItem
         }, $data['categoryPath'] ?? []);
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return SlugTarget
+     */
     public function getTarget(): SlugTarget
     {
         return $this->target;

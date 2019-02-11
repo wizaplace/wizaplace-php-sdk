@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Exception;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class ErrorCode
+ * @package Wizaplace\SDK\Exception
+ *
  * @internal
  * @method static ErrorCode BASKET_NOT_FOUND()
  * @method static ErrorCode COUPON_CODE_DOES_NOT_APPLY()

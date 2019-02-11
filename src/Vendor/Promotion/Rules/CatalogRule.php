@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Promotion\Rules;
 
 use Wizaplace\SDK\Vendor\Promotion\CatalogRuleType;
 
+/**
+ * Interface CatalogRule
+ * @package Wizaplace\SDK\Vendor\Promotion\Rules
+ */
 interface CatalogRule
 {
     /**

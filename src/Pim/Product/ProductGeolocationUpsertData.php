@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+/**
+ * Class ProductGeolocationUpsertData
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class ProductGeolocationUpsertData
 {
     /** @var float */
@@ -21,12 +25,23 @@ final class ProductGeolocationUpsertData
     /** @var string */
     private $zipcode;
 
+    /**
+     * ProductGeolocationUpsertData constructor.
+     *
+     * @param float $latitude
+     * @param float $longitude
+     */
     public function __construct(float $latitude, float $longitude)
     {
         $this->setLatitude($latitude);
         $this->setLongitude($longitude);
     }
 
+    /**
+     * @param float $latitude
+     *
+     * @return ProductGeolocationUpsertData
+     */
     public function setLatitude(float $latitude): self
     {
         $this->latitude = $latitude;
@@ -34,6 +49,11 @@ final class ProductGeolocationUpsertData
         return $this;
     }
 
+    /**
+     * @param float $longitude
+     *
+     * @return ProductGeolocationUpsertData
+     */
     public function setLongitude(float $longitude): self
     {
         $this->longitude = $longitude;
@@ -41,6 +61,11 @@ final class ProductGeolocationUpsertData
         return $this;
     }
 
+    /**
+     * @param string $label
+     *
+     * @return ProductGeolocationUpsertData
+     */
     public function setLabel(string $label): self
     {
         $this->label = $label;
@@ -48,6 +73,11 @@ final class ProductGeolocationUpsertData
         return $this;
     }
 
+    /**
+     * @param string $zipcode
+     *
+     * @return ProductGeolocationUpsertData
+     */
     public function setZipcode(string $zipcode): self
     {
         $this->zipcode = $zipcode;

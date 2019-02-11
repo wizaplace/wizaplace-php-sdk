@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class MultiVendorProductStatus
+ * @package Wizaplace\SDK\Pim\MultiVendorProduct
+ *
  * @method static MultiVendorProductStatus ENABLED()
  * @method static MultiVendorProductStatus DISABLED()
  * @method static MultiVendorProductStatus HIDDEN()

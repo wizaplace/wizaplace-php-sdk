@@ -15,6 +15,10 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class MultiVendorProduct
+ * @package Wizaplace\SDK\Pim\MultiVendorProduct
+ */
 final class MultiVendorProduct
 {
     const CONTEXT_CREATE = 'create';
@@ -68,6 +72,11 @@ final class MultiVendorProduct
     /** @var array */
     private $imageIds;
 
+    /**
+     * MultiVendorProduct constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data = [])
     {
         $this->id = isset($data['id']) ? to_string($data['id']) : null;
@@ -88,16 +97,27 @@ final class MultiVendorProduct
         $this->attributes = $data['attributes'] ?? null;
     }
 
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @param string|null $name
+     *
+     * @return MultiVendorProduct
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -105,11 +125,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @param string|null $code
+     *
+     * @return MultiVendorProduct
+     */
     public function setCode(?string $code): self
     {
         $this->code = $code;
@@ -117,23 +145,39 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getProductTemplateType(): string
     {
         return $this->productTemplateType;
     }
 
-    public function setProductTemplateType($productTemplateType): self
+    /**
+     * @param string $productTemplateType
+     *
+     * @return MultiVendorProduct
+     */
+    public function setProductTemplateType(string $productTemplateType): self
     {
         $this->productTemplateType = $productTemplateType;
 
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSupplierReference(): string
     {
         return $this->supplierReference;
     }
 
+    /**
+     * @param string|null $supplierReference
+     *
+     * @return MultiVendorProduct
+     */
     public function setSupplierReference(?string $supplierReference): self
     {
         $this->supplierReference = $supplierReference;
@@ -141,11 +185,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @param string|null $slug
+     *
+     * @return MultiVendorProduct
+     */
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
@@ -153,11 +205,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;
     }
 
+    /**
+     * @param string|null $shortDescription
+     *
+     * @return MultiVendorProduct
+     */
     public function setShortDescription(?string $shortDescription): self
     {
         $this->shortDescription = $shortDescription;
@@ -165,11 +225,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    /**
+     * @param string|null $description
+     *
+     * @return MultiVendorProduct
+     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -177,11 +245,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoTitle(): string
     {
         return $this->seoTitle;
     }
 
+    /**
+     * @param string|null $seoTitle
+     *
+     * @return MultiVendorProduct
+     */
     public function setSeoTitle(?string $seoTitle): self
     {
         $this->seoTitle = $seoTitle;
@@ -189,11 +265,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
     }
 
+    /**
+     * @param string|null $seoDescription
+     *
+     * @return MultiVendorProduct
+     */
     public function setSeoDescription(?string $seoDescription): self
     {
         $this->seoDescription = $seoDescription;
@@ -201,11 +285,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getSeoKeywords(): string
     {
         return $this->seoKeywords;
     }
 
+    /**
+     * @param string|null $seoKeywords
+     *
+     * @return MultiVendorProduct
+     */
     public function setSeoKeywords(?string $seoKeywords): self
     {
         $this->seoKeywords = $seoKeywords;
@@ -213,11 +305,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return MultiVendorProductStatus
+     */
     public function getStatus(): MultiVendorProductStatus
     {
         return $this->status;
     }
 
+    /**
+     * @param MultiVendorProductStatus|null $status
+     *
+     * @return MultiVendorProduct
+     */
     public function setStatus(?MultiVendorProductStatus $status): self
     {
         $this->status = $status;
@@ -225,11 +325,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getCategoryId(): int
     {
         return $this->categoryId;
     }
 
+    /**
+     * @param int|null $categoryId
+     *
+     * @return MultiVendorProduct
+     */
     public function setCategoryId(?int $categoryId): self
     {
         $this->categoryId = $categoryId;
@@ -237,11 +345,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getAttributes(): array
     {
         return $this->attributes;
     }
 
+    /**
+     * @param array|null $attributes
+     *
+     * @return MultiVendorProduct
+     */
     public function setAttributes(?array $attributes): self
     {
         $this->attributes = $attributes;
@@ -249,11 +365,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getFreeAttributes(): array
     {
         return $this->freeAttributes;
     }
 
+    /**
+     * @param array|null $freeAttributes
+     *
+     * @return MultiVendorProduct
+     */
     public function setFreeAttributes(?array $freeAttributes): self
     {
         $this->freeAttributes = $freeAttributes;
@@ -261,11 +385,19 @@ final class MultiVendorProduct
         return $this;
     }
 
+    /**
+     * @return array
+     */
     public function getImageIds(): array
     {
         return $this->imageIds;
     }
 
+    /**
+     * @param array|null $imageIds
+     *
+     * @return MultiVendorProduct
+     */
     public function setImageIds(?array $imageIds): self
     {
         $this->imageIds = $imageIds;
@@ -339,6 +471,9 @@ final class MultiVendorProduct
         return $data;
     }
 
+    /**
+     * @param ClassMetadata $metadata
+     */
     public static function loadValidatorMetadata(ClassMetadata $metadata)
     {
         // "Create" constraints
@@ -349,6 +484,11 @@ final class MultiVendorProduct
         $metadata->addPropertyConstraints('id', [new NotNull(['groups' => self::CONTEXT_UPDATE])]);
     }
 
+    /**
+     * @param string $context
+     *
+     * @throws SomeParametersAreInvalid
+     */
     public function validate(string $context = self::CONTEXT_CREATE)
     {
         $builder = Validation::createValidatorBuilder()

@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Exception;
 
 use Throwable;
 
+/**
+ * Class UserDoesntBelongToOrganisation
+ * @package Wizaplace\SDK\Exception
+ */
 class UserDoesntBelongToOrganisation extends \Exception
 {
     /**

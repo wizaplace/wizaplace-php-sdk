@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog\Facet;
 
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class Facet
+ * @package Wizaplace\SDK\Catalog\Facet
+ */
 abstract class Facet
 {
     /** @var string */
@@ -18,6 +22,8 @@ abstract class Facet
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -25,6 +31,11 @@ abstract class Facet
         $this->label = $data['label'];
     }
 
+    /**
+     * @param array $data
+     *
+     * @return Facet
+     */
     public static function buildFromJson(array $data): self
     {
         if ($data['isNumeric']) {
@@ -34,11 +45,17 @@ abstract class Facet
         return new ListFacet($data);
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getLabel(): string
     {
         return $this->label;

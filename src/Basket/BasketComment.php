@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
+/**
+ * Class BasketComment
+ * @package Wizaplace\SDK\Basket
+ */
 final class BasketComment extends Comment
 {
     /**

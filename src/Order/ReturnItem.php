@@ -25,6 +25,8 @@ final class ReturnItem
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {

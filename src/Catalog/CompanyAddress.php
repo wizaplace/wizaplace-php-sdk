@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class CompanyAddress
+ * @package Wizaplace\SDK\Catalog
+ */
 final class CompanyAddress
 {
     /** @var string */
@@ -23,6 +27,8 @@ final class CompanyAddress
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -32,21 +38,33 @@ final class CompanyAddress
         $this->country = $data['country'];
     }
 
+    /**
+     * @return string
+     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getZipCode(): string
     {
         return $this->zipCode;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry(): string
     {
         return $this->country;

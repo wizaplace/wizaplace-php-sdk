@@ -11,6 +11,10 @@ use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class Payment
+ * @package Wizaplace\SDK\Basket
+ */
 final class Payment
 {
     /** @var int */
@@ -28,6 +32,8 @@ final class Payment
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -41,31 +47,49 @@ final class Payment
         $this->type = new PaymentType($data['type']);
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition(): int
     {
         return $this->position;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
+    /**
+     * @return PaymentType
+     */
     public function getType(): PaymentType
     {
         return $this->type;

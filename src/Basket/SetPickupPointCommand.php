@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Basket;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\User\UserTitle;
 
+/**
+ * Class SetPickupPointCommand
+ * @package Wizaplace\SDK\Basket
+ */
 final class SetPickupPointCommand
 {
     /** @var string */
@@ -82,31 +86,49 @@ final class SetPickupPointCommand
         return $this;
     }
 
+    /**
+     * @return string
+     */
     public function getBasketId(): string
     {
         return $this->basketId;
     }
 
+    /**
+     * @return string
+     */
     public function getPickupPointId(): string
     {
         return $this->pickupPointId;
     }
 
+    /**
+     * @return UserTitle
+     */
     public function getTitle(): UserTitle
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return $this->firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
+    /**
+     * @throws SomeParametersAreInvalid
+     */
     public function validate(): void
     {
         if (!isset($this->basketId)) {

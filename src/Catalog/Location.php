@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class Location
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Location
 {
     /**
@@ -21,6 +25,9 @@ final class Location
 
     /**
      * @internal
+     *
+     * @param float $latitude
+     * @param float $longitude
      */
     public function __construct(float $latitude, float $longitude)
     {
@@ -28,11 +35,17 @@ final class Location
         $this->longitude = $longitude;
     }
 
+    /**
+     * @return float
+     */
     public function getLatitude(): float
     {
         return $this->latitude;
     }
 
+    /**
+     * @return float
+     */
     public function getLongitude(): float
     {
         return $this->longitude;

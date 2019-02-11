@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Shipping;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class MondialRelayOpening
+ * @package Wizaplace\SDK\Shipping
+ */
 class MondialRelayOpening
 {
     /**
@@ -48,6 +52,11 @@ class MondialRelayOpening
      */
     private $openingHour4; // phpcs:ignore
 
+    /**
+     * MondialRelayOpening constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->day = to_int($data['day']);
@@ -57,26 +66,41 @@ class MondialRelayOpening
         $this->openingHour4 = $data['openingHour4'];
     }
 
+    /**
+     * @return int
+     */
     public function getDay(): int
     {
         return $this->day;
     }
 
+    /**
+     * @return string
+     */
     public function getOpeningHour1(): string
     {
         return $this->openingHour1;
     }
 
+    /**
+     * @return string
+     */
     public function getOpeningHour2(): string
     {
         return $this->openingHour2;
     }
 
+    /**
+     * @return string
+     */
     public function getOpeningHour3(): string
     {
         return $this->openingHour3;
     }
 
+    /**
+     * @return string
+     */
     public function getOpeningHour4(): string
     {
         return $this->openingHour4;

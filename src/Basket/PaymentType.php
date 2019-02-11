@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Basket;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class PaymentType
+ * @package Wizaplace\SDK\Basket
+ *
  * @method static PaymentType CREDIT_CARD()
  * @method static PaymentType BANK_TRANSFER()
  * @method static PaymentType SEPA_DIRECT()

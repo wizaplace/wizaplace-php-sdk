@@ -7,13 +7,17 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class DeclinationId
+ * @package Wizaplace\SDK\Catalog
+ */
 class DeclinationId implements \JsonSerializable
 {
     /** @var string */
     private $declinationId;
 
     /**
-     * @throws \InvalidArgumentException
+     * @param string $declinationId
      */
     public function __construct(string $declinationId)
     {
@@ -23,11 +27,19 @@ class DeclinationId implements \JsonSerializable
         $this->declinationId = $declinationId;
     }
 
+    /**
+     * @return string
+     */
     public function __toString(): string
     {
         return $this->declinationId;
     }
 
+    /**
+     * @param self $declinationId
+     *
+     * @return bool
+     */
     public function equals(self $declinationId): bool
     {
         return $this->declinationId === $declinationId->declinationId;

@@ -8,6 +8,9 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Catalog\Facet;
 
 /**
+ * Class ListFacet
+ * @package Wizaplace\SDK\Catalog\Facet
+ *
  * Facet represented by a list of values you can choose from.
  */
 final class ListFacet extends Facet
@@ -17,6 +20,8 @@ final class ListFacet extends Facet
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {

@@ -16,18 +16,27 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class UserService
+ * @package Wizaplace\SDK\User
+ */
 final class UserService extends AbstractService
 {
     private const BIRTHDAY_FORMAT = 'Y-m-d';
 
     /**
-     * Je ne me base pas sur l'id de l'api key parce qu'un admin pourrait
-     * consulter le profile de quelqu'un d'autre.
+     * @param int $id
+     *
+     * @return User
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProfileFromId(int $id): User
     {
+        // Je ne me base pas sur l'id de l'api key parce qu'un admin
+        // pourrait consulter le profile de quelqu'un d'autre.
         $this->client->mustBeAuthenticated();
         try {
             $user = new User($this->client->get("users/{$id}", []));
@@ -44,8 +53,12 @@ final class UserService extends AbstractService
     /**
      * Update the information of a user profile.
      *
+     * @param UpdateUserCommand $command
+     *
      * @throws AuthenticationRequired
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateUser(UpdateUserCommand $command)
     {
@@ -69,8 +82,12 @@ final class UserService extends AbstractService
     /**
      * Update the user's addresses.
      *
+     * @param UpdateUserAddressesCommand $command
+     *
      * @throws AuthenticationRequired
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateUserAdresses(UpdateUserAddressesCommand $command)
     {
@@ -101,7 +118,8 @@ final class UserService extends AbstractService
      * @return int ID of the created user.
      *
      * @throws UserAlreadyExists The email address is already used by a user account.
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function register(
         string $email,
@@ -143,7 +161,12 @@ final class UserService extends AbstractService
     }
 
     /**
+     * @param RegisterUserCommand $command
+     *
+     * @return int
      * @throws UserAlreadyExists
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function registerWithFullInfos(RegisterUserCommand $command): int
     {
@@ -173,6 +196,13 @@ final class UserService extends AbstractService
         return $userData['id'];
     }
 
+    /**
+     * @param string            $email
+     * @param UriInterface|null $recoverBaseUrl
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function recoverPassword(string $email, ?UriInterface $recoverBaseUrl = null)
     {
         $data = [
@@ -191,6 +221,13 @@ final class UserService extends AbstractService
         );
     }
 
+    /**
+     * @param string $token
+     * @param string $newPassword
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function changePasswordWithRecoveryToken(string $token, string $newPassword): void
     {
         $this->client->put("users/password/change-with-token", [
@@ -202,9 +239,12 @@ final class UserService extends AbstractService
     }
 
     /**
-     * @param int $userId
+     * @param int    $userId
      * @param string $newPassword
+     *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function changePassword(int $userId, string $newPassword): void
     {
@@ -223,6 +263,8 @@ final class UserService extends AbstractService
      *
      * @return void
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function enable(int $userId) : void
     {
@@ -237,6 +279,8 @@ final class UserService extends AbstractService
      *
      * @return void
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function disable(int $userId) : void
     {
@@ -244,6 +288,11 @@ final class UserService extends AbstractService
         $this->client->post("users/{$userId}/disable");
     }
 
+    /**
+     * @param UpdateUserAddressCommand $command
+     *
+     * @return array
+     */
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
     {
         return [

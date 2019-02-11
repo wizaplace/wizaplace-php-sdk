@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Cms;
 
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class Banner
+ * @package Wizaplace\SDK\Cms
+ */
 final class Banner
 {
     /**
@@ -33,6 +37,11 @@ final class Banner
 
     /**
      * @internal
+     *
+     * @param UriInterface $link
+     * @param bool         $shouldOpenInNewWindow
+     * @param int          $imageId
+     * @param string       $name
      */
     public function __construct(
         UriInterface $link,
@@ -46,21 +55,33 @@ final class Banner
         $this->name = $name;
     }
 
+    /**
+     * @return UriInterface
+     */
     public function getLink(): UriInterface
     {
         return $this->link;
     }
 
+    /**
+     * @return bool
+     */
     public function getShouldOpenInNewWindow(): bool
     {
         return $this->shouldOpenInNewWindow;
     }
 
+    /**
+     * @return int
+     */
     public function getImageId(): int
     {
         return $this->imageId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;

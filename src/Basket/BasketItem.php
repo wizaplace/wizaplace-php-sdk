@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Basket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class BasketItem
+ * @package Wizaplace\SDK\Basket
+ */
 final class BasketItem
 {
     /** @var DeclinationId */
@@ -83,6 +87,9 @@ final class BasketItem
         $this->divisions = $data['divisions'] ?? [];
     }
 
+    /**
+     * @return DeclinationId
+     */
     public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;
@@ -96,16 +103,25 @@ final class BasketItem
         return $this->declinationOptions;
     }
 
+    /**
+     * @return int
+     */
     public function getProductId(): int
     {
         return $this->productId;
     }
 
+    /**
+     * @return string
+     */
     public function getProductName(): string
     {
         return $this->productName;
     }
 
+    /**
+     * @return string
+     */
     public function getProductCode(): string
     {
         return $this->productCode;
@@ -119,16 +135,25 @@ final class BasketItem
         return $this->individualPrice;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getMainImage(): ?Image
     {
         return $this->mainImage;
     }
 
+    /**
+     * @return int
+     */
     public function getQuantity(): int
     {
         return $this->quantity;
@@ -142,26 +167,41 @@ final class BasketItem
         return $this->total;
     }
 
+    /**
+     * @return string
+     */
     public function getComment(): string
     {
         return $this->comment;
     }
 
+    /**
+     * @return Price
+     */
     public function getUnitPrice(): Price
     {
         return $this->unitPrice;
     }
 
+    /**
+     * @return Price
+     */
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
     }
 
+    /**
+     * @return float
+     */
     public function getGreenTax(): float
     {
         return $this->greenTax;
     }
 
+    /**
+     * @return array
+     */
     public function getDivisions(): array
     {
         return $this->divisions;

@@ -12,6 +12,10 @@ use Psr\Http\Message\UriInterface;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class ProductDeclination
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class ProductDeclination
 {
     /** @var int */
@@ -34,6 +38,8 @@ final class ProductDeclination
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -55,6 +61,9 @@ final class ProductDeclination
         }
     }
 
+    /**
+     * @return int
+     */
     public function getQuantity(): int
     {
         return $this->quantity;
@@ -68,21 +77,33 @@ final class ProductDeclination
         return $this->optionsVariants;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
+    /**
+     * @return float
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getAffiliateLink(): ?UriInterface
     {
         return $this->affiliateLink;

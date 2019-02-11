@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Promotion\Discounts;
 
 use Wizaplace\SDK\Vendor\Promotion\DiscountType;
 
+/**
+ * Interface Discount
+ * @package Wizaplace\SDK\Vendor\Promotion\Discounts
+ */
 interface Discount
 {
     /**

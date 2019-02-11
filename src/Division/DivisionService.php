@@ -12,6 +12,10 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\FeatureNotEnabled;
 use Wizaplace\SDK\Exception\NotFound;
 
+/**
+ * Class DivisionService
+ * @package Wizaplace\SDK\Division
+ */
 class DivisionService extends AbstractService
 {
     /**
@@ -23,6 +27,8 @@ class DivisionService extends AbstractService
      * @return array
      * @throws FeatureNotEnabled
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function get(?string $code = null)
     {
@@ -55,6 +61,8 @@ class DivisionService extends AbstractService
      * @return array
      * @throws FeatureNotEnabled
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function set(string $code, bool $isEnabled)
     {
