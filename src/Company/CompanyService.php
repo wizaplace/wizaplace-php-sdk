@@ -17,10 +17,19 @@ use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
 
+/**
+ * Class CompanyService
+ * @package Wizaplace\SDK\Company
+ */
 final class CompanyService extends AbstractService
 {
     /**
+     * @param CompanyRegistration $companyRegistration
+     *
+     * @return CompanyRegistrationResult
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
@@ -61,7 +70,15 @@ final class CompanyService extends AbstractService
     /**
      * Register a new C2C company (Customer-To-Customer, aka private individual).
      *
+     * @param string      $companyName
+     * @param string|null $iban
+     * @param string|null $bic
+     * @param array       $files
+     *
+     * @return CompanyRegistrationResult
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
@@ -88,9 +105,12 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param CompanyUpdateCommand $command
+     *
+     * @return Company
      * @throws AuthenticationRequired
-     * @throws CompanyNotFound
-     * @throws BadResponseException
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function update(CompanyUpdateCommand $command): Company
     {
@@ -129,6 +149,13 @@ final class CompanyService extends AbstractService
         return new Company($responseData);
     }
 
+    /**
+     * @param UnauthenticatedCompanyRegistration $companyRegistration
+     *
+     * @return CompanyRegistrationResult
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function unauthenticatedRegister(UnauthenticatedCompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $responseData = $this->client->post('companies', [
@@ -165,9 +192,13 @@ final class CompanyService extends AbstractService
 
     /**
      * Return the company matching the given ID
+     *
      * @param int $companyId
+     *
      * @return Company
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCompany(int $companyId) :Company
     {
@@ -179,7 +210,12 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param int $companyId
+     *
      * @return CompanyFile[]
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCompanyFiles(int $companyId) :array
     {
@@ -194,6 +230,13 @@ final class CompanyService extends AbstractService
         return $return;
     }
 
+    /**
+     * @param CompanyFile $file
+     *
+     * @return ResponseInterface
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function fetchFile(CompanyFile $file) :ResponseInterface
     {
         $this->client->mustBeAuthenticated();
@@ -210,7 +253,8 @@ final class CompanyService extends AbstractService
      *
      * @return mixed|null
      * @throws AuthenticationRequired
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateFile(int $companyId, string $filename, array $file)
     {
@@ -231,6 +275,8 @@ final class CompanyService extends AbstractService
      *
      * @return mixed|null
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function deleteFile(int $companyId, string $filename)
     {
@@ -240,10 +286,12 @@ final class CompanyService extends AbstractService
     }
 
     /**
-     * @param int $companyId
+     * @param int   $companyId
      * @param array $imageFile
+     *
      * @return int
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function updateCompanyImage(int $companyId, array $imageFile): int
     {
@@ -261,8 +309,11 @@ final class CompanyService extends AbstractService
     /**
      * @param int $companyId
      * @param int $imageId
+     *
      * @return mixed|null
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function deleteCompanyImage(int $companyId, int $imageId)
     {
@@ -273,8 +324,11 @@ final class CompanyService extends AbstractService
 
     /**
      * @param int $companyId
+     *
      * @return int
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCompanyImageId(int $companyId)
     {
@@ -291,6 +345,8 @@ final class CompanyService extends AbstractService
      * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDivisionsCountriesCodes(int $companyId): array
     {
@@ -315,6 +371,8 @@ final class CompanyService extends AbstractService
      * @return DivisionCompany[]
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDivisions(int $companyId, string $countryCode): array
     {
@@ -342,6 +400,8 @@ final class CompanyService extends AbstractService
      * @return DivisionCompany[]
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function putDivisions(int $companyId, string $countryCode, array $codes): array
     {
@@ -366,8 +426,12 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * @param int   $companyId
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}
+     *
      * @return FileUploadResult[] a map of result by uploaded file.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     private function uploadRegistrationFiles(int $companyId, array $files): array
     {

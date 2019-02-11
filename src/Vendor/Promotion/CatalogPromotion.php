@@ -26,6 +26,10 @@ use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class CatalogPromotion
+ * @package Wizaplace\SDK\Vendor\Promotion
+ */
 final class CatalogPromotion implements \JsonSerializable
 {
     /** @var string */
@@ -51,6 +55,10 @@ final class CatalogPromotion implements \JsonSerializable
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -63,26 +71,41 @@ final class CatalogPromotion implements \JsonSerializable
         $this->period = self::denormalizePeriod($data['period']);
     }
 
+    /**
+     * @return string
+     */
     public function getPromotionId(): string
     {
         return $this->promotionId;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return bool
+     */
     public function isActive(): bool
     {
         return $this->active;
     }
 
+    /**
+     * @return CatalogRule
+     */
     public function getRule(): CatalogRule
     {
         return $this->rule;
@@ -96,6 +119,9 @@ final class CatalogPromotion implements \JsonSerializable
         return $this->discounts;
     }
 
+    /**
+     * @return PromotionPeriod
+     */
     public function getPeriod(): PromotionPeriod
     {
         return $this->period;
@@ -103,6 +129,8 @@ final class CatalogPromotion implements \JsonSerializable
 
     /**
      * @inheritdoc
+     *
+     * @return array
      */
     public function jsonSerialize(): array
     {
@@ -115,6 +143,12 @@ final class CatalogPromotion implements \JsonSerializable
         return $serializer->normalize($this);
     }
 
+    /**
+     * @param array $discountData
+     *
+     * @return Discount
+     * @throws \Exception
+     */
     private static function denormalizeDiscount(array $discountData): Discount
     {
         $type = new DiscountType($discountData['type']);
@@ -129,6 +163,12 @@ final class CatalogPromotion implements \JsonSerializable
         }
     }
 
+    /**
+     * @param array $periodData
+     *
+     * @return PromotionPeriod
+     * @throws \Exception
+     */
     private static function denormalizePeriod(array $periodData): PromotionPeriod
     {
         return new PromotionPeriod(
@@ -137,6 +177,12 @@ final class CatalogPromotion implements \JsonSerializable
         );
     }
 
+    /**
+     * @param array $ruleData
+     *
+     * @return CatalogRule
+     * @throws \Exception
+     */
     private static function denormalizeRule(array $ruleData): CatalogRule
     {
         $type = new CatalogRuleType($ruleData['type']);

@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class CreateLabelCommand
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class CreateLabelCommand
 {
     /** @var int[] map of (int) itemId to (int) quantity shipped */
@@ -28,6 +32,7 @@ final class CreateLabelCommand
 
     /**
      * @internal
+     * @throws SomeParametersAreInvalid
      */
     public function validate(): void
     {

@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Pim\Attribute;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class AttributeType
+ * @package Wizaplace\SDK\Pim\Attribute
+ *
  * @method static AttributeType FREE_NUMBER()
  * @method static AttributeType FREE_TEXT()
  * @method static AttributeType FREE_DATE()

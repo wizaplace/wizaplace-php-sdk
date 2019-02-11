@@ -19,6 +19,9 @@ use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
+ * Class DiscussionService
+ * @package Wizaplace\SDK\Discussion
+ *
  * This service helps getting and creating discussions and messages.
  *
  * Discussion are a list of exchanged messages between a customer and a product's vendor.
@@ -47,6 +50,8 @@ final class DiscussionService extends AbstractService
      *
      * @return Discussion[]
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDiscussions(): array
     {
@@ -62,8 +67,12 @@ final class DiscussionService extends AbstractService
     /**
      * Get a discussion based on its id
      *
-     * @throws NotFound
+     * @param int $discussionId
+     *
+     * @return Discussion
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDiscussion(int $discussionId): Discussion
     {
@@ -75,10 +84,12 @@ final class DiscussionService extends AbstractService
     /**
      * Start a discussion with a vendor about a specific product.
      *
-     * @throws ProductNotFound
-     * @throws SenderIsAlsoRecipient
-     * @throws CompanyHasNoAdministrator
+     * @param int $productId
+     *
+     * @return Discussion
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function startDiscussion(int $productId): Discussion
     {
@@ -92,10 +103,12 @@ final class DiscussionService extends AbstractService
     /**
      * Start a discussion with a vendor.
      *
-     * @throws NotFound
-     * @throws SenderIsAlsoRecipient
-     * @throws CompanyHasNoAdministrator
+     * @param int $companyId
+     *
+     * @return Discussion
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function startDiscussionWithVendor(int $companyId): Discussion
     {
@@ -109,10 +122,13 @@ final class DiscussionService extends AbstractService
     /**
      * Start a discussion with a vendor about a specific product identified by its declination ID.
      *
-     * @throws ProductNotFound
-     * @throws SenderIsAlsoRecipient
-     * @throws CompanyHasNoAdministrator
+     * @param DeclinationId $declinationId
+     *
+     * @return Discussion
      * @throws AuthenticationRequired
+     * @throws ProductNotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
     {
@@ -130,8 +146,13 @@ final class DiscussionService extends AbstractService
 
     /**
      * Get the discussion's messages list
+     *
+     * @param int $discussionId
+     *
      * @return Message[]
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getMessages(int $discussionId): array
     {
@@ -150,8 +171,14 @@ final class DiscussionService extends AbstractService
     /**
      * Post a new message in the discussion
      *
-     * @throws SomeParametersAreInvalid
+     * @param int    $discussionId
+     * @param string $content
+     *
+     * @return Message
      * @throws AuthenticationRequired
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function postMessage(int $discussionId, string $content): Message
     {
@@ -167,6 +194,14 @@ final class DiscussionService extends AbstractService
         }
     }
 
+    /**
+     * @param string $senderEmail
+     * @param string $subject
+     * @param string $message
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function submitContactRequest(string $senderEmail, string $subject, string $message): void
     {
         $this->client->post('contact-request', [

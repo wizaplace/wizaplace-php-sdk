@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\User;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class User
+ * @package Wizaplace\SDK\User
+ */
 final class User
 {
     private const BIRTHDAY_FORMAT = 'Y-m-d';
@@ -41,6 +45,8 @@ final class User
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -58,56 +64,89 @@ final class User
         $this->phone = $data['phone'] ?? null;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
+    /**
+     * @return UserTitle|null
+     */
     public function getTitle(): ?UserTitle
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstname(): string
     {
         return $this->firstname;
     }
 
+    /**
+     * @return string
+     */
     public function getLastname(): string
     {
         return $this->lastname;
     }
 
+    /**
+     * @return \DateTimeImmutable|null
+     */
     public function getBirthday(): ?\DateTimeImmutable
     {
         return $this->birthday;
     }
 
+    /**
+     * @return UserAddress|null
+     */
     public function getBillingAddress(): ?UserAddress
     {
         return $this->billingAddress;
     }
 
+    /**
+     * @return UserAddress|null
+     */
     public function getShippingAddress(): ?UserAddress
     {
         return $this->shippingAddress;
     }
 
+    /**
+     * @return int|null
+     */
     public function getCompanyId(): ?int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string|null
+     */
     public function getPhone(): ?string
     {
         return $this->phone;
     }
 
+    /**
+     * @return bool
+     */
     public function isVendor(): bool
     {
         return $this->getCompanyId() !== null;
@@ -121,6 +160,9 @@ final class User
         return $this->status;
     }
 
+    /**
+     * @return UserType|null
+     */
     public function getType(): ?UserType
     {
         return $this->type;

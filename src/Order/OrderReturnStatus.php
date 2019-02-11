@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Order;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class OrderReturn
+ * @package Wizaplace\SDK\Order
+ *
  * @method static OrderReturnStatus PROCESSING()
  * @method static OrderReturnStatus RECEIVED()
  * @method static OrderReturnStatus COMPLETED()

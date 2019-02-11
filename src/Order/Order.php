@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class Order
+ * @package Wizaplace\SDK\Order
+ */
 final class Order
 {
     /** @var int */
@@ -40,6 +44,10 @@ final class Order
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -61,56 +69,89 @@ final class Order
         $this->payment = new Payment($data['payment']);
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return string
+     */
     public function getCompanyName(): string
     {
         return $this->companyName;
     }
 
+    /**
+     * @return float
+     */
     public function getTotal(): float
     {
         return $this->total;
     }
 
+    /**
+     * @return float
+     */
     public function getSubtotal(): float
     {
         return $this->subtotal;
     }
 
+    /**
+     * @return float
+     */
     public function getTaxtotal(): float
     {
         return $this->taxtotal;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getTimestamp(): \DateTimeImmutable
     {
         return $this->timestamp;
     }
 
+    /**
+     * @return OrderStatus
+     */
     public function getStatus(): OrderStatus
     {
         return $this->status;
     }
 
+    /**
+     * @return string
+     */
     public function getShippingName(): string
     {
         return $this->shippingName;
     }
 
+    /**
+     * @return ShippingAddress
+     */
     public function getShippingAddress(): ShippingAddress
     {
         return $this->shippingAddress;
     }
 
+    /**
+     * @return BillingAddress
+     */
     public function getBillingAddress(): BillingAddress
     {
         return $this->billingAddress;
@@ -124,11 +165,17 @@ final class Order
         return $this->orderItems;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerComment(): string
     {
         return $this->customerComment;
     }
 
+    /**
+     * @return Payment
+     */
     public function getPayment(): Payment
     {
         return $this->payment;

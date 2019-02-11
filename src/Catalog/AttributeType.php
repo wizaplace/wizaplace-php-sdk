@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Catalog;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class AttributeType
+ * @package Wizaplace\SDK\Catalog
+ *
  * @method static AttributeType FREE()
  * @method static AttributeType FREE_NUMBER()
  * @method static AttributeType FREE_TEXT()
@@ -36,7 +39,10 @@ final class AttributeType extends Enum
 
     /**
      * @internal
+     *
+     * @param string $value
      * @throws \UnexpectedValueException
+     * @return AttributeType
      */
     public static function createFromLegacyMapping(string $value)
     {

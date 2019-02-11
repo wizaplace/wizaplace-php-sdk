@@ -18,16 +18,27 @@ final class UpdateProductCommand extends ProductUpsertData
      */
     private $productId;
 
+    /**
+     * UpdateProductCommand constructor.
+     *
+     * @param int $productId
+     */
     public function __construct(int $productId)
     {
         $this->productId = $productId;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->productId;
     }
 
+    /**
+     * @return bool
+     */
     protected static function allowsPartialData(): bool
     {
         return true;

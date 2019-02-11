@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Catalog;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class CompanySummary
+ * @package Wizaplace\SDK\Catalog
+ *
  * @method static Condition BRAND_NEW()
  * @method static Condition USED()
  */

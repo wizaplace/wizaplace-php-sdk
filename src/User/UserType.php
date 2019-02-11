@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\User;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class UserType
+ * @package Wizaplace\SDK\User
+ *
  * @method static UserType ADMIN()
  * @method static UserType CLIENT()
  * @method static UserType VENDOR()

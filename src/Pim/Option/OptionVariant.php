@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Option;
 
+/**
+ * Class OptionVariant
+ * @package Wizaplace\SDK\Pim\Option
+ */
 final class OptionVariant
 {
     /** @var int */
@@ -17,6 +21,8 @@ final class OptionVariant
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -24,11 +30,17 @@ final class OptionVariant
         $this->name = $data['variant_name'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;

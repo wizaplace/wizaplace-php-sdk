@@ -8,6 +8,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class Payment
+ * @package Wizaplace\SDK\Order
+ */
 class Payment
 {
     /** @var string */
@@ -19,6 +23,13 @@ class Payment
     /** @var array */
     private $processorInformations;
 
+    /**
+     * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
+     */
     public function __construct(array $data)
     {
         $this->type = $data['type'];
@@ -27,11 +38,17 @@ class Payment
         $this->processorInformations = $data['processorInformation'] ?? [];
     }
 
+    /**
+     * @return string
+     */
     public function getType(): string
     {
         return $this->type;
     }
 
+    /**
+     * @return string|null
+     */
     public function getProcessorName(): ?string
     {
         return $this->processorName;

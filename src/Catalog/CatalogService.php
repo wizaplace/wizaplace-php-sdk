@@ -15,13 +15,18 @@ use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class CatalogService
+ * @package Wizaplace\SDK\Catalog
+ */
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     /**
      * @param string|null $language
      *
      * @return \Generator|Product[] a Generator of Product
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAllProducts(string $language = null): \Generator
     {
@@ -52,7 +57,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
-     * @throws ProductNotFound
+     * @param string $id
+     *
+     * @return Product
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductById(string $id) : Product
     {
@@ -63,7 +72,10 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @param string $id
+     *
      * @return Declination
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDeclinationById(string $id): Declination
     {
@@ -73,7 +85,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param string $code
+     *
      * @return Product[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductsByCode(string $code) : array
     {
@@ -85,7 +101,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param string $supplierReference
+     *
      * @return Product[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductsBySupplierReference(string $supplierReference) : array
     {
@@ -98,6 +118,8 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @return CategoryTree[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCategoryTree():array
     {
@@ -106,6 +128,13 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return CategoryTree::buildCollection($categoryTree);
     }
 
+    /**
+     * @param int $id
+     *
+     * @return Category
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getCategory(int $id): Category
     {
         $category = $this->client->get("catalog/categories/{$id}");
@@ -115,6 +144,8 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @return Category[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCategories(): array
     {
@@ -125,6 +156,18 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         }, $categories);
     }
 
+    /**
+     * @param string         $query
+     * @param array          $filters
+     * @param array          $sorting
+     * @param int            $resultsPerPage
+     * @param int            $page
+     * @param GeoFilter|null $geoFilter
+     *
+     * @return SearchResult
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function search(
         string $query = '',
         array $filters = [],
@@ -158,6 +201,14 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return new SearchResult($results);
     }
 
+    /**
+     * @param int $id
+     *
+     * @return CompanyDetail
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getCompanyById(int $id): CompanyDetail
     {
         try {
@@ -175,6 +226,8 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @return CompanyDetail[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCompanies(): array
     {
@@ -189,6 +242,8 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @return Attribute[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAttributes(): array
     {
@@ -197,6 +252,14 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return array_map([$this, 'unserializeAttribute'], $attributesData);
     }
 
+    /**
+     * @param int $attributeId
+     *
+     * @return Attribute
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getAttribute(int $attributeId): Attribute
     {
         try {
@@ -211,6 +274,14 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return $this->unserializeAttribute($attributeData);
     }
 
+    /**
+     * @param int $variantId
+     *
+     * @return AttributeVariant
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getAttributeVariant(int $variantId): AttributeVariant
     {
         try {
@@ -226,7 +297,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param int $attributeId
+     *
      * @return AttributeVariant[]
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAttributeVariants(int $attributeId): array
     {
@@ -247,8 +323,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     /**
      * Report a suspicious product to the marketplace administrator.
      *
-     * @throws ProductNotFound
+     * @param ProductReport $report
+     *
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function reportProduct(ProductReport $report): void
     {
@@ -276,8 +355,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * Convenience method to extract a brand from a product
      *
      * @param ProductSummary|Product $product
+     *
      * @return null|ProductAttributeValue
-     * @throws \TypeError
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getBrand($product): ?ProductAttributeValue
     {
@@ -292,6 +374,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         throw new \TypeError('Unexpected type for $product in getBrand : '.(is_object($product) ? get_class($product) : gettype($product)));
     }
 
+    /**
+     * @param ProductSummary $product
+     *
+     * @return ProductAttributeValue|null
+     */
     public function getBrandFromProductSummary(ProductSummary $product): ?ProductAttributeValue
     {
         foreach ($product->getAttributes() as $attribute) {
@@ -306,6 +393,14 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return null;
     }
 
+    /**
+     * @param Product $product
+     *
+     * @return ProductAttributeValue|null
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getBrandFromProduct(Product $product): ?ProductAttributeValue
     {
         foreach ($product->getAttributes() as $attribute) {
@@ -326,6 +421,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         return null;
     }
 
+    /**
+     * @param array $attributeData
+     *
+     * @return Attribute
+     */
     private function unserializeAttribute(array $attributeData): Attribute
     {
         return new Attribute(

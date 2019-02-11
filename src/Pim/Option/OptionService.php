@@ -9,11 +9,19 @@ namespace Wizaplace\SDK\Pim\Option;
 
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class OptionService
+ * @package Wizaplace\SDK\Pim\Option
+ */
 final class OptionService extends AbstractService
 {
     /**
+     * @param int $categoryId
+     *
      * @return Option[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCategoryOptions(int $categoryId): array
     {

@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Shipping;
 
+/**
+ * Class Shipping
+ * @package Wizaplace\SDK\Shipping
+ */
 final class Shipping
 {
     /** @var int */

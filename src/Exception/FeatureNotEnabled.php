@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Exception;
 
 use Throwable;
 
+/**
+ * Class FeatureNotEnabled
+ * @package Wizaplace\SDK\Exception
+ */
 class FeatureNotEnabled extends \Exception
 {
     /**

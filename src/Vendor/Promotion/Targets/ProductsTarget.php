@@ -9,11 +9,20 @@ namespace Wizaplace\SDK\Vendor\Promotion\Targets;
 
 use Wizaplace\SDK\Vendor\Promotion\BasketPromotionTargetType;
 
+/**
+ * Class ProductsTarget
+ * @package Wizaplace\SDK\Vendor\Promotion\Targets
+ */
 final class ProductsTarget implements BasketPromotionTarget
 {
     /** @var int[] */
     private $productsIds;
 
+    /**
+     * ProductsTarget constructor.
+     *
+     * @param int ...$productsIds
+     */
     public function __construct(int ...$productsIds)
     {
         $this->productsIds = $productsIds;

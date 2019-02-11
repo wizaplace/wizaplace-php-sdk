@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Basket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ProductComment
+ * @package Wizaplace\SDK\Basket
+ */
 final class ProductComment extends Comment
 {
     /**
@@ -17,6 +21,12 @@ final class ProductComment extends Comment
      */
     private $declinationId;
 
+    /**
+     * ProductComment constructor.
+     *
+     * @param DeclinationId $declinationId
+     * @param string        $comment
+     */
     public function __construct(DeclinationId $declinationId, string $comment)
     {
         parent::__construct($comment);
@@ -24,6 +34,9 @@ final class ProductComment extends Comment
         $this->declinationId = $declinationId;
     }
 
+    /**
+     * @return DeclinationId
+     */
     public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;

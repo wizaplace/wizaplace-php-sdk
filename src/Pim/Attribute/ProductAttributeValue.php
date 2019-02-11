@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Attribute;
 
+/**
+ * Class ProductAttributeValue
+ * @package Wizaplace\SDK\Pim\Attribute
+ */
 final class ProductAttributeValue extends ProductAttribute
 {
     /** @var string */
@@ -14,6 +18,8 @@ final class ProductAttributeValue extends ProductAttribute
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -21,6 +27,9 @@ final class ProductAttributeValue extends ProductAttribute
         $this->value = $data['value_str'];
     }
 
+    /**
+     * @return string
+     */
     public function getValue(): string
     {
         return $this->value;

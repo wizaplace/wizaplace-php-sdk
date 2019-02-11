@@ -6,6 +6,10 @@
 
 namespace Wizaplace\SDK\Cms;
 
+/**
+ * Class Page
+ * @package Wizaplace\SDK\Cms
+ */
 final class Page
 {
     /**
@@ -45,6 +49,14 @@ final class Page
 
     /**
      * @internal
+     *
+     * @param int    $id
+     * @param string $title
+     * @param string $content
+     * @param string $metaTitle
+     * @param string $metaDescription
+     * @param string $metaKeywords
+     * @param string $slug
      */
     public function __construct(
         int $id,
@@ -64,11 +76,17 @@ final class Page
         $this->slug = $slug;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
@@ -82,21 +100,33 @@ final class Page
         return $this->content;
     }
 
+    /**
+     * @return string
+     */
     public function getMetaTitle(): string
     {
         return $this->metaTitle;
     }
 
+    /**
+     * @return string
+     */
     public function getMetaDescription(): string
     {
         return $this->metaDescription;
     }
 
+    /**
+     * @return string
+     */
     public function getMetaKeywords(): string
     {
         return $this->metaKeywords;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;

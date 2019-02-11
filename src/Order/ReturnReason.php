@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class ReturnReason
+ * @package Wizaplace\SDK\Order
+ */
 final class ReturnReason
 {
     /** @var int */
@@ -18,6 +22,10 @@ final class ReturnReason
 
     /**
      * @internal
+     *
+     * @param int    $id
+     * @param int    $position
+     * @param string $name
      */
     public function __construct(int $id, int $position, string $name)
     {
@@ -26,22 +34,36 @@ final class ReturnReason
         $this->name = $name;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition(): int
     {
         return $this->position;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    public static function fromApiData($data): self
+    /**
+     * @param array $data
+     *
+     * @return ReturnReason
+     */
+    public static function fromApiData(array $data): self
     {
         return new self(
             $data['id'],

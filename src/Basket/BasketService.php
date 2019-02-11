@@ -23,6 +23,9 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
 /**
+ * Class BasketService
+ * @package Wizaplace\SDK\Basket
+ *
  * This service helps creating orders through a basket.
  *
  * Example:
@@ -61,6 +64,8 @@ final class BasketService extends AbstractService
      * If you want to keep the basket, store it (or store the ID) in the user's session.
      *
      * @return string The ID of the created basket.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @deprecated use \Wizaplace\SDK\Basket\BasketService::createEmptyBasket instead
      */
     public function create(): string
@@ -75,6 +80,8 @@ final class BasketService extends AbstractService
      * If you want to keep the basket, store it (or store the ID) in the user's session.
      *
      * @return Basket The new empty basket.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function createEmptyBasket(): Basket
     {
@@ -86,12 +93,17 @@ final class BasketService extends AbstractService
     /**
      * Add a product or a product's declination to a basket.
      *
+     * @param string        $basketId
      * @param DeclinationId $declinationId ID of the product or the product's declination to add to the basket.
+     *
+     * @param int           $quantity
      *
      * @return int quantity added
      *
      * @throws BadQuantity The quantity is invalid.
      * @throws NotFound The basket could not be found.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addProductToBasket(string $basketId, DeclinationId $declinationId, int $quantity): int
     {
@@ -121,6 +133,12 @@ final class BasketService extends AbstractService
 
     /**
      * Get a basket
+     *
+     * @param string $basketId
+     *
+     * @return Basket
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getBasket(string $basketId): Basket
     {
@@ -129,7 +147,10 @@ final class BasketService extends AbstractService
 
     /**
      * Get the currently authenticated user's basket ID
+     * @return string|null
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getUserBasketId(): ?string
     {
@@ -148,7 +169,12 @@ final class BasketService extends AbstractService
 
     /**
      * Set the currently authenticated user's basket ID
+     *
+     * @param string|null $basketId
+     *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function setUserBasketId(?string $basketId): void
     {
@@ -165,8 +191,12 @@ final class BasketService extends AbstractService
     /**
      * Remove a product (or a product's declination) from the basket.
      *
-     * @throws NotFound The basket could not be found.
+     * @param string        $basketId
+     * @param DeclinationId $declinationId
      *
+     * @throws NotFound The basket could not be found.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @see addProductToBasket()
      */
     public function removeProductFromBasket(string $basketId, DeclinationId $declinationId): void
@@ -191,7 +221,11 @@ final class BasketService extends AbstractService
     /**
      * Clear all the products from the basket.
      *
+     * @param string $basketId
+     *
      * @throws NotFound The basket could not be found.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function cleanBasket(string $basketId): void
     {
@@ -208,11 +242,16 @@ final class BasketService extends AbstractService
     /**
      * Update the quantity of a product (or a declination) in a basket.
      *
+     * @param string        $basketId
+     * @param DeclinationId $declinationId
+     * @param int           $quantity
+     *
      * @return int Quantity of the product to set.
      *
      * @throws BadQuantity The quantity is invalid.
      * @throws NotFound The basket could not be found.
-     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @see addProductToBasket()
      */
     public function updateProductQuantity(string $basketId, DeclinationId $declinationId, int $quantity): int
@@ -246,9 +285,11 @@ final class BasketService extends AbstractService
      *
      * A coupon is a simple string. It can be added to the basket to get basket promotions.
      *
-     * @throws CouponCodeAlreadyApplied
-     * @throws BasketNotFound
-     * @throws CouponCodeDoesNotApply
+     * @param string $basketId
+     * @param string $coupon
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addCoupon(string $basketId, string $coupon)
     {
@@ -256,7 +297,12 @@ final class BasketService extends AbstractService
     }
 
     /**
+     * @param string $basketId
+     * @param string $coupon
+     *
      * @throws CouponNotInTheBasket
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function removeCoupon(string $basketId, string $coupon)
     {
@@ -279,10 +325,14 @@ final class BasketService extends AbstractService
      * The user can then choose which payment method to use to pay for the order
      * (for example credit card, bank wire, etc.)
      *
+     * @param string $basketId
+     *
      * @return Payment[]
      *
-     * @throws NotFound
      * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getPayments(string $basketId): array
     {
@@ -306,7 +356,11 @@ final class BasketService extends AbstractService
     }
 
     /**
-     * @param array $selections a map of BasketShippingGroup ids to Shipping ids
+     * @param string $basketId
+     * @param array  $selections a map of BasketShippingGroup ids to Shipping ids
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function selectShippings(string $basketId, array $selections): void
     {
@@ -320,19 +374,21 @@ final class BasketService extends AbstractService
     /**
      * Checkout the basket to create an order.
      *
-     * @param int $paymentId ID of the payment method to use (see getPayments())
-     * @param bool $acceptTerms Whether the user accepts the terms and conditions or not
-     *                          (should be true else the order cannot be created)
+     * @param string $basketId
+     * @param int    $paymentId   ID of the payment method to use (see getPayments())
+     * @param bool   $acceptTerms Whether the user accepts the terms and conditions or not
+     *                            (should be true else the order cannot be created)
      * @param string $redirectUrl URL to redirect to when the payment is made
-     *                          (usually the order confirmation page)
+     *                            (usually the order confirmation page)
+     *
      * @return PaymentInformation Information to proceed to the payment of the order that was created.
      *
-     * @see getPayments()
-     *
      * @throws AuthenticationRequired
-     * @throws BasketNotFound
-     * @throws BasketIsEmpty
+     * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @see getPayments()
      */
     public function checkout(string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
     {
@@ -376,9 +432,13 @@ final class BasketService extends AbstractService
      *     new BasketComment('I am superman, please deliver to space'),
      * ]);
      *
+     * @param string    $basketId
      * @param Comment[] $comments
+     *
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateComments(string $basketId, array $comments): void
     {
@@ -412,6 +472,9 @@ final class BasketService extends AbstractService
      *
      * @param string $targetBasketId
      * @param string $sourceBasketId
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function mergeBaskets(string $targetBasketId, string $sourceBasketId)
     {
@@ -427,7 +490,10 @@ final class BasketService extends AbstractService
      * Chrono Relais shipping type.
      *
      * @param SetPickupPointCommand $command
+     *
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function setPickupPoint(SetPickupPointCommand $command): void
     {
@@ -452,6 +518,8 @@ final class BasketService extends AbstractService
      * @return array The full address
      *
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function setMondialRelayPickupPoint(SetPickupPointCommand $command): array
     {
@@ -467,6 +535,11 @@ final class BasketService extends AbstractService
         ]);
     }
 
+    /**
+     * @param Comment $comment
+     *
+     * @return array
+     */
     private static function serializeComment(Comment $comment): array
     {
         return $comment->toArray();

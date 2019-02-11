@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog\Facet;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class ListFacetValue
+ * @package Wizaplace\SDK\Catalog\Facet
+ */
 final class ListFacetValue
 {
     /** @var string */
@@ -22,6 +26,8 @@ final class ListFacetValue
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -30,16 +36,25 @@ final class ListFacetValue
         $this->position = to_int($data['position'] ?? 0);
     }
 
+    /**
+     * @return string
+     */
     public function getLabel(): string
     {
         return $this->label;
     }
 
+    /**
+     * @return int
+     */
     public function getCount(): int
     {
         return $this->count;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition(): int
     {
         return $this->position;

@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class OrderReturn
+ * @package Wizaplace\SDK\Order
+ */
 final class OrderReturn
 {
     /** @var int */
@@ -26,6 +30,8 @@ final class OrderReturn
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -43,31 +49,49 @@ final class OrderReturn
         }, $data['items']);
     }
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @return int
+     */
     public function getUserId(): int
     {
         return $this->userId;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getCreatedAt(): \DateTimeImmutable
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return string
+     */
     public function getComments(): string
     {
         return $this->comments;
     }
 
+    /**
+     * @return OrderReturnStatus
+     */
     public function getStatus(): OrderReturnStatus
     {
         return $this->status;

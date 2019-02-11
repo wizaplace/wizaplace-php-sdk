@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Vendor\Promotion\Rules;
 use Wizaplace\SDK\Vendor\Promotion\BasketRuleType;
 
 /**
+ * Class AndBasketRule
+ * @package Wizaplace\SDK\Vendor\Promotion\Rules
+ *
  * Basket promotion rule which is valid if all its items are valid.
  */
 final class AndBasketRule implements BasketRule
@@ -19,11 +22,19 @@ final class AndBasketRule implements BasketRule
      */
     private $items;
 
+    /**
+     * AndBasketRule constructor.
+     *
+     * @param BasketRule ...$items
+     */
     public function __construct(BasketRule ...$items)
     {
         $this->items = $items;
     }
 
+    /**
+     * @return BasketRuleType
+     */
     public function getType(): BasketRuleType
     {
         return BasketRuleType::AND();

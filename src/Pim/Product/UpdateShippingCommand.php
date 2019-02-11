@@ -13,6 +13,10 @@ use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\ArrayableInterface;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class UpdateShippingCommand
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class UpdateShippingCommand implements ArrayableInterface
 {
     /**
@@ -198,6 +202,9 @@ final class UpdateShippingCommand implements ArrayableInterface
         }
     }
 
+    /**
+     * @return array
+     */
     public function toArray(): array
     {
         $data = [];

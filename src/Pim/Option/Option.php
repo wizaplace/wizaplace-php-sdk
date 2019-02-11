@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Option;
 
+/**
+ * Class Option
+ * @package Wizaplace\SDK\Pim\Option
+ */
 final class Option
 {
     /** @var int */
@@ -23,6 +27,8 @@ final class Option
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -34,26 +40,41 @@ final class Option
         }, $data['variants']);
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return OptionStatus
+     */
     public function getStatus(): OptionStatus
     {
         return $this->status;
     }
 
+    /**
+     * @return bool
+     */
     public function isEnabled(): bool
     {
         return $this->status->getKey() === OptionStatus::ENABLED()->getKey();
     }
 
+    /**
+     * @return bool
+     */
     public function isDisabled(): bool
     {
         return $this->status->getKey() === OptionStatus::DISABLED()->getKey();

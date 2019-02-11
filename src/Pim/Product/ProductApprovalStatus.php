@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Pim\Product;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class Product
+ * @package Wizaplace\SDK\Pim\Product
+ *
  * @method static ProductApprovalStatus APPROVED()
  * @method static ProductApprovalStatus REJECTED()
  * @method static ProductApprovalStatus PENDING()

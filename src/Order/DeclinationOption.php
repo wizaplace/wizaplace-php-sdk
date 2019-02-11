@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Order;
 
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class DeclinationOption
+ * @package Wizaplace\SDK\Order
+ */
 final class DeclinationOption
 {
     /** @var int */
@@ -25,6 +29,8 @@ final class DeclinationOption
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -34,21 +40,33 @@ final class DeclinationOption
         $this->variantName = to_string($data['variantName']);
     }
 
+    /**
+     * @return int
+     */
     public function getOptionId(): int
     {
         return $this->optionId;
     }
 
+    /**
+     * @return string
+     */
     public function getOptionName(): string
     {
         return $this->optionName;
     }
 
+    /**
+     * @return int
+     */
     public function getVariantId(): int
     {
         return $this->variantId;
     }
 
+    /**
+     * @return string
+     */
     public function getVariantName(): string
     {
         return $this->variantName;

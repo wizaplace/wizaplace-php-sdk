@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Attribute;
 
+/**
+ * Class Attribute
+ * @package Wizaplace\SDK\Pim\Attribute
+ */
 final class Attribute extends AbstractAttribute
 {
     /** @var AttributeVariant[]|null */

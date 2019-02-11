@@ -12,6 +12,10 @@ use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class DeclinationSummary
+ * @package Wizaplace\SDK\Catalog
+ */
 final class DeclinationSummary
 {
     /** @var DeclinationId */
@@ -70,6 +74,8 @@ final class DeclinationSummary
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -97,51 +103,81 @@ final class DeclinationSummary
         $this->infiniteStock = $data['infiniteStock'];
     }
 
+    /**
+     * @return DeclinationId
+     */
     public function getId(): DeclinationId
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getProductId(): string
     {
         return $this->productId;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithTaxes(): float
     {
         return $this->priceWithTaxes;
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithoutVat(): float
     {
         return $this->priceWithoutVat;
     }
 
+    /**
+     * @return float
+     */
     public function getVat(): float
     {
         return $this->vat;
     }
 
+    /**
+     * @return float|null
+     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
+    /**
+     * @return int
+     */
     public function getAmount(): int
     {
         return $this->amount;
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getAffiliateLink(): ?UriInterface
     {
         return $this->affiliateLink;
@@ -155,16 +191,25 @@ final class DeclinationSummary
         return $this->options;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getMainImage(): ?Image
     {
         return $this->mainImage;
     }
 
+    /**
+     * @return CompanySummary
+     */
     public function getCompany(): CompanySummary
     {
         return $this->company;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
@@ -178,6 +223,9 @@ final class DeclinationSummary
         return $this->categoryPath;
     }
 
+    /**
+     * @return bool
+     */
     public function isAvailable(): bool
     {
         return $this->isAvailable;
@@ -191,6 +239,9 @@ final class DeclinationSummary
         return $this->shortDescription;
     }
 
+    /**
+     * @return bool
+     */
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;

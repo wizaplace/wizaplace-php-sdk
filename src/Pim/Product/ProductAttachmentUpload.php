@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Pim\Product;
 use Psr\Http\Message\UriInterface;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ProductAttachmentUpload
+ * @package Wizaplace\SDK\Pim\Product
+ */
 class ProductAttachmentUpload
 {
     /**

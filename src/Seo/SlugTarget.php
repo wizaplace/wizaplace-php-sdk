@@ -8,6 +8,9 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Seo;
 
 /**
+ * Class SlugTarget
+ * @package Wizaplace\SDK\Seo
+ *
  * SlugTarget indicates which object is referenced by a slug.
  */
 final class SlugTarget
@@ -24,6 +27,9 @@ final class SlugTarget
 
     /**
      * @internal
+     *
+     * @param SlugTargetType $objectType
+     * @param string         $objectId
      */
     public function __construct(SlugTargetType $objectType, string $objectId)
     {
@@ -32,11 +38,17 @@ final class SlugTarget
         $this->objectType = $objectType;
     }
 
+    /**
+     * @return SlugTargetType
+     */
     public function getObjectType(): SlugTargetType
     {
         return $this->objectType;
     }
 
+    /**
+     * @return string
+     */
     public function getObjectId(): string
     {
         return $this->objectId;

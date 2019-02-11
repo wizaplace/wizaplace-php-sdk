@@ -7,6 +7,9 @@
 namespace Wizaplace\SDK\Division;
 
 /**
+ * Class DivisionUtils
+ * @package Wizaplace\SDK\Division
+ *
  * @internal
  */
 class DivisionUtils
@@ -14,6 +17,12 @@ class DivisionUtils
     /** @var array */
     private $divisions;
 
+    /**
+     * @param array $availableOffers
+     * @param bool  $haveProductIds
+     *
+     * @return array
+     */
     public function getDivisions(array $availableOffers, $haveProductIds = false)
     {
         if ($haveProductIds) {

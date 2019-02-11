@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class ProductListFilter
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class ProductListFilter
 {
     /** @var null|string */
@@ -23,6 +27,11 @@ final class ProductListFilter
     /** @var  null|ProductStatus */
     private $status;
 
+    /**
+     * @param string $productCode
+     *
+     * @return ProductListFilter
+     */
     public function byProductCode(string $productCode): self
     {
         $this->productCode = $productCode;
@@ -43,6 +52,11 @@ final class ProductListFilter
         return $this;
     }
 
+    /**
+     * @param ProductStatus $status
+     *
+     * @return ProductListFilter
+     */
     public function byStatus(ProductStatus $status): self
     {
         $this->status = $status;

@@ -22,15 +22,20 @@ use Wizaplace\SDK\File\Multipart;
 use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
+/**
+ * Class OrganisationService
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationService extends AbstractService
 {
-
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1registrations/post
      *
      * @param Organisation $organisation
+     *
      * @return mixed|null
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function register(Organisation $organisation)
     {
@@ -64,10 +69,13 @@ class OrganisationService extends AbstractService
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}/get
      *
      * @param string $organisationId
+     *
      * @return Organisation
      * @throws AuthenticationRequired
-     * @throws UserDoesntBelongToOrganisation
      * @throws NotFound
+     * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function get(string $organisationId) : Organisation
     {
@@ -96,6 +104,8 @@ class OrganisationService extends AbstractService
      * @return array
      * @throws AuthenticationRequired
      * @throws BadCredentials
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getList() : array
     {
@@ -117,10 +127,13 @@ class OrganisationService extends AbstractService
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1users/get
      *
      * @param string $organisationId
+     *
      * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getListUsers(string $organisationId) : array
     {
@@ -152,7 +165,8 @@ class OrganisationService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addNewUser(string $organisationId, array $data, array $files) : User
     {
@@ -181,11 +195,14 @@ class OrganisationService extends AbstractService
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}/put
      *
-     * @param string $organisationId
+     * @param string       $organisationId
      * @param Organisation $organisation
+     *
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateOrganisation(string $organisationId, Organisation $organisation)
     {
@@ -221,13 +238,16 @@ class OrganisationService extends AbstractService
     /**
      * https://sandbox.wizaplace.com/api/v1/doc/#/paths/~1organisations~1{organisationId}~1addresses/put
      *
-     * @param string $organisationId
+     * @param string              $organisationId
      * @param OrganisationAddress $address
      * @param OrganisationAddress $shippingAddress
+     *
      * @return mixed|null
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function updateOrganisationAddresses(string $organisationId, OrganisationAddress $address, OrganisationAddress $shippingAddress)
     {
@@ -263,10 +283,13 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      * @param string $name
+     *
      * @return array|null
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addBasket(string $organisationId, string $name)
     {
@@ -296,10 +319,13 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      * @param string $basketId
+     *
      * @return array|null
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function lockBasket(string $organisationId, string $basketId)
     {
@@ -325,10 +351,13 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      * @param string $basketId
+     *
      * @return array|null
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function validateBasket(string $organisationId, string $basketId)
     {
@@ -349,6 +378,21 @@ class OrganisationService extends AbstractService
         }
     }
 
+    /**
+     * @param string $organisationId
+     * @param string $basketId
+     * @param int    $paymentId
+     * @param bool   $acceptTerms
+     * @param string $redirectUrl
+     *
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function checkoutBasket(string $organisationId, string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl)
     {
         $this->client->mustBeAuthenticated();
@@ -384,9 +428,12 @@ class OrganisationService extends AbstractService
      *
      * @param string $organisationId
      * @param string $basketId
+     *
      * @return mixed|null
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function hideBasket(string $organisationId, string $basketId)
     {
@@ -404,7 +451,6 @@ class OrganisationService extends AbstractService
         }
     }
 
-
     /**
      * Allow to get the organisation's information from a user
      *
@@ -413,6 +459,8 @@ class OrganisationService extends AbstractService
      * @return Organisation
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrganisationFromUserId(int $userId) : Organisation
     {
@@ -439,7 +487,8 @@ class OrganisationService extends AbstractService
      * @return \Iterator|OrganisationGroup[]
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrganisationGroups(string $organisationId)
     {
@@ -479,6 +528,8 @@ class OrganisationService extends AbstractService
      * @throws AuthenticationRequired
      * @throws NotFound
      * @throws UserDoesntBelongToOrganisation
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function createGroup(string $organisationId, string $name, string $type)
     {
@@ -514,7 +565,8 @@ class OrganisationService extends AbstractService
      * @return void
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addUserToGroup(string $groupId, int $userId) : void
     {
@@ -551,7 +603,8 @@ class OrganisationService extends AbstractService
      * @return \Iterator|User[]
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getGroupUsers(string $groupId)
     {
@@ -589,7 +642,8 @@ class OrganisationService extends AbstractService
      * @return void
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function removeUserFromGroup(string $groupId, int $userId) : void
     {
@@ -622,7 +676,8 @@ class OrganisationService extends AbstractService
      * @return \Iterator|OrganisationBasket[]
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrganisationBaskets(string $organisationId)
     {
@@ -662,7 +717,8 @@ class OrganisationService extends AbstractService
      * @return OrganisationOrder[]
      * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Exception
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrganisationOrders(string $organisationId, int $start = 0, int $limit = 10)
     {
@@ -700,6 +756,16 @@ class OrganisationService extends AbstractService
         }
     }
 
+    /**
+     * @param int $orderId
+     *
+     * @return Order
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Exception
+     */
     public function getOrder(int $orderId)
     {
         $this->client->mustBeAuthenticated();

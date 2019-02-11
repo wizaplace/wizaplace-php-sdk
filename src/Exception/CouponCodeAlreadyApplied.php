@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Exception;
 
 use Wizaplace\SDK\Basket\Exception\CouponAlreadyPresent;
 
+/**
+ * Class CouponCodeAlreadyApplied
+ * @package Wizaplace\SDK\Exception
+ */
 final class CouponCodeAlreadyApplied extends CouponAlreadyPresent implements DomainError
 {
     /**
@@ -18,6 +22,10 @@ final class CouponCodeAlreadyApplied extends CouponAlreadyPresent implements Dom
 
     /**
      * @internal
+     *
+     * @param string          $message
+     * @param array           $context
+     * @param \Throwable|null $previous
      */
     public function __construct(string $message, array $context = [], ?\Throwable $previous = null)
     {
@@ -26,12 +34,17 @@ final class CouponCodeAlreadyApplied extends CouponAlreadyPresent implements Dom
         parent::__construct($message, static::getErrorCode()->getValue(), $previous);
     }
 
-
+    /**
+     * @return array
+     */
     final public function getContext(): array
     {
         return $this->context;
     }
 
+    /**
+     * @return ErrorCode
+     */
     public static function getErrorCode(): ErrorCode
     {
         return ErrorCode::COUPON_CODE_ALREADY_APPLIED();

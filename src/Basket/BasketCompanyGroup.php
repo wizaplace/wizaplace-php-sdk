@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Basket;
 
+/**
+ * Class BasketCompanyGroup
+ * @package Wizaplace\SDK\Basket
+ */
 final class BasketCompanyGroup
 {
     /** @var BasketCompany */
@@ -27,6 +31,9 @@ final class BasketCompanyGroup
         }, $data['shippingGroups']);
     }
 
+    /**
+     * @return BasketCompany
+     */
     public function getCompany(): BasketCompany
     {
         return $this->basketCompany;

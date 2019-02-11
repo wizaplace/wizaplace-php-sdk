@@ -8,6 +8,10 @@ namespace Wizaplace\SDK\File;
 
 use Psr\Http\Message\StreamInterface;
 
+/**
+ * Class AbstractFile
+ * @package Wizaplace\SDK\File
+ */
 abstract class AbstractFile
 {
     /** @var string */
@@ -19,6 +23,13 @@ abstract class AbstractFile
     /** @var string */
     private $filename;
 
+    /**
+     * AbstractFile constructor.
+     *
+     * @param string          $name
+     * @param StreamInterface $contents
+     * @param string          $filename
+     */
     public function __construct(string $name, StreamInterface $contents, string $filename)
     {
         $this->name = $name;

@@ -10,6 +10,10 @@ use Symfony\Component\Validator\Constraints\Uuid;
 use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\ArrayableInterface;
 
+/**
+ * Class OrganisationAdministrator
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationAdministrator implements ArrayableInterface
 {
     /** @var string */
@@ -30,6 +34,11 @@ class OrganisationAdministrator implements ArrayableInterface
     /** @var string */
     private $occupation;
 
+    /**
+     * OrganisationAdministrator constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->email = to_string($data['email']);
@@ -40,6 +49,9 @@ class OrganisationAdministrator implements ArrayableInterface
         $this->occupation = to_string($data['occupation']);
     }
 
+    /**
+     * @return array
+     */
     public function toArray() : array
     {
         $data = [];

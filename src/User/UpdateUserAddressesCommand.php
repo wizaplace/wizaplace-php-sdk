@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\User;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class UpdateUserAddressesCommand
+ * @package Wizaplace\SDK\User
+ */
 final class UpdateUserAddressesCommand
 {
     /** @var UpdateUserAddressCommand */
@@ -20,11 +24,19 @@ final class UpdateUserAddressesCommand
     /** @var int */
     private $userId;
 
+    /**
+     * @return UpdateUserAddressCommand
+     */
     public function getShippingAddress(): UpdateUserAddressCommand
     {
         return $this->shippingAddress;
     }
 
+    /**
+     * @param UpdateUserAddressCommand $shippingAddress
+     *
+     * @return UpdateUserAddressesCommand
+     */
     public function setShippingAddress(UpdateUserAddressCommand $shippingAddress): self
     {
         $this->shippingAddress = $shippingAddress;
@@ -32,11 +44,19 @@ final class UpdateUserAddressesCommand
         return $this;
     }
 
+    /**
+     * @return UpdateUserAddressCommand
+     */
     public function getBillingAddress(): UpdateUserAddressCommand
     {
         return $this->billingAddress;
     }
 
+    /**
+     * @param UpdateUserAddressCommand $billingAddress
+     *
+     * @return UpdateUserAddressesCommand
+     */
     public function setBillingAddress(UpdateUserAddressCommand $billingAddress): self
     {
         $this->billingAddress = $billingAddress;
@@ -44,11 +64,19 @@ final class UpdateUserAddressesCommand
         return $this;
     }
 
+    /**
+     * @return int
+     */
     public function getUserId(): int
     {
         return $this->userId;
     }
 
+    /**
+     * @param int $userId
+     *
+     * @return UpdateUserAddressesCommand
+     */
     public function setUserId(int $userId): self
     {
         $this->userId = $userId;

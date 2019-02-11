@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Basket;
 
 use function theodorejb\polycast\to_float;
 
+/**
+ * Class Price
+ * @package Wizaplace\SDK\Basket
+ */
 final class Price
 {
     /** @var float */
@@ -22,6 +26,8 @@ final class Price
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -30,16 +36,25 @@ final class Price
         $this->vat = to_float($data['vat']);
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithoutVat(): float
     {
         return $this->priceWithoutVat;
     }
 
+    /**
+     * @return float
+     */
     public function getPriceWithTaxes(): float
     {
         return $this->priceWithTaxes;
     }
 
+    /**
+     * @return float
+     */
     public function getVat(): float
     {
         return $this->vat;

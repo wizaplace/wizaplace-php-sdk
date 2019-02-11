@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use function theodorejb\polycast\to_float;
 
+/**
+ * Class OrderTax
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class OrderTax
 {
     /** @var float */
@@ -25,6 +29,8 @@ final class OrderTax
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -34,21 +40,33 @@ final class OrderTax
         $this->priceIncludesTax = $data['price_includes_tax'] === 'Y';
     }
 
+    /**
+     * @return float
+     */
     public function getRateValue(): float
     {
         return $this->rateValue;
     }
 
+    /**
+     * @return bool
+     */
     public function doesPriceIncludesTax(): bool
     {
         return $this->priceIncludesTax;
     }
 
+    /**
+     * @return float
+     */
     public function getTaxSubtotal(): float
     {
         return $this->taxSubtotal;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
