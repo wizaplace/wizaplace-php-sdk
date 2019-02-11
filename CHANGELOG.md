@@ -1,9 +1,12 @@
 # Changelog
 
-## Next release
+# 1.47.0
+
+## 1.46.0
 
 ### New features
 
+- Added `\Wizaplace\SDK\User\User::getPhone`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
 - Added `\Wizaplace\SDK\Division\Division::getMaxLevel`
@@ -11,6 +14,33 @@
 - Added `\Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 - Added parameter `files` to `\Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
 - Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+
+## 1.45.0
+
+## 1.44.14
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Vendor\Order\OrderStatus` with new status
+
+## 1.44.13
+
+ ### New features
+
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::setIban`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getBic`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::setBic`
+- Added `\Wizaplace\SDK\Company\Company::getIban`
+- Added `\Wizaplace\SDK\Company\Company::getBic`
+- Updated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` add 2 optional params `$iban` and `$bic`
+
+## 1.44.12
+
+### New features
+
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::getDivisionCode`
+- Added `\Wizaplace\SDK\User\UpdateUserAddressCommand::setDivisionCode`
 
 ## 1.44.11
 
@@ -66,7 +96,7 @@
 ### Corrections
 
 - Fixed an issue with `\Wizaplace\SDK\Division\Division::isEnabled`
-- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy` 
+- Fixed an issue with `\Wizaplace\SDK\Division\Division::getDisabledBy`
 
 ## 1.44.4
 
@@ -78,7 +108,7 @@
 
 ### New features
 
-- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division` 
+- Updated `\Wizaplace\SDK\Catalog\Product` with `\Wizaplace\SDK\Division\Division`
 - Added `\Wizaplace\SDK\Division\DivisionService::get`
 - Added `\Wizaplace\SDK\Company\CompanyService::getDivisionsCountriesCodes`
 - Added `\Wizaplace\SDK\Division\DivisionCompany`
@@ -239,313 +269,313 @@ Compatible with Wizaplace 1.27.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getMultiVendorProductById`
- - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::createMultiVendorProduct`
- - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::updateMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getMultiVendorProductById`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::createMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::updateMultiVendorProduct`
 
 ## 1.32.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\DeclinationSummary::getShortDescription`
+- Added `\Wizaplace\SDK\Catalog\DeclinationSummary::getShortDescription`
 
 ## 1.31.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Basket\BasketItem::getGreenTax`
- - Added `\Wizaplace\SDK\Order\OrderItem::getGreenTax`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::addBasket`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::basketValidation`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::get`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::getList`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::getListUsers`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::lockBasket`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationAddressesUpdate`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationUpdate`
- - Added `\Wizaplace\SDK\Organisation\OrganisationService::register`
- - Added `\Wizaplace\SDK\Organisation\Organisation`
- - Added `\Wizaplace\SDK\Organisation\OrganisationAddress`
- - Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getGreenTax`
+- Added `\Wizaplace\SDK\Order\OrderItem::getGreenTax`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::addBasket`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::basketValidation`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::get`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getList`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getListUsers`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::lockBasket`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationAddressesUpdate`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::organisationUpdate`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::register`
+- Added `\Wizaplace\SDK\Organisation\Organisation`
+- Added `\Wizaplace\SDK\Organisation\OrganisationAddress`
+- Added `\Wizaplace\SDK\Organisation\OrganisationAdministrator`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation`
 
 ## 1.30.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Company\Company::getCompanyFiles`
- - Added `\Wizaplace\SDK\Company\Company::fetchFile`
+- Added `\Wizaplace\SDK\Company\Company::getCompanyFiles`
+- Added `\Wizaplace\SDK\Company\Company::fetchFile`
 
 ## 1.29.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getAllProducts`
 
 ## 1.28.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getExtra`
- - Added `\Wizaplace\SDK\Company\Company::getExtra`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::getExtra`
- - Added `\Wizaplace\SDK\Company\CompanyRegistration::setExtra`
- - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getExtra`
- - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setExtra`
- - Added `\Wizaplace\SDK\Cms\Banner::getName`
- - Added `\Wizaplace\SDK\Company\CompanyService::getCompany`
+- Added `\Wizaplace\SDK\Catalog\CompanyDetail::getExtra`
+- Added `\Wizaplace\SDK\Company\Company::getExtra`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::getExtra`
+- Added `\Wizaplace\SDK\Company\CompanyRegistration::setExtra`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getExtra`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setExtra`
+- Added `\Wizaplace\SDK\Cms\Banner::getName`
+- Added `\Wizaplace\SDK\Company\CompanyService::getCompany`
 
 ## 1.27.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
- - Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
- - Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
- - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
- - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
- - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
- - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
- - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeValue`
- - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
- - Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
- - Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery`
- - Added `\Wizaplace\SDK\User\User::getCompanyId`
- - Added `\Wizaplace\SDK\User\User::isVendor`
- - Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classes
- - Added `\Wizaplace\SDK\Pim\Category\CategoryService::listCategories`
- - Added `\Wizaplace\SDK\Pim\Tax\TaxService::listTaxes`
- - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::getPromotion`
- - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::listPromotions`
- - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::savePromotion`
- - Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::deletePromotion`
- - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::getPromotion`
- - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::listPromotions`
- - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::savePromotion`
- - Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::deletePromotion`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::getProductById` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::listProducts` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::createProduct` and associated classes
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteProduct`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::acceptOrder`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::declineOrder`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateProduct` and associated classes
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getOrderById` and associated classes
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttributes` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getProductAttribute` and associated classes
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeValue`
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::setProductAttributeVariants`
+- Added `\Wizaplace\SDK\Pim\Attribute\AttributeService::getCategoryAttributes` and associated classes
+- Added `\Wizaplace\SDK\Pim\Option\OptionService::getCategoryOptions` and associated classes
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listShipments`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getShipmentById`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::createShipment`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::setInvoiceNumber`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::reportHandDelivery`
+- Added `\Wizaplace\SDK\User\User::getCompanyId`
+- Added `\Wizaplace\SDK\User\User::isVendor`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::listTaxes` and associated classes
+- Added `\Wizaplace\SDK\Pim\Category\CategoryService::listCategories`
+- Added `\Wizaplace\SDK\Pim\Tax\TaxService::listTaxes`
+- Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::getPromotion`
+- Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::listPromotions`
+- Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::savePromotion`
+- Added `\Wizaplace\SDK\Vendor\Promotion\CatalogPromotionService::deletePromotion`
+- Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::getPromotion`
+- Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::listPromotions`
+- Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::savePromotion`
+- Added `\Wizaplace\SDK\Vendor\Promotion\BasketPromotionService::deletePromotion`
 
 ## 1.26.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
- - Added `\Wizaplace\SDK\Basket\PaymentType::SEPA_DIRECT`
- - Added `\Wizaplace\SDK\User\UserService::registerWithFullInfos`
+- Added `\Wizaplace\SDK\Catalog\Category::getCategoryPath`
+- Added `\Wizaplace\SDK\Basket\PaymentType::SEPA_DIRECT`
+- Added `\Wizaplace\SDK\User\UserService::registerWithFullInfos`
 
 ## 1.25.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Order\Order::getPayment`
+- Added `\Wizaplace\SDK\Order\Order::getPayment`
 
 ## 1.24.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
- - Added `\Wizaplace\SDK\ApiClient::setApplicationToken`
+- Added `\Wizaplace\SDK\ApiClient::getOAuthAuthorizationUrl`
+- Added `\Wizaplace\SDK\ApiClient::setApplicationToken`
 
 ## 1.23.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\ApiClient::oauthAuthenticate`
- - Added `\Wizaplace\SDK\Cms\MenuItem::getChildren`
+- Added `\Wizaplace\SDK\ApiClient::oauthAuthenticate`
+- Added `\Wizaplace\SDK\Cms\MenuItem::getChildren`
 
 ## 1.22.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Order\OrderService::commitOrder`
+- Added `\Wizaplace\SDK\Order\OrderService::commitOrder`
 
 ## 1.21.0
 
- - Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByCode`
- - Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsBySupplierReference`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByCode`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsBySupplierReference`
 
 ## 1.20.0
 
 ### New features
 
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\OrderNotFound`
- - Added `\Wizaplace\SDK\Basket\Payment::getType()`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\OrderNotFound`
+- Added `\Wizaplace\SDK\Basket\Payment::getType()`
 
 ## 1.19.0
 
 ### New features
 
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
- - Added `\Wizaplace\SDK\Company\CompanyService::update`
- - Added `\Wizaplace\SDK\Catalog\CatalogService::getCategories`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\DeclinationIsNotActive`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\DiscussionNotFound`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductAttachmentNotFound`
+- Added `\Wizaplace\SDK\Company\CompanyService::update`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getCategories`
 
 ## 1.18.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
- - Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
+- Added `\Wizaplace\SDK\Catalog\CompanyDetail::getFullAddress`
+- Added `\Wizaplace\SDK\Catalog\CompanyListItem::getFullAddress`
 
 ## 1.17.0
 
 ### New features
 
- - Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
- - Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
+- Added an optional `$geoFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::search`
+- Added `\Wizaplace\SDK\Order\Order::getBillingAddress`
 
 ## 1.16.0
 
 ### New features
 
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyHasNoAdministrator`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
- - Improve detection of `\Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist`
- - Introduce a new detailed exception `\Wizaplace\SDK\Exception\BasketIsEmpty`
- - Added `\Wizaplace\SDK\Catalog\CatalogServiceInterface` which is implemented by `\Wizaplace\SDK\Catalog\CatalogService`
- - Added `\Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator` which allows to easily decorate any `\Wizaplace\SDK\Catalog\CatalogServiceInterface`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\ProductNotFound`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\ReviewsAreDisabled`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\SenderIsAlsoRecipient`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyHasNoAdministrator`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\CompanyNotFound`
+- Improve detection of `\Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist`
+- Introduce a new detailed exception `\Wizaplace\SDK\Exception\BasketIsEmpty`
+- Added `\Wizaplace\SDK\Catalog\CatalogServiceInterface` which is implemented by `\Wizaplace\SDK\Catalog\CatalogService`
+- Added `\Wizaplace\SDK\Catalog\AbstractCatalogServiceDecorator` which allows to easily decorate any `\Wizaplace\SDK\Catalog\CatalogServiceInterface`
 
 ## 1.15.1
 
- - Fixed type errors on `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getCount` and `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getPosition`
+- Fixed type errors on `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getCount` and `\Wizaplace\SDK\Catalog\Facet\ListFacetValue::getPosition`
 
 ## 1.15.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany`
- - Added `\Wizaplace\SDK\Basket\Basket::getShippingAddress`
+- Added `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany`
+- Added `\Wizaplace\SDK\Basket\Basket::getShippingAddress`
 
 ## 1.14.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
- - Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
- - Added `\Wizaplace\SDK\Basket\BasketService::setPickupPoint`
+- Added `\Wizaplace\SDK\Basket\Basket::isEligibleToPickupPointsShipping`
+- Added `\Wizaplace\SDK\Basket\Basket::isPickupPointsShipping`
+- Added `\Wizaplace\SDK\Basket\BasketService::setPickupPoint`
 
 ## 1.13.0
 
 ### New features
 
- - `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
- - Added `\Wizaplace\SDK\Basket\Basket::getItemsPrice`
- - Added `\Wizaplace\SDK\Basket\Basket::getShippingPrice`
- - Added `\Wizaplace\SDK\Basket\Basket::getTotalPrice`
- - Marked `\Wizaplace\SDK\Basket\Basket::getTotalShipping` as deprecated
- - Marked `\Wizaplace\SDK\Basket\Basket::getTotalTax` as deprecated
- - Marked `\Wizaplace\SDK\Basket\Basket::getTotal` as deprecated
- - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getItemsPrice`
- - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getShippingPrice`
- - Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getTotalPrice`
- - Added `\Wizaplace\SDK\Basket\BasketItem::getUnitPrice`
- - Added `\Wizaplace\SDK\Basket\BasketItem::getTotalPrice`
- - Marked `\Wizaplace\SDK\Basket\BasketItem::getIndividualPrice` as deprecated
- - Marked `\Wizaplace\SDK\Basket\BasketItem::getTotal` as deprecated
+- `\Wizaplace\SDK\Basket\BasketService::addCoupon` now returns more detailed exceptions
+- Added `\Wizaplace\SDK\Basket\Basket::getItemsPrice`
+- Added `\Wizaplace\SDK\Basket\Basket::getShippingPrice`
+- Added `\Wizaplace\SDK\Basket\Basket::getTotalPrice`
+- Marked `\Wizaplace\SDK\Basket\Basket::getTotalShipping` as deprecated
+- Marked `\Wizaplace\SDK\Basket\Basket::getTotalTax` as deprecated
+- Marked `\Wizaplace\SDK\Basket\Basket::getTotal` as deprecated
+- Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getItemsPrice`
+- Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getShippingPrice`
+- Added `\Wizaplace\SDK\Basket\BasketShippingGroup::getTotalPrice`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getUnitPrice`
+- Added `\Wizaplace\SDK\Basket\BasketItem::getTotalPrice`
+- Marked `\Wizaplace\SDK\Basket\BasketItem::getIndividualPrice` as deprecated
+- Marked `\Wizaplace\SDK\Basket\BasketItem::getTotal` as deprecated
 
 ## 1.12.0
 
 ### New features
 
- - `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
- - Added `\Wizaplace\SDK\ApiClient::setLanguage`
+- `\Wizaplace\SDK\Catalog\DeclinationId` now implements `\JsonSerializable`
+- Added `\Wizaplace\SDK\ApiClient::setLanguage`
 
 ## 1.11.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Basket\BasketService::createEmptyBasket`
+- Added `\Wizaplace\SDK\Basket\BasketService::createEmptyBasket`
 
 ## 1.10.1
 
 ### Bugfixes
 
- - Fix `\Wizaplace\SDK\Basket\BasketService::getUserBasketId` which sometimes returned an empty string instead of `null`
+- Fix `\Wizaplace\SDK\Basket\BasketService::getUserBasketId` which sometimes returned an empty string instead of `null`
 
 ## 1.10.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\User\User::getCompanyId`
- - Added `\Wizaplace\SDK\User\User::isVendor`
+- Added `\Wizaplace\SDK\User\User::getCompanyId`
+- Added `\Wizaplace\SDK\User\User::isVendor`
 
 ## 1.9.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
 
 ## 1.8.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\DeclinationOption::getImage`
- - Added `\Wizaplace\SDK\Catalog\OptionVariant::getImage`
+- Added `\Wizaplace\SDK\Catalog\DeclinationOption::getImage`
+- Added `\Wizaplace\SDK\Catalog\OptionVariant::getImage`
 
 ## 1.7.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Seo\SeoService::listSlugs` and associated classes
+- Added `\Wizaplace\SDK\Seo\SeoService::listSlugs` and associated classes
 
 ## 1.6.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoTitle`
- - Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
- - Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
- - Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
+- Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoTitle`
+- Added `\Wizaplace\SDK\Catalog\AttributeVariant::getSeoDescription`
+- Added `\Wizaplace\SDK\Catalog\Category::getSeoTitle`
+- Added `\Wizaplace\SDK\Catalog\Category::getSeoDescription`
 
 ## 1.5.2
 
 ### Bugfixes
 
- - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getId` as nullable
- - Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getAttributeId` as nullable
+- Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getId` as nullable
+- Marked `\Wizaplace\SDK\Catalog\ProductAttributeValue::getAttributeId` as nullable
 
 ## 1.5.1
 
 ### Bugfixes
 
- - Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
+- Added a default value for `ListFacetValue`'s position, as it is not always sent by the API.
 
 ## 1.5.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
- - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
- - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
- - Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
- - Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
+- Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeFirstName`
+- Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeFirstName`
+- Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::getLegalRepresentativeLastName`
+- Added `\Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration::setLegalRepresentativeLastName`
+- Added `\Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister`
 
 ## 1.4.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\Product::getImages`
+- Added `\Wizaplace\SDK\Catalog\Product::getImages`
 
 ## 1.3.0
 
 ### New features
 
- - Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
- - Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
- - Added `\Wizaplace\SDK\Catalog\Product::getCreatedAt`
- - Added `\Wizaplace\SDK\Catalog\Product::getUpdatedAt`
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoTitle`
+- Added `\Wizaplace\SDK\Catalog\Product::getSeoDescription`
+- Added `\Wizaplace\SDK\Catalog\Product::getCreatedAt`
+- Added `\Wizaplace\SDK\Catalog\Product::getUpdatedAt`
 
 ## 1.2.0
 
@@ -857,6 +887,7 @@ Compatible with Wizaplace 1.27.0
 - allow null addresses when creating an user
 
 ### Bugfixes
+
 - `ProductAttribute::getValue` does not crash anymore with strings attributes
 - `OrderService::getOrderReturn` wasn't working at all. It is now fixed and tested.
 - `OrderService::getReturnTypes` wasn't working at all. It is now fixed, tested, and renamed (as seen in the breaking changes list)
@@ -897,7 +928,6 @@ Compatible with Wizaplace 1.27.0
 ### Bugfixes
 
 - Fix `\Wizaplace\Basket\BasketService::create` which was systematically crashing since version 0.3.0
-
 
 ## 0.3.0
 

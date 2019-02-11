@@ -39,6 +39,9 @@ final class UpdateUserAddressCommand
     /** @var string|null */
     private $country;
 
+    /** @var string|null */
+    private $divisionCode;
+
     public function getTitle(): ?UserTitle
     {
         return $this->title;
@@ -159,6 +162,18 @@ final class UpdateUserAddressCommand
     public function setCountry(?string $country): self
     {
         $this->country = $country;
+
+        return $this;
+    }
+
+    public function getDivisionCode(): ?string
+    {
+        return $this->divisionCode;
+    }
+
+    public function setDivisionCode(?string $divisionCode): self
+    {
+        $this->divisionCode = $divisionCode;
 
         return $this;
     }

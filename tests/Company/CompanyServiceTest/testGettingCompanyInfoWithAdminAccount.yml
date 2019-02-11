@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=f58a8e535e989b221f5bbd7dbf73fcdc_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 08:58:47 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: 19ea7e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/19ea7e'
-        body: '{"id":2,"apiKey":"3g26AmiOTkdO5yuTwQlbWgMJ\/FOx\/nhhviiNN0R+"}'
+            X-Debug-Token: e957f1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e957f1'
+        body: '{"id":2,"apiKey":"UG6Xgvl7vjYn+qodOmPWZdOkIVjKEqba+Tq61U+0"}'
 -
     request:
         method: GET
@@ -35,8 +34,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-218-company-image-management@2b7e92c
-            Authorization: 'token 3g26AmiOTkdO5yuTwQlbWgMJ/FOx/nhhviiNN0R+'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token UG6Xgvl7vjYn+qodOmPWZdOkIVjKEqba+Tq61U+0'
             VCR-index: '1'
             Accept: null
     response:
@@ -49,11 +48,10 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
-            Set-Cookie: 'sid_customer_94253=ccc74f84caaddcb83db754d9161c571f_C; expires=Fri, 28-Dec-2018 08:58:47 GMT; Max-Age=1209600; path=/; domain=.wizaplace.loc; HttpOnly'
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 14 Dec 2018 08:58:47 GMT'
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
             Content-Language: fr
-            X-Debug-Token: df4299
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/df4299'
-        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'
+            X-Debug-Token: 64d7b2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64d7b2'
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'
