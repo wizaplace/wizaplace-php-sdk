@@ -1,6 +1,12 @@
 # Changelog
 
-# 1.47.0
+## 1.48.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+
+## 1.47.0
 
 ## 1.46.0
 
@@ -13,7 +19,6 @@
 - Added `\Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `\Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 - Added parameter `files` to `\Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
-- Added `\Wizaplace\SDK\Order\OrderService::getPayment`
 
 ## 1.45.0
 

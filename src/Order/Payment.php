@@ -23,14 +23,8 @@ class Payment
     {
         $this->type = $data['type'];
         $this->processorName = $data['processorName'] ?? $data['processor_name'] ?? null;
-        if (isset($data['commitmentDate'])) {
-            $this->commitmentDate = new \DateTimeImmutable($data['commitmentDate']);
-        } elseif (isset($data['commitment_date'])) {
-            $this->commitmentDate = new \DateTimeImmutable($data['commitment_date']);
-        } else {
-            $this->commitmentDate = null;
-        }
-        $this->processorInformations = $data['processor_informations'] ?? [];
+        $this->commitmentDate = (isset($data['commitmentDate'])) ? new \DateTimeImmutable($data['commitmentDate']) : null;
+        $this->processorInformations = $data['processorInformation'] ?? [];
     }
 
     public function getType(): string

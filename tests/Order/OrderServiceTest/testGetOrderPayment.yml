@@ -54,4 +54,4 @@
             Content-Language: fr
             X-Debug-Token: c81906
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c81906'
-        body: '{"type":"payment-deferment","processor_name":"stripe","commitment_date":null,"processor_informations":{}}'
+        body: '{"type":"payment-deferment","processorName":"stripe","commitmentDate":null,"processorInformations":{}}'
