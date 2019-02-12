@@ -11,11 +11,17 @@ namespace Wizaplace\SDK\Pim\Category;
 
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class CategoryService
+ * @package Wizaplace\SDK\Pim\Category
+ */
 class CategoryService extends AbstractService
 {
     /**
      * @return Category[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function listCategories(): array
     {

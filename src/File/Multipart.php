@@ -7,6 +7,10 @@ namespace Wizaplace\SDK\File;
 
 use Wizaplace\SDK\ArrayableInterface;
 
+/**
+ * Class Multipart
+ * @package Wizaplace\SDK\File
+ */
 class Multipart
 {
     /**

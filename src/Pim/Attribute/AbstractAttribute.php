@@ -8,6 +8,9 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Pim\Attribute;
 
 /**
+ * Class AbstractAttribute
+ * @package Wizaplace\SDK\Pim\Attribute
+ *
  * @internal
  */
 abstract class AbstractAttribute
@@ -26,6 +29,8 @@ abstract class AbstractAttribute
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -35,16 +40,25 @@ abstract class AbstractAttribute
         $this->categoriesPath = $data['categories_path'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return AttributeType
+     */
     public function getType(): AttributeType
     {
         return $this->type;

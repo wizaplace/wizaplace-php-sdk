@@ -39,6 +39,10 @@ use Wizaplace\SDK\Exception\ReviewsAreDisabled;
 use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 
+/**
+ * Class ApiClient
+ * @package Wizaplace\SDK
+ */
 final class ApiClient
 {
     /** @var Client */
@@ -59,6 +63,12 @@ final class ApiClient
     /** @var null|LoggerInterface */
     private $requestLogger;
 
+    /**
+     * ApiClient constructor.
+     *
+     * @param Client               $client
+     * @param LoggerInterface|NULL $requestLogger
+     */
     public function __construct(Client $client, LoggerInterface $requestLogger = null)
     {
         $this->httpClient = $client;
@@ -73,7 +83,12 @@ final class ApiClient
     }
 
     /**
+     * @param string $email
+     * @param string $password
+     *
+     * @return ApiKey
      * @throws BadCredentials
+     * @throws JsonDecodingError
      */
     public function authenticate(string $email, string $password): ApiKey
     {
@@ -97,13 +112,20 @@ final class ApiClient
         return $apiKey;
     }
 
+    /**
+     * @param string|null $applicationToken
+     */
     public function setApplicationToken(?string $applicationToken): void
     {
         $this->applicationToken = $applicationToken;
     }
 
     /**
+     * @param string $authToken
+     *
+     * @return ApiKey
      * @throws BadCredentials
+     * @throws JsonDecodingError
      */
     public function oauthAuthenticate(string $authToken): ApiKey
     {
@@ -129,16 +151,26 @@ final class ApiClient
         return $apiKey;
     }
 
+    /**
+     * @return string
+     * @throws JsonDecodingError
+     */
     public function getOAuthAuthorizationUrl(): string
     {
         return $this->get('user/oauth/authorize-url')['url'];
     }
 
+    /**
+     * @param ApiKey|null $apiKey
+     */
     public function setApiKey(?ApiKey $apiKey = null): void
     {
         $this->apiKey = $apiKey;
     }
 
+    /**
+     * @return ApiKey|null
+     */
     public function getApiKey(): ?ApiKey
     {
         return $this->apiKey;
@@ -154,6 +186,14 @@ final class ApiClient
         }
     }
 
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function get(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -163,6 +203,14 @@ final class ApiClient
         );
     }
 
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function post(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -172,6 +220,14 @@ final class ApiClient
         );
     }
 
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function put(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -181,6 +237,14 @@ final class ApiClient
         );
     }
 
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function patch(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -190,6 +254,14 @@ final class ApiClient
         );
     }
 
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function delete(string $endpoint, array $options = [])
     {
         return $this->jsonDecode(
@@ -200,7 +272,12 @@ final class ApiClient
     }
 
     /**
+     * @param string              $method
      * @param string|UriInterface $uri
+     * @param array               $options
+     *
+     * @return ResponseInterface
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
@@ -238,6 +315,9 @@ final class ApiClient
         }
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getBaseUri(): ?UriInterface
     {
         return $this->httpClient->getConfig('base_uri');
@@ -253,6 +333,11 @@ final class ApiClient
         $this->language = $language;
     }
 
+    /**
+     * @param BadResponseException $e
+     *
+     * @return DomainError|null
+     */
     private function extractDomainErrorFromGuzzleException(BadResponseException $e): ?DomainError
     {
         try {
@@ -298,6 +383,14 @@ final class ApiClient
     /**
      * Does the same as json_decode(), but with proper error handling
      * @see \json_decode()
+     *
+     * @param string $json
+     * @param bool   $assoc
+     * @param int    $depth
+     * @param int    $options
+     *
+     * @return mixed|null
+     * @throws JsonDecodingError
      */
     private function jsonDecode(string $json, bool $assoc = true, int $depth = 512, int $options = 0)
     {
@@ -318,6 +411,11 @@ final class ApiClient
         return $data;
     }
 
+    /**
+     * @param array $options
+     *
+     * @return array
+     */
     private function addAuth(array $options): array
     {
         if (!is_null($this->apiKey)) {

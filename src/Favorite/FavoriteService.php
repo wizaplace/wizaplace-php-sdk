@@ -16,6 +16,9 @@ use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
 use function theodorejb\polycast\to_string;
 
 /**
+ * Class FavoriteService
+ * @package Wizaplace\SDK\Favorite
+ *
  * This service helps managing the favorite products of a user.
  */
 final class FavoriteService extends AbstractService
@@ -23,9 +26,10 @@ final class FavoriteService extends AbstractService
     /**
      * Return all the products saved as favorites
      *
-     * @throws AuthenticationRequired
-     *
      * @return DeclinationSummary[]
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAll() : array
     {
@@ -40,7 +44,12 @@ final class FavoriteService extends AbstractService
     /**
      * Check whether a product is in the user's favorites.
      *
+     * @param DeclinationId $declinationId
+     *
+     * @return bool
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function isInFavorites(DeclinationId $declinationId) : bool
     {
@@ -60,9 +69,11 @@ final class FavoriteService extends AbstractService
     }
 
     /**
+     * @param DeclinationId $declinationId
+     *
      * @throws AuthenticationRequired
      * @throws CannotFavoriteDisabledOrInexistentDeclination
-     * @throws FavoriteAlreadyExist
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {
@@ -81,7 +92,10 @@ final class FavoriteService extends AbstractService
     }
 
     /**
+     * @param DeclinationId $declinationId
+     *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
     {

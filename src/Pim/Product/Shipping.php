@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+/**
+ * Class Shipping
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class Shipping
 {
     /**
@@ -49,6 +53,11 @@ final class Shipping
      */
     private $description;
 
+    /**
+     * Shipping constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->id           = $data['shipping_id'];

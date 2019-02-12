@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Cms;
 
+/**
+ * Class Menu
+ * @package Wizaplace\SDK\Cms
+ */
 final class Menu
 {
     /** @var int */
@@ -19,7 +23,10 @@ final class Menu
     private $items;
 
     /**
+     * @param int        $id
+     * @param string     $name
      * @param MenuItem[] $items
+     *
      * @internal
      */
     public function __construct(int $id, string $name, array $items)
@@ -30,11 +37,17 @@ final class Menu
         $this->setItems(...$items);
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
@@ -48,6 +61,9 @@ final class Menu
         return $this->items;
     }
 
+    /**
+     * @param MenuItem ...$items
+     */
     private function setItems(MenuItem ...$items)
     {
         $this->items = $items;

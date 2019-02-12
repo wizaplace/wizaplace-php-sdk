@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Shipping;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class ShippingStatus
+ * @package Wizaplace\SDK\Shipping
+ *
  * @method static ShippingStatus ENABLED()
  * @method static ShippingStatus DISABLED()
  */

@@ -10,8 +10,21 @@ namespace Wizaplace\SDK\Vendor\Promotion;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class BasketPromotionService
+ * @package Wizaplace\SDK\Vendor\Promotion
+ */
 final class BasketPromotionService extends AbstractService
 {
+    /**
+     * @param string $promotionId
+     *
+     * @return BasketPromotion
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Exception
+     */
     public function getPromotion(string $promotionId): BasketPromotion
     {
         $this->client->mustBeAuthenticated();
@@ -23,6 +36,9 @@ final class BasketPromotionService extends AbstractService
 
     /**
      * @return BasketPromotion[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function listPromotions(): array
     {
@@ -35,6 +51,15 @@ final class BasketPromotionService extends AbstractService
         }, $responseData['promotions']);
     }
 
+    /**
+     * @param SaveBasketPromotionCommand $command
+     *
+     * @return BasketPromotion
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Exception
+     */
     public function savePromotion(SaveBasketPromotionCommand $command): BasketPromotion
     {
         $this->client->mustBeAuthenticated();
@@ -55,6 +80,13 @@ final class BasketPromotionService extends AbstractService
         return new BasketPromotion($promotionData);
     }
 
+    /**
+     * @param string $promotionId
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function deletePromotion(string $promotionId): void
     {
         $this->client->mustBeAuthenticated();

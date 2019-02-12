@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog\Review;
 
+/**
+ * Class Review
+ * @package Wizaplace\SDK\Catalog\Review
+ */
 final class Review
 {
     /**
@@ -29,6 +33,14 @@ final class Review
      */
     private $rating;
 
+    /**
+     * Review constructor.
+     *
+     * @param Author $author
+     * @param string $message
+     * @param string $postedAt
+     * @param int    $rating
+     */
     public function __construct(
         Author $author,
         string $message,
@@ -41,21 +53,33 @@ final class Review
         $this->rating = $rating;
     }
 
+    /**
+     * @return Author
+     */
     public function getAuthor(): Author
     {
         return $this->author;
     }
 
+    /**
+     * @return string
+     */
     public function getMessage(): string
     {
         return $this->message;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getPostedAt(): \DateTimeImmutable
     {
         return $this->postedAt;
     }
 
+    /**
+     * @return int
+     */
     public function getRating(): int
     {
         return $this->rating;

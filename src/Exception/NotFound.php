@@ -9,10 +9,17 @@ namespace Wizaplace\SDK\Exception;
 
 use Throwable;
 
+/**
+ * Class NotFound
+ * @package Wizaplace\SDK\Exception
+ */
 class NotFound extends \Exception
 {
     /**
      * @internal
+     *
+     * @param string         $message
+     * @param Throwable|null $previous
      */
     public function __construct($message = "", Throwable $previous = null)
     {

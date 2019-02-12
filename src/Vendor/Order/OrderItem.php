@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class OrderItem
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class OrderItem
 {
     /** @var int */
@@ -43,6 +47,8 @@ final class OrderItem
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -61,51 +67,81 @@ final class OrderItem
         $this->comment = $data['comment'] ?? '';
     }
 
+    /**
+     * @return int
+     */
     public function getItemId(): int
     {
         return $this->itemId;
     }
 
+    /**
+     * @return int
+     */
     public function getProductId(): int
     {
         return $this->productId;
     }
 
+    /**
+     * @return int
+     */
     public function getQuantity(): int
     {
         return $this->quantity;
     }
 
+    /**
+     * @return float
+     */
     public function getDiscountAmount(): float
     {
         return $this->discountAmount;
     }
 
+    /**
+     * @return float
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
+    /**
+     * @return string
+     */
     public function getCode(): string
     {
         return $this->code;
     }
 
+    /**
+     * @return int
+     */
     public function getQuantityShipped(): int
     {
         return $this->quantityShipped;
     }
 
+    /**
+     * @return int
+     */
     public function getQuantityToShip(): int
     {
         return $this->quantityToShip;
     }
 
+    /**
+     * @return array
+     */
     public function getOptionsVariantsIds(): array
     {
         return $this->optionsVariantsIds;
     }
 
+    /**
+     * @return string
+     */
     public function getComment(): string
     {
         return $this->comment;

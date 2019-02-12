@@ -10,11 +10,19 @@ namespace Wizaplace\SDK\Pim\Attribute;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class AttributeService
+ * @package Wizaplace\SDK\Pim\Attribute
+ */
 final class AttributeService extends AbstractService
 {
     /**
+     * @param int $productId
+     *
      * @return ProductAttribute[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductAttributes(int $productId): array
     {
@@ -28,7 +36,13 @@ final class AttributeService extends AbstractService
     }
 
     /**
+     * @param int $productId
+     * @param int $attributeId
+     *
+     * @return ProductAttribute
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getProductAttribute(int $productId, int $attributeId): ProductAttribute
     {
@@ -40,8 +54,12 @@ final class AttributeService extends AbstractService
     }
 
     /**
+     * @param int $categoryId
+     *
      * @return Attribute[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getCategoryAttributes(int $categoryId): array
     {
@@ -54,6 +72,15 @@ final class AttributeService extends AbstractService
         }, $data);
     }
 
+    /**
+     * @param int    $productId
+     * @param int    $attributeId
+     * @param string $value
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function setProductAttributeValue(int $productId, int $attributeId, string $value): void
     {
         $this->client->mustBeAuthenticated();
@@ -65,6 +92,15 @@ final class AttributeService extends AbstractService
         ]);
     }
 
+    /**
+     * @param int   $productId
+     * @param int   $attributeId
+     * @param array $variantIds
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function setProductAttributeVariants(int $productId, int $attributeId, array $variantIds): void
     {
         $this->client->mustBeAuthenticated();

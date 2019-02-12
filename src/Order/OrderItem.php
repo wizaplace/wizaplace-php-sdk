@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Order;
 
 use Wizaplace\SDK\Catalog\DeclinationId;
 
+/**
+ * Class OrderItem
+ * @package Wizaplace\SDK\Order
+ */
 final class OrderItem
 {
     /** @var DeclinationId */
@@ -32,6 +36,8 @@ final class OrderItem
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -48,31 +54,49 @@ final class OrderItem
         $this->greenTax = $data['greenTax'];
     }
 
+    /**
+     * @return DeclinationId
+     */
     public function getDeclinationId(): DeclinationId
     {
         return $this->declinationId;
     }
 
+    /**
+     * @return string
+     */
     public function getProductName(): string
     {
         return $this->productName;
     }
 
+    /**
+     * @return string
+     */
     public function getProductCode(): string
     {
         return $this->productCode;
     }
 
+    /**
+     * @return string|null
+     */
     public function getProductImageId(): ?string
     {
         return $this->productImageId;
     }
 
+    /**
+     * @return float
+     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
+    /**
+     * @return int
+     */
     public function getAmount(): int
     {
         return $this->amount;
@@ -86,11 +110,17 @@ final class OrderItem
         return $this->declinationOptions;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerComment(): string
     {
         return $this->customerComment;
     }
 
+    /**
+     * @return float
+     */
     public function getGreenTax(): float
     {
         return $this->greenTax;

@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use http\Client;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -16,8 +17,21 @@ use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class MultiVendorProductService
+ * @package Wizaplace\SDK\Pim\MultiVendorProduct
+ */
 final class MultiVendorProductService extends AbstractService
 {
+    /**
+     * @param string $id
+     *
+     * @return MultiVendorProduct
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getMultiVendorProductById(string $id): MultiVendorProduct
     {
         $this->client->mustBeAuthenticated();
@@ -33,6 +47,15 @@ final class MultiVendorProductService extends AbstractService
         return new MultiVendorProduct($response);
     }
 
+    /**
+     * @param MultiVendorProduct $mvp
+     *
+     * @return string
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function createMultiVendorProduct(MultiVendorProduct $mvp): string
     {
         $this->client->mustBeAuthenticated();
@@ -45,6 +68,15 @@ final class MultiVendorProductService extends AbstractService
         return to_string($response['id']);
     }
 
+    /**
+     * @param MultiVendorProduct $mvp
+     *
+     * @return string
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function updateMultiVendorProduct(MultiVendorProduct $mvp): string
     {
         $this->client->mustBeAuthenticated();
@@ -61,11 +93,14 @@ final class MultiVendorProductService extends AbstractService
 
     /**
      * @param string $mvpId
-     * @param array $files
+     * @param array  $files
+     *
      * @return MultiVendorProduct
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addImageToMultiVendorProduct(string $mvpId, array $files) : MultiVendorProduct
     {
@@ -75,26 +110,23 @@ final class MultiVendorProductService extends AbstractService
             $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/images", [
                 RequestOptions::MULTIPART => Multipart::createMultipartArray([], $files),
             ]);
-        } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
-            }
-            if ($e->getCode() === 400) {
-                throw new SomeParametersAreInvalid($e->getMessage());
-            }
-            throw $e;
-        }
 
-        return new MultiVendorProduct($response);
+            return new MultiVendorProduct($response);
+        } catch (ClientException $e) {
+            $this->clientException($e, $mvpId);
+        }
     }
 
     /**
      * @param string $mvpId
      * @param string $file
+     *
      * @return MultiVendorProductVideo
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addHostedVideoToMultiVendorProduct(string $mvpId, string $file): MultiVendorProductVideo
     {
@@ -109,23 +141,20 @@ final class MultiVendorProductService extends AbstractService
 
             return new MultiVendorProductVideo($response);
         } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
-            }
-            if ($e->getCode() === 400) {
-                throw new SomeParametersAreInvalid($e->getMessage());
-            }
-            throw $e;
+            $this->clientException($e, $mvpId);
         }
     }
 
     /**
      * @param string $mvpId
      * @param MultiVendorProductFile $file
+     *
      * @return MultiVendorProductVideo
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function addUploadedVideoToMultiVendorProduct(string $mvpId, MultiVendorProductFile $file): MultiVendorProductVideo
     {
@@ -138,21 +167,18 @@ final class MultiVendorProductService extends AbstractService
 
             return new MultiVendorProductVideo($response);
         } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
-            }
-            if ($e->getCode() === 400) {
-                throw new SomeParametersAreInvalid($e->getMessage());
-            }
-            throw $e;
+            $this->clientException($e, $mvpId);
         }
     }
 
     /**
      * @param string $mvpId
+     *
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function deleteVideoToMultiVendorProduct(string $mvpId): void
     {
@@ -161,13 +187,25 @@ final class MultiVendorProductService extends AbstractService
         try {
             $this->client->delete("pim/multi-vendor-products/{$mvpId}/video");
         } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
-            }
-            if ($e->getCode() === 400) {
-                throw new SomeParametersAreInvalid($e->getMessage());
-            }
-            throw $e;
+            $this->clientException($e, $mvpId);
         }
+    }
+
+    /**
+     * @param ClientException $exception
+     *
+     * @param string $mvpId
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    private function clientException(ClientException $exception, string $mvpId)
+    {
+        if ($exception->getCode() === 404) {
+            throw new NotFound("Multi vendor product #${mvpId} not found", $exception);
+        }
+        if ($exception->getCode() === 400) {
+            throw new SomeParametersAreInvalid($exception->getMessage());
+        }
+        throw $exception;
     }
 }

@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Class BasketRuleType
+ * @package Wizaplace\SDK\Vendor\Promotion
+ *
  * @internal for serialization purposes only
  * @method static BasketRuleType AND()
  * @method static BasketRuleType OR()
@@ -33,6 +36,12 @@ final class BasketRuleType extends Enum implements NormalizableInterface
 
     /**
      * @inheritdoc
+     *
+     * @param NormalizerInterface $normalizer
+     * @param null                $format
+     * @param array               $context
+     *
+     * @return string
      */
     public function normalize(NormalizerInterface $normalizer, $format = null, array $context = array()): string
     {

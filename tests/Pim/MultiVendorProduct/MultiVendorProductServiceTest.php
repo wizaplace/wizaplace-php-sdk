@@ -21,6 +21,8 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 {
     private $createdMvpId;
 
+    private const MVP_ID = 'a6e53f40-f4c5-3d56-af1d-cc83fd695feb';
+
     public function testGetMultiVendorProductById()
     {
         $service = $this->buildMultiVendorProductService();
@@ -231,9 +233,8 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testAddVideoToMultiVendorProductWithHostedFile()
     {
         $service = $this->buildMultiVendorProductService();
-        $uuid = 'a6e53f40-f4c5-3d56-af1d-cc83fd695feb';
         $file = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
-        $multiVendorProductVideo = $service->addHostedVideoToMultiVendorProduct($uuid, $file);
+        $multiVendorProductVideo = $service->addHostedVideoToMultiVendorProduct(static::MVP_ID, $file);
 
         $this->assertInstanceOf(MultiVendorProductVideo::class, $multiVendorProductVideo);
         $this->assertRegExp(
@@ -247,11 +248,10 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testAddVideoToMultiVendorProductWithUploadedFile()
     {
         $service = $this->buildMultiVendorProductService();
-        $uuid = 'a6e53f40-f4c5-3d56-af1d-cc83fd695feb';
         $video = $this->mockUploadedFile("video.avi");
         $file = new MultiVendorProductFile('file', $video->getStream(), $video->getClientFilename());
 
-        $multiVendorProductVideo = $service->addUploadedVideoToMultiVendorProduct($uuid, $file);
+        $multiVendorProductVideo = $service->addUploadedVideoToMultiVendorProduct(static::MVP_ID, $file);
 
         $this->assertInstanceOf(MultiVendorProductVideo::class, $multiVendorProductVideo);
         $this->assertRegExp(
@@ -265,12 +265,11 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testDeleteVideoToMultiVendorProduct()
     {
         $service = $this->buildMultiVendorProductService();
-        $uuid = 'a6e53f40-f4c5-3d56-af1d-cc83fd695feb';
         $file = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
-        $service->addHostedVideoToMultiVendorProduct($uuid, $file);
+        $service->addHostedVideoToMultiVendorProduct(static::MVP_ID, $file);
 
-        $service->deleteVideoToMultiVendorProduct($uuid);
-        $mvp = $service->getMultiVendorProductById($uuid);
+        $service->deleteVideoToMultiVendorProduct(static::MVP_ID);
+        $mvp = $service->getMultiVendorProductById(static::MVP_ID);
 
         $this->assertNull($mvp->getVideo()->getId());
     }

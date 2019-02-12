@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class SearchProductAttribute
+ * @package Wizaplace\SDK\Catalog
+ */
 final class SearchProductAttribute
 {
     /** @var int|null */
@@ -22,8 +26,10 @@ final class SearchProductAttribute
 
     /**
      * @internal
+     *
+     * @param array $data
      */
-    public function __construct($data)
+    public function __construct(array $data)
     {
         $this->id = $data['attribute']['id'];
         $this->name = $data['attribute']['name'];
@@ -34,16 +40,25 @@ final class SearchProductAttribute
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
@@ -57,6 +72,9 @@ final class SearchProductAttribute
         return $this->values;
     }
 
+    /**
+     * @return AttributeType
+     */
     public function getType(): AttributeType
     {
         return $this->type;

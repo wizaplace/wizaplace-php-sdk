@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Seo;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class SlugTargetType
+ * @package Wizaplace\SDK\Seo
+ *
  * @method static SlugTargetType PRODUCT()
  * @method static SlugTargetType CATEGORY()
  * @method static SlugTargetType ATTRIBUTE_VARIANT()

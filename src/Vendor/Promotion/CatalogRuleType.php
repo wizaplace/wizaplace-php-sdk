@@ -12,6 +12,9 @@ use Symfony\Component\Serializer\Normalizer\NormalizableInterface;
 use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
 
 /**
+ * Class MaxUsageCountRule
+ * @package Wizaplace\SDK\Vendor\Promotion
+ *
  * @internal for serialization purposes only
  * @method static CatalogRuleType AND()
  * @method static CatalogRuleType OR()

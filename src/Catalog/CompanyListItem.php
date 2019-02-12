@@ -11,6 +11,10 @@ use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class CompanyListItem
+ * @package Wizaplace\SDK\Catalog
+ */
 final class CompanyListItem
 {
     /** @var integer */
@@ -48,6 +52,8 @@ final class CompanyListItem
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -68,21 +74,33 @@ final class CompanyListItem
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
     }
 
+    /**
+     * @return CompanyAddress
+     */
     public function getFullAddress(): CompanyAddress
     {
         return $this->fullAddress;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return string
+     */
     public function getDescription(): string
     {
         return $this->description;
@@ -96,31 +114,49 @@ final class CompanyListItem
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
+    /**
+     * @return bool
+     */
     public function isProfessional(): bool
     {
         return $this->professional;
     }
 
+    /**
+     * @return string
+     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
+    /**
+     * @return Location|null
+     */
     public function getLocation(): ?Location
     {
         return $this->location;
     }
 
+    /**
+     * @return int|null
+     */
     public function getAverageRating(): ?int
     {
         return $this->averageRating;

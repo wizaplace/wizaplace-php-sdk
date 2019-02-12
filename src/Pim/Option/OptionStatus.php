@@ -11,6 +11,9 @@ namespace Wizaplace\SDK\Pim\Option;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class OptionStatus
+ * @package Wizaplace\SDK\Pim\Option
+ *
  * @method static OptionStatus ENABLED()
  * @method static OptionStatus DISABLED()
  */

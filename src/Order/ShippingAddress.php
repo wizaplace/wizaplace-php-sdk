@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class ShippingAddress
+ * @package Wizaplace\SDK\Order
+ */
 final class ShippingAddress extends Address
 {
     /** @var string|null */
@@ -14,6 +18,8 @@ final class ShippingAddress extends Address
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -21,6 +27,9 @@ final class ShippingAddress extends Address
         $this->pickupPointId = $data['pickupPointId'];
     }
 
+    /**
+     * @return string|null
+     */
     public function getPickupPointId(): ?string
     {
         return $this->pickupPointId;

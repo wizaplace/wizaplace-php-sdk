@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class CategoryTree
+ * @package Wizaplace\SDK\Catalog
+ */
 final class CategoryTree
 {
     /** @var Category */
@@ -16,6 +20,8 @@ final class CategoryTree
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -23,6 +29,9 @@ final class CategoryTree
         $this->children = self::buildCollection($data['children']);
     }
 
+    /**
+     * @return Category
+     */
     public function getCategory(): Category
     {
         return $this->category;

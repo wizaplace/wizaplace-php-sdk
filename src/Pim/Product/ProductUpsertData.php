@@ -16,6 +16,9 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
 /**
+ * Class ProductUpsertData
+ * @package Wizaplace\SDK\Pim\Product
+ *
  * @internal
  */
 abstract class ProductUpsertData
@@ -318,7 +321,10 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param \DateTimeInterface $availabilityDate
+     *
      * @return $this
+     * @throws \Exception
      */
     public function setAvailabilityDate(\DateTimeInterface $availabilityDate): self
     {
@@ -364,6 +370,8 @@ abstract class ProductUpsertData
     /**
      * Adds NotNull constraints on most properties.
      * @internal
+     *
+     * @param ClassMetadata $metadata
      */
     public static function loadNullChecksValidatorMetadata(ClassMetadata $metadata): void
     {
@@ -390,6 +398,8 @@ abstract class ProductUpsertData
 
     /**
      * @internal
+     *
+     * @param ClassMetadata $metadata
      */
     public static function loadValidatorMetadata(ClassMetadata $metadata): void
     {
@@ -525,8 +535,16 @@ abstract class ProductUpsertData
         return $data;
     }
 
+    /**
+     * @return bool
+     */
     abstract protected static function allowsPartialData(): bool;
 
+    /**
+     * @param ProductImageUpload|string $image
+     *
+     * @return array
+     */
     private static function imageToArray($image): array
     {
         if ($image instanceof ProductImageUpload) {

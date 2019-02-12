@@ -12,6 +12,10 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\JsonDecodingError;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class SeoService
+ * @package Wizaplace\SDK\Seo
+ */
 final class SeoService extends AbstractService
 {
     // All slugs should fully match this regexp
@@ -19,8 +23,12 @@ final class SeoService extends AbstractService
 
     /**
      * Takes several slugs and retrieves their targets.
+     *
      * @param string[] $slugs
-     * @return (?SlugTarget)[] a map with this format: [slug => ?SlugTarget]
+     *
+     * @return array (?SlugTarget)[] a map with this format: [slug => ?SlugTarget]
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function resolveSlugs(array $slugs): array
     {
@@ -46,6 +54,12 @@ final class SeoService extends AbstractService
 
     /**
      * Retrieves the target of one slug.
+     *
+     * @param string $slug
+     *
+     * @return SlugTarget|null
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function resolveSlug(string $slug): ?SlugTarget
     {
@@ -54,6 +68,8 @@ final class SeoService extends AbstractService
 
     /**
      * @return \Traversable|SlugCatalogItem[]
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function listSlugs(): \Traversable
     {

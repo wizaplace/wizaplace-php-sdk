@@ -16,6 +16,9 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
+ * Class OrderService
+ * @package Wizaplace\SDK\Order
+ *
  * This service helps retrieve and manage orders that already exist.
  *
  * If you want to *create* an order, you need to use the BasketService.
@@ -28,6 +31,8 @@ final class OrderService extends AbstractService
      * @return Order[]
      *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrders(): array
     {
@@ -43,7 +48,12 @@ final class OrderService extends AbstractService
     /**
      * Returns the order matching the given ID.
      *
+     * @param int $orderId
+     *
+     * @return Order
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrder(int $orderId): Order
     {
@@ -53,7 +63,12 @@ final class OrderService extends AbstractService
     }
 
     /**
+     * @param int $returnId
+     *
+     * @return OrderReturn
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrderReturn(int $returnId): OrderReturn
     {
@@ -68,6 +83,8 @@ final class OrderService extends AbstractService
      * @return OrderReturn[]
      *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getOrderReturns(): array
     {
@@ -84,6 +101,8 @@ final class OrderService extends AbstractService
      * Returns all the return reasons that can be used to return an order.
      *
      * @return ReturnReason[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getReturnReasons(): array
     {
@@ -111,9 +130,13 @@ final class OrderService extends AbstractService
      *
      * $returnId = $orderService->createOrderReturn($createOrderReturn);
      *
+     * @param CreateOrderReturn $creationCommand
+     *
      * @return int ID of the created return.
      *
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function createOrderReturn(CreateOrderReturn $creationCommand): int
     {
@@ -133,8 +156,12 @@ final class OrderService extends AbstractService
 
     /**
      * @param AfterSalesServiceRequest $request
-     * @throws SomeParametersAreInvalid
+     *
      * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function sendAfterSalesServiceRequest(AfterSalesServiceRequest $request): void
     {
@@ -163,8 +190,10 @@ final class OrderService extends AbstractService
 
     /**
      * @param int $orderId
+     *
      * @return StreamInterface
      * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function downloadPdfInvoice(int $orderId): StreamInterface
     {
@@ -180,8 +209,12 @@ final class OrderService extends AbstractService
     }
 
     /**
+     * @param OrderCommitmentCommand $command
+     *
      * @throws NotFound
      * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function commitOrder(OrderCommitmentCommand $command): void
     {
@@ -202,6 +235,21 @@ final class OrderService extends AbstractService
 
             if ($e->getResponse()->getStatusCode() === 400) {
                 throw new SomeParametersAreInvalid("Some parameters are invalid", 400, $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function getPayment(int $orderId): Payment
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return new Payment($this->client->get("orders/{$orderId}/payment"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
             }
 
             throw $e;

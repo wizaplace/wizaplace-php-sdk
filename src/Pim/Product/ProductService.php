@@ -14,8 +14,22 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class ProductService
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class ProductService extends AbstractService
 {
+    /**
+     * @param int $productId
+     *
+     * @return Product
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Exception
+     */
     public function getProductById(int $productId): Product
     {
         $this->client->mustBeAuthenticated();
@@ -31,6 +45,16 @@ final class ProductService extends AbstractService
         return new Product($data);
     }
 
+    /**
+     * @param ProductListFilter|null $filter
+     * @param int                    $page
+     * @param int                    $itemsCountPerPage
+     *
+     * @return ProductList
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function listProducts(?ProductListFilter $filter = null, $page = 1, $itemsCountPerPage = 100): ProductList
     {
         $this->client->mustBeAuthenticated();
@@ -50,6 +74,15 @@ final class ProductService extends AbstractService
         return new ProductList($data);
     }
 
+    /**
+     * @param CreateProductCommand $command
+     *
+     * @return int
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
+     */
     public function createProduct(CreateProductCommand $command): int
     {
         $this->client->mustBeAuthenticated();
@@ -62,6 +95,15 @@ final class ProductService extends AbstractService
         return to_int($data['product_id']);
     }
 
+    /**
+     * @param UpdateProductCommand $command
+     *
+     * @return int
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
+     */
     public function updateProduct(UpdateProductCommand $command): int
     {
         $this->client->mustBeAuthenticated();
@@ -76,12 +118,29 @@ final class ProductService extends AbstractService
         return to_int($data['product_id']);
     }
 
+    /**
+     * @param int $productId
+     *
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function deleteProduct(int $productId): void
     {
         $this->client->mustBeAuthenticated();
         $this->client->delete("products/${productId}");
     }
 
+    /**
+     * @param int $productId
+     * @param int $shippingId
+     *
+     * @return Shipping
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getShipping(int $productId, int $shippingId) : Shipping
     {
         $this->client->mustBeAuthenticated();
@@ -102,8 +161,10 @@ final class ProductService extends AbstractService
      * @param int $productId
      *
      * @return Shipping[]
+     * @throws AuthenticationRequired
      * @throws NotFound
-     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getShippings(int $productId) : array
     {
@@ -127,6 +188,16 @@ final class ProductService extends AbstractService
         return $shippings;
     }
 
+    /**
+     * @param int                   $shippingId
+     * @param UpdateShippingCommand $command
+     *
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
+     */
     public function putShipping(int $shippingId, UpdateShippingCommand $command) : void
     {
         $this->client->mustBeAuthenticated();
@@ -156,6 +227,8 @@ final class ProductService extends AbstractService
      * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDivisionsCountriesCodes(int $productId): array
     {
@@ -180,6 +253,8 @@ final class ProductService extends AbstractService
      * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getDivisions(int $productId, string $countryCode): array
     {
@@ -205,6 +280,8 @@ final class ProductService extends AbstractService
      * @return array
      * @throws AuthenticationRequired
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function putDivisions(int $productId, string $countryCode, array $codes): array
     {
@@ -224,6 +301,15 @@ final class ProductService extends AbstractService
         }
     }
 
+    /**
+     * @param int    $productId
+     * @param string $url
+     *
+     * @return array
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function addVideo(int $productId, string $url) : array
     {
         $this->client->mustBeAuthenticated();
@@ -247,6 +333,13 @@ final class ProductService extends AbstractService
         }
     }
 
+    /**
+     * @param int $productId
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
     public function deleteVideo(int $productId)
     {
         $this->client->mustBeAuthenticated();

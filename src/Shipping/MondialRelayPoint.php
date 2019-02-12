@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Shipping;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class MondialRelayPoint
+ * @package Wizaplace\SDK\Shipping
+ */
 class MondialRelayPoint
 {
     /**
@@ -94,6 +98,11 @@ class MondialRelayPoint
      */
     private $distance;
 
+    /**
+     * MondialRelayPoint constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->id = $data['id'];
@@ -116,81 +125,129 @@ class MondialRelayPoint
         $this->distance = to_int($data['distance']);
     }
 
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return array
+     */
     public function getAddress(): array
     {
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getZipCode(): string
     {
         return $this->zipCode;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry(): string
     {
         return $this->country;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLocation1(): ?string
     {
         return $this->location1;
     }
 
+    /**
+     * @return string|null
+     */
     public function getLocation2(): ?string
     {
         return $this->location2;
     }
 
+    /**
+     * @return string
+     */
     public function getLatitude(): string
     {
         return $this->latitude;
     }
 
+    /**
+     * @return string
+     */
     public function getLongitude(): string
     {
         return $this->longitude;
     }
 
+    /**
+     * @return string
+     */
     public function getActivityType(): string
     {
         return $this->activityType;
     }
 
+    /**
+     * @return string|null
+     */
     public function getInformation(): ?string
     {
         return $this->information;
     }
 
+    /**
+     * @return array
+     */
     public function getOpeningHours(): array
     {
         return $this->openingHours;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAvailabilityInformation(): ?string
     {
         return $this->availabilityInformation;
     }
 
+    /**
+     * @return string
+     */
     public function getUrlPicture(): string
     {
         return $this->urlPicture;
     }
 
+    /**
+     * @return string
+     */
     public function getUrlMap(): string
     {
         return $this->urlMap;
     }
 
+    /**
+     * @return int
+     */
     public function getDistance(): int
     {
         return $this->distance;

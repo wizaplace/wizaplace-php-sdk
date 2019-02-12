@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
+/**
+ * Class Address
+ * @package Wizaplace\SDK\Order
+ */
 abstract class Address
 {
     /** @var string */
@@ -26,6 +30,8 @@ abstract class Address
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -38,36 +44,57 @@ abstract class Address
         $this->country = $data['country'];
     }
 
+    /**
+     * @return string
+     */
     public function getFirstname(): string
     {
         return $this->firstname;
     }
 
+    /**
+     * @return string
+     */
     public function getLastname(): string
     {
         return $this->lastname;
     }
 
+    /**
+     * @return string
+     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getAddress2(): string
     {
         return $this->addressSecondLine;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function getZipcode(): string
     {
         return $this->zipcode;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry(): string
     {
         return $this->country;

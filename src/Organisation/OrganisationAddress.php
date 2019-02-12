@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Organisation;
 use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\ArrayableInterface;
 
+/**
+ * Class OrganisationAddress
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationAddress implements ArrayableInterface
 {
     /** @var string */
@@ -30,6 +34,11 @@ class OrganisationAddress implements ArrayableInterface
     /** @var string */
     private $country;
 
+    /**
+     * OrganisationAddress constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->address = to_string($data['address']);
@@ -40,6 +49,9 @@ class OrganisationAddress implements ArrayableInterface
         $this->country = to_string($data['country']);
     }
 
+    /**
+     * @return array
+     */
     public function toArray() : array
     {
         $data = [];

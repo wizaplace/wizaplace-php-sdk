@@ -5,6 +5,10 @@
  */
 namespace Wizaplace\SDK\Organisation;
 
+/**
+ * Class OrganisationBasket
+ * @package Wizaplace\SDK\Organisation
+ */
 class OrganisationBasket
 {
     /**
@@ -47,6 +51,11 @@ class OrganisationBasket
      */
     private $createdAt;
 
+    /**
+     * OrganisationBasket constructor.
+     *
+     * @param array $data
+     */
     public function __construct(array $data)
     {
         $this->setId($data['basketId']);

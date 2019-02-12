@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Pim\Category;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class CategoryStatus
+ * @package Wizaplace\SDK\Pim\Category
+ *
  * @method static CategoryStatus ENABLED()
  * @method static CategoryStatus DISABLED()
  * @method static CategoryStatus HIDDEN()

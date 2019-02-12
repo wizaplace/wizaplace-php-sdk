@@ -16,6 +16,10 @@ use Wizaplace\SDK\Vendor\Promotion\Discounts\Discount;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 
+/**
+ * Class SaveBasketPromotionCommand
+ * @package Wizaplace\SDK\Vendor\Promotion
+ */
 final class SaveBasketPromotionCommand
 {
     /** @var null|string */
@@ -42,26 +46,47 @@ final class SaveBasketPromotionCommand
     /** @var null|BasketPromotionTarget */
     private $target;
 
+    /**
+     * SaveBasketPromotionCommand constructor.
+     *
+     * @param string|null $promotionId
+     */
     private function __construct(?string $promotionId = null)
     {
         $this->promotionId = $promotionId;
     }
 
+    /**
+     * @return SaveBasketPromotionCommand
+     */
     public static function createNew(): self
     {
         return new self(null);
     }
 
+    /**
+     * @param string $promotionId
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public static function updateExisting(string $promotionId): self
     {
         return new self($promotionId);
     }
 
+    /**
+     * @return string|null
+     */
     public function getPromotionId(): ?string
     {
         return $this->promotionId;
     }
 
+    /**
+     * @param string|null $promotionId
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setPromotionId(?string $promotionId): self
     {
         $this->promotionId = $promotionId;
@@ -69,6 +94,11 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @param string|null $name
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -76,6 +106,11 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @param bool|null $active
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setActive(?bool $active): self
     {
         $this->active = $active;
@@ -83,6 +118,11 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @param BasketRule|null $rule
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setRule(?BasketRule $rule): self
     {
         $this->rule = $rule;
@@ -90,11 +130,19 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCoupon(): ?string
     {
         return $this->coupon;
     }
 
+    /**
+     * @param string|null $coupon
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setCoupon(?string $coupon): self
     {
         $this->coupon = $coupon;
@@ -102,11 +150,19 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @return BasketPromotionTarget|null
+     */
     public function getTarget(): ?BasketPromotionTarget
     {
         return $this->target;
     }
 
+    /**
+     * @param BasketPromotionTarget|null $target
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setTarget(?BasketPromotionTarget $target): self
     {
         $this->target = $target;
@@ -115,7 +171,9 @@ final class SaveBasketPromotionCommand
     }
 
     /**
-     * @param null|(Discount[]) $discounts The complete list of discounts provided by the promotion. If null, won't modify existing discounts. If empty, will remove them all.
+     * @param array|null $discounts
+     *
+     * @return SaveBasketPromotionCommand
      */
     public function setDiscounts(?array $discounts): self
     {
@@ -129,6 +187,11 @@ final class SaveBasketPromotionCommand
         return $this;
     }
 
+    /**
+     * @param PromotionPeriod|null $period
+     *
+     * @return SaveBasketPromotionCommand
+     */
     public function setPeriod(?PromotionPeriod $period): self
     {
         $this->period = $period;
@@ -138,6 +201,8 @@ final class SaveBasketPromotionCommand
 
     /**
      * @internal
+     *
+     * @return array
      */
     public function toArray(): array
     {
@@ -164,6 +229,9 @@ final class SaveBasketPromotionCommand
         );
     }
 
+    /**
+     * @param Discount ...$discounts
+     */
     private function setNonNullDiscounts(Discount ...$discounts): void
     {
         // this function is here just for the type-check

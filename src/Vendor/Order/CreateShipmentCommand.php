@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
+/**
+ * Class CreateShipmentCommand
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class CreateShipmentCommand
 {
     /** @var int */
@@ -26,6 +30,14 @@ final class CreateShipmentCommand
     /** @var int[] map of (int) itemId to (int) quantity shipped */
     private $shippedQuantityByItemId;
 
+    /**
+     * CreateShipmentCommand constructor.
+     *
+     * @param int    $orderId
+     * @param string $trackingNumber
+     *
+     * @throws SomeParametersAreInvalid
+     */
     public function __construct(int $orderId, string $trackingNumber)
     {
         $this->orderId = $orderId;
@@ -36,6 +48,11 @@ final class CreateShipmentCommand
         $this->trackingNumber = $trackingNumber;
     }
 
+    /**
+     * @param string $comment
+     *
+     * @return CreateShipmentCommand
+     */
     public function setComment(string $comment): self
     {
         $this->comment = $comment;
@@ -43,6 +60,11 @@ final class CreateShipmentCommand
         return $this;
     }
 
+    /**
+     * @param string $labelUrl
+     *
+     * @return CreateShipmentCommand
+     */
     public function setLabelUrl(string $labelUrl): self
     {
         $this->labelUrl = $labelUrl;
@@ -63,6 +85,7 @@ final class CreateShipmentCommand
 
     /**
      * @internal
+     * @throws SomeParametersAreInvalid
      */
     public function validate(): void
     {

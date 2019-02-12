@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Discussion;
 
+/**
+ * Class Message
+ * @package Wizaplace\SDK\Discussion
+ */
 final class Message
 {
     /** @var string */
@@ -20,6 +24,10 @@ final class Message
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -28,16 +36,25 @@ final class Message
         $this->isAuthor = $data['isAuthor'];
     }
 
+    /**
+     * @return string
+     */
     public function getContent(): string
     {
         return $this->content;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getDate(): \DateTimeImmutable
     {
         return $this->date;
     }
 
+    /**
+     * @return bool
+     */
     public function isAuthor(): bool
     {
         return $this->isAuthor;

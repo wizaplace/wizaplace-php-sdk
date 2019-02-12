@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Order;
 use MyCLabs\Enum\Enum;
 
 /**
+ * Class OrderStatus
+ * @package Wizaplace\SDK\Order
+ *
  * @method static OrderStatus STANDBY_BILLING()
  * @method static OrderStatus STANDBY_VENDOR()
  * @method static OrderStatus PROCESSING_SHIPPING()

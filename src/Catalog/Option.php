@@ -8,6 +8,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Catalog;
 
+/**
+ * Class Option
+ * @package Wizaplace\SDK\Catalog
+ */
 final class Option implements \JsonSerializable
 {
     /** @var int */
@@ -24,6 +28,8 @@ final class Option implements \JsonSerializable
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -35,16 +41,25 @@ final class Option implements \JsonSerializable
         }, $data['variants']);
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition(): int
     {
         return $this->position;
@@ -58,6 +73,9 @@ final class Option implements \JsonSerializable
         return $this->variants;
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return [

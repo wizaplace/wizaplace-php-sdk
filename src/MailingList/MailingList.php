@@ -7,6 +7,10 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\MailingList;
 
+/**
+ * Class MailingList
+ * @package Wizaplace\SDK\MailingList
+ */
 final class MailingList
 {
     /**
@@ -21,6 +25,9 @@ final class MailingList
 
     /**
      * @internal
+     *
+     * @param int    $id
+     * @param string $name
      */
     public function __construct(int $id, string $name)
     {

@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
+/**
+ * Class DeclinationOption
+ * @package Wizaplace\SDK\Catalog
+ */
 final class DeclinationOption implements \JsonSerializable
 {
     /** @var integer */
@@ -31,6 +35,8 @@ final class DeclinationOption implements \JsonSerializable
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -42,36 +48,57 @@ final class DeclinationOption implements \JsonSerializable
         $this->position = isset($data['position']) ? $data['position'] : 0;
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return int
+     */
     public function getVariantId(): int
     {
         return $this->variantId;
     }
 
+    /**
+     * @return string
+     */
     public function getVariantName(): string
     {
         return $this->variantName;
     }
 
+    /**
+     * @return Image|null
+     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
+    /**
+     * @return int|null
+     */
     public function getPosition(): ?int
     {
         return $this->position;
     }
 
+    /**
+     * @return array
+     */
     public function jsonSerialize(): array
     {
         return [

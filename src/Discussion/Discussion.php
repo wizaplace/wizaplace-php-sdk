@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Discussion;
 
 use function theodorejb\polycast\to_int;
 
+/**
+ * Class Discussion
+ * @package Wizaplace\SDK\Discussion
+ */
 final class Discussion
 {
     /** @var int */
@@ -28,6 +32,8 @@ final class Discussion
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -38,26 +44,41 @@ final class Discussion
         $this->unreadCount = $data['unreadCount'];
     }
 
+    /**
+     * @return int
+     */
     public function getId(): int
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getRecipient(): string
     {
         return $this->recipient;
     }
 
+    /**
+     * @return int
+     */
     public function getProductId(): int
     {
         return $this->productId;
     }
 
+    /**
+     * @return string
+     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
+    /**
+     * @return int
+     */
     public function getUnreadCount(): int
     {
         return $this->unreadCount;

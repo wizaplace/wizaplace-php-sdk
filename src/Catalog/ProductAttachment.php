@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Catalog;
 
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class ProductAttachment
+ * @package Wizaplace\SDK\Catalog
+ */
 final class ProductAttachment
 {
     /** @var string */
@@ -22,6 +26,9 @@ final class ProductAttachment
 
     /**
      * @internal
+     *
+     * @param array        $data
+     * @param UriInterface $apiBaseUrl
      */
     public function __construct(array $data, UriInterface $apiBaseUrl)
     {
@@ -30,17 +37,25 @@ final class ProductAttachment
         $this->url = $apiBaseUrl->withPath($apiBaseUrl->getPath()."catalog/products/attachments/{$this->id}");
     }
 
-
+    /**
+     * @return string
+     */
     public function getId(): string
     {
         return $this->id;
     }
 
+    /**
+     * @return string
+     */
     public function getLabel(): string
     {
         return $this->label;
     }
 
+    /**
+     * @return UriInterface
+     */
     public function getUrl(): UriInterface
     {
         return $this->url;

@@ -9,11 +9,17 @@ namespace Wizaplace\SDK\Pim\Tax;
 
 use Wizaplace\SDK\AbstractService;
 
+/**
+ * Class TaxService
+ * @package Wizaplace\SDK\Pim\Tax
+ */
 class TaxService extends AbstractService
 {
     /**
      * @return Tax[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function listTaxes(): array
     {

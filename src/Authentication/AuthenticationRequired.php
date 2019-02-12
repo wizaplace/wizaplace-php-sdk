@@ -11,12 +11,17 @@ use Throwable;
 use Wizaplace\SDK\ApiClient;
 
 /**
+ * Class AuthenticationRequired
+ * @package Wizaplace\SDK\Authentication
+ *
  * @see ApiClient::authenticate()
  */
 final class AuthenticationRequired extends \Exception
 {
     /**
      * @internal
+     *
+     * @param Throwable|null $previous
      */
     public function __construct(Throwable $previous = null)
     {

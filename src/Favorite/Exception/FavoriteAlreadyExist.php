@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Favorite\Exception;
 use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 
+/**
+ * Class FavoriteAlreadyExist
+ * @package Wizaplace\SDK\Favorite\Exception
+ */
 final class FavoriteAlreadyExist extends \Exception implements DomainError
 {
     /**
@@ -23,6 +27,10 @@ final class FavoriteAlreadyExist extends \Exception implements DomainError
 
     /**
      * @internal
+     *
+     * @param string          $message
+     * @param array           $context
+     * @param \Throwable|null $previous
      */
     public function __construct(string $message, array $context = [], ?\Throwable $previous = null)
     {
@@ -31,12 +39,17 @@ final class FavoriteAlreadyExist extends \Exception implements DomainError
         parent::__construct($message, static::getErrorCode()->getValue(), $previous);
     }
 
-
+    /**
+     * @return array
+     */
     final public function getContext(): array
     {
         return $this->context;
     }
 
+    /**
+     * @return ErrorCode
+     */
     public static function getErrorCode(): ErrorCode
     {
         return ErrorCode::FAVORITE_ALREADY_EXISTS();

@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Cms;
 
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class MenuItem
+ * @package Wizaplace\SDK\Cms
+ */
 final class MenuItem
 {
     /** @var string */
@@ -29,6 +33,12 @@ final class MenuItem
 
     /**
      * @internal
+     *
+     * @param string       $name
+     * @param int          $position
+     * @param UriInterface $url
+     * @param bool         $targetBlank
+     * @param array        $children
      */
     public function __construct(string $name, int $position, UriInterface $url, bool $targetBlank, array $children)
     {
@@ -39,21 +49,33 @@ final class MenuItem
         $this->children = $children;
     }
 
+    /**
+     * @return string
+     */
     public function getName(): string
     {
         return $this->name;
     }
 
+    /**
+     * @return int
+     */
     public function getPosition(): int
     {
         return $this->position;
     }
 
+    /**
+     * @return UriInterface
+     */
     public function getUrl(): UriInterface
     {
         return $this->url;
     }
 
+    /**
+     * @return bool
+     */
     public function isTargetBlank(): bool
     {
         return $this->targetBlank;

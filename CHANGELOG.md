@@ -1,16 +1,17 @@
 # Changelog
 
-# 1.48.0
-
-## 1.47.0
+## 1.48.0
 
 ### New features
 
-- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::addHostedVideoToMultiVendorProduct`
-- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::addUploadedVideoToMultiVendorProduct`
-- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductService::deleteVideoToMultiVendorProduct`
-- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProduct::getVideo`
-- Added `\Wizaplace\SDK\Pim/MultiVendorProduct/MultiVendorProductVideo`
+- Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addHostedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addUploadedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::deleteVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getVideo`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo`
+
+## 1.47.0
 
 ## 1.46.0
 
@@ -19,10 +20,10 @@
 - Added `\Wizaplace\SDK\User\User::getPhone`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
-- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
-- Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
-- Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
-- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `\Wizaplace\SDK\Division\Division::getMaxLevel`
+- Added `\Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
+- Added `\Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+- Added parameter `files` to `\Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
 
 ## 1.45.0
 

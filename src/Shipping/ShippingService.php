@@ -12,6 +12,10 @@ use function theodorejb\polycast\to_int;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 
+/**
+ * Class ShippingService
+ * @package Wizaplace\SDK\Shipping
+ */
 class ShippingService extends AbstractService
 {
     private const ENDPOINT = "shippings";
@@ -20,7 +24,9 @@ class ShippingService extends AbstractService
      * Get the list of shippings
      *
      * @return Shipping[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAll(): array
     {
@@ -44,7 +50,9 @@ class ShippingService extends AbstractService
      *
      * @return Shipping
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getById(int $id): Shipping
     {
@@ -70,7 +78,9 @@ class ShippingService extends AbstractService
      *
      * @return int Shipping's id
      * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function put(int $id, ShippingStatus $status, array $rates): int
     {

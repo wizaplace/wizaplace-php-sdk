@@ -12,10 +12,16 @@ use Wizaplace\SDK\AbstractService;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
+/**
+ * Class CmsService
+ * @package Wizaplace\SDK\Cms
+ */
 final class CmsService extends AbstractService
 {
     /**
      * @return Menu[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getAllMenus(): array
     {
@@ -24,6 +30,13 @@ final class CmsService extends AbstractService
         return array_map([$this, 'convertNestedArraysToMenu'], $results);
     }
 
+    /**
+     * @param int $pageId
+     *
+     * @return Page
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
     public function getPage(int $pageId) : Page
     {
         $data = $this->client->get('cms/page/'.$pageId);
@@ -41,6 +54,11 @@ final class CmsService extends AbstractService
         return $page;
     }
 
+    /**
+     * @param array $menuData
+     *
+     * @return Menu
+     */
     private function convertNestedArraysToMenu(array $menuData): Menu
     {
         $items = array_map([$this, 'convertArrayToMenuItem'], $menuData['items']);
@@ -48,6 +66,11 @@ final class CmsService extends AbstractService
         return new Menu(to_int($menuData['id']), to_string($menuData['name']), $items);
     }
 
+    /**
+     * @param array $menuItem
+     *
+     * @return MenuItem
+     */
     private function convertArrayToMenuItem(array $menuItem): MenuItem
     {
         return new MenuItem(

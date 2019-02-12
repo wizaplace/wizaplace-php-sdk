@@ -9,6 +9,10 @@ namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\User\UserTitle;
 
+/**
+ * Class Address
+ * @package Wizaplace\SDK\Basket
+ */
 final class Address
 {
     /** @var null|UserTitle */
@@ -58,51 +62,81 @@ final class Address
         $this->country = $data['country'];
     }
 
+    /**
+     * @return UserTitle|null
+     */
     public function getTitle(): ?UserTitle
     {
         return $this->title;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return $this->firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
+    /**
+     * @return string
+     */
     public function getCompany(): string
     {
         return $this->company;
     }
 
+    /**
+     * @return string
+     */
     public function getPhone(): string
     {
         return $this->phone;
     }
 
+    /**
+     * @return string
+     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getAddressSecondLine(): string
     {
         return $this->addressSecondLine;
     }
 
+    /**
+     * @return string
+     */
     public function getZipCode(): string
     {
         return $this->zipCode;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function getCountry(): string
     {
         return $this->country;

@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+/**
+ * Class OrderSummary
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class OrderSummary
 {
     /** @var string */
@@ -41,6 +45,10 @@ final class OrderSummary
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -56,51 +64,81 @@ final class OrderSummary
         $this->total = $data['total'];
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerEmail(): string
     {
         return $this->customerEmail;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerFirstName(): string
     {
         return $this->customerFirstName;
     }
 
+    /**
+     * @return string
+     */
     public function getCustomerLastName(): string
     {
         return $this->customerLastName;
     }
 
+    /**
+     * @return int
+     */
     public function getOrderId(): int
     {
         return $this->orderId;
     }
 
+    /**
+     * @return int
+     */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
+    /**
+     * @return OrderStatus
+     */
     public function getStatus(): OrderStatus
     {
         return $this->status;
     }
 
+    /**
+     * @return \DateTimeInterface
+     */
     public function getCreatedAt(): \DateTimeInterface
     {
         return $this->createdAt;
     }
 
+    /**
+     * @return int
+     */
     public function getCustomerUserId(): int
     {
         return $this->customerUserId;
     }
 
+    /**
+     * @return int
+     */
     public function getBasketId(): int
     {
         return $this->basketId;
     }
 
+    /**
+     * @return float
+     */
     public function getTotal(): float
     {
         return $this->total;

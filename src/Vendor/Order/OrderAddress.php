@@ -7,6 +7,10 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+/**
+ * Class OrderAddress
+ * @package Wizaplace\SDK\Vendor\Order
+ */
 final class OrderAddress
 {
     /** @var string */
@@ -35,6 +39,8 @@ final class OrderAddress
 
     /**
      * @internal
+     *
+     * @param array $data
      */
     public function __construct(array $data)
     {
@@ -48,41 +54,65 @@ final class OrderAddress
         $this->zipCode = $data['zipcode'];
     }
 
+    /**
+     * @return string
+     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
+    /**
+     * @return string
+     */
     public function getComplementaryAddress(): string
     {
         return $this->complementaryAddress;
     }
 
+    /**
+     * @return string
+     */
     public function getCity(): string
     {
         return $this->city;
     }
 
+    /**
+     * @return string
+     */
     public function getCountryCode(): string
     {
         return $this->countryCode;
     }
 
+    /**
+     * @return string
+     */
     public function getFirstName(): string
     {
         return $this->firstName;
     }
 
+    /**
+     * @return string
+     */
     public function getLastName(): string
     {
         return $this->lastName;
     }
 
+    /**
+     * @return string
+     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
+    /**
+     * @return string
+     */
     public function getZipCode(): string
     {
         return $this->zipCode;
@@ -90,6 +120,10 @@ final class OrderAddress
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @return OrderAddress
      */
     public static function extractShippingAddressData(array $data)
     {
@@ -98,12 +132,22 @@ final class OrderAddress
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @return OrderAddress
      */
     public static function extractBillingAddressData(array $data)
     {
         return self::extractData('b_', $data);
     }
 
+    /**
+     * @param string $prefix
+     * @param array  $data
+     *
+     * @return OrderAddress
+     */
     private static function extractData(string $prefix, array $data)
     {
         $newData = [];

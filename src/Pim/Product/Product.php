@@ -10,6 +10,10 @@ namespace Wizaplace\SDK\Pim\Product;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 
+/**
+ * Class Product
+ * @package Wizaplace\SDK\Pim\Product
+ */
 final class Product extends ProductSummary
 {
     /** @var UriInterface */
@@ -38,6 +42,10 @@ final class Product extends ProductSummary
 
     /**
      * @internal
+     *
+     * @param array $data
+     *
+     * @throws \Exception
      */
     public function __construct(array $data)
     {
@@ -57,11 +65,17 @@ final class Product extends ProductSummary
         $this->infiniteStock = (bool) $data['infinite_stock'];
     }
 
+    /**
+     * @return string
+     */
     public function getFullDescription(): string
     {
         return $this->fullDescription;
     }
 
+    /**
+     * @return string
+     */
     public function getShortDescription(): string
     {
         return $this->shortDescription;
@@ -75,6 +89,9 @@ final class Product extends ProductSummary
         return $this->taxIds;
     }
 
+    /**
+     * @return UriInterface|null
+     */
     public function getMainImage(): ?UriInterface
     {
         return $this->mainImage;
@@ -96,16 +113,27 @@ final class Product extends ProductSummary
         return $this->declinations;
     }
 
+    /**
+     * @return \DateTimeImmutable
+     */
     public function getAvailibilityDate(): \DateTimeImmutable
     {
         return $this->availibilityDate;
     }
 
+    /**
+     * @return bool
+     */
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;
     }
 
+    /**
+     * @param array $imageData
+     *
+     * @return UriInterface
+     */
     private static function unserializeImage(array $imageData): UriInterface
     {
         return new Uri($imageData['detailed']['image_path']);
