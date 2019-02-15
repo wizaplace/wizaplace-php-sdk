@@ -27,6 +27,7 @@ use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductAttributeValue;
+use Wizaplace\SDK\Catalog\ProductFilter;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductSummary;
@@ -280,6 +281,48 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
 
         $this->assertEmpty($product->getImages());
+    }
+
+    public function testGetProductByFilters(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $filters = (new ProductFilter())
+            ->setIds([1, 2, 3])
+            ->setCodes(['6311386284347', '4991933817246'])
+            ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC']);
+
+        $products = $catalogService->getProductsByFilters($filters);
+
+        $this->assertCount(7, $products);
+
+        $expected = ['2', '3', '1', '9', '10', '22', '23'];
+
+        foreach ($products as $key => $product) {
+            $this->assertSame($expected[$key], $product->getId());
+        }
+    }
+
+    public function testGetProductByFiltersWithCompany()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        // Filter with companyId
+        $filters = (new ProductFilter())
+            ->setIds([1, 2, 3])
+            ->setCodes(['6311386284347', '4991933817246'])
+            ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC'])
+            ->setCompanyId(1);
+
+        $products = $catalogService->getProductsByFilters($filters);
+
+        $this->assertCount(2, $products);
+
+        $expected = ['22', '23'];
+
+        foreach ($products as $key => $product) {
+            $this->assertSame($expected[$key], $product->getId());
+        }
     }
 
     public function testGetProductByIdInAnotherLanguage(): void

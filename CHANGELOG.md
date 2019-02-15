@@ -5,6 +5,8 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByFilters`
+- Added `\Wizaplace\SDK\Catalog\ProductFilter`
 
 ## 1.47.0
 
