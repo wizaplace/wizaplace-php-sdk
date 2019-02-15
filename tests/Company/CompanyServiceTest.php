@@ -18,6 +18,7 @@ use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
+use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\User\UserType;
 
 /**
@@ -232,10 +233,57 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('the-world-company-inc', $company->getSlug());
     }
 
+    public function testRegisteringAC2CCVendorWithUploadFiles(): void
+    {
+        $service = $this->buildUserCompanyService();
+        $file = [
+                    [
+                        'name'     => 'idCard',
+                        'contents' => fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r'),
+                        'filename' => 'minimal.pdf',
+                    ],
+            ];
+        $result = $service->registerC2CCompany('C2C Vendor', '', '', $file);
+
+        $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
+
+        $company = $result->getCompany();
+        $this->assertInstanceOf(Company::class, $company);
+
+        $this->assertSame('C2C Vendor', $company->getName());
+        $this->assertSame('customer-3@world-company.com', $company->getEmail());
+        $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
+
+        $files = $service->getCompanyFiles($company->getId());
+        $this->assertCount(3, $files);
+    }
+
     public function testCannotGetOtherCompanyInfoWithVendorAccount(): void
     {
         $this->expectException(ClientException::class);
         $this->buildUserCompanyService('vendor@world-company.com', 'password')->getCompany(1);
+    }
+
+    public function testAddACompanyImageAndDeleteIt()
+    {
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+        $companyId = $service->getCompany(2)->getId();
+
+        $file = $this->mockUploadedFile('favicon.png');
+
+        $imageId = $service->updateCompanyImage($companyId, [
+            'name'     => "file",
+            'contents' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ]);
+        $this->assertGreaterThan(0, $imageId);
+
+        $companyImageId = $service->getCompanyImageId($companyId);
+        $this->assertEquals(13, $companyImageId);
+
+        $result = $service->deleteCompanyImage($companyId, $companyImageId);
+        $this->assertEquals(true, $result["success"]);
+        $this->assertEquals("Image ".$imageId." successfully deleted", $result["message"]);
     }
 
     public function testGettingAListOfDivisionsCountriesCode(): void

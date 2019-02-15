@@ -36,6 +36,8 @@ final class User
     private $status;
     /** @var UserType|null */
     private $type;
+    /** @var string|null */
+    private $phone;
 
     /**
      * @internal
@@ -53,6 +55,7 @@ final class User
         $this->companyId = $data['companyId'] ?? null;
         $this->status = $data['status'] ?? null;
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
+        $this->phone = $data['phone'] ?? null;
     }
 
     public function getId(): int
@@ -98,6 +101,11 @@ final class User
     public function getCompanyId(): ?int
     {
         return $this->companyId;
+    }
+
+    public function getPhone(): ?string
+    {
+        return $this->phone;
     }
 
     public function isVendor(): bool

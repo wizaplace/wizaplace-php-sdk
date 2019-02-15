@@ -63,7 +63,7 @@ final class CompanyService extends AbstractService
      *
      * @throws AuthenticationRequired
      */
-    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
@@ -77,7 +77,14 @@ final class CompanyService extends AbstractService
 
         $company = new Company($responseData);
 
-        return new CompanyRegistrationResult($company, []);
+        //If parameter $files is not null,
+        //we call uploadRegistrationFiles() method
+        $fileUploadResults = [];
+        if (!empty($files)) {
+            $fileUploadResults = $this->uploadRegistrationFiles($company->getId(), $files);
+        }
+
+        return new CompanyRegistrationResult($company, $fileUploadResults);
     }
 
     /**
@@ -230,6 +237,50 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         return $this->client->delete("companies/{$companyId}/files/{$filename}");
+    }
+
+    /**
+     * @param int $companyId
+     * @param array $imageFile
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function updateCompanyImage(int $companyId, array $imageFile): int
+    {
+        $this->client->mustBeAuthenticated();
+
+        return (int) $this->client->rawRequest("POST", "companies/{$companyId}/image", [
+            RequestOptions::MULTIPART => [
+                'file' => $imageFile,
+            ],
+        ])
+            ->getBody()
+            ->getContents();
+    }
+
+    /**
+     * @param int $companyId
+     * @param int $imageId
+     * @return mixed|null
+     * @throws AuthenticationRequired
+     */
+    public function deleteCompanyImage(int $companyId, int $imageId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->delete("companies/{$companyId}/image/{$imageId}");
+    }
+
+    /**
+     * @param int $companyId
+     * @return int
+     * @throws AuthenticationRequired
+     */
+    public function getCompanyImageId(int $companyId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get("companies/{$companyId}/image");
     }
 
     /**
