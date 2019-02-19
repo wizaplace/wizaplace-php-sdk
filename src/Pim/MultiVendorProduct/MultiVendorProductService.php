@@ -9,6 +9,7 @@ namespace Wizaplace\SDK\Pim\MultiVendorProduct;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use http\Client;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -109,16 +110,102 @@ final class MultiVendorProductService extends AbstractService
             $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/images", [
                 RequestOptions::MULTIPART => Multipart::createMultipartArray([], $files),
             ]);
-        } catch (ClientException $e) {
-            if ($e->getCode() === 404) {
-                throw new NotFound("Multi vendor product #${mvpId} not found", $e);
-            }
-            if ($e->getCode() === 400) {
-                throw new SomeParametersAreInvalid($e->getMessage());
-            }
-            throw $e;
-        }
 
-        return new MultiVendorProduct($response);
+            return new MultiVendorProduct($response);
+        } catch (ClientException $e) {
+            $this->clientException($e, $mvpId);
+        }
+    }
+
+    /**
+     * @param string $mvpId
+     * @param string $file
+     *
+     * @return MultiVendorProductVideo
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function addHostedVideoToMultiVendorProduct(string $mvpId, string $file): MultiVendorProductVideo
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
+                RequestOptions::FORM_PARAMS => [
+                    'file' => $file,
+                ],
+            ]);
+
+            return new MultiVendorProductVideo($response);
+        } catch (ClientException $e) {
+            $this->clientException($e, $mvpId);
+        }
+    }
+
+    /**
+     * @param string $mvpId
+     * @param MultiVendorProductFile $file
+     *
+     * @return MultiVendorProductVideo
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function addUploadedVideoToMultiVendorProduct(string $mvpId, MultiVendorProductFile $file): MultiVendorProductVideo
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
+                RequestOptions::MULTIPART => Multipart::createMultipartArray([], [$file]),
+            ]);
+
+            return new MultiVendorProductVideo($response);
+        } catch (ClientException $e) {
+            $this->clientException($e, $mvpId);
+        }
+    }
+
+    /**
+     * @param string $mvpId
+     *
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function deleteVideoToMultiVendorProduct(string $mvpId): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->delete("pim/multi-vendor-products/{$mvpId}/video");
+        } catch (ClientException $e) {
+            $this->clientException($e, $mvpId);
+        }
+    }
+
+    /**
+     * @param ClientException $exception
+     *
+     * @param string $mvpId
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     */
+    private function clientException(ClientException $exception, string $mvpId)
+    {
+        if ($exception->getCode() === 404) {
+            throw new NotFound("Multi vendor product #${mvpId} not found", $exception);
+        }
+        if ($exception->getCode() === 400) {
+            throw new SomeParametersAreInvalid($exception->getMessage());
+        }
+        throw $exception;
     }
 }

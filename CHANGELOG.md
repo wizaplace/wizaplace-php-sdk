@@ -5,6 +5,11 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addHostedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addUploadedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::deleteVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getVideo`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo`
 
 ## 1.47.0
 

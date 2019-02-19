@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:03:59 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9cc474
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9cc474'
+        body: '{"id":2,"apiKey":"S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/a6e53f40-f4c5-3d56-af1d-cc83fd695feb/video'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-137-fpu-video@866e8d1
+            Authorization: 'token S6Np08UPBZJ7iv1MJAtg1LeY79j2XFWwU1pDKa72'
+            VCR-index: '1'
+            Accept: null
+        body: file=http%3A%2F%2Fcommondatastorage.googleapis.com%2Fgtv-videos-bucket%2Fsample%2FForBiggerEscapes.mp4
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Feb 2019 09:04:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: 534aea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/534aea'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22534aea%22%2C%22route%22%3A%22api_multi_vendor_product_add_video%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.multi_vendor_product.api.controller%3AaddVideoAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+        body: '{"id":"75876c4f-ee26-4b00-ad3c-201c1b12b5d7","thumb":"\/\/s3-eu-west-1.amazonaws.com\/wizaplace-alexandbox\/videos\/75876c4f-ee26-4b00-ad3c-201c1b12b5d7\/480-00001.png","path":"\/\/s3-eu-west-1.amazonaws.com\/wizaplace-alexandbox\/videos\/75876c4f-ee26-4b00-ad3c-201c1b12b5d7\/480.mp4"}'

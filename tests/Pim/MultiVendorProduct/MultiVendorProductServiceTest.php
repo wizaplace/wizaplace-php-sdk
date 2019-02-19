@@ -13,12 +13,15 @@ use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
+use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 
 final class MultiVendorProductServiceTest extends ApiTestCase
 {
     private $createdMvpId;
+
+    private const MVP_ID = 'a6e53f40-f4c5-3d56-af1d-cc83fd695feb';
 
     public function testGetMultiVendorProductById()
     {
@@ -225,6 +228,50 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         $this->assertInstanceOf(MultiVendorProduct::class, $multiVendorProduct);
         $this->assertEquals($uuid, $multiVendorProduct->getId());
+    }
+
+    public function testAddVideoToMultiVendorProductWithHostedFile()
+    {
+        $service = $this->buildMultiVendorProductService();
+        $file = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
+        $multiVendorProductVideo = $service->addHostedVideoToMultiVendorProduct(static::MVP_ID, $file);
+
+        $this->assertInstanceOf(MultiVendorProductVideo::class, $multiVendorProductVideo);
+        $this->assertRegExp(
+            '/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/',
+            $multiVendorProductVideo->getId()
+        );
+        $this->assertNotEmpty($multiVendorProductVideo->getThumb());
+        $this->assertNotEmpty($multiVendorProductVideo->getPath());
+    }
+
+    public function testAddVideoToMultiVendorProductWithUploadedFile()
+    {
+        $service = $this->buildMultiVendorProductService();
+        $video = $this->mockUploadedFile("video.avi");
+        $file = new MultiVendorProductFile('file', $video->getStream(), $video->getClientFilename());
+
+        $multiVendorProductVideo = $service->addUploadedVideoToMultiVendorProduct(static::MVP_ID, $file);
+
+        $this->assertInstanceOf(MultiVendorProductVideo::class, $multiVendorProductVideo);
+        $this->assertRegExp(
+            '/[0-9A-Fa-f]{8}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{4}-[0-9A-Fa-f]{12}/',
+            $multiVendorProductVideo->getId()
+        );
+        $this->assertNotEmpty($multiVendorProductVideo->getThumb());
+        $this->assertNotEmpty($multiVendorProductVideo->getPath());
+    }
+
+    public function testDeleteVideoToMultiVendorProduct()
+    {
+        $service = $this->buildMultiVendorProductService();
+        $file = 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4';
+        $service->addHostedVideoToMultiVendorProduct(static::MVP_ID, $file);
+
+        $service->deleteVideoToMultiVendorProduct(static::MVP_ID);
+        $mvp = $service->getMultiVendorProductById(static::MVP_ID);
+
+        $this->assertNull($mvp->getVideo()->getId());
     }
 
     private function buildMultiVendorProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): MultiVendorProductService
