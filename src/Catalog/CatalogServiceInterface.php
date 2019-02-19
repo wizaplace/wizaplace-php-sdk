@@ -52,6 +52,13 @@ interface CatalogServiceInterface
     public function getProductsBySupplierReference(string $supplierReference): array;
 
     /**
+     * @param ProductFilter $productFilter
+     *
+     * @return Product[]
+     */
+    public function getProductsByFilters(ProductFilter $productFilter): array;
+
+    /**
      * @return CategoryTree[]
      */
     public function getCategoryTree(): array;

@@ -117,6 +117,22 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param ProductFilter $productFilter
+     *
+     * @return Product[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getProductsByFilters(ProductFilter $productFilter): array
+    {
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => $productFilter->getFilters()]);
+
+        return array_map(function ($product) {
+            return new Product($product, $this->client->getBaseUri());
+        }, $response);
+    }
+
+    /**
      * @return CategoryTree[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
