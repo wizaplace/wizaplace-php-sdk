@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Wizaplace\SDK\Pim\Product\ProductStatus;
+
 class ProductOffer
 {
     /** @var int */
@@ -18,6 +20,8 @@ class ProductOffer
     private $price;
     /** @var array */
     private $divisions;
+    /** @var ProductStatus|null  */
+    private $status;
 
     public function __construct(array $data)
     {
@@ -25,6 +29,10 @@ class ProductOffer
         $this->companyId = (int) $data['companyId'];
         $this->price     = (float) $data['price'];
         $this->divisions = is_array($data['divisions']) ? array_filter($data['divisions']) : [];
+
+        if (isset($data['status']) && in_array($data['status'], ProductStatus::toArray())) {
+            $this->status = new ProductStatus($data['status']);
+        }
     }
 
     public function getProductId(): int
@@ -45,5 +53,10 @@ class ProductOffer
     public function getDivisions(): array
     {
         return $this->divisions;
+    }
+
+    public function getStatus(): ?ProductStatus
+    {
+        return $this->status;
     }
 }

@@ -13,6 +13,7 @@
 - Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
 - Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
 - Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `Wizaplace\SDK\Catalog\ProductOffer::getStatus`
 
 ## 1.45.0
 
