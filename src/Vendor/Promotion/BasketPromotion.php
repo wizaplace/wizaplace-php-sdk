@@ -166,6 +166,10 @@ final class BasketPromotion implements \JsonSerializable
     private static function denormalizeTarget(array $targetData): BasketPromotionTarget
     {
         // We have to explode 'type' property because product_ids are serialized in it :(
+        if (array_key_exists('type', $targetData) === false || is_string($targetData['type']) === false) {
+            throw new \Exception('Target type is empty');
+        }
+
         $target = explode(';', $targetData['type']);
         $type = $target[0];
 
@@ -177,7 +181,7 @@ final class BasketPromotion implements \JsonSerializable
 
             case BasketPromotionTargetType::PRODUCTS()->equals($type):
                 // We have to format products_ids data for ProductTarget constructor
-                if (is_string($target[1]) && $target[1] !== "") {
+                if (isset($target[1]) && is_string($target[1]) && $target[1] !== "") {
                     $targetData['products_ids'] = array_map(
                         function (string $id):int {
                             return (int) $id;
@@ -186,8 +190,10 @@ final class BasketPromotion implements \JsonSerializable
                     );
                 }
 
-                if (is_array($targetData['products_ids'] === false || count($targetData['products_ids'])) === 0) {
-                    throw new \Exception('Empty target product ids');
+                if (array_key_exists('products_ids', $targetData) === false
+                    || is_array($targetData['products_ids']) === false
+                    || count($targetData['products_ids']) === 0) {
+                    throw new \Exception('Empty target products ids');
                 }
 
                 return new ProductsTarget(...$targetData['products_ids']);

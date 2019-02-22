@@ -164,7 +164,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
      *
      * @dataProvider basketPromotionTargetProvider
      */
-    public function testPromotionsTarget(string $targetClass, $args = null): void
+    public function testPromotionsTarget(string $targetClass, ?array $args = null): void
     {
         if (is_null($args) === true) {
             $target = new $targetClass();
@@ -189,6 +189,33 @@ final class BasketPromotionServiceTest extends ApiTestCase
             [BasketTarget::class],
             [ProductsTarget::class, [1, 4, 7]],
             [ShippingTarget::class],
+        ];
+    }
+
+    /**
+     * @dataProvider badTargetProvider
+     */
+    public function testBadTargetResponseFormat($badTarget)
+    {
+        // API response
+        $response = json_decode('{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}', true);
+        // Set bad target format
+        $response['target']['type'] = $badTarget;
+
+        $this->expectException(\Exception::class);
+        new BasketPromotion($response);
+    }
+
+
+    public function badTargetProvider(): array
+    {
+        return [
+            [null],
+            [''],
+            [';'],
+            ['product_in_basket'],
+            ['product_in_basket;'],
+            ['bad_target_type'],
         ];
     }
 
@@ -219,6 +246,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
             )
             ->setTarget($target ?? new ProductsTarget(1, 4, 7));
     }
+
     private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService
     {
         $apiClient = $this->buildApiClient();
