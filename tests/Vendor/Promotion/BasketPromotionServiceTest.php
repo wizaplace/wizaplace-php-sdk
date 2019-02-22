@@ -24,7 +24,10 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\OrBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\SaveBasketPromotionCommand;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ShippingTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 
 final class BasketPromotionServiceTest extends ApiTestCase
 {
@@ -156,6 +159,66 @@ final class BasketPromotionServiceTest extends ApiTestCase
         $service->getPromotion($savedPromotion->getPromotionId());
     }
 
+    /**
+     * Test if BasketPromotionTarget is well setted
+     *
+     * @dataProvider basketPromotionTargetProvider
+     */
+    public function testPromotionsTarget(string $targetClass, $args = null): void
+    {
+        if (is_null($args) === true) {
+            $target = new $targetClass();
+        } else {
+            $target = new $targetClass(...$args);
+        }
+
+        $service = $this->buildBasketPromotionService();
+
+        // BasketPromotion is pushed in API then $savedPromotion is set with result of get query
+        $savedPromotion = $service->savePromotion(
+            $this->getASaveBasketPromotionCommand($target)
+        );
+
+        $this->assertInstanceOf(BasketPromotion::class, $savedPromotion);
+        $this->assertInstanceOf($targetClass, $savedPromotion->getTarget());
+    }
+
+    public function basketPromotionTargetProvider() : array
+    {
+        return [
+            [BasketTarget::class],
+            [ProductsTarget::class, [1, 4, 7]],
+            [ShippingTarget::class],
+        ];
+    }
+
+    private function getASaveBasketPromotionCommand(?BasketPromotionTarget $target = null)
+    {
+        $from = new \DateTimeImmutable('1992-09-07T00:00:00+0000');
+        $to = new \DateTime('@1546300800');
+
+        return SaveBasketPromotionCommand::createNew()
+            ->setName('test promotion')
+            ->setActive(true)
+            ->setDiscounts([
+                new PercentageDiscount(2),
+                new FixedDiscount(3.5),
+            ])
+            ->setPeriod(new PromotionPeriod($from, $to))
+            ->setRule(
+                new AndBasketRule(
+                    new BasketPriceSuperiorToRule(3.13),
+                    new BasketPriceInferiorToRule(3.15),
+                    new OrBasketRule(
+                        new BasketHasProductInListRule(1, 2, 3),
+                        new BasketHasProductInListRule(4, 5, 7)
+                    ),
+                    new MaxUsageCountRule(100),
+                    new MaxUsageCountPerUserRule(1)
+                )
+            )
+            ->setTarget($target ?? new ProductsTarget(1, 4, 7));
+    }
     private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService
     {
         $apiClient = $this->buildApiClient();

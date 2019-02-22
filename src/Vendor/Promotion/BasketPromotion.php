@@ -178,14 +178,15 @@ final class BasketPromotion implements \JsonSerializable
             case BasketPromotionTargetType::PRODUCTS()->equals($type):
                 // We have to format products_ids data for ProductTarget constructor
                 if (is_string($target[1]) && $target[1] !== "") {
-                    $targetData['products_ids'] = explode(',', $target[1]);
                     $targetData['products_ids'] = array_map(
                         function (string $id):int {
                             return (int) $id;
                         },
-                        $targetData['products_ids']
+                        explode(',', $target[1])
                     );
-                } else {
+                }
+
+                if (is_array($targetData['products_ids'] === false || count($targetData['products_ids'])) === 0) {
                     throw new \Exception('Empty target product ids');
                 }
 

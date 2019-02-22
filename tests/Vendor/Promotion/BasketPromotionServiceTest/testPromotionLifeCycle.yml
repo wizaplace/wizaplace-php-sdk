@@ -22,10 +22,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:38 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:16 GMT'
             Content-Language: fr
-            X-Debug-Token: 34caec
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/34caec'
+            X-Debug-Token: '3e5173'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e5173'
         body: '{"id":6,"apiKey":"\/RkYnrxbKkRLXj1333y1oj7PZZ8bgfANOuerWeKo"}'
 -
     request:
@@ -50,10 +50,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:38 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:17 GMT'
             Content-Language: fr
-            X-Debug-Token: 794d73
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/794d73'
+            X-Debug-Token: 122cb1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/122cb1'
         body: '{"promotions":[]}'
 -
     request:
@@ -81,15 +81,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:39 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:17 GMT'
             Content-Language: fr
-            X-Debug-Token: 1b6932
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1b6932'
-        body: '{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
+            X-Debug-Token: 21c88b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/21c88b'
+        body: '{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/basket/cbe6b151-3c5f-4ba7-9d5f-d58c814548ff'
+        url: 'http://wizaplace.loc/api/v1/promotions/basket/94e4819b-27fa-49b5-af62-fcf937935e5d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -109,15 +109,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:39 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:17 GMT'
             Content-Language: fr
-            X-Debug-Token: 45a6fb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/45a6fb'
-        body: '{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
+            X-Debug-Token: '3392e4'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3392e4'
+        body: '{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/promotions/basket/cbe6b151-3c5f-4ba7-9d5f-d58c814548ff'
+        url: 'http://wizaplace.loc/api/v1/promotions/basket/94e4819b-27fa-49b5-af62-fcf937935e5d'
         headers:
             Host: wizaplace.loc
             Expect: null
@@ -127,7 +127,7 @@
             Authorization: 'token /RkYnrxbKkRLXj1333y1oj7PZZ8bgfANOuerWeKo'
             VCR-index: '4'
             Accept: null
-        body: '{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","name":"test promotion updated","active":false}'
+        body: '{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","name":"test promotion updated","active":false}'
     response:
         status:
             http_version: '1.1'
@@ -140,15 +140,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:40 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:18 GMT'
             Content-Language: fr
-            X-Debug-Token: 3b6498
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3b6498'
-        body: '{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
+            X-Debug-Token: 89816d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/89816d'
+        body: '{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/basket/cbe6b151-3c5f-4ba7-9d5f-d58c814548ff'
+        url: 'http://wizaplace.loc/api/v1/promotions/basket/94e4819b-27fa-49b5-af62-fcf937935e5d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -168,11 +168,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:40 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:18 GMT'
             Content-Language: fr
-            X-Debug-Token: c7f9cb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c7f9cb'
-        body: '{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
+            X-Debug-Token: 84d866
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/84d866'
+        body: '{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}'
 -
     request:
         method: GET
@@ -196,15 +196,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:41 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:19 GMT'
             Content-Language: fr
-            X-Debug-Token: 695a9c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/695a9c'
-        body: '{"promotions":[{"promotion_id":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}]}'
+            X-Debug-Token: db0e58
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/db0e58'
+        body: '{"promotions":[{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion updated","active":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}]}'
 -
     request:
         method: DELETE
-        url: 'http://wizaplace.loc/api/v1/promotions/basket/cbe6b151-3c5f-4ba7-9d5f-d58c814548ff'
+        url: 'http://wizaplace.loc/api/v1/promotions/basket/94e4819b-27fa-49b5-af62-fcf937935e5d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -223,10 +223,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:41 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:20 GMT'
             Content-Language: fr
-            X-Debug-Token: 0e75b3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0e75b3'
+            X-Debug-Token: 0bd7b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0bd7b6'
 -
     request:
         method: GET
@@ -250,15 +250,15 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:42 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:20 GMT'
             Content-Language: fr
-            X-Debug-Token: bdae45
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bdae45'
+            X-Debug-Token: 13e26d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/13e26d'
         body: '{"promotions":[]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/promotions/basket/cbe6b151-3c5f-4ba7-9d5f-d58c814548ff'
+        url: 'http://wizaplace.loc/api/v1/promotions/basket/94e4819b-27fa-49b5-af62-fcf937935e5d'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -278,8 +278,8 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.15
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 21 Feb 2019 16:41:43 GMT'
+            Date: 'Fri, 22 Feb 2019 09:16:21 GMT'
             Content-Language: fr
-            X-Debug-Token: 7fdcdd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7fdcdd'
-        body: '{"error":{"code":15,"message":"promotion not found","context":{"promotionId":"cbe6b151-3c5f-4ba7-9d5f-d58c814548ff"}}}'
+            X-Debug-Token: bc0ebf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bc0ebf'
+        body: '{"error":{"code":15,"message":"promotion not found","context":{"promotionId":"94e4819b-27fa-49b5-af62-fcf937935e5d"}}}'
