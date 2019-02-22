@@ -5,11 +5,12 @@
  */
 declare(strict_types = 1);
 
-namespace Wizaplace\SDK\Tests;
+namespace Wizaplace\SDK\Tests\AuthLog;
 
 use Wizaplace\SDK\AuthLog\AuthLogService;
+use Wizaplace\SDK\Tests\ApiTestCase;
 
-final class AuthLogServiceTest extends ApiTestCase
+class AuthLogServiceTest extends ApiTestCase
 {
     public function testGet(): void
     {
