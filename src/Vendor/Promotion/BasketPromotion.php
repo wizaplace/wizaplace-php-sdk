@@ -26,6 +26,10 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\OrBasketRule;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ShippingTarget;
 
 final class BasketPromotion implements \JsonSerializable
 {
@@ -53,6 +57,9 @@ final class BasketPromotion implements \JsonSerializable
     /** @var null|string */
     private $coupon;
 
+    /** @var BasketPromotionTarget */
+    private $target;
+
     /**
      * @internal
      */
@@ -66,6 +73,7 @@ final class BasketPromotion implements \JsonSerializable
         $this->discounts = array_map([self::class, 'denormalizeDiscount'], $data['discounts']);
         $this->period = self::denormalizePeriod($data['period']);
         $this->coupon = isset($data['coupon']) ? to_string($data['coupon']) : null;
+        $this->target = self::denormalizeTarget($data['target']);
     }
 
     public function getPromotionId(): string
@@ -112,6 +120,14 @@ final class BasketPromotion implements \JsonSerializable
     }
 
     /**
+     * @return BasketPromotionTarget|null
+     */
+    public function getTarget(): ?BasketPromotionTarget
+    {
+        return $this->target;
+    }
+
+    /**
      * @inheritdoc
      */
     public function jsonSerialize(): array
@@ -145,6 +161,42 @@ final class BasketPromotion implements \JsonSerializable
             \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $periodData['from']),
             \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $periodData['to'])
         );
+    }
+
+    private static function denormalizeTarget(array $targetData): BasketPromotionTarget
+    {
+        // We have to explode 'type' property because product_ids are serialized in it :(
+        $target = explode(';', $targetData['type']);
+        $type = $target[0];
+
+        $type = new BasketPromotionTargetType($type);
+
+        switch (true) {
+            case BasketPromotionTargetType::BASKET()->equals($type):
+                return new BasketTarget();
+
+            case BasketPromotionTargetType::PRODUCTS()->equals($type):
+                // We have to format products_ids data for ProductTarget constructor
+                if (is_string($target[1]) && $target[1] !== "") {
+                    $targetData['products_ids'] = explode(',', $target[1]);
+                    $targetData['products_ids'] = array_map(
+                        function (string $id):int {
+                            return (int) $id;
+                        },
+                        $targetData['products_ids']
+                    );
+                } else {
+                    throw new \Exception('Empty target product ids');
+                }
+
+                return new ProductsTarget(...$targetData['products_ids']);
+
+            case BasketPromotionTargetType::SHIPPING()->equals($type):
+                return new ShippingTarget();
+
+            default:
+                throw new \Exception('Unexpected target type');
+        }
     }
 
     private static function denormalizeRule(array $ruleData): BasketRule

@@ -58,7 +58,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
                         new MaxUsageCountPerUserRule(1)
                     )
                 )
-            ->setTarget(new ProductsTarget(1, 4, 7))
+                ->setTarget(new ProductsTarget(1, 4, 7))
         );
 
         // We check that the promotion and company IDs were set.
