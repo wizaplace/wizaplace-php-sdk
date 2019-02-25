@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Tests\Company;
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Company\Company;
+use Wizaplace\SDK\Company\CompanyC2CRegistration;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyRegistrationResult;
 use Wizaplace\SDK\Company\CompanyService;
@@ -18,7 +19,6 @@ use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
-use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\User\UserType;
 
 /**
@@ -377,6 +377,30 @@ final class CompanyServiceTest extends ApiTestCase
         $company = $result->getCompany();
         $this->assertSame("AD1200012030200359100100", $company->getIban());
         $this->assertSame("AGFBFRCC", $company->getBic());
+    }
+
+    public function testRegisterACompanyC2CWithIbanAndBicAndAddress()
+    {
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
+
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName("Super nom")
+            ->setIban("AD1200012030200359100100")
+            ->setBic("AGFBFRCC")
+            ->setAddress("address")
+            ->setZipcode("zipCode")
+            ->setCity("city")
+            ->setCountry("FR");
+
+        $result = $companyService->register($companyRegistration);
+
+        $company = $result->getCompany();
+        $this->assertSame("AD1200012030200359100100", $company->getIban());
+        $this->assertSame("AGFBFRCC", $company->getBic());
+        $this->assertSame("address", $company->getAddress());
+        $this->assertSame("zipCode", $company->getZipcode());
+        $this->assertSame("city", $company->getCity());
+        $this->assertSame("FR", $company->getCountry());
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password'): CompanyService

@@ -22,11 +22,13 @@ final class CompanyService extends AbstractService
     /**
      * @throws AuthenticationRequired
      */
-    public function register(CompanyRegistration $companyRegistration): CompanyRegistrationResult
+    public function register(AbstractCompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
         $this->client->mustBeAuthenticated();
 
-        $responseData = $this->client->post('companies', [
+        $endpoint = $companyRegistration->isC2C() ? 'companies/c2c' : 'companies';
+
+        $responseData = $this->client->post($endpoint, [
             RequestOptions::JSON => [
                 'name' => $companyRegistration->getName(),
                 'email' => $companyRegistration->getEmail(),
@@ -62,9 +64,13 @@ final class CompanyService extends AbstractService
      * Register a new C2C company (Customer-To-Customer, aka private individual).
      *
      * @throws AuthenticationRequired
+     *
+     * @deprecated
      */
     public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
     {
+        @trigger_error('The method "registerC2CCompany" is deprecated, use "register" with CompanyC2CRegistration::class instead.', E_USER_DEPRECATED);
+
         $this->client->mustBeAuthenticated();
 
         $responseData = $this->client->post('companies/c2c', [
