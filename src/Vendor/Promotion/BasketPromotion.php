@@ -171,9 +171,7 @@ final class BasketPromotion implements \JsonSerializable
         }
 
         $target = explode(';', $targetData['type']);
-        $type = $target[0];
-
-        $type = new BasketPromotionTargetType($type);
+        $type = new BasketPromotionTargetType($target[0]);
 
         switch (true) {
             case BasketPromotionTargetType::BASKET()->equals($type):

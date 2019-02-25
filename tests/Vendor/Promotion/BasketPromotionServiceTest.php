@@ -211,6 +211,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
     {
         return [
             [null],
+            [18],
             [''],
             [';'],
             ['product_in_basket'],
