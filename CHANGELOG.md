@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.46.1
+
+### Bugfixes
+
+- Fixed `Wizaplace\SDK\Vendor\Promotion\BasketPromotion` missing target property
+
 ## 1.46.0
 
 ### New features
