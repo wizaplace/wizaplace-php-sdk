@@ -1,6 +1,11 @@
 # Changelog
 
-# 1.47.0
+## 1.47.0
+
+## 1.46.1
+
+- Deprecated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` use `CompanyService::register` instead
+- Added `\Wizaplace\SDK\Company\CompanyC2CRegistration`
 
 ## 1.46.0
 
