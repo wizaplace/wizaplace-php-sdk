@@ -2,3 +2,4 @@
 /phpunit/
 /phpcs/
 .vagrant/
+.idea/

@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.50.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getAvailableSince`
+
+## 1.49.0
+
 ## 1.48.0
 
 ### New features
