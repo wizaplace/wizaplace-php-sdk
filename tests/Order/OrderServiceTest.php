@@ -64,6 +64,14 @@ final class OrderServiceTest extends ApiTestCase
         $this->buildOrderService()->getOrder(404);
     }
 
+    public function testGetShippingCostAndDiscount(): void
+    {
+        $order = $this->buildOrderService("lorene+admin@wizaplace.com", "azerty")->getOrder(854);
+
+        $this->assertSame(27.6, $order->getShippingCost());
+        $this->assertSame(9.33, $order->getDiscount());
+    }
+
     public function testCreateOrderReturn()
     {
         $orderService = $this->buildOrderService();
@@ -258,10 +266,10 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertEquals($date, $payment->getCommitmentDate()->format('Y-m-d'));
     }
 
-    private function buildOrderService(): OrderService
+    private function buildOrderService(string $user = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $apiClient->authenticate($user, $password);
 
         return new OrderService($apiClient);
     }

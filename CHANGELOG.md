@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.48.0
+
+- Added `\Wizaplace\SDK\Order\Order::getShippingCost`
+- Added `\Wizaplace\SDK\Order\Order::getDiscount`
+
 ## 1.47.0
 
 ## 1.46.1
