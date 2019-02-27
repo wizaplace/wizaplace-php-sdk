@@ -51,7 +51,7 @@ final class AuthLogService extends AbstractService
 
         return $this->client->get(
             sprintf(
-                '/api/v1/security/viewlogs/%d.json?%s',
+                'security/viewlogs/%d.json?%s',
                 $page,
                 $query
             )
