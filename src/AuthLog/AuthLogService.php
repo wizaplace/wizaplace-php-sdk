@@ -21,7 +21,7 @@ final class AuthLogService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         return $this->client->get(
-            sprintf('/api/v1/security/viewlog/%d', $id)
+            sprintf('security/viewlog/%d', $id)
         );
     }
 
