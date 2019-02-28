@@ -33,7 +33,21 @@ class AuthLogServiceTest extends ApiTestCase
             'destination' => $authLog['destination'],
         ];
 
-        $this->assertEquals($expected, $reality);
+        $this->assertEquals(
+        [
+            'id' => 1,
+            'login' => 'hello@world.fr',
+            'status' => 'SUCCESS',
+            'source' => 'SSO',
+            'destination' => 'FRONT',
+        ],
+        [
+            'id' => $authLog['id'],
+            'login' => $authLog['login'],
+            'status' => $authLog['status'],
+            'source' => $authLog['source'],
+            'destination' => $authLog['destination'],
+        ]);
     }
 
     public function testSearch(): void
