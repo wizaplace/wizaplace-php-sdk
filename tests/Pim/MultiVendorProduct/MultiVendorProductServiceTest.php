@@ -9,8 +9,10 @@ namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\Pagination;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
+use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFilter;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo;
@@ -77,6 +79,29 @@ final class MultiVendorProductServiceTest extends ApiTestCase
             2 => 5,
         ], $mvp->getAttributes());
         $this->assertSame([], $mvp->getImageIds());
+    }
+
+    public function testGetListMultiVendorProductByFilter()
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        $filter = (new MultiVendorProductFilter())
+            ->setIds([self::MVP_ID, 'df8f3982-f9f0-49ec-a489-2903b4e3dace'])
+            ->setCodes(['Fire_trotti', 'EAN'])
+            ->setSupplierReferences(['REF_TROTTI'])
+            ;
+
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 2);
+
+        $this->assertInstanceOf(Pagination::class, $mvpList->getPagination());
+        $this->assertSame(5, $mvpList->getPagination()->getNbResults());
+        $this->assertSame(3, $mvpList->getPagination()->getNbPages());
+        $this->assertSame(1, $mvpList->getPagination()->getPage());
+        $this->assertCount(2, $mvpList->getMultiVendorProducts());
+
+        foreach ($mvpList->getMultiVendorProducts() as $mvp) {
+            $this->assertInstanceOf(MultiVendorProduct::class, $mvp);
+        }
     }
 
     public function testCreateMultiVendorProductWithInvalidPartialProduct()

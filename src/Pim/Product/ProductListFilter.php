@@ -8,12 +8,13 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Pim\Product;
 
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\ArrayableInterface;
 
 /**
  * Class ProductListFilter
  * @package Wizaplace\SDK\Pim\Product
  */
-final class ProductListFilter
+final class ProductListFilter implements ArrayableInterface
 {
     /** @var null|string */
     private $productCode;

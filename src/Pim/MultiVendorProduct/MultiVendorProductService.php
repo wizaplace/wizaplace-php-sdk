@@ -47,6 +47,31 @@ final class MultiVendorProductService extends AbstractService
         return new MultiVendorProduct($response);
     }
 
+    public function getListMultiVendorProduct(
+        ?MultiVendorProductFilter $filter,
+        $page = 1,
+        $resultsPerPage = 50
+    ): MultiVendorProductList {
+        $this->client->mustBeAuthenticated();
+
+        $query = [
+            'page' => $page,
+            'resultsPerPage' => $resultsPerPage,
+        ];
+
+        if ($filter instanceof MultiVendorProductFilter) {
+            $query = array_merge($query, $filter->toArray());
+        }
+
+        $data = $this->client->get("pim/multi-vendor-products", [
+            RequestOptions::QUERY => $query,
+        ]);
+
+        $data['page'] = $page;
+
+        return new MultiVendorProductList($data);
+    }
+
     /**
      * @param MultiVendorProduct $mvp
      *
