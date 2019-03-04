@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-316-pim-filter-by-code@b168b6c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Feb 2019 10:38:49 GMT'
+            Content-Language: fr
+            X-Debug-Token: '065404'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/065404'
+        body: '{"id":2,"apiKey":"xO1YdROTUj72O72SJkD2\/QwTVupZ2uyJxgETAdxU"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products?page=1&resultsPerPage=2&id%5B0%5D=a6e53f40-f4c5-3d56-af1d-cc83fd695feb&id%5B1%5D=df8f3982-f9f0-49ec-a489-2903b4e3dace&code%5B0%5D=Fire_trotti&code%5B1%5D=EAN&supplierReference%5B0%5D=REF_TROTTI'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-316-pim-filter-by-code@b168b6c
+            Authorization: 'token xO1YdROTUj72O72SJkD2/QwTVupZ2uyJxgETAdxU'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Feb 2019 10:38:49 GMT'
+            Content-Language: fr
+            X-Debug-Token: 1f1020
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1f1020'
+        body: '{"total":5,"count":2,"_embedded":{"multiVendorProducts":[{"id":"a6e53f40-f4c5-3d56-af1d-cc83fd695feb","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"non-asperiores-hic-veritatis-eaque-error-consectetur","shortDescription":"Reiciendis aspernatur incidunt voluptatem et odio nobis. Est et ipsum sapiente quia dicta reprehenderit quaerat. Laboriosam magnam enim sunt atque. Praesentium iusto qui sapiente ut.","description":"In blanditiis quisquam qui impedit. Dolorem non perferendis maiores nihil est qui quibusdam. Doloribus sit velit impedit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Suscipit cum nam qui velit consequatur. Rerum natus cupiditate laborum officiis. Veniam pariatur ut ad. Ut maxime quas a cupiditate impedit in aut. Odio saepe et doloremque. Quidem non ipsam et corrupti.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"video":{"id":null,"thumb":null,"path":null}},{"id":"df8f3982-f9f0-49ec-a489-2903b4e3dace","name":"La trotti 1","code":"EAN_Fire","productTemplateType":"product","supplierReference":"REF_Fire","slug":"la-trottinette-connectee","shortDescription":"\u003Cp\u003ELa trotti modifi\u0026eacute;e\u003C\/p\u003E","description":"\u003Cp\u003ELa trotti modifi\u0026eacute;e\u003C\/p\u003E","seoTitle":"seo titre de la page trotti modifi\u00e9e","seoDescription":"Description meta","seoKeywords":"mots cl\u00e9 meta ","status":"A","category":{"id":4,"name":"\u00c9crans"},"categoryId":4,"imageIds":[],"attributes":{"11":[27,24]},"freeAttributes":{"free attributes":["are appearing this way"]},"video":{"id":null,"thumb":null,"path":null}}]}}'

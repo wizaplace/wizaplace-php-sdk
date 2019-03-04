@@ -7,6 +7,14 @@
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
 
+## 1.50.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFilter`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductList`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getListMultiVendorProduct`
+
 ## 1.48.0
 
 ### New features
