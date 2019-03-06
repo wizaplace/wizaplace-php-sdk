@@ -28,6 +28,15 @@ final class ProductListFilter implements ArrayableInterface
     /** @var  null|ProductStatus */
     private $status;
 
+    /** @var int[] */
+    private $ids = [];
+
+    /** @var string[]  */
+    private $supplierReferences = [];
+
+    /** @var string[]  */
+    private $productCodes = [];
+
     /**
      * @param string $productCode
      *
@@ -66,6 +75,39 @@ final class ProductListFilter implements ArrayableInterface
     }
 
     /**
+     * @param int[] $ids
+     * @return ProductListFilter
+     */
+    public function byIds(array $ids): self
+    {
+        $this->ids = $ids;
+
+        return $this;
+    }
+
+    /**
+     * @param string[] $supplierReferences
+     * @return ProductListFilter
+     */
+    public function bySupplierReferences(array $supplierReferences): self
+    {
+        $this->supplierReferences = $supplierReferences;
+
+        return $this;
+    }
+
+    /**
+     * @param string[] $productCodes
+     * @return ProductListFilter
+     */
+    public function byProductCodes(array $productCodes): self
+    {
+        $this->productCodes = $productCodes;
+
+        return $this;
+    }
+
+    /**
      * @internal
      */
     public function toArray(): array
@@ -80,6 +122,22 @@ final class ProductListFilter implements ArrayableInterface
         if (!empty($this->categoryIds)) {
             $filters['cid'] = $this->categoryIds;
             $filters['subcats'] = $this->includeSubCategories ? 'Y' : 'N';
+        }
+
+        if (count($this->ids) > 0) {
+            $filters['pid'] = $this->ids;
+        }
+
+        if (count($this->productCodes) > 0) {
+            $filters['pcode'] = $this->productCodes;
+
+            if (isset($this->productCode)) {
+                $filters['pcode'][] = $this->productCode;
+            }
+        }
+
+        if (count($this->supplierReferences) > 0) {
+            $filters['supplier_ref'] = $this->supplierReferences;
         }
 
         return $filters;

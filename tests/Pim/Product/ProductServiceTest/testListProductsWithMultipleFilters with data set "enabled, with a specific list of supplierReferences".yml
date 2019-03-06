@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-581-api-products-add-filters@b168b6c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Mar 2019 10:56:07 GMT'
+            Content-Language: fr
+            X-Debug-Token: 6d2082
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d2082'
+        body: '{"id":2,"apiKey":"E7AKXFiAbvBHL9aAzdiZ5lf+HGAG\/dubaZI1BOal"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&supplier_ref%5B0%5D=INFO-001&supplier_ref%5B1%5D=INFO-002'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-581-api-products-add-filters@b168b6c
+            Authorization: 'token E7AKXFiAbvBHL9aAzdiZ5lf+HGAG/dubaZI1BOal'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 06 Mar 2019 10:56:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 5c3aee
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5c3aee'
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1551795697,"updated_timestamp":1551795698,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":11,"price":67.9}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"attachments":[]},{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1551795698,"updated_timestamp":1551795700,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","category_ids":[3],"main_category":3,"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"attachments":[]}],"params":{"pname":"","pshort":"","pfull":"","page":"1","match":"","sort_by":"null","items_per_page":"100","supplier_ref":["INFO-001","INFO-002"],"sort_order":"asc","total_items":"2"}}'
