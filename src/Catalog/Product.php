@@ -100,6 +100,9 @@ final class Product
     /** @var \DateTimeImmutable|null */
     private $updatedAt;
 
+    /** @var \DateTimeImmutable|null */
+    private $availableSince;
+
     /**
      * @var Image[]
      */
@@ -162,6 +165,7 @@ final class Product
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
         $this->createdAt = isset($data['createdAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']) : null;
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
+        $this->availableSince = isset($data['availableSince']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['availableSince']) : null;
         $this->infiniteStock = $data['infiniteStock'];
 
         if (!isset($data['images'])) {
@@ -462,6 +466,11 @@ final class Product
     public function getUpdatedAt(): ?\DateTimeInterface
     {
         return $this->updatedAt;
+    }
+
+    public function getAvailableSince(): ?\DateTimeInterface
+    {
+        return $this->availableSince;
     }
 
     /**
