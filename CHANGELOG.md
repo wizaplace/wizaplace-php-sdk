@@ -10,6 +10,9 @@
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::deleteVideoToMultiVendorProduct`
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getVideo`
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byIds`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:bySupplierReferences`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byProductCodes`
 
 ## 1.47.0
 

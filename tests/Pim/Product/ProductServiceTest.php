@@ -318,6 +318,9 @@ final class ProductServiceTest extends ApiTestCase
         bool $includeSubCategories,
         ?array $expectedCategoryIds,
         ?string $productCode = null,
+        ?array $ids = null,
+        ?array $productCodes = null,
+        ?array $supplierReferences = null,
         int $minimumExpectedCount = 1
     ) {
         $filter = new ProductListFilter();
@@ -329,6 +332,15 @@ final class ProductServiceTest extends ApiTestCase
         }
         if ($productCode !== null) {
             $filter->byProductCode($productCode);
+        }
+        if (is_array($ids)) {
+            $filter->byIds($ids);
+        }
+        if (is_array($productCodes)) {
+            $filter->byProductCodes($productCodes);
+        }
+        if (is_array($supplierReferences)) {
+            $filter->bySupplierReferences($supplierReferences);
         }
 
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -343,6 +355,15 @@ final class ProductServiceTest extends ApiTestCase
             }
             if ($productCode !== null) {
                 $this->assertSame($productCode, $product->getCode());
+            }
+            if ($ids !== null) {
+                $this->assertContains($product->getId(), $ids);
+            }
+            if ($productCodes !== null) {
+                $this->assertContains($product->getCode(), $productCodes);
+            }
+            if ($supplierReferences !== null) {
+                $this->assertContains($product->getSupplierReference(), $supplierReferences);
             }
         }
 
@@ -363,6 +384,9 @@ final class ProductServiceTest extends ApiTestCase
                     4 => true,
                 ],
                 null,
+                null,
+                null,
+                null,
                 2,
             ],
             'enabled, in a specific category or its subcategories, with a specific product code' => [
@@ -373,6 +397,9 @@ final class ProductServiceTest extends ApiTestCase
                     4 => true,
                 ],
                 '0000001',
+                null,
+                null,
+                null,
                 1,
             ],
             'disabled, in a specific category or its subcategories' => [
@@ -380,6 +407,9 @@ final class ProductServiceTest extends ApiTestCase
                 [3],
                 true,
                 [],
+                null,
+                null,
+                null,
                 null,
                 0,
             ],
@@ -389,6 +419,9 @@ final class ProductServiceTest extends ApiTestCase
                 false,
                 null,
                 '20230495445',
+                null,
+                null,
+                null,
                 1,
             ],
             'disabled, with a specific product code which is enabled' => [
@@ -397,7 +430,43 @@ final class ProductServiceTest extends ApiTestCase
                 false,
                 [],
                 '20230495445',
+                null,
+                null,
+                null,
                 0,
+            ],
+            'enabled, with a specific list of ids' => [
+                null,
+                null,
+                false,
+                null,
+                null,
+                [14, 15],
+                null,
+                null,
+                2,
+            ],
+            'enabled, with a specific list of productsCode' => [
+                null,
+                null,
+                false,
+                null,
+                null,
+                null,
+                ['0000001', '20230495445'],
+                null,
+                2,
+            ],
+            'enabled, with a specific list of supplierReferences' => [
+                null,
+                null,
+                false,
+                null,
+                null,
+                null,
+                null,
+                ['INFO-001', 'INFO-002'],
+                2,
             ],
         ];
     }
