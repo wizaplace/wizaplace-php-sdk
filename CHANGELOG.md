@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.51.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
+
 ## 1.50.0
 
 ### New features
