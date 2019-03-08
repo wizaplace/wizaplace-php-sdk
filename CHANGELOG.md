@@ -11,9 +11,15 @@
 
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\Product::getAvailableSince`
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFilter`
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductList`
 - Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getListMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byIds`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:bySupplierReferences`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byProductCodes`
+
+## 1.49.0
 
 ## 1.48.0
 

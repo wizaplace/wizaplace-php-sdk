@@ -120,13 +120,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
-        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
         $this->assertEquals(5, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+        $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
+        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
 
         $this->assertEmpty($product->getImages());
 
@@ -202,7 +204,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertNull($product->getAverageRating());
+        $this->assertEquals(3, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -214,13 +216,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
-        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
-        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
+        $this->assertEquals(5, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
+        $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
 
         $this->assertEmpty($product->getImages());
     }
@@ -259,7 +263,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertNull($product->getAverageRating());
+        $this->assertEquals(3, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -271,13 +275,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
-        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
-        $this->assertNull($companies[0]->getAverageRating());
+        $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
+        $this->assertEquals(5, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
+        $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
+        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
 
         $this->assertEmpty($product->getImages());
     }
