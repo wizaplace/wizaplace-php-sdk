@@ -1,5 +1,9 @@
 # Changelog
 
+## Next release 
+
+- Added `lastStatusChange` property to `Wizaplace\SDK\Vendor\Order` and `Wizaplace\SDK\Vendor\OrderSummary`
+
 ## 1.52.0
 
 - Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
