@@ -40,6 +40,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
@@ -109,7 +110,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3, $product->getAverageRating());
+        $this->assertEquals(0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -121,8 +122,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
-        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
-        $this->assertEquals(5, $companies[0]->getAverageRating());
+        $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
+        $this->assertEquals(null, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -136,6 +137,7 @@ final class CatalogServiceTest extends ApiTestCase
             $this->assertSame(3, $offer->getCompanyId());
             $this->assertSame(67.9, $offer->getPrice());
             $this->assertSame([], $offer->getDivisions());
+            $this->assertEquals(ProductStatus::ENABLED(), $offer->getStatus());
         }
     }
 

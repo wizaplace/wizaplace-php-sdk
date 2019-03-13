@@ -9,11 +9,23 @@
 
 ## 1.48.0
 
+- Added `\Wizaplace\SDK\Order\Order::getShippingCost`
+- Added `\Wizaplace\SDK\Order\Order::getDiscount`
+
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrderService::getPayment`
 
 ## 1.47.0
+
+## 1.46.1
+
+- Deprecated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` use `CompanyService::register` instead
+- Added `\Wizaplace\SDK\Company\CompanyC2CRegistration`
+
+### Bugfixes
+
+- Fixed `Wizaplace\SDK\Vendor\Promotion\BasketPromotion` missing target property
 
 ## 1.46.0
 
@@ -22,10 +34,11 @@
 - Added `\Wizaplace\SDK\User\User::getPhone`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
-- Added `\Wizaplace\SDK\Division\Division::getMaxLevel`
-- Added `\Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
-- Added `\Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
-- Added parameter `files` to `\Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
+- Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
+- Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `Wizaplace\SDK\Catalog\ProductOffer::getStatus`
 
 ## 1.45.0
 
