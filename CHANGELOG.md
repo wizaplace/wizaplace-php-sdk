@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.51.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getMaxPriceAdjustment`
+- Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setMaxPriceAdjustment`
+
 ## 1.50.0
 
 ### New features
