@@ -12,6 +12,10 @@
 - Deprecated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` use `CompanyService::register` instead
 - Added `\Wizaplace\SDK\Company\CompanyC2CRegistration`
 
+### Bugfixes
+
+- Fixed `Wizaplace\SDK\Vendor\Promotion\BasketPromotion` missing target property
+
 ## 1.46.0
 
 ### New features
