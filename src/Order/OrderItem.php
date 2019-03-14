@@ -33,6 +33,8 @@ final class OrderItem
     private $customerComment;
     /** @var float */
     private $greenTax;
+    /** @var null|string */
+    private $supplierRef;
 
     /**
      * @internal
@@ -52,6 +54,7 @@ final class OrderItem
         }, $data['options'] ?? []);
         $this->customerComment = $data['customerComment'];
         $this->greenTax = $data['greenTax'];
+        $this->supplierRef = $data['supplier_ref'];
     }
 
     /**
@@ -124,5 +127,10 @@ final class OrderItem
     public function getGreenTax(): float
     {
         return $this->greenTax;
+    }
+
+    public function getSupplierRef(): ?string
+    {
+        return $this->supplierRef;
     }
 }

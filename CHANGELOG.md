@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.51.0
+
+- Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+
 ## 1.50.0
 
 ### New features
