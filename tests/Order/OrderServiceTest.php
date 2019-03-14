@@ -15,9 +15,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
-use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
-use Wizaplace\SDK\Order\OrderItem;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -56,6 +54,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(54.2, $firstItem->getPrice());
         $this->assertSame(2, $firstItem->getAmount());
         $this->assertCount(0, $firstItem->getDeclinationOptions());
+        $this->assertSame("CORSAIR-CASQUE-GAMING", $firstItem->getSupplierRef());
     }
 
     public function testGetInexistingOrderYieldsAnError(): void
@@ -197,6 +196,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(1, $item->getAmount());
         $this->assertCount(0, $item->getDeclinationOptions());
         $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
+        $this->assertSame("INFO-001", $item->getSupplierRef());
     }
 
     public function testGetOrdersWhichReturnsCompanyName(): array

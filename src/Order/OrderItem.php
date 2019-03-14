@@ -54,7 +54,7 @@ final class OrderItem
         }, $data['options'] ?? []);
         $this->customerComment = $data['customerComment'];
         $this->greenTax = $data['greenTax'];
-        $this->supplierRef = $data['supplier_ref'];
+        $this->supplierRef = $data['supplierRef'];
     }
 
     /**

@@ -110,7 +110,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(0, $product->getAverageRating());
+        $this->assertEquals(3.0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -123,7 +123,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals(null, $companies[0]->getAverageRating());
+        $this->assertEquals(5.0, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
