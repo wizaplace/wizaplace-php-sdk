@@ -3,6 +3,7 @@
 ## 1.51.0
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 
 ## 1.50.0
 
