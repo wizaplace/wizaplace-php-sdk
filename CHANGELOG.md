@@ -2,7 +2,10 @@
 
 ## 1.51.0
 
+### New features
+
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
 
 ## 1.50.0
 
