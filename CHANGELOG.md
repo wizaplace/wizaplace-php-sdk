@@ -6,6 +6,7 @@
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
+- Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 
 ## 1.50.0
 
