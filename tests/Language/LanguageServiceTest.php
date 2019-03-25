@@ -7,7 +7,6 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Tests\Language;
 
-use Wizaplace\SDK\Cms\CmsService;
 use Wizaplace\SDK\Language\LanguageService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -25,7 +24,7 @@ final class LanguageServiceTest extends ApiTestCase
         $this->languageService = new LanguageService($this->buildAdminApiClient());
     }
 
-    public function testGetAllLanguages()
+    public function testGetAllLanguages(): void
     {
         $languages = $this->languageService->getAllLanguages();
 

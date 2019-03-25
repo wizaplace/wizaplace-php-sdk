@@ -24,7 +24,10 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\OrBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\SaveBasketPromotionCommand;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ShippingTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 
 final class BasketPromotionServiceTest extends ApiTestCase
 {
@@ -58,7 +61,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
                         new MaxUsageCountPerUserRule(1)
                     )
                 )
-            ->setTarget(new ProductsTarget(1, 4, 7))
+                ->setTarget(new ProductsTarget(1, 4, 7))
         );
 
         // We check that the promotion and company IDs were set.
@@ -154,6 +157,95 @@ final class BasketPromotionServiceTest extends ApiTestCase
 
         $this->expectException(PromotionNotFound::class);
         $service->getPromotion($savedPromotion->getPromotionId());
+    }
+
+    /**
+     * Test if BasketPromotionTarget is well setted
+     *
+     * @dataProvider basketPromotionTargetProvider
+     */
+    public function testPromotionsTarget(string $targetClass, ?array $args = null): void
+    {
+        if (is_null($args) === true) {
+            $target = new $targetClass();
+        } else {
+            $target = new $targetClass(...$args);
+        }
+
+        $service = $this->buildBasketPromotionService();
+
+        // BasketPromotion is pushed in API then $savedPromotion is set with result of get query
+        $savedPromotion = $service->savePromotion(
+            $this->getASaveBasketPromotionCommand($target)
+        );
+
+        $this->assertInstanceOf(BasketPromotion::class, $savedPromotion);
+        $this->assertInstanceOf($targetClass, $savedPromotion->getTarget());
+    }
+
+    public function basketPromotionTargetProvider() : array
+    {
+        return [
+            [BasketTarget::class],
+            [ProductsTarget::class, [1, 4, 7]],
+            [ShippingTarget::class],
+        ];
+    }
+
+    /**
+     * @dataProvider badTargetProvider
+     */
+    public function testBadTargetResponseFormat($badTarget)
+    {
+        // API response
+        $response = json_decode('{"promotion_id":"94e4819b-27fa-49b5-af62-fcf937935e5d","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"product_in_basket;1,4,7"},"coupon":null}', true);
+        // Set bad target format
+        $response['target']['type'] = $badTarget;
+
+        $this->expectException(\Exception::class);
+        new BasketPromotion($response);
+    }
+
+
+    public function badTargetProvider(): array
+    {
+        return [
+            [null],
+            [18],
+            [''],
+            [';'],
+            ['product_in_basket'],
+            ['product_in_basket;'],
+            ['bad_target_type'],
+        ];
+    }
+
+    private function getASaveBasketPromotionCommand(?BasketPromotionTarget $target = null)
+    {
+        $from = new \DateTimeImmutable('1992-09-07T00:00:00+0000');
+        $to = new \DateTime('@1546300800');
+
+        return SaveBasketPromotionCommand::createNew()
+            ->setName('test promotion')
+            ->setActive(true)
+            ->setDiscounts([
+                new PercentageDiscount(2),
+                new FixedDiscount(3.5),
+            ])
+            ->setPeriod(new PromotionPeriod($from, $to))
+            ->setRule(
+                new AndBasketRule(
+                    new BasketPriceSuperiorToRule(3.13),
+                    new BasketPriceInferiorToRule(3.15),
+                    new OrBasketRule(
+                        new BasketHasProductInListRule(1, 2, 3),
+                        new BasketHasProductInListRule(4, 5, 7)
+                    ),
+                    new MaxUsageCountRule(100),
+                    new MaxUsageCountPerUserRule(1)
+                )
+            )
+            ->setTarget($target ?? new ProductsTarget(1, 4, 7));
     }
 
     private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService

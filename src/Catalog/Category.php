@@ -35,6 +35,8 @@ final class Category
     private $seoTitle;
     /** @var string */
     private $seoDescription;
+    /** @var string */
+    private $seoKeywords;
     /** @var CategorySummary[]  */
     private $categoryPath;
 
@@ -55,6 +57,7 @@ final class Category
         $this->productCount = $data['productCount'];
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->seoKeywords = $data['seoData']['keywords'] ?? '';
         $this->categoryPath = array_map(static function (array $path) : CategorySummary {
             return new CategorySummary($path);
         }, $data['categoryPath'] ?? []);
@@ -138,6 +141,14 @@ final class Category
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoKeywords(): string
+    {
+        return $this->seoKeywords;
     }
 
     /**

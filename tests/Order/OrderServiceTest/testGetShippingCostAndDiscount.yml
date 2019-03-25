@@ -1,0 +1,57 @@
+
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/users/authenticate'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      Authorization: 'Basic bG9yZW5lK2FkbWluQHdpemFwbGFjZS5jb206YXplcnR5'
+      User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-662-error-calc-tva-user-orders@5fc7d0d
+      VCR-index: '0'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx/1.14.2
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.14
+      Cache-Control: 'no-cache, private'
+      Date: 'Fri, 22 Feb 2019 12:46:39 GMT'
+      Content-Language: fr
+      X-Debug-Token: 4bf544
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bf544'
+    body: '{"id":148,"apiKey":"9VIHAgzz441krotfYcPnpP2UeObhELj8tjaRUXb+"}'
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/user/orders/854'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-662-error-calc-tva-user-orders@5fc7d0d
+      Authorization: 'token 9VIHAgzz441krotfYcPnpP2UeObhELj8tjaRUXb+'
+      VCR-index: '1'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx/1.14.2
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.14
+      Cache-Control: 'no-cache, private'
+      Date: 'Fri, 22 Feb 2019 12:46:39 GMT'
+      Content-Language: fr
+      X-Debug-Token: e8abe3
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e8abe3'
+    body: '{"id":854,"basketId":"6e66071a-1cca-4f83-b0f7-49dc50812702","companyId":8,"companyName":"ACM TECHNOLOGIES","total":80.48,"taxTotal":14.97,"subtotal":52.88,"timestamp":1549890766,"status":"PROCESSED","workflow":"workflow_delivery_pending_delivery_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mrs","firstname":"lorene","lastname":"avedikian","address":"24 rue de la gare","address2":"TST","city":"Lyon","zipcode":"69009","country":"FR","company":"lorene test","pickupPointId":null},"billingAddress":{"title":"mrs","firstname":"lorene","lastname":"avedikian","address":"12 RUE DE LA GARE","address2":"AZERTY","city":"LYON","zipcode":"69009","country":"FR","company":"Orga de Lorene","pickupPointId":null},"items":[{"itemId":"1123634249","declinationId":"4884_11_493","productName":"AGRINET en pot de 200 lingettes","productCode":"5aff00e0b9e8c-5","productImageId":"20008","price":12.96,"supplierRef":null,"amount":4,"options":[{"optionId":11,"optionName":"Contenance (litrage)","variantId":493,"variantName":"Pot de 200 lingettes"}],"customerComment":"weyrxtjuk","greenTax":0}],"payment":{"type":"none","processorName":"none","commitmentDate":null},"shippingCost":27.6,"discount":9.33}'
