@@ -15,9 +15,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
-use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
-use Wizaplace\SDK\Order\OrderItem;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
@@ -56,12 +54,21 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(54.2, $firstItem->getPrice());
         $this->assertSame(2, $firstItem->getAmount());
         $this->assertCount(0, $firstItem->getDeclinationOptions());
+        $this->assertSame("CORSAIR-CASQUE-GAMING", $firstItem->getSupplierRef());
     }
 
     public function testGetInexistingOrderYieldsAnError(): void
     {
         $this->expectException(OrderNotFound::class);
         $this->buildOrderService()->getOrder(404);
+    }
+
+    public function testGetShippingCostAndDiscount(): void
+    {
+        $order = $this->buildOrderService("lorene+admin@wizaplace.com", "azerty")->getOrder(854);
+
+        $this->assertSame(27.6, $order->getShippingCost());
+        $this->assertSame(9.33, $order->getDiscount());
     }
 
     public function testCreateOrderReturn()
@@ -189,6 +196,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame(1, $item->getAmount());
         $this->assertCount(0, $item->getDeclinationOptions());
         $this->assertSame('Please, gift wrap this product.', $item->getCustomerComment());
+        $this->assertSame("INFO-001", $item->getSupplierRef());
     }
 
     public function testGetOrdersWhichReturnsCompanyName(): array
@@ -270,7 +278,7 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertEmpty($payment->getProcessorInformations());
     }
 
-    private function buildOrderService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
+    private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);

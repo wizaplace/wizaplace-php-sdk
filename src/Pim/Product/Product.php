@@ -57,6 +57,9 @@ final class Product extends ProductSummary
         if (isset($data['main_pair']['detailed']['image_path'])) {
             $this->mainImage = self::unserializeImage($data['main_pair']);
         }
+        usort($data['image_pairs'], function ($a, $b) {
+            return $a['detailed']['position'] <=> $b['detailed']['position'];
+        });
         $this->additionalImages = array_map([self::class, 'unserializeImage'], $data['image_pairs'] ?? []);
         $this->declinations = array_map(static function (array $declinationData): ProductDeclination {
             return new ProductDeclination($declinationData);

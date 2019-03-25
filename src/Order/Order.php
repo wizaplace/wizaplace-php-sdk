@@ -41,6 +41,10 @@ final class Order
     private $customerComment;
     /** @var Payment */
     private $payment;
+    /** @var float */
+    private $shippingCost;
+    /** @var float */
+    private $discount;
 
     /**
      * @internal
@@ -67,6 +71,8 @@ final class Order
         }, $data['items']);
         $this->customerComment = $data['customerComment'];
         $this->payment = new Payment($data['payment']);
+        $this->shippingCost = $data['shippingCost'] ?? 0;
+        $this->discount = $data['discount'] ?? 0;
     }
 
     /**
@@ -179,5 +185,21 @@ final class Order
     public function getPayment(): Payment
     {
         return $this->payment;
+    }
+
+    /**
+     * @return float
+     */
+    public function getShippingCost(): float
+    {
+        return $this->shippingCost;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDiscount(): float
+    {
+        return $this->discount;
     }
 }

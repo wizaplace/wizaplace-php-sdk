@@ -1,9 +1,11 @@
 # Changelog
 
-## Next release
+## 1.51.0
 
 ### New features
 
+- Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
 
@@ -21,7 +23,17 @@
 
 ## 1.49.0
 
+## 1.48.1
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\CatalogService::getProductsByFilters`
+- Added `\Wizaplace\SDK\Catalog\ProductFilter`
+
 ## 1.48.0
+
+- Added `\Wizaplace\SDK\Order\Order::getShippingCost`
+- Added `\Wizaplace\SDK\Order\Order::getDiscount`
 
 ### New features
 
@@ -34,6 +46,15 @@
 
 ## 1.47.0
 
+## 1.46.1
+
+- Deprecated `\Wizaplace\SDK\Company\CompanyService::registerC2CCompany` use `CompanyService::register` instead
+- Added `\Wizaplace\SDK\Company\CompanyC2CRegistration`
+
+### Bugfixes
+
+- Fixed `Wizaplace\SDK\Vendor\Promotion\BasketPromotion` missing target property
+
 ## 1.46.0
 
 ### New features
@@ -41,10 +62,11 @@
 - Added `\Wizaplace\SDK\User\User::getPhone`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::addVideo`
 - Added `\Wizaplace\SDK\Pim\Product\ProductService::deleteVideo`
-- Added `\Wizaplace\SDK\Division\Division::getMaxLevel`
-- Added `\Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
-- Added `\Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
-- Added parameter `files` to `\Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `Wizaplace\SDK\Division\Division::getMaxLevel`
+- Added `Wizaplace\SDK\Company\CompanyService::updateCompanyImage`
+- Added `Wizaplace\SDK\Company\CompanyService::deleteCompanyImage`
+- Added parameter `files` to `Wizaplace\SDK\Company\CompanyService::registerC2Ccompany`
+- Added `Wizaplace\SDK\Catalog\ProductOffer::getStatus`
 
 ## 1.45.0
 

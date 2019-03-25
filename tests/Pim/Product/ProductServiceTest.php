@@ -552,9 +552,9 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
         $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[12]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[13]);
-        $this->assertNotEquals((string) $additionalImages[12], (string) $additionalImages[13]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
+        $this->assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
 
         $attachments = $product->getAttachments();
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
@@ -681,9 +681,9 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
         $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[12]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[13]);
-        $this->assertNotEquals((string) $additionalImages[12], (string) $additionalImages[13]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
+        $this->assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
 
         $attachments = $product->getAttachments();
         $this->assertContainsOnly(ProductAttachment::class, $attachments);
@@ -841,9 +841,9 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
         $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[15]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[16]);
-        $this->assertNotEquals((string) $additionalImages[15], (string) $additionalImages[16]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
+        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
+        $this->assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
 
         $attachments = $product->getAttachments();
         $this->assertContainsOnly(ProductAttachment::class, $attachments);

@@ -27,6 +27,7 @@ use Wizaplace\SDK\Catalog\Product;
 use Wizaplace\SDK\Catalog\ProductAttachment;
 use Wizaplace\SDK\Catalog\ProductAttribute;
 use Wizaplace\SDK\Catalog\ProductAttributeValue;
+use Wizaplace\SDK\Catalog\ProductFilter;
 use Wizaplace\SDK\Catalog\ProductLocation;
 use Wizaplace\SDK\Catalog\ProductReport;
 use Wizaplace\SDK\Catalog\ProductSummary;
@@ -39,6 +40,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
@@ -108,7 +110,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3, $product->getAverageRating());
+        $this->assertEquals(3.0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -121,7 +123,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals(5, $companies[0]->getAverageRating());
+        $this->assertEquals(5.0, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -137,6 +139,7 @@ final class CatalogServiceTest extends ApiTestCase
             $this->assertSame(3, $offer->getCompanyId());
             $this->assertSame(67.9, $offer->getPrice());
             $this->assertSame([], $offer->getDivisions());
+            $this->assertEquals(ProductStatus::ENABLED(), $offer->getStatus());
         }
     }
 
@@ -286,6 +289,48 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
 
         $this->assertEmpty($product->getImages());
+    }
+
+    public function testGetProductByFilters(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $filters = (new ProductFilter())
+            ->setIds([1, 2, 3])
+            ->setCodes(['6311386284347', '4991933817246'])
+            ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC']);
+
+        $products = $catalogService->getProductsByFilters($filters);
+
+        $this->assertCount(7, $products);
+
+        $expected = ['2', '3', '1', '9', '10', '22', '23'];
+
+        foreach ($products as $key => $product) {
+            $this->assertSame($expected[$key], $product->getId());
+        }
+    }
+
+    public function testGetProductByFiltersWithCompany()
+    {
+        $catalogService = $this->buildCatalogService();
+
+        // Filter with companyId
+        $filters = (new ProductFilter())
+            ->setIds([1, 2, 3])
+            ->setCodes(['6311386284347', '4991933817246'])
+            ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC'])
+            ->setCompanyId(1);
+
+        $products = $catalogService->getProductsByFilters($filters);
+
+        $this->assertCount(2, $products);
+
+        $expected = ['22', '23'];
+
+        foreach ($products as $key => $product) {
+            $this->assertSame($expected[$key], $product->getId());
+        }
     }
 
     public function testGetProductByIdInAnotherLanguage(): void
