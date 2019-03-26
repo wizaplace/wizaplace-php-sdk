@@ -9,7 +9,7 @@ namespace Wizaplace\SDK\Tests\Vendor\Order;
 
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Order\OrderService as BaseOrderService;
+use Wizaplace\SDK\Vendor\Order\AmountTaxesDetail;
 use Wizaplace\SDK\Vendor\Order\CreateLabelCommand;
 use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
@@ -276,6 +276,156 @@ class OrderServiceTest extends ApiTestCase
         );
 
         $this->assertInstanceOf(MondialRelayLabel::class, $result);
+    }
+
+    public function testGetOrderAmountsTaxesDetails(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $order = $orderService->getOrderById(9);
+
+        static::assertInstanceOf(AmountTaxesDetail::class, $order->getTotalsTaxesDetail());
+        static::assertInstanceOf(AmountTaxesDetail::class, $order->getShippingCostsTaxesDetail());
+        static::assertInstanceOf(AmountTaxesDetail::class, $order->getCommissionsTaxesDetail());
+        static::assertInstanceOf(AmountTaxesDetail::class, $order->getVendorShareTaxesDetail());
+
+        static::assertSame(53.0852, $order->getTotalsTaxesDetail()->getExcludingTaxes());
+        static::assertSame(1.1148, $order->getTotalsTaxesDetail()->getTaxes());
+        static::assertSame(54.2, $order->getTotalsTaxesDetail()->getIncludingTaxes());
+
+        static::assertSame(0.0, $order->getShippingCostsTaxesDetail()->getExcludingTaxes());
+        static::assertSame(0.0, $order->getShippingCostsTaxesDetail()->getTaxes());
+        static::assertSame(0.0, $order->getShippingCostsTaxesDetail()->getIncludingTaxes());
+
+        static::assertSame(0.56, $order->getCommissionsTaxesDetail()->getExcludingTaxes());
+        static::assertSame(0.112, $order->getCommissionsTaxesDetail()->getTaxes());
+        static::assertSame(0.672, $order->getCommissionsTaxesDetail()->getIncludingTaxes());
+
+        static::assertSame(52.5252, $order->getVendorShareTaxesDetail()->getExcludingTaxes());
+        static::assertSame(1.0028, $order->getVendorShareTaxesDetail()->getTaxes());
+        static::assertSame(53.528, $order->getVendorShareTaxesDetail()->getIncludingTaxes());
+    }
+
+    public function testGetOrdersAmountsTaxesDetails(): void
+    {
+        $orders = $this->buildVendorOrderService()->listOrders(OrderStatus::COMPLETED());
+        $expectedOrders = $this->expectedOrdersAmountsProvider();
+        static::assertContainsOnly(OrderSummary::class, $orders);
+        static::assertCount(4, $orders);
+
+        foreach ($orders as $order) {
+            static::assertTrue(array_key_exists($order->getOrderId(), $expectedOrders));
+
+            static::assertSame($expectedOrders[$order->getOrderId()]['totals']['excludingTaxes'], $order->getTotalsTaxesDetail()->getExcludingTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['totals']['taxes'], $order->getTotalsTaxesDetail()->getTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['totals']['includingTaxes'], $order->getTotalsTaxesDetail()->getIncludingTaxes());
+
+            static::assertSame($expectedOrders[$order->getOrderId()]['shippingCosts']['excludingTaxes'], $order->getShippingCostsTaxesDetail()->getExcludingTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['shippingCosts']['taxes'], $order->getShippingCostsTaxesDetail()->getTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['shippingCosts']['includingTaxes'], $order->getShippingCostsTaxesDetail()->getIncludingTaxes());
+
+            static::assertSame($expectedOrders[$order->getOrderId()]['commissions']['excludingTaxes'], $order->getCommissionsTaxesDetail()->getExcludingTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['commissions']['taxes'], $order->getCommissionsTaxesDetail()->getTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['commissions']['includingTaxes'], $order->getCommissionsTaxesDetail()->getIncludingTaxes());
+
+            static::assertSame($expectedOrders[$order->getOrderId()]['vendorShare']['excludingTaxes'], $order->getVendorShareTaxesDetail()->getExcludingTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['vendorShare']['taxes'], $order->getVendorShareTaxesDetail()->getTaxes());
+            static::assertSame($expectedOrders[$order->getOrderId()]['vendorShare']['includingTaxes'], $order->getVendorShareTaxesDetail()->getIncludingTaxes());
+        }
+    }
+
+    public function expectedOrdersAmountsProvider(): array
+    {
+        return [
+            4 => [
+                'totals' => [
+                    'excludingTaxes' => 66.5034,
+                    'taxes' => 1.3966,
+                    'includingTaxes' => 67.9,
+                ],
+                'shippingCosts' => [
+                    'excludingTaxes' => 0.0,
+                    'taxes' => 0.0,
+                    'includingTaxes' => 0.0,
+                ],
+                'commissions' => [
+                    'excludingTaxes' => 0.6742,
+                    'taxes' => 0.1348,
+                    'includingTaxes' => 0.809,
+                ],
+                'vendorShare' => [
+                    'excludingTaxes' => 65.8292,
+                    'taxes' => 1.2618,
+                    'includingTaxes' => 67.091,
+                ],
+            ],
+            7 => [
+                'totals' => [
+                    'excludingTaxes' => 66.5034,
+                    'taxes' => 1.3966,
+                    'includingTaxes' => 67.9,
+                ],
+                'shippingCosts' => [
+                    'excludingTaxes' => 0.0,
+                    'taxes' => 0.0,
+                    'includingTaxes' => 0.0,
+                ],
+                'commissions' => [
+                    'excludingTaxes' => 0.6742,
+                    'taxes' => 0.1348,
+                    'includingTaxes' => 0.809,
+                ],
+                'vendorShare' => [
+                    'excludingTaxes' => 65.8292,
+                    'taxes' => 1.2618,
+                    'includingTaxes' => 67.091,
+                ],
+            ],
+            8 => [
+                'totals' => [
+                    'excludingTaxes' => 144.3682,
+                    'taxes' => 3.0317,
+                    'includingTaxes' => 147.3999,
+                ],
+                'shippingCosts' => [
+                    'excludingTaxes' => 0.0,
+                    'taxes' => 0.0,
+                    'includingTaxes' => 0.0,
+                ],
+                'commissions' => [
+                    'excludingTaxes' => 1.3367,
+                    'taxes' => 0.2673,
+                    'includingTaxes' => 1.604,
+                ],
+                'vendorShare' => [
+                    'excludingTaxes' => 143.0315,
+                    'taxes' => 2.7644,
+                    'includingTaxes' => 145.7959,
+                ],
+            ],
+            9 => [
+                'totals' => [
+                    'excludingTaxes' => 53.0852,
+                    'taxes' => 1.1148,
+                    'includingTaxes' => 54.2,
+                ],
+                'shippingCosts' => [
+                    'excludingTaxes' => 0.0,
+                    'taxes' => 0.0,
+                    'includingTaxes' => 0.0,
+                ],
+                'commissions' => [
+                    'excludingTaxes' => 0.56,
+                    'taxes' => 0.112,
+                    'includingTaxes' => 0.672,
+                ],
+                'vendorShare' => [
+                    'excludingTaxes' => 52.5252,
+                    'taxes' => 1.0028,
+                    'includingTaxes' => 53.528,
+                ],
+            ],
+        ];
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
