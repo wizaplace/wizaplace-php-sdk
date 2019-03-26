@@ -4,6 +4,9 @@
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
 - Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
+- Added `Wizaplace\SDK\Order\OrderService::getAdjustments`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getAdjustments`
+- Added `Wizaplace\SDK\Order\OrderAdjustment`
 
 ## 1.50.0
 

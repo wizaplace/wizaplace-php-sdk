@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
 
+use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Order\OrderService as BaseOrderService;
@@ -276,6 +277,21 @@ class OrderServiceTest extends ApiTestCase
         );
 
         $this->assertInstanceOf(MondialRelayLabel::class, $result);
+    }
+
+    public function testGetOrderAdjustments(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+        $adjustments = $orderService->getAdjustments(1);
+        /** @var OrderAdjustment $adjustment */
+        $adjustment = current($adjustments);
+        static::assertInternalType('array', $adjustments);
+        static::assertCount(1, $adjustments);
+        static::assertSame(2085640488, $adjustment->getItemId());
+        static::assertSame(70.9, $adjustment->getOldPrice());
+        static::assertSame(67.9, $adjustment->getNewPrice());
+        static::assertSame(7, $adjustment->getCreatedBy());
+        static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

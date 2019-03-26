@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-728-get-order-adjustments@f991d7f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Mar 2019 10:25:18 GMT'
+            Content-Language: fr
+            X-Debug-Token: 15896b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/15896b'
+            X-Request-Id: 99c91de3e34fe07bcb67bae5659684a3
+        body: '{"id":2,"apiKey":"suTz1sRtOJahLJ11foSF2h7ixYDjnY4E8dWz6+jT"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/1/adjustments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-728-get-order-adjustments@f991d7f
+            Authorization: 'token suTz1sRtOJahLJ11foSF2h7ixYDjnY4E8dWz6+jT'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Mar 2019 10:25:19 GMT'
+            Content-Language: fr
+            X-Debug-Token: 3f8797
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3f8797'
+            X-Request-Id: 55560433b8e1666cbd144c5b3032dbe4
+        body: '[{"itemId":2085640488,"oldPrice":70.9,"newPrice":67.9,"createdBy":7,"createdAt":"2019-03-28T11:05:09+01:00"}]'

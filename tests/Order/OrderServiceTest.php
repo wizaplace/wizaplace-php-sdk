@@ -15,6 +15,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
+use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
@@ -276,6 +277,22 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame("stripe", $payment->getProcessorName());
         $this->assertNull($payment->getCommitmentDate());
         $this->assertEmpty($payment->getProcessorInformations());
+    }
+
+    public function testGetAdjustments(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $adjustments = $orderService->getAdjustments(1);
+        /** @var OrderAdjustment $adjustment */
+        $adjustment = current($adjustments);
+
+        static::assertInternalType('array', $adjustments);
+        static::assertCount(1, $adjustments);
+        static::assertSame(2085640488, $adjustment->getItemId());
+        static::assertSame(70.9, $adjustment->getOldPrice());
+        static::assertSame(67.9, $adjustment->getNewPrice());
+        static::assertSame(7, $adjustment->getCreatedBy());
+        static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
