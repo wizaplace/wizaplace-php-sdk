@@ -207,7 +207,7 @@ final class SaveBasketPromotionCommand
     public function toArray(): array
     {
         $serializer = new Serializer([
-            new DateTimeNormalizer(\DateTime::RFC3339),
+            new DateTimeNormalizer(),
             new CustomNormalizer(),
             new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
         ]);
