@@ -141,7 +141,7 @@ final class BasketPromotion implements \JsonSerializable
     public function jsonSerialize(): array
     {
         $serializer = new Serializer([
-            new DateTimeNormalizer(\DateTime::RFC3339),
+            new DateTimeNormalizer(),
             new CustomNormalizer(),
             new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
         ]);
