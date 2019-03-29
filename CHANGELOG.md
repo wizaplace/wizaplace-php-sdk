@@ -2,6 +2,10 @@
 
 ## 1.51.0
 
+### New features
+
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
 - Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 
