@@ -81,6 +81,9 @@ final class Order
     /** @var int */
     private $companyId;
 
+    /** @var AmountsTaxesDetails */
+    private $amountsTaxesDetails;
+
     /**
      * @internal
      *
@@ -118,6 +121,8 @@ final class Order
             return new OrderItem($itemData);
         }, $data['products']);
         $this->comment = $data['notes'] ?? '';
+        $this->billingAddress = OrderAddress::extractBillingAddressData($data);
+        $this->amountsTaxesDetails = static::denormalizeAmountsTaxesDetails($data);
     }
 
     /**
@@ -294,5 +299,54 @@ final class Order
     public function getComment(): string
     {
         return $this->comment;
+    }
+
+    public static function denormalizeAmountsTaxesDetails(array $data): AmountsTaxesDetails
+    {
+        $amountsTaxesDetails = new AmountsTaxesDetails();
+        foreach (AmountsTaxesDetails::getKeys() as $key) {
+            if (array_key_exists($key, $data)) {
+                if (array_key_exists('excluding_taxes', $data[$key]) === false
+                    || array_key_exists('taxes', $data[$key]) === false
+                    || array_key_exists('including_taxes', $data[$key])  === false
+                ) {
+                    throw new \Exception("Bad format for '$key' property");
+                }
+
+                $amountsTaxesDetails->add(new AmountTaxesDetail(
+                    $key,
+                    $data[$key]['excluding_taxes'],
+                    $data[$key]['taxes'],
+                    $data[$key]['including_taxes']
+                ));
+            }
+        }
+
+        return $amountsTaxesDetails;
+    }
+
+    public function getAmountsTaxesDetails(): AmountsTaxesDetails
+    {
+        return $this->amountsTaxesDetails;
+    }
+
+    public function getTotalsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::TOTALS);
+    }
+
+    public function getShippingCostsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::SHIPPING_COSTS);
+    }
+
+    public function getCommissionsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::COMMISSIONS);
+    }
+
+    public function getVendorShareTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::VENDOR_SHARE);
     }
 }
