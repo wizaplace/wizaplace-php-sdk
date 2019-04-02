@@ -309,7 +309,7 @@ class OrderServiceTest extends ApiTestCase
     public function testGetOrdersAmountsTaxesDetails(): void
     {
         $orders = $this->buildVendorOrderService()->listOrders(OrderStatus::COMPLETED());
-        $expectedOrders = $this->expectedOrdersAmountsProvider();
+        $expectedOrders = $this->expectedOrdersAmounts();
         static::assertContainsOnly(OrderSummary::class, $orders);
         static::assertCount(4, $orders);
 
@@ -334,7 +334,7 @@ class OrderServiceTest extends ApiTestCase
         }
     }
 
-    public function expectedOrdersAmountsProvider(): array
+    public function expectedOrdersAmounts(): array
     {
         return [
             4 => [
