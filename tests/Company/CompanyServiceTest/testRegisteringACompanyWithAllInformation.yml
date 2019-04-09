@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             VCR-index: '0'
             Accept: null
     response:
@@ -16,17 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:29 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:01 GMT'
             Content-Language: fr
-            X-Debug-Token: 620bfd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/620bfd'
-        body: '{"id":9,"apiKey":"OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY"}'
+            X-Debug-Token: c5198c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5198c'
+            X-Request-Id: 188dd3b9d577f6817c737688bdbd3534
+        body: '{"id":9,"apiKey":"i1KRFweR2+\/1YXFE2in5u9VY4xriZCx4\/AiHc\/Ra"}'
 -
     request:
         method: POST
@@ -36,29 +37,30 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME2 Test Inc","email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"}}'
+        body: '{"name":"ACME2 Test Inc","email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:05 GMT'
             Content-Language: fr
-            X-Debug-Token: '087412'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/087412'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22087412%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A47%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-        body: '{"id":7,"name":"ACME2 Test Inc","slug":"acme-inc","email":"acme2@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":{"driving_license_number":"654987321"}}'
+            X-Debug-Token: 9fe161
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9fe161'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229fe161%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: f97dab7eb87038eb12f86f7ebfcbf59d
+        body: '{"id":7,"name":"ACME2 Test Inc","slug":"acme-inc","email":"acme2@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
 -
     request:
         method: POST
@@ -67,28 +69,29 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=cad1dc3fa1985fa871fb862097e56f92f8f16c25'
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            Content-Type: 'multipart/form-data; boundary=2fc913b3fb42bb6fccdcff073a590cfd65f33fd6'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '2'
             Accept: null
-        body: "--cad1dc3fa1985fa871fb862097e56f92f8f16c25\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--cad1dc3fa1985fa871fb862097e56f92f8f16c25\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--cad1dc3fa1985fa871fb862097e56f92f8f16c25--\r\n"
+        body: "--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:09 GMT'
             Content-Language: fr
-            X-Debug-Token: abe7b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/abe7b8'
+            X-Debug-Token: b70368
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b70368'
+            X-Request-Id: 06872ddd8a4a7de06ba61c8df5bce628
         body: '{"rib":{"success":true},"idCard":{"success":true}}'
 -
     request:
@@ -97,8 +100,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '3'
             Accept: null
     response:
@@ -107,16 +110,17 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:12 GMT'
             Content-Language: fr
-            X-Debug-Token: '214217'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/214217'
+            X-Debug-Token: 9fc94a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9fc94a'
+            X-Request-Id: cf3e95dbad6b4b24deb17e1f124c3675
         body: '["idCard","rib"]'
 -
     request:
@@ -125,8 +129,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '4'
             Accept: null
     response:
@@ -135,19 +139,20 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/pdf
             Content-Length: '739'
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: public
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
-            Last-Modified: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:14 GMT'
+            Last-Modified: 'Mon, 08 Apr 2019 14:49:09 GMT'
             Content-Disposition: 'attachment; filename="w_ID_card_7_minimal.pdf"'
             Accept-Ranges: bytes
             Content-Language: fr
-            X-Debug-Token: 18a503
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/18a503'
+            X-Debug-Token: 468bc5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/468bc5'
+            X-Request-Id: d25d53f6fa01ff1d36bbb28fcb25a1b9
         body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
 -
     request:
@@ -156,8 +161,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '5'
             Accept: null
     response:
@@ -166,19 +171,20 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/pdf
             Content-Length: '739'
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: public
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
-            Last-Modified: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:16 GMT'
+            Last-Modified: 'Mon, 08 Apr 2019 14:49:09 GMT'
             Content-Disposition: 'attachment; filename="w_RIB_7_minimal.pdf"'
             Accept-Ranges: bytes
             Content-Language: fr
-            X-Debug-Token: 0f5825
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f5825'
+            X-Debug-Token: 71d968
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/71d968'
+            X-Request-Id: 14feeb7e7bf4246f955dd5a9bb29dfe3
         body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
 -
     request:
@@ -188,28 +194,29 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=2aa75a0730a27dd89ad48a0bc0f32110e5fa249c'
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            Content-Type: 'multipart/form-data; boundary=f97677b99f85ec572d3abd5117d38dfb618cf15a'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '6'
             Accept: null
-        body: "--2aa75a0730a27dd89ad48a0bc0f32110e5fa249c\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--2aa75a0730a27dd89ad48a0bc0f32110e5fa249c--\r\n"
+        body: "--f97677b99f85ec572d3abd5117d38dfb618cf15a\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--f97677b99f85ec572d3abd5117d38dfb618cf15a--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:18 GMT'
             Content-Language: fr
-            X-Debug-Token: 608b15
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/608b15'
+            X-Debug-Token: c08dd8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c08dd8'
+            X-Request-Id: 86e220e6b060625c98b6334c5f845b31
         body: '{"success":true}'
 -
     request:
@@ -218,8 +225,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '7'
             Accept: null
     response:
@@ -228,16 +235,17 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:20 GMT'
             Content-Language: fr
-            X-Debug-Token: d968c8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d968c8'
+            X-Debug-Token: da8dfb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/da8dfb'
+            X-Request-Id: 51e1c76eb0b1ce14e454a39b4e2e6030
         body: '["idCard","rib"]'
 -
     request:
@@ -246,8 +254,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '8'
             Accept: null
     response:
@@ -256,15 +264,16 @@
             code: '204'
             message: 'No Content'
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: 'text/html; charset=UTF-8'
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:23 GMT'
             Content-Language: fr
-            X-Debug-Token: c6122c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6122c'
+            X-Debug-Token: 4546ce
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4546ce'
+            X-Request-Id: b0e357325f2c63176183bcd8ba076474
 -
     request:
         method: GET
@@ -272,8 +281,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
             VCR-index: '9'
             Accept: null
     response:
@@ -282,14 +291,15 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:30 GMT'
+            Date: 'Mon, 08 Apr 2019 14:49:25 GMT'
             Content-Language: fr
-            X-Debug-Token: fc4b6a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc4b6a'
+            X-Debug-Token: 524b4d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/524b4d'
+            X-Request-Id: 4cd09d89a4867ca0632b479e9e5e362d
         body: '["rib"]'

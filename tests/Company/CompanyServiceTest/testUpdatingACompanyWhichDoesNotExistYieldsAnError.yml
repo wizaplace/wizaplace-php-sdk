@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             VCR-index: '0'
             Accept: null
     response:
@@ -16,17 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:34 GMT'
+            Date: 'Tue, 09 Apr 2019 11:55:52 GMT'
             Content-Language: fr
-            X-Debug-Token: '222671'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/222671'
-        body: '{"id":9,"apiKey":"OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY"}'
+            X-Debug-Token: c04309
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c04309'
+            X-Request-Id: 87651be61be8a4a62ae2542dbc35d423
+        body: '{"id":9,"apiKey":"MAOrgirtb6OLROxKocSowm5S0GYQb7yWCKeS3V47"}'
 -
     request:
         method: PUT
@@ -36,8 +37,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
-            Authorization: 'token OiLJGPCuhClenF3fe1FtkgpAC9K3AKdI5Da0LsMY'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token MAOrgirtb6OLROxKocSowm5S0GYQb7yWCKeS3V47'
             VCR-index: '1'
             Accept: null
         body: '{"phoneNumber":"0123456789"}'
@@ -47,14 +48,14 @@
             code: '404'
             message: 'Not Found'
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 22 Jan 2019 15:43:34 GMT'
+            Date: 'Tue, 09 Apr 2019 11:55:57 GMT'
             Content-Language: fr
-            X-Debug-Token: 81108c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/81108c'
+            X-Debug-Token: 49c7ac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/49c7ac'
         body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

@@ -44,11 +44,12 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setSlug('acme-inc');
         $companyRegistration->setUrl('https://acme.example.com/');
         $companyRegistration->setExtra(['driving_license_number' => '654987321']);
+        $companyRegistration->setNafCode('ABCDEF');
 
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
         $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
 
-        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
         $result = $companyService->register($companyRegistration);
 
@@ -70,6 +71,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('732 829 320 00074', $company->getSiretNumber());
         $this->assertEquals('https://acme.example.com/', $company->getUrl());
         $this->assertSame(['driving_license_number' => '654987321'], $company->getExtra());
+        $this->assertSame('ABCDEF', $company->getNafCode());
 
         $this->assertTrue($result->getFileUploadResult('rib')->isSuccess());
         $this->assertNull($result->getFileUploadResult('rib')->getErrorMessage());
@@ -114,7 +116,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
-        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register($companyRegistration);
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
 
         $company = $result->getCompany();
         $this->assertGreaterThan(0, $company->getId());
@@ -128,14 +130,14 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
 
         $this->expectException(ClientException::class); // @TODO: decorate?
-        $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register($companyRegistration);
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
     }
 
     public function testRegisteringACompanyWithEmptyRequiredFields()
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(400);
-        $this->buildUserCompanyService('customer-3@world-company.com', 'password')->register(new CompanyRegistration('', ''));
+        $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register(new CompanyRegistration('', ''));
     }
 
     public function testRegisteringACompanyAnonymously()
@@ -148,7 +150,7 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
-        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password');
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
 
         $result = $companyService->register($companyRegistration);
         $this->assertGreaterThan(0, $result->getCompany()->getId());
@@ -364,7 +366,7 @@ final class CompanyServiceTest extends ApiTestCase
         $companyRegistration->setIban("AD1200012030200359100100");
         $companyRegistration->setBic("AGFBFRCC");
         $companyRegistration->setExtra(['driving_license_number' => '654987321']);
-        $companyService = $this->buildUserCompanyService('customer-4@world-company.com', 'password');
+        $companyService = $this->buildUserCompanyService('customer-4@world-company.com', 'password-customer-4');
         $result = $companyService->register($companyRegistration);
         $company = $result->getCompany();
         $this->assertSame("AD1200012030200359100100", $company->getIban());
@@ -403,7 +405,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("FR", $company->getCountry());
     }
 
-    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password'): CompanyService
+    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);
