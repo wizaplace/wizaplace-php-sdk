@@ -58,6 +58,7 @@ final class CompanyService extends AbstractService
                 'iban' => $companyRegistration->getIban(),
                 'bic' => $companyRegistration->getBic(),
                 'extra' => $companyRegistration->getExtra(),
+                'nafCode' => $companyRegistration->getNafCode(),
             ],
         ]);
 
@@ -136,6 +137,7 @@ final class CompanyService extends AbstractService
                         'legalStatus' => $command->getLegalStatus(),
                         'capital' => $command->getCapital(),
                         'extra' => $command->getExtra(),
+                        'nafCode' => $command->getNafCode(),
                     ],
                     static function ($value): bool {
                         return $value !== null;
@@ -177,6 +179,7 @@ final class CompanyService extends AbstractService
                 'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
                 'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
                 'extra' => $companyRegistration->getExtra(),
+                'nafCode' => $companyRegistration->getNafCode(),
             ],
         ]);
 
