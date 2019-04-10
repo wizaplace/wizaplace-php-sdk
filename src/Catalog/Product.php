@@ -114,6 +114,9 @@ final class Product
     /** @var null|ProductOffer[] */
     private $offers;
 
+    /** @var null|string */
+    private $productTemplateType;
+
     /**
      * @internal
      *
@@ -183,6 +186,8 @@ final class Product
                 return new ProductOffer($offer);
             }, $data['offers']);
         }
+
+        $this->productTemplateType = $data['productTemplateType'] ?? null;
     }
 
     /**
@@ -505,5 +510,13 @@ final class Product
     public function getOffers(): ?array
     {
         return $this->offers;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductTemplateType(): ?string
+    {
+        return $this->productTemplateType;
     }
 }

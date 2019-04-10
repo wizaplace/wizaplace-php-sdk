@@ -40,6 +40,9 @@ final class Product extends ProductSummary
     /** @var bool */
     private $infiniteStock;
 
+    /** @var null|string */
+    private $productTemplateType;
+
     /**
      * @internal
      *
@@ -66,6 +69,7 @@ final class Product extends ProductSummary
         }, $data['inventory'] ?? []);
         $this->availibilityDate = new \DateTimeImmutable('@'.$data['avail_since']);
         $this->infiniteStock = (bool) $data['infinite_stock'];
+        $this->productTemplateType = $data['product_template_type'] ?? null;
     }
 
     /**
@@ -130,6 +134,14 @@ final class Product extends ProductSummary
     public function hasInfiniteStock(): bool
     {
         return $this->infiniteStock;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductTemplateType(): ?string
+    {
+        return $this->productTemplateType;
     }
 
     /**
