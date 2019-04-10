@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@49ab79a
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Jul 2018 07:27:56 GMT'
-            Server: 'Apache/2.4.29 (Ubuntu)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 36f5a2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/36f5a2'
-            Content-Length: '104'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"name":"Banner2","link":"http:\/\/url-de-test-3.com","shouldOpenInNewWindow":false,"image":{"id":10}}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 11 Jun 2019 15:08:01 GMT'
+            Content-Language: fr
+            X-Debug-Token: fc00f1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc00f1'
+            X-Request-Id: a23ea8190fadd0a86e43169773563b9a
+        body: '[{"name":"Banner2","link":"http:\/\/url-de-test-3.com","shouldOpenInNewWindow":false,"image":{"id":10,"alt":"Texte alternatif image"}}]'

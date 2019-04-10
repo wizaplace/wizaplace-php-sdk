@@ -2,6 +2,10 @@
 
 ## Next release
 
+### New features
+
+- Added `alt` property to `\Wizaplace\SDK\Cms\Banner`
+
 ### Bugfixes
 
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getAll` Authentication anonymously authorized
