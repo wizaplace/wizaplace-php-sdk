@@ -51,13 +51,14 @@ final class BannerService extends AbstractService
     }
 
     /**
+     * @param array $results
      * @return Banner[]
      */
     private function buildBannersArray(array $results): array
     {
         $banners = [];
         foreach ($results as $result) {
-            $banner = new Banner(new Uri(to_string($result['link'])), $result['shouldOpenInNewWindow'], $result['image']['id'], $result['name']);
+            $banner = new Banner(new Uri(to_string($result['link'])), $result['shouldOpenInNewWindow'], $result['image']['id'], $result['name'], $result['image']['alt']);
             $banners[] = $banner;
         }
 

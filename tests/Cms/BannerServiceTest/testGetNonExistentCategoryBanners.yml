@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@49ab79a
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-add-imageAlt-in-Banner@0462300
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 26 Jul 2018 07:27:57 GMT'
-            Server: 'Apache/2.4.29 (Ubuntu)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 3b8e7e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3b8e7e'
-            Content-Length: '2'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Apr 2019 09:44:26 GMT'
+            Content-Language: fr
+            X-Debug-Token: e3fff7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e3fff7'
+            X-Request-Id: d0328f0ea1249cca642f5cb50e68cbd5
         body: '[]'

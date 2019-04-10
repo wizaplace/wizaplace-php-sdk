@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-add-imageAlt-in-Banner@53cc68e
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Apr 2019 14:24:13 GMT'
+            Content-Language: fr
+            X-Debug-Token: '045191'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/045191'
+            X-Request-Id: 3d593ad89db168eddff0ed883e272442
+        body: '[{"name":"Banner0","link":"http:\/\/url-de-test.com","shouldOpenInNewWindow":true,"image":{"id":8,"alt":"Texte alternatif image"}},{"name":"Banner1","link":"http:\/\/url-de-test-2.com","shouldOpenInNewWindow":false,"image":{"id":9,"alt":"Texte alternatif image"}}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners/category/3?device=desktop'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-add-imageAlt-in-Banner@53cc68e
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Apr 2019 14:24:13 GMT'
+            Content-Language: fr
+            X-Debug-Token: b2e112
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b2e112'
+            X-Request-Id: 23e591c58885a2f2293f555ea996e7bb
+        body: '[{"name":"Banner1","link":"http:\/\/url-de-test-2.com","shouldOpenInNewWindow":false,"image":{"id":9,"alt":"Texte alternatif image"}}]'

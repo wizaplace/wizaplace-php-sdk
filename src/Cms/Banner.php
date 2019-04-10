@@ -36,23 +36,31 @@ final class Banner
     private $name;
 
     /**
+     * @var null|string
+     */
+    private $alt;
+
+    /**
      * @internal
      *
      * @param UriInterface $link
      * @param bool         $shouldOpenInNewWindow
      * @param int          $imageId
      * @param string       $name
+     * @param null|string  $alt
      */
     public function __construct(
         UriInterface $link,
         bool $shouldOpenInNewWindow,
         int $imageId,
-        string $name
+        string $name,
+        ?string $alt
     ) {
         $this->link = $link;
         $this->shouldOpenInNewWindow = $shouldOpenInNewWindow;
         $this->imageId = $imageId;
         $this->name = $name;
+        $this->alt = $alt;
     }
 
     /**
@@ -85,5 +93,13 @@ final class Banner
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getAlt(): ?string
+    {
+        return $this->alt;
     }
 }
