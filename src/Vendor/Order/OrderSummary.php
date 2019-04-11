@@ -43,6 +43,9 @@ final class OrderSummary
     /** @var int  */
     private $companyId;
 
+    /** @var AmountsTaxesDetails */
+    private $amountsTaxesDetails;
+
     /**
      * @internal
      *
@@ -62,6 +65,7 @@ final class OrderSummary
         $this->customerUserId = $data['user_id'];
         $this->basketId = $data['basket_id'];
         $this->total = $data['total'];
+        $this->amountsTaxesDetails = Order::denormalizeAmountsTaxesDetails($data);
     }
 
     /**
@@ -142,5 +146,30 @@ final class OrderSummary
     public function getTotal(): float
     {
         return $this->total;
+    }
+
+    public function getAmountsTaxesDetails(): AmountsTaxesDetails
+    {
+        return $this->amountsTaxesDetails;
+    }
+
+    public function getTotalsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::TOTALS);
+    }
+
+    public function getShippingCostsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::SHIPPING_COSTS);
+    }
+
+    public function getCommissionsTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::COMMISSIONS);
+    }
+
+    public function getVendorShareTaxesDetail(): ?AmountTaxesDetail
+    {
+        return $this->amountsTaxesDetails->get(AmountsTaxesDetails::VENDOR_SHARE);
     }
 }

@@ -4,6 +4,13 @@
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
 - Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
+- Added `Wizaplace\Vendor\Order\AmountTaxesDetail` Represent an amount by its 3 values: excluding taxes, taxes and including taxes
+- Added `Wizaplace\Vendor\Order\AmountsTaxesDetails` Collection of AmountTaxesDetail
+- Added `Wizaplace\Vendor\Order\Order::getAmountsTaxesDetails()`
+- Added `Wizaplace\Vendor\Order\Order::getTotalsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
 - Added `Wizaplace\SDK\Order\OrderService::getAdjustments`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getAdjustments`
 - Added `Wizaplace\SDK\Order\OrderAdjustment`
