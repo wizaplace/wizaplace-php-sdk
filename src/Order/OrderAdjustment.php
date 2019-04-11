@@ -16,6 +16,10 @@ class OrderAdjustment
     private $oldPrice;
     /** @var float */
     private $newPrice;
+    /** @var float */
+    private $oldTotal;
+    /** @var float */
+    private $newTotal;
     /** @var null|int */
     private $createdBy;
     /** @var null|\DateTime */
@@ -26,6 +30,8 @@ class OrderAdjustment
         $this->itemId = (int) $data['itemId'] ?? null;
         $this->oldPrice = (float) $data['oldPrice'] ?? 0.00;
         $this->newPrice = (float) $data['newPrice'] ?? 0.00;
+        $this->oldTotal = (float) $data['oldTotal'] ?? 0.00;
+        $this->newTotal = (float) $data['newTotal'] ?? 0.00;
         $this->createdBy = (int) $data['createdBy'] ?? null;
         $this->createdAt = $data['createdAt'] ? new \DateTime($data['createdAt']) : null;
     }
@@ -43,6 +49,16 @@ class OrderAdjustment
     public function getNewPrice(): float
     {
         return $this->newPrice;
+    }
+
+    public function getOldTotal(): float
+    {
+        return $this->oldTotal;
+    }
+
+    public function getNewTotal(): float
+    {
+        return $this->newTotal;
     }
 
     public function getCreatedBy(): ?int

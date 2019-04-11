@@ -290,6 +290,8 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(2085640488, $adjustment->getItemId());
         static::assertSame(70.9, $adjustment->getOldPrice());
         static::assertSame(67.9, $adjustment->getNewPrice());
+        static::assertSame(70.9, $adjustment->getOldTotal());
+        static::assertSame(67.9, $adjustment->getNewTotal());
         static::assertSame(7, $adjustment->getCreatedBy());
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
