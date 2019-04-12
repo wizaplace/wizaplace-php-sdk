@@ -248,8 +248,7 @@ class OrderService extends AbstractService
             ]);
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
-                $body = json_decode($e->getResponse()->getBody());
-                throw new SomeParametersAreInvalid($body->error->message, 400, $e);
+                throw new SomeParametersAreInvalid($e->getMessage(), 400, $e);
             }
 
             if ($e->getResponse()->getStatusCode() === 403) {
