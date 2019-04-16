@@ -6,6 +6,7 @@
 
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
+- Added `Iban` and `Bic` to data sent by `Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister()`
 
 ## 1.52.0
 
