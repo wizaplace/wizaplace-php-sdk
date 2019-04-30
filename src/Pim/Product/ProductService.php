@@ -337,7 +337,6 @@ final class ProductService extends AbstractService
      * @param int $productId
      *
      * @return \Psr\Http\Message\ResponseInterface
-     * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
     public function deleteVideo(int $productId)
@@ -349,6 +348,34 @@ final class ProductService extends AbstractService
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new \Exception("Product #${productId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * @param string $ean
+     * @param int    $stock
+     *
+     * @return string Number of updated product
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function updateStock(string $ean, int $stock): ?string
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->put("pim/products/{$ean}/stocks", [
+                RequestOptions::JSON => [
+                    'stock' => $stock,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Product EAN #{$ean} not found", $e);
             }
 
             throw $e;

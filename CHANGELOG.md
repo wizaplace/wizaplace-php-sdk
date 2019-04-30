@@ -2,7 +2,10 @@
 
 ## 1.51.0
 
+### New features
+
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
 - Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 - Added `Wizaplace\Vendor\Order\AmountTaxesDetail` Represent an amount by its 3 values: excluding taxes, taxes and including taxes
 - Added `Wizaplace\Vendor\Order\AmountsTaxesDetails` Collection of AmountTaxesDetail
