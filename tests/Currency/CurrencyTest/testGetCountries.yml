@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 29 Apr 2019 14:35:30 GMT'
+            Content-Language: fr
+            X-Debug-Token: '39e002'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39e002'
+            X-Request-Id: a415e022bcfba69ff22858529238e5b8
+        body: '{"id":2,"apiKey":"lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/CHF/countries'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
+            Authorization: 'token lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 29 Apr 2019 14:35:30 GMT'
+            Content-Language: fr
+            X-Debug-Token: 789df0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/789df0'
+            X-Request-Id: a8f194d033ee79134abf628a96ec9a02
+        body: '{"countryCodes":[{"countryCode":"CH"},{"countryCode":"LI"}]}'
