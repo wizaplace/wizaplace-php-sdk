@@ -54,13 +54,13 @@ final class CatalogServiceTest extends ApiTestCase
 
         $products = iterator_to_array($catalogService->getAllProducts());
 
-        $this->assertCount(30, $products);
+        $this->assertCount(33, $products);
         $this->assertInstanceOf(Product::class, $products[0]);
 
 
         // Chargement des produits Français
         $products = iterator_to_array($catalogService->getAllProducts('fr'));
-        $this->assertCount(30, $products);
+        $this->assertCount(33, $products);
 
         /** @var Product $product */
         $product = $products[0];
@@ -70,7 +70,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         // Chargement des produits Anglais
         $products = iterator_to_array($catalogService->getAllProducts('en'));
-        $this->assertCount(30, $products);
+        $this->assertCount(33, $products);
 
         /** @var Product $product */
         $product = $products[0];
@@ -349,10 +349,10 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetMVPById(): void
     {
-        $mvp = $this->buildCatalogService()->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        $mvp = $this->buildCatalogService()->getProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
         $this->assertInstanceOf(Product::class, $mvp);
 
-        $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $mvp->getId());
+        $this->assertSame('a6e53f40-f4c5-3d56-af1d-cc83fd695feb', $mvp->getId());
         $this->assertSame('Test MVP', $mvp->getName());
         $this->assertCount(2, $mvp->getCompanies());
         $this->assertCount(2, $mvp->getDeclinations());
@@ -364,10 +364,10 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $product = $catalogService->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        $product = $catalogService->getProductById('a6e53f40-f4c5-3d56-af1d-cc83fd695feb');
 
-        $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $product->getId());
-        $this->assertSame('ipsum-omnis-non-asperiores-hic-veritatis', $product->getSlug());
+        $this->assertSame('a6e53f40-f4c5-3d56-af1d-cc83fd695feb', $product->getId());
+        $this->assertSame('non-asperiores-hic-veritatis-eaque-error-consectetur', $product->getSlug());
 
         $expectedAttributes = [
             new ProductAttribute([
@@ -406,6 +406,12 @@ final class CatalogServiceTest extends ApiTestCase
                         'slug' => 'rouge',
                         'image' => [
                             'id' => 5,
+                            'urls' => [
+                                "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_5an0-xy.jpg",
+                                "large" => "https://unsplash.it/1900/?image=251",
+                                "medium" => "https://unsplash.it/900/?image=251",
+                                "small" => "https://unsplash.it/200/?image=251",
+                            ],
                         ],
                     ],
                 ],
@@ -454,6 +460,12 @@ final class CatalogServiceTest extends ApiTestCase
                                 'slug' => 'orange',
                                 'image' => [
                                     'id' => 6,
+                                    'urls' => [
+                                        "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_p6x7-z6.jpg",
+                                        "large" => "https://unsplash.it/1900/?image=1070",
+                                        "medium" => "https://unsplash.it/900/?image=1070",
+                                        "small" => "https://unsplash.it/200/?image=1070",
+                                    ],
                                 ],
                             ],
                         ],
@@ -474,6 +486,12 @@ final class CatalogServiceTest extends ApiTestCase
                                 'slug' => '44',
                                 'image' => [
                                     'id' => 7,
+                                    'urls' => [
+                                        "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_06da-di.jpg",
+                                        "large" => "https://unsplash.it/1900/?image=512",
+                                        "medium" => "https://unsplash.it/900/?image=512",
+                                        "small" => "https://unsplash.it/200/?image=512",
+                                    ],
                                 ],
                             ],
                         ],
@@ -1102,7 +1120,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $variant->getId());
         $this->assertSame(1, $variant->getAttributeId());
         $this->assertSame('Rouge', $variant->getName());
-        $this->assertSame('Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.', $variant->getDescription());
+        $this->assertSame('', $variant->getDescription());
         $this->assertSame('rouge', $variant->getSlug());
         $this->assertSame('', $variant->getSeoTitle());
         $this->assertSame('', $variant->getSeoDescription());
@@ -1124,8 +1142,16 @@ final class CatalogServiceTest extends ApiTestCase
                 'id' => 1,
                 'attributeId' => 1,
                 'name' => 'Bleu',
-                'slug' => '',
-                'image' => ['id' => 4],
+                'slug' => 'bleu',
+                'image' => [
+                    'id' => 4,
+                    'urls' => [
+                        'original' => "//wizaplace.loc/images/feature_variant/0/logo-url_w2j4-ol.jpg",
+                        'large' => "https://unsplash.it/1900/?image=685",
+                        'medium' => "https://unsplash.it/900/?image=685",
+                        'small' => "https://unsplash.it/200/?image=685",
+                    ],
+                ],
                 'description' => '',
             ]),
             new AttributeVariant([
@@ -1141,8 +1167,16 @@ final class CatalogServiceTest extends ApiTestCase
                 'attributeId' => 1,
                 'name' => 'Rouge',
                 'slug' => 'rouge',
-                'image' => ['id' => 5],
-                'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
+                'image' => [
+                    'id' => 5,
+                    'urls' => [
+                        "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_5an0-xy.jpg",
+                        "large" => "https://unsplash.it/1900/?image=251",
+                        "medium" => "https://unsplash.it/900/?image=251",
+                        "small" => "https://unsplash.it/200/?image=251",
+                    ],
+                ],
+                'description' => '',
             ]),
         ];
 

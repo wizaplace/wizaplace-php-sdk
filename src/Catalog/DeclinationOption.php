@@ -3,34 +3,33 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
 /**
- * Class DeclinationOption
- * @package Wizaplace\SDK\Catalog
+ * Class DeclinationOption.
  */
 final class DeclinationOption implements \JsonSerializable
 {
-    /** @var integer */
+    /** @var int */
     private $id;
 
     /** @var string */
     private $name;
 
-    /** @var integer */
+    /** @var int */
     private $variantId;
 
     /** @var string */
     private $variantName;
 
-    /** @var null|Image */
+    /** @var Image|null */
     private $image;
 
-    /** @var integer */
+    /** @var int */
     private $position;
 
     /**
@@ -101,12 +100,14 @@ final class DeclinationOption implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
+        $image = $this->getImage();
+
         return [
-            "id" => $this->getId(),
-            "name" => $this->getName(),
-            "variantId" => $this->getVariantId(),
-            "variantName" => $this->getVariantName(),
-            'image' => $this->getImage() ? ['id' => $this->getImage()->getId()] : null,
+            'id' => $this->getId(),
+            'name' => $this->getName(),
+            'variantId' => $this->getVariantId(),
+            'variantName' => $this->getVariantName(),
+            'image' => $image ? $image->jsonSerialize() : null,
             'position' => $this->getPosition(),
         ];
     }

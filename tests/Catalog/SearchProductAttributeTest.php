@@ -18,23 +18,29 @@ final class SearchProductAttributeTest extends TestCase
     {
         $jsonData = <<<JSON
 {
-	"attribute": {
-		"id": 52,
-		"name": "Couleur test",
-		"type": "M",
-		"position": 10,
-		"parentId": null,
-		"code": ""
-	},
-	"values": [{
-		"id": 64,
-		"attributeId": 52,
-		"name": "blue",
-		"slug": "blue-color",
-		"image": {
-			"id": 708
-		}
-	}]
+    "attribute": {
+        "id": 52,
+        "name": "Couleur test",
+        "type": "M",
+        "position": 10,
+        "parentId": null,
+        "code": ""
+    },
+    "values": [{
+        "id": 64,
+        "attributeId": 52,
+        "name": "blue",
+        "slug": "blue-color",
+        "image": {
+            "id": 708,
+            "urls": {
+                "original": "\/\/wathev.er\/path\/to\/an\/image.png",
+                "large": "\/\/wathev.er\/path\/to\/an\/image.png",
+                "medium": "\/\/wathev.er\/path\/to\/an\/image.png",
+                "small": "\/\/wathev.er\/path\/to\/an\/image.png"
+            }
+    }
+    }]
 }
 JSON;
 
@@ -52,6 +58,12 @@ JSON;
                 'slug' => 'blue-color',
                 'image' => [
                     'id' => 708,
+                    'urls' => [
+                        'original' => '//wathev.er/path/to/an/image.png',
+                        'large' => '//wathev.er/path/to/an/image.png',
+                        'medium' => '//wathev.er/path/to/an/image.png',
+                        'small' => '//wathev.er/path/to/an/image.png',
+                    ],
                 ],
             ]),
         ], $attribute->getValues());

@@ -1,5 +1,9 @@
 # Changelog
 
+## Next Release
+
+- Update `Wizaplace\SDK\Image\ImageService::getImageLink()` use the final image url instead of redirection
+- Added `Wizaplace\SDK\Image\Image::` `getUrl()`, `getUrls()` and `jsonSerialize()` methods
 
 ## 1.62.0
 
@@ -52,7 +56,7 @@
 
 ### Bugfixes
 
-- Fixed missing Order status in `Wizaplace\SDK\Vendor\Order\OrderStatus` and `Wizaplace\SDK\Order\OrderStatus` 
+- Fixed missing Order status in `Wizaplace\SDK\Vendor\Order\OrderStatus` and `Wizaplace\SDK\Order\OrderStatus`
 
 ## 1.52.0
 

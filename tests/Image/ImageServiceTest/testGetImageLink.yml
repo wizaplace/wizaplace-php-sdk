@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/image/12.json'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_api_SDK@22d62d7
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=86400, public'
+            Date: 'Mon, 27 May 2019 09:04:11 GMT'
+            Expires: 'Tue, 28 May 2019 09:04:11 GMT'
+            Content-Language: fr
+            X-Debug-Token: cf9038
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf9038'
+            X-Request-Id: 417e9efba9f955d58277d1d153167e00
+        body: '{"original":"http:\/\/wizaplace.loc\/images\/detailed\/0\/samsung-galaxy_dohh-2a.png","large":"https:\/\/wizaplace.loc\/images\/thumbnails\/ea0\/e1e\/d50\/ef3\/ad3\/beb\/158\/a79\/f1b\/569\/5c\/1900\/detailed\/0\/samsung-galaxy_dohh-2a.png","medium":"https:\/\/wizaplace.loc\/images\/thumbnails\/ea0\/e1e\/d50\/ef3\/ad3\/beb\/158\/a79\/f1b\/569\/5c\/900\/detailed\/0\/samsung-galaxy_dohh-2a.png","small":"https:\/\/wizaplace.loc\/images\/thumbnails\/ea0\/e1e\/d50\/ef3\/ad3\/beb\/158\/a79\/f1b\/569\/5c\/200\/detailed\/0\/samsung-galaxy_dohh-2a.png","legacy":"http:\/\/wizaplace.loc\/images\/detailed\/0\/samsung-galaxy_dohh-2a.png"}'

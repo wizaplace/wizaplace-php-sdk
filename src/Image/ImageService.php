@@ -3,18 +3,16 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Image;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
-use function theodorejb\polycast\to_string;
 
 /**
- * Class ImageService
- * @package Wizaplace\SDK\Image
+ * Class ImageService.
  */
 final class ImageService extends AbstractService
 {
@@ -24,18 +22,31 @@ final class ImageService extends AbstractService
      * The URL returned can be used to display the image, for example by using an
      * <img src="..."> tag in HTML code.
      *
-     * @param int $imageId
-     * @param int|null $width You can optionally constraint the max width of the image.
-     * @param int|null $height You can optionally constraint the max height of the image.
+     * @param int      $imageId
+     * @param int|null $width   you can optionally constraint the max width of the image
+     * @param int|null $height  you can optionally constraint the max height of the image
      *
      * @return UriInterface Image URL
      */
     public function getImageLink(int $imageId, int $width = null, int $height = null): UriInterface
     {
-        $query = http_build_query(array_filter(['w' => $width, 'h' => $height]));
+        static $cache = [];
 
-        $apiBaseUrl = rtrim(to_string($this->client->getBaseUri()), '/');
+        $uid = "id$imageId.w$width.h$height";
 
-        return new Uri("{$apiBaseUrl}/image/${imageId}?${query}");
+        if (false === array_key_exists($uid, $cache)) {
+            $query = http_build_query(
+                array_filter([
+                    'w' => $width,
+                    'h' => $height,
+                ])
+            );
+
+            $cache[$uid] = $this->client->get(
+                "image/$imageId.json".($query ? "?$query" : '')
+            )['legacy'];
+        }
+
+        return new Uri($cache[$uid]);
     }
 }
