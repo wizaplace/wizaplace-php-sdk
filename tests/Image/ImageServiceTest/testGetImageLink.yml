@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/image/12.json'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=86400, public'
+            Date: 'Mon, 06 May 2019 09:14:41 GMT'
+            Expires: 'Tue, 07 May 2019 09:14:41 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9beff7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9beff7'
+            X-Request-Id: 9b0bef0e7449de2b5381c0445ee1cd1b
+        body: '{"url":"http:\/\/wizaplace.loc\/images\/detailed\/0\/samsung-galaxy_by7e-qk.png"}'

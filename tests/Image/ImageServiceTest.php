@@ -12,19 +12,30 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ImageServiceTest extends ApiTestCase
 {
+    private $id = 12;
+
     public function testGetImageLink()
     {
-        $this->assertSame('http://wizaplace.loc/api/v1/image/1', (string) $this->buildImageService()->getImageLink(1));
+        $this->assertSame(
+            "http://wizaplace.loc/images/detailed/0/samsung-galaxy_by7e-qk.png",
+            (string) $this->buildImageService()->getImageLink($this->id)
+        );
     }
 
     public function testGetImageLinkWithWidth()
     {
-        $this->assertSame('http://wizaplace.loc/api/v1/image/1?w=42', (string) $this->buildImageService()->getImageLink(1, 42));
+        $this->assertSame(
+            "http://wizaplace.loc/images/thumbnails/b1c/970/456/233/c0d/c66/67d/407/63e/747/d1/42/detailed/0/samsung-galaxy_by7e-qk.png",
+            (string) $this->buildImageService()->getImageLink($this->id, 42)
+        );
     }
 
     public function testGetImageLinkWithWidthAndHeight()
     {
-        $this->assertSame('http://wizaplace.loc/api/v1/image/1?w=42&h=36', (string) $this->buildImageService()->getImageLink(1, 42, 36));
+        $this->assertSame(
+            "http://wizaplace.loc/images/thumbnails/b1c/970/456/233/c0d/c66/67d/407/63e/747/d1/42/36/detailed/0/samsung-galaxy_by7e-qk.png",
+            (string) $this->buildImageService()->getImageLink($this->id, 42, 36)
+        );
     }
 
     private function buildImageService(): ImageService
