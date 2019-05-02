@@ -3,15 +3,14 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
 
 /**
- * Class OptionVariant
- * @package Wizaplace\SDK\Catalog
+ * Class OptionVariant.
  */
 final class OptionVariant implements \JsonSerializable
 {
@@ -21,7 +20,7 @@ final class OptionVariant implements \JsonSerializable
     /** @var string */
     private $name;
 
-    /** @var null|Image */
+    /** @var Image|null */
     private $image;
 
     /**
@@ -65,10 +64,12 @@ final class OptionVariant implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
+        $image = $this->getImage();
+
         return [
             'id' => $this->getId(),
             'name' => $this->getName(),
-            'image' => $this->getImage() ? ['id' => $this->getImage()->getId()] : null,
+            'image' => $image ? $image->jsonSerialize() : null,
         ];
     }
 }

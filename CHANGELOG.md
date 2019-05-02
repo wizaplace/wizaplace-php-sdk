@@ -1,5 +1,10 @@
 # Changelog
 
+## Next version
+
+- Update `Wizaplace\SDK\Image\ImageService::getImageLink()` use the final image url instead of redirection
+- Added `Wizaplace\SDK\Image\Image::` `getUrl()`, `getUrls()` and `jsonSerialize()`  methods
+
 ## 1.57.0
 
 ### Bugfixes

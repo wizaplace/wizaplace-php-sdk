@@ -3,7 +3,7 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
 
@@ -44,6 +44,7 @@ final class DeclinationSummaryTest extends TestCase
             ],
             'mainImage' => [
                 'id' => 8,
+                'urls' => [],
             ],
             'company' => [
                 'id' => 1,
@@ -53,6 +54,7 @@ final class DeclinationSummaryTest extends TestCase
                 'isProfessional' => true,
                 'image' => [
                     'id' => 8,
+                    'urls' => [],
                 ],
             ],
             'slug' => 'very-confortable-chair',
