@@ -32,10 +32,23 @@ final class ImageService extends AbstractService
      */
     public function getImageLink(int $imageId, int $width = null, int $height = null): UriInterface
     {
-        $query = http_build_query(array_filter(['w' => $width, 'h' => $height]));
+        static $cache = [];
 
-        $apiBaseUrl = rtrim(to_string($this->client->getBaseUri()), '/');
+        $uid = "id$imageId.w$width.h$height";
 
-        return new Uri("{$apiBaseUrl}/image/${imageId}?${query}");
+        if (!isset($cache[$uid])) {
+            $query = http_build_query(
+                array_filter([
+                    'w' => $width,
+                    'h' => $height,
+                ])
+            );
+
+            $cache[$uid] = $this->client->get(
+                "image/$imageId.json".($query ? "?$query" :  '')
+            )['url'];
+        }
+
+        return new Uri($cache[$uid]);
     }
 }

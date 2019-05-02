@@ -1,5 +1,9 @@
 # Changelog
 
+## Next version
+
+- Update `Wizaplace\SDK\Image\ImageService::getImageLink()` use the final image url instead of redirection
+
 ## 1.51.0
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
@@ -103,7 +107,7 @@
 ### Bugfixes
 
 - Fixed `\Wizaplace\SDK\Catalog\ProductOffer` with null `$data['divisions']`
-- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null 
+- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null
 
 ## 1.44.10
 

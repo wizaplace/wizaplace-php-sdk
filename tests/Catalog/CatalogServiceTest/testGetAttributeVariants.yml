@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-SEO@19bb873
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-1338_image_api_json@be86f00
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 28 Dec 2017 13:12:44 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 891adf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/891adf'
-            Content-Length: '368'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"","description":"","image":{"id":4},"seoData":{"title":"","description":""}},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null,"seoData":{"title":"","description":""}},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"seoData":{"title":"","description":""}}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 May 2019 14:59:44 GMT'
+            Content-Language: fr
+            X-Debug-Token: 0d1549
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d1549'
+            X-Request-Id: 8944828c59a75c92a6067d3174685bc2
+        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"bleu","description":"","image":{"id":4,"url":{"original":"\/\/wizaplace.loc\/images\/feature_variant\/0\/logo-url_w2j4-ol.jpg","large":"https:\/\/unsplash.it\/1900\/?image=685","medium":"https:\/\/unsplash.it\/900\/?image=685","small":"https:\/\/unsplash.it\/200\/?image=685"}},"seoData":{"title":"","description":""}},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null,"seoData":{"title":"","description":""}},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"","image":{"id":5,"url":{"original":"\/\/wizaplace.loc\/images\/feature_variant\/0\/logo-url_5an0-xy.jpg","large":"https:\/\/unsplash.it\/1900\/?image=251","medium":"https:\/\/unsplash.it\/900\/?image=251","small":"https:\/\/unsplash.it\/200\/?image=251"}},"seoData":{"title":"","description":""}}]'

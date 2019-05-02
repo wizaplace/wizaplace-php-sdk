@@ -3,7 +3,7 @@
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
 
@@ -35,6 +35,7 @@ final class OptionTest extends TestCase
                     'name' => '21',
                     'image' => [
                         'id' => 1234,
+                        'url' => [],
                     ],
                 ],
             ],

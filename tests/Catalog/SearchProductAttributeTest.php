@@ -32,7 +32,8 @@ final class SearchProductAttributeTest extends TestCase
 		"name": "blue",
 		"slug": "blue-color",
 		"image": {
-			"id": 708
+			"id": 708,
+            "url": {}
 		}
 	}]
 }
@@ -52,6 +53,7 @@ JSON;
                 'slug' => 'blue-color',
                 'image' => [
                     'id' => 708,
+                    'url' => [],
                 ],
             ]),
         ], $attribute->getValues());
