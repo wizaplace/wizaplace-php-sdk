@@ -1,5 +1,38 @@
 # Changelog
 
+## 1.52.0
+
+- Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
+
+## 1.51.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
+- Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
+- Added `Wizaplace\Vendor\Order\AmountTaxesDetail` Represent an amount by its 3 values: excluding taxes, taxes and including taxes
+- Added `Wizaplace\Vendor\Order\AmountsTaxesDetails` Collection of AmountTaxesDetail
+- Added `Wizaplace\Vendor\Order\Order::getAmountsTaxesDetails()`
+- Added `Wizaplace\Vendor\Order\Order::getTotalsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+
+## 1.50.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getAvailableSince`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFilter`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductList`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::getListMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byIds`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:bySupplierReferences`
+- Added `\Wizaplace\SDK\Pim\Product\ProductListFilter:byProductCodes`
+
+## 1.49.0
+
 ## 1.48.1
 
 ### New features
@@ -15,6 +48,11 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Order\OrderService::getPayment`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addHostedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::addUploadedVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService::deleteVideoToMultiVendorProduct`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getVideo`
+- Added `\Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo`
 
 ## 1.47.0
 

@@ -146,7 +146,9 @@ final class Product
         $this->categoryPath = array_map(static function (array $category) : ProductCategory {
             return new ProductCategory($category);
         }, $data['categoryPath']);
-        $this->declinations = array_map(static function (array $declination) : Declination {
+        $this->declinations = array_map(function (array $declination) : Declination {
+            $declination['shippings'] = $this->shippings;
+
             return new Declination($declination);
         }, $data['declinations']);
         $this->options = array_map(static function (array $option) : Option {
