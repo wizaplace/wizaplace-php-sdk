@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: c0b42f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c0b42f'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"JGnzW552griyO0ncn8uLVp51g\/Z25alasTR0Y7mD"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 May 2019 09:17:34 GMT'
+            Content-Language: fr
+            X-Debug-Token: c13520
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c13520'
+            X-Request-Id: 2abcd82d21b10cca5eb96303fb8d3bc9
+        body: '{"id":7,"apiKey":"ljhh5WUNtNbnHNRP8XWbd7GAPYG\/t8OpU73uW9CA"}'
 -
     request:
         method: GET
@@ -33,7 +36,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
             VCR-index: '1'
             Accept: null
     response:
@@ -42,15 +45,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: a02994
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a02994'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"JGnzW552griyO0ncn8uLVp51g\/Z25alasTR0Y7mD"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 May 2019 09:17:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: 1fbdde
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1fbdde'
+            X-Request-Id: 5ae5cbdc4fddec8462baeb357883461f
+        body: '{"id":7,"apiKey":"ljhh5WUNtNbnHNRP8XWbd7GAPYG\/t8OpU73uW9CA"}'
 -
     request:
         method: POST
@@ -59,24 +65,27 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token JGnzW552griyO0ncn8uLVp51g/Z25alasTR0Y7mD'
+            Content-Type: 'multipart/form-data; boundary=66a3fa16a96423d7853859d7b042b2be0b6ad96b'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
+            Authorization: 'token ljhh5WUNtNbnHNRP8XWbd7GAPYG/t8OpU73uW9CA'
             VCR-index: '2'
             Accept: null
-        body: '{"senderEmail":"client@example.com","subject":"Contact form: Great marketplace!","message":"Last Name: Bond\nFirst Name: James\nEmail: client@example.com\nPhone: 0123456798\n\nMessage:\n    I love your marketplace!\n    Keep up the good work!"}'
+        body: "--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"senderEmail\"\r\nContent-Length: 18\r\n\r\nclient@example.com\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"subject\"\r\nContent-Length: 32\r\n\r\nContact form: Great marketplace!\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"message\"\r\nContent-Length: 143\r\n\r\nLast Name: Bond\nFirst Name: James\nEmail: client@example.com\nPhone: 0123456798\n\nMessage:\n    I love your marketplace!\n    Keep up the good work!\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:37 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 0b7923
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0b7923'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220b7923%22%2C%22route%22%3A%22api_contact_request%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CContactController%22%2C%22method%22%3A%22postContactRequestAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FContactController.php%22%2C%22line%22%3A48%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; HttpOnly'
-            Content-Length: '0'
+            Server: nginx
             Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 May 2019 09:17:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4effd3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4effd3'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224effd3%22%2C%22route%22%3A%22api_contact_request%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CContactController%22%2C%22method%22%3A%22postContactRequestAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FContactController.php%22%2C%22line%22%3A49%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 230c35d138f0af06624d8def0aa37653
