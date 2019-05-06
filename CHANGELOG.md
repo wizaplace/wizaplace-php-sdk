@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.52.0
+
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
+
 ## 1.51.0
 
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
