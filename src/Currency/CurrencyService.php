@@ -58,4 +58,22 @@ class CurrencyService extends AbstractService
             throw $e;
         }
     }
+
+    public function removeCountry(string $currencyCode, string $countryCode): self
+    {
+        try {
+            $this->client->mustBeAuthenticated();
+            $this->client->delete("currencies/{$currencyCode}/countries/{$countryCode}");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new AccessDenied("You must be authenticated as an admin.");
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Currency '".$currencyCode."' not found.");
+            }
+            throw $e;
+        }
+
+        return $this;
+    }
 }
