@@ -3,6 +3,7 @@
 ## 1.52.0
 
 - Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
+- Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
 
 ## 1.51.0
 

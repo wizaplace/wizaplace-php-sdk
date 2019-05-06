@@ -34,4 +34,28 @@ class CurrencyService extends AbstractService
             throw $e;
         }
     }
+
+    public function addCountry(string $currencyCode, string $countryCode): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->post('currencies/'.$currencyCode.'/countries', [
+                RequestOptions::FORM_PARAMS => [
+                    'countryCode' => $countryCode,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 403) {
+                throw new AccessDenied("You must be authenticated as an admin.");
+            }
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Currency '".$currencyCode."' not found.");
+            }
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new SomeParametersAreInvalid("CountryCode '".$countryCode."' already exist for currency '".$currencyCode."'.");
+            }
+            throw $e;
+        }
+    }
 }
