@@ -22,6 +22,17 @@ class CurrencyTest extends ApiTestCase
         static::assertSame("LI", $getCurrencyCountries[1]['countryCode']);
     }
 
+    public function testAddCountry(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+        $currencyService->addCountry('CHF', 'ZZ');
+        $getCurrencyCountries = $currencyService->getCountries('CHF');
+
+        static::assertSame("CH", $getCurrencyCountries[0]['countryCode']);
+        static::assertSame("LI", $getCurrencyCountries[1]['countryCode']);
+        static::assertSame("ZZ", $getCurrencyCountries[2]['countryCode']);
+    }
+
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
     {
         $apiClient = $this->buildApiClient();
