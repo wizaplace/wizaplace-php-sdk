@@ -4,6 +4,7 @@
 
 - Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
 - Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
+- Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`
 
 ## 1.51.0
 
