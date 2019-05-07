@@ -22,8 +22,12 @@ class CurrencyService extends AbstractService
         $this->client->mustBeAuthenticated();
         try {
             $currencyCountriesData = $this->client->get('currencies/'.$currencyCode.'/countries');
+            $data = [];
+            foreach ($currencyCountriesData as $code) {
+                $data[] = new CurrencyCountries($code);
+            }
 
-            return $currencyCountriesData['countryCodes'];
+            return $data;
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 403) {
                 throw new AccessDenied("You must be authenticated as an admin.");

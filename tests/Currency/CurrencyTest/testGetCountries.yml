@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
             VCR-index: '0'
             Accept: null
     response:
@@ -22,12 +22,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 29 Apr 2019 14:35:30 GMT'
+            Date: 'Tue, 07 May 2019 11:46:41 GMT'
             Content-Language: fr
-            X-Debug-Token: '39e002'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39e002'
-            X-Request-Id: a415e022bcfba69ff22858529238e5b8
-        body: '{"id":2,"apiKey":"lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+"}'
+            X-Debug-Token: '98e633'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/98e633'
+            X-Request-Id: 474ddb0d0ab14115e8e7a007a4182732
+        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
 -
     request:
         method: GET
@@ -35,8 +35,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
-            Authorization: 'token lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
             VCR-index: '1'
             Accept: null
     response:
@@ -51,9 +51,9 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 29 Apr 2019 14:35:30 GMT'
+            Date: 'Tue, 07 May 2019 11:46:42 GMT'
             Content-Language: fr
-            X-Debug-Token: 789df0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/789df0'
-            X-Request-Id: a8f194d033ee79134abf628a96ec9a02
-        body: '{"countryCodes":[{"countryCode":"CH"},{"countryCode":"LI"}]}'
+            X-Debug-Token: 7f5bb8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7f5bb8'
+            X-Request-Id: 923fcf2bfb287029912424666d8f6dfa
+        body: '[{"countryCode":"CH"},{"countryCode":"LI"}]'

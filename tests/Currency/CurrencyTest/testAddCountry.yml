@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
             VCR-index: '0'
             Accept: null
     response:
@@ -22,12 +22,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 30 Apr 2019 11:46:04 GMT'
+            Date: 'Tue, 07 May 2019 11:55:51 GMT'
             Content-Language: fr
-            X-Debug-Token: 93c49d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/93c49d'
-            X-Request-Id: 4c10ce937be7396190157f34d2e192ec
-        body: '{"id":2,"apiKey":"lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+"}'
+            X-Debug-Token: baa62d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/baa62d'
+            X-Request-Id: c056b9e6498380a30cf1e956bb6a565e
+        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
 -
     request:
         method: POST
@@ -37,8 +37,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
-            Authorization: 'token lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
             VCR-index: '1'
             Accept: null
         body: countryCode=ZZ
@@ -54,11 +54,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 30 Apr 2019 11:46:04 GMT'
+            Date: 'Tue, 07 May 2019 11:55:52 GMT'
             Content-Language: fr
-            X-Debug-Token: e76d18
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e76d18'
-            X-Request-Id: 0364503e98fe3ea353c463f81dc510a5
+            X-Debug-Token: d5fe97
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5fe97'
+            X-Request-Id: 2a97f01b0ccc7ea5200d7cd86e132212
         body: '{"countryCode":"ZZ"}'
 -
     request:
@@ -67,8 +67,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@b3f2555
-            Authorization: 'token lpAe2DdVsNyfk5fp0ACbyMAvUTO1dQLXWR11V4g+'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
             VCR-index: '2'
             Accept: null
     response:
@@ -83,9 +83,9 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 30 Apr 2019 11:46:04 GMT'
+            Date: 'Tue, 07 May 2019 11:55:52 GMT'
             Content-Language: fr
-            X-Debug-Token: fb1d07
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb1d07'
-            X-Request-Id: 0e8db83915dbc733a01209810c3b43b1
-        body: '{"countryCodes":[{"countryCode":"CH"},{"countryCode":"LI"},{"countryCode":"ZZ"}]}'
+            X-Debug-Token: ff3cca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ff3cca'
+            X-Request-Id: b5a298c8ee20518acdaf61a2c5b07f4f
+        body: '[{"countryCode":"CH"},{"countryCode":"LI"},{"countryCode":"ZZ"}]'

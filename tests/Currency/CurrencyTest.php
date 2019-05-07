@@ -18,8 +18,8 @@ class CurrencyTest extends ApiTestCase
         $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
         $getCurrencyCountries = $currencyService->getCountries('CHF');
 
-        static::assertSame("CH", $getCurrencyCountries[0]['countryCode']);
-        static::assertSame("LI", $getCurrencyCountries[1]['countryCode']);
+        static::assertSame("CH", $getCurrencyCountries[0]->getCountryCode());
+        static::assertSame("LI", $getCurrencyCountries[1]->getCountryCode());
     }
 
     public function testAddCountry(): void
@@ -28,9 +28,9 @@ class CurrencyTest extends ApiTestCase
         $currencyService->addCountry('CHF', 'ZZ');
         $getCurrencyCountries = $currencyService->getCountries('CHF');
 
-        static::assertSame("CH", $getCurrencyCountries[0]['countryCode']);
-        static::assertSame("LI", $getCurrencyCountries[1]['countryCode']);
-        static::assertSame("ZZ", $getCurrencyCountries[2]['countryCode']);
+        static::assertSame("CH", $getCurrencyCountries[0]->getCountryCode());
+        static::assertSame("LI", $getCurrencyCountries[1]->getCountryCode());
+        static::assertSame("ZZ", $getCurrencyCountries[2]->getCountryCode());
     }
 
     public function testDeleteCountry(): void
@@ -39,8 +39,8 @@ class CurrencyTest extends ApiTestCase
         $currencyService->removeCountry('CHF', 'ZZ');
         $getCurrencyCountries = $currencyService->getCountries('CHF');
 
-        static::assertSame("CH", $getCurrencyCountries[0]['countryCode']);
-        static::assertSame("LI", $getCurrencyCountries[1]['countryCode']);
+        static::assertSame("CH", $getCurrencyCountries[0]->getCountryCode());
+        static::assertSame("LI", $getCurrencyCountries[1]->getCountryCode());
     }
 
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
