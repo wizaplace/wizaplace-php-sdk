@@ -51,6 +51,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getFirstname());
         $this->assertSame('', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
+        $this->assertSame(null, $user->getCurrencyCode());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
