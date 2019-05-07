@@ -5,6 +5,7 @@
 - Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
 - Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
 - Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`
+- Updated `\Wizaplace\SDK\User\User` Add 'currencyCode' to user profile
 
 ## 1.51.0
 
