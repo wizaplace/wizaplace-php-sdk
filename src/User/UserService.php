@@ -74,6 +74,7 @@ final class UserService extends AbstractService
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
                     'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                    'currencyCode' => $command->getCurrencyCode(),
                 ],
             ]
         );

@@ -385,6 +385,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        $this->assertSame(null, $user->getCurrencyCode());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -394,6 +395,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setLastName('Jules')
                 ->setTitle(UserTitle::MR())
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
+                ->setCurrencyCode('EUR')
         );
 
         $client->authenticate('user43@example.com', 'password');
@@ -407,6 +409,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        $this->assertSame('EUR', $user->getCurrencyCode());
     }
 
     public function testUpdateUserAddresses()
