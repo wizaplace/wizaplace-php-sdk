@@ -17,6 +17,29 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 class CurrencyService extends AbstractService
 {
+    /** @return Currency[] */
+    public function getAll(): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $currencies = $this->client->get('currencies');
+
+            return array_map(
+                function (array $data): Currency {
+                    return new Currency($data);
+                },
+                $currencies
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                default:
+                    throw $e;
+            }
+        }
+    }
+
     public function getCountries(string $currencyCode): array
     {
         $this->client->mustBeAuthenticated();
@@ -25,13 +48,14 @@ class CurrencyService extends AbstractService
 
             return $currencyCountriesData['countryCodes'];
         } catch (ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 403) {
-                throw new AccessDenied("You must be authenticated as an admin.");
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                case 404:
+                    throw new NotFound("Currency '$currencyCode' not found.");
+                default:
+                    throw $e;
             }
-            if ($e->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Currency '".$currencyCode."' not found.");
-            }
-            throw $e;
         }
     }
 
@@ -46,16 +70,16 @@ class CurrencyService extends AbstractService
                 ],
             ]);
         } catch (ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 403) {
-                throw new AccessDenied("You must be authenticated as an admin.");
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                case 404:
+                    throw new NotFound("Currency '$currencyCode' not found.");
+                case 400:
+                    throw new SomeParametersAreInvalid("CountryCode '".$countryCode."' already exist for currency '".$currencyCode."'.");
+                default:
+                    throw $e;
             }
-            if ($e->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Currency '".$currencyCode."' not found.");
-            }
-            if ($e->getResponse()->getStatusCode() === 400) {
-                throw new SomeParametersAreInvalid("CountryCode '".$countryCode."' already exist for currency '".$currencyCode."'.");
-            }
-            throw $e;
         }
     }
 
@@ -65,13 +89,14 @@ class CurrencyService extends AbstractService
             $this->client->mustBeAuthenticated();
             $this->client->delete("currencies/{$currencyCode}/countries/{$countryCode}");
         } catch (ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 403) {
-                throw new AccessDenied("You must be authenticated as an admin.");
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                case 404:
+                    throw new NotFound("Currency '$currencyCode' not found.");
+                default:
+                    throw $e;
             }
-            if ($e->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Currency '".$currencyCode."' not found.");
-            }
-            throw $e;
         }
 
         return $this;
