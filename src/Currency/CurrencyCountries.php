@@ -17,7 +17,7 @@ final class CurrencyCountries
 
     public function __construct(array $data)
     {
-        $this->countryCode = $data['countryCode'];
+        $this->countryCode = $data['code'];
     }
 
     public function setCountryCode(string $countryCode): self

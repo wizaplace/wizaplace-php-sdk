@@ -8,11 +8,27 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Currency;
 
+use Wizaplace\SDK\Currency\Currency;
+use Wizaplace\SDK\Currency\CurrencyCountries;
 use Wizaplace\SDK\Currency\CurrencyService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 class CurrencyTest extends ApiTestCase
 {
+    public function testGetAllCurrencies(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+        $currencies = $currencyService->getAll();
+        static::assertCount(156, $currencies);
+
+        /** @var Currency $currency */
+        $currency = array_shift($currencies);
+        static::assertInstanceOf(Currency::class, $currency);
+        static::assertCount(1, $currency->getCountryCodes());
+        static::assertInstanceOf(CurrencyCountries::class, $currency->getCountryCodes()[0]);
+        static::assertSame("AE", $currency->getCountryCodes()[0]->getCountryCode());
+    }
+
     public function testGetCountries(): void
     {
         $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');

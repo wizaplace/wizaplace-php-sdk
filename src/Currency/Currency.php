@@ -42,16 +42,16 @@ final class Currency
 
     public function __construct(array $data)
     {
-        $this->code = $data['code'];
-        $this->exchangeRate = $data['exchangeRate'];
-        $this->enabled = $data['enabled'];
-        $this->symbol = $data['symbol'];
+        $this->setCode($data['code']);
+        $this->setEnabled($data['enabled']);
+        $this->setExchangeRate($data['exchangeRate'] ?? null);
+        $this->setSymbol($data['symbol'] ?? null);
         $this->countryCodes = array_map(function (array $itemData): CurrencyCountries {
             return new CurrencyCountries($itemData);
-        }, $data['countryCodes']);
+        }, $data['countries']);
     }
 
-    public function setExchangeRate($exchangeRate): self
+    public function setExchangeRate(?float $exchangeRate): self
     {
         $this->exchangeRate = $exchangeRate;
 
@@ -88,5 +88,19 @@ final class Currency
     public function getCountryCodes(): array
     {
         return $this->countryCodes;
+    }
+
+    protected function setCode(string $code): self
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    protected function setSymbol(?string $symbol): self
+    {
+        $this->symbol = $symbol;
+
+        return $this;
     }
 }
