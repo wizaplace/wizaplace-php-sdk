@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,14 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:56:24 GMT'
+            Date: 'Thu, 09 May 2019 12:31:42 GMT'
             Content-Language: fr
-            X-Debug-Token: ccd6d6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ccd6d6'
-            X-Request-Id: 2fc992a87f26d088e54d96de1953118f
-        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
+            X-Debug-Token: d9e746
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9e746'
+            X-Request-Id: b6f67c7fa6c2f93f3f22c8c4992ddddf
+        body: '{"id":2,"apiKey":"P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+"}'
 -
     request:
         method: DELETE
@@ -35,8 +35,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
-            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
             VCR-index: '1'
             Accept: null
     response:
@@ -48,13 +48,13 @@
             Server: nginx
             Content-Type: 'text/html; charset=UTF-8'
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:56:24 GMT'
+            Date: 'Thu, 09 May 2019 12:31:43 GMT'
             Content-Language: fr
-            X-Debug-Token: 5ac3e5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ac3e5'
-            X-Request-Id: d0482b788a896a2975e378e3a9182941
+            X-Debug-Token: 8b96d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b96d6'
+            X-Request-Id: c6879acea3d5e1425851394202614709
 -
     request:
         method: GET
@@ -62,8 +62,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
-            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
             VCR-index: '2'
             Accept: null
     response:
@@ -76,11 +76,11 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:56:24 GMT'
+            Date: 'Thu, 09 May 2019 12:31:43 GMT'
             Content-Language: fr
-            X-Debug-Token: 2619a3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2619a3'
-            X-Request-Id: 0a59b4351a0c55a8f46eb409de5f3601
-        body: '[{"countryCode":"CH"},{"countryCode":"LI"}]'
+            X-Debug-Token: 0969c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0969c7'
+            X-Request-Id: 6d4f3f5dcc8b8b64987c8659f81b7092
+        body: '[{"code":"CH"},{"code":"LI"}]'

@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,14 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:55:51 GMT'
+            Date: 'Thu, 09 May 2019 12:31:40 GMT'
             Content-Language: fr
-            X-Debug-Token: baa62d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/baa62d'
-            X-Request-Id: c056b9e6498380a30cf1e956bb6a565e
-        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
+            X-Debug-Token: ba704c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ba704c'
+            X-Request-Id: d0f8896c6e6ea0951539b9c317cb82fd
+        body: '{"id":2,"apiKey":"P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+"}'
 -
     request:
         method: POST
@@ -37,8 +37,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
-            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
             VCR-index: '1'
             Accept: null
         body: countryCode=ZZ
@@ -52,14 +52,14 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:55:52 GMT'
+            Date: 'Thu, 09 May 2019 12:31:41 GMT'
             Content-Language: fr
-            X-Debug-Token: d5fe97
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5fe97'
-            X-Request-Id: 2a97f01b0ccc7ea5200d7cd86e132212
-        body: '{"countryCode":"ZZ"}'
+            X-Debug-Token: edc904
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/edc904'
+            X-Request-Id: e445ed879e258ff1e9e00dfcecb802d8
+        body: '{"code":"ZZ"}'
 -
     request:
         method: GET
@@ -67,8 +67,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3024-fix-return-object@88ccc5f
-            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
             VCR-index: '2'
             Accept: null
     response:
@@ -81,11 +81,11 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 May 2019 11:55:52 GMT'
+            Date: 'Thu, 09 May 2019 12:31:41 GMT'
             Content-Language: fr
-            X-Debug-Token: ff3cca
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ff3cca'
-            X-Request-Id: b5a298c8ee20518acdaf61a2c5b07f4f
-        body: '[{"countryCode":"CH"},{"countryCode":"LI"},{"countryCode":"ZZ"}]'
+            X-Debug-Token: 16f75b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/16f75b'
+            X-Request-Id: de2640b23cf8485e4db7ea430d1d17f8
+        body: '[{"code":"CH"},{"code":"LI"},{"code":"ZZ"}]'
