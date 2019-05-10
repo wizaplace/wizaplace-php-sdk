@@ -40,6 +40,7 @@ class CurrencyService extends AbstractService
         }
     }
 
+    /** @return CurrencyCountries[] */
     public function getCountries(string $currencyCode): array
     {
         $this->client->mustBeAuthenticated();
@@ -104,5 +105,35 @@ class CurrencyService extends AbstractService
         }
 
         return $this;
+    }
+
+    /** @return Currency[] */
+    public function getByFilters(array $filters): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $currencies = $this->client->get('currencies?'.http_build_query($filters));
+
+            return array_map(
+                function (array $data): Currency {
+                    return new Currency($data);
+                },
+                $currencies
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    public function getByCountryCode(string $code): ?Currency
+    {
+        $currencies = $this->getByFilters(['countryCode' => $code]);
+
+        return count($currencies) > 0 ? array_shift($currencies) : null;
     }
 }
