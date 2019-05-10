@@ -59,6 +59,46 @@ class CurrencyTest extends ApiTestCase
         static::assertSame("LI", $getCurrencyCountries[1]->getCountryCode());
     }
 
+    public function testGetCurrenciesByFilters(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        $currencies = $currencyService->getByFilters(['countryCode' => 'GB']);
+        static::assertCount(1, $currencies);
+        /** @var Currency $currency */
+        $currency = array_shift($currencies);
+        static::assertInstanceOf(Currency::class, $currency);
+        static::assertSame("GBP", $currency->getCode());
+
+        $currencies = $currencyService->getByFilters([]);
+        $this->assertInternalType('array', $currencies);
+    }
+
+    public function testGetCurrenciesByCountryCode(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        $currency = $currencyService->getByCountryCode('GB');
+        static::assertInstanceOf(Currency::class, $currency);
+        static::assertSame("GBP", $currency->getCode());
+    }
+
+    public function testGetCurrenciesByXXCountryCode(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        $currency = $currencyService->getByCountryCode('XX');
+        static::assertNull($currency);
+    }
+
+    public function testGetCurrenciesByEmptyCountryCode(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        $currency = $currencyService->getByCountryCode('');
+        static::assertNull($currency);
+    }
+
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
     {
         $apiClient = $this->buildApiClient();
