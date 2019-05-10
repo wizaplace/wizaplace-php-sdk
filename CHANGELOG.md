@@ -9,6 +9,7 @@
 - Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
 - Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`
 - Added `Wizaplace\SDK\Currency\CurrencyService::updateCurrency`
+- Added `\Wizaplace\SDK\User\UserService::patchUser`
 - Updated `\Wizaplace\SDK\User\User` Add 'currencyCode' to user profile
 - Updated `\Wizaplace\SDK\User\UserService::updateUser` Add 'currencyCode' property
 

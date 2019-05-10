@@ -412,6 +412,25 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('EUR', $user->getCurrencyCode());
     }
 
+    public function testPatchUser(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userId = $userService->register('user65@example.com', 'password', 'Jean', 'Paul');
+        $client->authenticate('user65@example.com', 'password');
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setCurrencyCode('EUR')
+        );
+
+        $client->authenticate('user65@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('EUR', $user->getCurrencyCode());
+    }
+
     public function testUpdateUserAddresses()
     {
         $client = $this->buildApiClient();
