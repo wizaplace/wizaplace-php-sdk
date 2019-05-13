@@ -5,6 +5,7 @@
 - Added `Wizaplace\SDK\Currency\CurrencyService::getAll`
 - Added `Wizaplace\SDK\Currency\CurrencyService::getByFilters`
 - Added `Wizaplace\SDK\Currency\CurrencyService::getByCountryCode`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCurrency`
 - Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
 - Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
 - Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`

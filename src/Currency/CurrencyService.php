@@ -162,4 +162,21 @@ class CurrencyService extends AbstractService
             }
         }
     }
+
+    public function getCurrency(string $currencyCode): Currency
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return new Currency($this->client->get('currencies/'.$currencyCode));
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                case 404:
+                    throw new NotFound("Currency '$currencyCode' not found.");
+                default:
+                    throw $e;
+            }
+        }
+    }
 }
