@@ -3,6 +3,11 @@
 ## 1.52.0
 
 - Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setNafCode`
+- Added `\Wizaplace\SDK\Company\Company::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setNafCode`
 
 ## 1.51.0
 
