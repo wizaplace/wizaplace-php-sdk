@@ -23,6 +23,8 @@
 - Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
 
 ## 1.50.0
 
