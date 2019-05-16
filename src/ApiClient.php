@@ -299,7 +299,7 @@ final class ApiClient
             };
         }
 
-        if (! empty($_SERVER['HTTP_X_REQUEST_ID'])) {
+        if (!empty($_SERVER['HTTP_X_REQUEST_ID'])) {
             $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
         }
 
