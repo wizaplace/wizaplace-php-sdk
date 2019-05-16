@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-680-add-filters-to-orders-api@41bbfee
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 16 May 2019 12:08:03 GMT'
+            Content-Language: fr
+            X-Debug-Token: 97ac09
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97ac09'
+            X-Request-Id: 70bf551305d1e04ec576f94004133244
+        body: '{"id":2,"apiKey":"h4BZ9dpwpbEKYeEGzmGcBCC6pXZKT4YDILkCtUAq"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders?status=H&company_ids%5B0%5D=4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-680-add-filters-to-orders-api@41bbfee
+            Authorization: 'token h4BZ9dpwpbEKYeEGzmGcBCC6pXZKT4YDILkCtUAq'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 16 May 2019 12:08:03 GMT'
+            Content-Language: fr
+            X-Debug-Token: 74d847
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/74d847'
+            X-Request-Id: 6cb741688e60de6171b309e154fcdb9a
+        body: '[]'

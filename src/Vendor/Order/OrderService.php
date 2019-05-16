@@ -76,21 +76,27 @@ class OrderService extends AbstractService
     }
 
     /**
-     * @param null|OrderStatus $statusFilter
+     * @param OrderStatus|null $statusFilter
+     * @param OrderListFilter|null $additionalFilter
      *
      * @return OrderSummary[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function listOrders(?OrderStatus $statusFilter = null): array
+    public function listOrders(?OrderStatus $statusFilter = null, ?OrderListFilter $additionalFilter = null): array
     {
         $this->client->mustBeAuthenticated();
 
         $query = [];
-        if ($statusFilter !== null) {
+        if ($statusFilter instanceof OrderStatus) {
             $query['status'] = $statusFilter->getValue();
         }
+
+        if ($additionalFilter instanceof OrderListFilter) {
+            $query = array_merge($query, $additionalFilter->toArray());
+        }
+
         $data = $this->client->get('orders', [
             RequestOptions::QUERY => $query,
         ]);
