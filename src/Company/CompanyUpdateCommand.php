@@ -67,6 +67,9 @@ class CompanyUpdateCommand
     /** @var int */
     private $companyId;
 
+    /** @var null|string */
+    private $nafCode;
+
     /**
      * CompanyUpdateCommand constructor.
      *
@@ -429,6 +432,26 @@ class CompanyUpdateCommand
     public function setCompanyId(int $companyId): self
     {
         $this->companyId = $companyId;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getNafCode(): ?string
+    {
+        return $this->nafCode;
+    }
+
+    /**
+     * @param string|null $nafCode
+     *
+     * @return CompanyUpdateCommand
+     */
+    public function setNafCode(?string $nafCode): self
+    {
+        $this->nafCode = $nafCode;
 
         return $this;
     }
