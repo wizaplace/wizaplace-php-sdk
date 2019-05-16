@@ -15,6 +15,7 @@ use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
+use Wizaplace\SDK\Vendor\Order\OrderListFilter;
 use Wizaplace\SDK\Vendor\Order\OrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
@@ -68,7 +69,7 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertSame("00072", $invoiceNumber);
 
-        $this->expectException(\Throwable::class); // can't set the invoice number twice
+        static::expectException(\Throwable::class); // can't set the invoice number twice
         $orderService->setInvoiceNumber(5, "00073");
     }
 
@@ -104,7 +105,6 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame('Martin', $order->getCustomerLastName());
         static::assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
         static::assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
-        static::assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
         static::assertInstanceOf(\DateTimeImmutable::class, $order->getLastStatusChange());
     }
 
@@ -122,6 +122,36 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         static::assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
         static::assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
+    }
+
+    public function testFilterByCompanyIdWithNoResult(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->listOrders(OrderStatus::COMPLETED(), (new OrderListFilter())->byCompanyIds([4]));
+
+        static::assertCount(0, $orders);
+    }
+
+    public function testFilterByCompanyIdWithAResult(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->listOrders(OrderStatus::COMPLETED(), (new OrderListFilter())->byCompanyIds([3]));
+
+        static::assertContainsOnly(OrderSummary::class, $orders);
+        static::assertCount(4, $orders);
+    }
+
+    public function testFilterByLastStatusChange(): void
+    {
+        $orders = $this->buildVendorOrderService()
+            ->listOrders(
+                OrderStatus::COMPLETED(),
+                (new OrderListFilter())
+                    ->byLastStatusChangeIsAfter(new \DateTime("2019-05-16T00:00:00"))
+                    ->byLastStatusChangeIsBefore(new \DateTime("2019-05-16T13:37:36"))
+            );
+
+        static::assertCount(2, $orders);
     }
 
     public function testGetOrderById(): void
