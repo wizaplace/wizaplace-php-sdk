@@ -1,6 +1,8 @@
 # Changelog
 
 ## 1.52.0
+
+- Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
 - Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
 - Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setNafCode`
 - Added `\Wizaplace\SDK\Company\Company::getNafCode`
@@ -21,6 +23,8 @@
 - Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
 
 ## 1.50.0
 

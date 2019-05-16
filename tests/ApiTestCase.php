@@ -56,6 +56,14 @@ abstract class ApiTestCase extends TestCase
         ]));
     }
 
+    public function buildAdminApiClient(): ApiClient
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+
+        return $apiClient;
+    }
+
     protected function setUp(): void
     {
         parent::setUp();
