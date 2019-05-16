@@ -1,5 +1,29 @@
 # Changelog
 
+## 1.52.0
+
+- Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setNafCode`
+- Added `\Wizaplace\SDK\Company\Company::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setNafCode`
+
+## 1.51.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
+- Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
+- Added `Wizaplace\Vendor\Order\AmountTaxesDetail` Represent an amount by its 3 values: excluding taxes, taxes and including taxes
+- Added `Wizaplace\Vendor\Order\AmountsTaxesDetails` Collection of AmountTaxesDetail
+- Added `Wizaplace\Vendor\Order\Order::getAmountsTaxesDetails()`
+- Added `Wizaplace\Vendor\Order\Order::getTotalsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
+- Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+
 ## 1.50.0
 
 ### New features
