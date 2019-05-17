@@ -1,10 +1,19 @@
 # Changelog
 
+## Next features
+
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
+
 ## 1.52.0
 
 ### New features
 
-- Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
+- Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setNafCode`
+- Added `\Wizaplace\SDK\Company\Company::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setNafCode`
 
 ## 1.51.0
 
@@ -20,6 +29,8 @@
 - Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
 
 ## 1.50.0
 
