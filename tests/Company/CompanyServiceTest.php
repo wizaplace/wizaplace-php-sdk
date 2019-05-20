@@ -346,6 +346,32 @@ final class CompanyServiceTest extends ApiTestCase
         }
     }
 
+    public function testRegisterACompanyWithReturnNafCodeNull()
+    {
+        $companyRegistration = new CompanyRegistration('ACME-2019 Test Inc', 'acme-2019@example.com');
+        $companyRegistration->setAddress('24 rue de la gare');
+        $companyRegistration->setCapital('1 000 000 000 $');
+        $companyRegistration->setCity('Lyon');
+        $companyRegistration->setCountry('FR');
+        $companyRegistration->setDescription('Super ACME company');
+        $companyRegistration->setFax('01 02 03 04 05');
+        $companyRegistration->setLegalStatus('SARL');
+        $companyRegistration->setPhoneNumber('01 02 03 04 05 06');
+        $companyRegistration->setRcs('RCS VANNES B 514 919 844');
+        $companyRegistration->setVatNumber('12345678901');
+        $companyRegistration->setZipcode('69009');
+        $companyRegistration->setSiretNumber('732 829 320 00074');
+        $companyRegistration->setSlug('acme-inc');
+        $companyRegistration->setUrl('https://acme.example.com/');
+        $companyRegistration->setIban("AD1200012030200359100100");
+        $companyRegistration->setBic("AGFBFRCC");
+        $companyRegistration->setExtra(['driving_license_number' => '654987321']);
+        $companyService = $this->buildUserCompanyService('customer-4@world-company.com', 'password-customer-4');
+        $result = $companyService->register($companyRegistration);
+        $company = $result->getCompany();
+        static::assertNull($company->getNafCode());
+    }
+
     public function testRegisterACompanyWithIbanAndBic()
     {
         $companyRegistration = new CompanyRegistration('ACME-2019 Test Inc', 'acme-2019@example.com');
@@ -372,6 +398,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("AD1200012030200359100100", $company->getIban());
         $this->assertSame("AGFBFRCC", $company->getBic());
     }
+
     public function testRegisterACompanyC2CWithIbanAndBic()
     {
         $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');

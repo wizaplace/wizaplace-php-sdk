@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Company\Company::__construct` with NAF Code `null` in constructor
+
 ## 1.52.0
 
 - Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
