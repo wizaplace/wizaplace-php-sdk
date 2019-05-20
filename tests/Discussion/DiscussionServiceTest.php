@@ -276,6 +276,41 @@ MSG;
         $this->assertSame(201, $response->getStatusCode());
     }
 
+    public function testSubmitContactRequestWithAttachments(): void
+    {
+        $message = <<<MSG
+Last Name: Bond
+First Name: James
+Email: client@example.com
+Phone: 0123456798
+
+Message:
+    I love your marketplace!
+    Keep up the good work!
+MSG;
+
+        $service = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
+
+        $service->submitContactRequest(
+            'client@example.com',
+            'Contact form: Great marketplace!',
+            $message,
+            "recipientEmail@recipientEmail.fr",
+            ["https://www.wizaplace.com/wp-content/uploads/2018/03/Logo-400x94.png"],
+            [
+                $this->mockUploadedFile('dummy.txt'),
+                $this->mockUploadedFile('minimal.pdf'),
+            ]
+        );
+
+        // We don't have a way to check that the contact request was processed.
+        // So we just check that an HTTP request was made successfully
+        $this->assertCount(3, static::$historyContainer);
+        /** @var Response $response */
+        $response = static::$historyContainer[2]['response'];
+        $this->assertSame(201, $response->getStatusCode());
+    }
+
     private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
     {
         $client = $this->buildApiClient();

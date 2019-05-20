@@ -1,13 +1,16 @@
 # Changelog
 
-## Next release
+## Next features
 
 ### New features
 
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
 
 ## 1.52.0
+
+### New features
 
 - Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
 - Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
