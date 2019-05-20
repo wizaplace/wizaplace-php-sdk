@@ -1,10 +1,15 @@
 # Changelog
 
-## Next features
+## 1.56.0
 
 ### New features
 
 - Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
+
+## 1.55.1
+
+### New features
+
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
 
