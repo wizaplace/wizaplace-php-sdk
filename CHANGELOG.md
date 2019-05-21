@@ -1,6 +1,21 @@
 # Changelog
 
+## 1.56.0
+
+### New features
+
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
+
+## 1.55.1
+
+### New features
+
+- Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
+- Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
+
 ## 1.52.0
+
+### New features
 
 - Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
 - Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
@@ -95,7 +110,7 @@
 
 ## 1.44.13
 
- ### New features
+### New features
 
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::setIban`
@@ -117,7 +132,7 @@
 ### Bugfixes
 
 - Fixed `\Wizaplace\SDK\Catalog\ProductOffer` with null `$data['divisions']`
-- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null 
+- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null
 
 ## 1.44.10
 
