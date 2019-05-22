@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.57.0
 
 ### Bugfixes
 
