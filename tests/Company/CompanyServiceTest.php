@@ -432,6 +432,20 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("FR", $company->getCountry());
     }
 
+    public function testRegisterACompanyWithIbanAndBicUnauthenticated()
+    {
+        $companyRegistration = new UnauthenticatedCompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John', 'Doe');
+        $companyRegistration->setIban('AD1200012030200359100100');
+        $companyRegistration->setBic('AGFBFRCC');
+
+        $result = (new CompanyService($this->buildApiClient()))->unauthenticatedRegister($companyRegistration);
+
+        $company = $result->getCompany();
+        $this->assertSame("AD1200012030200359100100", $company->getIban());
+        $this->assertSame("AGFBFRCC", $company->getBic());
+    }
+
+
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
         $apiClient = $this->buildApiClient();

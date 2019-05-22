@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-532_AuthLog_SDK@b168b6c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 22 Feb 2019 08:29:52 GMT'
+            Content-Language: fr
+            X-Debug-Token: d4d884
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d4d884'
+        body: '{"id":2,"apiKey":"YFzeCDQFjpWX+MnKBhrhB7pF3rvYw9gMaEmIYIDF"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/security/viewlog/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-532_AuthLog_SDK@b168b6c
+            Authorization: 'token YFzeCDQFjpWX+MnKBhrhB7pF3rvYw9gMaEmIYIDF'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 22 Feb 2019 08:29:52 GMT'
+            Content-Language: fr
+            X-Debug-Token: f82bb8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f82bb8'
+        body: '{"id":1,"created":"2019-02-21T17:25:26+01:00","login":"hello@world.fr","status":"SUCCESS","source":"SSO","destination":"FRONT"}'
