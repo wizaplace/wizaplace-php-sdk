@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.57.0
+
+### Bugfixes
+
+- Added `Iban` and `Bic` to data sent by `Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister()`
+- Fixed `\Wizaplace\SDK\Company\Company::__construct` with NAF Code `null` in constructor
+
 ## 1.56.0
 
 ### New features
@@ -12,7 +19,6 @@
 
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
 - Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
-- Added `Iban` and `Bic` to data sent by `Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister()`
 
 ## 1.52.0
 
