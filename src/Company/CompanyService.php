@@ -24,6 +24,9 @@ use Wizaplace\SDK\Exception\NotFound;
 final class CompanyService extends AbstractService
 {
     /**
+     * Only for an authenticated registration (normal and C2C) as we don't send legalRepresentativeFirstName and legalRepresentativeLastName properties
+     * for unauthenticated registration, use unauthenticatedRegister() method, see API companies documentation.
+     *
      * @param AbstractCompanyRegistration $companyRegistration
      *
      * @return CompanyRegistrationResult
@@ -150,6 +153,9 @@ final class CompanyService extends AbstractService
     }
 
     /**
+     * Same as register() method but with legalRepresentativeFirstName and legalRepresentativeLastName properties
+     * allowing registering a company without being authenticated (see API companies documentation)
+     *
      * @param UnauthenticatedCompanyRegistration $companyRegistration
      *
      * @return CompanyRegistrationResult
@@ -176,6 +182,8 @@ final class CompanyService extends AbstractService
                 'rcs' => $companyRegistration->getRcs(),
                 'legalStatus' => $companyRegistration->getLegalStatus(),
                 'capital' => $companyRegistration->getCapital(),
+                'iban' => $companyRegistration->getIban(),
+                'bic' => $companyRegistration->getBic(),
                 'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
                 'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
                 'extra' => $companyRegistration->getExtra(),
