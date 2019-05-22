@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+### Bugfixes
+
+- Fixed `\Wizaplace\SDK\Company\Company::__construct` with NAF Code `null` in constructor
+
 ## 1.56.0
 
 ### New features
