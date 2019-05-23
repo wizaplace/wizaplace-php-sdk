@@ -403,7 +403,7 @@ final class CatalogServiceTest extends ApiTestCase
                         'slug' => 'rouge',
                         'image' => [
                             'id' => 5,
-                            'url' => [
+                            'urls' => [
                                 "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_5an0-xy.jpg",
                                 "large" => "https://unsplash.it/1900/?image=251",
                                 "medium" => "https://unsplash.it/900/?image=251",
@@ -457,7 +457,7 @@ final class CatalogServiceTest extends ApiTestCase
                                 'slug' => 'orange',
                                 'image' => [
                                     'id' => 6,
-                                    'url' => [
+                                    'urls' => [
                                         "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_p6x7-z6.jpg",
                                         "large" => "https://unsplash.it/1900/?image=1070",
                                         "medium" => "https://unsplash.it/900/?image=1070",
@@ -483,7 +483,7 @@ final class CatalogServiceTest extends ApiTestCase
                                 'slug' => '44',
                                 'image' => [
                                     'id' => 7,
-                                    'url' => [
+                                    'urls' => [
                                         "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_06da-di.jpg",
                                         "large" => "https://unsplash.it/1900/?image=512",
                                         "medium" => "https://unsplash.it/900/?image=512",
@@ -1142,11 +1142,11 @@ final class CatalogServiceTest extends ApiTestCase
                 'slug' => 'bleu',
                 'image' => [
                     'id' => 4,
-                    "url" => [
-                        "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_w2j4-ol.jpg",
-                        "large" => "https://unsplash.it/1900/?image=685",
-                        "medium" => "https://unsplash.it/900/?image=685",
-                        "small" => "https://unsplash.it/200/?image=685",
+                    'urls' => [
+                        'original' => "//wizaplace.loc/images/feature_variant/0/logo-url_w2j4-ol.jpg",
+                        'large' => "https://unsplash.it/1900/?image=685",
+                        'medium' => "https://unsplash.it/900/?image=685",
+                        'small' => "https://unsplash.it/200/?image=685",
                     ],
                 ],
                 'description' => '',
@@ -1166,7 +1166,7 @@ final class CatalogServiceTest extends ApiTestCase
                 'slug' => 'rouge',
                 'image' => [
                     'id' => 5,
-                    'url' => [
+                    'urls' => [
                         "original" => "//wizaplace.loc/images/feature_variant/0/logo-url_5an0-xy.jpg",
                         "large" => "https://unsplash.it/1900/?image=251",
                         "medium" => "https://unsplash.it/900/?image=251",

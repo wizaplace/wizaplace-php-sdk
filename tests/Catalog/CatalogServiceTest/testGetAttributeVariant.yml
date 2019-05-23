@@ -26,4 +26,4 @@
             X-Debug-Token: 30c99a
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/30c99a'
             X-Request-Id: 0ef147bf7ad600366e9d955bbafd9628
-        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"","image":{"id":5,"url":{"original":"\/\/wizaplace.loc\/images\/feature_variant\/0\/logo-url_5an0-xy.jpg","large":"https:\/\/unsplash.it\/1900\/?image=251","medium":"https:\/\/unsplash.it\/900\/?image=251","small":"https:\/\/unsplash.it\/200\/?image=251"}},"seoData":{"title":"","description":""}}'
+        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"","image":{"id":5,"urls":{"original":"\/\/wizaplace.loc\/images\/feature_variant\/0\/logo-url_5an0-xy.jpg","large":"https:\/\/unsplash.it\/1900\/?image=251","medium":"https:\/\/unsplash.it\/900\/?image=251","small":"https:\/\/unsplash.it\/200\/?image=251"}},"seoData":{"title":"","description":""}}'

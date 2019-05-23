@@ -44,7 +44,7 @@ final class DeclinationSummaryTest extends TestCase
             ],
             'mainImage' => [
                 'id' => 8,
-                'url' => [],
+                'urls' => [],
             ],
             'company' => [
                 'id' => 1,
@@ -54,7 +54,7 @@ final class DeclinationSummaryTest extends TestCase
                 'isProfessional' => true,
                 'image' => [
                     'id' => 8,
-                    'url' => [],
+                    'urls' => [],
                 ],
             ],
             'slug' => 'very-confortable-chair',

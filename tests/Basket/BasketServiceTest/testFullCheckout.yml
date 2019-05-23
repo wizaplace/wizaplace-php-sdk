@@ -210,7 +210,7 @@
             X-Debug-Token: b0bd06
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b0bd06'
             X-Request-Id: f88d8d80566308ac8b812af7b2e1a566
-        body: '[{"id":1,"name":"CB","description":"Carte Bleue","position":0,"image":{"id":3,"url":{"original":"\/\/wizaplace.loc\/images\/payment\/0\/cc_msyt-98.png","large":"https:\/\/unsplash.it\/1900\/?image=130","medium":"https:\/\/unsplash.it\/900\/?image=130","small":"https:\/\/unsplash.it\/200\/?image=130"}},"type":"manual"},{"id":2,"name":"Visa","description":"Carte Visa","position":1,"image":null,"type":"manual"},{"id":3,"name":"MasterCard","description":"Carte MasterCard","position":2,"image":null,"type":"manual"},{"id":4,"name":"Paiement \u00e0 \u00e9ch\u00e9ance","description":"","position":3,"image":null,"type":"payment-deferment"}]'
+        body: '[{"id":1,"name":"CB","description":"Carte Bleue","position":0,"image":{"id":3,"urls":{"original":"\/\/wizaplace.loc\/images\/payment\/0\/cc_msyt-98.png","large":"https:\/\/unsplash.it\/1900\/?image=130","medium":"https:\/\/unsplash.it\/900\/?image=130","small":"https:\/\/unsplash.it\/200\/?image=130"}},"type":"manual"},{"id":2,"name":"Visa","description":"Carte Visa","position":1,"image":null,"type":"manual"},{"id":3,"name":"MasterCard","description":"Carte MasterCard","position":2,"image":null,"type":"manual"},{"id":4,"name":"Paiement \u00e0 \u00e9ch\u00e9ance","description":"","position":3,"image":null,"type":"payment-deferment"}]'
 -
     request:
         method: POST

@@ -20,7 +20,7 @@ final class Image
     private $id;
 
     /** @var UriInterface[] */
-    private $url;
+    private $urls;
 
     /**
      * @internal
@@ -31,8 +31,8 @@ final class Image
     {
         $this->id = $data['id'];
 
-        foreach ($data['url'] as $key => $val) {
-            $this->url[$key] = new Uri($val);
+        foreach ($data['urls'] as $key => $url) {
+            $this->urls[$key] = new Uri($url);
         }
     }
 
@@ -49,17 +49,33 @@ final class Image
      */
     public function getUrls(): array
     {
-        return $this->url;
+        return $this->urls;
     }
 
     public function getUrl(string $size = 'original'): UriInterface
     {
-        if (false === \array_key_exists($size, $this->url)) {
+        if (false === \array_key_exists($size, $this->urls)) {
             throw new NotFound(
-                "Invalid size '$size'. Available sizes : ".implode(', ', array_keys($this->url))
+                "Invalid size '$size'. Available sizes : ".implode(', ', array_keys($this->urls))
             );
         }
 
-        return $this->url[$size];
+        return $this->urls[$size];
+    }
+
+    /**
+     * @return array
+     */
+    public function jsonSerialize(): array
+    {
+        return [
+            'id' => $this->id,
+            'urls' => array_map(
+                function ($uri) {
+                    return (string) $uri;
+                },
+                $this->urls
+            ),
+        ];
     }
 }

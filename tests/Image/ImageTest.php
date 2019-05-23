@@ -17,7 +17,7 @@ final class ImageTest extends TestCase
     {
         $data = [
             'id' => 1,
-            'url' => [
+            'urls' => [
                 'original' => '//wathev.er/path/to/an/image.png',
                 'large' => '//wathev.er/path/to/an/image.png',
                 'medium' => '//wathev.er/path/to/an/image.png',
@@ -27,8 +27,8 @@ final class ImageTest extends TestCase
         $image = new Image($data);
 
         $this->assertEquals($data['id'], $image->getId());
-        $this->assertEquals($data['url'], $image->getUrls());
-        $this->assertEquals($data['url']['original'], $image->getUrl('original'));
+        $this->assertEquals($data['urls'], $image->getUrls());
+        $this->assertEquals($data['urls']['original'], $image->getUrl('original'));
 
         $this->expectException(NotFound::class);
         $image->getUrl('unknow');

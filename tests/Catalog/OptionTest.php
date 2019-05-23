@@ -35,7 +35,12 @@ final class OptionTest extends TestCase
                     'name' => '21',
                     'image' => [
                         'id' => 1234,
-                        'url' => [],
+                        'urls' => [
+                            'original' => '//wathev.er/path/to/an/image.png',
+                            'large' => '//wathev.er/path/to/an/image.png',
+                            'medium' => '//wathev.er/path/to/an/image.png',
+                            'small' => '//wathev.er/path/to/an/image.png',
+                        ],
                     ],
                 ],
             ],
@@ -66,7 +71,13 @@ final class OptionTest extends TestCase
             "id": 4,
             "name": "21",
             "image": {
-                "id": 1234
+                "id": 1234,
+                "urls": {
+                    "original": "\/\/wathev.er\/path\/to\/an\/image.png",
+                    "large": "\/\/wathev.er\/path\/to\/an\/image.png",
+                    "medium": "\/\/wathev.er\/path\/to\/an\/image.png",
+                    "small": "\/\/wathev.er\/path\/to\/an\/image.png"
+                }
             }
         }
     ]
