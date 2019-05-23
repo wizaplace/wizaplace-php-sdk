@@ -137,6 +137,12 @@ class CurrencyService extends AbstractService
         return count($currencies) > 0 ? array_shift($currencies) : null;
     }
 
+    /** @return Currency[] */
+    public function getByEnabled(bool $value): array
+    {
+        return $this->getByFilters(['enabled' => $value ? 'true' : 'false']);
+    }
+
     public function updateCurrency(Currency $currency): array
     {
         $this->client->mustBeAuthenticated();

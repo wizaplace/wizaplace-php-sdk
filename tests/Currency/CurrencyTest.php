@@ -109,7 +109,6 @@ class CurrencyTest extends ApiTestCase
         $currency = $currencyService->getByCountryCode('');
         static::assertNull($currency);
     }
-
     public function testUpdateCurrency(): void
     {
         // Get a currency
@@ -127,6 +126,40 @@ class CurrencyTest extends ApiTestCase
         // Check if updated
         static::assertTrue($currency['enabled']);
         static::assertSame(12.8, $currency['exchangeRate']);
+    }
+
+    public function testGetCurrenciesByEnabledTrue(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        // We need to set a currency with enabled true
+        $currency = $currencyService->getByCountryCode('GB');
+        $currency->setEnabled(true);
+        $currencyService->updateCurrency($currency);
+
+        /** @var Currency[] $currencies[] */
+        $currencies = $currencyService->getByEnabled(true);
+        static::assertCount(1, $currencies);
+        static::assertInstanceOf(Currency::class, $currencies[0]);
+        static::assertSame('GBP', $currencies[0]->getCode());
+    }
+
+    public function testGetCurrenciesByEnabledFalse(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        // We need to set a currency with enabled true
+        $currency = $currencyService->getByCountryCode('GB');
+        $currency->setEnabled(true);
+        $currencyService->updateCurrency($currency);
+
+        /** @var Currency[] $currencies[] */
+        $currencies = $currencyService->getByEnabled(false);
+        static::assertCount(155, $currencies);
+        foreach ($currencies as $currency) {
+            static::assertInstanceOf(Currency::class, $currency);
+            static::assertNotSame('GBP', $currency->getCode());
+        }
     }
 
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
