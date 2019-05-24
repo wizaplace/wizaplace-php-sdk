@@ -10,6 +10,7 @@ namespace Wizaplace\SDK\Catalog;
 use Wizaplace\SDK\Image\Image;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\Seo\Metadata;
 
 /**
  * Class CompanyDetail
@@ -56,11 +57,9 @@ final class CompanyDetail
     /** @var array */
     private $extra;
 
-    /**
-     * @internal
-     *
-     * @param array $data
-     */
+    /** @var null|Metadata */
+    private $metadata;
+
     public function __construct(array $data)
     {
         $this->id = to_int($data['id']);
@@ -80,109 +79,76 @@ final class CompanyDetail
         $this->terms = to_string($data['terms']);
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
         $this->extra = (array) $data['extra'];
+        $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
     }
 
-    /**
-     * @return CompanyAddress
-     */
     public function getFullAddress(): CompanyAddress
     {
         return $this->fullAddress;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @deprecated use self::getFullAddress instead
-     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
-    /**
-     * @return string
-     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
-    /**
-     * @return bool
-     */
     public function isProfessional(): bool
     {
         return $this->professional;
     }
 
-    /**
-     * @return string
-     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
-    /**
-     * @return Image|null
-     */
     public function getImage(): ?Image
     {
         return $this->image;
     }
 
-    /**
-     * @return Location|null
-     */
     public function getLocation(): ?Location
     {
         return $this->location;
     }
 
-    /**
-     * @return int|null
-     */
     public function getAverageRating(): ?int
     {
         return $this->averageRating;
     }
 
-    /**
-     * @return string
-     */
     public function getTerms(): string
     {
         return $this->terms;
     }
 
-    /**
-     * @return array
-     */
     public function getExtra(): array
     {
         return $this->extra;
+    }
+
+    public function getMetadata(): ?Metadata
+    {
+        return $this->metadata;
     }
 }
