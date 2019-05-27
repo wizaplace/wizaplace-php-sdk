@@ -9,13 +9,11 @@ namespace Wizaplace\SDK\Discussion;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
-use Wizaplace\SDK\Exception\CompanyHasNoAdministrator;
-use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
-use Wizaplace\SDK\Exception\SenderIsAlsoRecipient;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
@@ -195,21 +193,76 @@ final class DiscussionService extends AbstractService
     }
 
     /**
-     * @param string $senderEmail
-     * @param string $subject
-     * @param string $message
+     * @param string                  $senderEmail
+     * @param string                  $subject
+     * @param string                  $message
+     * @param null|string             $recipientEmail
+     * @param string[]                $attachmentsUrls
+     * @param UploadedFileInterface[] $files
+     *
+     * @return DiscussionService
      *
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function submitContactRequest(string $senderEmail, string $subject, string $message): void
-    {
-        $this->client->post('contact-request', [
-            RequestOptions::JSON => [
-                'senderEmail' => $senderEmail,
-                'subject' => $subject,
-                'message' => $message,
+    public function submitContactRequest(
+        string $senderEmail,
+        string $subject,
+        string $message,
+        string $recipientEmail = null,
+        array $attachmentsUrls = [],
+        array $files = []
+    ): self {
+        $data = [
+            [
+                'name' => 'senderEmail',
+                'contents' => $senderEmail,
             ],
+            [
+                'name' => 'subject',
+                'contents' => $subject,
+            ],
+            [
+                'name' => 'message',
+                'contents' => $message,
+            ],
+        ];
+
+        if (is_string($recipientEmail)) {
+            $data[] = [
+                'name' => 'recipientEmail',
+                'contents' => $recipientEmail,
+            ];
+        }
+
+        if (count($attachmentsUrls) > 0) {
+            foreach ($attachmentsUrls as $url) {
+                $data[] = [
+                    'name'     => 'attachments[]',
+                    'contents' => $url,
+                ];
+            }
+        }
+
+        if (count($files) > 0) {
+            /** @var UploadedFileInterface $file */
+            foreach ($files as $file) {
+                if (false === $file instanceof UploadedFileInterface) {
+                    throw new \InvalidArgumentException('The $files parameter must be an array of UploadedFileInterface');
+                }
+
+                $data[] = [
+                    'name'     => 'attachments[]',
+                    'contents' => $file->getStream(),
+                    'filename' => $file->getClientFilename(),
+                ];
+            }
+        }
+
+        $this->client->post('contact-request', [
+            RequestOptions::MULTIPART => $data,
         ]);
+
+        return $this;
     }
 }

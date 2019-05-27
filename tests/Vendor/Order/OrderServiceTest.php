@@ -412,6 +412,26 @@ class OrderServiceTest extends ApiTestCase
         }
     }
 
+    /**
+     * @dataProvider orderWithStatus
+     */
+    public function testGetOrderWithStatus(int $orderId, string $status): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $order = $orderService->getOrderById($orderId);
+        static::assertInstanceOf(Order::class, $order);
+        static::assertEquals($status, $order->getStatus());
+    }
+
+    public function orderWithStatus(): array
+    {
+        return [
+            [11, OrderStatus::BILLING_FAILED()],
+            [1, OrderStatus::STANDBY_BILLING()],
+            [6, OrderStatus::INCOMPLETED()],
+        ];
+    }
+
     public function expectedOrdersAmounts(): array
     {
         return [

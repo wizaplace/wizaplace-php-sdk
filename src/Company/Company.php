@@ -122,7 +122,7 @@ final class Company
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
-        $this->nafCode = array_key_exists('nafCode', $data) ? to_string($data['nafCode']) : null;
+        $this->nafCode = array_key_exists('nafCode', $data) && is_string($data['nafCode']) ? to_string($data['nafCode']) : null;
     }
 
     /**
