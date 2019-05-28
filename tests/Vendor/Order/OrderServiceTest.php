@@ -445,6 +445,14 @@ class OrderServiceTest extends ApiTestCase
         ];
     }
 
+    public function testSetDetailsOnAnOrder(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+        $details = "Voici un nouveau commentaire de vendeur sur la commande";
+        $orderService->setOrderDetails(5, $details);
+        static::assertSame($details, $orderService->getOrderById(5)->getDetails());
+    }
+
     public function expectedOrdersAmounts(): array
     {
         return [

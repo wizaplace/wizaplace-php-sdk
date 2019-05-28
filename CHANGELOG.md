@@ -4,6 +4,8 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Vendor\Order\Order::getDetails` 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::setOrderDetails`
 - Added `alt` property to `\Wizaplace\SDK\Cms\Banner`
 
 ### Bugfixes
