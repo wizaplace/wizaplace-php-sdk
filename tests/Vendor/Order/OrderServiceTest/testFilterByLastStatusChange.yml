@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-680-add-filters-to-orders-api@fb4cb2b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 16 May 2019 13:42:20 GMT'
+            Content-Language: fr
+            X-Debug-Token: d17c08
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d17c08'
+            X-Request-Id: b3c69646b8c51fa50c64d772dbdab4a7
+        body: '{"id":6,"apiKey":"WvL7XNVTQl0kzEELbJqcZOU4CjYAIUJrFAxmW6BK"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders?status=H&last_status_change_is_after=2019-05-16T00%3A00%3A00%2B00%3A00&last_status_change_is_before=2019-05-16T13%3A37%3A36%2B00%3A00'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-680-add-filters-to-orders-api@fb4cb2b
+            Authorization: 'token WvL7XNVTQl0kzEELbJqcZOU4CjYAIUJrFAxmW6BK'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 16 May 2019 13:42:20 GMT'
+            Content-Language: fr
+            X-Debug-Token: 1f680a
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1f680a'
+            X-Request-Id: 52ff5c825a9e7af80b01c49b2537597a
+        body: '[{"order_id":7,"user_id":12,"basket_id":"ba1357fd-28a6-4ac4-8b9e-e4511aed3ebe","company_id":3,"timestamp":1558013810,"email":"user+orga@usc.com","status":"H","total":67.9,"last_status_change":"2019-05-16T13:37:35+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}},{"order_id":4,"user_id":7,"basket_id":"78d72044-fdec-484d-aa25-a624d2017a11","company_id":3,"timestamp":1558013810,"email":"customer-1@world-company.com","status":"H","total":67.9,"last_status_change":"2019-05-16T13:37:29+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]'
