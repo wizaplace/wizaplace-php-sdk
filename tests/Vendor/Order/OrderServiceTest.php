@@ -127,7 +127,11 @@ class OrderServiceTest extends ApiTestCase
     public function testFilterByCompanyIdWithNoResult(): void
     {
         $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
-            ->listOrders(OrderStatus::COMPLETED(), (new OrderListFilter())->byCompanyIds([4]));
+            ->listOrders(
+                OrderStatus::COMPLETED(),
+                (new OrderListFilter())
+                    ->byCompanyIds([4])
+            );
 
         static::assertCount(0, $orders);
     }
@@ -135,7 +139,11 @@ class OrderServiceTest extends ApiTestCase
     public function testFilterByCompanyIdWithAResult(): void
     {
         $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
-            ->listOrders(OrderStatus::COMPLETED(), (new OrderListFilter())->byCompanyIds([3]));
+            ->listOrders(
+                OrderStatus::COMPLETED(),
+                (new OrderListFilter())
+                ->byCompanyIds([3])
+            );
 
         static::assertContainsOnly(OrderSummary::class, $orders);
         static::assertCount(4, $orders);

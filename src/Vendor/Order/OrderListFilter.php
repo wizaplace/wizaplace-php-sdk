@@ -18,12 +18,12 @@ final class OrderListFilter implements ArrayableInterface
     private $companyIds = [];
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      */
     private $lastStatusChangeIsAfter;
 
     /**
-     * @var \DateTime
+     * @var null|\DateTime
      */
     private $lastStatusChangeIsBefore;
 
@@ -71,11 +71,11 @@ final class OrderListFilter implements ArrayableInterface
             $filters['company_ids'] = $this->companyIds;
         }
 
-        if (isset($this->lastStatusChangeIsAfter)) {
+        if ($this->lastStatusChangeIsAfter instanceof \DateTime) {
             $filters['last_status_change_is_after'] = $this->lastStatusChangeIsAfter->format(\DateTime::RFC3339);
         }
 
-        if (isset($this->lastStatusChangeIsBefore)) {
+        if ($this->lastStatusChangeIsBefore instanceof \DateTime) {
             $filters['last_status_change_is_before'] = $this->lastStatusChangeIsBefore->format(\DateTime::RFC3339);
         }
 
