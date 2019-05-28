@@ -328,7 +328,7 @@ class OrderServiceTest extends ApiTestCase
     /**
      * @dataProvider lastStatusChangeProvider
      * @param mixed $lastStatusChange The lastStatusChange variable to test
-     * @param string|null $expected Expected case to assert
+     * @param null|Throwable::class|DateTimeImmutable::class $expected Expected case to assert
      */
     public function testDenormalizeLastStatusChange($lastStatusChange, ?string $expected): void
     {
@@ -345,8 +345,12 @@ class OrderServiceTest extends ApiTestCase
                 new Order($orderData);
                 break;
 
-            default:
+            case \DateTimeImmutable::class:
                 static::assertInstanceOf($expected, (new Order($orderData))->getLastStatusChange());
+                break;
+
+            default:
+                throw new \Exception('$expected value "$expected" is not a valid test case : null, Throwable::class, DateTimeImmutable::class');
                 break;
         }
     }
@@ -356,6 +360,7 @@ class OrderServiceTest extends ApiTestCase
         return [
             [null, null],
             ['', null],
+            ['          ', null],
             [0, \Throwable::class],
             ['0', \Throwable::class],
             ['qsfsdfsdf', \Throwable::class],

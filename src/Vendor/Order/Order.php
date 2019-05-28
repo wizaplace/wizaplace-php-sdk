@@ -319,7 +319,7 @@ final class Order
      */
     public static function denormalizeLastStatusChange(?string $value): ?\DateTimeImmutable
     {
-        if (is_null($value) === true || $value === "") {
+        if (is_null($value) === true || trim($value) === "") {
             return null;
         }
 
