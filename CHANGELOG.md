@@ -1,5 +1,14 @@
 # Changelog
 
+## Next release 
+
+- Added `lastStatusChange` property to `Wizaplace\SDK\Vendor\Order` and `Wizaplace\SDK\Vendor\OrderSummary`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byCategoryIds`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsAfter`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsBefore`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders`
+
 ## 1.57.0
 
 ### Bugfixes

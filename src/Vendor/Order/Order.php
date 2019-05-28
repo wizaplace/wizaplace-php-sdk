@@ -81,6 +81,9 @@ final class Order
     /** @var int */
     private $companyId;
 
+    /** @var null|\DateTimeImmutable */
+    private $lastStatusChange;
+
     /** @var AmountsTaxesDetails */
     private $amountsTaxesDetails;
 
@@ -121,6 +124,7 @@ final class Order
             return new OrderItem($itemData);
         }, $data['products']);
         $this->comment = $data['notes'] ?? '';
+        $this->lastStatusChange = static::denormalizeLastStatusChange($data['last_status_change'] ?? null);
         $this->billingAddress = OrderAddress::extractBillingAddressData($data);
         $this->amountsTaxesDetails = static::denormalizeAmountsTaxesDetails($data);
     }
@@ -299,6 +303,31 @@ final class Order
     public function getComment(): string
     {
         return $this->comment;
+    }
+
+    /**
+     * @return \DateTimeImmutable|null
+     */
+    public function getLastStatusChange(): ?\DateTimeImmutable
+    {
+        return $this->lastStatusChange;
+    }
+
+    /**
+     * @param string|null $value
+     * @return \DateTimeImmutable|null
+     */
+    public static function denormalizeLastStatusChange(?string $value): ?\DateTimeImmutable
+    {
+        if (is_null($value) === true || trim($value) === "") {
+            return null;
+        }
+
+        try {
+            return new \DateTimeImmutable($value);
+        } catch (\Throwable $e) {
+            throw new \Exception("lastStatusChange property should be DateTime RFC3339 format, '$value' found");
+        }
     }
 
     public static function denormalizeAmountsTaxesDetails(array $data): AmountsTaxesDetails
