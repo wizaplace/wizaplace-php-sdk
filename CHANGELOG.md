@@ -1,6 +1,8 @@
 # Changelog
 
-## Next release 
+## 1.60.0
+
+### New features
 
 - Added `lastStatusChange` property to `Wizaplace\SDK\Vendor\Order` and `Wizaplace\SDK\Vendor\OrderSummary`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter`
