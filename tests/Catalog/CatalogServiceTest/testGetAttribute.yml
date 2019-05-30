@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 26 Oct 2017 13:11:31 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a2706c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a2706c'
+            Content-Length: '81'
+            Content-Type: application/json
+        body: '{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}'

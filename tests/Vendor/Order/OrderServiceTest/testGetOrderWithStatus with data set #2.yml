@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@9101435
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 May 2019 09:40:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9d5d61
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9d5d61'
+            X-Request-Id: c950b0f731a7123d831600f6d8d03e3c
+        body: '{"id":2,"apiKey":"H67JugT2NyjMVPqNGYLhfyS7UYf8z+RVJuw\/uE1N"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@9101435
+            Authorization: 'token H67JugT2NyjMVPqNGYLhfyS7UYf8z+RVJuw/uE1N'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 May 2019 09:40:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: 5619f1
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5619f1'
+            X-Request-Id: d951618bdf2d983b0186e7bf9622eff1
+        body: '{"order_id":6,"company_id":3,"user_id":7,"basket_id":"90ef4ce8-8550-42d3-8054-34720a12aa47","total":67.9,"discount":0.0,"shipping_cost":0.0,"timestamp":1558343345,"status":"N","notes":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"payment-deferment","processorName":"stripe","commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_confirmation_pending_order_confirmation_processing"}'

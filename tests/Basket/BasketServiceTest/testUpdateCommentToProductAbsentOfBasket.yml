@@ -1,0 +1,84 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:26:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '9e4905'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e4905'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"gSDaGtLBGPmC44weJxLMF2kBC\/ZvacGbVrimmsw6"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token gSDaGtLBGPmC44weJxLMF2kBC/ZvacGbVrimmsw6'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:26:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8356ee
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8356ee'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"865eb748-ba26-4052-938f-8ca26cc641a6"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/865eb748-ba26-4052-938f-8ca26cc641a6/comments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token gSDaGtLBGPmC44weJxLMF2kBC/ZvacGbVrimmsw6'
+            VCR-index: '2'
+            Accept: null
+        body: 'comments%5B0%5D%5BdeclinationId%5D=3_8_7&comments%5B0%5D%5Bcomment%5D=I+will+be+available+only+during+the+afternoon'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:26:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6cd586
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6cd586'
+            Content-Length: '77'
+            Connection: close
+            Content-Type: application/json
+        body: '{"message":"This product is not in the basket. Impossible to add a comment."}'

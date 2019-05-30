@@ -1,0 +1,131 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-107-get-organisations-groups-users@8451fe8
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 03 Oct 2018 08:58:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: fdd8d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fdd8d6'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"eA9D5HuIrvCAnomnJQl864R\/Rm8ttLqa+ioy9sxV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-107-get-organisations-groups-users@8451fe8
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 03 Oct 2018 08:58:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: eebd64
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eebd64'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"eA9D5HuIrvCAnomnJQl864R\/Rm8ttLqa+ioy9sxV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-107-get-organisations-groups-users@8451fe8
+            Authorization: 'token eA9D5HuIrvCAnomnJQl864R/Rm8ttLqa+ioy9sxV'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 03 Oct 2018 08:58:08 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: af5cb6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/af5cb6'
+            Content-Length: '1146'
+            Content-Type: application/json
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"655f90e0-c6ea-11e8-9091-080027ea4cb6","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"6580232a-c6ea-11e8-9091-080027ea4cb6","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/655f90e0-c6ea-11e8-9091-080027ea4cb6/groups'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-107-get-organisations-groups-users@8451fe8
+            Authorization: 'token eA9D5HuIrvCAnomnJQl864R/Rm8ttLqa+ioy9sxV'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 03 Oct 2018 08:58:08 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 25a6da
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/25a6da'
+            Content-Length: '147'
+            Content-Type: application/json
+        body: '{"total":1,"count":1,"_embedded":{"groups":[{"id":"6560b469-c6ea-11e8-9091-080027ea4cb6","name":"organisation_group_admin_label","type":"admin"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/groups/6560b469-c6ea-11e8-9091-080027ea4cb6/users'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-107-get-organisations-groups-users@8451fe8
+            Authorization: 'token eA9D5HuIrvCAnomnJQl864R/Rm8ttLqa+ioy9sxV'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 03 Oct 2018 08:58:08 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 0000f5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0000f5'
+            Content-Length: '137'
+            Content-Type: application/json
+        body: '{"total":1,"count":1,"_embedded":{"users":[{"id":11,"email":"user+orga@uny.com","firstName":"Mark","lastName":"Flemming","status":"A"}]}}'

@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 11:55:52 GMT'
+            Content-Language: fr
+            X-Debug-Token: c04309
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c04309'
+            X-Request-Id: 87651be61be8a4a62ae2542dbc35d423
+        body: '{"id":9,"apiKey":"MAOrgirtb6OLROxKocSowm5S0GYQb7yWCKeS3V47"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/companies/404'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token MAOrgirtb6OLROxKocSowm5S0GYQb7yWCKeS3V47'
+            VCR-index: '1'
+            Accept: null
+        body: '{"phoneNumber":"0123456789"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 11:55:57 GMT'
+            Content-Language: fr
+            X-Debug-Token: 49c7ac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/49c7ac'
+        body: '{"error":{"code":8,"message":"company not found","context":{"companyId":404}}}'

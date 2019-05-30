@@ -1,0 +1,124 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:51:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: c1c577
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c1c577'
+            X-Request-Id: e4f5d3863c0254589bb9113458725363
+        body: '{"id":9,"apiKey":"Jrt9ekOoLDqH\/TXFJ+owEvZ0ObsHhhSckIkm7twY"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/c2c'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token Jrt9ekOoLDqH/TXFJ+owEvZ0ObsHhhSckIkm7twY'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"C2C Vendor","iban":"","bic":""}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:51:40 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4c8027
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4c8027'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224c8027%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A71%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 0c72c686917cf0ddc1266c11bbef4142
+        body: '{"id":7,"name":"C2C Vendor","slug":"c2c-vendor","email":"customer-3@world-company.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":"","bic":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[],"nafCode":""}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/7/files'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=d9bc2f3d7a8378b88d045b6dfee407b5a14ec223'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token Jrt9ekOoLDqH/TXFJ+owEvZ0ObsHhhSckIkm7twY'
+            VCR-index: '2'
+            Accept: null
+        body: "--d9bc2f3d7a8378b88d045b6dfee407b5a14ec223\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--d9bc2f3d7a8378b88d045b6dfee407b5a14ec223--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:51:44 GMT'
+            Content-Language: fr
+            X-Debug-Token: 86cad0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/86cad0'
+            X-Request-Id: 3bef6335a175378ef8b28b9f69e5dc0e
+        body: '{"idCard":{"success":true}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/7/files'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token Jrt9ekOoLDqH/TXFJ+owEvZ0ObsHhhSckIkm7twY'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:51:47 GMT'
+            Content-Language: fr
+            X-Debug-Token: ac6616
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac6616'
+            X-Request-Id: 8f4d5942e3d442f71e11c8bcdb8724e5
+        body: '["idCard","idCard","idCard"]'

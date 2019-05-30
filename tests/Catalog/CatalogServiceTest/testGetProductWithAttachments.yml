@@ -1,0 +1,54 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 08:48:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 34c02d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/34c02d'
+            Content-Length: '2021'
+            Content-Type: application/json
+        body: '{"id":10,"code":"20230495446","supplierReference":"TEST-ATTACHMENT","name":"Product with attachments","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/product-with-attachments.html","shortDescription":"","description":"","slug":"product-with-attachments","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}],"geolocation":null,"createdAt":"2018-10-17T08:48:18+00:00","updatedAt":"2018-10-17T08:48:19+00:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"10_0","code":"20230495446","isAvailable":true,"supplierReference":"TEST-ATTACHMENT","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[{"id":"ba60fe95-dd39-32e1-b1bc-6246f3553e81","label":"Manuel de montage","originalUrl":null,"publicUrl":"\/var\/attachments\/10\/Manuel+de+montage"},{"id":"fb1b671b-0f64-34ff-bbf2-702807ba8e0f","label":"Manuel de montage","originalUrl":null,"publicUrl":"\/var\/attachments\/10\/Manuel+de+montage"}],"images":[],"productTemplateType":"product"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/attachments/ba60fe95-dd39-32e1-b1bc-6246f3553e81'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 08:48:50 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: public
+            Last-Modified: 'Wed, 17 Oct 2018 08:48:19 GMT'
+            Content-Disposition: 'attachment; filename="Manuel de montage"'
+            Content-Length: '739'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            X-Debug-Token: c12869
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c12869'
+            Content-Type: application/pdf
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"

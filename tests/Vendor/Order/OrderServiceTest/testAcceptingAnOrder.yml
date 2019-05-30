@@ -1,0 +1,88 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 26 Dec 2018 14:56:16 GMT'
+            Content-Language: fr
+            X-Debug-Token: '834e63'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/834e63'
+        body: '{"id":6,"apiKey":"6N3nUQrwPSEZqz7vX\/bAYUbfbbDkOXOwfNOQPDbG"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
+            Authorization: 'token 6N3nUQrwPSEZqz7vX/bAYUbfbbDkOXOwfNOQPDbG'
+            VCR-index: '1'
+            Accept: null
+        body: '{"approved":true,"do_not_create_invoice":false}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 26 Dec 2018 14:56:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: f77c88
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f77c88'
+        body: '{"order_id":"5"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
+            Authorization: 'token 6N3nUQrwPSEZqz7vX/bAYUbfbbDkOXOwfNOQPDbG'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 26 Dec 2018 14:56:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4f6343
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4f6343'
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"c3818958-2089-3549-b4ab-66a5c07b77dc","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1545406764,"status":"E","notes":"","promotions":{"1471e50c-bd0f-3ff8-aad5-7220da2bc77d":{"id":"1471e50c-bd0f-3ff8-aad5-7220da2bc77d","name":""}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null},"workflow":"workflow_order_preparation_pending_vendor_preparation_end_processing"}'

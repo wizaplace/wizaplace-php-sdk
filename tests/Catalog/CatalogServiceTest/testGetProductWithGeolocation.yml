@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/7'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 08:01:07 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 552d34
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/552d34'
+            Content-Length: '2081'
+            Content-Type: application/json
+        body: '{"id":7,"code":"0493020427963","supplierReference":"TEST-SHIPPINGS","name":"Product with shippings","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/product-with-shippings.html","shortDescription":"\u003Cp\u003ELa nouvelle g\u0026eacute;n\u0026eacute;ration de notre tablette Fire phare - d\u0026eacute;sormais plus fine, plus l\u0026eacute;g\u0026egrave;re, dot\u0026eacute;e d\u0027une plus longue autonomie et d\u0027un \u0026eacute;cran am\u0026eacute;lior\u0026eacute;.\u003C\/p\u003E","description":"","slug":"product-with-shippings","minPrice":9.9,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}],"geolocation":{"latitude":45.75845,"longitude":4.799044,"label":"Lyon 5e","zipcode":"69005"},"createdAt":"2018-10-17T08:00:34+00:00","updatedAt":"2018-10-17T08:00:35+00:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"7_0","code":"0493020427963","isAvailable":true,"supplierReference":"TEST-SHIPPINGS","price":9.9,"originalPrice":9.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":9.9,"priceWithoutVat":9.7,"vat":0.2},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product"}'

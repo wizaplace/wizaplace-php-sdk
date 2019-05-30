@@ -1,0 +1,83 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:36:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8be5eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8be5eb'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"cZxP1ircks6mFQRmt14Hr23djOD4DaHEUJtMELy4"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:36:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 42a8af
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/42a8af'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"cZxP1ircks6mFQRmt14Hr23djOD4DaHEUJtMELy4"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token cZxP1ircks6mFQRmt14Hr23djOD4DaHEUJtMELy4'
+            VCR-index: '2'
+            Accept: null
+        body: '{"companyId":1}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '500'
+            message: 'Internal Server Error'
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:36:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '6e2825'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e2825'
+            Content-Length: '98'
+            Connection: close
+            Content-Type: application/json
+        body: '{"error":{"code":7,"message":"company does not have any administrator","context":{"companyId":1}}}'

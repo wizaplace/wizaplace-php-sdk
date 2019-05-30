@@ -1,0 +1,110 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:25:46 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: f96688
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f96688'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"jJDkQIwI2z5spL6rKSCjlLH8nAYhKShzSoZWMplQ"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token jJDkQIwI2z5spL6rKSCjlLH8nAYhKShzSoZWMplQ'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:25:47 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 34e08b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/34e08b'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"20cc652c-abfe-42bc-9f60-b5f344b34eca"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/20cc652c-abfe-42bc-9f60-b5f344b34eca/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token jJDkQIwI2z5spL6rKSCjlLH8nAYhKShzSoZWMplQ'
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=3_8_7&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:25:47 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: d879d3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d879d3'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/20cc652c-abfe-42bc-9f60-b5f344b34eca/comments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token jJDkQIwI2z5spL6rKSCjlLH8nAYhKShzSoZWMplQ'
+            VCR-index: '3'
+            Accept: null
+        body: 'comments%5B0%5D%5BdeclinationId%5D=3_8_7&comments%5B0%5D%5Bcomment%5D='
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:25:47 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 08625c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/08625c'
+            Content-Type: 'text/html; charset=UTF-8'

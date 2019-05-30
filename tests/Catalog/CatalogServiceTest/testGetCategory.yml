@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-hugo-sdk@ff81aa5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 30 May 2018 07:48:44 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 2bd322
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2bd322'
+            Content-Length: '505'
+            Content-Type: application/json
+        body: '{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide."},"categoryPath":[{"id":2,"name":"Cat\u00e9gorie principale","slug":"categorie-principale"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-hugo-sdk@ff81aa5
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 30 May 2018 07:48:45 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 678a01
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/678a01'
+            Content-Length: '266'
+            Content-Type: application/json
+        body: '{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}]}'

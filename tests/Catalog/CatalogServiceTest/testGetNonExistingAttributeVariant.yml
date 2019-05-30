@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes/variants/404'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Thu, 26 Oct 2017 13:12:37 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: bbad3f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bbad3f'
+            Content-Length: '57'
+            Content-Type: application/json
+        body: '{"message":"Attribute variant \u0022404\u0022 not found"}'

@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/6'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 07:09:53 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 4cc923
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4cc923'
+            Content-Length: '1831'
+            Content-Type: application/json
+        body: '{"id":6,"code":"7531596248953","supplierReference":"RAZER-CASQUE-GAMING","name":"Casque Gaming Razer ManO\u0027War Sans fil 7.1 Surround (PC\/PS4)","url":"http:\/\/wizaplace.loc\/it\/headsets\/casque-razer-gaming.html","shortDescription":"","description":"","slug":"casque-razer-gaming","minPrice":73.7,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2018-10-17T07:09:20+00:00","updatedAt":"2018-10-17T07:09:20+00:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"Achat Micro-casque Razer ManO\u0027War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.","keywords":""},"declinations":[{"id":"6_0","code":"7531596248953","isAvailable":true,"supplierReference":"RAZER-CASQUE-GAMING","price":73.7,"originalPrice":73.7,"crossedOutPrice":null,"prices":{"priceWithTaxes":73.7,"priceWithoutVat":72.18,"vat":1.52},"greenTax":0,"amount":13,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc.","isProfessional":true,"image":null,"averageRating":null}}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product"}'

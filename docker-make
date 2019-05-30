@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+IMAGE_NAME=circleci/php:7.1-cli
+
+if [ -z "$1" ]; then
+    MAKE_ARGS="all"
+else
+    MAKE_ARGS="$1"
+fi
+
+APP_DIR="$(cd $(dirname $0) && pwd)"
+
+docker run --rm -v "${APP_DIR}":/app -w /app -v composer-cache:/composer/cache -u $(id -u):$(id -g) --network=host "${IMAGE_NAME}" make "${MAKE_ARGS}"

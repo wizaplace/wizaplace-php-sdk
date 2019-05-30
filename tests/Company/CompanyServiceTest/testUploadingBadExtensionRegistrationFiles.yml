@@ -1,0 +1,95 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:27:28 GMT'
+            Content-Language: fr
+            X-Debug-Token: 3b6c3d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3b6c3d'
+            X-Request-Id: 670f6d164d86a1bcf522c5276f3de518
+        body: '{"id":9,"apiKey":"ygG2O3T7qdYojMd28gR\/jf2A09TnkTxIdVezZhAn"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"4CME Test Inc","email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:27:32 GMT'
+            Content-Language: fr
+            X-Debug-Token: '665e02'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/665e02'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22665e02%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 80903403f932c3559668071f3bf1b41a
+        body: '{"id":8,"name":"4CME Test Inc","slug":"4cme-test-inc","email":"acme4@example.com","description":"","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":[],"nafCode":""}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/8/files'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=573ed85b338695d6e2c71090063c0ab64fdd0e6f'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
+            VCR-index: '2'
+            Accept: null
+        body: "--573ed85b338695d6e2c71090063c0ab64fdd0e6f\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"dummy.txt\"\r\nContent-Length: 35\r\nContent-Type: text/plain\r\n\r\nJust a dummy file for upload tests\n\r\n--573ed85b338695d6e2c71090063c0ab64fdd0e6f--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:27:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: 6c80a6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c80a6'
+            X-Request-Id: 29a7a068468d0b8f0be410cae341cb67
+        body: '{"rib":{"success":false,"error":"Invalid file"}}'

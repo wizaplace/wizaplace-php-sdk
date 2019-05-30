@@ -1,0 +1,83 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:38:00 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: acebb3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/acebb3'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"xDdYM3BkG\/mwFT8yL9WI3Ulm3C7mmi4BTz086ynK"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:38:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 564a6d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/564a6d'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":6,"apiKey":"x+pEUSvfuXw7GrbolHHgohwEywaEA2Vin4FcMIjX"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token x+pEUSvfuXw7GrbolHHgohwEywaEA2Vin4FcMIjX'
+            VCR-index: '2'
+            Accept: null
+        body: '{"declinationId":"3_9_10"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:38:01 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 7d6bc7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7d6bc7'
+            Content-Length: '85'
+            Connection: close
+            Content-Type: application/json
+        body: '{"error":{"code":6,"message":"message\u0027s sender is also recipient","context":[]}}'

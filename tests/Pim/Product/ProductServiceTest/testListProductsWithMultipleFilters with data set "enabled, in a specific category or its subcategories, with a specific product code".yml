@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:31:36 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 97deeb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97deeb'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"Zx95\/8ciIUhzOPlqtsSApoObBHpeRudE3SgRJnHc"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&status=A&pcode=0000001&cid%5B0%5D=3&subcats=Y'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-product-attribute-values@0c68b61
+            Authorization: 'token Zx95/8ciIUhzOPlqtsSApoObBHpeRudE3SgRJnHc'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 29 Nov 2017 10:31:37 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 71ce20
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/71ce20'
+            Content-Length: '698'
+            Content-Type: application/json
+        body: '{"products":[{"product_id":3,"product_code":"0000001","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1511951480,"updated_timestamp":1511951480,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product":"Ecran PC Full HD Noir","category_ids":[4],"main_category":4,"green_tax":0.0,"supplier_ref":"INFO-ECRAN-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"attachments":[]}],"params":{"page":"1","sort_by":"null","items_per_page":"100","status":"A","pcode":"0000001","cid":["3"],"subcats":"Y","sort_order":"asc","total_items":"1"}}'

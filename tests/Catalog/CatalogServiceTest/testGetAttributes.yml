@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 26 Oct 2017 13:11:09 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '566551'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/566551'
+            Content-Length: '791'
+            Content-Type: application/json
+        body: '[{"id":1,"name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":2,"name":"Taille","position":0,"parentId":null,"type":"LIST_TEXT"},{"id":3,"name":"Commentaire","position":0,"parentId":null,"type":"FREE_TEXT"},{"id":4,"name":"Groupe attributs","position":0,"parentId":null,"type":"GROUP"},{"id":5,"name":"Couleur secondaire","position":0,"parentId":4,"type":"CHECKBOX_MULTIPLE"},{"id":6,"name":"Pointure","position":0,"parentId":4,"type":"LIST_TEXT"},{"id":7,"name":"Compl\u00e9ment adresse","position":0,"parentId":4,"type":"FREE_TEXT"},{"id":8,"name":"Groupe vide","position":0,"parentId":null,"type":"GROUP"},{"id":9,"name":"Marque","position":0,"parentId":null,"type":"LIST_BRAND"},{"id":10,"name":"color","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"}]'

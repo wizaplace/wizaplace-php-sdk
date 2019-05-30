@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@a42a187
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 08 Mar 2019 10:43:29 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4c6416
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4c6416'
+        body: '{"id":6,"apiKey":"BVqJv7rSTKoBajxqdjlxqmhCWeNU15V1JGy0rdO4"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@a42a187
+            Authorization: 'token BVqJv7rSTKoBajxqdjlxqmhCWeNU15V1JGy0rdO4'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 08 Mar 2019 10:43:29 GMT'
+            Content-Language: fr
+            X-Debug-Token: ad2ff2
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/ad2ff2'
+        body: '[{"order_id":10,"user_id":7,"basket_id":"dd3322e6-e64e-4e1e-bbd9-e7a669e039fe","company_id":3,"timestamp":1551973777,"email":"customer-1@world-company.com","status":"P","total":14.3,"last_status_change":"2019-03-07T16:50:23+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_validation_pending_vendor_validation_processing"},{"order_id":9,"user_id":14,"basket_id":"40333f0a-34b5-4653-80be-99a750e98e6d","company_id":3,"timestamp":1551973777,"email":"user2@usc.com","status":"H","total":54.2,"last_status_change":"2019-03-07T16:50:21+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"},{"order_id":8,"user_id":13,"basket_id":"edbbc8fc-bf2e-43a5-a452-85fd2f2db574","company_id":3,"timestamp":1551973777,"email":"user@usc.com","status":"H","total":147.4,"last_status_change":"2019-03-07T16:50:19+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"},{"order_id":7,"user_id":12,"basket_id":"657bbb4f-7efe-475c-aa5e-d23f330e80dc","company_id":3,"timestamp":1551973777,"email":"user+orga@usc.com","status":"H","total":67.9,"last_status_change":"2019-03-07T16:50:17+01:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"},{"order_id":5,"user_id":7,"basket_id":"2b2254e7-534b-4fcc-9674-5689f008fce1","company_id":3,"timestamp":1551973777,"email":"customer-1@world-company.com","status":"P","total":66.7,"last_status_change":"2019-03-07T16:50:13+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_validation_pending_vendor_validation_processing"},{"order_id":4,"user_id":7,"basket_id":"996c8a6f-c2cc-401d-87a8-6ed8a7464ae4","company_id":3,"timestamp":1551973777,"email":"customer-1@world-company.com","status":"H","total":67.9,"last_status_change":"2019-03-07T16:50:12+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed"}]'

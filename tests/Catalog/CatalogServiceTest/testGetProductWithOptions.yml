@@ -1,0 +1,28 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-258_products-add-position-sdk@64c1bb5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.0
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 31 Dec 2018 14:35:23 GMT'
+            Content-Language: fr
+            X-Debug-Token: b7ffcf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7ffcf'
+        body: '{"id":3,"code":"0000001","supplierReference":"INFO-ECRAN-001","name":"Ecran PC Full HD Noir","url":"http:\/\/wizaplace.loc\/it\/screens\/ecran-pc-full-hd-noir.html","shortDescription":"","description":"","slug":"ecran-pc-full-hd-noir","minPrice":15.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}],"geolocation":null,"createdAt":"2018-12-31T13:46:16+00:00","updatedAt":"2018-12-31T13:46:17+00:00","infiniteStock":false,"video":{"thumbnailUrl":"\/\/s3-eu-west-1.amazonaws.com\/wizachatest\/videos\/414375b2-61cb-4260-b82b-4a2636cb5673\/480-00001.png","videoUrl":"\/\/s3-eu-west-1.amazonaws.com\/wizachatest\/videos\/414375b2-61cb-4260-b82b-4a2636cb5673\/480.mp4"},"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"3_3_7","code":"size_13","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"size","variantId":7,"variantName":"13","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}},{"id":"3_3_8","code":"size_15","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"size","variantId":8,"variantName":"15","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}},{"id":"3_3_9","code":"size_17","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"size","variantId":9,"variantName":"17","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}},{"id":"3_3_10","code":"size_21","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"size","variantId":10,"variantName":"21","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}}],"offers":[{"productId":3,"companyId":3,"price":15.5,"divisions":[]}],"attributes":[],"options":[{"id":3,"name":"size","position":0,"variants":[{"id":7,"name":"13","image":null,"position":0},{"id":8,"name":"15","image":null,"position":0},{"id":9,"name":"17","image":null,"position":0},{"id":10,"name":"21","image":null,"position":0}]}],"attachments":[],"images":[],"productTemplateType":"product","features":[]}'

@@ -1,0 +1,57 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: dec20c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dec20c'
+        body: '{"id":6,"apiKey":"6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-544-add-iban-bic-to-companies-register@cf932c1
+            Authorization: 'token 6H7EkTmcLB9lP77q+yZjpjBF+hAqOnbiHkkz5d6y'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx/1.14.2
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Jan 2019 15:43:35 GMT'
+            Content-Language: fr
+            X-Debug-Token: 3ce052
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ce052'
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"0987654321","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[]}'

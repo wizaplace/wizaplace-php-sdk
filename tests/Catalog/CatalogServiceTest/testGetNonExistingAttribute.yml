@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes/404'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Thu, 26 Oct 2017 13:11:53 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 078c86
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/078c86'
+            Content-Length: '49'
+            Content-Type: application/json
+        body: '{"message":"Attribute \u0022404\u0022 not found"}'

@@ -1,0 +1,107 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:27:09 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '902138'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/902138'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"lYdbSD3TsvgLKSW4\/6s5sN2rFlyp9JUdawxFzwGg"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token lYdbSD3TsvgLKSW4/6s5sN2rFlyp9JUdawxFzwGg'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:27:09 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 45f7fb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/45f7fb'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"e041aeb6-4d84-4656-86b6-6dac52d46d95"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/e041aeb6-4d84-4656-86b6-6dac52d46d95/comments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token lYdbSD3TsvgLKSW4/6s5sN2rFlyp9JUdawxFzwGg'
+            VCR-index: '2'
+            Accept: null
+        body: comments%5B0%5D%5Bcomment%5D=I+am+superman%2C+please+deliver+to+space.
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:27:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '48e525'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48e525'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/e041aeb6-4d84-4656-86b6-6dac52d46d95'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Authorization: 'token lYdbSD3TsvgLKSW4/6s5sN2rFlyp9JUdawxFzwGg'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 07 Feb 2018 09:27:10 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 219b8c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/219b8c'
+            Content-Length: '687'
+            Content-Type: application/json
+        body: '{"id":"e041aeb6-4d84-4656-86b6-6dac52d46d95","comment":"I am superman, please deliver to space.","coupons":[],"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalQuantity":0,"totalItemsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

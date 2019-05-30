@@ -1,0 +1,163 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:12 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '057e29'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/057e29'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Authorization: 'token spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:13 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: a6cd9a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a6cd9a'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a6cd9a%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A42%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Authorization: 'token spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL'
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=5&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:14 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 1dfc55
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1dfc55'
+            Content-Length: '14'
+            Content-Type: application/json
+        body: '{"quantity":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Authorization: 'token spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:15 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 788b1a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/788b1a'
+            Content-Length: '2458'
+            Content-Type: application/json
+        body: '{"id":"8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","productCode":"7531596248952","productUrl":"https:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","individualPrice":61.5,"individualTax":1.26,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":61.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"itemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}]}],"subtotal":61.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.26,"total":61.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8/shippings'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Authorization: 'token spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL'
+            VCR-index: '4'
+            Accept: null
+        body: '{"shippingGroups":{"1":38}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:17 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 61193a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/61193a'
+            Content-Type: 'text/html; charset=UTF-8'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Authorization: 'token spOKG6Cc5+gwyk36Umw61OSUJpq9tkTZPUovcrbL'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 17 Oct 2018 14:43:18 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 80993c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80993c'
+            Content-Length: '2458'
+            Content-Type: application/json
+        body: '{"id":"8d7c4af9-7b44-49e3-b96c-a8efc5d0dee8","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc."},"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"shippingGroups":[{"id":1,"items":[{"declinationId":"5_0","productId":5,"productName":"Logitech G430 Casque Gaming pour PC Gaming, PS4, Xbox One with 7.1 Dolby Surround","productCode":"7531596248952","productUrl":"https:\/\/wizaplace.loc\/it\/headsets\/casque-logitech-gaming.html","individualPrice":61.5,"individualTax":1.26,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":61.5,"options":[],"comment":"","unitPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":61.5,"productTaxes":1.26,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.26,"itemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26}}]}],"subtotal":61.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.26,"total":61.5,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":60.24,"priceWithTaxes":61.5,"vat":1.26},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

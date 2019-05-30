@@ -1,0 +1,109 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:35:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 80dcc1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80dcc1'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"FW+mXmh6rO45ACluNgcCA8rjYjUnRuJXOibd4qk1"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token FW+mXmh6rO45ACluNgcCA8rjYjUnRuJXOibd4qk1'
+            VCR-index: '1'
+            Accept: null
+        body: '{"companyId":2}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:35:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 008b02
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/008b02'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22008b02%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A51%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; HttpOnly'
+            Content-Length: '113'
+            Content-Type: application/json
+        body: '{"id":2,"recipient":"ACME","recipientId":4,"productId":null,"companyId":2,"title":"Contact ACME","unreadCount":0}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:35:28 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 5e17c4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5e17c4'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":4,"apiKey":"md5aWcx933WAf9VIKZXKN4AsakGi9g4qA1virQiG"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Authorization: 'token md5aWcx933WAf9VIKZXKN4AsakGi9g4qA1virQiG'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Fri, 16 Mar 2018 15:35:29 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 7bb1a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7bb1a2'
+            Content-Length: '127'
+            Content-Type: application/json
+        body: '[{"id":2,"recipient":"Michael Jordan","recipientId":7,"productId":null,"companyId":"2","title":"Contact ACME","unreadCount":0}]'

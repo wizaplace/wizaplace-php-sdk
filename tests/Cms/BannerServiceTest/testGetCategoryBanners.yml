@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/cms/banners/category/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@49ab79a
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Thu, 26 Jul 2018 07:27:56 GMT'
+            Server: 'Apache/2.4.29 (Ubuntu)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 8b5d84
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b5d84'
+            Content-Length: '206'
+            Content-Type: application/json
+        body: '[{"name":"Banner1","link":"http:\/\/url-de-test-2.com","shouldOpenInNewWindow":false,"image":{"id":9}},{"name":"Banner2","link":"http:\/\/url-de-test-3.com","shouldOpenInNewWindow":false,"image":{"id":10}}]'

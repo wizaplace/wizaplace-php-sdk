@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-774-Add-Amounts-taxes-details-property@f52fbb4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 26 Mar 2019 15:49:17 GMT'
+            Content-Language: fr
+            X-Debug-Token: 1bd0f4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bd0f4'
+            X-Request-Id: 0c4807328d89125e4d160e7e66f264d8
+        body: '{"id":6,"apiKey":"hUrGnlKB7TID7fSlluE0MGUjlZZOgM+WfX3LK48E"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/9'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-774-Add-Amounts-taxes-details-property@f52fbb4
+            Authorization: 'token hUrGnlKB7TID7fSlluE0MGUjlZZOgM+WfX3LK48E'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.15
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 26 Mar 2019 15:49:18 GMT'
+            Content-Language: fr
+            X-Debug-Token: 507d17
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/507d17'
+            X-Request-Id: 8283972f4f4993f9c410a28607d11104
+        body: '{"order_id":9,"company_id":3,"user_id":14,"basket_id":"f485ddf5-5d11-4ab1-b7bc-246150bf9648","total":54.2,"discount":0.0,"shipping_cost":0.0,"timestamp":1553591539,"status":"H","notes":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"user2@usc.com","decline_reason":null,"invoice_date":"","products":{"19377517":{"item_id":"19377517","product_id":4,"price":54.2,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"7531596248951","supplier_ref":"CORSAIR-CASQUE-GAMING"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.1148,"description":"TVA 2.1%","applies":{"P_19377517":1.1148}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-03-26T09:13:00+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":52.5252,"taxes":1.0028,"including_taxes":53.528}}'

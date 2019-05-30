@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@0ccf898
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 03 Apr 2018 13:12:32 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 291bec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/291bec'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":4,"apiKey":"gvUtigAJpQpuBp76JR\/a6qwklETM+6SxfT1qL8EM"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/taxes'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-pim_get_taxes@0ccf898
+            Authorization: 'token gvUtigAJpQpuBp76JR/a6qwklETM+6SxfT1qL8EM'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 03 Apr 2018 13:12:33 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 6688a6
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/6688a6'
+            Content-Length: '147'
+            Content-Type: application/json
+        body: '[{"tax_id":1,"tax":"TVA 0%"},{"tax_id":2,"tax":"TVA 2.1%"},{"tax_id":3,"tax":"TVA 5.5%"},{"tax_id":4,"tax":"TVA 10%"},{"tax_id":5,"tax":"TVA 20%"}]'

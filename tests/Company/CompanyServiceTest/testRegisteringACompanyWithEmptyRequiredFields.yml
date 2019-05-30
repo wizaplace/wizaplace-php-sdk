@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:21:31 GMT'
+            Content-Language: fr
+            X-Debug-Token: d6a562
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d6a562'
+            X-Request-Id: 19bab38979118c9769cd044154605fde
+        body: '{"id":9,"apiKey":"ygG2O3T7qdYojMd28gR\/jf2A09TnkTxIdVezZhAn"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Apr 2019 12:21:34 GMT'
+            Content-Language: fr
+            X-Debug-Token: bdef30
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bdef30'
+        body: '{"message":"Failed to create company: Le nom de la soci\u00e9t\u00e9 ne peut pas \u00eatre vide."}'

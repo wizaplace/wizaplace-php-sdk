@@ -1,0 +1,51 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 12 Sep 2017 15:06:06 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: c48903
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c48903'
+            Content-Length: '61'
+            Content-Type: application/json
+        body: '{"id":7,"apiKey":"+02AG99Ar\/eVdAiaVAr+Q7fIsxbLVAdYKQDfZdF8"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/1/reviews/authorized'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
+            Authorization: 'token +02AG99Ar/eVdAiaVAr+Q7fIsxbLVAdYKQDfZdF8'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '401'
+            message: Unauthorized
+        headers:
+            Date: 'Tue, 12 Sep 2017 15:06:07 GMT'
+            Server: 'Apache/2.4.10 (Debian)'
+            Cache-Control: 'no-cache, private'
+            X-Debug-Token: 76727f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/76727f'
+            Content-Length: '26'
+            Content-Type: application/json
+        body: '{"message":"Unauthorized"}'

@@ -1,0 +1,26 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/tree'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-hugo-sdk@ff81aa5
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Wed, 30 May 2018 07:27:08 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 027da9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/027da9'
+            Content-Length: '1761'
+            Content-Type: application/json
+        body: '[{"category":{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}]},"children":[{"category":{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}]},"children":[]},{"category":{"id":5,"parentId":3,"name":"Casques","description":"","slug":"headsets","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}]},"children":[]}]},{"category":{"id":6,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests-en","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":""},"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}]},"children":[]},{"category":{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide."},"categoryPath":[{"id":2,"name":"Cat\u00e9gorie principale","slug":"categorie-principale"}]},"children":[]}]'

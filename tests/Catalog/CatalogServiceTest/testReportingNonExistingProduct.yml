@@ -1,0 +1,29 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/catalog/products/404/report'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_product-not-found@59cf280
+            VCR-index: '0'
+            Accept: null
+        body: '{"productId":"404","name":"User","email":"user@wizaplace.com","message":"Should get a 404"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Date: 'Wed, 28 Feb 2018 13:18:08 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: b488b1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b488b1'
+            Content-Length: '81'
+            Content-Type: application/json
+        body: '{"error":{"code":4,"message":"product not found","context":{"product_id":"404"}}}'

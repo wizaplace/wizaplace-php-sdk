@@ -1,0 +1,53 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@37cce85
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 03 Apr 2018 13:21:48 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: 072bb9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/072bb9'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":4,"apiKey":"2IM0w0iJ+uGDnL6VdYKetieelfjAKJUEusuV65xS"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/categories'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-get_categories@37cce85
+            Authorization: 'token 2IM0w0iJ+uGDnL6VdYKetieelfjAKJUEusuV65xS'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Date: 'Tue, 03 Apr 2018 13:21:49 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
+            Cache-Control: 'no-cache, private'
+            Content-Language: fr
+            X-Debug-Token: '113608'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/113608'
+            Content-Length: '470'
+            Content-Type: application/json
+        body: '[{"category_id":6,"parent_id":0,"category":"Special category dedicated to specific tests","status":"A"},{"category_id":5,"parent_id":3,"category":"Casques","status":"A"},{"category_id":4,"parent_id":3,"category":"\u00c9crans","status":"A"},{"category_id":3,"parent_id":0,"category":"Informatique","status":"A"},{"category_id":2,"parent_id":0,"category":"Cat\u00e9gorie principale","status":"A"},{"category_id":1,"parent_id":0,"category":"Echec import CSV","status":"H"}]'
