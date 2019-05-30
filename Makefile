@@ -1,5 +1,3 @@
-
-
 all: install lint stan test
 
 install:
