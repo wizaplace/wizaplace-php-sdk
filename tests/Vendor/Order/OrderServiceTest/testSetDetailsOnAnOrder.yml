@@ -1,0 +1,92 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-comment-on-order-in-SDK@f52334b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 31 May 2019 09:34:05 GMT'
+            Content-Language: fr
+            X-Debug-Token: 146d4e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/146d4e'
+            X-Request-Id: 6044237963f6fc4fbe8132739b1084ed
+        body: '{"id":6,"apiKey":"usvcAR\/nbFI7qe9dmqqSPqRBMySuSuJw\/itpHJ8c"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/orders/5/details'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-comment-on-order-in-SDK@f52334b
+            Authorization: 'token usvcAR/nbFI7qe9dmqqSPqRBMySuSuJw/itpHJ8c'
+            VCR-index: '1'
+            Accept: null
+        body: '{"details":"Voici un nouveau commentaire de vendeur sur la commande"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 31 May 2019 09:34:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 5127b7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5127b7'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%225127b7%22%2C%22route%22%3A%22api_order_details_patch%22%2C%22method%22%3A%22PATCH%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrderDetailsController%22%2C%22method%22%3A%22setDetailsAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrderDetailsController.php%22%2C%22line%22%3A45%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 34946f0721d8c0b154d989af9bb719f7
+        body: '{"message":"Staff note successfully added to order 5."}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-comment-on-order-in-SDK@f52334b
+            Authorization: 'token usvcAR/nbFI7qe9dmqqSPqRBMySuSuJw/itpHJ8c'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 31 May 2019 09:34:09 GMT'
+            Content-Language: fr
+            X-Debug-Token: 924c9f
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/924c9f'
+            X-Request-Id: f7e4df8b88aaf41494558c4c0559e77d
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"e505ea11-90dc-4414-83fb-12829789ca92","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1559289073,"status":"P","notes":"","details":"Voici un nouveau commentaire de vendeur sur la commande","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-05-31T07:52:38+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_validation_pending_vendor_validation_processing","totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'
