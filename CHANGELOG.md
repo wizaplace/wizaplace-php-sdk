@@ -1,6 +1,8 @@
 # Changelog
 
-## 1.52.0
+## Next release
+
+### New features
 
 - Added `Wizaplace\SDK\Currency\CurrencyService::getAll`
 - Added `Wizaplace\SDK\Currency\CurrencyService::getByFilters`
@@ -14,9 +16,66 @@
 - Updated `\Wizaplace\SDK\User\User` Add 'currencyCode' to user profile
 - Updated `\Wizaplace\SDK\User\UserService::updateUser` Add 'currencyCode' property
 
+## 1.61.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getProductTemplateType`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getProductTemplateType`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setProductTemplateType`
+
+## 1.60.0
+
+### New features
+
+- Added `lastStatusChange` property to `Wizaplace\SDK\Vendor\Order` and `Wizaplace\SDK\Vendor\OrderSummary`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byCategoryIds`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsAfter`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsBefore`
+- Updated `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders`
+
+## 1.57.0
+
+### Bugfixes
+
+- Added `Iban` and `Bic` to data sent by `Wizaplace\SDK\Company\CompanyService::unauthenticatedRegister()`
+- Fixed `\Wizaplace\SDK\Company\Company::__construct` with NAF Code `null` in constructor
+
+## 1.56.0
+
+### New features
+
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::submitContactRequest` add 3 optional params `$recipientEmail`, `$attachmentsUrls` and `$files`
+
+## 1.55.1
+
+### New features
+
+- Added `\Wizaplace\SDK\AuthLog\AuthLogService::get`
+- Added `\Wizaplace\SDK\AuthLog\AuthLogService::search`
+
+### Bugfixes
+
+- Fixed missing Order status in `Wizaplace\SDK\Vendor\Order\OrderStatus` and `Wizaplace\SDK\Order\OrderStatus` 
+
+## 1.52.0
+
+### New features
+
+- Fixed `\Wizaplace\SDK\Catalog\Product` shippings into declination
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getNafCode`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setNafCode`
+- Added `\Wizaplace\SDK\Company\Company::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getNafCode`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setNafCode`
+
 ## 1.51.0
 
+### New features
+
 - Added `\Wizaplace\SDK\Order\OrderItem::getSupplierRef`
+- Added `\Wizaplace\SDK\Pim\Product\ProductService::updateStock`
 - Added `Wizaplace\SDK\Catalog\Category::getSeoKeywords`
 - Added `Wizaplace\Vendor\Order\AmountTaxesDetail` Represent an amount by its 3 values: excluding taxes, taxes and including taxes
 - Added `Wizaplace\Vendor\Order\AmountsTaxesDetails` Collection of AmountTaxesDetail
@@ -25,6 +84,8 @@
 - Added `Wizaplace\Vendor\Order\Order::getShippingCostsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getCommissionsTaxesDetail()`
 - Added `Wizaplace\Vendor\Order\Order::getVendorShareTaxesDetail()`
+- Added `\Wizaplace\SDK\Language\Language`
+- Added `\Wizaplace\SDK\Language\LanguageService::getAllLanguages`
 
 ## 1.50.0
 
@@ -95,7 +156,7 @@
 
 ## 1.44.13
 
- ### New features
+### New features
 
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::getIban`
 - Added `\Wizaplace\SDK\Company\CompanyRegistration::setIban`
@@ -117,7 +178,7 @@
 ### Bugfixes
 
 - Fixed `\Wizaplace\SDK\Catalog\ProductOffer` with null `$data['divisions']`
-- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null 
+- Fixed `\Wizaplace\SDK\Catalog\ProductSummary::getOffers` return null
 
 ## 1.44.10
 

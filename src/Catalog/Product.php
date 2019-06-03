@@ -114,6 +114,9 @@ final class Product
     /** @var null|ProductOffer[] */
     private $offers;
 
+    /** @var null|string */
+    private $productTemplateType;
+
     /**
      * @internal
      *
@@ -149,7 +152,9 @@ final class Product
         $this->categoryPath = array_map(static function (array $category) : ProductCategory {
             return new ProductCategory($category);
         }, $data['categoryPath']);
-        $this->declinations = array_map(static function (array $declination) : Declination {
+        $this->declinations = array_map(function (array $declination) : Declination {
+            $declination['shippings'] = $this->shippings;
+
             return new Declination($declination);
         }, $data['declinations']);
         $this->options = array_map(static function (array $option) : Option {
@@ -181,6 +186,8 @@ final class Product
                 return new ProductOffer($offer);
             }, $data['offers']);
         }
+
+        $this->productTemplateType = $data['productTemplateType'] ?? null;
     }
 
     /**
@@ -503,5 +510,13 @@ final class Product
     public function getOffers(): ?array
     {
         return $this->offers;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getProductTemplateType(): ?string
+    {
+        return $this->productTemplateType;
     }
 }

@@ -89,6 +89,9 @@ abstract class ProductUpsertData
     /** @var null|bool */
     private $infiniteStock;
 
+    /** @var null|string */
+    private $productTemplateType;
+
     /**
      * @param string $code
      * @return $this
@@ -338,6 +341,17 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param null|string $productTemplateType
+     * @return $this
+     */
+    public function setProductTemplateType(?string $productTemplateType): self
+    {
+        $this->productTemplateType = $productTemplateType;
+
+        return $this;
+    }
+
+    /**
      * @internal
      * @throws SomeParametersAreInvalid
      */
@@ -387,6 +401,7 @@ abstract class ProductUpsertData
             'isDownloadable',
             'additionalImages',
             'infiniteStock',
+            'productTemplateType',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -530,6 +545,10 @@ abstract class ProductUpsertData
 
         if (isset($this->availabilityDate)) {
             $data['avail_since'] = $this->availabilityDate->getTimestamp();
+        }
+
+        if (isset($this->productTemplateType)) {
+            $data['product_template_type'] = to_string($this->productTemplateType);
         }
 
         return $data;

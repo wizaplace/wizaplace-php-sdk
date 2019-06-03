@@ -93,6 +93,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $product->getCategoryPath());
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
+        $this->assertSame('product', $product->getProductTemplateType());
         $this->assertFalse($product->hasInfiniteStock());
 
         $this->assertCount(3, $product->getShippings());
@@ -110,7 +111,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3.0, $product->getAverageRating());
+        $this->assertEquals('', $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -123,7 +124,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals(5.0, $companies[0]->getAverageRating());
+        $this->assertEquals('', $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -207,20 +208,21 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3, $product->getAverageRating());
+        $this->assertEquals('', $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
         $this->assertNull($catalogService->getBrand($product));
         $this->assertEmpty($product->getOtherOffers($product->getDeclinations()[0]));
         $this->assertTrue($product->getDeclinations()[0]->isAvailable());
+        $this->assertSame('product', $product->getProductTemplateType());
 
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals(5, $companies[0]->getAverageRating());
+        $this->assertEquals('', $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -252,6 +254,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('978020137962', $product->getCode());
         $this->assertSame(67.9, $product->getMinPrice());
         $this->assertCount(3, $product->getShippings());
+        $this->assertSame('product', $product->getProductTemplateType());
 
         /** @var Shipping $shipping */
         $shipping = current($product->getShippings());
@@ -266,7 +269,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3, $product->getAverageRating());
+        $this->assertEquals('', $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -279,7 +282,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals(5, $companies[0]->getAverageRating());
+        $this->assertEquals('', $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
@@ -1193,6 +1196,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '3_3_8',
@@ -1228,6 +1257,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
             new Declination([
@@ -1265,6 +1320,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '3_3_10',
@@ -1300,6 +1381,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
         ];
@@ -1385,6 +1492,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '2_1_1_2_6',
@@ -1426,6 +1559,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
             new Declination([
@@ -1469,6 +1628,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '2_1_2_2_6',
@@ -1510,6 +1695,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
             new Declination([
@@ -1553,6 +1764,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '2_1_3_2_6',
@@ -1594,6 +1831,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
             new Declination([
@@ -1637,6 +1900,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'image' => null,
                     'averageRating' => null,
                 ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                ],
             ]),
             new Declination([
                 'id' => '2_1_4_2_6',
@@ -1678,6 +1967,32 @@ final class CatalogServiceTest extends ApiTestCase
                     'isProfessional' => true,
                     'image' => null,
                     'averageRating' => null,
+                ],
+                'shippings' => [
+                    new Shipping([
+                        "shipping_id" => 1,
+                        "name" => "TNT Express",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "24h",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 38,
+                        "name" => "Lettre prioritaire",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
+                    new Shipping([
+                        "shipping_id" => 39,
+                        "name" => "Colissmo",
+                        "image" => null,
+                        "firstRate" => 0,
+                        "nextRate" => 0,
+                        "deliveryTime" => "",
+                    ]),
                 ],
             ]),
         ];

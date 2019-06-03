@@ -90,6 +90,9 @@ final class Company
      */
     private $extra;
 
+    /** @var null|string */
+    private $nafCode;
+
     /**
      * @internal
      *
@@ -119,6 +122,7 @@ final class Company
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
+        $this->nafCode = array_key_exists('nafCode', $data) && is_string($data['nafCode']) ? to_string($data['nafCode']) : null;
     }
 
     /**
@@ -295,5 +299,11 @@ final class Company
     public function getBic(): string
     {
         return $this->bic;
+    }
+
+    /** @return string */
+    public function getNafCode(): ?string
+    {
+        return $this->nafCode;
     }
 }

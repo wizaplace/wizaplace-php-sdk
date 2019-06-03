@@ -74,6 +74,9 @@ class AbstractCompanyRegistration
     /** @var array */
     protected $extra = [];
 
+    /** @var null|string */
+    protected $nafCode;
+
     /** @var bool */
     // phpcs:ignore
     protected $isC2C = false;
@@ -496,6 +499,24 @@ class AbstractCompanyRegistration
     final public function setBic(?string $bic): self
     {
         $this->bic = $bic;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    final public function getNafCode(): ?string
+    {
+        return $this->nafCode;
+    }
+
+    /**
+     * @param string|null $nafCode
+     *
+     * @return AbstractCompanyRegistration
+     */
+    final public function setNafCode(?string $nafCode): self
+    {
+        $this->nafCode = $nafCode;
 
         return $this;
     }
