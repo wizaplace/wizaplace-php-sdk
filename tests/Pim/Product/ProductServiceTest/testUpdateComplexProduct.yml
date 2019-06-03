@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@1280e97
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-757-service-template@0462300
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,18 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 18 Oct 2018 13:19:30 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: ebdef8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ebdef8'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":4,"apiKey":"ZokaLy72N0dgTP78\/yU7ksCT2LhoineJrIgXT2i8"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 06:58:27 GMT'
+            Content-Language: fr
+            X-Debug-Token: 9edfdc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9edfdc'
+            X-Request-Id: f07ca847785ab7b40e7c6b615133601e
+        body: '{"id":4,"apiKey":"AdeA5b++SlTQeRZfAGSgJYO8y85xq7KRm476j0lp"}'
 -
     request:
         method: POST
@@ -34,65 +37,71 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@1280e97
-            Authorization: 'token ZokaLy72N0dgTP78/yU7ksCT2LhoineJrIgXT2i8'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-757-service-template@0462300
+            Authorization: 'token AdeA5b++SlTQeRZfAGSgJYO8y85xq7KRm476j0lp'
             VCR-index: '1'
             Accept: null
-        body: '{"product_code":"code_full","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":12,"price":3.5,"combination":{"1":1,"2":5,"3":7},"combination_code":"code_full_declA"},{"amount":3,"price":100,"combination":{"1":1,"2":6,"3":9},"crossed_out_price":1000}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5,6]},{"option_id":3,"variants":[7,9]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}],"attachments":[{"label":"favicon","url":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}}'
+        body: '{"product_code":"code_full","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":12,"price":3.5,"combination":{"1":1,"2":5,"3":7},"combination_code":"code_full_declA"},{"amount":3,"price":100,"combination":{"1":1,"2":6,"3":9},"crossed_out_price":1000}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5,6]},{"option_id":3,"variants":[7,9]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/assets\/bundles\/app\/images\/favicon.png"}}],"attachments":[{"label":"favicon","url":"https:\/\/sandbox.wizaplace.com\/assets\/bundles\/app\/images\/favicon.png"}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}},"product_template_type":"product"}'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Thu, 18 Oct 2018 13:19:31 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 008baf
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/008baf'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22008baf%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            Content-Length: '17'
+            Server: nginx
             Content-Type: application/json
-        body: '{"product_id":14}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 06:58:32 GMT'
+            Content-Language: fr
+            X-Debug-Token: '104539'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/104539'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22104539%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 56139d4df950c58dcd00f16a5c4fd303
+        body: '{"product_id":36}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/products/14'
+        url: 'http://wizaplace.loc/api/v1/products/36'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@1280e97
-            Authorization: 'token ZokaLy72N0dgTP78/yU7ksCT2LhoineJrIgXT2i8'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-757-service-template@0462300
+            Authorization: 'token AdeA5b++SlTQeRZfAGSgJYO8y85xq7KRm476j0lp'
             VCR-index: '2'
             Accept: null
-        body: '{"product_code":"code_full2","supplier_ref":"supplierref_full2","product":"Full product2","status":"D","main_category":4,"green_tax":0.2,"condition":"U","free_shipping":"N","weight":0.3,"is_edp":"N","full_description":"super full description 2","short_description":"super short description 2","tax_ids":[2,3],"free_features":{"freeAttr1":"freeAttr1Value2","freeAttr2":43,"freeAttr3":["freeAttr3Value2",43]},"inventory":[{"amount":13,"price":3.6,"combination":{"1":1,"2":5,"3":7},"combination_code":"code_full_declA"},{"amount":4,"price":100.1,"combination":{"1":1,"2":6,"3":9},"crossed_out_price":1000.2}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5,6]},{"option_id":3,"variants":[7,9]}],"image_pairs":[{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}},{"detailed":{"image_name":"image2.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}}],"attachments":[{"label":"favicon2","url":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}],"main_pair":{"detailed":{"image_name":"image3.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}}}'
+        body: '{"product_code":"code_full2","supplier_ref":"supplierref_full2","product":"Full product2","status":"D","main_category":4,"green_tax":0.2,"condition":"U","free_shipping":"N","weight":0.3,"is_edp":"N","full_description":"super full description 2","short_description":"super short description 2","tax_ids":[2,3],"free_features":{"freeAttr1":"freeAttr1Value2","freeAttr2":43,"freeAttr3":["freeAttr3Value2",43]},"inventory":[{"amount":13,"price":3.6,"combination":{"1":1,"2":5,"3":7},"combination_code":"code_full_declA"},{"amount":4,"price":100.1,"combination":{"1":1,"2":6,"3":9},"crossed_out_price":1000.2}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5,6]},{"option_id":3,"variants":[7,9]}],"image_pairs":[{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/assets\/bundles\/app\/images\/favicon.png"}},{"detailed":{"image_name":"image2.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}}],"attachments":[{"label":"favicon2","url":"https:\/\/sandbox.wizaplace.com\/assets\/bundles\/app\/images\/favicon.png"}],"main_pair":{"detailed":{"image_name":"image3.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},"product_template_type":"product"}'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 18 Oct 2018 13:19:34 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b5f1a8
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b5f1a8'
-            Content-Length: '17'
+            Server: nginx
             Content-Type: application/json
-        body: '{"product_id":14}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 06:58:37 GMT'
+            Content-Language: fr
+            X-Debug-Token: '588503'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/588503'
+            X-Request-Id: 6fdb95314055e9129a00c2b560998683
+        body: '{"product_id":36}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/14'
+        url: 'http://wizaplace.loc/api/v1/products/36'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feat-infinitestock@1280e97
-            Authorization: 'token ZokaLy72N0dgTP78/yU7ksCT2LhoineJrIgXT2i8'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-757-service-template@0462300
+            Authorization: 'token AdeA5b++SlTQeRZfAGSgJYO8y85xq7KRm476j0lp'
             VCR-index: '3'
             Accept: null
     response:
@@ -101,12 +110,15 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 18 Oct 2018 13:19:37 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 1e2d07
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1e2d07'
-            Content-Length: '1634'
+            Server: nginx
             Content-Type: application/json
-        body: '{"product_id":14,"product_code":"code_full2","status":"D","company_id":2,"approved":"P","weight":0.3,"timestamp":1539868772,"updated_timestamp":1539868775,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[2,3],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Full product2","short_description":"super short description 2","full_description":"super full description 2","category_ids":[4],"main_category":4,"main_pair":{"detailed":{"image_path":"\/images\/detailed\/0\/4evbplo1_image3.png"}},"image_pairs":{"15":{"detailed":{"position": 0, "image_path":"\/images\/detailed\/0\/4ga539y7_image2.png"}},"16":{"detailed":{"position": 0, "image_path":"\/images\/detailed\/0\/favicon_qw4l-qv.png"}}},"video":null,"attachments":[{"id":"6da8f3e9-2cbc-4948-8f53-a66d3550da97","label":"favicon"}],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":13,"crossed_out_price":0.0,"affiliate_link":"","price":3.6,"combination_code":"code_full_declA"},{"combination":{"1":1,"2":5,"3":9},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"1":1,"2":6,"3":7},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"1":1,"2":6,"3":9},"amount":4,"crossed_out_price":1000.2,"affiliate_link":"","price":100.1,"combination_code":""}],"green_tax":0.2,"supplier_ref":"supplierref_full2","condition":"U","free_features":{"freeAttr1":["freeAttr1Value2"],"freeAttr2":[43],"freeAttr3":["freeAttr3Value2",43]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 06:58:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: 8d91d7
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/8d91d7'
+            X-Request-Id: 87e7c573d2d77748a8d2627bd0e4571f
+        body: '{"product_id":36,"product_code":"code_full2","status":"D","company_id":2,"approved":"P","weight":0.3,"timestamp":1554965910,"updated_timestamp":1554965915,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[2,3],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Full product2","short_description":"super short description 2","full_description":"super full description 2","category_ids":[4],"main_category":4,"main_pair":{"detailed":{"image_path":"\/images\/detailed\/0\/fu1oj7d0-image3.png","position":0}},"image_pairs":{"16":{"detailed":{"image_path":"\/images\/detailed\/0\/ceoya6um-image2.png","position":0}},"17":{"detailed":{"image_path":"\/images\/detailed\/0\/favicon_6u9f-au.png","position":0}}},"video":null,"attachments":[{"id":"c84c18b3-ecbb-4320-9653-2deb45fecd90","label":"favicon"}],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":13,"crossed_out_price":0.0,"affiliate_link":"","price":3.6,"combination_code":"code_full_declA"},{"combination":{"1":1,"2":5,"3":9},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"1":1,"2":6,"3":7},"amount":0,"crossed_out_price":0.0,"affiliate_link":"","price":0.0,"combination_code":""},{"combination":{"1":1,"2":6,"3":9},"amount":4,"crossed_out_price":1000.2,"affiliate_link":"","price":100.1,"combination_code":""}],"green_tax":0.2,"supplier_ref":"supplierref_full2","condition":"U","free_features":{"freeAttr1":["freeAttr1Value2"],"freeAttr2":[43],"freeAttr3":["freeAttr3Value2",43]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

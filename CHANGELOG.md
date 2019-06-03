@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.61.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getProductTemplateType`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getProductTemplateType`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setProductTemplateType`
+
 ## 1.60.0
 
 ### New features
