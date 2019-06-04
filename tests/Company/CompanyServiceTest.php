@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Company;
 
 use GuzzleHttp\Exception\ClientException;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyC2CRegistration;
@@ -26,7 +27,7 @@ use Wizaplace\SDK\User\UserType;
  */
 final class CompanyServiceTest extends ApiTestCase
 {
-    public function testRegisteringACompanyWithAllInformation()
+    public function testRegisteringACompanyWithAllInformation(): void
     {
         $companyRegistration = new CompanyRegistration('ACME2 Test Inc', 'acme2@example.com');
         $companyRegistration->setAddress('24 rue de la gare');
@@ -112,7 +113,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertCount(1, $files);
     }
 
-    public function testRegisteringACompanyWithMinimalInformation()
+    public function testRegisteringACompanyWithMinimalInformation(): void
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
 
@@ -125,7 +126,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertEmpty($company->getFax());
     }
 
-    public function testRegisteringACompanyWithInvalidEmail()
+    public function testRegisteringACompanyWithInvalidEmail(): void
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
 
@@ -133,20 +134,20 @@ final class CompanyServiceTest extends ApiTestCase
         $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register($companyRegistration);
     }
 
-    public function testRegisteringACompanyWithEmptyRequiredFields()
+    public function testRegisteringACompanyWithEmptyRequiredFields(): void
     {
         $this->expectException(ClientException::class);
         $this->expectExceptionCode(400);
         $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')->register(new CompanyRegistration('', ''));
     }
 
-    public function testRegisteringACompanyAnonymously()
+    public function testRegisteringACompanyAnonymously(): void
     {
         $this->expectException(AuthenticationRequired::class);
         (new CompanyService($this->buildApiClient()))->register(new CompanyRegistration('doesntmatter', 'really'));
     }
 
-    public function testUploadingBadExtensionRegistrationFiles()
+    public function testUploadingBadExtensionRegistrationFiles(): void
     {
         $companyRegistration = new CompanyRegistration('4CME Test Inc', 'acme4@example.com');
         $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('dummy.txt'));
@@ -159,7 +160,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('Invalid file', $result->getFileUploadResult('rib')->getErrorMessage());
     }
 
-    public function testRegisteringACompanyUnauthenticated()
+    public function testRegisteringACompanyUnauthenticated(): void
     {
         $companyRegistration = new UnauthenticatedCompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John', 'Doe');
         $result = (new CompanyService($this->buildApiClient()))->unauthenticatedRegister($companyRegistration);
@@ -188,9 +189,9 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testUpdatingACompany(): void
     {
-        $service = $this->buildUserCompanyService('vendor@world-company.com', 'password');
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
 
-        $company = $service->update((new CompanyUpdateCommand(3))->setPhoneNumber('0987654321'));
+        $company = $service->update((new CompanyUpdateCommand(2))->setPhoneNumber('0987654321'));
 
         $this->assertSame('0987654321', $company->getPhoneNumber());
     }
@@ -266,7 +267,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->buildUserCompanyService('vendor@world-company.com', 'password')->getCompany(1);
     }
 
-    public function testAddACompanyImageAndDeleteIt()
+    public function testAddACompanyImageAndDeleteIt(): void
     {
         $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
         $companyId = $service->getCompany(2)->getId();
@@ -346,7 +347,7 @@ final class CompanyServiceTest extends ApiTestCase
         }
     }
 
-    public function testRegisterACompanyWithReturnNafCodeNull()
+    public function testRegisterACompanyWithReturnNafCodeNull(): void
     {
         $companyRegistration = new CompanyRegistration('ACME-2019 Test Inc', 'acme-2019@example.com');
         $companyRegistration->setAddress('24 rue de la gare');
@@ -372,7 +373,7 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertNull($company->getNafCode());
     }
 
-    public function testRegisterACompanyWithIbanAndBic()
+    public function testRegisterACompanyWithIbanAndBic(): void
     {
         $companyRegistration = new CompanyRegistration('ACME-2019 Test Inc', 'acme-2019@example.com');
         $companyRegistration->setAddress('24 rue de la gare');
@@ -399,7 +400,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("AGFBFRCC", $company->getBic());
     }
 
-    public function testRegisterACompanyC2CWithIbanAndBic()
+    public function testRegisterACompanyC2CWithIbanAndBic(): void
     {
         $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
         $result = $companyService->registerC2CCompany("Super nom", "AD1200012030200359100100", "AGFBFRCC");
@@ -408,7 +409,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("AGFBFRCC", $company->getBic());
     }
 
-    public function testRegisterACompanyC2CWithIbanAndBicAndAddress()
+    public function testRegisterACompanyC2CWithIbanAndBicAndAddress(): void
     {
         $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'password');
 
@@ -432,7 +433,7 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("FR", $company->getCountry());
     }
 
-    public function testRegisterACompanyWithIbanAndBicUnauthenticated()
+    public function testRegisterACompanyWithIbanAndBicUnauthenticated(): void
     {
         $companyRegistration = new UnauthenticatedCompanyRegistration('ACME Test Inc', 'acme5@example.com', 'John', 'Doe');
         $companyRegistration->setIban('AD1200012030200359100100');
@@ -445,6 +446,80 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame("AGFBFRCC", $company->getBic());
     }
 
+    public function testUpdateCompanyMetadataWithAdminAccount(): void
+    {
+        $service = $this->buildUserCompanyService('admin@wizaplace.com', 'password');
+
+        $company = $this->setCompanyMetadata(
+            3,
+            [
+                'title' => 'Mon titre',
+                'description' => 'Ma description',
+                'keywords' => 'Mes mots-clés',
+            ]
+        );
+
+        static::expectExceptionCode(Response::HTTP_FORBIDDEN);
+        $service->update($company);
+    }
+
+    public function testGetCompanyMetadataWithAdminAccount(): void
+    {
+        $service = $this->buildUserCompanyService('admin@wizaplace.com', 'password');
+
+        $company = $service->getCompany(3);
+
+        static::assertEquals(3, $company->getId());
+        static::assertSame('Title', $company->getMetadata()->getTitle());
+        static::assertSame('Description', $company->getMetadata()->getDescription());
+        static::assertSame('Keyword, Keyword2', $company->getMetadata()->getKeywords());
+    }
+
+    public function testUpdateAndGetCompanyMetadataWithGoodVendorAccount(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+
+        $company = $this->setCompanyMetadata(
+            2,
+            [
+                'title' => 'Mon titre',
+                'description' => 'Ma description',
+                'keywords' => 'Mes mots-clés',
+            ]
+        );
+
+        $newCompany = $service->update($company);
+
+        static::assertEquals(2, $newCompany->getId());
+        static::assertSame('Mon titre', $newCompany->getMetadata()->getTitle());
+        static::assertSame('Ma description', $newCompany->getMetadata()->getDescription());
+        static::assertSame('Mes mots-clés', $newCompany->getMetadata()->getKeywords());
+    }
+
+    public function testUpdateCompanyMetadataWithBadVendorAccount(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+
+        $company = $this->setCompanyMetadata(
+            3,
+            [
+                'title' => 'Mon titre',
+                'description' => 'Ma description',
+                'keywords' => 'Mes mots-clés',
+            ]
+        );
+
+        static::expectExceptionCode(Response::HTTP_FORBIDDEN);
+        $service->update($company);
+    }
+
+    public function testGetCompanyMetadataWithBadVendorAccount(): void
+    {
+        $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+
+        static::expectExceptionCode(Response::HTTP_NOT_FOUND);
+        $service->getCompany(3);
+    }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
     {
@@ -452,5 +527,13 @@ final class CompanyServiceTest extends ApiTestCase
         $apiClient->authenticate($email, $password);
 
         return new CompanyService($apiClient);
+    }
+
+    private function setCompanyMetadata(int $companyId, array $metadata = []): CompanyUpdateCommand
+    {
+        return (new CompanyUpdateCommand($companyId))
+            ->setMetaTitle($metadata['title'] ?? null)
+            ->setMetaDescription($metadata['description'] ?? null)
+            ->setMetaKeywords($metadata['keywords'] ?? null);
     }
 }
