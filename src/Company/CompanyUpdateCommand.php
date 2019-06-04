@@ -70,29 +70,20 @@ class CompanyUpdateCommand
     /** @var null|string */
     private $nafCode;
 
-    /**
-     * CompanyUpdateCommand constructor.
-     *
-     * @param int $companyId
-     */
+    /** @var null|string */
+    private $metaTitle;
+
+    /** @var null|string */
+    private $metaDescription;
+
+    /** @var null|string */
+    private $metaKeywords;
+
     public function __construct(int $companyId)
     {
         $this->companyId = $companyId;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getName(): ?string
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string|null $name
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setName(?string $name): self
     {
         $this->name = $name;
@@ -100,19 +91,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getEmail(): ?string
+    public function getName(): ?string
     {
-        return $this->email;
+        return $this->name;
     }
 
-    /**
-     * @param string|null $email
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setEmail(?string $email): self
     {
         $this->email = $email;
@@ -120,19 +103,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getDescription(): ?string
+    public function getEmail(): ?string
     {
-        return $this->description;
+        return $this->email;
     }
 
-    /**
-     * @param string|null $description
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setDescription(?string $description): self
     {
         $this->description = $description;
@@ -140,19 +115,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getZipcode(): ?string
+    public function getDescription(): ?string
     {
-        return $this->zipcode;
+        return $this->description;
     }
 
-    /**
-     * @param string|null $zipcode
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setZipcode(?string $zipcode): self
     {
         $this->zipcode = $zipcode;
@@ -160,19 +127,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getAddress(): ?string
+    public function getZipcode(): ?string
     {
-        return $this->address;
+        return $this->zipcode;
     }
 
-    /**
-     * @param string|null $address
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setAddress(?string $address): self
     {
         $this->address = $address;
@@ -180,19 +139,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getCity(): ?string
+    public function getAddress(): ?string
     {
-        return $this->city;
+        return $this->address;
     }
 
-    /**
-     * @param string|null $city
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setCity(?string $city): self
     {
         $this->city = $city;
@@ -200,19 +151,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getCountry(): ?string
+    public function getCity(): ?string
     {
-        return $this->country;
+        return $this->city;
     }
 
-    /**
-     * @param string|null $country
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setCountry(?string $country): self
     {
         $this->country = $country;
@@ -220,19 +163,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getPhoneNumber(): ?string
+    public function getCountry(): ?string
     {
-        return $this->phoneNumber;
+        return $this->country;
     }
 
-    /**
-     * @param string|null $phoneNumber
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setPhoneNumber(?string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
@@ -240,19 +175,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getFax(): ?string
+    public function getPhoneNumber(): ?string
     {
-        return $this->fax;
+        return $this->phoneNumber;
     }
 
-    /**
-     * @param string|null $fax
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setFax(?string $fax): self
     {
         $this->fax = $fax;
@@ -260,19 +187,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getUrl(): ?string
+    public function getFax(): ?string
     {
-        return $this->url;
+        return $this->fax;
     }
 
-    /**
-     * @param string|null $url
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setUrl(?string $url): self
     {
         $this->url = $url;
@@ -280,19 +199,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getLegalStatus(): ?string
+    public function getUrl(): ?string
     {
-        return $this->legalStatus;
+        return $this->url;
     }
 
-    /**
-     * @param string|null $legalStatus
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setLegalStatus(?string $legalStatus): self
     {
         $this->legalStatus = $legalStatus;
@@ -300,19 +211,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getSiretNumber(): ?string
+    public function getLegalStatus(): ?string
     {
-        return $this->siretNumber;
+        return $this->legalStatus;
     }
 
-    /**
-     * @param string|null $siretNumber
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setSiretNumber(?string $siretNumber): self
     {
         $this->siretNumber = $siretNumber;
@@ -320,19 +223,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getVatNumber(): ?string
+    public function getSiretNumber(): ?string
     {
-        return $this->vatNumber;
+        return $this->siretNumber;
     }
 
-    /**
-     * @param string|null $vatNumber
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setVatNumber(?string $vatNumber): self
     {
         $this->vatNumber = $vatNumber;
@@ -340,19 +235,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getCapital(): ?string
+    public function getVatNumber(): ?string
     {
-        return $this->capital;
+        return $this->vatNumber;
     }
 
-    /**
-     * @param string|null $capital
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setCapital(?string $capital): self
     {
         $this->capital = $capital;
@@ -360,19 +247,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getRcs(): ?string
+    public function getCapital(): ?string
     {
-        return $this->rcs;
+        return $this->capital;
     }
 
-    /**
-     * @param string|null $rcs
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setRcs(?string $rcs): self
     {
         $this->rcs = $rcs;
@@ -380,19 +259,11 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getSlug(): ?string
+    public function getRcs(): ?string
     {
-        return $this->slug;
+        return $this->rcs;
     }
 
-    /**
-     * @param string|null $slug
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setSlug(?string $slug): self
     {
         $this->slug = $slug;
@@ -400,35 +271,21 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return array|null
-     */
-    public function getExtra(): ?array
+    public function getSlug(): ?string
     {
-        return $this->extra;
+        return $this->slug;
     }
 
-    /**
-     * @param array|null $extra
-     */
     public function setExtra(?array $extra): void
     {
         $this->extra = $extra;
     }
 
-    /**
-     * @return int
-     */
-    public function getCompanyId(): int
+    public function getExtra(): ?array
     {
-        return $this->companyId;
+        return $this->extra;
     }
 
-    /**
-     * @param int $companyId
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setCompanyId(int $companyId): self
     {
         $this->companyId = $companyId;
@@ -436,23 +293,56 @@ class CompanyUpdateCommand
         return $this;
     }
 
-    /**
-     * @return string|null
-     */
-    public function getNafCode(): ?string
+    public function getCompanyId(): int
     {
-        return $this->nafCode;
+        return $this->companyId;
     }
 
-    /**
-     * @param string|null $nafCode
-     *
-     * @return CompanyUpdateCommand
-     */
     public function setNafCode(?string $nafCode): self
     {
         $this->nafCode = $nafCode;
 
         return $this;
+    }
+
+    public function getNafCode(): ?string
+    {
+        return $this->nafCode;
+    }
+
+    public function setMetaTitle(?string $metaTitle): self
+    {
+        $this->metaTitle = $metaTitle;
+
+        return $this;
+    }
+
+    public function getMetaTitle(): ?string
+    {
+        return $this->metaTitle;
+    }
+
+    public function setMetaDescription(?string $metaDescription): self
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    public function getMetaDescription(): ?string
+    {
+        return $this->metaDescription;
+    }
+
+    public function setMetaKeywords(?string $metaKeywords): self
+    {
+        $this->metaKeywords = $metaKeywords;
+
+        return $this;
+    }
+
+    public function getMetaKeywords(): ?string
+    {
+        return $this->metaKeywords;
     }
 }

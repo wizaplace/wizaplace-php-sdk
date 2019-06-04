@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 May 2019 10:04:27 GMT'
+            Content-Language: fr
+            X-Debug-Token: 39ff58
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39ff58'
+            X-Request-Id: d3d60747f0571d89c2666b813602bede
+        body: '{"id":2,"apiKey":"3FyevPRxYLNMI8dOJUpSSv6e3T1I\/s4c2F7kSKJI"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
+            Authorization: 'token 3FyevPRxYLNMI8dOJUpSSv6e3T1I/s4c2F7kSKJI'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 May 2019 10:04:28 GMT'
+            Content-Language: fr
+            X-Debug-Token: 1d65a8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1d65a8'
+            X-Request-Id: 3e7213be0f818e18bb9d4d4cf179c922
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"01 02 03 04 05","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[],"nafCode":null,"meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
