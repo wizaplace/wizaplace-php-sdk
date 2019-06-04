@@ -117,6 +117,13 @@ final class CompanyService extends AbstractService
     public function update(CompanyUpdateCommand $command): Company
     {
         $this->client->mustBeAuthenticated();
+        $isNotNull =  function ($value): bool {
+            if (is_array($value)) {
+                return $value !== [];
+            }
+
+            return $value !== null;
+        };
 
         $responseData = $this->client->put(
             'companies/'.$command->getCompanyId(),
@@ -141,10 +148,16 @@ final class CompanyService extends AbstractService
                         'capital' => $command->getCapital(),
                         'extra' => $command->getExtra(),
                         'nafCode' => $command->getNafCode(),
+                        'meta' => array_filter(
+                            [
+                                'title' => $command->getMetaTitle(),
+                                'description' => $command->getMetaDescription(),
+                                'keywords' => $command->getMetaKeywords(),
+                            ],
+                            $isNotNull
+                        ),
                     ],
-                    static function ($value): bool {
-                        return $value !== null;
-                    }
+                    $isNotNull
                 ),
             ]
         );

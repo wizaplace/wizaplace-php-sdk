@@ -48,7 +48,7 @@ use Wizaplace\SDK\Tests\ApiTestCase;
  */
 final class CatalogServiceTest extends ApiTestCase
 {
-    public function testGetAllProducts()
+    public function testGetAllProducts(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -78,7 +78,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame("MVP Test", $product->getName());
     }
 
-    public function testGetProductById()
+    public function testGetProductById(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -144,7 +144,7 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetDeclinationByID()
+    public function testGetDeclinationByID(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -174,7 +174,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(3, $declination->getShippings());
     }
 
-    public function testGetProducstByCode()
+    public function testGetProducstByCode(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -234,7 +234,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEmpty($product->getImages());
     }
 
-    public function testGetProducstBySupplierReference()
+    public function testGetProducstBySupplierReference(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -314,7 +314,7 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetProductByFiltersWithCompany()
+    public function testGetProductByFiltersWithCompany(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -347,7 +347,7 @@ final class CatalogServiceTest extends ApiTestCase
         self::assertSame('Z11 ATX Plus PC Steel case', $product->getName());
     }
 
-    public function testGetMVPById()
+    public function testGetMVPById(): void
     {
         $mvp = $this->buildCatalogService()->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
         $this->assertInstanceOf(Product::class, $mvp);
@@ -360,7 +360,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame([$mvp->getDeclinations()[1]], $otherOffers);
     }
 
-    public function testGetProductWithComplexAttributes()
+    public function testGetProductWithComplexAttributes(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -684,7 +684,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('puma', $brand->getSlug());
     }
 
-    public function testGetNonExistingProductById()
+    public function testGetNonExistingProductById(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -692,7 +692,7 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService->getProductById('404');
     }
 
-    public function testSearchOneProductByName()
+    public function testSearchOneProductByName(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -760,7 +760,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($catalogService->getBrand($product));
     }
 
-    public function testSearchMVP()
+    public function testSearchMVP(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -775,7 +775,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
     }
 
-    public function testSearchProductWithComplexAttributes()
+    public function testSearchProductWithComplexAttributes(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -884,7 +884,7 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetCompanyById()
+    public function testGetCompanyById(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -926,7 +926,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame([], $company->getExtra());
     }
 
-    public function testGetCompanies()
+    public function testGetCompanies(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -944,7 +944,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('69000', $companies[0]->getFullAddress()->getZipCode());
     }
 
-    public function testGetC2cCompanyById()
+    public function testGetC2cCompanyById(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -967,14 +967,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('75001', $company->getFullAddress()->getZipCode());
     }
 
-    public function testGetCompanyWhichDoesntExist()
+    public function testGetCompanyWhichDoesntExist(): void
     {
         $this->expectException(CompanyNotFound::class);
 
         $this->buildCatalogService()->getCompanyById(404);
     }
 
-    public function testGetCategory()
+    public function testGetCategory(): void
     {
         $category = $this->buildCatalogService()->getCategory(2);
         $this->assertSame(2, $category->getId());
@@ -1016,7 +1016,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('screens', $categoryPath[1]->getSlug());
     }
 
-    public function testGetCategoryTree()
+    public function testGetCategoryTree(): void
     {
         $categoryTree = $this->buildCatalogService()->getCategoryTree();
         $this->assertCount(3, $categoryTree);
@@ -1056,7 +1056,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('screens', $categoryPath[1]->getSlug());
     }
 
-    public function testGetCategories()
+    public function testGetCategories(): void
     {
         $categories = $this->buildCatalogService()->getCategories();
 
@@ -1064,7 +1064,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertContainsOnly(Category::class, $categories);
     }
 
-    public function testGetAttributes()
+    public function testGetAttributes(): void
     {
         $attributes = $this->buildCatalogService()->getAttributes();
 
@@ -1078,7 +1078,7 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetAttribute()
+    public function testGetAttribute(): void
     {
         $attribute = $this->buildCatalogService()->getAttribute(1);
 
@@ -1089,13 +1089,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertNull($attribute->getParentId());
     }
 
-    public function testGetNonExistingAttribute()
+    public function testGetNonExistingAttribute(): void
     {
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->getAttribute(404);
     }
 
-    public function testGetAttributeVariant()
+    public function testGetAttributeVariant(): void
     {
         $variant = $this->buildCatalogService()->getAttributeVariant(3);
 
@@ -1109,13 +1109,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(5, $variant->getImage()->getId());
     }
 
-    public function testGetNonExistingAttributeVariant()
+    public function testGetNonExistingAttributeVariant(): void
     {
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->getAttributeVariant(404);
     }
 
-    public function testGetAttributeVariants()
+    public function testGetAttributeVariants(): void
     {
         $variants = $this->buildCatalogService()->getAttributeVariants(1);
 
@@ -1149,13 +1149,13 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedVariants, $variants);
     }
 
-    public function testGetNonExistingAttributeVariants()
+    public function testGetNonExistingAttributeVariants(): void
     {
         $this->expectException(NotFound::class);
         $this->buildCatalogService()->getAttributeVariants(404);
     }
 
-    public function testGetProductWithOptions()
+    public function testGetProductWithOptions(): void
     {
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById('3');
@@ -1445,7 +1445,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([7]));
     }
 
-    public function testGetProductWithMultipleOptions()
+    public function testGetProductWithMultipleOptions(): void
     {
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById('2');
@@ -2009,7 +2009,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertEquals($expectedDeclinations[7], $product->getDeclinationFromOptions([4, 6]));
     }
 
-    public function testGetProductWithGeolocation()
+    public function testGetProductWithGeolocation(): void
     {
         $location = $this->buildCatalogService()->getProductById('7')->getGeolocation();
         $this->assertInstanceOf(ProductLocation::class, $location);
@@ -2019,7 +2019,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('69005', $location->getZipcode());
     }
 
-    public function testGetProductWithAttachments()
+    public function testGetProductWithAttachments(): void
     {
         $attachments = $this->buildCatalogService()->getProductById('10')->getAttachments();
 
@@ -2036,7 +2036,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
     }
 
-    public function testGetProductWithVideo()
+    public function testGetProductWithVideo(): void
     {
         $video = $this->buildCatalogService()->getProductById('3')->getVideo();
         $this->assertInstanceOf(ProductVideo::class, $video);
@@ -2044,7 +2044,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4', (string) $video->getVideoUrl());
     }
 
-    public function testReportingProduct()
+    public function testReportingProduct(): void
     {
         $report = (new ProductReport())
             ->setProductId('1')
@@ -2061,7 +2061,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(204, $response->getStatusCode());
     }
 
-    public function testReportingNonExistingProduct()
+    public function testReportingNonExistingProduct(): void
     {
         $report = (new ProductReport())
             ->setProductId('404')
@@ -2073,7 +2073,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->buildCatalogService()->reportProduct($report);
     }
 
-    public function testReportingProductWithInvalidEmail()
+    public function testReportingProductWithInvalidEmail(): void
     {
         $report = (new ProductReport())
             ->setProductId('1')
@@ -2086,7 +2086,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->buildCatalogService()->reportProduct($report);
     }
 
-    public function testReportingProductWithMissingField()
+    public function testReportingProductWithMissingField(): void
     {
         $report = (new ProductReport())
             ->setProductId('1')
@@ -2097,7 +2097,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->buildCatalogService()->reportProduct($report);
     }
 
-    public function testGetBrandFromWrongType()
+    public function testGetBrandFromWrongType(): void
     {
         $this->expectException(\TypeError::class);
         $this->buildCatalogService()->getBrand(new Declination([
@@ -2130,7 +2130,7 @@ final class CatalogServiceTest extends ApiTestCase
         ]));
     }
 
-    public function testNumericFacet()
+    public function testNumericFacet(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -2154,7 +2154,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertGreaterThan(0.0, $priceFacet->getMax());
     }
 
-    public function testGetProductWithSeoData()
+    public function testGetProductWithSeoData(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -2167,7 +2167,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Achat Micro-casque Corsair Gaming VOID Pro RGB Dolby 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
     }
 
-    public function testGetProductWithoutSeoDescription()
+    public function testGetProductWithoutSeoDescription(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -2180,7 +2180,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $product->getSeoDescription());
     }
 
-    public function testGetProductWithoutSeoTitle()
+    public function testGetProductWithoutSeoTitle(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -2191,6 +2191,18 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertSame('', $product->getSeoTitle());
         $this->assertSame('Achat Micro-casque Razer ManO\'War 7.1 Wireless - Edition Carbon sur notre MarketPlace. Casque-micro 7.1 sans fil pour gamer.', $product->getSeoDescription());
+    }
+
+    public function testGetCompanyMetadata(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $company = $catalogService->getCompanyById(3);
+
+        static::assertEquals(3, $company->getId());
+        static::assertSame('Title', $company->getMetadata()->getTitle());
+        static::assertSame('Description', $company->getMetadata()->getDescription());
+        static::assertSame('Keyword, Keyword2', $company->getMetadata()->getKeywords());
     }
 
     private function buildCatalogService(): CatalogServiceInterface
