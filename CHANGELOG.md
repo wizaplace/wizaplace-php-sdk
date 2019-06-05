@@ -1,5 +1,20 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Currency\CurrencyService::getAll`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getByFilters`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getByCountryCode`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCurrency`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
+- Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
+- Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`
+- Added `Wizaplace\SDK\Currency\CurrencyService::updateCurrency`
+- Added `\Wizaplace\SDK\User\UserService::patchUser`
+- Updated `\Wizaplace\SDK\User\User` Add 'currencyCode' to user profile
+- Updated `\Wizaplace\SDK\User\UserService::updateUser` Add 'currencyCode' property
 
 ## 1.62.0
 
