@@ -51,6 +51,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertSame('', $user->getFirstname());
         $this->assertSame('', $user->getLastname());
         $this->assertSame(null, $user->getBirthday());
+        $this->assertSame(null, $user->getCurrencyCode());
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
@@ -384,6 +385,7 @@ final class UserServiceTest extends ApiTestCase
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        $this->assertSame(null, $user->getCurrencyCode());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -393,6 +395,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setLastName('Jules')
                 ->setTitle(UserTitle::MR())
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
+                ->setCurrencyCode('EUR')
         );
 
         $client->authenticate('user43@example.com', 'password');
@@ -406,6 +409,26 @@ final class UserServiceTest extends ApiTestCase
         $this->assertNull($user->getCompanyId());
         $this->assertFalse($user->isVendor());
         $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        $this->assertSame('EUR', $user->getCurrencyCode());
+    }
+
+    public function testPatchUser(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userId = $userService->register('user65@example.com', 'password', 'Jean', 'Paul');
+        $client->authenticate('user65@example.com', 'password');
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setCurrencyCode('EUR')
+        );
+
+        $client->authenticate('user65@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('EUR', $user->getCurrencyCode());
     }
 
     public function testUpdateUserAddresses()

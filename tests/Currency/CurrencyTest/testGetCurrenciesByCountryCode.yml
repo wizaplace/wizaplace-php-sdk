@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3113-Get-currencies-by-filter@67613b2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 May 2019 11:54:58 GMT'
+            Content-Language: fr
+            X-Debug-Token: fa7c9f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fa7c9f'
+            X-Request-Id: 7ce8b9d950f4af3f424810af4fa40ffb
+        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies?countryCode=GB'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3113-Get-currencies-by-filter@67613b2
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 May 2019 11:54:58 GMT'
+            Content-Language: fr
+            X-Debug-Token: 3e5d9a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e5d9a'
+            X-Request-Id: dc6127cdff2c1df3cfb4b0698010f301
+        body: '[{"code":"GBP","symbol":"\u00a3","enabled":false,"exchangeRate":null,"countries":[{"code":"GB"},{"code":"GS"},{"code":"IM"},{"code":"JE"}]}]'

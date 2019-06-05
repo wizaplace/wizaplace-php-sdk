@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3113-Get-currencies-by-filter@67613b2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 May 2019 11:53:07 GMT'
+            Content-Language: fr
+            X-Debug-Token: 80e2b2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80e2b2'
+            X-Request-Id: 458995b8586a59bd92964ce97520670a
+        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies?countryCode=XX'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3113-Get-currencies-by-filter@67613b2
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 May 2019 11:53:08 GMT'
+            Content-Language: fr
+            X-Debug-Token: 40443b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/40443b'
+            X-Request-Id: 6edcd7783d716a3d13d4782d9891d6f7
+        body: '[]'
