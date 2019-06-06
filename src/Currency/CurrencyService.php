@@ -20,30 +20,19 @@ class CurrencyService extends AbstractService
     /** @return Currency[] */
     public function getAll(): array
     {
-        $this->client->mustBeAuthenticated();
-        try {
-            $currencies = $this->client->get('currencies');
+        $currencies = $this->client->get('currencies');
 
-            return array_map(
-                function (array $data): Currency {
-                    return new Currency($data);
-                },
-                $currencies
-            );
-        } catch (ClientException $e) {
-            switch ($e->getResponse()->getStatusCode()) {
-                case 403:
-                    throw new AccessDenied("You must be authenticated as an admin.");
-                default:
-                    throw $e;
-            }
-        }
+        return array_map(
+            function (array $data): Currency {
+                return new Currency($data);
+            },
+            $currencies
+        );
     }
 
     /** @return CurrencyCountries[] */
     public function getCountries(string $currencyCode): array
     {
-        $this->client->mustBeAuthenticated();
         try {
             $currencyCountriesData = $this->client->get('currencies/'.$currencyCode.'/countries');
             $data = [];
@@ -54,8 +43,6 @@ class CurrencyService extends AbstractService
             return $data;
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
-                case 403:
-                    throw new AccessDenied("You must be authenticated as an admin.");
                 case 404:
                     throw new NotFound("Currency '$currencyCode' not found.");
                 default:
@@ -110,24 +97,14 @@ class CurrencyService extends AbstractService
     /** @return Currency[] */
     public function getByFilters(array $filters): array
     {
-        $this->client->mustBeAuthenticated();
-        try {
-            $currencies = $this->client->get('currencies?'.http_build_query($filters));
+        $currencies = $this->client->get('currencies?'.http_build_query($filters));
 
-            return array_map(
-                function (array $data): Currency {
-                    return new Currency($data);
-                },
-                $currencies
-            );
-        } catch (ClientException $e) {
-            switch ($e->getResponse()->getStatusCode()) {
-                case 403:
-                    throw new AccessDenied("You must be authenticated as an admin.");
-                default:
-                    throw $e;
-            }
-        }
+        return array_map(
+            function (array $data): Currency {
+                return new Currency($data);
+            },
+            $currencies
+        );
     }
 
     public function getByCountryCode(string $code): ?Currency
@@ -165,13 +142,10 @@ class CurrencyService extends AbstractService
 
     public function getCurrency(string $currencyCode): Currency
     {
-        $this->client->mustBeAuthenticated();
         try {
             return new Currency($this->client->get('currencies/'.$currencyCode));
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
-                case 403:
-                    throw new AccessDenied("You must be authenticated as an admin.");
                 case 404:
                     throw new NotFound("Currency '$currencyCode' not found.");
                 default:
