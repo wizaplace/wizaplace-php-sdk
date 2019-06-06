@@ -1,6 +1,31 @@
 # Changelog
 
-## Next Release
+## 1.63.0
+
+### New features
+
+- Added `Wizaplace\SDK\Currency\CurrencyService::getAll`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getByFilters`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getByCountryCode`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCurrency`
+- Added `Wizaplace\SDK\Currency\CurrencyService::getCountries`
+- Added `Wizaplace\SDK\Currency\CurrencyService::addCountry`
+- Added `Wizaplace\SDK\Currency\CurrencyService::removeCountry`
+- Added `Wizaplace\SDK\Currency\CurrencyService::updateCurrency`
+- Added `\Wizaplace\SDK\User\UserService::patchUser`
+- Updated `\Wizaplace\SDK\User\User` Add 'currencyCode' to user profile
+- Updated `\Wizaplace\SDK\User\UserService::updateUser` Add 'currencyCode' property
+
+## 1.62.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Seo\Metadata.php`
+- Added `meta` => [`title`, `description`, `keywords`] to `\Wizaplace\SDK\Company\CompanyService.php::update()`
+- Added `metaTitle`, `metaDescription` and `metaKeywords` with getters and setters to `\Wizaplace\SDK\Company\CompanyUpdateCommand.php`
+- Added `metadata` with getter and setter to `\Wizaplace\SDK\Company\Company.php` and `\Wizaplace\SDK\Catalog\CompanyDetail.php`
+
+## 1.61.0
 
 ### New features
 
@@ -18,6 +43,7 @@
 - Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsAfter`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderListFilter::byLastStatusChangeIsBefore`
 - Updated `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders`
+
 
 ## 1.57.0
 

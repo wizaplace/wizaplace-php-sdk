@@ -33,6 +33,9 @@ final class UpdateUserCommand
     /** @var \DateTimeInterface|null */
     private $birthday;
 
+    /** @var string|null */
+    private $currencyCode;
+
     /**
      * @return int
      */
@@ -79,6 +82,14 @@ final class UpdateUserCommand
     public function getBirthday(): ?\DateTimeInterface
     {
         return $this->birthday;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCurrencyCode(): ?string
+    {
+        return $this->currencyCode;
     }
 
     /**
@@ -149,6 +160,17 @@ final class UpdateUserCommand
     public function setBirthday(?\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
+
+        return $this;
+    }
+
+    /**
+     * @param string $currencyCode
+     * @return UpdateUserCommand
+     */
+    public function setCurrencyCode(string $currencyCode): self
+    {
+        $this->currencyCode = $currencyCode;
 
         return $this;
     }

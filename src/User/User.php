@@ -42,6 +42,8 @@ final class User
     private $type;
     /** @var string|null */
     private $phone;
+    /** @var string|null */
+    private $currencyCode;
 
     /**
      * @internal
@@ -62,6 +64,7 @@ final class User
         $this->status = $data['status'] ?? null;
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
         $this->phone = $data['phone'] ?? null;
+        $this->currencyCode = $data['currencyCode'] ?? null;
     }
 
     /**
@@ -166,5 +169,13 @@ final class User
     public function getType(): ?UserType
     {
         return $this->type;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCurrencyCode(): ?string
+    {
+        return $this->currencyCode;
     }
 }

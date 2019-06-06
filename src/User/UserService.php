@@ -12,6 +12,7 @@ use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
@@ -74,9 +75,37 @@ final class UserService extends AbstractService
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
                     'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                    'currencyCode' => $command->getCurrencyCode(),
                 ],
             ]
         );
+    }
+
+    public function patchUser(UpdateUserCommand $command): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->patch(
+                "users/{$command->getUserId()}",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'currencyCode' => $command->getCurrencyCode(),
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied("You must be authenticated as an admin.");
+                case 404:
+                    throw new NotFound("Currency '{$command->getCurrencyCode()}' not found.");
+                case 400:
+                    throw new SomeParametersAreInvalid($e->getMessage());
+                default:
+                    throw $e;
+            }
+        }
     }
 
     /**

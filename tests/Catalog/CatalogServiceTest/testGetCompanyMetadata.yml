@@ -1,0 +1,29 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@ad5824e
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 24 May 2019 08:47:57 GMT'
+            Content-Language: fr
+            X-Debug-Token: cf7ede
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf7ede'
+            X-Request-Id: c7be4ebbf925079c3c47008f4d91fb19
+        body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'

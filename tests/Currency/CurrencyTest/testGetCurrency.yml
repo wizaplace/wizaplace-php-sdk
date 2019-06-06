@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3163-add-new-endpoint-get-a-currency@1639c2e
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 13 May 2019 08:48:59 GMT'
+            Content-Language: fr
+            X-Debug-Token: 831cce
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/831cce'
+            X-Request-Id: 1254a42a7b6719bb1b4f9cf790af18b0
+        body: '{"id":2,"apiKey":"S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/CHF'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3163-add-new-endpoint-get-a-currency@1639c2e
+            Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 13 May 2019 08:49:00 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4a8566
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4a8566'
+            X-Request-Id: 280ec6a92516467d1eb53fab438b62f5
+        body: '{"code":"CHF","symbol":"\u20a3","enabled":false,"exchangeRate":null,"countries":[{"code":"CH"},{"code":"LI"}]}'

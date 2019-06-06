@@ -11,6 +11,7 @@ use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
+use Wizaplace\SDK\Seo\Metadata;
 
 /**
  * Class Company
@@ -80,24 +81,18 @@ final class Company
      */
     private $legalRepresentativeFirstName;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $legalRepresentativeLastName;
 
-    /**
-     * @var array
-     */
+    /** @var array */
     private $extra;
 
     /** @var null|string */
     private $nafCode;
 
-    /**
-     * @internal
-     *
-     * @param array $data
-     */
+    /** @var null|Metadata  */
+    private $metadata;
+
     public function __construct(array $data)
     {
         $this->id = to_int($data['id']);
@@ -123,187 +118,126 @@ final class Company
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
         $this->nafCode = array_key_exists('nafCode', $data) && is_string($data['nafCode']) ? to_string($data['nafCode']) : null;
+        $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return string
-     */
     public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @return string
-     */
     public function getZipcode(): string
     {
         return $this->zipcode;
     }
 
-    /**
-     * @return string
-     */
     public function getAddress(): string
     {
         return $this->address;
     }
 
-    /**
-     * @return string
-     */
     public function getCity(): string
     {
         return $this->city;
     }
 
-    /**
-     * @return string
-     */
     public function getCountry(): string
     {
         return $this->country;
     }
 
-    /**
-     * @return string
-     */
     public function getPhoneNumber(): string
     {
         return $this->phoneNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getFax(): string
     {
         return $this->fax;
     }
 
-    /**
-     * @return UriInterface|null
-     */
     public function getUrl(): ?UriInterface
     {
         return $this->url;
     }
 
-    /**
-     * @return string
-     */
     public function getLegalStatus(): string
     {
         return $this->legalStatus;
     }
 
-    /**
-     * @return string
-     */
     public function getSiretNumber(): string
     {
         return $this->siretNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getVatNumber(): string
     {
         return $this->vatNumber;
     }
 
-    /**
-     * @return string
-     */
     public function getCapital(): string
     {
         return $this->capital;
     }
 
-    /**
-     * @return string
-     */
     public function getRcs(): string
     {
         return $this->rcs;
     }
 
-    /**
-     * @return string
-     */
     public function getSlug(): string
     {
         return $this->slug;
     }
 
-    /**
-     * @return string
-     */
     public function getLegalRepresentativeFirstName(): string
     {
         return $this->legalRepresentativeFirstName;
     }
 
-    /**
-     * @return string
-     */
     public function getLegalRepresentativeLastName(): string
     {
         return $this->legalRepresentativeLastName;
     }
 
-    /**
-     * @return array
-     */
     public function getExtra(): array
     {
         return $this->extra;
     }
 
-    /**
-     * @return string|null
-     */
     public function getIban(): ?string
     {
         return $this->iban;
     }
 
-    /**
-     * @return string
-     */
     public function getBic(): string
     {
         return $this->bic;
     }
 
-    /** @return string */
     public function getNafCode(): ?string
     {
         return $this->nafCode;
+    }
+
+    public function getMetadata(): ?Metadata
+    {
+        return $this->metadata;
     }
 }

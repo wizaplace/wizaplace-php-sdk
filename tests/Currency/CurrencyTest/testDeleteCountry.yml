@@ -1,0 +1,86 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 May 2019 12:31:42 GMT'
+            Content-Language: fr
+            X-Debug-Token: d9e746
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9e746'
+            X-Request-Id: b6f67c7fa6c2f93f3f22c8c4992ddddf
+        body: '{"id":2,"apiKey":"P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+"}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/currencies/CHF/countries/ZZ'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 May 2019 12:31:43 GMT'
+            Content-Language: fr
+            X-Debug-Token: 8b96d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b96d6'
+            X-Request-Id: c6879acea3d5e1425851394202614709
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/CHF/countries'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 May 2019 12:31:43 GMT'
+            Content-Language: fr
+            X-Debug-Token: 0969c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0969c7'
+            X-Request-Id: 6d4f3f5dcc8b8b64987c8659f81b7092
+        body: '[{"code":"CH"},{"code":"LI"}]'

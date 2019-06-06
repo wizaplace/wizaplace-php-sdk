@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 May 2019 12:31:39 GMT'
+            Content-Language: fr
+            X-Debug-Token: bc34bb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bc34bb'
+            X-Request-Id: 058144604e682bc2a4e5415a6f381981
+        body: '{"id":2,"apiKey":"P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/CHF/countries'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 May 2019 12:31:40 GMT'
+            Content-Language: fr
+            X-Debug-Token: 4d129c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d129c'
+            X-Request-Id: 2a3adc5adcf7529f410932fd813e5624
+        body: '[{"code":"CH"},{"code":"LI"}]'
