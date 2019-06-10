@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `alt` property to `\Wizaplace\SDK\Cms\Banner`
+
 ## 1.63.0
 
 ### New features
