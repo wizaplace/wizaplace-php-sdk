@@ -1,5 +1,12 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Order::getDetails` 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::setOrderDetails`
+
 ## 1.63.0
 
 ### New features
