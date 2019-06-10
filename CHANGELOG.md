@@ -1,5 +1,14 @@
 # Changelog
 
+## Next release
+
+### Bugfixes
+
+- Updated `Wizaplace\SDK\Currency\CurrencyService::getAll` Authentication anonymously authorized
+- Updated `Wizaplace\SDK\Currency\CurrencyService::getByFilters` Authentication anonymously authorized
+- Updated `Wizaplace\SDK\Currency\CurrencyService::getCurrency` Authentication anonymously authorized
+- Updated `Wizaplace\SDK\Currency\CurrencyService::getCountries` Authentication anonymously authorized
+
 ## 1.63.0
 
 ### New features
