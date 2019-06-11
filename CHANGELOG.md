@@ -2,6 +2,13 @@
 
 ## Next release
 
+### New features
+
+## 1.52.0
+
+- Added `\Wizaplace\SDK\Order\OrderService::createOrderAdjustment`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::createOrderAdjustment`
+
 ### Bugfixes
 
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getAll` Authentication anonymously authorized

@@ -1,0 +1,89 @@
+
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/users/authenticate'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      VCR-index: '0'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Tue, 09 Apr 2019 14:35:52 GMT'
+      Content-Language: fr
+      X-Debug-Token: 02d4cf
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/02d4cf'
+      X-Request-Id: 2e75e24bfc507a3c19f1ad67ff0bbace
+    body: '{"id":6,"apiKey":"tZtrhX5MLWFNBXLgN0\/aD\/FO8icO5NzVveb0KxpR"}'
+-
+  request:
+    method: POST
+    url: 'http://wizaplace.loc/api/v1/orders/10/adjustments'
+    headers:
+      Host: wizaplace.loc
+      Expect: null
+      Accept-Encoding: null
+      Content-Type: application/json
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      Authorization: 'token tZtrhX5MLWFNBXLgN0/aD/FO8icO5NzVveb0KxpR'
+      VCR-index: '1'
+      Accept: null
+    body: '{"itemId":3230927120,"newPrice":10}'
+  response:
+    status:
+      http_version: '1.1'
+      code: '204'
+      message: 'No Content'
+    headers:
+      Server: nginx
+      Content-Type: 'text/html; charset=UTF-8'
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Tue, 09 Apr 2019 14:35:53 GMT'
+      Content-Language: fr
+      X-Debug-Token: b373dc
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b373dc'
+      X-Request-Id: 32bb564f2683fff430d04c13a20b4410
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/orders/10'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      Authorization: 'token tZtrhX5MLWFNBXLgN0/aD/FO8icO5NzVveb0KxpR'
+      VCR-index: '2'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Tue, 09 Apr 2019 14:35:53 GMT'
+      Content-Language: fr
+      X-Debug-Token: 4c0600
+      X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4c0600'
+      X-Request-Id: 8cb892c93df3828b2d18be7da1f1fd4b
+    body: '{"order_id":10,"company_id":3,"user_id":7,"basket_id":"4c5f98c4-4aa5-4645-9471-a79a90aac27a","total":9.01,"discount":1.2,"shipping_cost":0.0,"timestamp":1554812154,"status":"P","notes":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":10.21,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":"INFO-002"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.21,"description":"TVA 2.1%","applies":{"P_3230927120":0.21}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_validation_pending_vendor_validation_processing"}'

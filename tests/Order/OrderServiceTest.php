@@ -278,6 +278,12 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertEmpty($payment->getProcessorInformations());
     }
 
+    public function testCreateOrderAdjustment(): void
+    {
+        $this->buildOrderService('admin@wizaplace.com', 'password')->createOrderAdjustment(10, 3230927120, 10);
+        static::assertSame(9.01, $this->buildOrderService()->getOrder(10)->getTotal());
+    }
+
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();
