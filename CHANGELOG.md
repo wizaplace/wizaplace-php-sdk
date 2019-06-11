@@ -9,6 +9,8 @@
 - Added `Wizaplace\SDK\Order\Payment::getExternalReference`
 - Added `Wizaplace\SDK\Catalog::getProductsByMvpId`
 - Added parameter `bool $allowMvp = true` to `Wizaplace\SDK\Catalog::getProductsBy*` methods
+- Added `\Wizaplace\SDK\Order\OrderService::createOrderAdjustment`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::createOrderAdjustment`
 
 ## 1.67.2
 

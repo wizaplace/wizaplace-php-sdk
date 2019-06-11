@@ -1,0 +1,118 @@
+q
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/users/authenticate'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      VCR-index: '0'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Mon, 01 Apr 2019 11:48:54 GMT'
+      Content-Language: fr
+      X-Debug-Token: 66b4a5
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/66b4a5'
+      X-Request-Id: 4a2ed3b11fcb8c07c7d2a4d9c8371d16
+    body: '{"id":2,"apiKey":"NHQpm0FFQgaEkP6xwDFQawP9LeCSPlIjmbz6joIi"}'
+-
+  request:
+    method: POST
+    url: 'http://wizaplace.loc/api/v1/orders/10/adjustments'
+    headers:
+      Host: wizaplace.loc
+      Expect: null
+      Accept-Encoding: null
+      Content-Type: application/json
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      Authorization: 'token NHQpm0FFQgaEkP6xwDFQawP9LeCSPlIjmbz6joIi'
+      VCR-index: '1'
+      Accept: null
+    body: '{"itemId":3230927120,"newPrice":10}'
+  response:
+    status:
+      http_version: '1.1'
+      code: '204'
+      message: 'No Content'
+    headers:
+      Server: nginx
+      Content-Type: 'text/html; charset=UTF-8'
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Mon, 01 Apr 2019 11:48:54 GMT'
+      Content-Language: fr
+      X-Debug-Token: a8a2b9
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a8a2b9'
+      X-Request-Id: be5c9ac5ebfb3081913bc454945b58ba
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/users/authenticate'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      VCR-index: '2'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Mon, 01 Apr 2019 11:48:54 GMT'
+      Content-Language: fr
+      X-Debug-Token: 5a2129
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5a2129'
+      X-Request-Id: e37cd50d9f8f7486b2246f333bc2e0c5
+    body: '{"id":7,"apiKey":"zYWgwQdTErxHxpsTH659sgZxUVsQqGRAQ+sShT2\/"}'
+-
+  request:
+    method: GET
+    url: 'http://wizaplace.loc/api/v1/user/orders/10'
+    headers:
+      Host: wizaplace.loc
+      Accept-Encoding: null
+      User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+      Authorization: 'token zYWgwQdTErxHxpsTH659sgZxUVsQqGRAQ+sShT2/'
+      VCR-index: '3'
+      Accept: null
+  response:
+    status:
+      http_version: '1.1'
+      code: '200'
+      message: OK
+    headers:
+      Server: nginx
+      Content-Type: application/json
+      Transfer-Encoding: chunked
+      Connection: keep-alive
+      X-Powered-By: PHP/7.2.15
+      Cache-Control: 'no-cache, private'
+      Date: 'Mon, 01 Apr 2019 11:48:54 GMT'
+      Content-Language: fr
+      X-Debug-Token: 33efed
+      X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/33efed'
+      X-Request-Id: 92e2737db2cfd525e24516a038ae697c
+    body: '{"id":10,"basketId":"3ffa26e3-822f-4b4d-a82e-32c61f29967d","companyId":3,"companyName":"The World Company Inc.","total":9.01,"taxTotal":0.21,"subtotal":9.01,"timestamp":1554108365,"status":"STANDBY_VENDOR","workflow":"workflow_order_validation_pending_vendor_validation_processing","shippingName":"","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"mondial","lastname":"relay","address":"25 rue de la gare","address2":"","city":"Lyon","zipcode":"69009","country":"FR","company":"wiz","pickupPointId":"00393"},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"3230927120","declinationId":"2_1_1_2_5","productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productImageId":null,"price":10.21,"amount":1,"options":[{"optionId":1,"optionName":"color","variantId":1,"variantName":"white"},{"optionId":2,"optionName":"connectivity","variantId":5,"variantName":"wireless"}],"customerComment":"","greenTax":0,"supplierRef":"INFO-002"}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"shippingCost":0,"discount":1.2}'

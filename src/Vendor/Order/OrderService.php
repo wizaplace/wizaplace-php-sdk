@@ -301,4 +301,18 @@ class OrderService extends AbstractService
 
         return $this;
     }
+
+    public function createOrderAdjustment(int $orderId, int $itemId, float $newPrice): self
+    {
+        $this->client->mustBeAuthenticated();
+
+        $this->client->post("orders/$orderId/adjustments", [
+            RequestOptions::JSON => [
+                'itemId' => $itemId,
+                'newPrice' => $newPrice,
+            ],
+        ]);
+
+        return $this;
+    }
 }

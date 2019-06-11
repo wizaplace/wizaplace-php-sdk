@@ -76,13 +76,6 @@ abstract class ApiTestCase extends TestCase
 
         $this->cassetteName = $reflectionClass->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
 
-        // Si la cassette n'existe pas...
-        if (!$this->currentCassetteExists()) {
-            // ...on ré-initialise les données de la marketplace
-            // pour une génération idempotente de la cassette.
-            $this->resetMarketplaceTestData();
-        }
-
         VCR::turnOn();
         VCR::insertCassette($this->cassetteName);
     }

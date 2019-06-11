@@ -436,6 +436,13 @@ class OrderServiceTest extends ApiTestCase
         static::assertEquals($status, $order->getStatus());
     }
 
+    public function testCreateOrderAdjustments(): void
+    {
+        $vendorOrderService = $this->buildVendorOrderService();
+        $vendorOrderService->createOrderAdjustment(10, 3230927120, 10);
+        static::assertSame(9.01, $vendorOrderService->getOrderById(10)->getTotal());
+    }
+
     public function orderWithStatus(): array
     {
         return [
