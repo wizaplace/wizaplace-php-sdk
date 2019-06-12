@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
 
+use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\AmountTaxesDetail;
@@ -442,6 +443,24 @@ class OrderServiceTest extends ApiTestCase
         $vendorOrderService->createOrderAdjustment(10, 3230927120, 10);
         static::assertSame(9.01, $vendorOrderService->getOrderById(10)->getTotal());
     }
+
+    public function testGetOrderAdjustments(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+        $adjustments = $orderService->getAdjustments(1);
+        /** @var OrderAdjustment $adjustment */
+        $adjustment = current($adjustments);
+        static::assertInternalType('array', $adjustments);
+        static::assertCount(1, $adjustments);
+        static::assertSame(2085640488, $adjustment->getItemId());
+        static::assertSame(70.9, $adjustment->getOldPrice());
+        static::assertSame(67.9, $adjustment->getNewPrice());
+        static::assertSame(70.9, $adjustment->getOldTotal());
+        static::assertSame(67.9, $adjustment->getNewTotal());
+        static::assertSame(7, $adjustment->getCreatedBy());
+        static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
+    }
+
 
     public function orderWithStatus(): array
     {

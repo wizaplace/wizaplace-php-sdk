@@ -11,6 +11,9 @@
 - Added parameter `bool $allowMvp = true` to `Wizaplace\SDK\Catalog::getProductsBy*` methods
 - Added `\Wizaplace\SDK\Order\OrderService::createOrderAdjustment`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::createOrderAdjustment`
+- Added `\Wizaplace\SDK\Order\OrderService::getAdjustments`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getAdjustments`
+- Added `\Wizaplace\SDK\Order\OrderAdjustment`
 
 ## 1.67.2
 

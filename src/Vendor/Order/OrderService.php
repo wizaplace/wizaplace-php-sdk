@@ -11,7 +11,9 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\AccessDenied;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 
 /**
@@ -314,5 +316,20 @@ class OrderService extends AbstractService
         ]);
 
         return $this;
+    }
+
+    public function getAdjustments(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return array_map(function (array $data): OrderAdjustment {
+                return new OrderAdjustment($data);
+            }, $this->client->get("orders/{$orderId}/adjustments"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
     }
 }

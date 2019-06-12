@@ -269,4 +269,19 @@ final class OrderService extends AbstractService
 
         return $this;
     }
+
+    public function getAdjustments(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return array_map(function (array $data): OrderAdjustment {
+                return new OrderAdjustment($data);
+            }, $this->client->get("orders/{$orderId}/adjustments"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
 }

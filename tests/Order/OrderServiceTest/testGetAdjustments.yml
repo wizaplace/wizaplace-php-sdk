@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 12:42:43 GMT'
+            Content-Language: fr
+            X-Debug-Token: cd018d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cd018d'
+            X-Request-Id: 111b32814157be59281683bbd3788f7b
+        body: '{"id":2,"apiKey":"PAVoIMiZnKMI+Wq2pjfo0ts0pJmn03Nfk0p1YUCy"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/1/adjustments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token PAVoIMiZnKMI+Wq2pjfo0ts0pJmn03Nfk0p1YUCy'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 11 Apr 2019 12:42:45 GMT'
+            Content-Language: fr
+            X-Debug-Token: 3471ae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3471ae'
+            X-Request-Id: 8f7daa405b6473ae94453e17f51c1ed8
+        body: '[{"itemId":2085640488,"oldPrice":70.9,"newPrice":67.9,"oldTotal":70.9,"newTotal":67.9,"createdBy":7,"createdAt":"2019-04-11T11:37:23+02:00"}]'
