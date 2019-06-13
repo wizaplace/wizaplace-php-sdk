@@ -77,6 +77,9 @@ class ProductSummary
     /** @var array */
     private $divisions;
 
+    /** @var int|null */
+    private $maxPriceAdjustment;
+
     /**
      * @internal
      *
@@ -112,6 +115,7 @@ class ProductSummary
             return new ProductAttachment($attachmentData);
         }, $data['attachments'] ?? []);
         $this->divisions = $data['divisions'] ?? [];
+        $this->maxPriceAdjustment = array_key_exists('max_price_adjustment', $data) ? $data['max_price_adjustment'] : null;
     }
 
     /**
@@ -272,5 +276,13 @@ class ProductSummary
     public function getDivisions(): array
     {
         return $this->divisions;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 }

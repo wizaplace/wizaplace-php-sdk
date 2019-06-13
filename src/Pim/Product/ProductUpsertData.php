@@ -92,6 +92,9 @@ abstract class ProductUpsertData
     /** @var null|string */
     private $productTemplateType;
 
+    /** @var int */
+    private $maxPriceAdjustment;
+
     /**
      * @param string $code
      * @return $this
@@ -341,6 +344,17 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param int $maxPriceAdjustment
+     * @return $this
+     */
+    public function setMaxPriceAdjustment(int $maxPriceAdjustment): self
+    {
+        $this->maxPriceAdjustment = $maxPriceAdjustment;
+
+        return $this;
+    }
+
+    /**
      * @param null|string $productTemplateType
      * @return $this
      */
@@ -364,8 +378,7 @@ abstract class ProductUpsertData
             $builder->addMethodMapping('loadNullChecksValidatorMetadata');
         }
 
-        $validator = $builder->getValidator()
-            ->startContext();
+        $validator = $builder->getValidator()->startContext();
 
         $validator->validate($this);
 
@@ -402,6 +415,7 @@ abstract class ProductUpsertData
             'additionalImages',
             'infiniteStock',
             'productTemplateType',
+            'maxPriceAdjustment',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -499,6 +513,10 @@ abstract class ProductUpsertData
 
         if (isset($this->infiniteStock)) {
             $data['infinite_stock'] = $this->infiniteStock;
+        }
+
+        if (isset($this->maxPriceAdjustment)) {
+            $data['max_price_adjustment'] = $this->maxPriceAdjustment;
         }
 
         if (isset($this->declinations)) {

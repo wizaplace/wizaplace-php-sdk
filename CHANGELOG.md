@@ -14,6 +14,8 @@
 - Added `\Wizaplace\SDK\Order\OrderService::getAdjustments`
 - Added `\Wizaplace\SDK\Vendor\Order\OrderService::getAdjustments`
 - Added `\Wizaplace\SDK\Order\OrderAdjustment`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getMaxPriceAdjustment`
+- Added `\Wizaplace\SDK\PIM\Product\ProductUpsertData::setMaxPriceAdjustment`
 
 ## 1.67.2
 
