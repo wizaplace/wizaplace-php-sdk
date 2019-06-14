@@ -290,6 +290,8 @@ final class Declination
     }
 
     /**
+     * Only available for a product
+     * For a MVP we're not able to know the shippings
      * @return array|null
      */
     public function getShippings(): ?array

@@ -2,12 +2,17 @@
 
 ## Next release
 
+### New features
+
+- Added `Wizaplace\SDK\Catalog\Product::isMVP` to know if a product was a Multi-Vendor product or not
+
 ### Bugfixes
 
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getAll` Authentication anonymously authorized
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getByFilters` Authentication anonymously authorized
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getCurrency` Authentication anonymously authorized
 - Updated `Wizaplace\SDK\Currency\CurrencyService::getCountries` Authentication anonymously authorized
+- Fixed `Wizaplace\SDK\Catalog\Declination::getShippings` Only available for a product, for a MVP we're not able to know the shippings
 
 ## 1.63.0
 

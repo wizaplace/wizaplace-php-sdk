@@ -117,6 +117,9 @@ final class Product
     /** @var null|string */
     private $productTemplateType;
 
+    /** @var bool */
+    protected $isMvp;
+
     /**
      * @internal
      *
@@ -126,6 +129,7 @@ final class Product
     public function __construct(array $data, UriInterface $apiBaseUrl)
     {
         $this->id = to_string($data['id']);
+        $this->isMvp = false === is_numeric($this->id);
         $this->code = $data['code'];
         $this->supplierReference = $data['supplierReference'];
         $this->name = $data['name'];
@@ -153,7 +157,11 @@ final class Product
             return new ProductCategory($category);
         }, $data['categoryPath']);
         $this->declinations = array_map(function (array $declination) : Declination {
-            $declination['shippings'] = $this->shippings;
+            // Only available for a product
+            // For a MVP we're not able to know the shippings
+            if (false === $this->isMvp()) {
+                $declination['shippings'] = $this->shippings;
+            }
 
             return new Declination($declination);
         }, $data['declinations']);
@@ -518,5 +526,10 @@ final class Product
     public function getProductTemplateType(): ?string
     {
         return $this->productTemplateType;
+    }
+
+    public function isMvp(): bool
+    {
+        return $this->isMvp;
     }
 }
