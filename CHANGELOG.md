@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.66.0
 
 ### New features
 
