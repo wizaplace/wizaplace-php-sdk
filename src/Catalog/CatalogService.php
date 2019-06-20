@@ -8,10 +8,11 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
-use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
 
@@ -435,6 +436,26 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         }
 
         return null;
+    }
+
+    /**
+     * @param string $attachmentId
+     *
+     * @return ResponseInterface
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getProductAttachment(string $attachmentId): ResponseInterface
+    {
+        try {
+            return $this->client->rawRequest('GET', "catalog/products/attachments/$attachmentId");
+        } catch (GuzzleException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Product attachment not found.", $e);
+            }
+
+            throw $e;
+        }
     }
 
     /**

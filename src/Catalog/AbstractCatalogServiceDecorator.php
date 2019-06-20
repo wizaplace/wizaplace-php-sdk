@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
+use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
@@ -226,5 +227,15 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
     public function getBrandFromProduct(Product $product): ?ProductAttributeValue
     {
         return $this->decorated->getBrandFromProduct($product);
+    }
+
+    /**
+     * @param string $attachmentId
+     *
+     * @return ResponseInterface
+     */
+    public function getProductAttachment(string $attachmentId): ResponseInterface
+    {
+        return $this->decorated->getProductAttachment($attachmentId);
     }
 }
