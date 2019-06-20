@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.67.2
+
+### Bugfixes
+
+- Added `Wizaplace\SDK\Pim\Product\ProductService::addAttachments`
+- Added `Wizaplace\SDK\Pim\Product\ProductService::removeAttachment`
+- Added `Wizaplace\SDK\Catalog\CatalogService::getProductAttachment`
+
 ## 1.66.0
 
 ### New features
@@ -7,9 +15,6 @@
 - Added `Wizaplace\SDK\Vendor\Order\Order::getDetails` 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::setOrderDetails`
 - Added `alt` property to `\Wizaplace\SDK\Cms\Banner`
-- Added `Wizaplace\SDK\Pim\Product\ProductService::addAttachments`
-- Added `Wizaplace\SDK\Pim\Product\ProductService::removeAttachment`
-- Added `Wizaplace\SDK\Catalog\CatalogService::getProductAttachment`
 
 ### Bugfixes
 
