@@ -1,5 +1,12 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Basket\Payment::getExternalReference`
+- Added `Wizaplace\SDK\Order\Payment::getExternalReference`
+
 ## 1.67.2
 
 ### Bugfixes

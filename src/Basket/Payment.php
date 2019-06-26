@@ -30,6 +30,9 @@ final class Payment
     /** @var PaymentType */
     private $type;
 
+    /** @var string|null */
+    private $externalReference;
+
     /**
      * @internal
      *
@@ -44,6 +47,7 @@ final class Payment
         if (isset($data['image'])) {
             $this->image = new Image($data['image']);
         }
+        $this->externalReference = $data['externalReference'] ?? null;
         $this->type = new PaymentType($data['type']);
     }
 
@@ -93,5 +97,13 @@ final class Payment
     public function getType(): PaymentType
     {
         return $this->type;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalReference(): ?string
+    {
+        return $this->externalReference;
     }
 }
