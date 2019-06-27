@@ -19,9 +19,9 @@ endif
 
 stan:
 ifndef CIRCLE_BUILD_NUM
-	./vendor/bin/phpstan analyse -l 5 src tests
+	./vendor/bin/phpstan analyse -l 5 src
 else
-	./vendor/bin/phpstan --no-interaction --no-progress analyse -l 5 src tests
+	./vendor/bin/phpstan --no-interaction --no-progress analyse -l 5 src
 endif
 
 test:

@@ -304,10 +304,29 @@ final class CatalogServiceTest extends ApiTestCase
             ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC']);
 
         $products = $catalogService->getProductsByFilters($filters);
+        $this->assertCount(5, $products);
 
-        $this->assertCount(7, $products);
+        $expected = ['1', '10', '2', '3', '9'];
 
-        $expected = ['2', '3', '1', '9', '10', '22', '23'];
+        foreach ($products as $key => $product) {
+            $this->assertSame($expected[$key], $product->getId());
+        }
+    }
+
+    public function testGetProductByFiltersNoMvp(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        // Filter with companyId
+        $filters = (new ProductFilter())
+            ->setCodes(['20230495447'])
+            ->setSupplierRefs(['TEST-MVP'])
+        ;
+
+        $products = $catalogService->getProductsByFilters($filters, false);
+        $this->assertCount(2, $products);
+
+        $expected = ['11', '12'];
 
         foreach ($products as $key => $product) {
             $this->assertSame($expected[$key], $product->getId());
@@ -320,16 +339,15 @@ final class CatalogServiceTest extends ApiTestCase
 
         // Filter with companyId
         $filters = (new ProductFilter())
-            ->setIds([1, 2, 3])
-            ->setCodes(['6311386284347', '4991933817246'])
-            ->setSupplierRefs(['TEST-ATTACHMENT', 'TEST-GEOLOC'])
-            ->setCompanyId(1);
+            ->setCodes(['20230495447'])
+            ->setSupplierRefs(['TEST-MVP'])
+            ->setCompanyId(3)
+        ;
 
-        $products = $catalogService->getProductsByFilters($filters);
+        $products = $catalogService->getProductsByFilters($filters, false);
+        $this->assertCount(1, $products);
 
-        $this->assertCount(2, $products);
-
-        $expected = ['22', '23'];
+        $expected = ['11'];
 
         foreach ($products as $key => $product) {
             $this->assertSame($expected[$key], $product->getId());
@@ -362,7 +380,7 @@ final class CatalogServiceTest extends ApiTestCase
 
     public function testGetProductsByMVPId(): void
     {
-        $list = $this->buildCatalogService()->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        $list = $this->buildCatalogService()->getProductsByMvpId('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
         static::assertCount(1, $list);
         $mvp = reset($list);
         static::assertInstanceOf(Product::class, $mvp);

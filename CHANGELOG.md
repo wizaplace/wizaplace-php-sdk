@@ -1,5 +1,12 @@
 # Changelog
 
+## Next Release
+
+### New features
+
+- Added `Wizaplace\SDK\Catalog::getProductsByMvpId`
+- Added parameter `bool $allowMvp = true` to `Wizaplace\SDK\Catalog::getProductsBy` methods
+
 ## 1.67.2
 
 ### Bugfixes

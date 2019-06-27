@@ -2,11 +2,11 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/products?id%5B0%5D=1&id%5B1%5D=2&id%5B2%5D=3&code%5B0%5D=6311386284347&code%5B1%5D=4991933817246&supplierRef%5B0%5D=TEST-ATTACHMENT&supplierRef%5B1%5D=TEST-GEOLOC&companyId=1'
+        url: 'http://wizaplace.loc/api/v1/catalog/products?code%5B0%5D=20230495447&supplierRef%5B0%5D=TEST-MVP&companyId=3&allowMvp=0'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-488-api-catalog-filters-by-list@58af2d1
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,14 +15,16 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 15 Feb 2019 13:29:04 GMT'
+            Date: 'Thu, 27 Jun 2019 15:51:03 GMT'
             Content-Language: fr
-            X-Debug-Token: 40a4f6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/40a4f6'
-        body: '[{"id":22,"code":"6311386284347","supplierReference":"","name":"animi molestias saepe et","url":"http:\/\/wizaplace.loc\/informatique\/ordinateurs-portables\/animi-molestias-saepe-et.html","shortDescription":"","description":"","slug":"animi-molestias-saepe-et","minPrice":199,"greenTax":0,"isTransactional":true,"weight":5.99,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"}],"companies":[{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null}],"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":8,"name":"Ordinateurs portables","slug":"ordinateurs-portables"}],"geolocation":null,"createdAt":"1970-01-01T00:00:01+00:00","updatedAt":"2019-02-15T13:28:31+00:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"22_0","code":"6311386284347","isAvailable":true,"supplierReference":"","price":199,"originalPrice":199,"crossedOutPrice":352,"prices":{"priceWithTaxes":199,"priceWithoutVat":194.91,"vat":4.09},"greenTax":0,"amount":33,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null}}],"offers":[{"productId":22,"companyId":1,"price":"199.000000","divisions":[]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[]},{"id":23,"code":"4991933817246","supplierReference":"","name":"eos adipisci incidunt quisquam","url":"http:\/\/wizaplace.loc\/informatique\/eos-adipisci-incidunt-quisquam.html","shortDescription":"","description":"","slug":"eos-adipisci-incidunt-quisquam","minPrice":292,"greenTax":0,"isTransactional":true,"weight":9.72,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"}],"companies":[{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null}],"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"}],"geolocation":null,"createdAt":"1970-01-01T00:00:01+00:00","updatedAt":"2019-02-15T13:28:31+00:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"23_0","code":"4991933817246","isAvailable":true,"supplierReference":"","price":292,"originalPrice":292,"crossedOutPrice":454,"prices":{"priceWithTaxes":292,"priceWithoutVat":285.99,"vat":6.01},"greenTax":0,"amount":19,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":1,"name":"Marchand de test","slug":"marchand-de-test","isProfessional":false,"image":null,"averageRating":null}}],"offers":[{"productId":23,"companyId":1,"price":"292.000000","divisions":[]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[]}]'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c6094f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6094f'
+            X-Request-Id: 67729a5255263bbe1393a68a39b16fc8
+        body: '[{"id":11,"code":"20230495447","supplierReference":"TEST-MVP-1","name":"Product in MVP 1","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/product-in-mvp-1.html","shortDescription":"","description":"","slug":"product-in-mvp-1","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}],"geolocation":null,"createdAt":"2019-06-27T15:33:42+00:00","updatedAt":"2019-06-27T15:33:43+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"11_0","code":"20230495447","isAvailable":true,"supplierReference":"TEST-MVP-1","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}}],"offers":[{"productId":11,"companyId":3,"price":0.5,"status":"A","divisions":[]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[]}]'
