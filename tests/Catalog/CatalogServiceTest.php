@@ -360,6 +360,21 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame([$mvp->getDeclinations()[1]], $otherOffers);
     }
 
+    public function testGetProductsByMVPId(): void
+    {
+        $list = $this->buildCatalogService()->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        static::assertCount(1, $list);
+        $mvp = reset($list);
+        static::assertInstanceOf(Product::class, $mvp);
+
+        static::assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $mvp->getId());
+        static::assertSame('Test MVP', $mvp->getName());
+        static::assertCount(2, $mvp->getCompanies());
+        static::assertCount(2, $mvp->getDeclinations());
+        $otherOffers = $mvp->getOtherOffers($mvp->getDeclinations()[0]);
+        static::assertSame([$mvp->getDeclinations()[1]], $otherOffers);
+    }
+
     public function testGetProductWithComplexAttributes(): void
     {
         $catalogService = $this->buildCatalogService();

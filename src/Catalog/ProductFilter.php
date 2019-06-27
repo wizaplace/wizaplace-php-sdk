@@ -17,6 +17,7 @@ final class ProductFilter
     public const ID = 'id';
     public const CODE = 'code';
     public const SUPPLIER_REF = 'supplierRef';
+    public const MVP_ID = 'mvpId';
     public const COMPANY_ID = 'companyId';
 
     /** @var int[]  */
@@ -28,6 +29,9 @@ final class ProductFilter
     /** @var string[]  */
     private $supplierRefs = [];
 
+    /** @var string[]  */
+    private $mvpIds = [];
+
     /** @var null|int */
     private $companyId;
 
@@ -37,6 +41,7 @@ final class ProductFilter
             static::ID => $this->ids,
             static::CODE => $this->codes,
             static::SUPPLIER_REF => $this->supplierRefs,
+            static::MVP_ID => $this->mvpIds,
             static::COMPANY_ID => $this->companyId,
         ];
 
@@ -82,6 +87,19 @@ final class ProductFilter
     public function setSupplierRefs(array $supplierRefs): self
     {
         $this->supplierRefs = $supplierRefs;
+
+        return $this;
+    }
+
+    /** @return string[] */
+    public function getMvpIds(): array
+    {
+        return $this->mvpIds;
+    }
+
+    public function setMvpIds(array $mvpIds): self
+    {
+        $this->mvpIds = $mvpIds;
 
         return $this;
     }
