@@ -271,11 +271,12 @@ final class OrderServiceTest extends ApiTestCase
         $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
         $payment = $orderService->getPayment(6);
 
-        $this->assertInstanceOf(Payment::class, $payment);
-        $this->assertSame("payment-deferment", $payment->getType());
-        $this->assertSame("stripe", $payment->getProcessorName());
-        $this->assertNull($payment->getCommitmentDate());
-        $this->assertEmpty($payment->getProcessorInformations());
+        static::assertInstanceOf(Payment::class, $payment);
+        static::assertSame("payment-deferment", $payment->getType());
+        static::assertSame("stripe", $payment->getProcessorName());
+        static::assertNull($payment->getCommitmentDate());
+        static::assertEmpty($payment->getProcessorInformations());
+        static::assertNull($payment->getExternalReference());
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
