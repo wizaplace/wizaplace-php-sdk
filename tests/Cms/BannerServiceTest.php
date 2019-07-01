@@ -21,6 +21,7 @@ final class BannerServiceTest extends ApiTestCase
 
         $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
         $this->assertSame(8, $banners[0]->getImageId());
+        $this->assertSame("Texte alternatif image", $banners[0]->getAlt());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
 
         $this->assertSame('http://url-de-test-2.com', (string) $banners[1]->getLink());
@@ -102,6 +103,22 @@ final class BannerServiceTest extends ApiTestCase
         $banners = $cmsService->getCategoriesBanners(404);
 
         $this->assertEmpty($banners);
+    }
+
+    public function testGetBannersWithAltTags(): void
+    {
+        $cmsService = $this->buildBannerService();
+        $banners1 = $cmsService->getHomepageBanners();
+        static::assertSame(2, count($banners1));
+        static::assertSame(8, $banners1[0]->getImageId());
+        static::assertSame("Texte alternatif image", $banners1[0]->getAlt());
+        static::assertSame('http://url-de-test-2.com', (string) $banners1[1]->getLink());
+        static::assertSame(9, $banners1[1]->getImageId());
+        static::assertFalse($banners1[1]->getShouldOpenInNewWindow());
+        $banners2 = $cmsService->getCategoriesBanners(3, 'desktop');
+        static::assertSame(1, count($banners2));
+        static::assertSame(9, $banners2[0]->getImageId());
+        static::assertSame("Texte alternatif image", $banners2[0]->getAlt());
     }
 
     private function buildBannerService(): BannerService

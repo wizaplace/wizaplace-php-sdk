@@ -23,6 +23,9 @@ class Payment
     /** @var array */
     private $processorInformations;
 
+    /** @var string|null */
+    private $externalReference;
+
     /**
      * @internal
      *
@@ -36,6 +39,7 @@ class Payment
         $this->processorName = $data['processorName'] ?? $data['processor_name'] ?? null;
         $this->commitmentDate = (isset($data['commitmentDate'])) ? new \DateTimeImmutable($data['commitmentDate']) : null;
         $this->processorInformations = $data['processorInformation'] ?? [];
+        $this->externalReference = $data['externalReference'] ?? null;
     }
 
     /**
@@ -68,5 +72,13 @@ class Payment
     public function getProcessorInformations(): array
     {
         return $this->processorInformations;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getExternalReference(): ?string
+    {
+        return $this->externalReference;
     }
 }

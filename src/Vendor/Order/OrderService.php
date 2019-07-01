@@ -284,4 +284,21 @@ class OrderService extends AbstractService
 
         return new MondialRelayLabel($result);
     }
+
+    /**
+     * @param int $orderId
+     * @param string $details
+     * @return OrderService
+     */
+    public function setOrderDetails(int $orderId, string $details): self
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->patch("orders/$orderId/details", [
+            RequestOptions::JSON => [
+                "details" => $details,
+            ],
+        ]);
+
+        return $this;
+    }
 }

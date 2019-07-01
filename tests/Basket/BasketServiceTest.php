@@ -130,9 +130,10 @@ final class BasketServiceTest extends ApiTestCase
             // Here we mostly check the payments were properly unserialized
             $availablePayment->getImage();
             $availablePayment->getDescription();
-            $this->assertNotEmpty($availablePayment->getName());
-            $this->assertGreaterThan(0, $availablePayment->getId());
-            $this->assertGreaterThanOrEqual(0, $availablePayment->getPosition());
+            static::assertNotEmpty($availablePayment->getName());
+            static::assertGreaterThan(0, $availablePayment->getId());
+            static::assertGreaterThanOrEqual(0, $availablePayment->getPosition());
+            static::assertSame(null, $availablePayment->getExternalReference());
         }
         $selectedPayment = reset($availablePayments)->getId();
         $redirectUrl = 'https://demo.loc/order/confirm';

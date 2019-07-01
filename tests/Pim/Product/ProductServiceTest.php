@@ -1154,6 +1154,53 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame(5, $product2->getDeclinations()[0]->getQuantity());
     }
 
+    public function testUploadAttachments(): void
+    {
+        $service = $this->buildProductService();
+
+        $uuids = $service->addAttachments(
+            1,
+            [
+                $this->mockUploadedFile("minimal.pdf"),
+                $this->mockUploadedFile("video.avi"),
+            ],
+            [
+                'http://wizaplace.test/tests/data/misc/logo-URL.jpg',
+                'http://wizaplace.test/tests/data/misc/boitier_test.jpg',
+            ]
+        );
+
+        static::assertCount(4, $uuids);
+        foreach ($uuids as $uuid) {
+            $this->assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
+        }
+    }
+
+    public function testUploadAndRemoveAttachments(): void
+    {
+        $service = $this->buildProductService();
+
+        $uuids = $service->addAttachments(
+            1,
+            [
+                $this->mockUploadedFile("minimal.pdf"),
+                $this->mockUploadedFile("video.avi"),
+            ],
+            [
+                'http://wizaplace.test/tests/data/misc/logo-URL.jpg',
+                'http://wizaplace.test/tests/data/misc/boitier_test.jpg',
+            ]
+        );
+
+        static::assertCount(4, $uuids);
+        foreach ($uuids as $uuid) {
+            $this->assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
+
+            $attachment = $service->removeAttachment(1, $uuid);
+            $this->assertEquals(204, $attachment->getStatusCode());
+        }
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();

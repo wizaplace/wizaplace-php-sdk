@@ -2205,6 +2205,13 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertSame('Keyword, Keyword2', $company->getMetadata()->getKeywords());
     }
 
+    public function testGetAttachment(): void
+    {
+        $response = $this->buildCatalogService()->getProductAttachment("91d90a26-9ec1-4092-a40c-4acd9c3fefa9");
+        static::assertSame('image/jpeg', $response->getHeaderLine('Content-Type'));
+        static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
+    }
+
     private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());

@@ -9,6 +9,8 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\ResponseInterface;
+use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
@@ -376,6 +378,82 @@ final class ProductService extends AbstractService
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("Product EAN #{$ean} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * @param int $productId
+     * @param UploadedFileInterface[] $files
+     * @param string[] $urls
+     *
+     * @return string[] Array of attachments' id
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function addAttachments(int $productId, array $files, array $urls): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $data = [];
+        if (count($urls) > 0) {
+            foreach ($urls as $url) {
+                $data[] = [
+                    'name'     => 'attachments[]',
+                    'contents' => $url,
+                ];
+            }
+        }
+
+        if (count($files) > 0) {
+            /** @var UploadedFileInterface $file */
+            foreach ($files as $file) {
+                if (false === $file instanceof UploadedFileInterface) {
+                    throw new \InvalidArgumentException('The $files parameter must be an array of '.UploadedFileInterface::class.'.');
+                }
+
+                $data[] = [
+                    'name'     => 'attachments[]',
+                    'contents' => $file->getStream(),
+                    'filename' => $file->getClientFilename(),
+                ];
+            }
+        }
+
+        try {
+            return $this->client->post("pim/products/$productId/attachments", [
+                RequestOptions::MULTIPART => $data,
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Product #$productId not found.", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /**
+     * @param int $productId
+     * @param string $attachmentId
+     *
+     * @return \Psr\Http\Message\ResponseInterface
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function removeAttachment(int $productId, string $attachmentId): ResponseInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->rawRequest("DELETE", "pim/products/$productId/attachments/$attachmentId");
+        } catch (ClientException $e) {
+            if ($e->getCode() === 404) {
+                throw new NotFound("Product #$productId not found.", $e);
             }
 
             throw $e;

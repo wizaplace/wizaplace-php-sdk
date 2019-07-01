@@ -51,6 +51,9 @@ final class Order
     /** @var string */
     private $notes;
 
+    /** @var string */
+    private $details;
+
     /** @var float */
     private $taxSubtotal;
 
@@ -111,6 +114,7 @@ final class Order
         }, $data['shipment_ids']);
         $this->shippingCost = $data['shipping_cost'];
         $this->notes = $data['notes'];
+        $this->details = $data['details'] ?? null;
         $this->taxSubtotal = $data['tax_subtotal'];
         $this->total = $data['total'];
         $this->status = new OrderStatus($data['status']);
@@ -231,6 +235,14 @@ final class Order
     public function getNotes(): string
     {
         return $this->notes;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getDetails(): ?string
+    {
+        return $this->details;
     }
 
     /**

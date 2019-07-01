@@ -57,7 +57,7 @@ final class BannerService extends AbstractService
     {
         $banners = [];
         foreach ($results as $result) {
-            $banner = new Banner(new Uri(to_string($result['link'])), $result['shouldOpenInNewWindow'], $result['image']['id'], $result['name']);
+            $banner = new Banner(new Uri(to_string($result['link'])), $result['shouldOpenInNewWindow'], $result['image']['id'], $result['name'], $result['image']['alt']);
             $banners[] = $banner;
         }
 
