@@ -87,14 +87,15 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @param string $code
+     * @param bool $allowMvp Whether to return MVP data or Offers data
      *
      * @return Product[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsByCode(string $code) : array
+    public function getProductsByCode(string $code, bool $allowMvp = true) : array
     {
-        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code]]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code, 'allowMvp' => (int) $allowMvp]]);
 
         return array_map(function ($product) {
             return new Product($product, $this->client->getBaseUri());
@@ -103,14 +104,32 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @param string $supplierReference
+     * @param bool $allowMvp Whether to return MVP data or Offers data
      *
      * @return Product[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsBySupplierReference(string $supplierReference) : array
+    public function getProductsBySupplierReference(string $supplierReference, bool $allowMvp = true) : array
     {
-        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['supplierRef' => $supplierReference]]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['supplierRef' => $supplierReference, 'allowMvp' => (int) $allowMvp]]);
+
+        return array_map(function ($product) {
+            return new Product($product, $this->client->getBaseUri());
+        }, $response);
+    }
+
+    /**
+     * @param string $mvpId
+     * @param bool $allowMvp Whether to return MVP data or Offers data
+     *
+     * @return Product[]
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getProductsByMvpId(string $mvpId, bool $allowMvp = true) : array
+    {
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['mvpId' => $mvpId, 'allowMvp' => (int) $allowMvp]]);
 
         return array_map(function ($product) {
             return new Product($product, $this->client->getBaseUri());
@@ -119,14 +138,15 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
     /**
      * @param ProductFilter $productFilter
+     * @param bool $allowMvp Whether to return MVP data or Offers data
      *
      * @return Product[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsByFilters(ProductFilter $productFilter): array
+    public function getProductsByFilters(ProductFilter $productFilter, bool $allowMvp = true): array
     {
-        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => $productFilter->getFilters()]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => array_merge($productFilter->getFilters(), ['allowMvp' => (int) $allowMvp])]);
 
         return array_map(function ($product) {
             return new Product($product, $this->client->getBaseUri());

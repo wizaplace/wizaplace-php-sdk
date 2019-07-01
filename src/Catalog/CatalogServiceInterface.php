@@ -53,6 +53,13 @@ interface CatalogServiceInterface
     public function getProductsBySupplierReference(string $supplierReference): array;
 
     /**
+     * @param string $mvpId
+     *
+     * @return Product[]
+     */
+    public function getProductsByMvpId(string $mvpId): array;
+
+    /**
      * @param ProductFilter $productFilter
      *
      * @return Product[]

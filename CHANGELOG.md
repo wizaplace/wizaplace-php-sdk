@@ -7,6 +7,8 @@
 - Added `Wizaplace\SDK\Catalog\Product::isMVP` to know if a product was a Multi-Vendor product or not
 - Added `Wizaplace\SDK\Basket\Payment::getExternalReference`
 - Added `Wizaplace\SDK\Order\Payment::getExternalReference`
+- Added `Wizaplace\SDK\Catalog::getProductsByMvpId`
+- Added parameter `bool $allowMvp = true` to `Wizaplace\SDK\Catalog::getProductsBy*` methods
 
 ## 1.67.2
 
