@@ -95,7 +95,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      */
     public function getProductsByCode(string $code, bool $allowMvp = true) : array
     {
-        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code, 'allowMvp' => $allowMvp ? 1 : 0]]);
+        $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code, 'allowMvp' => (int) $allowMvp]]);
 
         return array_map(function ($product) {
             return new Product($product, $this->client->getBaseUri());
