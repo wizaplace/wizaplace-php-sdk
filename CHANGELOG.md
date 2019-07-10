@@ -2,6 +2,8 @@
 
 ## Next release
 
+## 1.70.8
+
 ## Bugfixes
 
 - Fixed `Vendor/Promotion/BasketPromotion::getRule` can return null
