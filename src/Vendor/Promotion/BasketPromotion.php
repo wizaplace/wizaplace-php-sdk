@@ -104,7 +104,7 @@ final class BasketPromotion implements \JsonSerializable
         return $this->active;
     }
 
-    public function getRule(): BasketRule
+    public function getRule(): ?BasketRule
     {
         return $this->rule;
     }
@@ -212,8 +212,12 @@ final class BasketPromotion implements \JsonSerializable
         }
     }
 
-    private static function denormalizeRule(array $ruleData): BasketRule
+    private static function denormalizeRule(?array $ruleData): ?BasketRule
     {
+        if ($ruleData === null) {
+            return null;
+        }
+
         $type = new BasketRuleType($ruleData['type']);
 
         switch (true) {

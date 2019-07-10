@@ -220,6 +220,25 @@ final class BasketPromotionServiceTest extends ApiTestCase
         ];
     }
 
+    public function testPromotionWithoutRules(): void
+    {
+        $basketPromotionsService = $this->buildBasketPromotionService();
+
+        $nbPromotions = count($basketPromotionsService->listPromotions());
+
+        $savedPromotion = $basketPromotionsService->savePromotion(
+            SaveBasketPromotionCommand::createNew()
+                ->setName('test promotion without rules')
+                ->setActive(true)
+                ->setDiscounts([new FixedDiscount(3.5)])
+                ->setPeriod(new PromotionPeriod(new \DateTime('2010-01-01'), new \DateTime('2025-01-01')))
+                ->setTarget(new BasketTarget())
+        );
+
+        static::assertNull($savedPromotion->getRule());
+        static::assertCount(++$nbPromotions, $basketPromotionsService->listPromotions());
+    }
+
     private function getASaveBasketPromotionCommand(?BasketPromotionTarget $target = null)
     {
         $from = new \DateTimeImmutable('1992-09-07T00:00:00+0000');
