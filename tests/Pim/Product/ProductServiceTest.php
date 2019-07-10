@@ -24,6 +24,7 @@ use Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductGeolocation;
 use Wizaplace\SDK\Pim\Product\ProductGeolocationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductImageUpload;
+use Wizaplace\SDK\Pim\Product\ProductInventory;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
@@ -35,33 +36,33 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class ProductServiceTest extends ApiTestCase
 {
-    public function testGetProductById()
+    public function testGetProductById(): void
     {
         $product = $this->buildProductService()->getProductById(8);
 
-        $this->assertInstanceOf(Product::class, $product);
-        $this->assertSame(8, $product->getId());
-        $this->assertSame('Product with complex attributes', $product->getName());
-        $this->assertSame('32094574920', $product->getCode());
-        $this->assertSame('TEST-ATTRIBUTES', $product->getSupplierReference());
-        $this->assertSame('', $product->getFullDescription());
-        $this->assertSame('', $product->getShortDescription());
-        $this->assertInstanceOf(\DateTimeInterface::class, $product->getCreatedAt());
-        $this->assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
-        $this->assertInstanceOf(\DateTimeInterface::class, $product->getLastUpdateAt());
-        $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
-        $this->assertFalse($product->isDownloadable());
-        $this->assertFalse($product->hasFreeShipping());
-        $this->assertSame(1.23, $product->getWeight());
-        $this->assertSame(3, $product->getCompanyId());
-        $this->assertSame(6, $product->getMainCategoryId());
-        $this->assertNull($product->getAffiliateLink());
-        $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
-        $this->assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
-        $this->assertSame(0.0, $product->getGreenTax());
-        $this->assertNull($product->getGeolocation());
-        $this->assertTrue($product->isBrandNew());
-        $this->assertSame([
+        static::assertInstanceOf(Product::class, $product);
+        static::assertSame(8, $product->getId());
+        static::assertSame('Product with complex attributes', $product->getName());
+        static::assertSame('32094574920', $product->getCode());
+        static::assertSame('TEST-ATTRIBUTES', $product->getSupplierReference());
+        static::assertSame('', $product->getFullDescription());
+        static::assertSame('', $product->getShortDescription());
+        static::assertInstanceOf(\DateTimeInterface::class, $product->getCreatedAt());
+        static::assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
+        static::assertInstanceOf(\DateTimeInterface::class, $product->getLastUpdateAt());
+        static::assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
+        static::assertFalse($product->isDownloadable());
+        static::assertFalse($product->hasFreeShipping());
+        static::assertSame(1.23, $product->getWeight());
+        static::assertSame(3, $product->getCompanyId());
+        static::assertSame(6, $product->getMainCategoryId());
+        static::assertNull($product->getAffiliateLink());
+        static::assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
+        static::assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
+        static::assertSame(0.0, $product->getGreenTax());
+        static::assertNull($product->getGeolocation());
+        static::assertTrue($product->isBrandNew());
+        static::assertSame([
             'Free attribute multiple' => [
                 'réponse - 1 #',
                 'réponse - 2 @',
@@ -80,26 +81,27 @@ final class ProductServiceTest extends ApiTestCase
                 'la même histoire par ici',
             ],
         ], $product->getFreeAttributes());
-        $this->assertContainsOnly(ProductAttachment::class, $product->getAttachments());
-        $this->assertSame([2], $product->getTaxIds());
-        $this->assertNull($product->getMainImage());
-        $this->assertInstanceOf(\DateTimeImmutable::class, $product->getAvailibilityDate());
-        $this->assertGreaterThan(130000000, $product->getAvailibilityDate()->getTimestamp());
-        $this->assertContainsOnly(UriInterface::class, $product->getAdditionalImages());
-        $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
-        $this->assertCount(1, $product->getDeclinations());
-        $this->assertNull($product->getAffiliateLink());
+        static::assertContainsOnly(ProductAttachment::class, $product->getAttachments());
+        static::assertSame([2], $product->getTaxIds());
+        static::assertNull($product->getMainImage());
+        static::assertInstanceOf(\DateTimeImmutable::class, $product->getAvailibilityDate());
+        static::assertGreaterThan(130000000, $product->getAvailibilityDate()->getTimestamp());
+        static::assertContainsOnly(UriInterface::class, $product->getAdditionalImages());
+        static::assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
+        static::assertCount(1, $product->getDeclinations());
+        static::assertNull($product->getAffiliateLink());
         $declination = $product->getDeclinations()[0];
-        $this->assertSame(15, $declination->getQuantity());
-        $this->assertSame(15.0, $declination->getPrice());
-        $this->assertEmpty($declination->getOptionsVariants());
-        $this->assertNull($declination->getCrossedOutPrice());
-        $this->assertNull($declination->getCode());
-        $this->assertNull($declination->getAffiliateLink());
-        $this->assertSame('product', $product->getProductTemplateType());
+        static::assertSame(15, $declination->getQuantity());
+        static::assertSame(15.0, $declination->getPrice());
+        static::assertEmpty($declination->getOptionsVariants());
+        static::assertNull($declination->getCrossedOutPrice());
+        static::assertNull($declination->getCode());
+        static::assertNull($declination->getAffiliateLink());
+        static::assertSame('product', $product->getProductTemplateType());
+        static::assertContainsOnly(ProductInventory::class, $product->getInventory());
     }
 
-    public function testGetProductWithOptionsById()
+    public function testGetProductWithOptionsById(): void
     {
         $product = $this->buildProductService()->getProductById(2);
 
@@ -116,7 +118,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declination->getAffiliateLink());
     }
 
-    public function testGetProductWithAttachments()
+    public function testGetProductWithAttachments(): void
     {
         $product = $this->buildProductService()->getProductById(10);
 
@@ -130,7 +132,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame('Manuel de montage', $attachment->getLabel());
     }
 
-    public function testGetProductWithGeolocation()
+    public function testGetProductWithGeolocation(): void
     {
         $product = $this->buildProductService()->getProductById(9);
 
@@ -144,7 +146,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(4.800039, $geolocation->getLongitude());
     }
 
-    public function testListProductsWithDefaultArgs()
+    public function testListProductsWithDefaultArgs(): void
     {
         $result = $this->buildProductService()->listProducts();
         $products = $result->getProducts();
@@ -171,7 +173,7 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
-    public function testListProductWithGeolocation()
+    public function testListProductWithGeolocation(): void
     {
         $filter = (new ProductListFilter())->byProductCode('20230495445');
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -187,7 +189,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(4.800039, $geolocation->getLongitude());
     }
 
-    public function testListProductWithAttachments()
+    public function testListProductWithAttachments(): void
     {
         $filter = (new ProductListFilter())->byProductCode('20230495446');
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -203,7 +205,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame('Manuel de montage', $attachment->getLabel());
     }
 
-    public function testListProductPagination()
+    public function testListProductPagination(): void
     {
         $result1 = $this->buildProductService()->listProducts(null, 1, 1);
         $productsPage1 = $result1->getProducts();
@@ -243,7 +245,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(5, $pagination->getNbPages());
     }
 
-    public function testListProductsWithCategoryFilter()
+    public function testListProductsWithCategoryFilter(): void
     {
         $filter = (new ProductListFilter())->byCategoryIds([3], false);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -255,7 +257,7 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
-    public function testListProductsWithCategoryAndSubCategoriesFilter()
+    public function testListProductsWithCategoryAndSubCategoriesFilter(): void
     {
         $filter = (new ProductListFilter())->byCategoryIds([3], true);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -273,7 +275,7 @@ final class ProductServiceTest extends ApiTestCase
         ], $categoriesIds);
     }
 
-    public function testDeleteProduct()
+    public function testDeleteProduct(): void
     {
         $service = $this->buildProductService();
         $this->assertNotNull($service->getProductById(1));
@@ -286,7 +288,7 @@ final class ProductServiceTest extends ApiTestCase
     /**
      * @dataProvider statusProvider
      */
-    public function testListProductsWithStatusFilter(ProductStatus $status, int $minimumExpectedCount)
+    public function testListProductsWithStatusFilter(ProductStatus $status, int $minimumExpectedCount): void
     {
         $filter = (new ProductListFilter())->byStatus($status);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
@@ -323,7 +325,7 @@ final class ProductServiceTest extends ApiTestCase
         ?array $productCodes = null,
         ?array $supplierReferences = null,
         int $minimumExpectedCount = 1
-    ) {
+    ): void {
         $filter = new ProductListFilter();
         if ($status !== null) {
             $filter->byStatus($status);
@@ -900,14 +902,14 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertNull($declinations[3]->getCode());
     }
 
-    public function testGetProductShipping()
+    public function testGetProductShipping(): void
     {
         $shipping = $this->buildProductService()->getShipping(5, 1);
 
         $this->assertInstanceOf(Shipping::class, $shipping);
     }
 
-    public function testGetProductShippings()
+    public function testGetProductShippings(): void
     {
         $shippings = $this->buildProductService()->getShippings(5);
 
@@ -916,7 +918,7 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
-    public function testPutProductShipping()
+    public function testPutProductShipping(): void
     {
         $this->loadAnnotations();
 
@@ -945,7 +947,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertSame(100.0, $shipping->getRates()[0]['value']);
     }
 
-    public function testUpdateShippingCommandConstraints()
+    public function testUpdateShippingCommandConstraints(): void
     {
         $this->loadAnnotations();
 
@@ -1004,7 +1006,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertTrue(in_array('FR-03', $divisions));
     }
 
-    public function testAddVideo()
+    public function testAddVideo(): void
     {
         $data = (new CreateProductCommand())
             ->setCode('code_full_product')
@@ -1056,7 +1058,7 @@ final class ProductServiceTest extends ApiTestCase
         );
     }
 
-    public function testDeleteVideo()
+    public function testDeleteVideo(): void
     {
         $service = $this->buildProductService();
         $product = $service->getProductById(1);
@@ -1067,7 +1069,7 @@ final class ProductServiceTest extends ApiTestCase
         $this->assertEquals(204, $video->getStatusCode());
     }
 
-    public function testUpdateProductFromEan()
+    public function testUpdateProductFromEan(): void
     {
         $ean = "My_EAN";
 
@@ -1209,7 +1211,7 @@ final class ProductServiceTest extends ApiTestCase
         return new ProductService($apiClient);
     }
 
-    private function loadAnnotations() : void
+    private function loadAnnotations(): void
     {
         /** @var ClassLoader $loader */
         $loader = require __DIR__.'/../../../vendor/autoload.php';

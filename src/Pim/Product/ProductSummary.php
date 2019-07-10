@@ -77,6 +77,9 @@ class ProductSummary
     /** @var array */
     private $divisions;
 
+    /** @var ProductInventory[] */
+    private $inventory;
+
     /**
      * @internal
      *
@@ -112,6 +115,9 @@ class ProductSummary
             return new ProductAttachment($attachmentData);
         }, $data['attachments'] ?? []);
         $this->divisions = $data['divisions'] ?? [];
+        $this->inventory = array_map(function (array $inventoryData): ProductInventory {
+            return new ProductInventory($inventoryData);
+        }, $data['inventory'] ?? []);
     }
 
     /**
@@ -272,5 +278,10 @@ class ProductSummary
     public function getDivisions(): array
     {
         return $this->divisions;
+    }
+
+    public function getInventory(): array
+    {
+        return $this->inventory;
     }
 }
