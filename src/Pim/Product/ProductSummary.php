@@ -80,6 +80,10 @@ class ProductSummary
     /** @var int|null */
     private $maxPriceAdjustment;
 
+    /** @var ProductInventory[] */
+    private $inventory;
+
+
     /**
      * @internal
      *
@@ -116,6 +120,9 @@ class ProductSummary
         }, $data['attachments'] ?? []);
         $this->divisions = $data['divisions'] ?? [];
         $this->maxPriceAdjustment = array_key_exists('max_price_adjustment', $data) ? $data['max_price_adjustment'] : null;
+        $this->inventory = array_map(function (array $inventoryData): ProductInventory {
+            return new ProductInventory($inventoryData);
+        }, $data['inventory'] ?? []);
     }
 
     /**
@@ -284,5 +291,10 @@ class ProductSummary
     public function getMaxPriceAdjustment(): ?int
     {
         return $this->maxPriceAdjustment;
+    }
+
+    public function getInventory(): array
+    {
+        return $this->inventory;
     }
 }

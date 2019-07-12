@@ -2,6 +2,12 @@
 
 ## Next release
 
+## 1.70.8
+
+## Bugfixes
+
+- Fixed `Vendor/Promotion/BasketPromotion::getRule` can return null
+
 ### New features
 
 - Added `Wizaplace\SDK\Catalog\Product::isMVP` to know if a product was a Multi-Vendor product or not
