@@ -13,13 +13,13 @@ class OrderAdjustment
     /** @var null|int */
     private $itemId;
     /** @var float */
-    private $oldPrice;
+    private $oldPriceWithoutTaxes;
     /** @var float */
-    private $newPrice;
+    private $newPriceWithoutTaxes;
     /** @var float */
-    private $oldTotal;
+    private $oldTotalIncludingTaxes;
     /** @var float */
-    private $newTotal;
+    private $newTotalIncludingTaxes;
     /** @var null|int */
     private $createdBy;
     /** @var null|\DateTime */
@@ -28,10 +28,10 @@ class OrderAdjustment
     public function __construct(array $data = [])
     {
         $this->itemId = (int) $data['itemId'] ?? null;
-        $this->oldPrice = (float) $data['oldPrice'] ?? 0.00;
-        $this->newPrice = (float) $data['newPrice'] ?? 0.00;
-        $this->oldTotal = (float) $data['oldTotal'] ?? 0.00;
-        $this->newTotal = (float) $data['newTotal'] ?? 0.00;
+        $this->oldPriceWithoutTaxes = (float) $data['oldPriceWithoutTaxes'] ?? 0.00;
+        $this->newPriceWithoutTaxes = (float) $data['newPriceWithoutTaxes'] ?? 0.00;
+        $this->oldTotalIncludingTaxes = (float) $data['oldTotalIncludingTaxes'] ?? 0.00;
+        $this->newTotalIncludingTaxes = (float) $data['newTotalIncludingTaxes'] ?? 0.00;
         $this->createdBy = (int) $data['createdBy'] ?? null;
         $this->createdAt = $data['createdAt'] ? new \DateTime($data['createdAt']) : null;
     }
@@ -41,24 +41,24 @@ class OrderAdjustment
         return $this->itemId;
     }
 
-    public function getOldPrice(): float
+    public function getOldPriceWithoutTaxes(): float
     {
-        return $this->oldPrice;
+        return $this->oldPriceWithoutTaxes;
     }
 
-    public function getNewPrice(): float
+    public function getNewPriceWithoutTaxes(): float
     {
-        return $this->newPrice;
+        return $this->newPriceWithoutTaxes;
     }
 
-    public function getOldTotal(): float
+    public function getOldTotalIncludingTaxes(): float
     {
-        return $this->oldTotal;
+        return $this->oldTotalIncludingTaxes;
     }
 
-    public function getNewTotal(): float
+    public function getNewTotalIncludingTaxes(): float
     {
-        return $this->newTotal;
+        return $this->newTotalIncludingTaxes;
     }
 
     public function getCreatedBy(): ?int

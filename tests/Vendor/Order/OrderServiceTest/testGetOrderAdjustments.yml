@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
             VCR-index: '0'
             Accept: null
     response:
@@ -22,12 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 11 Apr 2019 12:44:44 GMT'
+            Date: 'Fri, 12 Jul 2019 12:26:15 GMT'
             Content-Language: fr
-            X-Debug-Token: c867e1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c867e1'
-            X-Request-Id: f8d8dee86abe040a78b303f762447790
-        body: '{"id":6,"apiKey":"SfyeMxNghUQNcmvFjSQnkghYWpZqRZK1bzHFpOXg"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ffd888
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ffd888'
+            X-Request-Id: 97c1a2d9ed8de186feb637fa85624c5d
+        body: '{"id":6,"apiKey":"7ZVFIaIciit0KEGREwCH1DE9j7A01Se1CIeidwQ1"}'
 -
     request:
         method: GET
@@ -35,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Authorization: 'token SfyeMxNghUQNcmvFjSQnkghYWpZqRZK1bzHFpOXg'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
+            Authorization: 'token 7ZVFIaIciit0KEGREwCH1DE9j7A01Se1CIeidwQ1'
             VCR-index: '1'
             Accept: null
     response:
@@ -51,9 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 11 Apr 2019 12:44:46 GMT'
+            Date: 'Fri, 12 Jul 2019 12:26:16 GMT'
             Content-Language: fr
-            X-Debug-Token: 850b8f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/850b8f'
-            X-Request-Id: 2c9c691151ee6ec8d7c6a3300b77966d
-        body: '[{"itemId":2085640488,"oldPrice":70.9,"newPrice":67.9,"oldTotal":70.9,"newTotal":67.9,"createdBy":7,"createdAt":"2019-04-11T11:37:23+02:00"}]'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 83bc6b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83bc6b'
+            X-Request-Id: 926baca89ea48849989bdaa7c88b3431
+        body: '[{"itemId":2085640488,"oldPriceWithoutTaxes":70.9,"newPriceWithoutTaxes":67.9,"oldTotalIncludingTaxes":70.9,"newTotalIncludingTaxes":67.9,"createdBy":7,"createdAt":"2019-07-12T14:16:11+02:00"}]'

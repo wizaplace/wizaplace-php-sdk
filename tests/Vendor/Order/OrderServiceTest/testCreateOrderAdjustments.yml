@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,15 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.15
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 14:35:52 GMT'
+            Date: 'Fri, 12 Jul 2019 12:26:11 GMT'
             Content-Language: fr
-            X-Debug-Token: 02d4cf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/02d4cf'
-            X-Request-Id: 2e75e24bfc507a3c19f1ad67ff0bbace
-        body: '{"id":6,"apiKey":"tZtrhX5MLWFNBXLgN0\/aD\/FO8icO5NzVveb0KxpR"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6cf653
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6cf653'
+            X-Request-Id: 4be5a28ad864f21b83f533a646913d7d
+        body: '{"id":6,"apiKey":"7ZVFIaIciit0KEGREwCH1DE9j7A01Se1CIeidwQ1"}'
 -
     request:
         method: POST
@@ -37,11 +38,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
-            Authorization: 'token tZtrhX5MLWFNBXLgN0/aD/FO8icO5NzVveb0KxpR'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
+            Authorization: 'token 7ZVFIaIciit0KEGREwCH1DE9j7A01Se1CIeidwQ1'
             VCR-index: '1'
             Accept: null
-        body: '{"itemId":3230927120,"newPrice":10}'
+        body: '{"itemId":3230927120,"newTotalWithoutTaxes":10}'
     response:
         status:
             http_version: '1.1'
@@ -51,13 +52,14 @@
             Server: nginx
             Content-Type: 'text/html; charset=UTF-8'
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.15
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 14:35:53 GMT'
+            Date: 'Fri, 12 Jul 2019 12:26:13 GMT'
             Content-Language: fr
-            X-Debug-Token: b373dc
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b373dc'
-            X-Request-Id: 32bb564f2683fff430d04c13a20b4410
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1d0ad8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1d0ad8'
+            X-Request-Id: 919f698a68881ee553eb8b3bdbed33a0
 -
     request:
         method: GET
@@ -65,8 +67,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-725-adjust-price-api@9d23c52
-            Authorization: 'token tZtrhX5MLWFNBXLgN0/aD/FO8icO5NzVveb0KxpR'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
+            Authorization: 'token 7ZVFIaIciit0KEGREwCH1DE9j7A01Se1CIeidwQ1'
             VCR-index: '2'
             Accept: null
     response:
@@ -79,11 +81,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.15
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 14:35:53 GMT'
+            Date: 'Fri, 12 Jul 2019 12:26:14 GMT'
             Content-Language: fr
-            X-Debug-Token: 4c0600
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4c0600'
-            X-Request-Id: 8cb892c93df3828b2d18be7da1f1fd4b
-        body: '{"order_id":10,"company_id":3,"user_id":7,"basket_id":"4c5f98c4-4aa5-4645-9471-a79a90aac27a","total":9.01,"discount":1.2,"shipping_cost":0.0,"timestamp":1554812154,"status":"P","notes":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":10.21,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":"INFO-002"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.21,"description":"TVA 2.1%","applies":{"P_3230927120":0.21}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{}},"workflow":"workflow_order_validation_pending_vendor_validation_processing"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2cc5ea
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/2cc5ea'
+            X-Request-Id: 47dc0ddfee8ec59e7b2ee4cb259fdd21
+        body: '{"order_id":10,"company_id":3,"user_id":7,"basket_id":"40583f9f-77f3-42c7-b8da-dffb90b47f60","total":9.01,"discount":1.2,"shipping_cost":0.0,"timestamp":1562933658,"status":"P","notes":"","details":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":10.21,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":"INFO-002"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.21,"description":"TVA 2.1%","applies":{"P_3230927120":0.21}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-07-12T12:16:17+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","totals":{"excluding_taxes":10.0,"taxes":0.21,"including_taxes":10.21},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.2275,"taxes":0.0455,"including_taxes":0.273},"vendor_share":{"excluding_taxes":8.2808,"taxes":1.6562,"including_taxes":9.937}}'

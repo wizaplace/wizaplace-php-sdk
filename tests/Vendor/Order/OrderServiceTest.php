@@ -453,10 +453,10 @@ class OrderServiceTest extends ApiTestCase
         static::assertInternalType('array', $adjustments);
         static::assertCount(1, $adjustments);
         static::assertSame(2085640488, $adjustment->getItemId());
-        static::assertSame(70.9, $adjustment->getOldPrice());
-        static::assertSame(67.9, $adjustment->getNewPrice());
-        static::assertSame(70.9, $adjustment->getOldTotal());
-        static::assertSame(67.9, $adjustment->getNewTotal());
+        static::assertSame(70.9, $adjustment->getOldPriceWithoutTaxes());
+        static::assertSame(67.9, $adjustment->getNewPriceWithoutTaxes());
+        static::assertSame(70.9, $adjustment->getOldTotalIncludingTaxes());
+        static::assertSame(67.9, $adjustment->getNewTotalIncludingTaxes());
         static::assertSame(7, $adjustment->getCreatedBy());
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }

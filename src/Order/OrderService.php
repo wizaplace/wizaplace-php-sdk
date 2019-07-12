@@ -263,7 +263,7 @@ final class OrderService extends AbstractService
         $this->client->post("orders/$orderId/adjustments", [
             'json' => [
                 'itemId' => $itemId,
-                'newPrice' => $newPrice,
+                'newTotalWithoutTaxes' => $newPrice,
             ],
         ]);
 

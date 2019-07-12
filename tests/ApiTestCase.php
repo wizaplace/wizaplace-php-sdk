@@ -118,21 +118,4 @@ abstract class ApiTestCase extends TestCase
 
         return $file;
     }
-
-    private function currentCassetteExists(): bool
-    {
-        return file_exists(sprintf("%s/%s", $this->cassettePath, $this->cassetteName));
-    }
-
-    private function resetMarketplaceTestData(): void
-    {
-        $httpClient = new \GuzzleHttp\Client(['base_uri' => 'http://wizaplace.test/api/v1/']);
-        $client = new ApiClient($httpClient);
-
-        $response = $client->rawRequest('POST', 'system/reload-data-for-sdk/82F2BABAF3F177268F635A7172265');
-
-        if ($response->getStatusCode() !== 200) {
-            throw new \Exception('Marketplace reset failed.');
-        }
-    }
 }
