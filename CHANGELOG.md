@@ -8,6 +8,7 @@
 - Added `Wizaplace\SDK\Transaction\Transaction` 
 - Added `Wizaplace\SDK\Transaction\TransactionType` 
 - Added `Wizaplace\SDK\Transaction\TransactionStatus` 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
 
 ## 1.70.8
 

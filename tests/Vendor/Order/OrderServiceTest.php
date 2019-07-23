@@ -579,7 +579,7 @@ class OrderServiceTest extends ApiTestCase
         ];
     }
 
-    public function testGetAnOrderWithMarketplaceDiscount()
+    public function testGetAnOrderWithMarketplaceDiscount(): void
     {
         $order = $this->buildVendorOrderService()->getOrderById(12);
         static::assertSame(10.0, $order->getMarketplaceDiscountTotal());
@@ -595,6 +595,21 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(10.0, $transaction->getAmount());
         static::assertSame("LemonWay", $transaction->getProcessorName());
         static::assertNull($transaction->getProcessorInformation());
+    }
+
+    public function testGetTransactions(): void
+    {
+        $transactions = $this->buildVendorOrderService()->getTransactions(12);
+        static::assertCount(1, $transactions);
+
+        static::assertInstanceOf(Transaction::class, $transactions[0]);
+        static::assertSame(36, strlen($transactions[0]->getId()));
+        static::assertSame("a123456789", $transactions[0]->getTransactionReference());
+        static::assertEquals(TransactionType::TRANSFER(), $transactions[0]->getType());
+        static::assertEquals(TransactionStatus::SUCCESS(), $transactions[0]->getStatus());
+        static::assertSame(10.0, $transactions[0]->getAmount());
+        static::assertSame("LemonWay", $transactions[0]->getProcessorName());
+        static::assertNull($transactions[0]->getProcessorInformation());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
