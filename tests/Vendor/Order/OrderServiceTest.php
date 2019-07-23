@@ -10,6 +10,9 @@ namespace Wizaplace\SDK\Tests\Vendor\Order;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Transaction\Transaction;
+use Wizaplace\SDK\Transaction\TransactionStatus;
+use Wizaplace\SDK\Transaction\TransactionType;
 use Wizaplace\SDK\Vendor\Order\AmountTaxesDetail;
 use Wizaplace\SDK\Vendor\Order\CreateLabelCommand;
 use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
@@ -185,6 +188,9 @@ class OrderServiceTest extends ApiTestCase
         static::assertTrue($order->needsShipping());
         static::assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
         static::assertInstanceOf(\DateTimeImmutable::class, $order->getLastStatusChange());
+        static::assertSame(0.0, $order->getMarketplaceDiscountTotal());
+        static::assertSame(66.7, $order->getCustomerTotal());
+        static::assertCount(0, $order->getTransactions());
 
         $shippingAddress = $order->getShippingAddress();
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
@@ -571,6 +577,24 @@ class OrderServiceTest extends ApiTestCase
                 ],
             ],
         ];
+    }
+
+    public function testGetAnOrderWithMarketplaceDiscount()
+    {
+        $order = $this->buildVendorOrderService()->getOrderById(12);
+        static::assertSame(10.0, $order->getMarketplaceDiscountTotal());
+        static::assertSame(5.5, $order->getCustomerTotal());
+        static::assertCount(1, $order->getTransactions());
+
+        $transaction = $order->getTransactions()[0];
+        static::assertInstanceOf(Transaction::class, $transaction);
+        static::assertSame(36, strlen($transaction->getId()));
+        static::assertSame("a123456789", $transaction->getTransactionReference());
+        static::assertEquals(TransactionType::TRANSFER(), $transaction->getType());
+        static::assertEquals(TransactionStatus::SUCCESS(), $transaction->getStatus());
+        static::assertSame(10.0, $transaction->getAmount());
+        static::assertSame("LemonWay", $transaction->getProcessorName());
+        static::assertNull($transaction->getProcessorInformation());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

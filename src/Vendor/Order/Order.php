@@ -8,6 +8,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Vendor\Order;
 
 use function theodorejb\polycast\to_int;
+use Wizaplace\SDK\Transaction\Transaction;
 
 /**
  * Class Order
@@ -90,6 +91,15 @@ final class Order
     /** @var AmountsTaxesDetails */
     private $amountsTaxesDetails;
 
+    /** @var float */
+    private $marketplaceDiscountTotal;
+
+    /** @var float */
+    private $customerTotal;
+
+    /** @var Transaction[] */
+    private $transactions;
+
     /**
      * @internal
      *
@@ -131,6 +141,9 @@ final class Order
         $this->lastStatusChange = static::denormalizeLastStatusChange($data['last_status_change'] ?? null);
         $this->billingAddress = OrderAddress::extractBillingAddressData($data);
         $this->amountsTaxesDetails = static::denormalizeAmountsTaxesDetails($data);
+        $this->marketplaceDiscountTotal = $data['marketplace_discount_total'] ?? 0.0;
+        $this->customerTotal = $data['customer_total'] ?? $data['total'];
+        $this->transactions = $this->denormalizeTransaction($data);
     }
 
     /**
@@ -389,5 +402,33 @@ final class Order
     public function getVendorShareTaxesDetail(): ?AmountTaxesDetail
     {
         return $this->amountsTaxesDetails->get(AmountsTaxesDetails::VENDOR_SHARE);
+    }
+
+    public function getMarketplaceDiscountTotal(): float
+    {
+        return $this->marketplaceDiscountTotal;
+    }
+
+    public function getCustomerTotal(): float
+    {
+        return $this->customerTotal;
+    }
+
+    /** @return Transaction[] */
+    public function getTransactions(): array
+    {
+        return $this->transactions;
+    }
+
+    public function denormalizeTransaction(array $data): array
+    {
+        if (isset($data['transactions']) === false
+            || is_array($data['transactions']) === false) {
+            return [];
+        }
+
+        return array_map(function (array $itemData): Transaction {
+            return new Transaction($itemData);
+        }, $data['transactions']);
     }
 }

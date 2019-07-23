@@ -2,6 +2,13 @@
 
 ## Next release
 
+- Added `Wizaplace\SDK\Vendor\Order::getMarketplaceDiscountTotal` 
+- Added `Wizaplace\SDK\Vendor\Order::getCustomerTotal` 
+- Added `Wizaplace\SDK\Vendor\Order::getTransactions` 
+- Added `Wizaplace\SDK\Transaction\Transaction` 
+- Added `Wizaplace\SDK\Transaction\TransactionType` 
+- Added `Wizaplace\SDK\Transaction\TransactionStatus` 
+
 ## 1.70.8
 
 ## Bugfixes
