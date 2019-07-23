@@ -8,6 +8,7 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Basket;
 
 use Wizaplace\SDK\Basket\BasketComment;
+use Wizaplace\SDK\Basket\BasketItems;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Basket\Payment;
 use Wizaplace\SDK\Basket\PaymentType;
@@ -288,6 +289,41 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertSame('size', $declinationOption->getOptionName());
         $this->assertSame(7, $declinationOption->getVariantId());
         $this->assertSame('13', $declinationOption->getVariantName());
+    }
+
+    public function testGetBasketItems(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+
+        // add 2 distinct items
+        static::assertSame(5, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 5));
+        static::assertSame(3, $basketService->addProductToBasket($basketId, new DeclinationId('13_0'), 3));
+
+        $basketItems = $basketService->getBasketItems($basketId);
+        static::assertSame(8, $basketItems->getQuantitiesTotal());
+        static::assertSame(2, $basketItems->getTotal());
+
+        $items = $basketItems->getItems();
+        static::assertSame(5, $items[0]['quantity']);
+        static::assertSame(3, $items[1]['quantity']);
+
+        $option = $items[0]['options'][0];
+        static::assertSame(3, $option['optionId']);
+        static::assertSame('size', $option['optionName']);
+        static::assertSame('13', $option['valueName']);
+    }
+
+    public function testNewEmptyBasketItems(): void
+    {
+        $emptyBasketItems = new BasketItems([]);
+        static::assertSame(null, $emptyBasketItems->getBasketId());
+        static::assertSame([], $emptyBasketItems->getItems());
+        static::assertSame(0, $emptyBasketItems->getQuantitiesTotal());
+        static::assertSame(0, $emptyBasketItems->getOffset());
+        static::assertSame(0, $emptyBasketItems->getLimit());
+        static::assertSame(0, $emptyBasketItems->getTotal());
     }
 
     public function testGetAndSetBasketId()
