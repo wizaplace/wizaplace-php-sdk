@@ -9,6 +9,7 @@
 - Added `Wizaplace\SDK\Transaction\TransactionType` 
 - Added `Wizaplace\SDK\Transaction\TransactionStatus` 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
+- Added `Wizaplace\SDK\Basket\Basket\BasketService::getTotalMarketplaceDiscount`
 
 ## 1.70.8
 

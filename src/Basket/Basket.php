@@ -61,6 +61,9 @@ final class Basket
     /** @var null|Address */
     private $shippingAddress;
 
+    /** @var float */
+    private $totalMarketplaceDiscount;
+
     /**
      * @internal
      */
@@ -70,6 +73,7 @@ final class Basket
         $this->coupons = $data['coupons'];
         $this->subtotal = $data['subtotal'];
         $this->totalDiscount = $data['totalDiscount'];
+        $this->totalMarketplaceDiscount = $data['totalMarketplaceDiscount'] ?? 0.0;
         $this->totalShipping = $data['totalShipping'];
         $this->totalTax = $data['totalTax'];
         $this->total = $data['total'];
@@ -260,5 +264,10 @@ final class Basket
             'isEligibleToPickupPointsShipping' => false,
             'isPickupPointsShipping' => false,
         ]);
+    }
+
+    public function getTotalMarketplaceDiscount(): float
+    {
+        return $this->totalMarketplaceDiscount;
     }
 }
