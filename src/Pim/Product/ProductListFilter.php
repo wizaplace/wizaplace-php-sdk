@@ -37,6 +37,15 @@ final class ProductListFilter implements ArrayableInterface
     /** @var string[]  */
     private $productCodes = [];
 
+    /** @var null|ProductApprovalStatus */
+    private $approvalStatus;
+
+    /** @var null|string */
+    private $updatedBefore;
+
+    /** @var null|string */
+    private $updatedAfter;
+
     /**
      * @param string $productCode
      *
@@ -107,6 +116,27 @@ final class ProductListFilter implements ArrayableInterface
         return $this;
     }
 
+    public function byApprovalStatus(ProductApprovalStatus $approvalStatus): self
+    {
+        $this->approvalStatus = $approvalStatus;
+
+        return $this;
+    }
+
+    public function byUpdatedBefore(string $updatedBefore) : self
+    {
+        $this->updatedBefore = $updatedBefore;
+
+        return $this;
+    }
+
+    public function byUpdatedAfter(string $updatedAfter) : self
+    {
+        $this->updatedAfter = $updatedAfter;
+
+        return $this;
+    }
+
     /**
      * @internal
      */
@@ -134,6 +164,19 @@ final class ProductListFilter implements ArrayableInterface
             if (isset($this->productCode)) {
                 $filters['pcode'][] = $this->productCode;
             }
+        }
+
+        if ($this->approvalStatus instanceof ProductApprovalStatus) {
+            // Name is changed here, because API don't have the same field name.
+            $filters['approved'] = to_string($this->approvalStatus);
+        }
+
+        if (is_string($this->updatedAfter)) {
+            $filters['updatedAfter'] = $this->updatedAfter;
+        }
+
+        if (is_string($this->updatedBefore)) {
+            $filters['updatedBefore'] = $this->updatedBefore;
         }
 
         if (count($this->supplierReferences) > 0) {

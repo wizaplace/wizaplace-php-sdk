@@ -11,6 +11,7 @@ use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use Symfony\Component\Validator\Constraints\DateTime;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pagination;
@@ -1202,6 +1203,42 @@ final class ProductServiceTest extends ApiTestCase
 
             $attachment = $service->removeAttachment(1, $uuid);
             $this->assertEquals(204, $attachment->getStatusCode());
+        }
+    }
+
+    public function testFindProductByApprovalStatus()
+    {
+        $filter = (new ProductListFilter())->byApprovalStatus(new ProductApprovalStatus('Y'));
+        $products = $this->buildProductService()->listProducts($filter);
+        $products = $products->getProducts();
+
+        foreach ($products as $product) {
+            $this->assertInstanceOf(ProductSummary::class, $product);
+            $this->assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
+        }
+    }
+
+    public function testFindProductByupdatedBefore()
+    {
+        $filter = (new ProductListFilter())->byUpdatedBefore('09-07-2019');
+        $products = $this->buildProductService()->listProducts($filter);
+        $products = $products->getProducts();
+
+        $dateTimeRef = new \DateTime('09-07-2019');
+        foreach ($products as $product) {
+            $this->assertLessThan($dateTimeRef->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
+        }
+    }
+
+    public function testFindProductByupdatedAfter()
+    {
+        $filter = (new ProductListFilter())->byUpdatedAfter('01-01-2010');
+        $products = $this->buildProductService()->listProducts($filter);
+        $products = $products->getProducts();
+
+        $dateTimeRef = new \DateTime('09-07-2019');
+        foreach ($products as $product) {
+            $this->assertGreaterThan($product->getLastUpdateAt()->getTimestamp(), $dateTimeRef->getTimestamp());
         }
     }
 

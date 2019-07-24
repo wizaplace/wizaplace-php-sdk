@@ -21,6 +21,15 @@ final class MultiVendorProductFilter implements ArrayableInterface
     /** @var string[]  */
     private $supplierReferences = [];
 
+    /** @var string[]  */
+    private $categoryId = [];
+
+    /** @var string|null  */
+    private $updatedAfter;
+
+    /** @var string|null  */
+    private $updatedBefore;
+
     /**
      * @param string[] $id
      * @return MultiVendorProductFilter
@@ -43,6 +52,13 @@ final class MultiVendorProductFilter implements ArrayableInterface
         return $this;
     }
 
+    public function setCategoryId(array $categoryId): self
+    {
+        $this->categoryId = $categoryId;
+
+        return $this;
+    }
+
     /**
      * @param string[] $supplierReference
      * @return MultiVendorProductFilter
@@ -54,12 +70,29 @@ final class MultiVendorProductFilter implements ArrayableInterface
         return $this;
     }
 
+    public function setUpdatedAfter(?string $updatedAfter): self
+    {
+        $this->updatedAfter = $updatedAfter;
+
+        return $this;
+    }
+
+    public function setUpdatedBefore(?string $updatedBefore): self
+    {
+        $this->updatedBefore = $updatedBefore;
+
+        return $this;
+    }
+
     public function toArray(): array
     {
         return array_filter([
             'id' => $this->ids,
             'code' => $this->codes,
             'supplierReference' => $this->supplierReferences,
+            'categoryId' => $this->categoryId,
+            'updatedBefore' => $this->updatedBefore,
+            'updatedAfter' => $this->updatedAfter,
         ]);
     }
 }

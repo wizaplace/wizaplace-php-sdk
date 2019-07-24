@@ -13,6 +13,7 @@ use Wizaplace\SDK\Pagination;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFilter;
+use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductList;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductService;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductStatus;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductVideo;
@@ -89,19 +90,103 @@ final class MultiVendorProductServiceTest extends ApiTestCase
             ->setIds([self::MVP_ID, 'df8f3982-f9f0-49ec-a489-2903b4e3dace'])
             ->setCodes(['Fire_trotti', 'EAN'])
             ->setSupplierReferences(['REF_TROTTI'])
-            ;
-
+        ;
         $mvpList = $service->getListMultiVendorProduct($filter, 1, 2);
 
-        $this->assertInstanceOf(Pagination::class, $mvpList->getPagination());
-        $this->assertSame(5, $mvpList->getPagination()->getNbResults());
-        $this->assertSame(3, $mvpList->getPagination()->getNbPages());
-        $this->assertSame(1, $mvpList->getPagination()->getPage());
-        $this->assertCount(2, $mvpList->getMultiVendorProducts());
+        $arrayOptions['requestedNbResult'] = 5;
+        $arrayOptions['requestedNbPages'] = 3;
+        $arrayOptions['requestedNbProducts'] = 2;
+
+        $this->assertMultiVendorProductFilter($mvpList, $arrayOptions);
 
         foreach ($mvpList->getMultiVendorProducts() as $mvp) {
-            $this->assertInstanceOf(MultiVendorProduct::class, $mvp);
+            static::assertInstanceOf(MultiVendorProduct::class, $mvp);
         }
+    }
+
+    public function testGetListMultiVendorProductByDates() : void
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        // Test avec 2 dates OK
+        $filter = (new MultiVendorProductFilter())
+            ->setUpdatedBefore((new \DateTime('2030-08-06'))->format(\DateTime::RFC3339))
+            ->setUpdatedAfter((new \DateTime('1989-08-06'))->format(\DateTime::RFC3339));
+
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 1);
+
+        $arrayOptions['requestedNbResult'] = 1;
+        $arrayOptions['requestedNbPages'] = 1;
+        $arrayOptions['requestedNbProducts'] = 1;
+
+
+        foreach ($mvpList->getMultiVendorProducts() as $mvp) {
+            static::assertInstanceOf(MultiVendorProduct::class, $mvp);
+        }
+    }
+
+    public function testGetListMultiVendorProductByWrongDates() : void
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        // Test avec deux dates non OK
+        $filter = (new MultiVendorProductFilter())
+            ->setUpdatedBefore((new \DateTime('1989-08-06'))->format(\DateTime::RFC3339))
+            ->setUpdatedAfter((new \DateTime('2030-08-06'))->format(\DateTime::RFC3339));
+
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 1);
+
+        $arrayOptions['requestedNbResult'] = 0;
+        $arrayOptions['requestedNbPages'] = 0;
+        $arrayOptions['requestedNbProducts'] = 0;
+
+        $this->assertMultiVendorProductFilter($mvpList, $arrayOptions);
+    }
+
+    public function testGetListMultiVendorProductByUpdateDateIsBefore() : void
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        // Test avec date > ok
+        $filter = (new MultiVendorProductFilter())
+            ->setUpdatedBefore((new \DateTime('2030-08-06'))->format(\DateTime::RFC3339));
+
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 1);
+
+        $arrayOptions['requestedNbResult'] = 1;
+        $arrayOptions['requestedNbPages'] = 1;
+        $arrayOptions['requestedNbProducts'] = 1;
+
+        $this->assertMultiVendorProductFilter($mvpList, $arrayOptions);
+        static::assertInstanceOf(MultiVendorProduct::class, $mvpList->getMultiVendorProducts()[0]);
+    }
+
+    public function testGetListMultiVendorProductByUpdateDateIsAfter() : void
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        // Test avec date < ok
+        $filter = (new MultiVendorProductFilter())
+            ->setUpdatedAfter((new \DateTime('1989-08-06'))->format(\DateTime::RFC3339));
+
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 1);
+        $arrayOptions['requestedNbResult'] = 1;
+        $arrayOptions['requestedNbPages'] = 1;
+        $arrayOptions['requestedNbProducts'] = 1;
+
+        $this->assertMultiVendorProductFilter($mvpList, $arrayOptions);
+        static::assertInstanceOf(MultiVendorProduct::class, $mvpList->getMultiVendorProducts()[0]);
+    }
+
+    public function testGetListMultiVendorProductByCategories() : void
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        $filter = (new MultiVendorProductFilter())
+            ->setCategoryId(array('5', '6', '7'));
+        $mvpList = $service->getListMultiVendorProduct($filter, 1, 1);
+
+        static::assertInstanceOf(MultiVendorProduct::class, $mvpList->getMultiVendorProducts()[0]);
     }
 
     public function testCreateMultiVendorProductWithInvalidPartialProduct()
@@ -305,5 +390,14 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $apiClient->authenticate($userEmail, $userPassword);
 
         return new MultiVendorProductService($apiClient);
+    }
+
+    private function assertMultiVendorProductFilter(MultiVendorProductList $mvpList, array $arrayOptions) : void
+    {
+        static::assertInstanceOf(Pagination::class, $mvpList->getPagination());
+        static::assertSame($arrayOptions['requestedNbResult'], $mvpList->getPagination()->getNbResults());
+        static::assertSame($arrayOptions['requestedNbPages'], $mvpList->getPagination()->getNbPages());
+        static::assertSame(1, $mvpList->getPagination()->getPage());
+        static::assertCount($arrayOptions['requestedNbProducts'], $mvpList->getMultiVendorProducts());
     }
 }
