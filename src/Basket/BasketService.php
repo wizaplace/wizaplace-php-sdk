@@ -146,6 +146,23 @@ final class BasketService extends AbstractService
     }
 
     /**
+     * Get basket items (faster, with minimal informations)
+     *
+     * @param string $basketId
+     * @param int $offset
+     * @param int $limit
+     */
+    public function getBasketItems(string $basketId, int $offset = 0, int $limit = 100): BasketItems
+    {
+        return new BasketItems(
+            $this->client->get(
+                "basket/{$basketId}/items",
+                ['offset' => $offset, 'limit' => $limit]
+            )
+        );
+    }
+
+    /**
      * Get the currently authenticated user's basket ID
      * @return string|null
      * @throws AuthenticationRequired

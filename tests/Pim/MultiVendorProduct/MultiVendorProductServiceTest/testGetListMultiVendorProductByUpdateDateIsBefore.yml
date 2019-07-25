@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3634-Ajouts-Filtres-APIPIM@d63e7a4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 16 Jul 2019 12:03:28 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0d6960
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0d6960'
+            X-Request-Id: 78e1793bfff7355b8b2eaa195f6329bf
+        body: '{"id":2,"apiKey":"ZW843E2XQjGjo6md5sr1A0P7\/AyrMDstNMiAgQy2"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products?page=1&resultsPerPage=1&updatedBefore=2030-08-06T00%3A00%3A00%2B00%3A00'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3634-Ajouts-Filtres-APIPIM@d63e7a4
+            Authorization: 'token ZW843E2XQjGjo6md5sr1A0P7/AyrMDstNMiAgQy2'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 16 Jul 2019 12:03:29 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8ae7ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8ae7ff'
+            X-Request-Id: 55a06370ac9e025be250502053c4f858
+        body: '{"total":1,"count":1,"_embedded":{"multiVendorProducts":[{"id":"0adaf6bc-d362-34be-b72f-42d5aa3b4a4e","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"ipsum-omnis-non-asperiores-hic-veritatis","shortDescription":"Consectetur est cumque reiciendis aspernatur incidunt voluptatem. Odio nobis aut est et.","description":"Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"video":{"id":null,"thumb":null,"path":null}}]}}'
