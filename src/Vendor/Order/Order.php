@@ -97,9 +97,6 @@ final class Order
     /** @var float */
     private $customerTotal;
 
-    /** @var Transaction[] */
-    private $transactions;
-
     /**
      * @internal
      *
@@ -143,7 +140,6 @@ final class Order
         $this->amountsTaxesDetails = static::denormalizeAmountsTaxesDetails($data);
         $this->marketplaceDiscountTotal = $data['marketplace_discount_total'] ?? 0.0;
         $this->customerTotal = $data['customer_total'] ?? $data['total'];
-        $this->transactions = $this->denormalizeTransaction($data);
     }
 
     /**
@@ -412,23 +408,5 @@ final class Order
     public function getCustomerTotal(): float
     {
         return $this->customerTotal;
-    }
-
-    /** @return Transaction[] */
-    public function getTransactions(): array
-    {
-        return $this->transactions;
-    }
-
-    public function denormalizeTransaction(array $data): array
-    {
-        if (isset($data['transactions']) === false
-            || is_array($data['transactions']) === false) {
-            return [];
-        }
-
-        return array_map(function (array $itemData): Transaction {
-            return new Transaction($itemData);
-        }, $data['transactions']);
     }
 }

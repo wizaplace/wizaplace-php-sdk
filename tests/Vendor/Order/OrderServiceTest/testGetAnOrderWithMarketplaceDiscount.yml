@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 23 Jul 2019 12:33:33 GMT'
+            Date: 'Mon, 29 Jul 2019 07:54:34 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 6e601b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e601b'
-            X-Request-Id: c93e3aefd208ac23fbad0fe08482fbf3
-        body: '{"id":6,"apiKey":"LtEfL1mFJAXwWd2aZPrLIqbzJwQ3MRp4wMxeB84F"}'
+            X-Debug-Token: '744193'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/744193'
+            X-Request-Id: 4a60e55dc93cbec4e9a1bd1a496401fe
+        body: '{"id":6,"apiKey":"+mp9sB2HqvL\/sU4BugB9aYxOqHoCywR1TZXgF6X+"}'
 -
     request:
         method: GET
@@ -37,7 +37,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
-            Authorization: 'token LtEfL1mFJAXwWd2aZPrLIqbzJwQ3MRp4wMxeB84F'
+            Authorization: 'token +mp9sB2HqvL/sU4BugB9aYxOqHoCywR1TZXgF6X+'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 23 Jul 2019 12:33:33 GMT'
+            Date: 'Mon, 29 Jul 2019 07:54:34 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 0ecbbf
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0ecbbf'
-            X-Request-Id: 9c0e6d766de8a9195fb0efed3bc423dd
-        body: '{"order_id":12,"company_id":3,"user_id":7,"basket_id":"9590b96d-1e95-49af-9d1d-7b0fd4ded58f","total":15.5,"discount":0.0,"shipping_cost":0.0,"timestamp":1563876215,"status":"H","notes":"","details":"","promotions":{"e9ba439a-eeaa-4693-a69a-625152a950a4":{"id":"e9ba439a-eeaa-4693-a69a-625152a950a4","name":"FIRST"}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":15.5,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":"INFO-002"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.3188,"description":"TVA 2.1%","applies":{"P_3230927120":0.3188}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-07-23T10:05:05+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":5.5,"marketplace_discount_total":10.0,"transactions":[{"transactionId":"581b8856-ad31-11e9-96ec-0242ac120002","amount":10.0,"type":"TRANSFER","status":"SUCCESS","transactionDate":"2019-07-23T12:05:05+02:00","processorName":"LemonWay","transactionReference":"a123456789","processorInformation":null}],"totals":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.2375,"taxes":0.0475,"including_taxes":0.285},"vendor_share":{"excluding_taxes":12.6792,"taxes":2.5358,"including_taxes":15.215}}'
+            X-Debug-Token: 3b33e1
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/3b33e1'
+            X-Request-Id: 94391240202d2cbe68e48d425bd8b1d0
+        body: '{"order_id":12,"company_id":3,"user_id":7,"basket_id":"8896c639-fedf-405a-a9b3-0a282fde8caf","total":15.5,"discount":0.0,"shipping_cost":0.0,"timestamp":1564056794,"status":"H","notes":"","details":"","promotions":{"0adb3836-4954-429a-b422-a5a015bff52f":{"id":"0adb3836-4954-429a-b422-a5a015bff52f","name":"FIRST"}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":15.5,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":"INFO-002"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.3188,"description":"TVA 2.1%","applies":{"P_3230927120":0.3188}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-07-25T12:14:54+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":5.5,"marketplace_discount_total":10.0,"totals":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.2375,"taxes":0.0475,"including_taxes":0.285},"vendor_share":{"excluding_taxes":12.6792,"taxes":2.5358,"including_taxes":15.215}}'
