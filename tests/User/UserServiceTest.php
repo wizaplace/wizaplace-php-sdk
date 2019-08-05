@@ -799,4 +799,54 @@ final class UserServiceTest extends ApiTestCase
         $this->assertGreaterThan(0, $companyId);
         $this->assertTrue($user->isVendor());
     }
+
+    public function testUpdateUserWithJsonFormat(): void
+    {
+        $addressCommand = new UpdateUserAddressCommand();
+        $addressCommand
+            ->setTitle(UserTitle::MR())
+            ->setFirstName('Paul')
+            ->setLastName('Jacques')
+            ->setPhone('0123456789')
+            ->setAddress('24 rue de la gare')
+            ->setCompany('Wizaplace')
+            ->setZipCode('69009')
+            ->setCity('Lyon')
+            ->setCountry('France');
+
+        $userCommand = new RegisterUserCommand();
+        $userCommand->setEmail('user974@example.com');
+        $userCommand->setPassword('password');
+        $userCommand->setFirstName('Paul');
+        $userCommand->setLastName('Jacques');
+        $userCommand->setBirthday(\DateTime::createFromFormat('Y-m-d', '1997-07-12'));
+        $userCommand->setTitle(UserTitle::MR());
+        $userCommand->setBilling($addressCommand);
+        $userCommand->setShipping($addressCommand);
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+        // create new user
+        $userId = $userService->registerWithFullInfos($userCommand);
+
+        $client->authenticate('user974@example.com', 'password');
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('user479@example.com')
+                ->setFirstName('Paul')
+                ->setLastName('Emploi')
+                ->setBirthday(null)
+        );
+        $client->authenticate('user479@example.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('user479@example.com', $user->getEmail());
+        static::assertSame(UserTitle::MR()->getValue(), $user->getTitle()->getValue());
+        static::assertSame('Paul', $user->getFirstname());
+        static::assertSame('Emploi', $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+    }
 }
