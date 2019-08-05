@@ -2,6 +2,13 @@
 
 ## Next release
 
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotion`
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService`
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsList`
+- Added `Wizaplace\SDK\Vendor\Promotion\SaveMarketplacePromotionCommand`
+- Updated `Wizaplace\SDK\Vendor\Promotion\BasketRuleType` Add new ruleType
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorOrEqualToRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorOrEqualToRule`
 - Added `Wizaplace\SDK\Vendor\Order::getMarketplaceDiscountTotal` 
 - Added `Wizaplace\SDK\Vendor\Order::getCustomerTotal` 
 - Added `Wizaplace\SDK\Vendor\Order::getTransactions` 
