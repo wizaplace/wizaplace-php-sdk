@@ -7,6 +7,12 @@
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
 - Added `Wizaplace\SDK\Pim\Product\Product::isSubscription`
 - Added `Wizaplace\SDK\Pim\Product\Product::isRenewable`
+- Added `Wizaplace\SDK\Catalog\Declination::isSubscription`
+- Added `Wizaplace\SDK\Catalog\Declination::setIsSubscription`
+- Added `Wizaplace\SDK\Catalog\Declination::isRenewable`
+- Added `Wizaplace\SDK\Catalog\Declination::setIsRenewable`
+- Added `Wizaplace\SDK\Catalog\Product::isSubscription`
+- Added `Wizaplace\SDK\Catalog\Product::isRenewable`
 
 ## 1.80.0
 

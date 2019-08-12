@@ -72,6 +72,12 @@ final class Declination
     /** @var array|null */
     private $shippings = null;
 
+    /** @var null|bool */
+    private $isSubscription;
+
+    /** @var null|bool */
+    private $isRenewable;
+
     /**
      * @internal
      *
@@ -106,6 +112,9 @@ final class Declination
         if (isset($data['shippings'])) {
             $this->shippings = $data['shippings'];
         }
+
+        $this->isSubscription = $data['isSubscription'] ?? null;
+        $this->isRenewable = $data['isRenewable'] ?? null;
     }
 
     /**
@@ -305,5 +314,45 @@ final class Declination
     public function setShippings(?array $shippings): void
     {
         $this->shippings = $shippings;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    /**
+     * @param null|bool $isSubscription
+     *
+     * @return Declination
+     */
+    public function setIsSubscription(?bool $isSubscription): self
+    {
+        $this->isSubscription = $isSubscription;
+
+        return $this;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isRenewable(): ?bool
+    {
+        return $this->isRenewable;
+    }
+
+    /**
+     * @param null|bool $isRenewable
+     *
+     * @return Declination
+     */
+    public function setIsRenewable(?bool $isRenewable): self
+    {
+        $this->isRenewable = $isRenewable;
+
+        return $this;
     }
 }
