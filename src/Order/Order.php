@@ -49,6 +49,8 @@ final class Order
     private $marketplaceDiscountTotal;
     /** @var float */
     private $customerTotal;
+    /** @var null|string */
+    private $subscriptionId;
 
     /**
      * @internal
@@ -79,6 +81,7 @@ final class Order
         $this->discount = $data['discount'] ?? 0;
         $this->marketplaceDiscountTotal = $data['marketplaceDiscountTotal'] ?? 0.0;
         $this->customerTotal = $data['customerTotal'] ?? $data['total'];
+        $this->subscriptionId = $data['subscriptionId'] ?? null;
     }
 
     /**
@@ -217,5 +220,13 @@ final class Order
     public function getCustomerTotal(): float
     {
         return $this->customerTotal;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getSubscriptionId(): ?string
+    {
+        return $this->subscriptionId;
     }
 }
