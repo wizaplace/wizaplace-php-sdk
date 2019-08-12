@@ -43,6 +43,12 @@ final class Product extends ProductSummary
     /** @var null|string */
     private $productTemplateType;
 
+    /** @var null|bool */
+    private $isSubscription;
+
+    /** @var null|bool */
+    private $isRenewable;
+
     /**
      * @internal
      *
@@ -70,6 +76,8 @@ final class Product extends ProductSummary
         $this->availibilityDate = new \DateTimeImmutable('@'.$data['avail_since']);
         $this->infiniteStock = (bool) $data['infinite_stock'];
         $this->productTemplateType = $data['product_template_type'] ?? null;
+        $this->isSubscription = $data['is_subscription'] ?? null;
+        $this->isRenewable = $data['is_renewable'] ?? null;
     }
 
     /**
@@ -142,6 +150,22 @@ final class Product extends ProductSummary
     public function getProductTemplateType(): ?string
     {
         return $this->productTemplateType;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isRenewable(): ?bool
+    {
+        return $this->isRenewable;
     }
 
     /**

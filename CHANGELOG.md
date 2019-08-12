@@ -5,6 +5,8 @@
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+- Added `Wizaplace\SDK\Pim\Product\Product::isSubscription`
+- Added `Wizaplace\SDK\Pim\Product\Product::isRenewable`
 
 ## 1.80.0
 
@@ -29,7 +31,7 @@
 
 ## 1.70.8
 
-## Bugfixes
+### Bugfixes
 
 - Fixed `Vendor/Promotion/BasketPromotion::getRule` can return null
 
