@@ -17,6 +17,7 @@
 - Added `Wizaplace\SDK\Pim\Option\Option::getCode`
 - Added `Wizaplace\SDK\Pim\Option\OptionService::getProductOptions`
 - Added `Wizaplace\SDK\Pim\Option\OptionService::getOption`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getSubscriptionId`
 
 ## 1.80.0
 
