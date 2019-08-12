@@ -33,4 +33,20 @@ final class OptionService extends AbstractService
             return new Option($optionData);
         }, $data);
     }
+
+    /**
+     * @param int $productId
+     *
+     * @return Option[]
+     */
+    public function getProductOptions(int $productId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        $data = $this->client->get("products/${$productId}/options");
+
+        return array_map(function (array $optionData): Option {
+            return new Option($optionData);
+        }, $data);
+    }
 }

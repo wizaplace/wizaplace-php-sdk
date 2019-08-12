@@ -14,7 +14,8 @@
 - Added `Wizaplace\SDK\Catalog\Product::isSubscription`
 - Added `Wizaplace\SDK\Catalog\Product::isRenewable`
 - Added `Wizaplace\SDK\Pim\Option\Option::isSystem`
-- Added `Wizaplace\SDK\Pim\Option\Option::getCode
+- Added `Wizaplace\SDK\Pim\Option\Option::getCode`
+- Added `Wizaplace\SDK\Pim\Option\OptionService::getProductOptions`
 
 ## 1.80.0
 
