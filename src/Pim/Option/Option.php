@@ -25,6 +25,12 @@ final class Option
     /** @var OptionStatus */
     private $status;
 
+    /** @var bool */
+    private $isSystem;
+
+    /** @var null|string */
+    private $code;
+
     /**
      * @internal
      *
@@ -38,6 +44,8 @@ final class Option
         $this->variants = array_map(function (array $variantData): OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);
+        $this->isSystem = $data['is_system'] ?? false;
+        $this->code = $data['code'] ?? null;
     }
 
     /**
@@ -86,5 +94,21 @@ final class Option
     public function getVariants(): array
     {
         return $this->variants;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSystem(): bool
+    {
+        return $this->isSystem;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 }
