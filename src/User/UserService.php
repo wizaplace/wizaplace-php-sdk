@@ -69,7 +69,7 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}",
             [
-                RequestOptions::FORM_PARAMS => [
+                RequestOptions::JSON => [
                     'email' => $command->getEmail(),
                     'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
@@ -125,7 +125,7 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}/addresses",
             [
-                RequestOptions::FORM_PARAMS => [
+                RequestOptions::JSON => [
                     'billing' => self::serializeUserAddressUpdate($command->getBillingAddress()),
                     'shipping' => self::serializeUserAddressUpdate($command->getShippingAddress()),
                 ],
