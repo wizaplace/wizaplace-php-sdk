@@ -51,6 +51,9 @@ final class OrderSummary
     /** @var AmountsTaxesDetails */
     private $amountsTaxesDetails;
 
+    /** @var null|string */
+    private $subscriptionId;
+
     /**
      * @internal
      *
@@ -72,6 +75,7 @@ final class OrderSummary
         $this->total = $data['total'];
         $this->lastStatusChange = VendorOrder::denormalizeLastStatusChange($data['last_status_change'] ?? null);
         $this->amountsTaxesDetails = Order::denormalizeAmountsTaxesDetails($data);
+        $this->subscriptionId = $data['subscription_id'] ?? null;
     }
 
     /**
@@ -185,5 +189,10 @@ final class OrderSummary
     public function getVendorShareTaxesDetail(): ?AmountTaxesDetail
     {
         return $this->amountsTaxesDetails->get(AmountsTaxesDetails::VENDOR_SHARE);
+    }
+
+    public function getSubscriptionId(): ?string
+    {
+        return $this->subscriptionId;
     }
 }
