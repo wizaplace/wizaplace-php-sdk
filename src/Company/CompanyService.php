@@ -17,6 +17,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
+use Wizaplace\SDK\Traits\AssertClientCalledTrait;
 
 /**
  * Class CompanyService
@@ -24,6 +25,8 @@ use Wizaplace\SDK\Subscription\SubscriptionSummary;
  */
 final class CompanyService extends AbstractService
 {
+    use AssertClientCalledTrait;
+
     /**
      * Only for an authenticated registration (normal and C2C) as we don't send legalRepresentativeFirstName and legalRepresentativeLastName properties
      * for unauthenticated registration, use unauthenticatedRegister() method, see API companies documentation.
@@ -452,9 +455,6 @@ final class CompanyService extends AbstractService
      * @param int                     $companyId
      * @param null|SubscriptionFilter $subscriptionFilter
      *
-     * @throws NotFound
-     * @throws \GuzzleHttp\Exception\ClientException
-     *
      * @return PaginatedData
      */
     public function listSubscriptionsBy(int $companyId, SubscriptionFilter $subscriptionFilter = null): PaginatedData
@@ -467,26 +467,23 @@ final class CompanyService extends AbstractService
                 ->setOffset(0);
         }
 
-        try {
-            $response = $this->client->get(
-                "/companies/{$companyId}/subscriptions",
-                [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
-            );
-        } catch (ClientException $exception) {
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                throw new NotFound($exception);
-            }
+        return $this->assertClientCalled(
+            function () use ($companyId, $subscriptionFilter): PaginatedData {
+                $response = $this->client->get(
+                    "/companies/{$companyId}/subscriptions",
+                    [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
+                );
 
-            throw $exception;
-        }
-
-        return new PaginatedData(
-            $response['limit'],
-            $response['offset'],
-            $response['total'],
-            array_map(function (array $subscription): SubscriptionSummary {
-                return new SubscriptionSummary($subscription);
-            }, $response['items'])
+                return new PaginatedData(
+                    $response['limit'],
+                    $response['offset'],
+                    $response['total'],
+                    array_map(function (array $subscription): SubscriptionSummary {
+                        return new SubscriptionSummary($subscription);
+                    }, $response['items'])
+                );
+            },
+            "Company '{$companyId}' not found."
         );
     }
 

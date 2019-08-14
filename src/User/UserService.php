@@ -18,6 +18,7 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
+use Wizaplace\SDK\Traits\AssertClientCalledTrait;
 use function theodorejb\polycast\to_string;
 
 /**
@@ -26,6 +27,8 @@ use function theodorejb\polycast\to_string;
  */
 final class UserService extends AbstractService
 {
+    use AssertClientCalledTrait;
+
     private const BIRTHDAY_FORMAT = 'Y-m-d';
 
     /**
@@ -327,9 +330,6 @@ final class UserService extends AbstractService
      * @param int                     $userId
      * @param null|SubscriptionFilter $subscriptionFilter
      *
-     * @throws NotFound
-     * @throws \GuzzleHttp\Exception\ClientException
-     *
      * @return PaginatedData
      */
     public function listSubscriptionsBy(int $userId, SubscriptionFilter $subscriptionFilter = null): PaginatedData
@@ -342,26 +342,23 @@ final class UserService extends AbstractService
                 ->setOffset(0);
         }
 
-        try {
-            $response = $this->client->get(
-                "/users/{$userId}/subscriptions",
-                [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
-            );
-        } catch (ClientException $exception) {
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                throw new NotFound($exception);
-            }
+        return $this->assertClientCalled(
+            function () use ($userId, $subscriptionFilter): PaginatedData {
+                $response = $this->client->get(
+                    "/users/{$userId}/subscriptions",
+                    [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
+                );
 
-            throw $exception;
-        }
-
-        return new PaginatedData(
-            $response['limit'],
-            $response['offset'],
-            $response['total'],
-            array_map(function (array $subscription): SubscriptionSummary {
-                return new SubscriptionSummary($subscription);
-            }, $response['items'])
+                return new PaginatedData(
+                    $response['limit'],
+                    $response['offset'],
+                    $response['total'],
+                    array_map(function (array $subscription): SubscriptionSummary {
+                        return new SubscriptionSummary($subscription);
+                    }, $response['items'])
+                );
+            },
+            "User '{$userId}' not found."
         );
     }
 

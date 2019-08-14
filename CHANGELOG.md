@@ -67,6 +67,19 @@
 - Added `Wizaplace\SDK\Price::getIncludingTaxes`
 - Added `Wizaplace\SDK\Price::getTaxes`
 - Added `Wizaplace\SDK\User\UserService::listSubscriptionsBy`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getId`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getUserId`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getBrand`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getPan`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getHolder`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getExpiryMonth`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getExpiryYear`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getIssuer`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getCountry`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getCreatedAt`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCards`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCard`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getRegistrationUrl`
 
 ## 1.80.0
 
