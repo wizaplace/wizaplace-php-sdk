@@ -16,7 +16,6 @@ use Wizaplace\SDK\Division\DivisionCompany;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
-use Wizaplace\SDK\Subscription\SubscriptionStatus;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 
 /**
@@ -450,27 +449,34 @@ final class CompanyService extends AbstractService
     }
 
     /**
-     * @param int                $companyId
-     * @param SubscriptionFilter $subscriptionFilter
+     * @param int                     $companyId
+     * @param null|SubscriptionFilter $subscriptionFilter
      *
      * @throws NotFound
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \GuzzleHttp\Exception\ClientException
      *
      * @return PaginatedData
      */
-    public function listSubscriptionsBy(int $companyId, SubscriptionFilter $subscriptionFilter): PaginatedData
+    public function listSubscriptionsBy(int $companyId, SubscriptionFilter $subscriptionFilter = null): PaginatedData
     {
         $this->client->mustBeAuthenticated();
 
+        if (false === $subscriptionFilter instanceof SubscriptionFilter) {
+            $subscriptionFilter = (new SubscriptionFilter())
+                ->setLimit(10)
+                ->setOffset(0);
+        }
+
         try {
             $response = $this->client->get(
-                '/companies/{companyId}/subscriptions',
+                "/companies/{$companyId}/subscriptions",
                 [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
             );
         } catch (ClientException $exception) {
             if ($exception->getResponse()->getStatusCode() === 404) {
                 throw new NotFound($exception);
             }
+
             throw $exception;
         }
 
@@ -482,120 +488,6 @@ final class CompanyService extends AbstractService
                 return new SubscriptionSummary($subscription);
             }, $response['items'])
         );
-    }
-
-    /**
-     * @param int                $companyId
-     * @param SubscriptionStatus $status
-     * @param int                $limit
-     * @param int                $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByStatus(int $companyId, SubscriptionStatus $status, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setStatus($status)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
-    }
-
-    /**
-     * @param int $companyId
-     * @param int $userId
-     * @param int $limit
-     * @param int $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByUserId(int $companyId, int $userId, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setUserId($userId)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
-    }
-
-    /**
-     * @param int $companyId
-     * @param int $productId
-     * @param int $limit
-     * @param int $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByProductId(int $companyId, int $productId, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setProductId($productId)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
-    }
-
-    /**
-     * @param int $companyId
-     * @param \DateTime $end
-     * @param int $limit
-     * @param int $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByCommitmentEndBefore(int $companyId, \DateTime $end, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setCommitmentEndBefore($end)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
-    }
-
-    /**
-     * @param int $companyId
-     * @param \DateTime $end
-     * @param int $limit
-     * @param int $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByCommitmentEndAfter(int $companyId, \DateTime $end, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setCommitmentEndAfter($end)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
-    }
-
-    /**
-     * @param int $companyId
-     * @param bool $isAutorenew
-     * @param int $limit
-     * @param int $offset
-     *
-     * @return PaginatedData
-     */
-    public function listSubscriptionsByIsAutorenew(int $companyId, bool $isAutorenew, int $limit = 10, int $offset = 0): PaginatedData
-    {
-        $subscriptionFilter = new SubscriptionFilter();
-        $subscriptionFilter
-            ->setIsAutorenew($isAutorenew)
-            ->setLimit($limit)
-            ->setOffset($offset);
-
-        return $this->listSubscriptionsBy($companyId, $subscriptionFilter);
     }
 
     /**

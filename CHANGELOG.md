@@ -21,12 +21,6 @@
 - Added `Wizaplace\SDK\Vendor\Order\OrderSummary::getSubscriptionId`
 - Added `Wizaplace\SDK\Order\Order::getSubscriptionId`
 - Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsBy`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByStatus`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByUserId`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByProductId`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByCommitmentEndBefore`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByCommitmentEndAfter`
-- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsByIsAutorenew`
 - Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getFilters`
 - Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getLimit`
 - Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setLimit`
@@ -72,6 +66,7 @@
 - Added `Wizaplace\SDK\Price::getExcludingTaxes`
 - Added `Wizaplace\SDK\Price::getIncludingTaxes`
 - Added `Wizaplace\SDK\Price::getTaxes`
+- Added `Wizaplace\SDK\User\UserService::listSubscriptionsBy`
 
 ## 1.80.0
 

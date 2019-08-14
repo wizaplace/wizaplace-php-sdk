@@ -15,6 +15,9 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\Subscription\SubscriptionFilter;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use function theodorejb\polycast\to_string;
 
 /**
@@ -318,6 +321,48 @@ final class UserService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $this->client->post("users/{$userId}/disable");
+    }
+
+    /**
+     * @param int                     $userId
+     * @param null|SubscriptionFilter $subscriptionFilter
+     *
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\ClientException
+     *
+     * @return PaginatedData
+     */
+    public function listSubscriptionsBy(int $userId, SubscriptionFilter $subscriptionFilter = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        if (false === $subscriptionFilter instanceof SubscriptionFilter) {
+            $subscriptionFilter = (new SubscriptionFilter())
+                ->setLimit(10)
+                ->setOffset(0);
+        }
+
+        try {
+            $response = $this->client->get(
+                "/users/{$userId}/subscriptions",
+                [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
+            );
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound($exception);
+            }
+
+            throw $exception;
+        }
+
+        return new PaginatedData(
+            $response['limit'],
+            $response['offset'],
+            $response['total'],
+            array_map(function (array $subscription): SubscriptionSummary {
+                return new SubscriptionSummary($subscription);
+            }, $response['items'])
+        );
     }
 
     /**
