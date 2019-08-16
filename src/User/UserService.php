@@ -18,7 +18,7 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
-use Wizaplace\SDK\Traits\AssertClientCalledTrait;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 use function theodorejb\polycast\to_string;
 
 /**
@@ -27,7 +27,7 @@ use function theodorejb\polycast\to_string;
  */
 final class UserService extends AbstractService
 {
-    use AssertClientCalledTrait;
+    use AssertRessourceNotFoundTrait;
 
     private const BIRTHDAY_FORMAT = 'Y-m-d';
 
@@ -342,7 +342,7 @@ final class UserService extends AbstractService
                 ->setOffset(0);
         }
 
-        return $this->assertClientCalled(
+        return $this->assertRessourceNotFound(
             function () use ($userId, $subscriptionFilter): PaginatedData {
                 $response = $this->client->get(
                     "/users/{$userId}/subscriptions",

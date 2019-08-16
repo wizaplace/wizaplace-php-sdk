@@ -11,11 +11,11 @@ namespace Wizaplace\SDK\CreditCard;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\PaginatedData;
-use Wizaplace\SDK\Traits\AssertClientCalledTrait;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 
 final class CreditCardService extends AbstractService
 {
-    use AssertClientCalledTrait;
+    use AssertRessourceNotFoundTrait;
 
     /**
      * @param int $userId
@@ -28,7 +28,7 @@ final class CreditCardService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return $this->assertClientCalled(
+        return $this->assertRessourceNotFound(
             function () use ($userId, $limit, $offset): PaginatedData {
                 $response = $this->client->get(
                     "/users/{$userId}/cards",
@@ -63,7 +63,7 @@ final class CreditCardService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return $this->assertClientCalled(
+        return $this->assertRessourceNotFound(
             function () use ($userId, $creditCardId): CreditCard {
                 return new CreditCard($this->client->get("/users/{$userId}/cards/{$creditCardId}"));
             },
@@ -80,7 +80,7 @@ final class CreditCardService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return $this->assertClientCalled(
+        return $this->assertRessourceNotFound(
             function () use ($userId): string {
                 return $this->client->get("/users/{$userId}/credit-card-registration")['url'];
             },

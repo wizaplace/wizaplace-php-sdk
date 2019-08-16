@@ -11,9 +11,9 @@ namespace Wizaplace\SDK\Traits;
 use GuzzleHttp\Exception\ClientException;
 use Wizaplace\SDK\Exception\NotFound;
 
-trait AssertClientCalledTrait
+trait AssertRessourceNotFoundTrait
 {
-    public function assertClientCalled(callable $callable, string $message)
+    public function assertRessourceNotFound(callable $callable, string $message)
     {
         try {
             return $callable();

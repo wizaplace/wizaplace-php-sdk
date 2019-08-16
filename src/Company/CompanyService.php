@@ -17,7 +17,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
-use Wizaplace\SDK\Traits\AssertClientCalledTrait;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 
 /**
  * Class CompanyService
@@ -25,7 +25,7 @@ use Wizaplace\SDK\Traits\AssertClientCalledTrait;
  */
 final class CompanyService extends AbstractService
 {
-    use AssertClientCalledTrait;
+    use AssertRessourceNotFoundTrait;
 
     /**
      * Only for an authenticated registration (normal and C2C) as we don't send legalRepresentativeFirstName and legalRepresentativeLastName properties
@@ -467,7 +467,7 @@ final class CompanyService extends AbstractService
                 ->setOffset(0);
         }
 
-        return $this->assertClientCalled(
+        return $this->assertRessourceNotFound(
             function () use ($companyId, $subscriptionFilter): PaginatedData {
                 $response = $this->client->get(
                     "/companies/{$companyId}/subscriptions",
