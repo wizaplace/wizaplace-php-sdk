@@ -36,6 +36,9 @@ final class ProductDeclination
     /** @var int[] */
     private $optionsVariants;
 
+    /** @var PriceTier[] */
+    private $priceTiers;
+
     /**
      * @internal
      *
@@ -59,53 +62,55 @@ final class ProductDeclination
         if (isset($data['affiliate_link']) && $data['affiliate_link'] !== '') {
             $this->affiliateLink = new Uri($data['affiliate_link']);
         }
+
+        $this->priceTiers = [];
+        if (array_key_exists('price_tiers', $data)) {
+            foreach ($data['price_tiers'] as $priceTier) {
+                $this->addPriceTier($priceTier);
+            }
+        }
     }
 
-    /**
-     * @return int
-     */
     public function getQuantity(): int
     {
         return $this->quantity;
     }
 
-    /**
-     * @return int[] a map from (int) option ID to (int) variant ID
-     */
+    /** @return int[] a map from (int) option ID to (int) variant ID */
     public function getOptionsVariants(): array
     {
         return $this->optionsVariants;
     }
 
-    /**
-     * @return string|null
-     */
+    /** @return string|null */
     public function getCode(): ?string
     {
         return $this->code;
     }
 
-    /**
-     * @return float
-     */
     public function getPrice(): float
     {
         return $this->price;
     }
 
-    /**
-     * @return float|null
-     */
     public function getCrossedOutPrice(): ?float
     {
         return $this->crossedOutPrice;
     }
 
-    /**
-     * @return UriInterface|null
-     */
     public function getAffiliateLink(): ?UriInterface
     {
         return $this->affiliateLink;
+    }
+
+    public function addPriceTier(array $priceTier): void
+    {
+        $this->priceTiers[] = new PriceTier($priceTier);
+    }
+
+    /** @return PriceTier[] */
+    public function getPriceTier(): array
+    {
+        return $this->priceTiers;
     }
 }

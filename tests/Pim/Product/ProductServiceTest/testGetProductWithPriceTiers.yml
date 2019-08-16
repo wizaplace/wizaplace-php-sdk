@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3634-Ajouts-Filtres-APIPIM@d63e7a4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 13 Aug 2019 08:14:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ffff3f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ffff3f'
+            X-Request-Id: 0ec922784bb38943714ab8b46c4611d1
+        body: '{"id":2,"apiKey":"3wkyCB3SLaLT5L6ojvqCntamwOnjZ0YwBT6v1MLn"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3634-Ajouts-Filtres-APIPIM@d63e7a4
+            Authorization: 'token 3wkyCB3SLaLT5L6ojvqCntamwOnjZ0YwBT6v1MLn'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 13 Aug 2019 08:14:26 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2ce9d1
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/2ce9d1'
+            X-Request-Id: 77c7b3a48786c5ad0109d785788b1531
+        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1565612114,"updated_timestamp":1565612118,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":50,"product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5},"amount":6,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_white_connectivity_wireles"},{"combination":{"1":1,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5},{"lower_limit":10,"price":15.0}],"price":15.5,"combination_code":"color_white_connectivity_wired"},{"combination":{"1":2,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wireles"},{"combination":{"1":2,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wired"},{"combination":{"1":3,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wireless"},{"combination":{"1":3,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wired"},{"combination":{"1":4,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"1":4,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

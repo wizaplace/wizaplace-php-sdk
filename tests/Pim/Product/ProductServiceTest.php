@@ -1242,6 +1242,16 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetProductWithPriceTiers(): void
+    {
+        $product = $this->buildProductService()->getProductById(2);
+
+        static::assertInstanceOf(Product::class, $product);
+        static::assertSame(2, $product->getId());
+        static::assertSame(0, $product->getDeclinations()[0]->getPriceTier()[0]->getLowerLimit());
+        static::assertSame(15.5, $product->getDeclinations()[0]->getPriceTier()[0]->getPrice());
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();
