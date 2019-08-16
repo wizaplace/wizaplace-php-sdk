@@ -11,7 +11,6 @@ use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
-use Symfony\Component\Validator\Constraints\DateTime;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pagination;
@@ -1240,6 +1239,52 @@ final class ProductServiceTest extends ApiTestCase
         foreach ($products as $product) {
             $this->assertGreaterThan($product->getLastUpdateAt()->getTimestamp(), $dateTimeRef->getTimestamp());
         }
+    }
+
+    public function testCreateAndUpdateProductWithSubscription(): void
+    {
+        $service = $this->buildProductService("vendor@wizaplace.com", "password");
+
+        $id = $service->createProduct(
+            (new CreateProductCommand())
+                ->setCode("product_with_sub_update")
+                ->setSupplierReference('product_with_sub_ref')
+                ->setName("Product with subscription")
+                ->setMainCategoryId(1)
+                ->setGreenTax(0.)
+                ->setTaxIds([1])
+                ->setDeclinations([
+                    (new ProductDeclinationUpsertData([]))
+                        ->setCode('product_with_sub')
+                        ->setPrice(3.5)
+                        ->setQuantity(12)
+                        ->setInfiniteStock(false),
+                ])
+                ->setStatus(ProductStatus::ENABLED())
+                ->setIsBrandNew(true)
+                ->setWeight(0.)
+                ->setFullDescription("Product with subscription full description")
+                ->setShortDescription("Product with subscription short description")
+                ->setIsSubscription(true)
+                ->setIsRenewable(true)
+        );
+
+        static::assertTrue(is_int($id));
+
+        $product = $service->getProductById($id);
+
+        static::assertTrue($product->isSubscription());
+        static::assertTrue($product->isRenewable());
+
+        $service->updateProduct(
+            (new UpdateProductCommand($id))
+                ->setIsSubscription(false)
+                ->setIsRenewable(false)
+        );
+        $product = $service->getProductById($id);
+
+        static::assertFalse($product->isSubscription());
+        static::assertFalse($product->isRenewable());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
