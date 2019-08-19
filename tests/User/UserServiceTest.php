@@ -849,4 +849,15 @@ final class UserServiceTest extends ApiTestCase
         static::assertNull($user->getBirthday());
         static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
     }
+
+    public function testGetPendingCompanyId(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $userId = ($apiClient->authenticate("test2@test.fr", 'test'))->getId();
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame(8, $user->getPendingCompanyId());
+        static::assertNull($user->getCompanyId());
+    }
 }

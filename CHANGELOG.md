@@ -18,6 +18,10 @@
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
 - Added `Wizaplace\SDK\Basket\Basket\BasketService::getTotalMarketplaceDiscount`
 
+### New features
+
+- Added `Wizaplace\SDK\User::getPendingCompanyId`
+
 ## 1.70.8
 
 ## Bugfixes
