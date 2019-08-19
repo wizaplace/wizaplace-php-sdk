@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.80.0
 
 - Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotion`
 - Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService`
