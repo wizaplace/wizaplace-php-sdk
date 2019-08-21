@@ -2245,6 +2245,72 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
     }
 
+    public function testGetProductsWithSubscription(): void
+    {
+        $products = $this->buildCatalogService()->getProductsByCode("product_with_sub");
+
+        static::assertCount(1, $products);
+        static::assertTrue($products[0]->isSubscription());
+        static::assertTrue($products[0]->isRenewable());
+    }
+
+    public function testGetProductWithSubscription(): void
+    {
+        $product = $this->buildCatalogService()->getProductById((string) 37);
+
+        static::assertTrue($product->isSubscription());
+        static::assertTrue($product->isRenewable());
+    }
+
+    public function testSearchProductWithSubscription(): void
+    {
+        $products = $this->buildCatalogService()->search('Product with sub')->getProducts();
+
+        static::assertCount(1, $products);
+        static::assertTrue($products[0]->isSubscription());
+        static::assertTrue($products[0]->isRenewable());
+    }
+
+    public function testSearchProductsByFiltersWithSubscription(): void
+    {
+        $products = $this
+            ->buildCatalogService()
+            ->search(
+                '',
+                [
+                    ProductFilter::IS_SUBSCRIPTION => true,
+                ]
+            )
+            ->getProducts();
+
+        static::assertCount(1, $products);
+        static::assertTrue($products[0]->isSubscription());
+        static::assertTrue($products[0]->isRenewable());
+    }
+
+    public function testGetProductDeclinationWithSubscription(): void
+    {
+        $declination = $this->buildCatalogService()->getDeclinationById('36_0');
+
+        static::assertTrue($declination->isSubscription());
+        static::assertTrue($declination->isRenewable());
+    }
+
+    public function testGetProductsByFiltersWithSubscription(): void
+    {
+        $products = $this
+            ->buildCatalogService()
+            ->getProductsByFilters(
+                (new ProductFilter())
+                    ->setIds([36])
+                    ->setIsSubscription(true)
+            );
+
+        static::assertCount(1, $products);
+        static::assertTrue($products[0]->isSubscription());
+        static::assertTrue($products[0]->isRenewable());
+    }
+
     private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());

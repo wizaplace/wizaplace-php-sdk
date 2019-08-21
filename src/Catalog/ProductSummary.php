@@ -60,6 +60,10 @@ final class ProductSummary
     private $mainDeclinationId;
     /** @var null|ProductOffer[] */
     private $offers;
+    /** @var null|bool */
+    private $isSubscription;
+    /** @var null|bool */
+    private $isRenewable;
 
     /**
      * @internal
@@ -106,6 +110,8 @@ final class ProductSummary
                 return new ProductOffer($offer);
             }, $data['offers']);
         }
+        $this->isSubscription = $data['isSubscription'] ?? null;
+        $this->isRenewable = $data['isRenewable'] ?? null;
     }
 
     /**
@@ -275,5 +281,21 @@ final class ProductSummary
     public function getOffers(): ?array
     {
         return $this->offers;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isRenewable(): ?bool
+    {
+        return $this->isRenewable;
     }
 }
