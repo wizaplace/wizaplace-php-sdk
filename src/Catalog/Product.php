@@ -10,6 +10,8 @@ namespace Wizaplace\SDK\Catalog;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
+use Wizaplace\SDK\Pim\Product\PriceTier;
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
 
@@ -120,6 +122,9 @@ final class Product
     /** @var bool */
     protected $isMvp;
 
+    /** @var PriceTier[] */
+    protected $priceTiers;
+
     /**
      * @internal
      *
@@ -193,6 +198,13 @@ final class Product
             $this->offers = array_map(function (array $offer): ProductOffer {
                 return new ProductOffer($offer);
             }, $data['offers']);
+        }
+        $this->priceTiers = [];
+
+        if (array_key_exists('price_tiers', $data)) {
+            foreach ($data['price_tiers'] as $priceTier) {
+                $this->addPriceTier($priceTier);
+            }
         }
 
         $this->productTemplateType = $data['productTemplateType'] ?? null;
@@ -531,5 +543,20 @@ final class Product
     public function isMvp(): bool
     {
         return $this->isMvp;
+    }
+
+    public function addPriceTier(array $priceTier): void
+    {
+        if (isset($priceTier['price'])) {
+            $this->priceTiers[] = new PriceTier($priceTier);
+        } else {
+            $this->priceTiers[] = new ExtendedPriceTier($priceTier);
+        }
+    }
+
+    /** @return PriceTier[] */
+    public function getPriceTier(): array
+    {
+        return $this->priceTiers;
     }
 }

@@ -2245,6 +2245,17 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
     }
 
+    public function testGetProductWithPriceTier(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById('1');
+
+        static::assertEquals(1, count($product->getPriceTier()));
+        static::assertEquals(1.4, $product->getPriceTier()[0]->getTaxes());
+        static::assertEquals(69.3, $product->getPriceTier()[0]->getPriceIncludeTax());
+        static::assertEquals(0, $product->getPriceTier()[0]->getLowerLimit());
+    }
+
     private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());

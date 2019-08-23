@@ -10,7 +10,7 @@ namespace Wizaplace\SDK\Pim\Product;
 
 class PriceTier
 {
-    /** @var null|int */
+    /** @var int */
     protected $lowerLimit;
 
     /** @var null|float */
@@ -18,8 +18,8 @@ class PriceTier
 
     public function __construct(array $data)
     {
-        $this->lowerLimit = $data['lower_limit'];
-        $this->price = $data['price'];
+        $this->lowerLimit = $data['lowerLimit'];
+        $this->price = $data['price'] ?? null;
     }
 
     /** @return int */
