@@ -2296,21 +2296,6 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertTrue($declination->isRenewable());
     }
 
-    public function testGetProductsByFiltersWithSubscription(): void
-    {
-        $products = $this
-            ->buildCatalogService()
-            ->getProductsByFilters(
-                (new ProductFilter())
-                    ->setIds([36])
-                    ->setIsSubscription(true)
-            );
-
-        static::assertCount(1, $products);
-        static::assertTrue($products[0]->isSubscription());
-        static::assertTrue($products[0]->isRenewable());
-    }
-
     private function buildCatalogService(): CatalogServiceInterface
     {
         return new CatalogService($this->buildApiClient());
