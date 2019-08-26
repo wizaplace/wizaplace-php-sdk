@@ -102,6 +102,8 @@
 - Added `Wizaplace\SDK\Catalog\ProductFilter::IS_SUBSCRIPTION`
 - Added `Wizaplace\SDK\Catalog\ProductFilter::getIsSubscription`
 - Added `Wizaplace\SDK\Catalog\ProductFilter::setIsSubscription`
+- Added `Wizaplace\SDK\Pim\Option\SystemOption::PAYMENT_FREQUENCY`
+- Added `Wizaplace\SDK\Pim\Option\SystemOption::COMMITMENT_PERIOD`
 
 ## 1.80.0
 
