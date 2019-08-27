@@ -642,6 +642,15 @@ class OrderServiceTest extends ApiTestCase
         ];
     }
 
+    public function testGetOrdersWithSubscription(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertCount(12, $orders);
+        static::assertUuid($orders[0]->getSubscriptionId());
+        static::assertNull($orders[1]->getSubscriptionId());
+    }
+
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
     {
         $apiClient = $this->buildApiClient();
