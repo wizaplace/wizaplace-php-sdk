@@ -23,6 +23,8 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @method static BasketRuleType MAX_USAGE_COUNT_PER_USER()
  * @method static BasketRuleType BASKET_PRICE_SUPERIOR_TO()
  * @method static BasketRuleType BASKET_PRICE_INFERIOR_TO()
+ * @method static BasketRuleType BASKET_PRICE_SUPERIOR_OR_EQUAL_TO()
+ * @method static BasketRuleType BASKET_PRICE_INFERIOR_OR_EQUAL_TO()
  */
 final class BasketRuleType extends Enum implements NormalizableInterface
 {
@@ -33,6 +35,8 @@ final class BasketRuleType extends Enum implements NormalizableInterface
     private const MAX_USAGE_COUNT_PER_USER = 'max_usage_count_per_user';
     private const BASKET_PRICE_SUPERIOR_TO = 'basket_price_superior_to';
     private const BASKET_PRICE_INFERIOR_TO = 'basket_price_inferior_to';
+    private const BASKET_PRICE_SUPERIOR_OR_EQUAL_TO = 'basket_price_superior_or_equal_to';
+    private const BASKET_PRICE_INFERIOR_OR_EQUAL_TO = 'basket_price_inferior_or_equal_to';
 
     /**
      * @inheritdoc

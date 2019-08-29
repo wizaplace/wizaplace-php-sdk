@@ -15,6 +15,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
+use Wizaplace\SDK\Transaction\Transaction;
 
 /**
  * Class OrderService
@@ -331,5 +332,15 @@ class OrderService extends AbstractService
             }
             throw $e;
         }
+    }
+
+    /** @return Transaction[] */
+    public function getTransactions(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return array_map(function (array $data): Transaction {
+            return new Transaction($data);
+        }, $this->client->get("orders/${orderId}/transactions"));
     }
 }

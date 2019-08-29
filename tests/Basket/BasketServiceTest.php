@@ -599,6 +599,24 @@ final class BasketServiceTest extends ApiTestCase
         $service->checkout($basket->getId(), 1, true, 'https://demo.loc/order/confirm');
     }
 
+    public function testGetTotalMarketplaceDiscount(): void
+    {
+        // Connect as a customer
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $service = new BasketService($apiClient);
+
+        // Add a product
+        $basket = $service->createEmptyBasket();
+        static::assertSame(1, $service->addProductToBasket($basket->getId(), new DeclinationId('1_0'), 1));
+
+        // Add a Marketplace coupon
+        $service->addCoupon($basket->getId(), 'FIRST');
+
+        $basket = $service->getBasket($basket->getId());
+        static::assertSame(10.0, $basket->getTotalMarketplaceDiscount());
+    }
+
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
     {
         $apiClient = $this->buildApiClient();

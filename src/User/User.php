@@ -44,6 +44,8 @@ final class User
     private $phone;
     /** @var string|null */
     private $currencyCode;
+    /** @var int|null */
+    private $pendingCompanyId;
 
     /**
      * @internal
@@ -61,6 +63,7 @@ final class User
         $this->billingAddress = isset($data['addresses']['billing']) ? new UserAddress($data['addresses']['billing']) : null;
         $this->shippingAddress = isset($data['addresses']['shipping']) ? new UserAddress($data['addresses']['shipping']) : null;
         $this->companyId = $data['companyId'] ?? null;
+        $this->pendingCompanyId = $data['pendingCompanyId'] ?? null;
         $this->status = $data['status'] ?? null;
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
         $this->phone = $data['phone'] ?? null;
@@ -177,5 +180,10 @@ final class User
     public function getCurrencyCode(): ?string
     {
         return $this->currencyCode;
+    }
+
+    public function getPendingCompanyId(): ?int
+    {
+        return $this->pendingCompanyId;
     }
 }

@@ -1,6 +1,26 @@
 # Changelog
 
-## Next release
+## 1.80.0
+
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotion`
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService`
+- Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsList`
+- Added `Wizaplace\SDK\Vendor\Promotion\SaveMarketplacePromotionCommand`
+- Updated `Wizaplace\SDK\Vendor\Promotion\BasketRuleType` Add new ruleType
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorOrEqualToRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorOrEqualToRule`
+- Added `Wizaplace\SDK\Vendor\Order::getMarketplaceDiscountTotal` 
+- Added `Wizaplace\SDK\Vendor\Order::getCustomerTotal` 
+- Added `Wizaplace\SDK\Vendor\Order::getTransactions` 
+- Added `Wizaplace\SDK\Transaction\Transaction` 
+- Added `Wizaplace\SDK\Transaction\TransactionType` 
+- Added `Wizaplace\SDK\Transaction\TransactionStatus` 
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
+- Added `Wizaplace\SDK\Basket\Basket\BasketService::getTotalMarketplaceDiscount`
+
+### New features
+
+- Added `Wizaplace\SDK\User::getPendingCompanyId`
 
 ## 1.70.8
 

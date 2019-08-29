@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 23 Jul 2019 14:26:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ec696b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec696b'
+            X-Request-Id: f59df74738c525fa18b3a9fd375f669b
+        body: '{"id":6,"apiKey":"LtEfL1mFJAXwWd2aZPrLIqbzJwQ3MRp4wMxeB84F"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/12/transactions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
+            Authorization: 'token LtEfL1mFJAXwWd2aZPrLIqbzJwQ3MRp4wMxeB84F'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 23 Jul 2019 14:26:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b84285
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b84285'
+            X-Request-Id: d546d799c9f1b5d02fda089f965727e4
+        body: '[{"transactionId":"581b8856-ad31-11e9-96ec-0242ac120002","amount":10,"type":"TRANSFER","status":"SUCCESS","transactionDate":"2019-07-23T12:05:05+02:00","processorName":"LemonWay","transactionReference":"a123456789","processorInformation":null}]'
