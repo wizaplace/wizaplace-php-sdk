@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 30 Aug 2019 14:52:13 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 99043a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/99043a'
+            X-Request-Id: 22d06f1f0e9003e4aa5001871ca6a971
+        body: '{"id":3,"apiKey":"W+J5q0EJpBjwtahmliCEnDpEXG9Noub82oXvtFGE"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3/cards?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token W+J5q0EJpBjwtahmliCEnDpEXG9Noub82oXvtFGE'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 30 Aug 2019 14:52:13 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b0ae81
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b0ae81'
+            X-Request-Id: ee8e00b6487a59f06876f1ba7cdb1348
+        body: '{"limit":10,"offset":0,"total":3,"items":[{"id":"060b7548-a1d9-4267-a880-f155b5ba8c8d","userId":3,"brand":"VISA","pan":"XXXX XXXX XXXX 0002","holder":"","expiryMonth":"01","expiryYear":"2020","issuer":"","country":"US","createdAt":"2019-08-30T09:36:10+02:00"},{"id":"a947d66c-1ae1-4a0b-aa94-3c646b2d538a","userId":3,"brand":"VISA","pan":"XXXX XXXX XXXX 0002","holder":"","expiryMonth":"01","expiryYear":"2020","issuer":"","country":"US","createdAt":"2019-08-30T09:38:15+02:00"},{"id":"73172562-a474-4ce7-93c2-8b1e57269762","userId":3,"brand":"VISA","pan":"4000 00** **** 0002","holder":"TEST","expiryMonth":"01","expiryYear":"2020","issuer":"","country":"US","createdAt":"2019-08-30T09:56:07+02:00"}]}'

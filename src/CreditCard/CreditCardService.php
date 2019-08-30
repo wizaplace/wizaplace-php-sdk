@@ -31,7 +31,7 @@ final class CreditCardService extends AbstractService
         return $this->assertRessourceNotFound(
             function () use ($userId, $limit, $offset): PaginatedData {
                 $response = $this->client->get(
-                    "/users/{$userId}/cards",
+                    "users/{$userId}/cards",
                     [
                         RequestOptions::QUERY => [
                             'limit' => $limit,
@@ -65,7 +65,7 @@ final class CreditCardService extends AbstractService
 
         return $this->assertRessourceNotFound(
             function () use ($userId, $creditCardId): CreditCard {
-                return new CreditCard($this->client->get("/users/{$userId}/cards/{$creditCardId}"));
+                return new CreditCard($this->client->get("users/{$userId}/cards/{$creditCardId}"));
             },
             "User '{$userId}' or credit card '{$creditCardId}' not found."
         );
@@ -82,7 +82,7 @@ final class CreditCardService extends AbstractService
 
         return $this->assertRessourceNotFound(
             function () use ($userId): string {
-                return $this->client->get("/users/{$userId}/credit-card-registration")['url'];
+                return $this->client->get("users/{$userId}/credit-card-registration")['url'];
             },
             "User '{$userId}' not found."
         );

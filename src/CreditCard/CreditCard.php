@@ -51,7 +51,7 @@ final class CreditCard
         $this->expiryYear = $data["expiryYear"];
         $this->issuer = $data["issuer"];
         $this->country = $data["country"];
-        $this->createdAt = $data["createdAt"];
+        $this->createdAt = new \DateTime($data["createdAt"]);
     }
 
     public function getId(): string
