@@ -18,7 +18,7 @@ class PriceTier
 
     public function __construct(array $data)
     {
-        $this->lowerLimit = $data['lowerLimit'];
+        $this->lowerLimit = $data['lower_limit'];
         $this->price = $data['price'] ?? null;
     }
 

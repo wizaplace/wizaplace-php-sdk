@@ -2250,10 +2250,10 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById('1');
 
-        static::assertEquals(1, count($product->getPriceTier()));
-        static::assertEquals(1.4, $product->getPriceTier()[0]->getTaxes());
-        static::assertEquals(69.3, $product->getPriceTier()[0]->getPriceIncludeTax());
-        static::assertEquals(0, $product->getPriceTier()[0]->getLowerLimit());
+        static::assertEquals(1, count($product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()));
+        static::assertEquals(1.4, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getTaxes());
+        static::assertEquals(67.9, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getPriceIncludeTax());
+        static::assertEquals(0, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getLowerLimit());
     }
 
     private function buildCatalogService(): CatalogServiceInterface

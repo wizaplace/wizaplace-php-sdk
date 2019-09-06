@@ -83,6 +83,8 @@ class ProductSummary
     /** @var ProductInventory[] */
     private $inventory;
 
+    /** @var array */
+    private $priceTiers;
 
     /**
      * @internal
