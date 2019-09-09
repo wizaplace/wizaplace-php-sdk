@@ -17,14 +17,12 @@ final class CreditCardServiceTest extends ApiTestCase
     public function testGetCreditCards(): void
     {
         $creditCardService = $this->buildCreditCardService();
-
         $creditCards = $creditCardService->getCreditCards(3);
 
         static::assertSame(0, $creditCards->getOffset());
         static::assertSame(10, $creditCards->getLimit());
         static::assertSame(3, $creditCards->getTotal());
         static::assertCount(3, $creditCards->getItems());
-
 
         foreach ($creditCards->getItems() as $creditCard) {
             /** @var CreditCard $creditCard */
