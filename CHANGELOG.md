@@ -61,6 +61,7 @@
 - Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCommitmentEndAt`
 - Added `Wizaplace\SDK\Subscription\Subscription::getItems`
 - Added `Wizaplace\SDK\Subscription\Subscription::getTaxes`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getCategoryId`
 - Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductId`
 - Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductCode`
 - Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductName`

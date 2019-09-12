@@ -13,6 +13,9 @@ use Wizaplace\SDK\Price;
 final class SubscriptionItem
 {
     /** @var int */
+    private $categoryId;
+
+    /** @var int */
     private $productId;
 
     /** @var string */
@@ -38,6 +41,7 @@ final class SubscriptionItem
 
     public function __construct(array $data)
     {
+        $this->categoryId = $data["categoryId"];
         $this->productId = $data["productId"];
         $this->productCode = $data["productCode"];
         $this->productName = $data["productName"];
@@ -46,6 +50,11 @@ final class SubscriptionItem
         $this->unitPrice = new Price($data["unitPrice"]);
         $this->quantity = $data["quantity"];
         $this->totalPrice = new Price($data["totalPrice"]);
+    }
+
+    public function getCategoryId(): int
+    {
+        return $this->categoryId;
     }
 
     public function getProductId(): int
