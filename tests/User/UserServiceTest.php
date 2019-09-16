@@ -11,6 +11,8 @@ use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\User\RegisterUserCommand;
 use Wizaplace\SDK\User\UpdateUserAddressCommand;
@@ -868,5 +870,28 @@ final class UserServiceTest extends ApiTestCase
 
         static::assertSame(8, $user->getPendingCompanyId());
         static::assertNull($user->getCompanyId());
+    }
+
+    public function testListSubscriptionsBy(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $userId = ($apiClient->authenticate("user@wizaplace.com", 'password'))->getId();
+
+        $subscriptions = (new UserService($apiClient))->listSubscriptionsBy($userId);
+
+        static::assertInstanceOf(PaginatedData::class, $subscriptions);
+        static::assertEquals(10, $subscriptions->getLimit());
+        static::assertEquals(0, $subscriptions->getOffset());
+        static::assertEquals(1, $subscriptions->getTotal());
+        static::assertCount(1, $subscriptions->getItems());
+
+        /** @var SubscriptionSummary $subscription */
+        $subscription = $subscriptions->getItems()[0];
+
+        static::assertInstanceOf(SubscriptionSummary::class, $subscription);
+        static::assertUuid($subscription->getId());
+        static::assertEquals($userId, $subscription->getUserId());
+        static::assertEquals(3, $subscription->getCompanyId());
+        static::assertUuid($subscription->getCardId());
     }
 }

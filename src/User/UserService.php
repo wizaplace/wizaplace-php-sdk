@@ -345,7 +345,7 @@ final class UserService extends AbstractService
         return $this->assertRessourceNotFound(
             function () use ($userId, $subscriptionFilter): PaginatedData {
                 $response = $this->client->get(
-                    "/users/{$userId}/subscriptions",
+                    "users/{$userId}/subscriptions",
                     [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
                 );
 

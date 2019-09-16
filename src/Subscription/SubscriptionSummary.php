@@ -59,6 +59,7 @@ class SubscriptionSummary
         $this->id = $data['id'];
         $this->userId = $data['userId'];
         $this->companyId = $data['companyId'];
+        $this->cardId = $data['cardId'];
         $this->firstOrderId = $data['firstOrderId'];
         $this->name = $data['name'];
         $this->status = SubscriptionStatus::stringToStatus($data['status']);
