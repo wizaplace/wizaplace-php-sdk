@@ -8,8 +8,11 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Vendor\Order;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
+use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -342,5 +345,28 @@ class OrderService extends AbstractService
         return array_map(function (array $data): Transaction {
             return new Transaction($data);
         }, $this->client->get("orders/${orderId}/transactions"));
+    }
+
+    /**
+     * @param int $orderId
+     *
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     *
+     * @return StreamInterface
+     */
+    public function downloadPdfInvoice(int $orderId): StreamInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        $options = [
+            RequestOptions::HEADERS => [
+                "Accept" => "application/pdf",
+            ],
+        ];
+
+        $response = $this->client->rawRequest("GET", "orders/{$orderId}/pdf-invoice", $options);
+
+        return $response->getBody();
     }
 }

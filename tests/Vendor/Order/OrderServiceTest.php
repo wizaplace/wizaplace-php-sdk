@@ -7,6 +7,9 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
 
+use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
+use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -598,6 +601,45 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(10.0, $transactions[0]->getAmount());
         static::assertSame("LemonWay", $transactions[0]->getProcessorName());
         static::assertNull($transactions[0]->getProcessorInformation());
+    }
+
+    /**
+     * @param string $userEmail
+     * @param string $password
+     * @param bool $throwException determine si la requête va échouer.
+     * @param int $exceptionCode code de retour attendu si la requête échoue.
+     *
+     * @throws GuzzleException
+     * @throws AuthenticationRequired
+     *
+     * @dataProvider providerDownloadPdfInvoice
+     */
+    public function testDownloadPdfInvoice(string $userEmail, string $password, bool $throwException, int $exceptionCode): void
+    {
+        // Le client ne peut pas utiliser cet endpoint.
+        if ($throwException) {
+            static::expectException(ClientException::class);
+            static::expectExceptionCode($exceptionCode);
+        }
+
+        $pdf = $this->buildVendorOrderService($userEmail, $password)->downloadPdfInvoice(4);
+
+        // Les marchants et les admins ne lèvent pas d'exceptions.
+        if (false === $throwException) {
+            $pdfHeader = '%PDF-1.4';
+            $pdfContents = $pdf->getContents();
+            static::assertStringStartsWith($pdfHeader, $pdfContents);
+            static::assertGreaterThan(mb_strlen($pdfHeader), mb_strlen($pdfContents));
+        }
+    }
+
+    public function providerDownloadPdfInvoice(): array
+    {
+        return [
+            ['user@wizaplace.com', 'password', true, 403],
+            ['admin@wizaplace.com', 'password', false, 0],
+            ['vendor@world-company.com', 'password-vendor', false, 0],
+        ];
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
