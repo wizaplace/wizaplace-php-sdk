@@ -1,0 +1,60 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-WIZ-854-admin-and-vendor-access-to-marketplace-or-company-invoice@8c5f486
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 04 Sep 2019 13:26:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3f261b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3f261b'
+            X-Request-Id: 3d266dfa996a5dc36c0eb424a3a12567
+        body: '{"id":3,"apiKey":"XwX5aA7nVprV0VHSmbliXKuc+bGGHt3Uke0f621o"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/4/pdf-invoice'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Accept: application/pdf
+            User-Agent: Wizaplace-PHP-SDK/dev-WIZ-854-admin-and-vendor-access-to-marketplace-or-company-invoice@8c5f486
+            Authorization: 'token XwX5aA7nVprV0VHSmbliXKuc+bGGHt3Uke0f621o'
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '403'
+            message: Forbidden
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 04 Sep 2019 13:26:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '3e4491'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e4491'
+        body: '{"message":"Access Denied."}'

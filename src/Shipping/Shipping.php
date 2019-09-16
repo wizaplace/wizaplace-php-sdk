@@ -28,6 +28,9 @@ final class Shipping
     /** @var ShippingRate[]|null */
     private $rates;
 
+    /** @var int|null */
+    private $position;
+
     /** @var string|null */
     private $description;
 
@@ -48,6 +51,7 @@ final class Shipping
                 return new ShippingRate($rate);
             }, $data['rates']);
         }
+        $this->position = $data['position'] ?? null;
         $this->description = $data['description'] ?? null;
     }
 
@@ -89,6 +93,12 @@ final class Shipping
     public function getRates(): ?array
     {
         return $this->rates;
+    }
+
+    /** @return int|null */
+    public function getPosition(): ?int
+    {
+        return $this->position;
     }
 
     /**
