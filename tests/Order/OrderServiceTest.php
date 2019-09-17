@@ -305,6 +305,23 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
+    public function testGetUserOrdersWithSubscriptionId(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $orders = $orderService->getOrders();
+
+        static::assertCount(1, $orders);
+        static::assertUuid($orders[0]->getSubscriptionId());
+    }
+
+    public function testGetUserOrderWithSubscriptionId(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $order = $orderService->getOrder(130000);
+
+        static::assertUuid($order->getSubscriptionId());
+    }
+
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();
