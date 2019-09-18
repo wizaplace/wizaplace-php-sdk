@@ -79,7 +79,6 @@ abstract class SubscriptionUpsertData
     {
         $selfValidatingProperties = [
             'status',
-            'isAutorenew',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {

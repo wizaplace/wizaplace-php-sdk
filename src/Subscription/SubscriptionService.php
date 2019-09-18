@@ -42,7 +42,7 @@ final class SubscriptionService extends AbstractService
 
         try {
             $response = $this->client->get(
-                "/subscriptions",
+                "subscriptions",
                 [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
             );
         } catch (ClientException $exception) {
@@ -78,7 +78,7 @@ final class SubscriptionService extends AbstractService
 
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($subscriptionId): Subscription {
-                return new Subscription($this->client->get("/subscriptions/{$subscriptionId}"));
+                return new Subscription($this->client->get("subscriptions/{$subscriptionId}"));
             },
             "You're not allowed to access to this subscription.",
             "Subscription '{$subscriptionId}' not found."
@@ -99,7 +99,7 @@ final class SubscriptionService extends AbstractService
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($subscriptionId, $limit, $offset): PaginatedData {
                 $response = $this->client->get(
-                    "/subscriptions/{$subscriptionId}/items",
+                    "subscriptions/{$subscriptionId}/items",
                     [
                         RequestOptions::QUERY => [
                             'limit' => $limit,
@@ -136,7 +136,7 @@ final class SubscriptionService extends AbstractService
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($subscriptionId, $limit, $offset): PaginatedData {
                 $response = $this->client->get(
-                    "/subscriptions/{$subscriptionId}/taxes",
+                    "subscriptions/{$subscriptionId}/taxes",
                     [
                         RequestOptions::QUERY => [
                             'limit' => $limit,
@@ -173,7 +173,7 @@ final class SubscriptionService extends AbstractService
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($subscriptionId, $limit, $offset): PaginatedData {
                 $response = $this->client->get(
-                    "/subscriptions/{$subscriptionId}/orders",
+                    "subscriptions/{$subscriptionId}/orders",
                     [
                         RequestOptions::QUERY => [
                             'limit' => $limit,
@@ -209,7 +209,7 @@ final class SubscriptionService extends AbstractService
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($command): Subscription {
                 return new Subscription($this->client->patch(
-                    "/subscriptions/{$command->getSubscriptionId()}",
+                    "subscriptions/{$command->getSubscriptionId()}",
                     [
                         RequestOptions::FORM_PARAMS => $command->toArray(),
                     ]

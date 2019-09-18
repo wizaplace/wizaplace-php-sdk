@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3d2e2b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3d2e2b'
+            X-Request-Id: af487f604475cfaf0dd439d51d8adbb1
+        body: '{"id":2,"apiKey":"JCDBtlVr\/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/subscriptions/2fe16ba9-42b7-4028-908f-677dce2f2b2d/taxes?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token JCDBtlVr/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0ecfaa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ecfaa'
+            X-Request-Id: e1cf75f433ba9e4edfeb5e99adf16135
+        body: '{"limit":10,"offset":0,"total":1,"items":[{"taxId":2,"taxName":"TVA 2.1%","amount":"20.57"}]}'

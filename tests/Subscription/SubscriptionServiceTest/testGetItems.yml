@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a43776
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a43776'
+            X-Request-Id: 0e5124d9b303cc59fd9d978f63324d6f
+        body: '{"id":2,"apiKey":"JCDBtlVr\/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/subscriptions/2fe16ba9-42b7-4028-908f-677dce2f2b2d/items?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token JCDBtlVr/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1c0a48
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c0a48'
+            X-Request-Id: 128f21fe110a0baa95c816e60e4bf00e
+        body: '{"limit":10,"offset":0,"total":1,"items":[{"categoryId":3,"productId":1,"productCode":"978020137962","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productIsRenewable":true,"declinationId":"1_2_2_7","unitPrice":{"excludingTaxes":"979.43","taxes":"20.57","includingTaxes":"1000"},"quantity":1,"totalPrice":{"excludingTaxes":"979.43","taxes":"20.57","includingTaxes":"1000"}}]}'

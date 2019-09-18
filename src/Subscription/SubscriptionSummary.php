@@ -21,7 +21,7 @@ class SubscriptionSummary
     /** @var int */
     private $companyId;
 
-    /** @var string */
+    /** @var null|string */
     private $cardId;
 
     /** @var int */
@@ -62,7 +62,7 @@ class SubscriptionSummary
         $this->cardId = $data['cardId'];
         $this->firstOrderId = $data['firstOrderId'];
         $this->name = $data['name'];
-        $this->status = SubscriptionStatus::stringToStatus($data['status']);
+        $this->status = new SubscriptionStatus($data['status']);
         $this->price = new Price($data['price']);
         $this->isAutorenew = $data['isAutorenew'];
         $this->commitmentPeriod = $data['commitmentPeriod'];
@@ -87,7 +87,7 @@ class SubscriptionSummary
         return $this->companyId;
     }
 
-    public function getCardId(): string
+    public function getCardId(): ?string
     {
         return $this->cardId;
     }

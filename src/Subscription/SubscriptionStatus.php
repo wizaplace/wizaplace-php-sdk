@@ -24,22 +24,4 @@ final class SubscriptionStatus extends Enum
     private const DISABLED = "DISABLED";
     private const FINISHED = "FINISHED";
     private const SUSPENDED = "SUSPENDED";
-
-    public static function stringToStatus(string $status): self
-    {
-        switch ($status) {
-            case static::ACTIVE:
-                return static::ACTIVE();
-            case static::DEFAULTED:
-                return static::DEFAULTED();
-            case static::DISABLED:
-                return static::DISABLED();
-            case static::FINISHED:
-                return static::FINISHED();
-            case static::SUSPENDED:
-                return static::SUSPENDED();
-            default:
-                throw new \UnexpectedValueException("Unknow status '$status''.");
-        }
-    }
 }
