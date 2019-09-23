@@ -45,6 +45,10 @@ final class Order
     private $shippingCost;
     /** @var float */
     private $discount;
+    /** @var float */
+    private $marketplaceDiscountTotal;
+    /** @var float */
+    private $customerTotal;
 
     /**
      * @internal
@@ -73,6 +77,8 @@ final class Order
         $this->payment = new Payment($data['payment']);
         $this->shippingCost = $data['shippingCost'] ?? 0;
         $this->discount = $data['discount'] ?? 0;
+        $this->marketplaceDiscountTotal = $data['marketplace_discount_total'] ?? 0.0;
+        $this->customerTotal = $data['customer_total'] ?? $data['total'];
     }
 
     /**
@@ -201,5 +207,15 @@ final class Order
     public function getDiscount(): float
     {
         return $this->discount;
+    }
+
+    public function getMarketplaceDiscountTotal(): float
+    {
+        return $this->marketplaceDiscountTotal;
+    }
+
+    public function getCustomerTotal(): float
+    {
+        return $this->customerTotal;
     }
 }
