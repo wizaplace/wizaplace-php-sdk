@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,15 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:38:59 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:39 GMT'
             Content-Language: fr
-            X-Debug-Token: '152218'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/152218'
-            X-Request-Id: 331c3a4875be36e55ad88b05c4f8b9a8
-        body: '{"id":4,"apiKey":"hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 26ddeb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/26ddeb'
+            X-Request-Id: c8202003eb08abd2a0e19823dee7ea4a
+        body: '{"id":4,"apiKey":"PmfStxC\/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z"}'
 -
     request:
         method: POST
@@ -37,11 +38,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
-            Authorization: 'token hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            Authorization: 'token PmfStxC/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z'
             VCR-index: '1'
             Accept: null
-        body: '{"product_code":"code_1","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":10,"price":3.5,"combination":{"1":1,"2":5,"3":7},"combination_code":"My_EAN","infinite_stock":true}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5]},{"option_id":3,"variants":[7]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}}'
+        body: '{"product_code":"code_1","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":10,"price":3.5,"combination":{"1":1,"2":5,"3":7},"price_tiers":null,"combination_code":"My_EAN","infinite_stock":true}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5]},{"option_id":3,"variants":[7]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}}'
     response:
         status:
             http_version: '1.1'
@@ -52,15 +53,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:39:00 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:41 GMT'
             Content-Language: fr
-            X-Debug-Token: 0b0b49
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0b0b49'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220b0b49%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 0d287d5e286895a28f0c39136928f037
-        body: '{"product_id":36}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '92e366'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/92e366'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2292e366%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 5b68df1b149b51db6830658e50716f98
+        body: '{"product_id":38}'
 -
     request:
         method: POST
@@ -70,11 +72,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
-            Authorization: 'token hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            Authorization: 'token PmfStxC/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z'
             VCR-index: '2'
             Accept: null
-        body: '{"product_code":"code_2","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":15,"price":3.5,"combination":{"1":1,"2":5,"3":7},"combination_code":"My_EAN","infinite_stock":true}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5]},{"option_id":3,"variants":[7]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}}'
+        body: '{"product_code":"code_2","supplier_ref":"supplierref_full","product":"Full product","status":"A","main_category":4,"green_tax":0.1,"condition":"N","free_shipping":"Y","weight":0.2,"is_edp":"Y","full_description":"super full description","short_description":"super short description","tax_ids":[1,2],"free_features":{"freeAttr1":"freeAttr1Value","freeAttr2":42,"freeAttr3":["freeAttr3Value",42]},"inventory":[{"amount":15,"price":3.5,"combination":{"1":1,"2":5,"3":7},"price_tiers":null,"combination_code":"My_EAN","infinite_stock":true}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5]},{"option_id":3,"variants":[7]}],"image_pairs":[{"detailed":{"image_name":"image1.png","image_type":"image\/png","image_data":"iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v\/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u\/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB\/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp\/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk\/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v\/AypZVVLAQnsVNJBfAAP2pAL\/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN\/q008ArCq8ADcFup07DRJBG\/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ\/47HS+S7sClGX\/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf\/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6\/A1CQALq+eWW0WX6FQs3kHqqsEgIj\/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE\/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt\/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r\/UiTM9FA\/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb\/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU\/yax4yWUtEo1jzN\/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+\/5YUApdRSYlhEg\/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO\/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA\/IZ2Q17fl\/LFcBJAQMmYcAAAAASUVORK5CYII="}},{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}],"main_pair":{"detailed":{"image_path":"https:\/\/sandbox.wizaplace.com\/api\/v1\/doc\/favicon.png"}}}'
     response:
         status:
             http_version: '1.1'
@@ -85,15 +87,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:39:01 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:43 GMT'
             Content-Language: fr
-            X-Debug-Token: 9dfeb7
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/9dfeb7'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229dfeb7%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 30eadacc88694741e4861879c8c5a3bb
-        body: '{"product_id":37}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 346ef9
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/346ef9'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22346ef9%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 6db23c54353326a72afa94e9afcfdb2f
+        body: '{"product_id":39}'
 -
     request:
         method: PUT
@@ -103,8 +106,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
-            Authorization: 'token hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            Authorization: 'token PmfStxC/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z'
             VCR-index: '3'
             Accept: null
         body: '{"stock":5}'
@@ -118,23 +121,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:39:01 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:45 GMT'
             Content-Language: fr
-            X-Debug-Token: '487767'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/487767'
-            X-Request-Id: 758106c92d4b417bee073f60472320fe
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fd5f99
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd5f99'
+            X-Request-Id: fdc90bc84c474b9d32357f6e5f3a4254
         body: '"2 entities updated."'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/36'
+        url: 'http://wizaplace.loc/api/v1/products/38'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
-            Authorization: 'token hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            Authorization: 'token PmfStxC/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z'
             VCR-index: '4'
             Accept: null
     response:
@@ -147,23 +151,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:39:01 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:47 GMT'
             Content-Language: fr
-            X-Debug-Token: 5a72de
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5a72de'
-            X-Request-Id: e98ca94d195fb02ac764c634db0a54fa
-        body: '{"product_id":36,"product_code":"code_1","status":"A","company_id":2,"approved":"P","weight":0.2,"timestamp":1552905539,"updated_timestamp":1552905539,"is_edp":"Y","unlimited_download":"N","free_shipping":"Y","avail_since":0,"tax_ids":[1,2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Full product","short_description":"super short description","full_description":"super full description","category_ids":[4],"main_category":4,"main_pair":[],"image_pairs":{"13":{"detailed":{"image_path":"\/images\/detailed\/0\/9x3j8n1s-image1.png","position":0}}},"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","price":3.5,"combination_code":"My_EAN"}],"green_tax":0.1,"supplier_ref":"supplierref_full","condition":"N","free_features":{"freeAttr1":["freeAttr1Value"],"freeAttr2":[42],"freeAttr3":["freeAttr3Value",42]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0c8e02
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/0c8e02'
+            X-Request-Id: b7cbf52a6595e833730ae903a32f7fea
+        body: '{"product_id":38,"product_code":"code_1","status":"A","company_id":2,"approved":"P","weight":0.2,"timestamp":1568902900,"updated_timestamp":1568902900,"is_edp":"Y","unlimited_download":"N","free_shipping":"Y","avail_since":0,"tax_ids":[1,2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Full product","short_description":"super short description","full_description":"super full description","category_ids":[4],"main_category":4,"main_pair":[],"image_pairs":{"17":{"detailed":{"image_path":"\/images\/detailed\/0\/8zi5ufq2-image1.png","position":0}}},"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":3.5}],"price":3.5,"combination_code":"My_EAN"}],"green_tax":0.1,"supplier_ref":"supplierref_full","condition":"N","free_features":{"freeAttr1":["freeAttr1Value"],"freeAttr2":[42],"freeAttr3":["freeAttr3Value",42]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/37'
+        url: 'http://wizaplace.loc/api/v1/products/39'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-760-update-stock-from-ean@4fe9fbb
-            Authorization: 'token hAxUe9iREWsLP6jmlzNlHIW3el6Fzr6RWhPQl0nP'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            Authorization: 'token PmfStxC/A1cfBsPbFuGPXSP2TdD95393QQvcM27Z'
             VCR-index: '5'
             Accept: null
     response:
@@ -176,11 +181,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Mar 2019 10:39:01 GMT'
+            Date: 'Thu, 19 Sep 2019 14:21:49 GMT'
             Content-Language: fr
-            X-Debug-Token: 4716d0
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4716d0'
-            X-Request-Id: 2619f967ece1f61550f23d1cb5682d03
-        body: '{"product_id":37,"product_code":"code_2","status":"A","company_id":2,"approved":"P","weight":0.2,"timestamp":1552905540,"updated_timestamp":1552905540,"is_edp":"Y","unlimited_download":"N","free_shipping":"Y","avail_since":0,"tax_ids":[1,2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"product":"Full product","short_description":"super short description","full_description":"super full description","category_ids":[4],"main_category":4,"main_pair":[],"image_pairs":{"14":{"detailed":{"image_path":"\/images\/detailed\/0\/vzws2gha-image1.png","position":0}}},"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","price":3.5,"combination_code":"My_EAN"}],"green_tax":0.1,"supplier_ref":"supplierref_full","condition":"N","free_features":{"freeAttr1":["freeAttr1Value"],"freeAttr2":[42],"freeAttr3":["freeAttr3Value",42]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d42bc5
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/d42bc5'
+            X-Request-Id: 0218e34855954fe6db4638aacbdd1884
+        body: '{"product_id":39,"product_code":"code_2","status":"A","company_id":2,"approved":"P","weight":0.2,"timestamp":1568902902,"updated_timestamp":1568902902,"is_edp":"Y","unlimited_download":"N","free_shipping":"Y","avail_since":0,"tax_ids":[1,2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Full product","short_description":"super short description","full_description":"super full description","category_ids":[4],"main_category":4,"main_pair":[],"image_pairs":{"18":{"detailed":{"image_path":"\/images\/detailed\/0\/9rj0kmb2-image1.png","position":0}}},"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5,"3":7},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":3.5}],"price":3.5,"combination_code":"My_EAN"}],"green_tax":0.1,"supplier_ref":"supplierref_full","condition":"N","free_features":{"freeAttr1":["freeAttr1Value"],"freeAttr2":[42],"freeAttr3":["freeAttr3Value",42]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

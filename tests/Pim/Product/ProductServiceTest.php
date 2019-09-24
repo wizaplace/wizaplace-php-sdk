@@ -95,14 +95,14 @@ final class ProductServiceTest extends ApiTestCase
         $declination = $product->getDeclinations()[0];
         static::assertSame(15, $declination->getQuantity());
         static::assertSame(15.0, $declination->getPrice());
+        static::assertSame(0, $declination->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.0, $declination->getPriceTiers()[0]->getPrice());
         static::assertEmpty($declination->getOptionsVariants());
         static::assertNull($declination->getCrossedOutPrice());
         static::assertNull($declination->getCode());
         static::assertNull($declination->getAffiliateLink());
         static::assertSame('product', $product->getProductTemplateType());
         static::assertContainsOnly(ProductInventory::class, $product->getInventory());
-        static::assertSame(0, $declination->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(15.0, $declination->getPriceTier()[0]->getPrice());
     }
 
     public function testGetProductWithOptionsById(): void
@@ -117,8 +117,8 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame(5, $declination->getQuantity());
         static::assertSame([1 => 1, 2 => 5], $declination->getOptionsVariants());
         static::assertSame(15.5, $declination->getPrice());
-        static::assertSame(0, $declination->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(15.5, $declination->getPriceTier()[0]->getPrice());
+        static::assertSame(0, $declination->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.5, $declination->getPriceTiers()[0]->getPrice());
         static::assertNull($declination->getCrossedOutPrice());
         static::assertSame('color_white_connectivity_wireles', $declination->getCode());
         static::assertNull($declination->getAffiliateLink());
@@ -484,7 +484,7 @@ final class ProductServiceTest extends ApiTestCase
     {
         $availibilityDate = new \DateTimeImmutable('@1519224245');
         $data = (new CreateProductCommand())
-            ->setCode("code_full3")
+            ->setCode("code_full_D")
             ->setGreenTax(0.1)
             ->setInfiniteStock(true)
             ->setIsBrandNew(true)
@@ -515,7 +515,17 @@ final class ProductServiceTest extends ApiTestCase
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
-                    ->setInfiniteStock(true),
+                    ->setInfiniteStock(true)
+                    ->setPriceTiers([
+                        [
+                            'lower_limit' => 0,
+                            'price' => 18.99,
+                        ],
+                        [
+                            'lower_limit' => 15,
+                            'price' => 15.99,
+                        ],
+                    ]),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
@@ -541,7 +551,7 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertSame($productId, $product->getId());
         static::assertSame(4, $product->getMainCategoryId());
-        static::assertSame("code_full3", $product->getCode());
+        static::assertSame("code_full_D", $product->getCode());
         static::assertSame("Full product", $product->getName());
         static::assertSame('supplierref_full', $product->getSupplierReference());
         static::assertSame("super full description", $product->getFullDescription());
@@ -593,16 +603,18 @@ final class ProductServiceTest extends ApiTestCase
         static::assertNull($declinations[0]->getAffiliateLink());
         static::assertNull($declinations[0]->getCrossedOutPrice());
         static::assertSame(12, $declinations[0]->getQuantity());
-        static::assertSame(3.5, $declinations[0]->getPrice());
-        static::assertSame(0, $declinations[0]->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(3.5, $declinations[0]->getPriceTier()[0]->getPrice());
+        static::assertSame(18.99, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(18.99, $declinations[0]->getPriceTiers()[0]->getPrice());
+        static::assertSame(15, $declinations[0]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(15.99, $declinations[0]->getPriceTiers()[1]->getPrice());
 
         // empty declination generated automatically to complete the matrix
         static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         static::assertSame(0.0, $declinations[1]->getPrice());
         static::assertSame(0, $declinations[1]->getQuantity());
-        static::assertSame(0, $declinations[1]->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(0.0, $declinations[1]->getPriceTier()[0]->getPrice());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
         static::assertNull($declinations[1]->getCrossedOutPrice());
         static::assertNull($declinations[1]->getAffiliateLink());
         static::assertNull($declinations[1]->getCode());
@@ -611,8 +623,8 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         static::assertSame(0.0, $declinations[2]->getPrice());
         static::assertSame(0, $declinations[2]->getQuantity());
-        static::assertSame(0, $declinations[2]->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(0.0, $declinations[2]->getPriceTier()[0]->getPrice());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
         static::assertNull($declinations[2]->getCrossedOutPrice());
         static::assertNull($declinations[2]->getAffiliateLink());
         static::assertNull($declinations[2]->getCode());
@@ -620,8 +632,8 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
         static::assertSame(100.0, $declinations[3]->getPrice());
         static::assertSame(3, $declinations[3]->getQuantity());
-        static::assertSame(0, $declinations[3]->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(100.0, $declinations[3]->getPriceTier()[0]->getPrice());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(100.0, $declinations[3]->getPriceTiers()[0]->getPrice());
         static::assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
         static::assertNull($declinations[3]->getAffiliateLink());
         static::assertNull($declinations[3]->getCode());
@@ -630,7 +642,7 @@ final class ProductServiceTest extends ApiTestCase
     public function testPartialProductUpdate(): void
     {
         $data = (new CreateProductCommand())
-            ->setCode("code_full")
+            ->setCode("code_full_EE")
             ->setGreenTax(0.1)
             ->setIsBrandNew(true)
             ->setName("Full product")
@@ -665,7 +677,17 @@ final class ProductServiceTest extends ApiTestCase
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
-                    ->setInfiniteStock(true),
+                    ->setInfiniteStock(true)
+                    ->setPriceTiers([
+                        [
+                            'lower_limit' => 0,
+                            'price' => 99.59,
+                        ],
+                        [
+                            'lower_limit' => 30,
+                            'price' => 80.99,
+                        ],
+                    ]),
             ])
             ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png')])
             ->setProductTemplateType('product');
@@ -682,7 +704,7 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertSame($productId, $product->getId());
         static::assertSame(4, $product->getMainCategoryId());
-        static::assertSame("code_full", $product->getCode());
+        static::assertSame("code_full_EE", $product->getCode());
         static::assertSame("Full product 2", $product->getName());
         static::assertSame('supplierref_full', $product->getSupplierReference());
         static::assertSame("super full description", $product->getFullDescription());
@@ -726,10 +748,15 @@ final class ProductServiceTest extends ApiTestCase
         static::assertNull($declinations[0]->getCrossedOutPrice());
         static::assertSame(12, $declinations[0]->getQuantity());
         static::assertSame(3.5, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(3.5, $declinations[0]->getPriceTiers()[0]->getPrice());
+
 
         // empty declination generated automatically to complete the matrix
         static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         static::assertSame(0.0, $declinations[1]->getPrice());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
         static::assertSame(0, $declinations[1]->getQuantity());
         static::assertNull($declinations[1]->getCrossedOutPrice());
         static::assertNull($declinations[1]->getAffiliateLink());
@@ -738,13 +765,19 @@ final class ProductServiceTest extends ApiTestCase
         // empty declination generated automatically to complete the matrix
         static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         static::assertSame(0.0, $declinations[2]->getPrice());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
         static::assertSame(0, $declinations[2]->getQuantity());
         static::assertNull($declinations[2]->getCrossedOutPrice());
         static::assertNull($declinations[2]->getAffiliateLink());
         static::assertNull($declinations[2]->getCode());
 
         static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
-        static::assertSame(100.0, $declinations[3]->getPrice());
+        static::assertSame(99.59, $declinations[3]->getPrice());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(99.59, $declinations[3]->getPriceTiers()[0]->getPrice());
+        static::assertSame(30, $declinations[3]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(80.99, $declinations[3]->getPriceTiers()[1]->getPrice());
         static::assertSame(3, $declinations[3]->getQuantity());
         static::assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
         static::assertNull($declinations[3]->getAffiliateLink());
@@ -754,7 +787,7 @@ final class ProductServiceTest extends ApiTestCase
     public function testUpdateComplexProduct(): void
     {
         $data = (new CreateProductCommand())
-            ->setCode("code_full")
+            ->setCode("code_full_A")
             ->setGreenTax(0.1)
             ->setIsBrandNew(true)
             ->setName("Full product")
@@ -783,7 +816,17 @@ final class ProductServiceTest extends ApiTestCase
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
-                    ->setQuantity(12),
+                    ->setQuantity(12)
+                    ->setPriceTiers([
+                        [
+                            'lower_limit' => 0,
+                            'price' => 2.7,
+                        ],
+                        [
+                            'lower_limit' => 50,
+                            'price' => 2.5,
+                        ],
+                    ]),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
@@ -798,7 +841,7 @@ final class ProductServiceTest extends ApiTestCase
         static::assertGreaterThan(0, $productId);
 
         $data = (new UpdateProductCommand($productId))
-            ->setCode("code_full2")
+            ->setCode("code_full_BB")
             ->setGreenTax(0.2)
             ->setIsBrandNew(false)
             ->setName("Full product2")
@@ -833,13 +876,23 @@ final class ProductServiceTest extends ApiTestCase
                     ->setPrice(3.6)
                     ->setQuantity(13),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
-                    ->setPrice(100.1)
                     ->setCrossedOutPrice(1000.2)
-                    ->setQuantity(4),
+                    ->setQuantity(4)
+                    ->setPriceTiers([
+                        [
+                            'lower_limit' => 0,
+                            'price' => 99.99,
+                        ],
+                        [
+                            'lower_limit' => 120,
+                            'price' => 89.99,
+                        ],
+                    ]),
             ])
             ->setMaxPriceAdjustment(10)
             ->setAttachments([new ProductAttachmentUpload('favicon2', 'https://www.google.com/favicon.ico')])
             ->setProductTemplateType('product');
+
         $newProductId = $productService->updateProduct($data);
         static::assertSame($productId, $newProductId);
 
@@ -848,7 +901,7 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertSame($productId, $product->getId());
         static::assertSame(4, $product->getMainCategoryId());
-        static::assertSame("code_full2", $product->getCode());
+        static::assertSame("code_full_BB", $product->getCode());
         static::assertSame("Full product2", $product->getName());
         static::assertSame('supplierref_full2', $product->getSupplierReference());
         static::assertSame("super full description 2", $product->getFullDescription());
@@ -893,10 +946,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertNull($declinations[0]->getCrossedOutPrice());
         static::assertSame(13, $declinations[0]->getQuantity());
         static::assertSame(3.6, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(3.6, $declinations[0]->getPriceTiers()[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
         static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         static::assertSame(0.0, $declinations[1]->getPrice());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
         static::assertSame(0, $declinations[1]->getQuantity());
         static::assertNull($declinations[1]->getCrossedOutPrice());
         static::assertNull($declinations[1]->getAffiliateLink());
@@ -905,13 +962,19 @@ final class ProductServiceTest extends ApiTestCase
         // empty declination generated automatically to complete the matrix
         static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
         static::assertSame(0.0, $declinations[2]->getPrice());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
         static::assertSame(0, $declinations[2]->getQuantity());
         static::assertNull($declinations[2]->getCrossedOutPrice());
         static::assertNull($declinations[2]->getAffiliateLink());
         static::assertNull($declinations[2]->getCode());
 
         static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
-        static::assertSame(100.1, $declinations[3]->getPrice());
+        static::assertSame(99.99, $declinations[3]->getPrice());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(99.99, $declinations[3]->getPriceTiers()[0]->getPrice());
+        static::assertSame(120, $declinations[3]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(89.99, $declinations[3]->getPriceTiers()[1]->getPrice());
         static::assertSame(4, $declinations[3]->getQuantity());
         static::assertSame(1000.2, $declinations[3]->getCrossedOutPrice());
         static::assertNull($declinations[3]->getAffiliateLink());
@@ -1261,8 +1324,8 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertInstanceOf(Product::class, $product);
         static::assertSame(2, $product->getId());
-        static::assertSame(0, $product->getDeclinations()[0]->getPriceTier()[0]->getLowerLimit());
-        static::assertSame(15.5, $product->getDeclinations()[0]->getPriceTier()[0]->getPrice());
+        static::assertSame(0, $product->getDeclinations()[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.5, $product->getDeclinations()[0]->getPriceTiers()[0]->getPrice());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService

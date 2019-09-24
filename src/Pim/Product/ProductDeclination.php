@@ -64,7 +64,7 @@ final class ProductDeclination
         }
 
         $this->priceTiers = [];
-        if (array_key_exists('price_tiers', $data)) {
+        if (\array_key_exists('price_tiers', $data) && \is_array($data['price_tiers'])) {
             foreach ($data['price_tiers'] as $priceTier) {
                 $this->addPriceTier($priceTier);
             }
@@ -109,7 +109,7 @@ final class ProductDeclination
     }
 
     /** @return PriceTier[] */
-    public function getPriceTier(): array
+    public function getPriceTiers(): array
     {
         return $this->priceTiers;
     }

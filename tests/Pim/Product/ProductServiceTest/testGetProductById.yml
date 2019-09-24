@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 03 Sep 2019 13:02:02 GMT'
+            Date: 'Thu, 19 Sep 2019 13:59:53 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ec5b3b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec5b3b'
-            X-Request-Id: 4e0aa581208c8b4edeb8085bfb8b7813
-        body: '{"id":2,"apiKey":"bsJJz7qog83crtUlTxDqHIjAvPMZ31eJEwCjBwB\/"}'
+            X-Debug-Token: 6d94a9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d94a9'
+            X-Request-Id: df905d7973bf19859976972809d82146
+        body: '{"id":2,"apiKey":"oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy\/hssMvF8jm"}'
 -
     request:
         method: GET
@@ -37,7 +37,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
-            Authorization: 'token bsJJz7qog83crtUlTxDqHIjAvPMZ31eJEwCjBwB/'
+            Authorization: 'token oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy/hssMvF8jm'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 03 Sep 2019 13:02:02 GMT'
+            Date: 'Thu, 19 Sep 2019 13:59:53 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b64462
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b64462'
-            X-Request-Id: b7c07c4dfd55f40330037cfc20b39c0f
-        body: '{"product_id":8,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1567514163,"updated_timestamp":1567514165,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[6],"main_category":6,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":15,"price":15.0,"price_tiers":[{"lower_limit":0,"price":15.0}]}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            X-Debug-Token: 31995e
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/31995e'
+            X-Request-Id: 22ba3b76855d65dfb1e04705eb0c68c0
+        body: '{"product_id":8,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1568724610,"updated_timestamp":1568724613,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[6],"main_category":6,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":15,"price":15.0,"price_tiers":[{"lower_limit":0,"price":15.0}]}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

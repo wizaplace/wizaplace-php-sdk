@@ -201,7 +201,7 @@ final class Product
         }
         $this->priceTiers = [];
 
-        if (array_key_exists('price_tiers', $data)) {
+        if (\array_key_exists('price_tiers', $data) && \is_array($data['price_tiers'])) {
             foreach ($data['price_tiers'] as $priceTier) {
                 $this->addPriceTier($priceTier);
             }
