@@ -14,7 +14,6 @@ use MyCLabs\Enum\Enum;
  * @package Wizaplace\SDK\Basket
  *
  * @method static PaymentType CREDIT_CARD()
- * @method static PaymentType CREDIT_CARD_CAPTURE()
  * @method static PaymentType BANK_TRANSFER()
  * @method static PaymentType SEPA_DIRECT()
  * @method static PaymentType PAYMENT_DEFERMENT()
