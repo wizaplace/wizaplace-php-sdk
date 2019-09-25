@@ -100,6 +100,7 @@
 - Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCards`
 - Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCard`
 - Added `Wizaplace\SDK\CreditCard\CreditCardService::getRegistrationUrl`
+- Added `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`
 - Added `Wizaplace\SDK\Catalog\ProductFilter::IS_SUBSCRIPTION`
 - Added `Wizaplace\SDK\Catalog\ProductFilter::getIsSubscription`
 - Added `Wizaplace\SDK\Catalog\ProductFilter::setIsSubscription`
