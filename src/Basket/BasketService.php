@@ -156,8 +156,7 @@ final class BasketService extends AbstractService
     {
         return new BasketItems(
             $this->client->get(
-                "basket/{$basketId}/items",
-                ['offset' => $offset, 'limit' => $limit]
+                "basket/{$basketId}/items?offset={$offset}&limit={$limit}"
             )
         );
     }
