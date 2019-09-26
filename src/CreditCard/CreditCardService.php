@@ -76,13 +76,25 @@ final class CreditCardService extends AbstractService
      *
      * @return string
      */
-    public function getRegistrationUrl(int $userId): string
+    public function getRegistrationUrl(int $userId, string $redirectUrl, int $paymentId, string $cssUrl = null): string
     {
         $this->client->mustBeAuthenticated();
 
+        $params = [
+            'redirectUrl' => $redirectUrl,
+            'paymentId' => $paymentId,
+        ];
+
+        if (\is_string($cssUrl)) {
+            $params['cssUrl'] = $cssUrl;
+        }
+
         return $this->assertRessourceNotFound(
-            function () use ($userId): string {
-                return $this->client->get("users/{$userId}/credit-card-registration")['url'];
+            function () use ($userId, $params): string {
+                return $this->client->get(
+                    "users/{$userId}/credit-card-registration",
+                    [RequestOptions::QUERY => $params]
+                )['url'];
             },
             "User '{$userId}' not found."
         );

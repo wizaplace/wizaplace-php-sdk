@@ -39,6 +39,19 @@ final class CreditCardServiceTest extends ApiTestCase
         );
     }
 
+    public function testGetRegistrationUrl(): void
+    {
+        $creditCardService = $this->buildCreditCardService();
+
+        $url = $creditCardService->getRegistrationUrl(
+            1,
+            "https://wizaplace.loc/return-url",
+            10000
+        );
+
+        static::assertUrl($url);
+    }
+
     private function assertCreditCard(CreditCard $creditCard): void
     {
         static::assertInstanceOf(CreditCard::class, $creditCard);

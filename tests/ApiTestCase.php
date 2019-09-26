@@ -123,4 +123,9 @@ abstract class ApiTestCase extends TestCase
     {
         static::assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
     }
+
+    protected static function assertUrl(string $url): void
+    {
+        static::assertTrue(false !== filter_var($url, FILTER_VALIDATE_URL));
+    }
 }
