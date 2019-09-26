@@ -470,7 +470,7 @@ final class CompanyService extends AbstractService
         return $this->assertRessourceNotFound(
             function () use ($companyId, $subscriptionFilter): PaginatedData {
                 $response = $this->client->get(
-                    "/companies/{$companyId}/subscriptions",
+                    "companies/{$companyId}/subscriptions",
                     [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
                 );
 
