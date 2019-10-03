@@ -74,6 +74,7 @@ final class UserService extends AbstractService
                     'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
+                    'phone' => $command->getPhone(),
                     'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                     'currencyCode' => $command->getCurrencyCode(),
                 ],
@@ -91,6 +92,7 @@ final class UserService extends AbstractService
                 [
                     RequestOptions::FORM_PARAMS => [
                         'currencyCode' => $command->getCurrencyCode(),
+                        'phone' => $command->getPhone(),
                     ],
                 ]
             );
@@ -209,6 +211,7 @@ final class UserService extends AbstractService
                         'firstName' => $command->getFirstName(),
                         'lastName' => $command->getLastName(),
                         'title' => $command->getTitle()->getValue(),
+                        'phone' => $command->getPhone(),
                         'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                         'billing' => self::serializeUserAddressUpdate($command->getBilling()),
                         'shipping' => self::serializeUserAddressUpdate($command->getShipping()),

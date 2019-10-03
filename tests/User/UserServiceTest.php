@@ -27,7 +27,7 @@ use Wizaplace\SDK\User\UserType;
  */
 final class UserServiceTest extends ApiTestCase
 {
-    public function testCreateUser()
+    public function testCreateUser(): void
     {
         $userEmail = 'user@example.com';
         $userPassword = 'password';
@@ -44,44 +44,45 @@ final class UserServiceTest extends ApiTestCase
         // fetch user
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertNotNull($user, 'User exists');
-        $this->assertSame($userEmail, $user->getEmail());
-        $this->assertSame($userId, $user->getId());
-        $this->assertSame(null, $user->getTitle());
-        $this->assertSame('', $user->getFirstname());
-        $this->assertSame('', $user->getLastname());
-        $this->assertSame(null, $user->getBirthday());
-        $this->assertSame(null, $user->getCurrencyCode());
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertNotNull($user, 'User exists');
+        static::assertSame($userEmail, $user->getEmail());
+        static::assertSame($userId, $user->getId());
+        static::assertNull($user->getTitle());
+        static::assertSame('', $user->getFirstname());
+        static::assertSame('', $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertNull($user->getCurrencyCode());
+        static::assertNull($user->getPhone());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
-        $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('', $user->getShippingAddress()->getLastName());
-        $this->assertSame('', $user->getShippingAddress()->getCompany());
-        $this->assertSame('', $user->getShippingAddress()->getPhone());
-        $this->assertSame('', $user->getShippingAddress()->getAddress());
-        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getShippingAddress()->getZipCode());
-        $this->assertSame('', $user->getShippingAddress()->getCity());
-        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
+        static::assertNull($user->getShippingAddress()->getTitle());
+        static::assertSame('', $user->getShippingAddress()->getFirstName());
+        static::assertSame('', $user->getShippingAddress()->getLastName());
+        static::assertSame('', $user->getShippingAddress()->getCompany());
+        static::assertSame('', $user->getShippingAddress()->getPhone());
+        static::assertSame('', $user->getShippingAddress()->getAddress());
+        static::assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getShippingAddress()->getZipCode());
+        static::assertSame('', $user->getShippingAddress()->getCity());
+        static::assertSame('FR', $user->getShippingAddress()->getCountry());
 
         // billing address
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('', $user->getBillingAddress()->getLastName());
-        $this->assertSame('', $user->getBillingAddress()->getCompany());
-        $this->assertSame('', $user->getBillingAddress()->getPhone());
-        $this->assertSame('', $user->getBillingAddress()->getAddress());
-        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getBillingAddress()->getZipCode());
-        $this->assertSame('', $user->getBillingAddress()->getCity());
-        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('', $user->getBillingAddress()->getFirstName());
+        static::assertSame('', $user->getBillingAddress()->getLastName());
+        static::assertSame('', $user->getBillingAddress()->getCompany());
+        static::assertSame('', $user->getBillingAddress()->getPhone());
+        static::assertSame('', $user->getBillingAddress()->getAddress());
+        static::assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getBillingAddress()->getZipCode());
+        static::assertSame('', $user->getBillingAddress()->getCity());
+        static::assertSame('FR', $user->getBillingAddress()->getCountry());
     }
 
-    public function testCreateUserWithAddresses()
+    public function testCreateUserWithAddresses(): void
     {
         $userEmail = 'user@example.com';
         $userPassword = 'password';
@@ -125,44 +126,45 @@ final class UserServiceTest extends ApiTestCase
         // fetch user
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertNotNull($user, 'User exists');
-        $this->assertSame($userEmail, $user->getEmail());
-        $this->assertSame($userId, $user->getId());
-        $this->assertSame(null, $user->getTitle());
-        $this->assertSame($userFistname, $user->getFirstname());
-        $this->assertSame($userLastname, $user->getLastname());
-        $this->assertSame(null, $user->getBirthday());
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertNotNull($user, 'User exists');
+        static::assertSame($userEmail, $user->getEmail());
+        static::assertSame($userId, $user->getId());
+        static::assertNull($user->getTitle());
+        static::assertSame($userFistname, $user->getFirstname());
+        static::assertSame($userLastname, $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertNull($user->getPhone());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
-        $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
-        $this->assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
-        $this->assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
-        $this->assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
-        $this->assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
-        $this->assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
-        $this->assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
-        $this->assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
-        $this->assertSame($userShipping->getCountry(), $user->getShippingAddress()->getCountry());
-        $this->assertSame($userShipping->getDivisionCode(), $user->getShippingAddress()->getDivisionCode());
+        static::assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
+        static::assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
+        static::assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
+        static::assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
+        static::assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
+        static::assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
+        static::assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
+        static::assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
+        static::assertSame($userShipping->getCountry(), $user->getShippingAddress()->getCountry());
+        static::assertSame($userShipping->getDivisionCode(), $user->getShippingAddress()->getDivisionCode());
 
         // billing address
-        $this->assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
-        $this->assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
-        $this->assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
-        $this->assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
-        $this->assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
-        $this->assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
-        $this->assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
-        $this->assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
-        $this->assertSame($userBilling->getCountry(), $user->getBillingAddress()->getCountry());
+        static::assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
+        static::assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
+        static::assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
+        static::assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
+        static::assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
+        static::assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
+        static::assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
+        static::assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
+        static::assertSame($userBilling->getCountry(), $user->getBillingAddress()->getCountry());
     }
 
-    public function testCreateUserWithAnAddress()
+    public function testCreateUserWithAnAddress(): void
     {
         $userEmail = 'user@example.com';
         $userPassword = 'password';
@@ -205,7 +207,7 @@ final class UserServiceTest extends ApiTestCase
         $userService->register($userEmail, $userPassword, $userFistname, $userLastname, null, $userShipping);
     }
 
-    public function testCreateUserOnlyWithCompanyName()
+    public function testCreateUserOnlyWithCompanyName(): void
     {
         $userEmail = 'user123@example.com';
         $userPassword = 'password';
@@ -248,66 +250,68 @@ final class UserServiceTest extends ApiTestCase
         // fetch user
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertNotNull($user, 'User exists');
-        $this->assertSame($userEmail, $user->getEmail());
-        $this->assertSame($userId, $user->getId());
-        $this->assertSame(null, $user->getTitle());
-        $this->assertSame($userFistname, $user->getFirstname());
-        $this->assertSame($userLastname, $user->getLastname());
-        $this->assertSame(null, $user->getBirthday());
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertNotNull($user, 'User exists');
+        static::assertSame($userEmail, $user->getEmail());
+        static::assertSame($userId, $user->getId());
+        static::assertNull($user->getTitle());
+        static::assertSame($userFistname, $user->getFirstname());
+        static::assertSame($userLastname, $user->getLastname());
+        static::assertNull($user->getPhone());
+        static::assertNull($user->getBirthday());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         //shipping adress
-        $this->assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
-        $this->assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
-        $this->assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
-        $this->assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
-        $this->assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
-        $this->assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
-        $this->assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
-        $this->assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
-        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
+        static::assertSame($userShipping->getTitle()->getValue(), $user->getShippingAddress()->getTitle()->getValue());
+        static::assertSame($userShipping->getFirstName(), $user->getShippingAddress()->getFirstName());
+        static::assertSame($userShipping->getLastName(), $user->getShippingAddress()->getLastName());
+        static::assertSame($userShipping->getCompany(), $user->getShippingAddress()->getCompany());
+        static::assertSame($userShipping->getPhone(), $user->getShippingAddress()->getPhone());
+        static::assertSame($userShipping->getAddress(), $user->getShippingAddress()->getAddress());
+        static::assertSame($userShipping->getAddressSecondLine(), $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame($userShipping->getZipCode(), $user->getShippingAddress()->getZipCode());
+        static::assertSame($userShipping->getCity(), $user->getShippingAddress()->getCity());
+        static::assertSame('FR', $user->getShippingAddress()->getCountry());
 
 
 
         //billing adress
-        $this->assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
-        $this->assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
-        $this->assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
-        $this->assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
-        $this->assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
-        $this->assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
-        $this->assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
-        $this->assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
-        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
+        static::assertSame($userBilling->getTitle()->getValue(), $user->getBillingAddress()->getTitle()->getValue());
+        static::assertSame($userBilling->getFirstName(), $user->getBillingAddress()->getFirstName());
+        static::assertSame($userBilling->getLastName(), $user->getBillingAddress()->getLastName());
+        static::assertSame($userBilling->getCompany(), $user->getBillingAddress()->getCompany());
+        static::assertSame($userBilling->getPhone(), $user->getBillingAddress()->getPhone());
+        static::assertSame($userBilling->getAddress(), $user->getBillingAddress()->getAddress());
+        static::assertSame($userBilling->getAddressSecondLine(), $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame($userBilling->getZipCode(), $user->getBillingAddress()->getZipCode());
+        static::assertSame($userBilling->getCity(), $user->getBillingAddress()->getCity());
+        static::assertSame('FR', $user->getBillingAddress()->getCountry());
     }
 
-    public function testCreateUserWithFullInfos()
+    public function testCreateUserWithFullInfos(): void
     {
-        $addressCommand = new UpdateUserAddressCommand();
-        $addressCommand->setTitle(UserTitle::MRS());
-        $addressCommand->setFirstName('Jane');
-        $addressCommand->setLastName('Doe');
-        $addressCommand->setPhone('0123456789');
-        $addressCommand->setAddress('24 rue de la gare');
-        $addressCommand->setCompany('Wizaplace');
-        $addressCommand->setZipCode('69009');
-        $addressCommand->setCity('Lyon');
-        $addressCommand->setCountry('France');
+        $addressCommand = (new UpdateUserAddressCommand())
+            ->setTitle(UserTitle::MRS())
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0123456789')
+            ->setAddress('24 rue de la gare')
+            ->setCompany('Wizaplace')
+            ->setZipCode('69009')
+            ->setCity('Lyon')
+            ->setCountry('France');
 
-        $userCommand = new RegisterUserCommand();
-        $userCommand->setEmail('user@example.com');
-        $userCommand->setPassword('password');
-        $userCommand->setFirstName('Jane');
-        $userCommand->setLastName('Doe');
-        $userCommand->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'));
-        $userCommand->setTitle(UserTitle::MRS());
-        $userCommand->setBilling($addressCommand);
-        $userCommand->setShipping($addressCommand);
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('user@example.com')
+            ->setPassword('password')
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MRS())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand);
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -321,43 +325,44 @@ final class UserServiceTest extends ApiTestCase
         // fetch user
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertNotNull($user, 'User exists');
-        $this->assertSame($userCommand->getEmail(), $user->getEmail());
-        $this->assertSame($userId, $user->getId());
-        $this->assertTrue($userCommand->getTitle()->equals($user->getTitle()));
-        $this->assertSame($userCommand->getFirstName(), $user->getFirstname());
-        $this->assertSame($userCommand->getLastName(), $user->getLastname());
-        $this->assertSame('1998-07-12', $user->getBirthday()->format('Y-m-d'));
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertNotNull($user, 'User exists');
+        static::assertSame($userCommand->getEmail(), $user->getEmail());
+        static::assertSame($userId, $user->getId());
+        static::assertTrue($userCommand->getTitle()->equals($user->getTitle()));
+        static::assertSame($userCommand->getFirstName(), $user->getFirstname());
+        static::assertSame($userCommand->getLastName(), $user->getLastname());
+        static::assertSame('1998-07-12', $user->getBirthday()->format('Y-m-d'));
+        static::assertSame('0102030405', $user->getPhone());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         // shipping address
-        $this->assertTrue($addressCommand->getTitle()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame($addressCommand->getFirstName(), $user->getShippingAddress()->getFirstName());
-        $this->assertSame($addressCommand->getLastName(), $user->getShippingAddress()->getLastName());
-        $this->assertSame($addressCommand->getCompany(), $user->getShippingAddress()->getCompany());
-        $this->assertSame($addressCommand->getPhone(), $user->getShippingAddress()->getPhone());
-        $this->assertSame($addressCommand->getAddress(), $user->getShippingAddress()->getAddress());
-        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame($addressCommand->getZipCode(), $user->getShippingAddress()->getZipCode());
-        $this->assertSame($addressCommand->getCity(), $user->getShippingAddress()->getCity());
-        $this->assertSame('Fr', $user->getShippingAddress()->getCountry());
+        static::assertTrue($addressCommand->getTitle()->equals($user->getShippingAddress()->getTitle()));
+        static::assertSame($addressCommand->getFirstName(), $user->getShippingAddress()->getFirstName());
+        static::assertSame($addressCommand->getLastName(), $user->getShippingAddress()->getLastName());
+        static::assertSame($addressCommand->getCompany(), $user->getShippingAddress()->getCompany());
+        static::assertSame($addressCommand->getPhone(), $user->getShippingAddress()->getPhone());
+        static::assertSame($addressCommand->getAddress(), $user->getShippingAddress()->getAddress());
+        static::assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame($addressCommand->getZipCode(), $user->getShippingAddress()->getZipCode());
+        static::assertSame($addressCommand->getCity(), $user->getShippingAddress()->getCity());
+        static::assertSame('Fr', $user->getShippingAddress()->getCountry());
 
         // billing address
-        $this->assertTrue($addressCommand->getTitle()->equals($user->getBillingAddress()->getTitle()));
-        $this->assertSame($addressCommand->getFirstName(), $user->getBillingAddress()->getFirstName());
-        $this->assertSame($addressCommand->getLastName(), $user->getBillingAddress()->getLastName());
-        $this->assertSame($addressCommand->getCompany(), $user->getBillingAddress()->getCompany());
-        $this->assertSame($addressCommand->getPhone(), $user->getBillingAddress()->getPhone());
-        $this->assertSame($addressCommand->getAddress(), $user->getBillingAddress()->getAddress());
-        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame($addressCommand->getZipCode(), $user->getBillingAddress()->getZipCode());
-        $this->assertSame($addressCommand->getCity(), $user->getBillingAddress()->getCity());
-        $this->assertSame('Fr', $user->getBillingAddress()->getCountry());
+        static::assertTrue($addressCommand->getTitle()->equals($user->getBillingAddress()->getTitle()));
+        static::assertSame($addressCommand->getFirstName(), $user->getBillingAddress()->getFirstName());
+        static::assertSame($addressCommand->getLastName(), $user->getBillingAddress()->getLastName());
+        static::assertSame($addressCommand->getCompany(), $user->getBillingAddress()->getCompany());
+        static::assertSame($addressCommand->getPhone(), $user->getBillingAddress()->getPhone());
+        static::assertSame($addressCommand->getAddress(), $user->getBillingAddress()->getAddress());
+        static::assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame($addressCommand->getZipCode(), $user->getBillingAddress()->getZipCode());
+        static::assertSame($addressCommand->getCity(), $user->getBillingAddress()->getCity());
+        static::assertSame('Fr', $user->getBillingAddress()->getCountry());
     }
 
-    public function testCreateAlreadyExistingUser()
+    public function testCreateAlreadyExistingUser(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -367,7 +372,7 @@ final class UserServiceTest extends ApiTestCase
         $userService->register('user@wizaplace.com', 'whatever');
     }
 
-    public function testUpdateUser()
+    public function testUpdateUser(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -377,15 +382,15 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user42@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('user42@example.com', $user->getEmail());
-        $this->assertSame(null, $user->getTitle());
-        $this->assertSame('Jean', $user->getFirstname());
-        $this->assertSame('Paul', $user->getLastname());
-        $this->assertSame(null, $user->getBirthday());
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
-        $this->assertSame(null, $user->getCurrencyCode());
+        static::assertSame('user42@example.com', $user->getEmail());
+        static::assertNull($user->getTitle());
+        static::assertSame('Jean', $user->getFirstname());
+        static::assertSame('Paul', $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertNull($user->getCurrencyCode());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -394,6 +399,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setFirstName('Jacques')
                 ->setLastName('Jules')
                 ->setTitle(UserTitle::MR())
+                ->setPhone('0102030405')
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
                 ->setCurrencyCode('EUR')
         );
@@ -401,15 +407,16 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user43@example.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('user43@example.com', $user->getEmail());
-        $this->assertTrue(UserTitle::MR()->equals($user->getTitle()));
-        $this->assertSame('Jacques', $user->getFirstname());
-        $this->assertSame('Jules', $user->getLastname());
-        $this->assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
-        $this->assertNull($user->getCompanyId());
-        $this->assertFalse($user->isVendor());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
-        $this->assertSame('EUR', $user->getCurrencyCode());
+        static::assertSame('user43@example.com', $user->getEmail());
+        static::assertTrue(UserTitle::MR()->equals($user->getTitle()));
+        static::assertSame('Jacques', $user->getFirstname());
+        static::assertSame('Jules', $user->getLastname());
+        static::assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
+        static::assertSame('0102030405', $user->getPhone());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertSame('EUR', $user->getCurrencyCode());
     }
 
     public function testPatchUser(): void
@@ -424,14 +431,16 @@ final class UserServiceTest extends ApiTestCase
             (new UpdateUserCommand())
                 ->setUserId($userId)
                 ->setCurrencyCode('EUR')
+                ->setPhone('0102030405')
         );
 
         $client->authenticate('user65@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         static::assertSame('EUR', $user->getCurrencyCode());
+        static::assertSame('0102030405', $user->getPhone());
     }
 
-    public function testUpdateUserAddresses()
+    public function testUpdateUserAddresses(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -441,13 +450,13 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user12@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        static::assertNull($user->getShippingAddress()->getTitle());
+        static::assertSame('Jean', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Paul', $user->getShippingAddress()->getLastName());
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('Jean', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Paul', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -484,31 +493,31 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('Pierre', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
-        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
-        $this->assertSame('Lyon', $user->getShippingAddress()->getCity());
-        $this->assertSame('24 rue de la gare', $user->getShippingAddress()->getAddress());
-        $this->assertSame('1er étage', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame('Wizaplace', $user->getShippingAddress()->getCompany());
-        $this->assertSame('0123456798', $user->getShippingAddress()->getPhone());
-        $this->assertSame('69009', $user->getShippingAddress()->getZipCode());
-        $this->assertSame('FR-69', $user->getShippingAddress()->getDivisionCode());
+        static::assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        static::assertSame('Pierre', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        static::assertSame('FR', $user->getShippingAddress()->getCountry());
+        static::assertSame('Lyon', $user->getShippingAddress()->getCity());
+        static::assertSame('24 rue de la gare', $user->getShippingAddress()->getAddress());
+        static::assertSame('1er étage', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('Wizaplace', $user->getShippingAddress()->getCompany());
+        static::assertSame('0123456798', $user->getShippingAddress()->getPhone());
+        static::assertSame('69009', $user->getShippingAddress()->getZipCode());
+        static::assertSame('FR-69', $user->getShippingAddress()->getDivisionCode());
 
-        $this->assertTrue(UserTitle::MRS()->equals($user->getBillingAddress()->getTitle()));
-        $this->assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paulette', $user->getBillingAddress()->getLastName());
-        $this->assertSame('GB', $user->getBillingAddress()->getCountry());
-        $this->assertSame('Lyon', $user->getBillingAddress()->getCity());
-        $this->assertSame('24 rue de la gare', $user->getBillingAddress()->getAddress());
-        $this->assertSame('1er étage', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame('Wizaplace', $user->getBillingAddress()->getCompany());
-        $this->assertSame('0123456798', $user->getBillingAddress()->getPhone());
-        $this->assertSame('69009', $user->getBillingAddress()->getZipCode());
+        static::assertTrue(UserTitle::MRS()->equals($user->getBillingAddress()->getTitle()));
+        static::assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Paulette', $user->getBillingAddress()->getLastName());
+        static::assertSame('GB', $user->getBillingAddress()->getCountry());
+        static::assertSame('Lyon', $user->getBillingAddress()->getCity());
+        static::assertSame('24 rue de la gare', $user->getBillingAddress()->getAddress());
+        static::assertSame('1er étage', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('Wizaplace', $user->getBillingAddress()->getCompany());
+        static::assertSame('0123456798', $user->getBillingAddress()->getPhone());
+        static::assertSame('69009', $user->getBillingAddress()->getZipCode());
     }
 
-    public function testUpdateUserAddressesWithMissingFields()
+    public function testUpdateUserAddressesWithMissingFields(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -518,13 +527,13 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user13@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
+        static::assertNull($user->getShippingAddress()->getTitle());
+        static::assertSame('Jean', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Paul', $user->getShippingAddress()->getLastName());
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jean', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getBillingAddress()->getLastName());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('Jean', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Paul', $user->getBillingAddress()->getLastName());
 
 
         $userService->updateUserAdresses(
@@ -543,31 +552,31 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('Jean', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Paul', $user->getShippingAddress()->getLastName());
-        $this->assertSame('FR', $user->getShippingAddress()->getCountry());
-        $this->assertSame('', $user->getShippingAddress()->getCity());
-        $this->assertSame('', $user->getShippingAddress()->getAddress());
-        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getShippingAddress()->getCompany());
-        $this->assertSame('', $user->getShippingAddress()->getPhone());
-        $this->assertSame('', $user->getShippingAddress()->getZipCode());
-        $this->assertSame('', $user->getShippingAddress()->getDivisionCode());
+        static::assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        static::assertSame('Jean', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Paul', $user->getShippingAddress()->getLastName());
+        static::assertSame('FR', $user->getShippingAddress()->getCountry());
+        static::assertSame('', $user->getShippingAddress()->getCity());
+        static::assertSame('', $user->getShippingAddress()->getAddress());
+        static::assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getShippingAddress()->getCompany());
+        static::assertSame('', $user->getShippingAddress()->getPhone());
+        static::assertSame('', $user->getShippingAddress()->getZipCode());
+        static::assertSame('', $user->getShippingAddress()->getDivisionCode());
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Paulette', $user->getBillingAddress()->getLastName());
-        $this->assertSame('FR', $user->getBillingAddress()->getCountry());
-        $this->assertSame('', $user->getBillingAddress()->getCity());
-        $this->assertSame('', $user->getBillingAddress()->getAddress());
-        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getBillingAddress()->getCompany());
-        $this->assertSame('', $user->getBillingAddress()->getPhone());
-        $this->assertSame('', $user->getBillingAddress()->getZipCode());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('Jeanne', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Paulette', $user->getBillingAddress()->getLastName());
+        static::assertSame('FR', $user->getBillingAddress()->getCountry());
+        static::assertSame('', $user->getBillingAddress()->getCity());
+        static::assertSame('', $user->getBillingAddress()->getAddress());
+        static::assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getBillingAddress()->getCompany());
+        static::assertSame('', $user->getBillingAddress()->getPhone());
+        static::assertSame('', $user->getBillingAddress()->getZipCode());
     }
 
-    public function testUpdateUserAddressesWithMissingFieldsWhenFullFieldsBefore()
+    public function testUpdateUserAddressesWithMissingFieldsWhenFullFieldsBefore(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -579,13 +588,13 @@ final class UserServiceTest extends ApiTestCase
 
         //test juste après création du compte
         $user = $userService->getProfileFromId($userId);
-        $this->assertNull($user->getShippingAddress()->getTitle());
-        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        static::assertNull($user->getShippingAddress()->getTitle());
+        static::assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getShippingAddress()->getLastName());
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getBillingAddress()->getLastName());
 
         //ajout d'adresses et de nom d'entreprise
         $userService->updateUserAdresses(
@@ -613,25 +622,25 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        static::assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
 
-        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
-        $this->assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
-        $this->assertSame('49 rue des chemins', $user->getShippingAddress()->getAddress());
-        $this->assertSame('9e étage', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame('69009', $user->getShippingAddress()->getZipCode());
-        $this->assertSame('FR-69', $user->getShippingAddress()->getDivisionCode());
+        static::assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        static::assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
+        static::assertSame('49 rue des chemins', $user->getShippingAddress()->getAddress());
+        static::assertSame('9e étage', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('69009', $user->getShippingAddress()->getZipCode());
+        static::assertSame('FR-69', $user->getShippingAddress()->getDivisionCode());
 
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
+        static::assertNull($user->getBillingAddress()->getTitle());
 
-        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
-        $this->assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
-        $this->assertSame('49 rue des chemins', $user->getBillingAddress()->getAddress());
-        $this->assertSame('9e étage', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame('69009', $user->getBillingAddress()->getZipCode());
+        static::assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getBillingAddress()->getLastName());
+        static::assertSame('Universite de Cambridge', $user->getShippingAddress()->getCompany());
+        static::assertSame('49 rue des chemins', $user->getBillingAddress()->getAddress());
+        static::assertSame('9e étage', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('69009', $user->getBillingAddress()->getZipCode());
 
         $userService->updateUserAdresses(
             (new UpdateUserAddressesCommand())
@@ -654,21 +663,21 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
 
-        $this->assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
-        $this->assertSame('Paul', $user->getShippingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getShippingAddress()->getLastName());
-        $this->assertSame('', $user->getShippingAddress()->getAddress());
-        $this->assertSame('', $user->getShippingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getShippingAddress()->getCompany());
-        $this->assertSame('', $user->getShippingAddress()->getZipCode());
+        static::assertTrue(UserTitle::MR()->equals($user->getShippingAddress()->getTitle()));
+        static::assertSame('Paul', $user->getShippingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getShippingAddress()->getLastName());
+        static::assertSame('', $user->getShippingAddress()->getAddress());
+        static::assertSame('', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getShippingAddress()->getCompany());
+        static::assertSame('', $user->getShippingAddress()->getZipCode());
 
-        $this->assertNull($user->getBillingAddress()->getTitle());
-        $this->assertSame('Paul', $user->getBillingAddress()->getFirstName());
-        $this->assertSame('Jacques', $user->getBillingAddress()->getLastName());
-        $this->assertSame('', $user->getBillingAddress()->getAddress());
-        $this->assertSame('', $user->getBillingAddress()->getAddressSecondLine());
-        $this->assertSame('', $user->getBillingAddress()->getCompany());
-        $this->assertSame('', $user->getBillingAddress()->getZipCode());
+        static::assertNull($user->getBillingAddress()->getTitle());
+        static::assertSame('Paul', $user->getBillingAddress()->getFirstName());
+        static::assertSame('Jacques', $user->getBillingAddress()->getLastName());
+        static::assertSame('', $user->getBillingAddress()->getAddress());
+        static::assertSame('', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('', $user->getBillingAddress()->getCompany());
+        static::assertSame('', $user->getBillingAddress()->getZipCode());
     }
 
     public function testUpdateUserWithDefaultValuesOnly()
@@ -681,12 +690,12 @@ final class UserServiceTest extends ApiTestCase
 
         $client->authenticate('user42@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('user42@example.com', $user->getEmail());
-        $this->assertSame(null, $user->getTitle());
-        $this->assertSame('Jean', $user->getFirstname());
-        $this->assertSame('Paul', $user->getLastname());
-        $this->assertSame(null, $user->getBirthday());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertSame('user42@example.com', $user->getEmail());
+        static::assertNull($user->getTitle());
+        static::assertSame('Jean', $user->getFirstname());
+        static::assertSame('Paul', $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
 
         $userService->updateUser(
             (new UpdateUserCommand())
@@ -699,15 +708,15 @@ final class UserServiceTest extends ApiTestCase
         $client->authenticate('user43@example.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
-        $this->assertSame('user43@example.com', $user->getEmail());
-        $this->assertNull($user->getTitle());
-        $this->assertSame('Jacques', $user->getFirstname());
-        $this->assertSame('Jules', $user->getLastname());
-        $this->assertNull($user->getBirthday());
-        $this->assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertSame('user43@example.com', $user->getEmail());
+        static::assertNull($user->getTitle());
+        static::assertSame('Jacques', $user->getFirstname());
+        static::assertSame('Jules', $user->getLastname());
+        static::assertNull($user->getBirthday());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
     }
 
-    public function testRecoverPassword()
+    public function testRecoverPassword(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -717,10 +726,10 @@ final class UserServiceTest extends ApiTestCase
         $userService->register($userEmail, $userPassword);
 
 
-        $this->assertNull($userService->recoverPassword($userEmail));
+        static::assertNull($userService->recoverPassword($userEmail));
     }
 
-    public function testRecoverPasswordWithCustomUrl()
+    public function testRecoverPasswordWithCustomUrl(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -729,18 +738,18 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userService->register($userEmail, $userPassword);
 
-        $this->assertNull($userService->recoverPassword($userEmail, new Uri('https://marketplace.example.com/recover-password=token')));
+        static::assertNull($userService->recoverPassword($userEmail, new Uri('https://marketplace.example.com/recover-password=token')));
     }
 
-    public function testRecoverPasswordForNonExistingEmail()
+    public function testRecoverPasswordForNonExistingEmail(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
 
-        $this->assertNull($userService->recoverPassword('404@example.com'));
+        static::assertNull($userService->recoverPassword('404@example.com'));
     }
 
-    public function testChangePassword()
+    public function testChangePassword(): void
     {
         $userEmail = 'user1236@example.com';
         $userPassword = 'password';
@@ -756,18 +765,18 @@ final class UserServiceTest extends ApiTestCase
 
         $userService->changePassword($userId, 'hunter2');
 
-        $this->assertNotEmpty($client->authenticate($userEmail, 'hunter2'));
+        static::assertNotEmpty($client->authenticate($userEmail, 'hunter2'));
         $this->expectException(BadCredentials::class);
-        $this->assertNotEmpty($client->authenticate($userEmail, $userPassword));
+        static::assertNotEmpty($client->authenticate($userEmail, $userPassword));
     }
 
-    public function testChangePasswordAnonymously()
+    public function testChangePasswordAnonymously(): void
     {
         $this->expectException(AuthenticationRequired::class);
         (new UserService($this->buildApiClient()))->changePassword(1, 'hunter2');
     }
 
-    public function testChangePasswordWithToken()
+    public function testChangePasswordWithToken(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -778,15 +787,15 @@ final class UserServiceTest extends ApiTestCase
         } catch (BadCredentials $e) {
             $cannotLogin = true;
         }
-        $this->assertTrue($cannotLogin);
+        static::assertTrue($cannotLogin);
 
         $userService->changePasswordWithRecoveryToken(md5('fake_secret_token'), 'newPassword');
 
         $apiKey = $client->authenticate('customer-4@world-company.com', 'newPassword');
-        $this->assertInstanceOf(ApiKey::class, $apiKey);
+        static::assertInstanceOf(ApiKey::class, $apiKey);
     }
 
-    public function testGetUserCompany()
+    public function testGetUserCompany(): void
     {
         $apiClient = $this->buildApiClient();
 
@@ -795,9 +804,9 @@ final class UserServiceTest extends ApiTestCase
         $user = (new UserService($apiClient))->getProfileFromId($userId);
         $companyId = $user->getCompanyId();
 
-        $this->assertInternalType('int', $companyId);
-        $this->assertGreaterThan(0, $companyId);
-        $this->assertTrue($user->isVendor());
+        static::assertInternalType('int', $companyId);
+        static::assertGreaterThan(0, $companyId);
+        static::assertTrue($user->isVendor());
     }
 
     public function testUpdateUserWithJsonFormat(): void

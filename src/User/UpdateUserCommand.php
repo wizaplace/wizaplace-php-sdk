@@ -36,6 +36,15 @@ final class UpdateUserCommand
     /** @var string|null */
     private $currencyCode;
 
+    /** @var string|null */
+    private $phone;
+
+    /** @return string|null */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
     /**
      * @return int
      */
@@ -100,6 +109,18 @@ final class UpdateUserCommand
     public function setUserId(int $userId): self
     {
         $this->id = $userId;
+
+        return $this;
+    }
+
+    /**
+     * @param string|null $phone
+     *
+     * @return UpdateUserCommand
+     */
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
 
         return $this;
     }

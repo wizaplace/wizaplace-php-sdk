@@ -8,7 +8,7 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@6a383cd
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '0'
             Accept: null
         body: 'email=user65%40example.com&password=password&firstName=Jean&lastName=Paul'
@@ -22,15 +22,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 10 May 2019 13:53:33 GMT'
+            Date: 'Thu, 26 Sep 2019 08:51:34 GMT'
             Content-Language: fr
-            X-Debug-Token: 9a09b3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a09b3'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229a09b3%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 06aa23ac47485e85e5bea740ff0742e0
-        body: '{"id":18}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 80cd44
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80cd44'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2280cd44%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 1a21510f0174fdbf82de98e129eab4f5
+        body: '{"id":20}'
 -
     request:
         method: GET
@@ -39,7 +40,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjY1QGV4YW1wbGUuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@6a383cd
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '1'
             Accept: null
     response:
@@ -52,28 +53,29 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 10 May 2019 13:53:33 GMT'
+            Date: 'Thu, 26 Sep 2019 08:51:34 GMT'
             Content-Language: fr
-            X-Debug-Token: 5d8fd6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d8fd6'
-            X-Request-Id: 66176ba2823634042187aa609ac57677
-        body: '{"id":18,"apiKey":"md9eWbtd+GOpppTOQjPy+qTNSFauwt6eBPiKMI8a"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3cc64f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3cc64f'
+            X-Request-Id: a2edbc9f3e8a49301c94bc8fc204f671
+        body: '{"id":20,"apiKey":"Oll5znnli\/ACosGG8r\/+gFGicAId7wkySddhDtwA"}'
 -
     request:
         method: PATCH
-        url: 'http://wizaplace.loc/api/v1/users/18'
+        url: 'http://wizaplace.loc/api/v1/users/20'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@6a383cd
-            Authorization: 'token md9eWbtd+GOpppTOQjPy+qTNSFauwt6eBPiKMI8a'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
+            Authorization: 'token Oll5znnli/ACosGG8r/+gFGicAId7wkySddhDtwA'
             VCR-index: '2'
             Accept: null
-        body: currencyCode=EUR
+        body: 'currencyCode=EUR&phone=0102030405'
     response:
         status:
             http_version: '1.1'
@@ -84,14 +86,15 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 10 May 2019 13:53:33 GMT'
+            Date: 'Thu, 26 Sep 2019 08:51:34 GMT'
             Content-Language: fr
-            X-Debug-Token: 43dade
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/43dade'
-            X-Request-Id: 50de14f5b70e07db50b7ef3004b6d9e8
-        body: '{"id":18,"title":null,"email":"user65@example.com","type":"C","lang":"fr","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}}}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 74b818
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/74b818'
+            X-Request-Id: de404b5e13aa8bd1f1fbb0979266325c
+        body: '{"id":20,"title":null,"email":"user65@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}}}'
 -
     request:
         method: GET
@@ -100,7 +103,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjY1QGV4YW1wbGUuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@6a383cd
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '3'
             Accept: null
     response:
@@ -113,23 +116,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 10 May 2019 13:53:33 GMT'
+            Date: 'Thu, 26 Sep 2019 08:51:35 GMT'
             Content-Language: fr
-            X-Debug-Token: d041e1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d041e1'
-            X-Request-Id: 844aafc98199034d2c4508b64beb0b48
-        body: '{"id":18,"apiKey":"md9eWbtd+GOpppTOQjPy+qTNSFauwt6eBPiKMI8a"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 74318c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/74318c'
+            X-Request-Id: 4bd8705a75886712746112a319dece6f
+        body: '{"id":20,"apiKey":"Oll5znnli\/ACosGG8r\/+gFGicAId7wkySddhDtwA"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/18'
+        url: 'http://wizaplace.loc/api/v1/users/20'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@6a383cd
-            Authorization: 'token md9eWbtd+GOpppTOQjPy+qTNSFauwt6eBPiKMI8a'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
+            Authorization: 'token Oll5znnli/ACosGG8r/+gFGicAId7wkySddhDtwA'
             VCR-index: '4'
             Accept: null
     response:
@@ -142,11 +146,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 10 May 2019 13:53:34 GMT'
+            Date: 'Thu, 26 Sep 2019 08:51:35 GMT'
             Content-Language: fr
-            X-Debug-Token: '454580'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/454580'
-            X-Request-Id: 76bde15f814f2d4eda555b3e48627f22
-        body: '{"id":18,"title":null,"email":"user65@example.com","type":"C","lang":"fr","companyId":null,"firstName":"Jean","lastName":"Paul","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}}}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 42cf3e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/42cf3e'
+            X-Request-Id: c48f44576776064722158fb5c64a8a7b
+        body: '{"id":20,"title":null,"email":"user65@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}}}'
