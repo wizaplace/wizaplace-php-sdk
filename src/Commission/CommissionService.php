@@ -22,7 +22,6 @@ final class CommissionService extends AbstractService
     public function addMarketplaceCommission(Commission $commission): string
     {
         $this->client->mustBeAuthenticated();
-        $commissionId = '';
 
         try {
             return $this->client->post(
@@ -52,7 +51,6 @@ final class CommissionService extends AbstractService
     public function getMarketplaceCommission(): Commission
     {
         $this->client->mustBeAuthenticated();
-        $commission = [];
 
         try {
             return new Commission($this->client->get('commissions/default'));
@@ -71,7 +69,6 @@ final class CommissionService extends AbstractService
     public function getCommission(string $commissionId): Commission
     {
         $this->client->mustBeAuthenticated();
-        $commission = [];
 
         try {
             return new Commission($this->client->get("commissions/$commissionId"));
