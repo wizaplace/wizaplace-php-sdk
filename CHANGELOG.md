@@ -2,6 +2,8 @@
 
 ## 1.80.0
 
+### New features
+
 - Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotion`
 - Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService`
 - Added `Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsList`
@@ -17,9 +19,6 @@
 - Added `Wizaplace\SDK\Transaction\TransactionStatus` 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
 - Added `Wizaplace\SDK\Basket\Basket\BasketService::getTotalMarketplaceDiscount`
-
-### New features
-
 - Added `Wizaplace\SDK\User::getPendingCompanyId`
 
 ## 1.70.8
