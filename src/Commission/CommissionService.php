@@ -84,13 +84,6 @@ final class CommissionService extends AbstractService
         }
     }
 
-    public function getCommission(string $commissionId): Commission
-    {
-        $this->client->mustBeAuthenticated();
-
-        return new Commission($this->client->get("commissions/$commissionId"));
-    }
-
     /** @return mixed[] */
     public function deleteCommission(string $commissionId): array
     {
