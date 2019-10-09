@@ -1,0 +1,219 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 88b44c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/88b44c'
+            X-Request-Id: e449f1495f1110bcfc84676da1ce930c
+        body: '{"id":2,"apiKey":"s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '565636'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/565636'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22565636%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A52%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 115179877612c6862dd4f5aed0a6144e
+        body: '"a99c89e4-b7d4-4a8e-8d65-61e897645341"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/a99c89e4-b7d4-4a8e-8d65-61e897645341/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=3_3_7&quantity=5'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fb7acf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb7acf'
+            X-Request-Id: 690f3eaaea5fd8f192d48d028fe76b95
+        body: '{"quantity":5}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/a99c89e4-b7d4-4a8e-8d65-61e897645341/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '3'
+            Accept: null
+        body: 'declinationId=13_0&quantity=3'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3c15f6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3c15f6'
+            X-Request-Id: 2dfdd1d81dac2d23c54c2ff313cae5ba
+        body: '{"quantity":3}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/a99c89e4-b7d4-4a8e-8d65-61e897645341/items?offset=0&limit=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 89cbf7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/89cbf7'
+            X-Request-Id: b1d212eb97d2553c144a302c1bacad64
+        body: '{"basketId":"a99c89e4-b7d4-4a8e-8d65-61e897645341","items":[{"declinationId":"3_3_7","productId":3,"productName":"Ecran PC Full HD Noir","canonicalUrl":"\/it\/screens\/ecran-pc-full-hd-noir.html","individualPrice":15.5,"crossedOutPrice":null,"imageId":null,"options":[{"optionId":3,"optionName":"size","valueName":"13","imageId":null}],"company":{"companyId":3,"companyName":"The World Company Inc.","companySlug":"the-world-company-inc","imageId":null},"quantity":5,"total":77.5}],"quantitiesTotal":8,"offset":0,"limit":1,"total":2}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/a99c89e4-b7d4-4a8e-8d65-61e897645341/items?offset=1&limit=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 84b65d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/84b65d'
+            X-Request-Id: 681382b6256a9cb81c2e28dafe6fd77a
+        body: '{"basketId":"a99c89e4-b7d4-4a8e-8d65-61e897645341","items":[{"declinationId":"13_0","productId":13,"productName":"Produit avec ChronoRelais","canonicalUrl":"\/special-category-dedicated-to-specific-tests-en\/produit-avec-chronorelais.html","individualPrice":0.5,"crossedOutPrice":null,"imageId":null,"options":[],"company":{"companyId":5,"companyName":"Chrono company","companySlug":"chrono-company","imageId":null},"quantity":3,"total":1.5}],"quantitiesTotal":8,"offset":1,"limit":1,"total":2}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/a99c89e4-b7d4-4a8e-8d65-61e897645341/items?offset=2&limit=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
+            Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 03 Sep 2019 13:55:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c12295
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c12295'
+            X-Request-Id: e354f92338e7bfd78f2a27cc5d431a6f
+        body: '{"basketId":"a99c89e4-b7d4-4a8e-8d65-61e897645341","items":[],"quantitiesTotal":8,"offset":2,"limit":1,"total":2}'

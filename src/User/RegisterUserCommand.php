@@ -37,6 +37,27 @@ final class RegisterUserCommand
     /** @var UpdateUserAddressCommand|null */
     private $shipping;
 
+    /** @var string|null */
+    private $phone;
+
+    /** @return string|null */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string|null $phone
+     *
+     * @return self
+     */
+    public function setPhone(?string $phone): self
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
     /**
      * @return string
      */
@@ -47,10 +68,14 @@ final class RegisterUserCommand
 
     /**
      * @param string $email
+     *
+     * @return self
      */
-    public function setEmail(string $email): void
+    public function setEmail(string $email): self
     {
         $this->email = $email;
+
+        return $this;
     }
 
     /**
@@ -63,10 +88,14 @@ final class RegisterUserCommand
 
     /**
      * @param string $password
+     *
+     * @return self
      */
-    public function setPassword(string $password): void
+    public function setPassword(string $password): self
     {
         $this->password = $password;
+
+        return $this;
     }
 
     /**
@@ -79,10 +108,14 @@ final class RegisterUserCommand
 
     /**
      * @param UserTitle|null $title
+     *
+     * @return self
      */
-    public function setTitle(?UserTitle $title): void
+    public function setTitle(?UserTitle $title): self
     {
         $this->title = $title;
+
+        return $this;
     }
 
     /**
@@ -95,10 +128,14 @@ final class RegisterUserCommand
 
     /**
      * @param string|null $firstName
+     *
+     * @return self
      */
-    public function setFirstName(?string $firstName): void
+    public function setFirstName(?string $firstName): self
     {
         $this->firstName = $firstName;
+
+        return $this;
     }
 
     /**
@@ -111,10 +148,14 @@ final class RegisterUserCommand
 
     /**
      * @param string|null $lastName
+     *
+     * @return self
      */
-    public function setLastName(?string $lastName): void
+    public function setLastName(?string $lastName): self
     {
         $this->lastName = $lastName;
+
+        return $this;
     }
 
     /**
@@ -127,10 +168,14 @@ final class RegisterUserCommand
 
     /**
      * @param \DateTimeInterface|null $birthday
+     *
+     * @return self
      */
-    public function setBirthday(?\DateTimeInterface $birthday): void
+    public function setBirthday(?\DateTimeInterface $birthday): self
     {
         $this->birthday = $birthday;
+
+        return $this;
     }
 
     /**
@@ -143,10 +188,14 @@ final class RegisterUserCommand
 
     /**
      * @param UpdateUserAddressCommand|null $billing
+     *
+     * @return self
      */
-    public function setBilling(?UpdateUserAddressCommand $billing): void
+    public function setBilling(?UpdateUserAddressCommand $billing): self
     {
         $this->billing = $billing;
+
+        return $this;
     }
 
     /**
@@ -159,9 +208,13 @@ final class RegisterUserCommand
 
     /**
      * @param UpdateUserAddressCommand|null $shipping
+     *
+     * @return self
      */
-    public function setShipping(?UpdateUserAddressCommand $shipping): void
+    public function setShipping(?UpdateUserAddressCommand $shipping): self
     {
         $this->shipping = $shipping;
+
+        return $this;
     }
 }
