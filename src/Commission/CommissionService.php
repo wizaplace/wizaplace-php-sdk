@@ -110,6 +110,37 @@ final class CommissionService extends AbstractService
         }
     }
 
+    /** @return mixed[] */
+    public function updateCompanyCommission(Commission $commission): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->client->patch(
+                'companies/'.$commission->getCompanyId().'/commissions/'.$commission->getId(),
+                [
+                    RequestOptions::JSON => [
+                        'category' => $commission->getCategoryId(),
+                        'percent' => $commission->getPercentAmount(),
+                        'fixed' => $commission->getFixedAmount(),
+                        'maximum' => $commission->getMaximumAmount(),
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid();
+                case 403:
+                    throw new AccessDenied('Access denied.');
+                case 404:
+                    throw new NotFound('The company commission was not found.');
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
     public function getMarketplaceCommission(): Commission
     {
         $this->client->mustBeAuthenticated();
