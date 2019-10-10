@@ -5,6 +5,10 @@
 ### New features
 
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+- Added `Wizaplace\SDK\Commission\CommissionService::addMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 
 ## 1.80.0
 
