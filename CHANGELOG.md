@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+
 ## 1.80.0
 
 ### New features
