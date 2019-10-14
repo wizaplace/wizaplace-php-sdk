@@ -14,6 +14,7 @@
 - Added `Wizaplace\SDK\Commission\CommissionService::getMarketplaceCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::getCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::getCategoryCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCompanyCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
 

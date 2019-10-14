@@ -222,6 +222,23 @@ class CommissionServiceTest extends ApiTestCase
         static::assertTrue(\in_array($categoryCommission, $commissions));
     }
 
+    public function testGetCompanyCommission(): void
+    {
+        $companyCommissionId = $this->commissionService->addCompanyCommission(new Commission(
+            [
+                'company' => 1,
+                'category' => 9,
+                'percent' => 2.50,
+                'fixed' => 0.50,
+                'maximum' => 10,
+            ]
+        ));
+        $commissions = $this->commissionService->getCompanyCommissions(1);
+        $companyCommission = $this->commissionService->getCommission($companyCommissionId);
+
+        static::assertTrue(\in_array($companyCommission, $commissions));
+    }
+
     public function testDeleteCommission(): void
     {
         $this->commissionService->addMarketplaceCommission(new Commission(

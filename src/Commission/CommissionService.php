@@ -289,6 +289,32 @@ final class CommissionService extends AbstractService
         }
     }
 
+    /** @return Commission[] */
+    public function getCompanyCommissions(int $companyId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $commissions = $this->client->get("companies/$companyId/commissions");
+
+            return \array_map(
+                function ($commission): Commission {
+                    return new Commission($commission);
+                },
+                $commissions
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied('Access denied.');
+                case 404:
+                    throw new NotFound("The company '$companyId' was not found.");
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
     /** @return mixed[] */
     public function deleteCommission(string $commissionId): array
     {
