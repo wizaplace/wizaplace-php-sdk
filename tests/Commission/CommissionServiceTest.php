@@ -164,6 +164,32 @@ class CommissionServiceTest extends ApiTestCase
         static::assertSame(20.0, $commission->getMaximumAmount());
     }
 
+    public function testGetCommissions(): void
+    {
+        $marketplaceCommissionId = $this->commissionService->addMarketplaceCommission(new Commission(
+            [
+                'percent' => 2.50,
+                'fixed' => 0.50,
+                'maximum' => 10,
+            ]
+        ));
+        $companyCommissionId = $this->commissionService->addCompanyCommission(new Commission(
+            [
+                'company' => 3,
+                'category' => 9,
+                'percent' => 2.50,
+                'fixed' => 0.50,
+                'maximum' => 10,
+            ]
+        ));
+        $commissions = $this->commissionService->getCommissions();
+        $marketplaceCommission = $this->commissionService->getCommission($marketplaceCommissionId);
+        $companyCommission = $this->commissionService->getCommission($companyCommissionId);
+
+        static::assertTrue(\in_array($marketplaceCommission, $commissions));
+        static::assertTrue(\in_array($companyCommission, $commissions));
+    }
+
     public function testGetCommission(): void
     {
         $commissionId = $this->commissionService->addMarketplaceCommission(new Commission(

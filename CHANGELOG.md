@@ -10,6 +10,7 @@
 - Added `Wizaplace\SDK\Commission\CommissionService::addCompanyCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::addCategoryCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::addMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCommissions`
 - Added `Wizaplace\SDK\Commission\CommissionService::getMarketplaceCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::getCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`

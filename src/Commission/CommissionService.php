@@ -203,6 +203,30 @@ final class CommissionService extends AbstractService
         }
     }
 
+    /** @return Commission[] */
+    public function getCommissions(): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $commissions = $this->client->get('commissions');
+
+            return \array_map(
+                function ($commission): Commission {
+                    return new Commission($commission);
+                },
+                $commissions
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied('Access denied.');
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
     public function getMarketplaceCommission(): Commission
     {
         $this->client->mustBeAuthenticated();
