@@ -197,7 +197,7 @@ final class ProductDeclinationUpsertData
             'amount' => $this->quantity,
             'price' => $this->price,
             'combination' => $this->optionsVariants,
-            'price_tiers' => $this->priceTiers,
+            'priceTiers' => $this->priceTiers,
         ];
 
         if ($this->crossedOutPrice !== null) {

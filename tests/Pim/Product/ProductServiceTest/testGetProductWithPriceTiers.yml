@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 19 Sep 2019 14:01:53 GMT'
+            Date: 'Fri, 04 Oct 2019 07:33:29 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ad2c04
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ad2c04'
-            X-Request-Id: 907656eb3fa7091afa2e0a471fc56c28
-        body: '{"id":2,"apiKey":"oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy\/hssMvF8jm"}'
+            X-Debug-Token: 8c161d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8c161d'
+            X-Request-Id: a53bbfb3b252b329c928e4a498b84afe
+        body: '{"id":2,"apiKey":"cc3ZQgHdIlZPWlwqQkwC0MLBtD1ED+SsxcZdT3rF"}'
 -
     request:
         method: GET
@@ -36,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
-            Authorization: 'token oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy/hssMvF8jm'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
+            Authorization: 'token cc3ZQgHdIlZPWlwqQkwC0MLBtD1ED+SsxcZdT3rF'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 19 Sep 2019 14:01:53 GMT'
+            Date: 'Fri, 04 Oct 2019 07:33:30 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: af4b70
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/af4b70'
-            X-Request-Id: dbab799e7a367841df62388165eb97c3
-        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1568724585,"updated_timestamp":1568724587,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":50,"product":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_white_connectivity_wireles"},{"combination":{"1":1,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_white_connectivity_wired"},{"combination":{"1":2,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wireles"},{"combination":{"1":2,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wired"},{"combination":{"1":3,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wireless"},{"combination":{"1":3,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wired"},{"combination":{"1":4,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"1":4,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","price_tiers":[{"lower_limit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            X-Debug-Token: f25431
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f25431'
+            X-Request-Id: 85352e851a743b4a472b4d1ba7032407
+        body: '{"product_id":2,"product_code":"90204479D2","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1570087875,"updated_timestamp":1570094520,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386284400,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"TA RACE LA PUTE","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":{"1":1,"2":5},"amount":5,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_white_connectivity_wireles"},{"combination":{"1":1,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_white_connectivity_wired"},{"combination":{"1":2,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wireles"},{"combination":{"1":2,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_black_connectivity_wired"},{"combination":{"1":3,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wireless"},{"combination":{"1":3,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_blue_connectivity_wired"},{"combination":{"1":4,"2":5},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wireless"},{"combination":{"1":4,"2":6},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"color_red_connectivity_wired"}],"green_tax":0.0,"supplier_ref":"INFO-002","condition":"U","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

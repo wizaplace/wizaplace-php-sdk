@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 19 Sep 2019 13:59:53 GMT'
+            Date: 'Thu, 03 Oct 2019 08:02:34 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 6d94a9
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d94a9'
-            X-Request-Id: df905d7973bf19859976972809d82146
-        body: '{"id":2,"apiKey":"oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy\/hssMvF8jm"}'
+            X-Debug-Token: 4cb118
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4cb118'
+            X-Request-Id: 5681aaf5ccfddf91944ae081480efda4
+        body: '{"id":2,"apiKey":"cc3ZQgHdIlZPWlwqQkwC0MLBtD1ED+SsxcZdT3rF"}'
 -
     request:
         method: GET
@@ -36,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
-            Authorization: 'token oH1po1fi8Gfj+14GvY6JMJ9SZqQ2yy/hssMvF8jm'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
+            Authorization: 'token cc3ZQgHdIlZPWlwqQkwC0MLBtD1ED+SsxcZdT3rF'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 19 Sep 2019 13:59:53 GMT'
+            Date: 'Thu, 03 Oct 2019 08:02:35 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 31995e
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/31995e'
-            X-Request-Id: 22ba3b76855d65dfb1e04705eb0c68c0
-        body: '{"product_id":8,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1568724610,"updated_timestamp":1568724613,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[6],"main_category":6,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":15,"price":15.0,"price_tiers":[{"lower_limit":0,"price":15.0}]}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            X-Debug-Token: d54f7c
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/d54f7c'
+            X-Request-Id: c0fbc032053a40c7034b1d6598b92308
+        body: '{"product_id":8,"product_code":"32094574920","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1570087911,"updated_timestamp":1570087914,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"product":"Product with complex attributes","short_description":"","full_description":"","category_ids":[6],"main_category":6,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":15,"price":15.0,"priceTiers":[{"lowerLimit":0,"price":15.0}]}],"green_tax":0.0,"supplier_ref":"TEST-ATTRIBUTES","condition":"N","free_features":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'

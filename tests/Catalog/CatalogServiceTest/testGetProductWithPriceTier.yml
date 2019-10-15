@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3940-get-product-sdk-and-tu@9de7d21
+            User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
             VCR-index: '0'
             Accept: null
     response:
@@ -21,10 +21,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 03 Sep 2019 08:20:40 GMT'
+            Date: 'Thu, 03 Oct 2019 12:41:49 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '102443'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/102443'
-            X-Request-Id: d4a693ff4dec4c2ca38ff08b2ae8cc2e
-        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"deliveryTime":""}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2019-09-02T11:37:56+00:00","updatedAt":"2019-09-02T11:37:58+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":11,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"price_tiers":[{"lower_limit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[]}'
+            X-Debug-Token: 5a52e8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5a52e8'
+            X-Request-Id: 25adc30afea2eaf7fda37b77e5753462
+        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":""},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2019-10-03T07:31:11+00:00","updatedAt":"2019-10-03T07:31:14+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":11,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[]}'

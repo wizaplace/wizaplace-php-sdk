@@ -518,11 +518,11 @@ final class ProductServiceTest extends ApiTestCase
                     ->setInfiniteStock(true)
                     ->setPriceTiers([
                         [
-                            'lower_limit' => 0,
+                            'lowerLimit' => 0,
                             'price' => 18.99,
                         ],
                         [
-                            'lower_limit' => 15,
+                            'lowerLimit' => 15,
                             'price' => 15.99,
                         ],
                     ]),
@@ -680,11 +680,11 @@ final class ProductServiceTest extends ApiTestCase
                     ->setInfiniteStock(true)
                     ->setPriceTiers([
                         [
-                            'lower_limit' => 0,
+                            'lowerLimit' => 0,
                             'price' => 99.59,
                         ],
                         [
-                            'lower_limit' => 30,
+                            'lowerLimit' => 30,
                             'price' => 80.99,
                         ],
                     ]),
@@ -819,11 +819,11 @@ final class ProductServiceTest extends ApiTestCase
                     ->setQuantity(12)
                     ->setPriceTiers([
                         [
-                            'lower_limit' => 0,
+                            'lowerLimit' => 0,
                             'price' => 2.7,
                         ],
                         [
-                            'lower_limit' => 50,
+                            'lowerLimit' => 50,
                             'price' => 2.5,
                         ],
                     ]),
@@ -880,11 +880,11 @@ final class ProductServiceTest extends ApiTestCase
                     ->setQuantity(4)
                     ->setPriceTiers([
                         [
-                            'lower_limit' => 0,
+                            'lowerLimit' => 0,
                             'price' => 99.99,
                         ],
                         [
-                            'lower_limit' => 120,
+                            'lowerLimit' => 120,
                             'price' => 89.99,
                         ],
                     ]),

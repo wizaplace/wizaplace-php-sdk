@@ -8,6 +8,17 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
+/**
+ * PriceTiers is a feature. If this feature is not activated on your environment, every product and every declination will have a unique price tier, with lowerLimit 0
+ * A priceTier is a price for a quantity.
+ * Example: You want set a price to 10€ if quantity is between 0 and 10, and a price of 9€ if quantity is greater than 10:
+ * lowerLimit 0
+ * price 10
+ *
+ * lowerLimit 11
+ * price 9
+ * Regarding the last priceTier (the one with the greater lowerLimit), its price applies for a quantity between its lowerLimit and ∞
+ */
 class PriceTier
 {
     /** @var int */
@@ -18,7 +29,7 @@ class PriceTier
 
     public function __construct(array $data)
     {
-        $this->lowerLimit = $data['lower_limit'];
+        $this->lowerLimit = $data['lowerLimit'];
         $this->price = $data['price'] ?? null;
     }
 
