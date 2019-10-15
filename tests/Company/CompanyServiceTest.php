@@ -526,7 +526,6 @@ final class CompanyServiceTest extends ApiTestCase
     public function testListSubscriptionsBy(): void
     {
         $companyService = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
-
         $subscriptions = $companyService->listSubscriptionsBy(1);
 
         static::assertInstanceOf(PaginatedData::class, $subscriptions);
