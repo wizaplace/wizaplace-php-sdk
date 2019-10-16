@@ -651,6 +651,15 @@ class OrderServiceTest extends ApiTestCase
         static::assertNull($orders[1]->getSubscriptionId());
     }
 
+    public function testGetOrdersWithIsPaid(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertGreaterThanOrEqual(2, \count($orders));
+        static::assertTrue($orders[0]->isPaid());
+        static::assertFalse($orders[1]->isPaid());
+    }
+
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
     {
         $apiClient = $this->buildApiClient();
