@@ -315,6 +315,36 @@ final class BasketServiceTest extends ApiTestCase
         static::assertSame('13', $option['valueName']);
     }
 
+    public function testGetBasketItemsPaginate(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+        $basketId = $basketService->create();
+
+        // Add two distinct items
+        static::assertSame(5, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 5));
+        static::assertSame(3, $basketService->addProductToBasket($basketId, new DeclinationId('13_0'), 3));
+
+        // Limit one item per page
+        $limit = 1;
+
+        // First page
+        $basketItems = $basketService->getBasketItems($basketId, 0, $limit);
+        $items = $basketItems->getItems();
+        static::assertSame($limit, count($items));
+        static::assertSame(5, $items[0]['quantity']);
+
+        // Second page
+        $basketItems = $basketService->getBasketItems($basketId, 1, $limit);
+        $items = $basketItems->getItems();
+        static::assertSame($limit, count($items));
+        static::assertSame(3, $items[0]['quantity']);
+
+        // Third page / should be empty
+        $basketItems = $basketService->getBasketItems($basketId, 2, $limit);
+        $items = $basketItems->getItems();
+        static::assertSame(0, count($items));
+    }
+
     public function testNewEmptyBasketItems(): void
     {
         $emptyBasketItems = new BasketItems([]);

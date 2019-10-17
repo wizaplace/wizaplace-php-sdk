@@ -42,6 +42,8 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertCount(1, $order->getOrderItems());
         $this->assertSame('', $order->getCustomerComment());
+        static::assertSame(0.0, $order->getMarketplaceDiscountTotal());
+        static::assertSame(108.4, $order->getCustomerTotal());
 
         $this->assertNotNull($order->getPayment());
         $this->assertSame('manual', $order->getPayment()->getType());
