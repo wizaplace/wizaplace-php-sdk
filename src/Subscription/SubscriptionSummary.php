@@ -68,8 +68,8 @@ class SubscriptionSummary
         $this->commitmentPeriod = $data['commitmentPeriod'];
         $this->paymentFrequency = $data['paymentFrequency'];
         $this->createdAt = new \DateTime($data['createdAt']);
-        $this->nextPaymentAt = $data['nextPaymentAt'];
-        $this->commitmentEndAt = $data['commitmentEndAt'];
+        $this->nextPaymentAt = new \DateTime($data['nextPaymentAt']);
+        $this->commitmentEndAt = new \DateTime($data['commitmentEndAt']);
     }
 
     public function getId(): string
