@@ -19,10 +19,12 @@
 - Added `Wizaplace\SDK\Pim\Option\OptionService::getOption`
 - Added `Wizaplace\SDK\Vendor\Order\Order::isPaid`
 - Added `Wizaplace\SDK\Vendor\Order\Order::getSubscriptionId`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getSubscriptions`
 - Added `Wizaplace\SDK\Vendor\Order\OrderSummary::isPaid`
 - Added `Wizaplace\SDK\Vendor\Order\OrderSummary::getSubscriptionId`
 - Added `Wizaplace\SDK\Order\Order::isPaid`
 - Added `Wizaplace\SDK\Order\Order::getSubscriptionId`
+- Added `Wizaplace\SDK\Order\OrderService::getSubscriptions`
 - Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsBy`
 - Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getFilters`
 - Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getLimit`

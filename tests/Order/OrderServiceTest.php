@@ -22,6 +22,7 @@ use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
 use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 /**
@@ -320,6 +321,15 @@ final class OrderServiceTest extends ApiTestCase
         $order = $orderService->getOrder(130000);
 
         static::assertUuid($order->getSubscriptionId());
+    }
+
+    public function testGetUserSubscriptions(): void
+    {
+        $subscriptions = $this->buildOrderService("user@wizaplace.com", "password")->getSubscriptions(210011);
+
+        static::assertCount(2, $subscriptions);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[0]);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[1]);
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService

@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 28 Oct 2019 10:30:32 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3ab84a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ab84a'
+            X-Request-Id: d79188168a69b0dcc42dd59f639ee4c6
+        body: '{"id":8,"apiKey":"4vXFCn\/pCvbVmGSkhJtfRYDRI6T96ofoYxoFS\/zn"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/210011/subscriptions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token 4vXFCn/pCvbVmGSkhJtfRYDRI6T96ofoYxoFS/zn'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 28 Oct 2019 10:30:32 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: afff66
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/afff66'
+            X-Request-Id: 7ffe03b1658fa37e84f53127f39c49c9
+        body: '[{"id":"a9364567-a780-4cdd-ad44-274105e5185f","userId":8,"companyId":2,"cardId":"1d25cfa4-6c74-452c-aec5-0f1e26ca5c88","firstOrderId":210011,"name":"ABO99 1 PERIODE AVEC RENEWAL","status":"ACTIVE","price":{"excludingTaxes":"290.91","taxes":"9.09","includingTaxes":"300"},"isAutorenew":true,"commitmentPeriod":1,"paymentFrequency":1,"nextPaymentAt":"2019-11-15","commitmentEndAt":"2019-11-15","createdAt":"2019-10-15T09:44:50+02:00"},{"id":"b2877617-a6e4-4c3e-a61a-2a260acda70a","userId":8,"companyId":2,"cardId":"1d25cfa4-6c74-452c-aec5-0f1e26ca5c88","firstOrderId":210011,"name":"ABO99 1 PERIODE SANS RENEWAL","status":"ACTIVE","price":{"excludingTaxes":"90.91","taxes":"9.09","includingTaxes":"100"},"isAutorenew":false,"commitmentPeriod":1,"paymentFrequency":1,"nextPaymentAt":"2019-11-15","commitmentEndAt":"2019-11-15","createdAt":"2019-10-15T09:44:50+02:00"}]'
