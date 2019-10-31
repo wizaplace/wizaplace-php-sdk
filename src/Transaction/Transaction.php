@@ -28,7 +28,7 @@ class Transaction
     /** @var string|null */
     protected $processorName;
 
-    /** @var string|null */
+    /** @var array|null */
     protected $processorInformation;
 
     public function __construct(array $data)
@@ -72,7 +72,7 @@ class Transaction
         return $this->processorName;
     }
 
-    public function getProcessorInformation(): ?string
+    public function getProcessorInformation(): ?array
     {
         return $this->processorInformation;
     }
