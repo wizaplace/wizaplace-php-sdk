@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 29 Jul 2019 08:00:35 GMT'
+            Date: 'Thu, 24 Oct 2019 14:09:10 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f92267
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f92267'
-            X-Request-Id: f34fbb445807d8e6578fe45d9c56858e
-        body: '{"id":6,"apiKey":"+mp9sB2HqvL\/sU4BugB9aYxOqHoCywR1TZXgF6X+"}'
+            X-Debug-Token: ec42db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec42db'
+            X-Request-Id: 141941005f90c4c2e5c3e03eb4daaa4d
+        body: '{"id":6,"apiKey":"7TuK4NpGycqRffsZqh9l3yLoqkCdQ\/SMYW9Np0Dx"}'
 -
     request:
         method: GET
@@ -36,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
-            Authorization: 'token +mp9sB2HqvL/sU4BugB9aYxOqHoCywR1TZXgF6X+'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
+            Authorization: 'token 7TuK4NpGycqRffsZqh9l3yLoqkCdQ/SMYW9Np0Dx'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 29 Jul 2019 08:00:35 GMT'
+            Date: 'Thu, 24 Oct 2019 14:09:11 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: e49556
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e49556'
-            X-Request-Id: 6f9ede1254372fc419ffa7fcfc11b1cb
-        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"9ca70aaa-9bbc-447c-9e70-af89d587f5e9","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1564056794,"status":"P","notes":"","details":"","promotions":{"f14c2b51-641d-4210-a0fc-e2c8d90ae8c2":{"id":"f14c2b51-641d-4210-a0fc-e2c8d90ae8c2","name":""}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-07-25T12:14:28+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":66.7,"marketplace_discount_total":0.0,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'
+            X-Debug-Token: e59c4a
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e59c4a'
+            X-Request-Id: b0d55f11112dfd69b810d813ee9c4a67
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"9e3f7e4b-01bf-4382-8161-9bd83f5901e4","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1571902306,"status":"P","notes":"","details":"","promotions":{"5296e918-7f86-4b8c-bb30-7aacbb3a95f3":{"id":"5296e918-7f86-4b8c-bb30-7aacbb3a95f3","name":""}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"","products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-10-24T07:33:18+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":66.7,"marketplace_discount_total":0.0,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'
