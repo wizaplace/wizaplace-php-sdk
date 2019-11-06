@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 31 Oct 2019 16:04:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3da2a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3da2a2'
+            X-Request-Id: 117d1b28419e81db2b356bca2df1128b
+        body: '{"id":2,"apiKey":"ekXfKKrmZr3\/i9Wk5kEX8abUZDYxgYNoFIr2H9qx"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/13/cancels'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            Authorization: 'token ekXfKKrmZr3/i9Wk5kEX8abUZDYxgYNoFIr2H9qx'
+            VCR-index: '1'
+            Accept: null
+        body: '{"message":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 31 Oct 2019 16:04:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ab74fc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ab74fc'
+        body: '{"error":{"code":19,"message":"order not cancellable","context":{"orderId":13}}}'

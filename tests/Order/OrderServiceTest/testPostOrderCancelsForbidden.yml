@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 31 Oct 2019 16:04:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 23c7c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/23c7c7'
+            X-Request-Id: b2560bff10cc26db11c5ebcb10550e9a
+        body: '{"id":4,"apiKey":"PeO4riwfgs6Hh3Ogq0x+GKybYd6r4FhM4xRO20ld"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/13/cancels'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            Authorization: 'token PeO4riwfgs6Hh3Ogq0x+GKybYd6r4FhM4xRO20ld'
+            VCR-index: '1'
+            Accept: null
+        body: '{"message":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '403'
+            message: Forbidden
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 31 Oct 2019 16:04:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: eaaadd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eaaadd'
+        body: '{"message":"You are not allowed to perform this action"}'

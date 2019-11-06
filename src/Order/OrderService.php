@@ -13,6 +13,7 @@ use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
@@ -281,6 +282,29 @@ final class OrderService extends AbstractService
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
             }
+            throw $e;
+        }
+    }
+
+    public function cancelOrder(int $orderId, string $message = null): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->post('orders/'.$orderId.'/cancels', [
+                'json' => [
+                    'message' => $message,
+                ],
+            ]);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new OrderNotCancellable('This order is not cancellable', [], $e);
+            }
+
             throw $e;
         }
     }

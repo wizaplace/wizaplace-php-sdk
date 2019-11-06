@@ -8,10 +8,12 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Tests\Order;
 
 use DateTimeImmutable;
+use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\CreateOrderReturn;
@@ -23,6 +25,8 @@ use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
 use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
+use Wizaplace\SDK\Vendor\Order\OrderStatus as VendorOrderStatus;
 
 /**
  * @see OrderService
@@ -305,12 +309,63 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
+    public function testPostOrderCancels(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $vendorOrderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $order = $vendorOrderService->getOrderById(19);
+
+        $orderService->cancelOrder(19);
+
+        $order = $vendorOrderService->getOrderById(19);
+
+        static::assertEquals(VendorOrderStatus::CANCELED(), $order->getStatus());
+    }
+
+    public function testPostOrderCancelsCantCancel(): void
+    {
+        static::expectException(OrderNotCancellable::class);
+
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+
+        $orderService->cancelOrder(13);
+    }
+
+    public function testPostOrderCancelsNotFound(): void
+    {
+        static::expectException(NotFound::class);
+
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+
+        $orderService->cancelOrder(4756687);
+    }
+
+    public function testPostOrderCancelsForbidden(): void
+    {
+        static::expectException(ClientException::class);
+        static::expectExceptionCode(403);
+
+        $orderService = $this->buildOrderService('vendor@wizaplace.com', 'password');
+
+        $orderService->cancelOrder(13);
+    }
+
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);
 
         return new OrderService($apiClient);
+    }
+
+    private function buildVendorOrderService(
+        string $email = 'customer-1@world-company.com',
+        string $password = 'password-customer-1'
+    ): VendorOrderService {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate($email, $password);
+
+        return new VendorOrderService($apiClient);
     }
 
     private function buildOrderServiceWithoutAuthentication(): OrderService
