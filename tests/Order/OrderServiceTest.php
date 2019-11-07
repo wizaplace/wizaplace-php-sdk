@@ -23,6 +23,7 @@ use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
+use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
@@ -307,6 +308,34 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(67.9, $adjustment->getNewTotalIncludingTaxes());
         static::assertSame(7, $adjustment->getCreatedBy());
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
+    }
+
+    public function testGetOrderRefunds(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $refunds = $orderService->getOrderRefunds(20);
+
+        static::assertCount(1, $refunds);
+
+        $refund = $refunds[0];
+
+        static::assertSame(1, $refund->getRefundId());
+        static::assertSame(20, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(15.5, $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertEquals(RefundStatus::CREATED(), $refund->getStatus());
+        static::assertNull($refund->getMessage());
+        static::assertEquals(new \DateTime('2019-11-04T13:57:20+01:00'), $refund->getCreatedAt());
+        static::assertEquals(new \DateTime('2019-11-04T13:57:20+01:00'), $refund->getUpdatedAt());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(1559389775, $item->getItemId());
+        static::assertSame(15.5, $item->getAmount());
+        static::assertSame(1, $item->getQuantity());
     }
 
     public function testPostOrderCancels(): void
