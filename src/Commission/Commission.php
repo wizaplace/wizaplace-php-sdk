@@ -34,6 +34,9 @@ final class Commission
     /** @var float|null */
     private $maximumAmount;
 
+    /** @var string */
+    private $commissionType;
+
     public function __construct(array $data)
     {
         $this->id = $data['id'] ?? '';
@@ -44,39 +47,38 @@ final class Commission
         $this->maximumAmount = $data['maximum'] ?? null;
     }
 
-    /** @return string */
     public function getId(): string
     {
         return $this->id;
     }
 
-    /** @return int */
     public function getCategoryId(): int
     {
         return $this->categoryId;
     }
 
-    /** @return int */
     public function getCompanyId(): int
     {
         return $this->companyId;
     }
 
-    /** @return float */
     public function getPercentAmount(): float
     {
         return $this->percentAmount;
     }
 
-    /** @return float */
     public function getFixedAmount(): float
     {
         return $this->fixedAmount;
     }
 
-    /** @return float|null */
     public function getMaximumAmount(): ?float
     {
         return $this->maximumAmount;
+    }
+
+    public function getCommissionType(): string
+    {
+        return $this->commissionType;
     }
 }
