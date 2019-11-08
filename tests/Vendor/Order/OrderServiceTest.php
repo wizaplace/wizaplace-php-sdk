@@ -231,6 +231,7 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(1, $item->getQuantityToShip());
         $optionsVariantsIds = $item->getOptionsVariantsIds();
         static::assertCount(0, $optionsVariantsIds);
+        static::assertSame('1_0', $item->getDeclinationId());
 
         $taxes = $order->getTaxes();
         static::assertContainsOnly(OrderTax::class, $taxes);

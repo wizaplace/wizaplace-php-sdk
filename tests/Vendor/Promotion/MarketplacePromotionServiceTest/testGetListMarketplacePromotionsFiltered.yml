@@ -1,0 +1,121 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Aug 2019 06:55:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 678c27
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/678c27'
+            X-Request-Id: e17591c1bc312a7bc7279f4c568979e7
+        body: '{"id":2,"apiKey":"Fzto2FqPOr8dGy\/nxsQJZGYsHr0j+4LBOqbLQ3Qu"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace?offset=0&limit=10&coupon=FIRST'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
+            Authorization: 'token Fzto2FqPOr8dGy/nxsQJZGYsHr0j+4LBOqbLQ3Qu'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Aug 2019 06:55:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fc4f68
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc4f68'
+            X-Request-Id: d0cb2a62cee034ffbe580251ea035928
+        body: '{"offset":0,"limit":10,"total":1,"items":[{"promotion_id":"d8df258d-ca0d-41c2-ba6b-e69e5a69e9c5","name":"FIRST","active":true,"isValid":true,"rule":null,"ruleString":"","period":{"from":"2019-08-12T06:55:10+00:00","to":"2019-08-13T06:55:10+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"FIRST"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace?offset=0&limit=10&active=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
+            Authorization: 'token Fzto2FqPOr8dGy/nxsQJZGYsHr0j+4LBOqbLQ3Qu'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Aug 2019 06:55:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0782ec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0782ec'
+            X-Request-Id: 66929057311f6f6ea4c0b5fe48be4643
+        body: '{"offset":0,"limit":10,"total":2,"items":[{"promotion_id":"81f63d23-ff19-49ef-a43d-c9c19dfc4b3e","name":"SECOND","active":false,"isValid":true,"rule":null,"ruleString":"","period":{"from":"2019-08-12T06:55:13+00:00","to":"2019-08-13T06:55:13+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"SECOND"},{"promotion_id":"5669b56c-1874-45ce-bf22-781fac70e7ad","name":"THIRD","active":false,"isValid":false,"rule":null,"ruleString":"","period":{"from":"2019-08-22T06:55:15+00:00","to":"2019-09-01T06:55:15+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"THIRD"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace?offset=0&limit=10&active=0&isValid=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
+            Authorization: 'token Fzto2FqPOr8dGy/nxsQJZGYsHr0j+4LBOqbLQ3Qu'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Aug 2019 06:56:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3e45f0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e45f0'
+            X-Request-Id: 115bc21d3c46dd31716729dc20503680
+        body: '{"offset":0,"limit":10,"total":1,"items":[{"promotion_id":"5669b56c-1874-45ce-bf22-781fac70e7ad","name":"THIRD","active":false,"isValid":false,"rule":null,"ruleString":"","period":{"from":"2019-08-22T06:55:15+00:00","to":"2019-09-01T06:55:15+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"THIRD"}]}'

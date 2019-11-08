@@ -44,6 +44,9 @@ final class MarketplacePromotion implements \JsonSerializable
     /** @var bool */
     private $active;
 
+    /** @var bool */
+    private $isValid;
+
     /** @var BasketRule */
     private $rule;
 
@@ -71,6 +74,7 @@ final class MarketplacePromotion implements \JsonSerializable
         $this->promotionId = to_string($data['promotion_id']);
         $this->name = to_string($data['name']);
         $this->active = (bool) $data['active'];
+        $this->isValid = array_key_exists('isValid', $data) ? (bool) $data['isValid'] : false;
         $this->rule = self::denormalizeRule($data['rule']);
         $this->discounts = array_map([self::class, 'denormalizeDiscount'], $data['discounts']);
         $this->period = self::denormalizePeriod($data['period']);
@@ -91,6 +95,11 @@ final class MarketplacePromotion implements \JsonSerializable
     public function isActive(): bool
     {
         return $this->active;
+    }
+
+    public function isValid(): bool
+    {
+        return $this->isValid;
     }
 
     public function getRule(): ?BasketRule
