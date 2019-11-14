@@ -143,7 +143,6 @@ final class SaveMarketplacePromotionCommand
 
         return array_filter(
             $serializer->normalize([
-                'promotion_id' => $this->promotionId,
                 'name' => $this->name,
                 'active' => $this->active,
                 'rule' => $this->rule,

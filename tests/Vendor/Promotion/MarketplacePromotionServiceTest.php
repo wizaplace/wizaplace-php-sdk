@@ -15,6 +15,7 @@ use Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount;
 use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotion;
 use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsList;
 use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService;
+use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsListFilter;
 use Wizaplace\SDK\Vendor\Promotion\PromotionPeriod;
 use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
@@ -26,6 +27,8 @@ use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
 
 class MarketplacePromotionServiceTest extends ApiTestCase
 {
+    private const PROMOTION_ID = 'd8df258d-ca0d-41c2-ba6b-e69e5a69e9c5';
+
     public function testCreateMarketplacePromotion(): void
     {
         $service = $this->buildMarketplacePromotionService();
@@ -90,16 +93,14 @@ class MarketplacePromotionServiceTest extends ApiTestCase
     {
         $service = $this->buildMarketplacePromotionService();
 
-        $savedPromotion = $this->createSimpleMarketplacePromotion($service, 'ETE');
-
         $updatedPromotion = $service->saveMarketplacePromotion(
-            SaveMarketplacePromotionCommand::updateExisting($savedPromotion->getPromotionId())
+            SaveMarketplacePromotionCommand::updateExisting(static::PROMOTION_ID)
                 ->setName('summer promotion updated')
                 ->setActive(false)
         );
 
         static::assertInstanceOf(MarketplacePromotion::class, $updatedPromotion);
-        static::assertSame($savedPromotion->getPromotionId(), $updatedPromotion->getPromotionId());
+        static::assertSame(static::PROMOTION_ID, $updatedPromotion->getPromotionId());
         static::assertSame('summer promotion updated', $updatedPromotion->getName());
         static::assertSame(false, $updatedPromotion->isActive());
     }
@@ -118,22 +119,49 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertContainsOnly(MarketplacePromotion::class, $promotionList->getItems());
     }
 
-    private function createSimpleMarketplacePromotion(MarketplacePromotionService $service, string $coupon): MarketplacePromotion
+    public function testGetListMarketplacePromotionsFiltered(): void
     {
+        $service = $this->buildMarketplacePromotionService();
+
+        $list = $service->getMarketplacePromotionsList(0, 10, new MarketplacePromotionsListFilter('FIRST'));
+        static::assertSame(1, $list->getTotal());
+        static::assertCount(1, $list->getItems());
+        static::assertSame('FIRST', $list->getItems()[0]->getCoupon());
+
+        $list = $service->getMarketplacePromotionsList(0, 10, new MarketplacePromotionsListFilter(null, false));
+        static::assertSame(2, $list->getTotal());
+        static::assertCount(2, $list->getItems());
+        static::assertSame('SECOND', $list->getItems()[0]->getCoupon());
+        static::assertSame('THIRD', $list->getItems()[1]->getCoupon());
+
+        $list = $service->getMarketplacePromotionsList(0, 10, new MarketplacePromotionsListFilter(null, false, false));
+        static::assertSame(1, $list->getTotal());
+        static::assertCount(1, $list->getItems());
+        static::assertSame('THIRD', $list->getItems()[0]->getCoupon());
+        static::assertSame(false, $list->getItems()[0]->isActive());
+        static::assertSame(false, $list->getItems()[0]->isValid());
+    }
+
+    private function createSimpleMarketplacePromotion(
+        MarketplacePromotionService $service,
+        string $coupon,
+        bool $isActive = true,
+        PromotionPeriod $period = null
+    ): MarketplacePromotion {
+        $period = $period ?? new PromotionPeriod(
+            new \DateTimeImmutable(),
+            new \DateTime('+1 day')
+        );
+
         return $service->saveMarketplacePromotion(
             SaveMarketplacePromotionCommand::createNew()
                 ->setName($coupon)
-                ->setActive(true)
+                ->setActive($isActive)
                 ->setCoupon($coupon)
                 ->setDiscounts([
                     new FixedDiscount(10),
                 ])
-                ->setPeriod(
-                    new PromotionPeriod(
-                        new \DateTimeImmutable('2019-08-01T00:00:00+00:00'),
-                        new \DateTime('2019-10-15T23:59:00+00:00')
-                    )
-                )
+                ->setPeriod($period)
                 ->setTarget(new BasketTarget())
         );
     }

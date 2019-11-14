@@ -45,6 +45,9 @@ final class OrderItem
     /** @var string */
     private $comment;
 
+    /** @var string */
+    private $declinationId;
+
     /**
      * @internal
      *
@@ -65,6 +68,7 @@ final class OrderItem
             $this->optionsVariantsIds[$combinationData['option_name']] = $combinationData['variant_name'];
         }
         $this->comment = $data['comment'] ?? '';
+        $this->declinationId = $data['declination_id'] ?? '';
     }
 
     /**
@@ -145,5 +149,10 @@ final class OrderItem
     public function getComment(): string
     {
         return $this->comment;
+    }
+
+    public function getDeclinationId(): string
+    {
+        return $this->declinationId;
     }
 }

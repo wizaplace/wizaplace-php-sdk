@@ -28,7 +28,7 @@ test:
 ifndef CIRCLE_BUILD_NUM
 	./vendor/bin/phpunit --configuration ./phpunit.xml
 else
-	php -d'zend_extension="/usr/local/lib/php/extensions/no-debug-non-zts-20160303/xdebug.so"' -dxdebug.coverage_enable=1 ./vendor/bin/phpunit --configuration ./phpunit.xml --log-junit ./phpunit/junit.xml --coverage-clover ./phpunit/clover.xml --coverage-html ./phpunit/coverage/
+	php ./vendor/bin/phpunit --configuration ./phpunit.xml
 endif
 
 delete-all-cassettes:

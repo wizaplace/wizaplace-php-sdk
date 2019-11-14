@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 02 Aug 2019 13:45:37 GMT'
+            Date: 'Fri, 09 Aug 2019 09:57:35 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 3f3225
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3f3225'
-            X-Request-Id: 5a130da7b00fa18411edfc289300c386
-        body: '{"id":2,"apiKey":"N8qindAqsWidR1Zl+fDIhPaHPAsi7JasOKOCswnt"}'
+            X-Debug-Token: c7011d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c7011d'
+            X-Request-Id: 23ed11af567e549749d5d323c00f7168
+        body: '{"id":2,"apiKey":"Fzto2FqPOr8dGy\/nxsQJZGYsHr0j+4LBOqbLQ3Qu"}'
 -
     request:
         method: GET
@@ -36,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
-            Authorization: 'token N8qindAqsWidR1Zl+fDIhPaHPAsi7JasOKOCswnt'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3905-add-is-valid-on-promotion@9f5896a
+            Authorization: 'token Fzto2FqPOr8dGy/nxsQJZGYsHr0j+4LBOqbLQ3Qu'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 02 Aug 2019 13:45:38 GMT'
+            Date: 'Fri, 09 Aug 2019 09:57:36 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 334a1a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/334a1a'
-            X-Request-Id: aba057d20cb57aa71a2a63e0c77cce91
-        body: '{"offset":0,"limit":10,"total":1,"items":[{"promotion_id":"a3a5771d-804c-4986-b0f2-15a9f91809a6","name":"FIRST","active":true,"rule":null,"ruleString":"","period":{"from":"1999-12-31T23:00:00+00:00","to":"2999-12-31T23:00:00+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"FIRST"}]}'
+            X-Debug-Token: 45b0eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/45b0eb'
+            X-Request-Id: 463e752bef01abd5303330da455d0dfb
+        body: '{"offset":0,"limit":10,"total":1,"items":[{"promotion_id":"b534a1bf-0b75-4a6a-a529-6e09a306bd44","name":"SUMMER","active":true,"isValid":true,"rule":null,"ruleString":"","period":{"from":"2019-08-09T09:45:02+00:00","to":"2019-08-10T09:45:02+00:00"},"discounts":[{"type":"fixed","value":10}],"target":{"type":"basket"},"coupon":"SUMMER"}]}'

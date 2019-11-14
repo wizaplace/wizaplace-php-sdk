@@ -13,12 +13,20 @@ use Wizaplace\SDK\AbstractService;
 
 final class MarketplacePromotionService extends AbstractService
 {
-    public function getMarketplacePromotionsList(int $offset = 0, int $limit = 10): MarketplacePromotionsList
-    {
+    public function getMarketplacePromotionsList(
+        int $offset = 0,
+        int $limit = 10,
+        MarketplacePromotionsListFilter $filter = null
+    ): MarketplacePromotionsList {
         $this->client->mustBeAuthenticated();
 
         return new MarketplacePromotionsList(
-            $this->client->get('promotions/marketplace?'.http_build_query(['offset' => $offset, 'limit' => $limit]))
+            $this->client->get(
+                'promotions/marketplace?'.http_build_query(array_merge([
+                    'offset' => $offset,
+                    'limit' => $limit,
+                ], \is_null($filter) ? [] : $filter->toArray()))
+            )
         );
     }
 
