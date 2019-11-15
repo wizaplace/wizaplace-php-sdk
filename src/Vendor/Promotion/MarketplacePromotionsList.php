@@ -33,6 +33,7 @@ final class MarketplacePromotionsList
         $this->total = isset($data['total']) ? (int) $data['total'] : 0;
     }
 
+    /** @return MarketplacePromotion[] */
     public function getItems(): array
     {
         return $this->items;
@@ -53,7 +54,7 @@ final class MarketplacePromotionsList
         return $this->total;
     }
 
-    /** @var MarketplacePromotion[] */
+    /** @return MarketplacePromotion[] */
     private function denormalizeItems(array $items): array
     {
         return array_map(static function (array $item): MarketplacePromotion {
