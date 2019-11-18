@@ -46,6 +46,8 @@ final class User
     private $currencyCode;
     /** @var int|null */
     private $pendingCompanyId;
+    /** @var string */
+    private $externalIdentifier;
 
     /**
      * @internal
@@ -68,6 +70,7 @@ final class User
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
         $this->phone = $data['phone'] ?? null;
         $this->currencyCode = $data['currencyCode'] ?? null;
+        $this->externalIdentifier = $data['externalIdentifier'] ?? '';
     }
 
     /**
@@ -185,5 +188,10 @@ final class User
     public function getPendingCompanyId(): ?int
     {
         return $this->pendingCompanyId;
+    }
+
+    public function getExternalIdentifier(): string
+    {
+        return $this->externalIdentifier;
     }
 }

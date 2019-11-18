@@ -75,7 +75,7 @@
             Authorization: 'token bFNVfuKjJAFPp/Z0tcz2pZYx4gAa8OdcLBzNDfsx'
             VCR-index: '2'
             Accept: null
-        body: '{"email":"user479@example.com","title":null,"firstName":"Paul","lastName":"Emploi","phone":null,"birthday":null,"currencyCode":null}'
+        body: '{"email":"user479@example.com","title":null,"firstName":"Paul","lastName":"Emploi","phone":null,"birthday":null,"currencyCode":null,"externalIdentifier":null}'
     response:
         status:
             http_version: '1.1'
@@ -94,7 +94,7 @@
             X-Debug-Token: ea12b4
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ea12b4'
             X-Request-Id: cd76d6031a2a73f7b7b49795fbf3b0e6
-        body: '{"id":16,"title":"mr","email":"user479@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Emploi","phone":null,"birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"}}}'
+        body: '{"id":16,"title":"mr","email":"user479@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Emploi","phone":null,"birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":null}'
 -
     request:
         method: GET
@@ -154,4 +154,4 @@
             X-Debug-Token: d64c7f
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d64c7f'
             X-Request-Id: 45141c333c01cbe82884cd8d243b3948
-        body: '{"id":16,"title":"mr","email":"user479@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Emploi","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"}}}'
+        body: '{"id":16,"title":"mr","email":"user479@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Emploi","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mr","firstname":"Paul","lastname":"Jacques","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":null}'

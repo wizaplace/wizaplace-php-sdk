@@ -1,5 +1,13 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\User\User::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
+
 ## 1.96.0
 
 ### New features

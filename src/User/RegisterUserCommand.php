@@ -40,6 +40,9 @@ final class RegisterUserCommand
     /** @var string|null */
     private $phone;
 
+    /** @var string */
+    private $externalIdentifier;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -214,6 +217,18 @@ final class RegisterUserCommand
     public function setShipping(?UpdateUserAddressCommand $shipping): self
     {
         $this->shipping = $shipping;
+
+        return $this;
+    }
+
+    public function getExternalIdentifier(): ?string
+    {
+        return $this->externalIdentifier;
+    }
+
+    public function setExternalIdentifier(?string $externalIdentifier): self
+    {
+        $this->externalIdentifier = $externalIdentifier;
 
         return $this;
     }

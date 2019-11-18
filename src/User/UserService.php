@@ -77,6 +77,7 @@ final class UserService extends AbstractService
                     'phone' => $command->getPhone(),
                     'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                     'currencyCode' => $command->getCurrencyCode(),
+                    'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
                 ],
             ]
         );
@@ -90,10 +91,13 @@ final class UserService extends AbstractService
             return $this->client->patch(
                 "users/{$command->getUserId()}",
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'currencyCode' => $command->getCurrencyCode(),
-                        'phone' => $command->getPhone(),
-                    ],
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'currencyCode' => $command->getCurrencyCode(),
+                            'phone' => $command->getPhone(),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                        ]
+                    ),
                 ]
             );
         } catch (ClientException $e) {
@@ -205,17 +209,20 @@ final class UserService extends AbstractService
             $userData = $this->client->post(
                 'users',
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'email' => $command->getEmail(),
-                        'password' => $command->getPassword(),
-                        'firstName' => $command->getFirstName(),
-                        'lastName' => $command->getLastName(),
-                        'title' => $command->getTitle()->getValue(),
-                        'phone' => $command->getPhone(),
-                        'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
-                        'billing' => self::serializeUserAddressUpdate($command->getBilling()),
-                        'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
-                    ],
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'email' => $command->getEmail(),
+                            'password' => $command->getPassword(),
+                            'firstName' => $command->getFirstName(),
+                            'lastName' => $command->getLastName(),
+                            'title' => $command->getTitle()->getValue(),
+                            'phone' => $command->getPhone(),
+                            'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                            'billing' => self::serializeUserAddressUpdate($command->getBilling()),
+                            'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                        ]
+                    ),
                 ]
             );
         } catch (ClientException $e) {
@@ -340,5 +347,23 @@ final class UserService extends AbstractService
             'country' => $command->getCountry(),
             'division_code' => $command->getDivisionCode(),
         ];
+    }
+
+    /**
+     * Remove null values
+     *
+     * @param mixed[] $data
+     *
+     * @return mixed[]
+     */
+    private function filterPayload(array $data): array
+    {
+        return array_filter(
+            $data,
+            /** @param mixed $d */
+            function ($d): bool {
+                return false === \is_null($d);
+            }
+        );
     }
 }

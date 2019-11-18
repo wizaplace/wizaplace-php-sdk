@@ -39,6 +39,9 @@ final class UpdateUserCommand
     /** @var string|null */
     private $phone;
 
+    /** @var string|null */
+    private $externalIdentifier;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -187,11 +190,24 @@ final class UpdateUserCommand
 
     /**
      * @param string $currencyCode
+     *
      * @return UpdateUserCommand
      */
     public function setCurrencyCode(string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
+
+        return $this;
+    }
+
+    public function getExternalIdentifier(): ?string
+    {
+        return $this->externalIdentifier;
+    }
+
+    public function setExternalIdentifier(?string $externalIdentifier): self
+    {
+        $this->externalIdentifier = $externalIdentifier;
 
         return $this;
     }
