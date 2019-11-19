@@ -48,6 +48,8 @@ final class User
     private $pendingCompanyId;
     /** @var string */
     private $externalIdentifier;
+    /** @var bool|null */
+    private $isProfessional;
 
     /**
      * @internal
@@ -71,6 +73,7 @@ final class User
         $this->phone = $data['phone'] ?? null;
         $this->currencyCode = $data['currencyCode'] ?? null;
         $this->externalIdentifier = $data['externalIdentifier'] ?? '';
+        $this->isProfessional = $data['isProfessional'] ?? null;
     }
 
     /**
@@ -193,5 +196,10 @@ final class User
     public function getExternalIdentifier(): string
     {
         return $this->externalIdentifier;
+    }
+
+    public function isProfessional(): ?bool
+    {
+        return $this->isProfessional;
     }
 }

@@ -42,6 +42,9 @@ final class UpdateUserCommand
     /** @var string|null */
     private $externalIdentifier;
 
+    /** @var bool|null */
+    private $isProfessional;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -208,6 +211,18 @@ final class UpdateUserCommand
     public function setExternalIdentifier(?string $externalIdentifier): self
     {
         $this->externalIdentifier = $externalIdentifier;
+
+        return $this;
+    }
+
+    public function getIsProfessional(): ?bool
+    {
+        return $this->isProfessional;
+    }
+
+    public function setIsProfessional(?bool $isProfessional): self
+    {
+        $this->isProfessional = $isProfessional;
 
         return $this;
     }

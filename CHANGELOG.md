@@ -7,6 +7,9 @@
 - Added `Wizaplace\SDK\User\User::getExternalIdentifier`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getExternalIdentifier`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\User::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
 
 ## 1.96.0
 

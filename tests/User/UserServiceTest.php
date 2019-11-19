@@ -888,7 +888,7 @@ final class UserServiceTest extends ApiTestCase
             ->setEmail('external@identifier.com')
             ->setPassword("password")
             ->setTitle(UserTitle::MR())
-            ->setBirthday(new \DateTimeImmutable())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
             ->setShipping(new UpdateUserAddressCommand())
             ->setBilling(new UpdateUserAddressCommand())
             ->setExternalIdentifier("id_externe")
@@ -957,5 +957,100 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
         static::assertSame('user42114@example.com', $user->getEmail());
         static::assertSame('externalIdentified0012', $user->getExternalIdentifier());
+    }
+
+    public function testRegisterUserWithIsProfessional(): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('isprofesionnal01@toto.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+        ;
+
+        $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
+        $apiClient->authenticate("isprofesionnal01@toto.com", 'password');
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertTrue($user->isProfessional());
+    }
+
+    public function testUpdateUserIsProfessional(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('userprofessional11@example.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+        ;
+
+        $userId = $userService->registerWithFullInfos($registerUserCommand);
+
+        $client->authenticate('userprofessional11@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertTrue($user->isProfessional());
+
+        // update user
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('userprofessional11@example.com')
+                ->setFirstName('Paul')
+                ->setLastName('Professional')
+                ->setIsProfessional(false)
+        );
+
+        $client->authenticate('userprofessional11@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertFalse($user->isProfessional());
+    }
+
+    public function testPatchUserIsProfessional(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('userprofessional15@example.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+        ;
+
+        $userId = $userService->registerWithFullInfos($registerUserCommand);
+
+        $client->authenticate('userprofessional15@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertTrue($user->isProfessional());
+
+        // update user
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setCurrencyCode('EUR')
+                ->setPhone('0102030405')
+                ->setIsProfessional(false)
+        );
+
+        $client->authenticate('userprofessional15@example.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertFalse($user->isProfessional());
     }
 }

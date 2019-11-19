@@ -69,16 +69,19 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}",
             [
-                RequestOptions::JSON => [
-                    'email' => $command->getEmail(),
-                    'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
-                    'firstName' => $command->getFirstName(),
-                    'lastName' => $command->getLastName(),
-                    'phone' => $command->getPhone(),
-                    'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
-                    'currencyCode' => $command->getCurrencyCode(),
-                    'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
-                ],
+                RequestOptions::JSON => $this->filterPayload(
+                    [
+                        'email' => $command->getEmail(),
+                        'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                        'firstName' => $command->getFirstName(),
+                        'lastName' => $command->getLastName(),
+                        'phone' => $command->getPhone(),
+                        'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                        'currencyCode' => $command->getCurrencyCode(),
+                        'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
+                        'isProfessional' => is_null($command->getIsProfessional())? null : $command->getIsProfessional(),
+                    ]
+                ),
             ]
         );
     }
@@ -96,6 +99,7 @@ final class UserService extends AbstractService
                             'currencyCode' => $command->getCurrencyCode(),
                             'phone' => $command->getPhone(),
                             'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
                         ]
                     ),
                 ]
@@ -221,6 +225,7 @@ final class UserService extends AbstractService
                             'billing' => self::serializeUserAddressUpdate($command->getBilling()),
                             'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
                             'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
                         ]
                     ),
                 ]
