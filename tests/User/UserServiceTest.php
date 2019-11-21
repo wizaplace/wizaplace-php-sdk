@@ -1053,4 +1053,84 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
         static::assertFalse($user->isProfessional());
     }
+
+    public function testRegisterUserIntraEuropeanCommunityVAT(): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('testIntraEuropeanCommunityVAT11@test.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+            ->setIntraEuropeanCommunityVAT("X1234567890")
+        ;
+
+        $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
+
+        $apiClient->authenticate("testIntraEuropeanCommunityVAT11@test.com", 'password');
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame("X1234567890", $user->getIntraEuropeanCommunityVAT());
+    }
+
+    public function testUpdateUserIntraEuropeanCommunityVAT(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testIntraEuropeanCommunityVAT01@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testIntraEuropeanCommunityVAT01@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testIntraEuropeanCommunityVAT01@test.com', $user->getEmail());
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('testIntraEuropeanCommunityVAT01@test.com')
+                ->setFirstName('Paul')
+                ->setLastName('Emploi')
+                ->setBirthday(null)
+                ->setIsProfessional(true)
+                ->setIntraEuropeanCommunityVAT('X1234567890')
+        );
+
+        $client->authenticate('testIntraEuropeanCommunityVAT01@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testIntraEuropeanCommunityVAT01@test.com', $user->getEmail());
+        static::assertSame('X1234567890', $user->getIntraEuropeanCommunityVAT());
+    }
+
+    public function testpatchUserIntraEuropeanCommunityVAT(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testIntraEuropeanCommunityVAT04@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testIntraEuropeanCommunityVAT04@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testIntraEuropeanCommunityVAT04@test.com', $user->getEmail());
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setIsProfessional(true)
+                ->setIntraEuropeanCommunityVAT('X1234567890')
+        );
+
+        $client->authenticate('testIntraEuropeanCommunityVAT04@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testIntraEuropeanCommunityVAT04@test.com', $user->getEmail());
+        static::assertSame('X1234567890', $user->getIntraEuropeanCommunityVAT());
+    }
 }

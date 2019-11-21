@@ -50,6 +50,8 @@ final class User
     private $externalIdentifier;
     /** @var bool|null */
     private $isProfessional;
+    /** @var string|null */
+    private $intraEuropeanCommunityVAT;
 
     /**
      * @internal
@@ -74,6 +76,7 @@ final class User
         $this->currencyCode = $data['currencyCode'] ?? null;
         $this->externalIdentifier = $data['externalIdentifier'] ?? '';
         $this->isProfessional = $data['isProfessional'] ?? null;
+        $this->intraEuropeanCommunityVAT = $data['intraEuropeanCommunityVAT'] ?? null;
     }
 
     /**
@@ -201,5 +204,10 @@ final class User
     public function isProfessional(): ?bool
     {
         return $this->isProfessional;
+    }
+
+    public function getIntraEuropeanCommunityVAT(): ?string
+    {
+        return $this->intraEuropeanCommunityVAT;
     }
 }

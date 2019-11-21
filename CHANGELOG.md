@@ -9,7 +9,10 @@
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
 - Added `Wizaplace\SDK\User\User::getIsProfessional`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
-- Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\User::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIntraEuropeanCommunityVAT`
 
 ## 1.96.0
 

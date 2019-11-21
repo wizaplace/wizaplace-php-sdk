@@ -79,7 +79,8 @@ final class UserService extends AbstractService
                         'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                         'currencyCode' => $command->getCurrencyCode(),
                         'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
-                        'isProfessional' => is_null($command->getIsProfessional())? null : $command->getIsProfessional(),
+                        'isProfessional' => is_null($command->getIsProfessional()) ? null : $command->getIsProfessional(),
+                        'intraEuropeanCommunityVAT' => is_null($command->getIntraEuropeanCommunityVAT()) ? null : $command->getIntraEuropeanCommunityVAT(),
                     ]
                 ),
             ]
@@ -100,6 +101,7 @@ final class UserService extends AbstractService
                             'phone' => $command->getPhone(),
                             'externalIdentifier' => $command->getExternalIdentifier(),
                             'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                         ]
                     ),
                 ]
@@ -226,6 +228,7 @@ final class UserService extends AbstractService
                             'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
                             'externalIdentifier' => $command->getExternalIdentifier(),
                             'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                         ]
                     ),
                 ]

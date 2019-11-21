@@ -46,6 +46,9 @@ final class RegisterUserCommand
     /** @var bool|null */
     private $isProfessional;
 
+    /** @var string|null */
+    private $intraEuropeanCommunityVAT;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -244,6 +247,18 @@ final class RegisterUserCommand
     public function setIsProfessional(?bool $isProfessional): self
     {
         $this->isProfessional = $isProfessional;
+
+        return $this;
+    }
+
+    public function getIntraEuropeanCommunityVAT(): ?string
+    {
+        return $this->intraEuropeanCommunityVAT;
+    }
+
+    public function setIntraEuropeanCommunityVAT(?string $intraEuropeanCommunityVAT): self
+    {
+        $this->intraEuropeanCommunityVAT = $intraEuropeanCommunityVAT;
 
         return $this;
     }
