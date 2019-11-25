@@ -52,6 +52,10 @@ final class User
     private $isProfessional;
     /** @var string|null */
     private $intraEuropeanCommunityVAT;
+    /** @var string|null */
+    private $company;
+    /** @var string|null */
+    private $function;
 
     /**
      * @internal
@@ -77,6 +81,8 @@ final class User
         $this->externalIdentifier = $data['externalIdentifier'] ?? '';
         $this->isProfessional = $data['isProfessional'] ?? null;
         $this->intraEuropeanCommunityVAT = $data['intraEuropeanCommunityVAT'] ?? null;
+        $this->company = $data['company'] ?? null;
+        $this->function = $data['function'] ?? null;
     }
 
     /**
@@ -209,5 +215,15 @@ final class User
     public function getIntraEuropeanCommunityVAT(): ?string
     {
         return $this->intraEuropeanCommunityVAT;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function getFunction(): ?string
+    {
+        return $this->function;
     }
 }

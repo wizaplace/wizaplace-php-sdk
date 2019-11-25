@@ -13,6 +13,12 @@
 - Added `Wizaplace\SDK\User\User::getIntraEuropeanCommunityVAT`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getIntraEuropeanCommunityVAT`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\User::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\User::getFunction`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getFunction`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setFunction`
 
 ## 1.96.0
 

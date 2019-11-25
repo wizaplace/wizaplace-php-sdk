@@ -80,7 +80,9 @@ final class UserService extends AbstractService
                         'currencyCode' => $command->getCurrencyCode(),
                         'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
                         'isProfessional' => is_null($command->getIsProfessional()) ? null : $command->getIsProfessional(),
-                        'intraEuropeanCommunityVAT' => is_null($command->getIntraEuropeanCommunityVAT()) ? null : $command->getIntraEuropeanCommunityVAT(),
+                        'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                        'company' => $command->getCompany(),
+                        'function' => $command->getFunction(),
                     ]
                 ),
             ]
@@ -102,6 +104,8 @@ final class UserService extends AbstractService
                             'externalIdentifier' => $command->getExternalIdentifier(),
                             'isProfessional' => $command->getIsProfessional(),
                             'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'function' => $command->getFunction(),
                         ]
                     ),
                 ]
@@ -229,6 +233,8 @@ final class UserService extends AbstractService
                             'externalIdentifier' => $command->getExternalIdentifier(),
                             'isProfessional' => $command->getIsProfessional(),
                             'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'function' => $command->getFunction(),
                         ]
                     ),
                 ]

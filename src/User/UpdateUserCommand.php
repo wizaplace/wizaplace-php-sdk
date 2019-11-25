@@ -48,6 +48,12 @@ final class UpdateUserCommand
     /** @var string|null */
     private $intraEuropeanCommunityVAT;
 
+    /** @var string|null */
+    private $company;
+
+    /** @var string|null */
+    private $function;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -206,11 +212,17 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /** @return string|null */
     public function getExternalIdentifier(): ?string
     {
         return $this->externalIdentifier;
     }
 
+    /**
+     * @param string|null $externalIdentifier
+     *
+     * @return $this
+     */
     public function setExternalIdentifier(?string $externalIdentifier): self
     {
         $this->externalIdentifier = $externalIdentifier;
@@ -218,11 +230,17 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /** @return bool|null */
     public function getIsProfessional(): ?bool
     {
         return $this->isProfessional;
     }
 
+    /**
+     * @param bool|null $isProfessional
+     *
+     * @return $this
+     */
     public function setIsProfessional(?bool $isProfessional): self
     {
         $this->isProfessional = $isProfessional;
@@ -230,14 +248,56 @@ final class UpdateUserCommand
         return $this;
     }
 
+    /** @return string|null */
     public function getIntraEuropeanCommunityVAT(): ?string
     {
         return $this->intraEuropeanCommunityVAT;
     }
 
+    /**
+     * @param string|null $intraEuropeanCommunityVAT
+     *
+     * @return $this
+     */
     public function setIntraEuropeanCommunityVAT(?string $intraEuropeanCommunityVAT): self
     {
         $this->intraEuropeanCommunityVAT = $intraEuropeanCommunityVAT;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param string|null $company
+     *
+     * @return $this
+     */
+    public function setCompany(?string $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getFunction(): ?string
+    {
+        return $this->function;
+    }
+
+    /**
+     * @param string|null $function
+     *
+     * @return $this
+     */
+    public function setFunction(?string $function): self
+    {
+        $this->function = $function;
 
         return $this;
     }

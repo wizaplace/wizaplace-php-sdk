@@ -24,14 +24,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Wed, 20 Nov 2019 13:00:15 GMT'
+            Date: 'Fri, 22 Nov 2019 14:43:30 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a8b8a7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a8b8a7'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a8b8a7%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: ba97b949f14b77a65f9a13f1f37db4a3
-        body: '{"id":17}'
+            X-Debug-Token: 83da0b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83da0b'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2283da0b%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 429729300511026b78118b8890a34fa2
+        body: '{"id":18}'
 -
     request:
         method: GET
@@ -55,22 +55,22 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 20 Nov 2019 13:00:16 GMT'
+            Date: 'Fri, 22 Nov 2019 14:43:30 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 29f54f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/29f54f'
-            X-Request-Id: 85d463b065c3599292f1526b124c90d9
-        body: '{"id":17,"apiKey":"kK8RNIz8uCmGpe7WO1KPxnotZrB58dp4JkMclqZK"}'
+            X-Debug-Token: '999181'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/999181'
+            X-Request-Id: cb04d40f71465ccae8dd98666be9f7f5
+        body: '{"id":18,"apiKey":"XIJZ\/o2PPcKeuLsc5bWGFT2xd6Aarb7MkUcoKdWX"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/17'
+        url: 'http://wizaplace.loc/api/v1/users/18'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
-            Authorization: 'token kK8RNIz8uCmGpe7WO1KPxnotZrB58dp4JkMclqZK'
+            Authorization: 'token XIJZ/o2PPcKeuLsc5bWGFT2xd6Aarb7MkUcoKdWX'
             VCR-index: '2'
             Accept: null
     response:
@@ -85,10 +85,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 20 Nov 2019 13:00:16 GMT'
+            Date: 'Fri, 22 Nov 2019 14:43:31 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f79bd0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f79bd0'
-            X-Request-Id: eaad59e4b1744eb99e20a2ea520eb29c
-        body: '{"id":17,"title":"mr","email":"testIntraEuropeanCommunityVAT11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"X1234567890"}'
+            X-Debug-Token: 004ec5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/004ec5'
+            X-Request-Id: 3fdd8f19e29cba3b45e8facbc893b7f5
+        body: '{"id":18,"title":"mr","email":"testIntraEuropeanCommunityVAT11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"X1234567890","company":"","function":""}'
