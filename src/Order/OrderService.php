@@ -325,4 +325,24 @@ final class OrderService extends AbstractService
             throw $e;
         }
     }
+
+    public function postRefundOrder(int $orderId, RefundRequest $request): Refund
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post(
+                "orders/{$orderId}/refunds",
+                [RequestOptions::JSON => $request->toArray()]
+            );
+
+            return new Refund($response);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
 }

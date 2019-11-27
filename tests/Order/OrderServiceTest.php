@@ -23,6 +23,9 @@ use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
+use Wizaplace\SDK\Order\RefundRequest;
+use Wizaplace\SDK\Order\RefundRequestItem;
+use Wizaplace\SDK\Order\RefundRequestShipping;
 use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -377,6 +380,60 @@ final class OrderServiceTest extends ApiTestCase
         $orderService = $this->buildOrderService('vendor@wizaplace.com', 'password');
 
         $orderService->cancelOrder(13);
+    }
+
+    public function testPostOrderRefundComplete(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $request = new RefundRequest(false);
+
+        $refund = $orderService->postRefundOrder(29, $request);
+
+        static::assertSame(3, $refund->getRefundId());
+        static::assertSame(29, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(97., $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertTrue(RefundStatus::CREATED()->equals($refund->getStatus()));
+        static::assertNull($refund->getMessage());
+        static::assertEquals(new \DateTime('2019-11-07T10:31:40+0100'), $refund->getCreatedAt());
+        static::assertEquals(new \DateTime('2019-11-07T10:31:40+0100'), $refund->getUpdatedAt());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(4261345357, $item->getItemId());
+        static::assertSame(97., $item->getAmount());
+        static::assertSame(1, $item->getQuantity());
+    }
+
+    public function testPostOrderRefundPartial(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $item = new RefundRequestItem(2858825212, 2);
+        $shipping = new RefundRequestShipping(false);
+        $request = new RefundRequest(true, [$item], $shipping, 'NEIN!');
+
+        $refund = $orderService->postRefundOrder(32, $request);
+
+        static::assertSame(4, $refund->getRefundId());
+        static::assertSame(32, $refund->getOrderId());
+        static::assertSame(true, $refund->isPartial());
+        static::assertSame(false, $refund->hasShipping());
+        static::assertSame(44., $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertTrue(RefundStatus::CREATED()->equals($refund->getStatus()));
+        static::assertSame('NEIN!', $refund->getMessage());
+        static::assertEquals(new \DateTime('2019-11-07T10:48:41+0100'), $refund->getCreatedAt());
+        static::assertEquals(new \DateTime('2019-11-07T10:48:41+0100'), $refund->getUpdatedAt());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(2858825212, $item->getItemId());
+        static::assertSame(22., $item->getAmount());
+        static::assertSame(2, $item->getQuantity());
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService

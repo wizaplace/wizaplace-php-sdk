@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Nov 2019 09:31:39 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ecadac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ecadac'
+            X-Request-Id: ab479b06152b14ba428c60dfae26fdbc
+        body: '{"id":2,"apiKey":"ekXfKKrmZr3\/i9Wk5kEX8abUZDYxgYNoFIr2H9qx"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/29/refunds'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            Authorization: 'token ekXfKKrmZr3/i9Wk5kEX8abUZDYxgYNoFIr2H9qx'
+            VCR-index: '1'
+            Accept: null
+        body: '{"isPartial":false,"items":[],"shipping":null,"message":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Nov 2019 09:31:40 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6c9247
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c9247'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%226c9247%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: f4646c3ca60cec36000359510eb12701
+        body: '{"refundId":3,"orderId":29,"isPartial":false,"hasShipping":true,"amount":97,"shippingAmount":0,"message":null,"status":"created","createdAt":"2019-11-07T10:31:40+01:00","updatedAt":"2019-11-07T10:31:40+01:00","items":[{"itemId":4261345357,"amount":97,"quantity":1}]}'
