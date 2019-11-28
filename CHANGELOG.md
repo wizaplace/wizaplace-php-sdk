@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.94.0
 
 ### New features
 
