@@ -7,18 +7,33 @@
 - Added `Wizaplace\SDK\User\User::getExternalIdentifier`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getExternalIdentifier`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setExternalIdentifier`
 - Added `Wizaplace\SDK\User\User::getIsProfessional`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIsProfessional`
 - Added `Wizaplace\SDK\User\User::getIntraEuropeanCommunityVAT`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getIntraEuropeanCommunityVAT`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIntraEuropeanCommunityVAT`
 - Added `Wizaplace\SDK\User\User::getCompany`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getCompany`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setCompany`
 - Added `Wizaplace\SDK\User\User::getFunction`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getFunction`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setFunction`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getFunction`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setFunction`
+- Added `Wizaplace\SDK\User\User::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setComment`
 
 ## 1.96.0
 

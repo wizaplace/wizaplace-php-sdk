@@ -55,6 +55,9 @@ final class RegisterUserCommand
     /** @var string|null */
     private $function;
 
+    /** @var string|null */
+    private $comment;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -317,6 +320,24 @@ final class RegisterUserCommand
     public function setFunction(?string $function): self
     {
         $this->function = $function;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string|null $comment
+     *
+     * @return $this
+     */
+    public function setComment(?string $comment): self
+    {
+        $this->comment = $comment;
 
         return $this;
     }

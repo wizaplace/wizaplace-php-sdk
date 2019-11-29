@@ -56,6 +56,8 @@ final class User
     private $company;
     /** @var string|null */
     private $function;
+    /** @var string|null */
+    private $comment;
 
     /**
      * @internal
@@ -83,6 +85,7 @@ final class User
         $this->intraEuropeanCommunityVAT = $data['intraEuropeanCommunityVAT'] ?? null;
         $this->company = $data['company'] ?? null;
         $this->function = $data['function'] ?? null;
+        $this->comment = $data['comment'] ?? null;
     }
 
     /**
@@ -225,5 +228,10 @@ final class User
     public function getFunction(): ?string
     {
         return $this->function;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 }

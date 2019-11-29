@@ -83,6 +83,7 @@ final class UserService extends AbstractService
                         'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                         'company' => $command->getCompany(),
                         'function' => $command->getFunction(),
+                        'comment' => $command->getComment(),
                     ]
                 ),
             ]
@@ -106,6 +107,7 @@ final class UserService extends AbstractService
                             'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                             'company' => $command->getCompany(),
                             'function' => $command->getFunction(),
+                            'comment' => $command->getComment(),
                         ]
                     ),
                 ]
@@ -235,6 +237,7 @@ final class UserService extends AbstractService
                             'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                             'company' => $command->getCompany(),
                             'function' => $command->getFunction(),
+                            'comment' => $command->getComment(),
                         ]
                     ),
                 ]
