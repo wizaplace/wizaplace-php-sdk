@@ -1,0 +1,247 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:15 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4ecbbb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4ecbbb'
+            X-Request-Id: 111dbdc715aabfcfbbafa523d7b2bc6a
+        body: '{"id":88,"apiKey":"X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/default'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a85332
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a85332'
+            X-Request-Id: 7a340dfc875eea879a5612e68a07915f
+        body: '{"id":"0f9c83cb-53c2-4754-98bb-dd6e9f29c7c3","category":0,"company":0,"percent":2.5,"fixed":0.5,"maximum":10}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/commissions/0f9c83cb-53c2-4754-98bb-dd6e9f29c7c3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '9690e5'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9690e5'
+            X-Request-Id: 57ecd10ff027fa9cc56818557ca7e43d
+        body: '{"message":"Commission deleted successfully."}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/commissions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '3'
+            Accept: null
+        body: '{"percent":2.5,"fixed":0.5,"maximum":10}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:17 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ddd8da
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ddd8da'
+            X-Request-Id: 6ab29dc513b41ac20744d0d791852c90
+        body: '{"message":"Marketplace commission created successfully.","id":"b6c5855f-b63a-42c6-8b02-362e208e6250"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/3/commissions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '4'
+            Accept: null
+        body: '{"category":9,"percent":2.5,"fixed":0.5,"maximum":10}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0f6263
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f6263'
+            X-Request-Id: 764a1dd77bf1eba839a7f8fc0c6f5da3
+        body: '{"message":"Company commission created successfully.","id":"46e168a6-37c2-4b95-90a8-5418d69c5423"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 921ee1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/921ee1'
+            X-Request-Id: c9d1fcdc15af15adb14fa301f98ea57a
+        body: '[{"id":"09b48929-6bdb-4e1f-ac6d-a593c4b71aba","category":3,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"09b5fbe5-6067-4738-9c2d-74a74d1f67ec","category":12,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"0b5e58b6-93dc-4335-858a-0580edbe83e1","category":0,"company":7,"percent":5,"fixed":0.2,"maximum":0},{"id":"0d1d80ae-f995-4896-a4cf-d5072e93cef2","category":0,"company":11,"percent":5,"fixed":0.2,"maximum":0},{"id":"1059133e-43e8-46db-87ee-8ff98d5beada","category":5,"company":1,"percent":3.5,"fixed":0,"maximum":20},{"id":"1b9846fc-a3fe-4277-871b-c7593513a196","category":3,"company":1,"percent":10,"fixed":0,"maximum":null},{"id":"1f271ee2-fbb0-4989-a6ef-8155b9ea2e88","category":0,"company":12,"percent":5,"fixed":0.2,"maximum":0},{"id":"20259a4d-3af2-4582-8ce0-b687bb6a9aba","category":6,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"27db53f7-5cc0-4711-9fbb-74d4b277bc47","category":3,"company":3,"percent":10,"fixed":0,"maximum":null},{"id":"30d6a447-7676-4948-851a-ccd249ff7fab","category":10,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"338e9fe8-bc78-4239-a064-a0ab3c61128b","category":0,"company":1,"percent":5,"fixed":0.2,"maximum":0},{"id":"3d17007e-7f21-49a4-b32f-985473ee2351","category":0,"company":9,"percent":5,"fixed":0.2,"maximum":0},{"id":"464ed41c-65d9-4bf3-bc92-b928a3a3cb82","category":4,"company":5,"percent":6,"fixed":0,"maximum":null},{"id":"46e168a6-37c2-4b95-90a8-5418d69c5423","category":9,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"49433bb1-7640-40fd-94b2-d715eb18805d","category":7,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"4be14bc7-2121-4d66-9568-26d8e6632b2b","category":0,"company":5,"percent":4,"fixed":0.3,"maximum":0},{"id":"5209a3e9-873e-4a0a-aa87-387d4f211585","category":5,"company":2,"percent":2.5,"fixed":0,"maximum":10},{"id":"547d4c0f-f649-4979-be99-ca1e01d446d6","category":13,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"591e74df-8216-4b70-89a8-5253cf0deac4","category":99,"company":5,"percent":3,"fixed":0,"maximum":null},{"id":"5c0e7247-ac89-4111-972c-e5d4f116577f","category":0,"company":4,"percent":5,"fixed":0.2,"maximum":0},{"id":"61c66e52-e8d0-4023-9795-0251f7f6f1f0","category":0,"company":18,"percent":5,"fixed":0.2,"maximum":0},{"id":"6a2d7408-2b41-47f9-ad15-18d32ce04b73","category":6,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"6c0d5478-d526-4150-af7c-eb059b349179","category":0,"company":15,"percent":5,"fixed":0.2,"maximum":0},{"id":"6df37b57-86e3-4b8d-bf10-5ab2ae9deb6c","category":8,"company":0,"percent":3.5,"fixed":0,"maximum":20},{"id":"7fa66f38-511e-4ef2-b7a4-aac943ba50a7","category":5,"company":3,"percent":3.5,"fixed":0,"maximum":20},{"id":"826b05f8-5556-4b87-99dc-2dbaee2ffe21","category":0,"company":17,"percent":5,"fixed":0.2,"maximum":0},{"id":"8550a1cc-cba9-4d7f-9099-b4a0ef339686","category":4,"company":2,"percent":2.5,"fixed":0,"maximum":10},{"id":"88b299cf-3299-4c7a-b141-ab7b5179fa49","category":5,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"99ca7a15-7c82-487a-8bad-6e23609f5e3a","category":0,"company":13,"percent":5,"fixed":0.2,"maximum":0},{"id":"9a160441-cbe7-4cdb-8a6e-02c571a974a9","category":3,"company":2,"percent":10,"fixed":0,"maximum":null},{"id":"9fc753ea-409a-49d7-8d79-2b4153076e74","category":4,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"aa33b42f-9b3f-4d44-afe0-0dd4aef483d9","category":12,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"aec43c05-c4f1-4c81-8c2b-31f8c10d4665","category":5,"company":12,"percent":10,"fixed":0,"maximum":null},{"id":"b2ebbf60-c66c-48b8-985d-ef77f5c5f640","category":0,"company":3,"percent":5,"fixed":0.2,"maximum":0},{"id":"b637814c-8dcd-48be-b68e-d40454b3794f","category":0,"company":8,"percent":5,"fixed":0.2,"maximum":0},{"id":"b6c5855f-b63a-42c6-8b02-362e208e6250","category":0,"company":0,"percent":2.5,"fixed":0.5,"maximum":10},{"id":"b9c9980c-e758-4feb-bdcd-8c697922013a","category":4,"company":3,"percent":3.5,"fixed":0,"maximum":20},{"id":"c485f456-982e-4889-acc8-9e483312f227","category":0,"company":14,"percent":5,"fixed":0.2,"maximum":0},{"id":"cb6c4f81-2ed8-4427-8d80-67affbd71939","category":0,"company":2,"percent":5,"fixed":0.2,"maximum":0},{"id":"cc10dde0-223d-44e9-aad6-360a59016a91","category":4,"company":1,"percent":10,"fixed":0,"maximum":50},{"id":"ce2a36ec-a8e4-4ec1-8580-a4cc24f1997d","category":3,"company":4,"percent":10,"fixed":0,"maximum":50},{"id":"d312b7cc-dab8-4e35-bacd-d8a7aaa7763d","category":13,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"dbfee783-b958-4967-8682-ddb150c569db","category":11,"company":3,"percent":2.5,"fixed":0,"maximum":10},{"id":"e72f5da0-be96-4054-9e84-0aea9121cc23","category":122,"company":0,"percent":10,"fixed":0,"maximum":null},{"id":"e8107957-2763-47f9-8f3c-d4b4a656188c","category":0,"company":6,"percent":5,"fixed":0.2,"maximum":0},{"id":"eabb1715-13bd-4c68-8555-7bd6a03ad267","category":666,"company":0,"percent":2.5,"fixed":0,"maximum":10},{"id":"ec65a7d8-af44-44b6-91cd-e606b159985f","category":0,"company":16,"percent":5,"fixed":0.2,"maximum":0}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/b6c5855f-b63a-42c6-8b02-362e208e6250'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5e140e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5e140e'
+            X-Request-Id: e46950aac73f8e5de33898a4850be573
+        body: '{"id":"b6c5855f-b63a-42c6-8b02-362e208e6250","category":0,"company":0,"percent":2.5,"fixed":0.5,"maximum":10}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/46e168a6-37c2-4b95-90a8-5418d69c5423'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Oct 2019 09:08:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ed8a5b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ed8a5b'
+            X-Request-Id: ef4bd44b8a5e227aacfbc08068288885
+        body: '{"id":"46e168a6-37c2-4b95-90a8-5418d69c5423","category":9,"company":3,"percent":2.5,"fixed":0,"maximum":10}'

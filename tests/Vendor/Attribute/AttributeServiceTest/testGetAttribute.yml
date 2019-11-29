@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 08 Oct 2019 08:35:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 39a4a1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/39a4a1'
+            X-Request-Id: b3116837af4578e7a6cf710199f6c237
+        body: '{"id":6,"apiKey":"n2gTm\/RTzyI6fsLZyhO+5pe61Xf9phYYZKWHCDew"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/features/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token n2gTm/RTzyI6fsLZyhO+5pe61Xf9phYYZKWHCDew'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 08 Oct 2019 08:35:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7fe087
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7fe087'
+            X-Request-Id: 72b5047e8586090a10af15d2d6788847
+        body: '{"feature_id":1,"feature_type":"M","description":"Couleur","categories_path":[],"variants":{"2":{"variant_id":2,"variant":"Blanc"},"1":{"variant_id":1,"variant":"Bleu"},"3":{"variant_id":3,"variant":"Rouge"}}}'
