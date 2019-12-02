@@ -1,9 +1,21 @@
 # Changelog
 
-## Next release
+## 1.94.0
 
 ### New features
 
+- Added `Wizaplace\SDK\Commission\CommissionService::updateCompanyCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::updateCategoryCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::updateMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::addCompanyCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::addCategoryCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::addMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCommissions`
+- Added `Wizaplace\SDK\Commission\CommissionService::getMarketplaceCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCategoryCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::getCompanyCommission`
+- Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
 
 ## 1.80.0
