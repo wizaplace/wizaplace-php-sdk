@@ -1,0 +1,187 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:46 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ed4d1d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ed4d1d'
+            X-Request-Id: aa09921baa6c539631500a36c180e265
+        body: '{"id":88,"apiKey":"X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/default'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:46 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '5789e0'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5789e0'
+            X-Request-Id: 5e91ba1f329e0d5399432355ab0cc7a9
+        body: '{"id":"dadc6973-4123-4bc0-89a1-6175db80b85f","category":0,"company":0,"percent":3.5,"fixed":1.5,"maximum":20}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/commissions/dadc6973-4123-4bc0-89a1-6175db80b85f'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:47 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f6ed51
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f6ed51'
+            X-Request-Id: d6892efd77566c1cde99d029a40a97c6
+        body: '{"message":"Commission deleted successfully."}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/commissions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '3'
+            Accept: null
+        body: '{"percent":2.5,"fixed":0.5,"maximum":10}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 68998f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/68998f'
+            X-Request-Id: 61153ba59febf6c72d2b1e2cc3fb9672
+        body: '{"message":"Marketplace commission created successfully.","id":"0ff85771-b406-4a98-9d7c-cd1e73b84adc"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/commissions/0ff85771-b406-4a98-9d7c-cd1e73b84adc'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '4'
+            Accept: null
+        body: '{"percent":3.5,"fixed":1.5,"maximum":20}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 28fcf6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/28fcf6'
+            X-Request-Id: 29eedf743126e3be67e036f8577b7eb6
+        body: '{"message":"Marketplace commission updated successfully."}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/default'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 09 Oct 2019 11:36:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5f343f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5f343f'
+            X-Request-Id: c7ed50186f670e4ce65e51abb4809103
+        body: '{"id":"0ff85771-b406-4a98-9d7c-cd1e73b84adc","category":0,"company":0,"percent":3.5,"fixed":1.5,"maximum":20}'
