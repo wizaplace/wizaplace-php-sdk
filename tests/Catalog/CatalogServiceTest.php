@@ -400,7 +400,7 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $catalogService->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
 
         $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $product->getId());
-        $this->assertSame('ipsum-omnis-non-asperiores-hic-veritatis', $product->getSlug());
+        $this->assertSame('eius-et-velit-eum-corrupti-voluptatibus-velit-totam', $product->getSlug());
 
         $expectedAttributes = [
             new ProductAttribute([
@@ -529,7 +529,9 @@ final class CatalogServiceTest extends ApiTestCase
                         'attributeId' => 9,
                         'name' => 'Puma',
                         'slug' => 'puma',
-                        'image' => null,
+                        'image' => [
+                            'id' => 13,
+                        ],
                     ],
                 ],
                 'value' => ['Puma'],
@@ -2243,6 +2245,18 @@ final class CatalogServiceTest extends ApiTestCase
         $response = $this->buildCatalogService()->getProductAttachment("91d90a26-9ec1-4092-a40c-4acd9c3fefa9");
         static::assertSame('image/jpeg', $response->getHeaderLine('Content-Type'));
         static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
+    }
+
+    public function testGetBrandFromMVP(): void
+    {
+        $mvp = $this->buildCatalogService()->getProductsByMvpId('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        $brand = $this->buildCatalogService()->getBrandFromProduct($mvp[0]);
+
+        static::assertSame(20, $brand->getId());
+        static::assertSame(9, $brand->getAttributeId());
+        static::assertSame('Puma', $brand->getName());
+        static::assertSame('puma', $brand->getSlug());
+        static::assertSame(13, $brand->getImage()->getId());
     }
 
     public function testGetProductsWithSubscription(): void

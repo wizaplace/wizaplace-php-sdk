@@ -14,10 +14,6 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
-use Wizaplace\SDK\Exception\BasketIsEmpty;
-use Wizaplace\SDK\Exception\BasketNotFound;
-use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
-use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
@@ -204,6 +200,23 @@ final class BasketService extends AbstractService
         ]);
     }
 
+    public function deleteUserBasket(): void
+    {
+        $this->client->mustBeAuthenticated();
+        $userId = $this->client->getApiKey()->getId();
+
+        try {
+            $this->client->delete("users/$userId/basket");
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+            }
+
+            throw $exception;
+        }
+    }
+
     /**
      * Remove a product (or a product's declination) from the basket.
      *
@@ -231,6 +244,36 @@ final class BasketService extends AbstractService
             }
 
             throw $ex;
+        }
+    }
+
+    /**
+     * Bulk remove a product (or a product's declination) from the basket
+     *
+     * @param array[] $declinations
+     */
+    public function bulkRemoveProductsFromBasket(string $basketId, array $declinations): void
+    {
+        $jsonDeclinations = [];
+
+        foreach ($declinations as $declinationId) {
+            $jsonDeclinations[] = json_encode($declinationId);
+        }
+
+        try {
+            $this->client->post("basket/{$basketId}/bulk-remove", [
+                RequestOptions::JSON => [
+                    'declinations' => $jsonDeclinations,
+                ],
+            ]);
+        } catch (ClientException $exception) {
+            $code = $exception->getResponse()->getStatusCode();
+
+            if (404 === $code) {
+                throw new NotFound('Basket not found', $exception);
+            }
+
+            throw $exception;
         }
     }
 

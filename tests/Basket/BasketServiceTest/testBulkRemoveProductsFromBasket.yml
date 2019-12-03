@@ -1,0 +1,223 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 96896b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/96896b'
+            X-Request-Id: 2435be4b9221f0d18899ae38f17eeb1b
+        body: '{"id":7,"apiKey":"tojefTlFjmnaI1A712ngyxNSW9\/jJkB1wJvI+HaY"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d29be2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d29be2'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d29be2%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A52%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: bd87c5bf0eb5cca94f97d080a65c91b4
+        body: '"70ab441b-4582-4ced-a140-b7383e53b562"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/70ab441b-4582-4ced-a140-b7383e53b562/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=1_0&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:36 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7232a0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7232a0'
+            X-Request-Id: e3c0c0eadec38066e88b0df553827d3e
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/70ab441b-4582-4ced-a140-b7383e53b562/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '3'
+            Accept: null
+        body: 'declinationId=3_3_7&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:37 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5c12ea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5c12ea'
+            X-Request-Id: 1e9a3355e4501b5928259f1e7b5f4b58
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/70ab441b-4582-4ced-a140-b7383e53b562/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '4'
+            Accept: null
+        body: 'declinationId=13_0&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:38 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a371bd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a371bd'
+            X-Request-Id: 9b3062b1c35fe7707273a1106cd1cc2e
+        body: '{"quantity":1}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/70ab441b-4582-4ced-a140-b7383e53b562/bulk-remove'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '5'
+            Accept: null
+        body: '{"declinations":["{\"declinationId\":\"1_0\"}","{\"declinationId\":\"3_3_7\"}"]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:40 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2b46d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2b46d6'
+            X-Request-Id: 6595ffd4e4c45766f3a999ca9c32fec3
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/70ab441b-4582-4ced-a140-b7383e53b562'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Nov 2019 08:57:42 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 60902e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/60902e'
+            X-Request-Id: b98e16f7d652a2becc1ff0e566289b23
+        body: '{"id":"70ab441b-4582-4ced-a140-b7383e53b562","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":""},"companyGroups":[{"company":{"id":5,"name":"Chrono company","slug":"chrono-company"},"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"shippingGroups":[{"id":1,"items":[{"declinationId":"13_0","productId":13,"productName":"Produit avec ChronoRelais","productCode":"20231495446","productUrl":"https:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/produit-avec-chronorelais.html","individualPrice":0.5,"individualTax":0.01,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":0.5,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":true},{"id":41,"name":"ChronoRelais","type":"R","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false},{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"selected":false}],"productTotalWithTaxes":0.5,"productTaxes":0.01,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.01,"itemsPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01}}]}],"subtotal":0.5,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0.01,"total":0.5,"totalMarketplaceDiscount":0,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0.49,"priceWithTaxes":0.5,"vat":0.01},"isEligibleToPickupPointsShipping":true,"isPickupPointsShipping":false}'

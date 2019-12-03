@@ -17,6 +17,7 @@
 - Added `Wizaplace\SDK\Commission\CommissionService::getCompanyCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+- Added `Wizaplace\SDK\Basket\BasketService::deleteUserBasket`
 - Added `Wizaplace\SDK\Pim\Product\Product::isSubscription`
 - Added `Wizaplace\SDK\Pim\Product\Product::isRenewable`
 - Added `Wizaplace\SDK\Catalog\Declination::isSubscription`
@@ -135,12 +136,12 @@
 - Updated `Wizaplace\SDK\Vendor\Promotion\BasketRuleType` Add new ruleType
 - Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorOrEqualToRule`
 - Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorOrEqualToRule`
-- Added `Wizaplace\SDK\Vendor\Order::getMarketplaceDiscountTotal` 
-- Added `Wizaplace\SDK\Vendor\Order::getCustomerTotal` 
-- Added `Wizaplace\SDK\Vendor\Order::getTransactions` 
-- Added `Wizaplace\SDK\Transaction\Transaction` 
-- Added `Wizaplace\SDK\Transaction\TransactionType` 
-- Added `Wizaplace\SDK\Transaction\TransactionStatus` 
+- Added `Wizaplace\SDK\Vendor\Order::getMarketplaceDiscountTotal`
+- Added `Wizaplace\SDK\Vendor\Order::getCustomerTotal`
+- Added `Wizaplace\SDK\Vendor\Order::getTransactions`
+- Added `Wizaplace\SDK\Transaction\Transaction`
+- Added `Wizaplace\SDK\Transaction\TransactionType`
+- Added `Wizaplace\SDK\Transaction\TransactionStatus`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getTransactions`
 - Added `Wizaplace\SDK\Basket\Basket\BasketService::getTotalMarketplaceDiscount`
 - Added `Wizaplace\SDK\User::getPendingCompanyId`
@@ -178,7 +179,7 @@
 
 ### New features
 
-- Added `Wizaplace\SDK\Vendor\Order\Order::getDetails` 
+- Added `Wizaplace\SDK\Vendor\Order\Order::getDetails`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::setOrderDetails`
 - Added `alt` property to `\Wizaplace\SDK\Cms\Banner`
 
@@ -257,7 +258,7 @@
 
 ### Bugfixes
 
-- Fixed missing Order status in `Wizaplace\SDK\Vendor\Order\OrderStatus` and `Wizaplace\SDK\Order\OrderStatus` 
+- Fixed missing Order status in `Wizaplace\SDK\Vendor\Order\OrderStatus` and `Wizaplace\SDK\Order\OrderStatus`
 
 ## 1.52.0
 

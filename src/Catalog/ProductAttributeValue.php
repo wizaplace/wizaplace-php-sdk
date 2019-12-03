@@ -37,7 +37,7 @@ final class ProductAttributeValue
         $this->attributeId = $data['attributeId'];
         $this->name = $data['name'];
         $this->slug = $data['slug'];
-        $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->image = isset($data['image']) ? $data['image'] : null;
     }
 
     /**
@@ -77,6 +77,13 @@ final class ProductAttributeValue
      */
     public function getImage(): ?Image
     {
-        return $this->image;
+        if (null === $this->image) {
+            return null;
+        }
+
+        return $this->image instanceof Image
+            ? $this->image
+            : new Image($this->image)
+        ;
     }
 }
