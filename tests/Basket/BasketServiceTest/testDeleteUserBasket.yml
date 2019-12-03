@@ -1,0 +1,119 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 12:40:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 95b224
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/95b224'
+            X-Request-Id: 1a2af84d0ca8e7485143dc723dc84be2
+        body: '{"id":3,"apiKey":"+kLfIssN9x6kPZEmpDre7MNkGwRitdGYyQWWZaQi"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/8c54d443-eef1-4086-9bb7-b8917d8710e3/items?offset=0&limit=100'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token +kLfIssN9x6kPZEmpDre7MNkGwRitdGYyQWWZaQi'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 12:40:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9eb1fa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9eb1fa'
+            X-Request-Id: 0300d47506c23b3ea702e9bc2181ccb9
+        body: '{"basketId":"8c54d443-eef1-4086-9bb7-b8917d8710e3","items":[{"declinationId":"2_1_1_2_5","productId":2,"productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","canonicalUrl":"\/it\/souris-sans-fil-avec-recepteur-nano-6-boutons.html","individualPrice":15.5,"crossedOutPrice":null,"imageId":null,"options":[{"optionId":1,"optionName":"color","valueName":"white","imageId":null},{"optionId":2,"optionName":"connectivity","valueName":"wireless","imageId":null}],"company":{"companyId":3,"companyName":"The World Company Inc.","companySlug":"the-world-company-inc","imageId":null},"quantity":1,"total":15.5},{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","canonicalUrl":"\/it\/test-product-slug.html","individualPrice":67.9,"crossedOutPrice":null,"imageId":null,"options":[],"company":{"companyId":3,"companyName":"The World Company Inc.","companySlug":"the-world-company-inc","imageId":null},"quantity":3,"total":203.70000000000002}],"quantitiesTotal":4,"indicatedPriceTotal":219.20000000000002,"offset":0,"limit":100,"total":2}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/users/3/basket'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token +kLfIssN9x6kPZEmpDre7MNkGwRitdGYyQWWZaQi'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 12:40:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4d5a47
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d5a47'
+            X-Request-Id: f57eab22b2744f0468c7d94a82909781
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3/basket'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token +kLfIssN9x6kPZEmpDre7MNkGwRitdGYyQWWZaQi'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 12:40:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '150361'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/150361'
+            X-Request-Id: f635a8c6436e605abf53fe1984cf263c
+        body: '{"id":null}'

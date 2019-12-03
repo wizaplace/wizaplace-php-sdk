@@ -17,6 +17,7 @@
 - Added `Wizaplace\SDK\Commission\CommissionService::getCompanyCommission`
 - Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+- Added `Wizaplace\SDK\Basket\BasketService::deleteUserBasket`
 
 ## 1.80.0
 

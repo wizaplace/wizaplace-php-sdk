@@ -14,10 +14,6 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
-use Wizaplace\SDK\Exception\BasketIsEmpty;
-use Wizaplace\SDK\Exception\BasketNotFound;
-use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
-use Wizaplace\SDK\Exception\CouponCodeDoesNotApply;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use function theodorejb\polycast\to_string;
@@ -202,6 +198,23 @@ final class BasketService extends AbstractService
                 'id' => $basketId,
             ],
         ]);
+    }
+
+    public function deleteUserBasket(): void
+    {
+        $this->client->mustBeAuthenticated();
+        $userId = $this->client->getApiKey()->getId();
+
+        try {
+            $this->client->delete("users/$userId/basket");
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+            }
+
+            throw $exception;
+        }
     }
 
     /**
