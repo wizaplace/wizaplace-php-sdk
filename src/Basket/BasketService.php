@@ -248,6 +248,36 @@ final class BasketService extends AbstractService
     }
 
     /**
+     * Bulk remove a product (or a product's declination) from the basket
+     *
+     * @param array[] $declinations
+     */
+    public function bulkRemoveProductsFromBasket(string $basketId, array $declinations): void
+    {
+        $jsonDeclinations = [];
+
+        foreach ($declinations as $declinationId) {
+            $jsonDeclinations[] = json_encode($declinationId);
+        }
+
+        try {
+            $this->client->post("basket/{$basketId}/bulk-remove", [
+                RequestOptions::JSON => [
+                    'declinations' => $jsonDeclinations,
+                ],
+            ]);
+        } catch (ClientException $exception) {
+            $code = $exception->getResponse()->getStatusCode();
+
+            if (404 === $code) {
+                throw new NotFound('Basket not found', $exception);
+            }
+
+            throw $exception;
+        }
+    }
+
+    /**
      * Clear all the products from the basket.
      *
      * @param string $basketId
