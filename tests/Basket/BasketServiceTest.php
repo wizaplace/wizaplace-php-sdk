@@ -10,8 +10,6 @@ namespace Wizaplace\SDK\Tests\Basket;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketItems;
 use Wizaplace\SDK\Basket\BasketService;
-use Wizaplace\SDK\Basket\Payment;
-use Wizaplace\SDK\Basket\PaymentType;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\Shipping;
 use Wizaplace\SDK\Catalog\DeclinationId;
@@ -645,6 +643,58 @@ final class BasketServiceTest extends ApiTestCase
 
         $basket = $service->getBasket($basket->getId());
         static::assertSame(10.0, $basket->getTotalMarketplaceDiscount());
+    }
+
+    public function testBulkRemoveProductsFromBasket(): void
+    {
+        // Connect as a customer
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $basketService = new BasketService($apiClient);
+
+        // Add a product
+        $basket = $basketService->createEmptyBasket();
+        $basketId = $basket->getId();
+        $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('13_0'), 1);
+        $declinations = [
+            [
+                'declinationId' => "1_0",
+            ],
+            [
+                'declinationId' => "3_3_7",
+            ],
+        ];
+
+        $basketService->bulkRemoveProductsFromBasket($basketId, $declinations);
+
+        $sourceBasket = $basketService->getBasket($basketId);
+        $totalItemsInBasket = 0;
+
+        foreach ($sourceBasket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                $totalItemsInBasket += count($shippingGroup->getItems());
+            }
+        }
+
+        static::assertSame(1, $totalItemsInBasket);
+    }
+
+    public function testDeleteUserBasket(): void
+    {
+        $basketId = '8c54d443-eef1-4086-9bb7-b8917d8710e3';
+
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $service = new BasketService($apiClient);
+
+        $items = $service->getBasketItems($basketId);
+        static::assertCount(2, $items->getItems());
+
+        $service->deleteUserBasket();
+
+        static::assertNull($service->getUserBasketId());
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
