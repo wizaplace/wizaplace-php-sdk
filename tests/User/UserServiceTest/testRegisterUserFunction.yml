@@ -11,7 +11,7 @@
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             VCR-index: '0'
             Accept: null
-        body: 'email=testFunction11%40test.com&password=password&title=mr&birthday=2019-11-18&isProfessional=1&function=wizapalce'
+        body: 'email=testFunction11%40test.com&password=password&title=mr&birthday=2019-11-18&isProfessional=1&function=wizaplace'
     response:
         status:
             http_version: '1.1'
@@ -91,4 +91,4 @@
             X-Debug-Token: d68a61
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d68a61'
             X-Request-Id: 21c06885f38bb70c4acdcf44706d3f7d
-        body: '{"id":37,"title":"mr","email":"testFunction11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"","function":"wizapalce"}'
+        body: '{"id":37,"title":"mr","email":"testFunction11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"","function":"wizaplace"}'

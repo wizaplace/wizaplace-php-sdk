@@ -11,7 +11,7 @@
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             VCR-index: '0'
             Accept: null
-        body: 'email=testCompany11%40test.com&password=password&title=mr&birthday=2019-11-18&isProfessional=1&company=wizapalce'
+        body: 'email=testCompany11%40test.com&password=password&title=mr&birthday=2019-11-18&isProfessional=1&company=wizaplace'
     response:
         status:
             http_version: '1.1'
@@ -91,4 +91,4 @@
             X-Debug-Token: 03195c
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/03195c'
             X-Request-Id: eb063a235f12fc303ab036fbd4587c21
-        body: '{"id":34,"title":"mr","email":"testCompany11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizapalce","function":""}'
+        body: '{"id":34,"title":"mr","email":"testCompany11@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizaplace","function":""}'

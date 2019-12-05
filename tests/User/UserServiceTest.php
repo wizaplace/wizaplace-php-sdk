@@ -1146,7 +1146,7 @@ final class UserServiceTest extends ApiTestCase
             ->setShipping(new UpdateUserAddressCommand())
             ->setBilling(new UpdateUserAddressCommand())
             ->setIsProfessional(true)
-            ->setCompany("wizapalce")
+            ->setCompany("wizaplace")
         ;
 
         $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
@@ -1155,7 +1155,7 @@ final class UserServiceTest extends ApiTestCase
 
         $user = (new UserService($apiClient))->getProfileFromId($userId);
 
-        static::assertSame("wizapalce", $user->getCompany());
+        static::assertSame("wizaplace", $user->getCompany());
     }
 
     public function testUpdateUserCompany(): void
@@ -1178,14 +1178,14 @@ final class UserServiceTest extends ApiTestCase
                 ->setLastName('Emploi')
                 ->setBirthday(null)
                 ->setIsProfessional(true)
-                ->setCompany('wizapalce')
+                ->setCompany('wizaplace')
         );
 
         $client->authenticate('testCompany12@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         static::assertSame('testCompany12@test.com', $user->getEmail());
-        static::assertSame('wizapalce', $user->getCompany());
+        static::assertSame('wizaplace', $user->getCompany());
     }
 
     public function testPatchUserCompany(): void
@@ -1204,14 +1204,14 @@ final class UserServiceTest extends ApiTestCase
             (new UpdateUserCommand())
                 ->setUserId($userId)
                 ->setIsProfessional(true)
-                ->setCompany('wizapalce')
+                ->setCompany('wizaplace')
         );
 
         $client->authenticate('testCompany13@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         static::assertSame('testCompany13@test.com', $user->getEmail());
-        static::assertSame('wizapalce', $user->getCompany());
+        static::assertSame('wizaplace', $user->getCompany());
     }
 
     public function testRegisterUserFunction(): void
@@ -1226,7 +1226,7 @@ final class UserServiceTest extends ApiTestCase
             ->setShipping(new UpdateUserAddressCommand())
             ->setBilling(new UpdateUserAddressCommand())
             ->setIsProfessional(true)
-            ->setFunction("wizapalce")
+            ->setFunction("wizaplace")
         ;
 
         $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
@@ -1235,7 +1235,7 @@ final class UserServiceTest extends ApiTestCase
 
         $user = (new UserService($apiClient))->getProfileFromId($userId);
 
-        static::assertSame("wizapalce", $user->getFunction());
+        static::assertSame("wizaplace", $user->getFunction());
     }
 
     public function testUpdateUserFunction(): void
@@ -1258,14 +1258,14 @@ final class UserServiceTest extends ApiTestCase
                 ->setLastName('Emploi')
                 ->setBirthday(null)
                 ->setIsProfessional(true)
-                ->setFunction('wizapalce')
+                ->setFunction('wizaplace')
         );
 
         $client->authenticate('testFunction12@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         static::assertSame('testFunction12@test.com', $user->getEmail());
-        static::assertSame('wizapalce', $user->getFunction());
+        static::assertSame('wizaplace', $user->getFunction());
     }
 
     public function testPatchUserFunction(): void
@@ -1284,14 +1284,14 @@ final class UserServiceTest extends ApiTestCase
             (new UpdateUserCommand())
                 ->setUserId($userId)
                 ->setIsProfessional(true)
-                ->setFunction('wizapalce')
+                ->setFunction('wizaplace')
         );
 
         $client->authenticate('testFunction13@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
         static::assertSame('testFunction13@test.com', $user->getEmail());
-        static::assertSame('wizapalce', $user->getFunction());
+        static::assertSame('wizaplace', $user->getFunction());
     }
 
     public function testRegisterUserComment(): void
@@ -1372,5 +1372,85 @@ final class UserServiceTest extends ApiTestCase
         $user = $userService->getProfileFromId($userId);
         static::assertSame('testComment13@test.com', $user->getEmail());
         static::assertSame('confirmed client', $user->getComment());
+    }
+
+    public function testRegisterUserLegalIdentifier(): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('testLegalIdentifier13@test.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+            ->setLegalIdentifier("wizaplace")
+        ;
+
+        $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
+
+        $apiClient->authenticate("testLegalIdentifier13@test.com", 'password');
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame("wizaplace", $user->getLegalIdentifier());
+    }
+
+    public function testUpdateUserLegalIdentifier(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testLegalIdentifier14@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testLegalIdentifier14@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLegalIdentifier14@test.com', $user->getEmail());
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('testLegalIdentifier14@test.com')
+                ->setFirstName('Paul')
+                ->setLastName('Emploi')
+                ->setBirthday(null)
+                ->setIsProfessional(true)
+                ->setLegalIdentifier('wizaplace')
+        );
+
+        $client->authenticate('testLegalIdentifier14@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLegalIdentifier14@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getLegalIdentifier());
+    }
+
+    public function testPatchUserLegalIdentifier(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testLegalIdentifier16@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testLegalIdentifier16@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLegalIdentifier16@test.com', $user->getEmail());
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setIsProfessional(true)
+                ->setLegalIdentifier('wizaplace')
+        );
+
+        $client->authenticate('testLegalIdentifier16@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLegalIdentifier16@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getLegalIdentifier());
     }
 }

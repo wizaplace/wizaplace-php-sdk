@@ -58,6 +58,8 @@ final class User
     private $function;
     /** @var string|null */
     private $comment;
+    /** @var string|null */
+    private $legalIdentifier;
 
     /**
      * @internal
@@ -86,6 +88,7 @@ final class User
         $this->company = $data['company'] ?? null;
         $this->function = $data['function'] ?? null;
         $this->comment = $data['comment'] ?? null;
+        $this->legalIdentifier = $data['legalIdentifier'] ?? null;
     }
 
     /**
@@ -233,5 +236,10 @@ final class User
     public function getComment(): ?string
     {
         return $this->comment;
+    }
+
+    public function getLegalIdentifier(): ?string
+    {
+        return $this->legalIdentifier;
     }
 }

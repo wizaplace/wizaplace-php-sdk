@@ -84,6 +84,7 @@ final class UserService extends AbstractService
                         'company' => $command->getCompany(),
                         'function' => $command->getFunction(),
                         'comment' => $command->getComment(),
+                        'legalIdentifier' => $command->getLegalIdentifier(),
                     ]
                 ),
             ]
@@ -108,6 +109,7 @@ final class UserService extends AbstractService
                             'company' => $command->getCompany(),
                             'function' => $command->getFunction(),
                             'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
                         ]
                     ),
                 ]
@@ -238,6 +240,7 @@ final class UserService extends AbstractService
                             'company' => $command->getCompany(),
                             'function' => $command->getFunction(),
                             'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
                         ]
                     ),
                 ]

@@ -57,6 +57,9 @@ final class UpdateUserCommand
     /** @var string|null */
     private $comment;
 
+    /** @var string|null */
+    private $legalIdentifier;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -319,6 +322,24 @@ final class UpdateUserCommand
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getLegalIdentifier(): ?string
+    {
+        return $this->legalIdentifier;
+    }
+
+    /**
+     * @param string|null $legalIdentifier
+     *
+     * @return $this
+     */
+    public function setLegalIdentifier(?string $legalIdentifier): self
+    {
+        $this->legalIdentifier = $legalIdentifier;
 
         return $this;
     }

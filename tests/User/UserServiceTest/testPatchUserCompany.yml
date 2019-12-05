@@ -105,7 +105,7 @@
             Authorization: 'token 9wxHHMOMDMocduQeU+vLdZZ1J/KYHHhnJQOkrs/S'
             VCR-index: '3'
             Accept: null
-        body: 'isProfessional=1&company=wizapalce'
+        body: 'isProfessional=1&company=wizaplace'
     response:
         status:
             http_version: '1.1'
@@ -124,7 +124,7 @@
             X-Debug-Token: 6a120e
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6a120e'
             X-Request-Id: 1062b9d1629138418ba026585a828261
-        body: '{"id":36,"title":null,"email":"testCompany13@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizapalce","function":""}'
+        body: '{"id":36,"title":null,"email":"testCompany13@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizaplace","function":""}'
 -
     request:
         method: GET
@@ -184,4 +184,4 @@
             X-Debug-Token: a7df13
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a7df13'
             X-Request-Id: d8e57144827e85e3f7da0aca582e43e1
-        body: '{"id":36,"title":null,"email":"testCompany13@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizapalce","function":""}'
+        body: '{"id":36,"title":null,"email":"testCompany13@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":true,"intraEuropeanCommunityVAT":"","company":"wizaplace","function":""}'

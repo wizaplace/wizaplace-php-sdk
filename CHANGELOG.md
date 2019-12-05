@@ -34,6 +34,11 @@
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setComment`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::getComment`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::setComment`
+- Added `Wizaplace\SDK\User\User::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLegalIdentifier`
 
 ## 1.96.0
 
