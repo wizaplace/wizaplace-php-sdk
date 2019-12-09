@@ -1,0 +1,59 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products?mvpId=0adaf6bc-d362-34be-b72f-42d5aa3b4a4e&allowMvp=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-4927-Error-on-brand-attribute-images@9fcd3a7
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 13:53:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2cbcec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2cbcec'
+            X-Request-Id: 2f3c32c9614a1efe908dcfe1ac34ce75
+        body: '[{"id":"0adaf6bc-d362-34be-b72f-42d5aa3b4a4e","code":"20230495447","supplierReference":"TEST-MVP-2","name":"Test MVP","url":"http:\/\/wizaplace.loc\/special-category-dedicated-to-specific-tests-en\/eius-et-velit-eum-corrupti-voluptatibus-velit-totam.html","shortDescription":"Est ipsam ipsum omnis non asperiores hic veritatis. Error consectetur est cumque.","description":"Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.","slug":"eius-et-velit-eum-corrupti-voluptatibus-velit-totam","minPrice":0.5,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":null,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":""},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":""},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},{"id":4,"name":"C2C company","slug":"c2c-company","isProfessional":false,"image":null,"averageRating":null}],"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}],"geolocation":null,"createdAt":"2019-11-12T16:07:43+00:00","updatedAt":"2019-11-12T16:07:45+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"11_0","code":"20230495447","isAvailable":true,"supplierReference":"TEST-MVP-1","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}},{"id":"12_0","code":"20230495447","isAvailable":true,"supplierReference":"TEST-MVP-2","price":0.5,"originalPrice":0.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":0.5,"priceWithoutVat":0.49,"vat":0.01},"greenTax":0,"amount":15,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":4,"name":"C2C company","slug":"c2c-company","isProfessional":false,"image":null,"averageRating":null}}],"offers":[{"productId":11,"companyId":3,"price":0.5,"status":"A","divisions":[]},{"productId":12,"companyId":4,"price":0.5,"status":"A","divisions":[]}],"attributes":[{"id":4,"name":"Groupe attributs","values":null,"value":null,"valueIds":[],"children":[{"id":7,"name":"Compl\u00e9ment adresse","values":[{"id":null,"attributeId":7,"name":"Compl\u00e9ment d\u0027adresse pour la stepo","slug":"","image":null}],"value":"Compl\u00e9ment d\u0027adresse pour la stepo","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT","isUsedForRecommendations":false},{"id":5,"name":"Couleur secondaire","values":[{"id":9,"attributeId":5,"name":"Orange","slug":"orange","image":{"id":6}}],"value":["Orange"],"valueIds":[9],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE","isUsedForRecommendations":false},{"id":6,"name":"Pointure","values":[{"id":17,"attributeId":6,"name":"44","slug":"44","image":{"id":7}}],"value":["44"],"valueIds":[17],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT","isUsedForRecommendations":false}],"subfeatures":[{"id":7,"name":"Compl\u00e9ment adresse","values":[{"id":null,"attributeId":7,"name":"Compl\u00e9ment d\u0027adresse pour la stepo","slug":"","image":null}],"value":"Compl\u00e9ment d\u0027adresse pour la stepo","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT","isUsedForRecommendations":false},{"id":5,"name":"Couleur secondaire","values":[{"id":9,"attributeId":5,"name":"Orange","slug":"orange","image":{"id":6}}],"value":["Orange"],"valueIds":[9],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE","isUsedForRecommendations":false},{"id":6,"name":"Pointure","values":[{"id":17,"attributeId":6,"name":"44","slug":"44","image":{"id":7}}],"value":["44"],"valueIds":[17],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT","isUsedForRecommendations":false}],"imageUrls":[],"type":"GROUP"},{"id":3,"name":"Commentaire","values":[{"id":null,"attributeId":3,"name":"Commentaire #12M%M_\u00b009\u00a3*\/.?","slug":"","image":null}],"value":"Commentaire #12M%M_\u00b009\u00a3*\/.?","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT","isUsedForRecommendations":false},{"id":1,"name":"Couleur","values":[{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","image":null},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","image":{"id":5}}],"value":["Blanc","Rouge"],"valueIds":[2,3],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE","isUsedForRecommendations":false},{"id":9,"name":"Marque","values":[{"id":20,"attributeId":9,"name":"Puma","slug":"puma","image":{"id":13}}],"value":["Puma"],"valueIds":[20],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_BRAND","isUsedForRecommendations":false},{"id":2,"name":"Taille","values":[{"id":5,"attributeId":2,"name":"M","slug":"m","image":null}],"value":["M"],"valueIds":[5],"children":[],"subfeatures":[],"imageUrls":[],"type":"LIST_TEXT","isUsedForRecommendations":false},{"id":null,"name":"Free attribute multiple","values":[{"id":null,"attributeId":null,"name":"r\u00e9ponse - 1 #","slug":"","image":null},{"id":null,"attributeId":null,"name":"r\u00e9ponse - 2 @","slug":"","image":null},{"id":null,"attributeId":null,"name":"4985","slug":"","image":null}],"value":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @","4985"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE","isUsedForRecommendations":false},{"id":null,"name":"Free attribute simple","values":[{"id":null,"attributeId":null,"name":"valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?","slug":"","image":null}],"value":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE","isUsedForRecommendations":false},{"id":null,"name":"Free attribute simple mais en tableau","values":[{"id":null,"attributeId":null,"name":"une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e","slug":"","image":null}],"value":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE","isUsedForRecommendations":false},{"id":null,"name":"Free attribute integer ?","values":[{"id":null,"attributeId":null,"name":"92254094","slug":"","image":null}],"value":["92254094"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE","isUsedForRecommendations":false},{"id":null,"name":"Free attribute integer mais en tableau","values":[{"id":null,"attributeId":null,"name":"la m\u00eame histoire par ici","slug":"","image":null}],"value":["la m\u00eame histoire par ici"],"valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE","isUsedForRecommendations":false}],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[{"feature_id":"3","value":"Commentaire #12M%M_\u00b009\u00a3*\/.?","value_int":null,"variant_id":"0","feature_type":"T","description":"Commentaire","variant":null,"parent_id":"0"},{"feature_id":"1","value":"","value_int":null,"variant_id":"2","feature_type":"M","description":"Couleur","variant":"Blanc","parent_id":"0","variants":{"2":{"value":"","value_int":null,"variant_id":"2","variant":"Blanc"},"3":{"value":"","value_int":null,"variant_id":"3","variant":"Rouge"}}},{"feature_id":"9","value":"","value_int":null,"variant_id":"20","feature_type":"E","description":"Marque","variant":"Puma","parent_id":"0","variants":{"20":{"value":"","value_int":null,"variant_id":"20","variant":"Puma"}}},{"feature_id":"2","value":"","value_int":null,"variant_id":"5","feature_type":"S","description":"Taille","variant":"M","parent_id":"0","variants":{"5":{"value":"","value_int":null,"variant_id":"5","variant":"M"}}},{"feature_id":"7","value":"Compl\u00e9ment d\u0027adresse pour la stepo","value_int":null,"variant_id":"0","feature_type":"T","description":"Compl\u00e9ment adresse","variant":null,"parent_id":"4"},{"feature_id":"5","value":"","value_int":null,"variant_id":"9","feature_type":"M","description":"Couleur secondaire","variant":"Orange","parent_id":"4","variants":{"9":{"value":"","value_int":null,"variant_id":"9","variant":"Orange"}}},{"feature_id":"6","value":"","value_int":null,"variant_id":"17","feature_type":"S","description":"Pointure","variant":"44","parent_id":"4","variants":{"17":{"value":"","value_int":null,"variant_id":"17","variant":"44"}}}]}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes/variants/20'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-4927-Error-on-brand-attribute-images@9fcd3a7
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 19 Nov 2019 13:53:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ac39ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac39ff'
+            X-Request-Id: a22ba9cf913ad85d0074fd05bbde1b47
+        body: '{"id":20,"attributeId":9,"name":"Puma","slug":"puma","description":"","image":{"id":13},"seoData":{"title":"","description":""}}'

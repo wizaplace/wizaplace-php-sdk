@@ -400,7 +400,7 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $catalogService->getProductById('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
 
         $this->assertSame('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e', $product->getId());
-        $this->assertSame('ipsum-omnis-non-asperiores-hic-veritatis', $product->getSlug());
+        $this->assertSame('eius-et-velit-eum-corrupti-voluptatibus-velit-totam', $product->getSlug());
 
         $expectedAttributes = [
             new ProductAttribute([
@@ -529,7 +529,9 @@ final class CatalogServiceTest extends ApiTestCase
                         'attributeId' => 9,
                         'name' => 'Puma',
                         'slug' => 'puma',
-                        'image' => null,
+                        'image' => [
+                            'id' => 13,
+                        ],
                     ],
                 ],
                 'value' => ['Puma'],
@@ -2254,6 +2256,18 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertEquals(1.4, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getTaxes());
         static::assertEquals(67.9, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getPriceIncludeTax());
         static::assertEquals(0, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getLowerLimit());
+    }
+
+    public function testGetBrandFromMVP(): void
+    {
+        $mvp = $this->buildCatalogService()->getProductsByMvpId('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');
+        $brand = $this->buildCatalogService()->getBrandFromProduct($mvp[0]);
+
+        static::assertSame(20, $brand->getId());
+        static::assertSame(9, $brand->getAttributeId());
+        static::assertSame('Puma', $brand->getName());
+        static::assertSame('puma', $brand->getSlug());
+        static::assertSame(13, $brand->getImage()->getId());
     }
 
     private function buildCatalogService(): CatalogServiceInterface
