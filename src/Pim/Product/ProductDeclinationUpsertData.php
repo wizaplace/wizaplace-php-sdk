@@ -38,6 +38,9 @@ final class ProductDeclinationUpsertData
     /** @var null|bool */
     private $infiniteStock;
 
+    /** @var array */
+    private $priceTiers;
+
     /**
      * ProductDeclinationUpsertData constructor.
      *
@@ -46,6 +49,19 @@ final class ProductDeclinationUpsertData
     public function __construct(array $optionsVariants)
     {
         $this->setOptionsVariants($optionsVariants);
+    }
+
+
+    /**
+     * @param mixed[] $priceTiers
+     *
+     * @return ProductDeclinationUpsertData
+     */
+    public function setPriceTiers(array $priceTiers): self
+    {
+        $this->priceTiers = $priceTiers;
+
+        return $this;
     }
 
     /**
@@ -163,6 +179,7 @@ final class ProductDeclinationUpsertData
             'crossedOutPrice',
             'affiliateLink',
             'infiniteStock',
+            'priceTiers',
         ];
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
             if (!in_array($prop->getName(), $nullableProperties)) {
@@ -180,6 +197,7 @@ final class ProductDeclinationUpsertData
             'amount' => $this->quantity,
             'price' => $this->price,
             'combination' => $this->optionsVariants,
+            'priceTiers' => $this->priceTiers,
         ];
 
         if ($this->crossedOutPrice !== null) {

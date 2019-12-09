@@ -12,6 +12,7 @@ use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Symfony\Component\Validator\Constraints\DateTime;
+use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pagination;
@@ -94,6 +95,8 @@ final class ProductServiceTest extends ApiTestCase
         $declination = $product->getDeclinations()[0];
         static::assertSame(15, $declination->getQuantity());
         static::assertSame(15.0, $declination->getPrice());
+        static::assertSame(0, $declination->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.0, $declination->getPriceTiers()[0]->getPrice());
         static::assertEmpty($declination->getOptionsVariants());
         static::assertNull($declination->getCrossedOutPrice());
         static::assertNull($declination->getCode());
@@ -106,71 +109,73 @@ final class ProductServiceTest extends ApiTestCase
     {
         $product = $this->buildProductService()->getProductById(2);
 
-        $this->assertSame(2, $product->getId());
-        $this->assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
-        $this->assertCount(8, $product->getDeclinations());
+        static::assertSame(2, $product->getId());
+        static::assertContainsOnly(ProductDeclination::class, $product->getDeclinations());
+        static::assertCount(8, $product->getDeclinations());
 
         $declination = $product->getDeclinations()[0];
-        $this->assertSame(10, $declination->getQuantity());
-        $this->assertSame([1 => 1, 2 => 5], $declination->getOptionsVariants());
-        $this->assertSame(15.5, $declination->getPrice());
-        $this->assertNull($declination->getCrossedOutPrice());
-        $this->assertSame('color_white_connectivity_wireles', $declination->getCode());
-        $this->assertNull($declination->getAffiliateLink());
+        static::assertSame(5, $declination->getQuantity());
+        static::assertSame([1 => 1, 2 => 5], $declination->getOptionsVariants());
+        static::assertSame(15.5, $declination->getPrice());
+        static::assertSame(0, $declination->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.5, $declination->getPriceTiers()[0]->getPrice());
+        static::assertNull($declination->getCrossedOutPrice());
+        static::assertSame('color_white_connectivity_wireles', $declination->getCode());
+        static::assertNull($declination->getAffiliateLink());
     }
 
     public function testGetProductWithAttachments(): void
     {
         $product = $this->buildProductService()->getProductById(10);
 
-        $this->assertSame(10, $product->getId());
+        static::assertSame(10, $product->getId());
         $attachments = $product->getAttachments();
-        $this->assertContainsOnly(ProductAttachment::class, $attachments);
-        $this->assertCount(2, $attachments);
+        static::assertContainsOnly(ProductAttachment::class, $attachments);
+        static::assertCount(2, $attachments);
 
         $attachment = $attachments[0];
-        $this->assertNotEmpty($attachment->getId());
-        $this->assertSame('Manuel de montage', $attachment->getLabel());
+        static::assertNotEmpty($attachment->getId());
+        static::assertSame('Manuel de montage', $attachment->getLabel());
     }
 
     public function testGetProductWithGeolocation(): void
     {
         $product = $this->buildProductService()->getProductById(9);
 
-        $this->assertSame(9, $product->getId());
+        static::assertSame(9, $product->getId());
         $geolocation = $product->getGeolocation();
-        $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
+        static::assertInstanceOf(ProductGeolocation::class, $geolocation);
 
-        $this->assertSame('Wizacha', $geolocation->getLabel());
-        $this->assertSame('69009', $geolocation->getZipcode());
-        $this->assertSame(45.778848, $geolocation->getLatitude());
-        $this->assertSame(4.800039, $geolocation->getLongitude());
+        static::assertSame('Wizacha', $geolocation->getLabel());
+        static::assertSame('69009', $geolocation->getZipcode());
+        static::assertSame(45.778848, $geolocation->getLatitude());
+        static::assertSame(4.800039, $geolocation->getLongitude());
     }
 
     public function testListProductsWithDefaultArgs(): void
     {
         $result = $this->buildProductService()->listProducts();
         $products = $result->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertLessThanOrEqual(100, count($products));
-        $this->assertGreaterThan(0, count($products));
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertLessThanOrEqual(100, count($products));
+        static::assertGreaterThan(0, count($products));
 
         $pagination = $result->getPagination();
-        $this->assertInstanceOf(Pagination::class, $pagination);
-        $this->assertSame(1, $pagination->getPage());
-        $this->assertSame(100, $pagination->getResultsPerPage());
-        $this->assertSame(9, $pagination->getNbResults());
-        $this->assertSame(1, $pagination->getNbPages());
+        static::assertInstanceOf(Pagination::class, $pagination);
+        static::assertSame(1, $pagination->getPage());
+        static::assertSame(100, $pagination->getResultsPerPage());
+        static::assertSame(9, $pagination->getNbResults());
+        static::assertSame(1, $pagination->getNbPages());
 
         foreach ($products as $product) {
-            $this->assertGreaterThan(0, $product->getId());
-            $this->assertNotEmpty($product->getCode());
-            $this->assertNotEmpty($product->getName());
-            $this->assertGreaterThan(0, $product->getMainCategoryId());
-            $this->assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
-            $this->assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
-            $this->assertGreaterThan(0, $product->getCompanyId());
-            $this->assertTrue(is_array($product->getDivisions()));
+            static::assertGreaterThan(0, $product->getId());
+            static::assertNotEmpty($product->getCode());
+            static::assertNotEmpty($product->getName());
+            static::assertGreaterThan(0, $product->getMainCategoryId());
+            static::assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
+            static::assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
+            static::assertGreaterThan(0, $product->getCompanyId());
+            static::assertTrue(is_array($product->getDivisions()));
         }
     }
 
@@ -178,83 +183,83 @@ final class ProductServiceTest extends ApiTestCase
     {
         $filter = (new ProductListFilter())->byProductCode('20230495445');
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertCount(1, $products);
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
 
         $geolocation = $products[0]->getGeolocation();
-        $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
+        static::assertInstanceOf(ProductGeolocation::class, $geolocation);
 
-        $this->assertSame('Wizacha', $geolocation->getLabel());
-        $this->assertSame('69009', $geolocation->getZipcode());
-        $this->assertSame(45.778848, $geolocation->getLatitude());
-        $this->assertSame(4.800039, $geolocation->getLongitude());
+        static::assertSame('Wizacha', $geolocation->getLabel());
+        static::assertSame('69009', $geolocation->getZipcode());
+        static::assertSame(45.778848, $geolocation->getLatitude());
+        static::assertSame(4.800039, $geolocation->getLongitude());
     }
 
     public function testListProductWithAttachments(): void
     {
         $filter = (new ProductListFilter())->byProductCode('20230495446');
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertCount(1, $products);
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
 
         $attachments = $products[0]->getAttachments();
-        $this->assertContainsOnly(ProductAttachment::class, $attachments);
-        $this->assertCount(2, $attachments);
+        static::assertContainsOnly(ProductAttachment::class, $attachments);
+        static::assertCount(2, $attachments);
 
         $attachment = $attachments[0];
-        $this->assertNotEmpty($attachment->getId());
-        $this->assertSame('Manuel de montage', $attachment->getLabel());
+        static::assertNotEmpty($attachment->getId());
+        static::assertSame('Manuel de montage', $attachment->getLabel());
     }
 
     public function testListProductPagination(): void
     {
         $result1 = $this->buildProductService()->listProducts(null, 1, 1);
         $productsPage1 = $result1->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $productsPage1);
-        $this->assertCount(1, $productsPage1);
+        static::assertContainsOnly(ProductSummary::class, $productsPage1);
+        static::assertCount(1, $productsPage1);
         $paginationPage1 = $result1->getPagination();
-        $this->assertInstanceOf(Pagination::class, $paginationPage1);
-        $this->assertSame(1, $paginationPage1->getPage());
-        $this->assertSame(1, $paginationPage1->getResultsPerPage());
-        $this->assertSame(9, $paginationPage1->getNbResults());
-        $this->assertSame(9, $paginationPage1->getNbPages());
+        static::assertInstanceOf(Pagination::class, $paginationPage1);
+        static::assertSame(1, $paginationPage1->getPage());
+        static::assertSame(1, $paginationPage1->getResultsPerPage());
+        static::assertSame(9, $paginationPage1->getNbResults());
+        static::assertSame(9, $paginationPage1->getNbPages());
 
         $result2 = $this->buildProductService()->listProducts(null, 2, 1);
         $productsPage2 = $result2->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $productsPage2);
-        $this->assertCount(1, $productsPage2);
+        static::assertContainsOnly(ProductSummary::class, $productsPage2);
+        static::assertCount(1, $productsPage2);
         $paginationPage2 = $result2->getPagination();
-        $this->assertInstanceOf(Pagination::class, $paginationPage2);
-        $this->assertSame(2, $paginationPage2->getPage());
-        $this->assertSame(1, $paginationPage2->getResultsPerPage());
-        $this->assertSame(9, $paginationPage2->getNbResults());
-        $this->assertSame(9, $paginationPage2->getNbPages());
+        static::assertInstanceOf(Pagination::class, $paginationPage2);
+        static::assertSame(2, $paginationPage2->getPage());
+        static::assertSame(1, $paginationPage2->getResultsPerPage());
+        static::assertSame(9, $paginationPage2->getNbResults());
+        static::assertSame(9, $paginationPage2->getNbPages());
 
-        $this->assertNotEquals($productsPage2[0]->getId(), $productsPage1[0]->getId());
+        static::assertNotEquals($productsPage2[0]->getId(), $productsPage1[0]->getId());
 
         $result = $this->buildProductService()->listProducts(null, 1, 2);
         $products = $result->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $productsPage1);
-        $this->assertCount(1, $productsPage1);
-        $this->assertSame($productsPage1[0]->getId(), $products[0]->getId());
-        $this->assertSame($productsPage2[0]->getId(), $products[1]->getId());
+        static::assertContainsOnly(ProductSummary::class, $productsPage1);
+        static::assertCount(1, $productsPage1);
+        static::assertSame($productsPage1[0]->getId(), $products[0]->getId());
+        static::assertSame($productsPage2[0]->getId(), $products[1]->getId());
         $pagination = $result->getPagination();
-        $this->assertInstanceOf(Pagination::class, $pagination);
-        $this->assertSame(1, $pagination->getPage());
-        $this->assertSame(2, $pagination->getResultsPerPage());
-        $this->assertSame(9, $pagination->getNbResults());
-        $this->assertSame(5, $pagination->getNbPages());
+        static::assertInstanceOf(Pagination::class, $pagination);
+        static::assertSame(1, $pagination->getPage());
+        static::assertSame(2, $pagination->getResultsPerPage());
+        static::assertSame(9, $pagination->getNbResults());
+        static::assertSame(5, $pagination->getNbPages());
     }
 
     public function testListProductsWithCategoryFilter(): void
     {
         $filter = (new ProductListFilter())->byCategoryIds([3], false);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertGreaterThanOrEqual(2, count($products));
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertGreaterThanOrEqual(2, count($products));
 
         foreach ($products as $product) {
-            $this->assertSame(3, $product->getMainCategoryId());
+            static::assertSame(3, $product->getMainCategoryId());
         }
     }
 
@@ -262,15 +267,15 @@ final class ProductServiceTest extends ApiTestCase
     {
         $filter = (new ProductListFilter())->byCategoryIds([3], true);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertGreaterThanOrEqual(2, count($products));
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertGreaterThanOrEqual(2, count($products));
 
         $categoriesIds = [];
         foreach ($products as $product) {
             $categoriesIds[$product->getMainCategoryId()] = true;
         }
 
-        $this->assertSame([
+        static::assertSame([
             3 => true,
             4 => true,
         ], $categoriesIds);
@@ -279,7 +284,7 @@ final class ProductServiceTest extends ApiTestCase
     public function testDeleteProduct(): void
     {
         $service = $this->buildProductService();
-        $this->assertNotNull($service->getProductById(1));
+        static::assertNotNull($service->getProductById(1));
         $service->deleteProduct(1);
 
         $this->expectException(NotFound::class);
@@ -293,11 +298,11 @@ final class ProductServiceTest extends ApiTestCase
     {
         $filter = (new ProductListFilter())->byStatus($status);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertGreaterThanOrEqual($minimumExpectedCount, count($products));
 
         foreach ($products as $product) {
-            $this->assertTrue($status->equals($product->getStatus()));
+            static::assertTrue($status->equals($product->getStatus()));
         }
     }
 
@@ -348,17 +353,17 @@ final class ProductServiceTest extends ApiTestCase
         }
 
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
-        $this->assertContainsOnly(ProductSummary::class, $products);
-        $this->assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertGreaterThanOrEqual($minimumExpectedCount, count($products));
 
         $categoriesIds = [];
         foreach ($products as $product) {
             $categoriesIds[$product->getMainCategoryId()] = true;
             if ($status !== null) {
-                $this->assertTrue($status->equals($product->getStatus()));
+                static::assertTrue($status->equals($product->getStatus()));
             }
             if ($productCode !== null) {
-                $this->assertSame($productCode, $product->getCode());
+                static::assertSame($productCode, $product->getCode());
             }
             if ($ids !== null) {
                 $this->assertContains($product->getId(), $ids);
@@ -372,7 +377,7 @@ final class ProductServiceTest extends ApiTestCase
         }
 
         if ($expectedCategoryIds !== null) {
-            $this->assertSame($expectedCategoryIds, $categoriesIds);
+            static::assertSame($expectedCategoryIds, $categoriesIds);
         }
     }
 
@@ -479,7 +484,7 @@ final class ProductServiceTest extends ApiTestCase
     {
         $availibilityDate = new \DateTimeImmutable('@1519224245');
         $data = (new CreateProductCommand())
-            ->setCode("code_full")
+            ->setCode("code_full_D")
             ->setGreenTax(0.1)
             ->setInfiniteStock(true)
             ->setIsBrandNew(true)
@@ -510,7 +515,17 @@ final class ProductServiceTest extends ApiTestCase
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
-                    ->setInfiniteStock(true),
+                    ->setInfiniteStock(true)
+                    ->setPriceTiers([
+                        [
+                            'lowerLimit' => 0,
+                            'price' => 18.99,
+                        ],
+                        [
+                            'lowerLimit' => 15,
+                            'price' => 15.99,
+                        ],
+                    ]),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
@@ -528,96 +543,106 @@ final class ProductServiceTest extends ApiTestCase
 
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
-        $this->assertInternalType('int', $productId);
-        $this->assertGreaterThan(0, $productId);
+        static::assertInternalType('int', $productId);
+        static::assertGreaterThan(0, $productId);
 
         $product = $productService->getProductById($productId);
-        $this->assertInstanceOf(Product::class, $product);
+        static::assertInstanceOf(Product::class, $product);
 
-        $this->assertSame($productId, $product->getId());
-        $this->assertSame(4, $product->getMainCategoryId());
-        $this->assertSame("code_full", $product->getCode());
-        $this->assertSame("Full product", $product->getName());
-        $this->assertSame('supplierref_full', $product->getSupplierReference());
-        $this->assertSame("super full description", $product->getFullDescription());
-        $this->assertSame("super short description", $product->getShortDescription());
-        $this->assertTrue($product->isBrandNew());
-        $this->assertTrue($product->hasFreeShipping());
-        $this->assertSame([1, 2], $product->getTaxIds());
-        $this->assertSame([
+        static::assertSame($productId, $product->getId());
+        static::assertSame(4, $product->getMainCategoryId());
+        static::assertSame("code_full_D", $product->getCode());
+        static::assertSame("Full product", $product->getName());
+        static::assertSame('supplierref_full', $product->getSupplierReference());
+        static::assertSame("super full description", $product->getFullDescription());
+        static::assertSame("super short description", $product->getShortDescription());
+        static::assertTrue($product->isBrandNew());
+        static::assertTrue($product->hasFreeShipping());
+        static::assertSame([1, 2], $product->getTaxIds());
+        static::assertSame([
             'freeAttr1' => ['freeAttr1Value'],
             'freeAttr2' => [42],
             'freeAttr3' => ['freeAttr3Value', 42],
         ], $product->getFreeAttributes());
-        $this->assertSame(0.1, $product->getGreenTax());
-        $this->assertTrue($product->hasInfiniteStock());
-        $this->assertSame(0.2, $product->getWeight());
-        $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
-        $this->assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
-        $this->assertTrue($product->isDownloadable());
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
+        static::assertSame(0.1, $product->getGreenTax());
+        static::assertTrue($product->hasInfiniteStock());
+        static::assertSame(0.2, $product->getWeight());
+        static::assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
+        static::assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
+        static::assertTrue($product->isDownloadable());
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
-        $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
-        $this->assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
+        static::assertCount(2, $additionalImages);
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
+        static::assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
 
         $attachments = $product->getAttachments();
-        $this->assertContainsOnly(ProductAttachment::class, $attachments);
-        $this->assertCount(1, $attachments);
-        $this->assertSame('favicon', $attachments[0]->getLabel());
-        $this->assertNotEmpty($attachments[0]->getId());
+        static::assertContainsOnly(ProductAttachment::class, $attachments);
+        static::assertCount(1, $attachments);
+        static::assertSame('favicon', $attachments[0]->getLabel());
+        static::assertNotEmpty($attachments[0]->getId());
 
         $geolocation = $product->getGeolocation();
-        $this->assertInstanceOf(ProductGeolocation::class, $geolocation);
-        $this->assertSame('Wizacha', $geolocation->getLabel());
-        $this->assertSame('69009', $geolocation->getZipcode());
-        $this->assertSame(45.778848, $geolocation->getLatitude());
-        $this->assertSame(4.800039, $geolocation->getLongitude());
+        static::assertInstanceOf(ProductGeolocation::class, $geolocation);
+        static::assertSame('Wizacha', $geolocation->getLabel());
+        static::assertSame('69009', $geolocation->getZipcode());
+        static::assertSame(45.778848, $geolocation->getLatitude());
+        static::assertSame(4.800039, $geolocation->getLongitude());
 
-        $this->assertSame($availibilityDate->getTimestamp(), $product->getAvailibilityDate()->getTimestamp());
-        $this->assertSame('product', $product->getProductTemplateType());
+        static::assertSame($availibilityDate->getTimestamp(), $product->getAvailibilityDate()->getTimestamp());
+        static::assertSame('product', $product->getProductTemplateType());
 
         // Checking declinations
         $declinations = $product->getDeclinations();
-        $this->assertContainsOnly(ProductDeclination::class, $declinations);
-        $this->assertCount(4, $declinations);
+        static::assertContainsOnly(ProductDeclination::class, $declinations);
+        static::assertCount(4, $declinations);
 
-        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
-        $this->assertSame('code_full_declA', $declinations[0]->getCode());
-        $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertNull($declinations[0]->getCrossedOutPrice());
-        $this->assertSame(12, $declinations[0]->getQuantity());
-        $this->assertSame(3.5, $declinations[0]->getPrice());
-
-        // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[1]->getPrice());
-        $this->assertSame(0, $declinations[1]->getQuantity());
-        $this->assertNull($declinations[1]->getCrossedOutPrice());
-        $this->assertNull($declinations[1]->getAffiliateLink());
-        $this->assertNull($declinations[1]->getCode());
+        static::assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        static::assertSame('code_full_declA', $declinations[0]->getCode());
+        static::assertNull($declinations[0]->getAffiliateLink());
+        static::assertNull($declinations[0]->getCrossedOutPrice());
+        static::assertSame(12, $declinations[0]->getQuantity());
+        static::assertSame(18.99, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(18.99, $declinations[0]->getPriceTiers()[0]->getPrice());
+        static::assertSame(15, $declinations[0]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(15.99, $declinations[0]->getPriceTiers()[1]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[2]->getPrice());
-        $this->assertSame(0, $declinations[2]->getQuantity());
-        $this->assertNull($declinations[2]->getCrossedOutPrice());
-        $this->assertNull($declinations[2]->getAffiliateLink());
-        $this->assertNull($declinations[2]->getCode());
+        static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[1]->getPrice());
+        static::assertSame(0, $declinations[1]->getQuantity());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
+        static::assertNull($declinations[1]->getCrossedOutPrice());
+        static::assertNull($declinations[1]->getAffiliateLink());
+        static::assertNull($declinations[1]->getCode());
 
-        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(100.0, $declinations[3]->getPrice());
-        $this->assertSame(3, $declinations[3]->getQuantity());
-        $this->assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
-        $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertNull($declinations[3]->getCode());
+        // empty declination generated automatically to complete the matrix
+        static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[2]->getPrice());
+        static::assertSame(0, $declinations[2]->getQuantity());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
+        static::assertNull($declinations[2]->getCrossedOutPrice());
+        static::assertNull($declinations[2]->getAffiliateLink());
+        static::assertNull($declinations[2]->getCode());
+
+        static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        static::assertSame(100.0, $declinations[3]->getPrice());
+        static::assertSame(3, $declinations[3]->getQuantity());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(100.0, $declinations[3]->getPriceTiers()[0]->getPrice());
+        static::assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
+        static::assertNull($declinations[3]->getAffiliateLink());
+        static::assertNull($declinations[3]->getCode());
     }
 
     public function testPartialProductUpdate(): void
     {
         $data = (new CreateProductCommand())
-            ->setCode("code_full")
+            ->setCode("code_full_EE")
             ->setGreenTax(0.1)
             ->setIsBrandNew(true)
             ->setName("Full product")
@@ -652,96 +677,117 @@ final class ProductServiceTest extends ApiTestCase
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
-                    ->setInfiniteStock(true),
+                    ->setInfiniteStock(true)
+                    ->setPriceTiers([
+                        [
+                            'lowerLimit' => 0,
+                            'price' => 99.59,
+                        ],
+                        [
+                            'lowerLimit' => 30,
+                            'price' => 80.99,
+                        ],
+                    ]),
             ])
             ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png')])
             ->setProductTemplateType('product');
 
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
-        $this->assertInternalType('int', $productId);
-        $this->assertGreaterThan(0, $productId);
+        static::assertInternalType('int', $productId);
+        static::assertGreaterThan(0, $productId);
 
         $productService->updateProduct((new UpdateProductCommand($productId))->setName('Full product 2'));
 
         $product = $productService->getProductById($productId);
-        $this->assertInstanceOf(Product::class, $product);
+        static::assertInstanceOf(Product::class, $product);
 
-        $this->assertSame($productId, $product->getId());
-        $this->assertSame(4, $product->getMainCategoryId());
-        $this->assertSame("code_full", $product->getCode());
-        $this->assertSame("Full product 2", $product->getName());
-        $this->assertSame('supplierref_full', $product->getSupplierReference());
-        $this->assertSame("super full description", $product->getFullDescription());
-        $this->assertSame("super short description", $product->getShortDescription());
-        $this->assertTrue($product->isBrandNew());
-        $this->assertTrue($product->hasFreeShipping());
-        $this->assertSame([1, 2], $product->getTaxIds());
-        $this->assertSame([
+        static::assertSame($productId, $product->getId());
+        static::assertSame(4, $product->getMainCategoryId());
+        static::assertSame("code_full_EE", $product->getCode());
+        static::assertSame("Full product 2", $product->getName());
+        static::assertSame('supplierref_full', $product->getSupplierReference());
+        static::assertSame("super full description", $product->getFullDescription());
+        static::assertSame("super short description", $product->getShortDescription());
+        static::assertTrue($product->isBrandNew());
+        static::assertTrue($product->hasFreeShipping());
+        static::assertSame([1, 2], $product->getTaxIds());
+        static::assertSame([
             'freeAttr1' => ['freeAttr1Value'],
             'freeAttr2' => [42],
             'freeAttr3' => ['freeAttr3Value', 42],
         ], $product->getFreeAttributes());
-        $this->assertSame(0.1, $product->getGreenTax());
-        $this->assertSame(0.2, $product->getWeight());
-        $this->assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
-        $this->assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
-        $this->assertTrue($product->isDownloadable());
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
+        static::assertSame(0.1, $product->getGreenTax());
+        static::assertSame(0.2, $product->getWeight());
+        static::assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
+        static::assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
+        static::assertTrue($product->isDownloadable());
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
-        $this->assertCount(2, $additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
-        $this->assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
+        static::assertCount(2, $additionalImages);
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[0]);
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages[1]);
+        static::assertNotEquals((string) $additionalImages[0], (string) $additionalImages[1]);
 
         $attachments = $product->getAttachments();
-        $this->assertContainsOnly(ProductAttachment::class, $attachments);
-        $this->assertCount(1, $attachments);
-        $this->assertSame('favicon', $attachments[0]->getLabel());
-        $this->assertNotEmpty($attachments[0]->getId());
+        static::assertContainsOnly(ProductAttachment::class, $attachments);
+        static::assertCount(1, $attachments);
+        static::assertSame('favicon', $attachments[0]->getLabel());
+        static::assertNotEmpty($attachments[0]->getId());
 
-        $this->assertSame('product', $product->getProductTemplateType());
+        static::assertSame('product', $product->getProductTemplateType());
 
         // Checking declinations
         $declinations = $product->getDeclinations();
-        $this->assertContainsOnly(ProductDeclination::class, $declinations);
-        $this->assertCount(4, $declinations);
+        static::assertContainsOnly(ProductDeclination::class, $declinations);
+        static::assertCount(4, $declinations);
 
-        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
-        $this->assertSame('code_full_declA', $declinations[0]->getCode());
-        $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertNull($declinations[0]->getCrossedOutPrice());
-        $this->assertSame(12, $declinations[0]->getQuantity());
-        $this->assertSame(3.5, $declinations[0]->getPrice());
+        static::assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        static::assertSame('code_full_declA', $declinations[0]->getCode());
+        static::assertNull($declinations[0]->getAffiliateLink());
+        static::assertNull($declinations[0]->getCrossedOutPrice());
+        static::assertSame(12, $declinations[0]->getQuantity());
+        static::assertSame(3.5, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(3.5, $declinations[0]->getPriceTiers()[0]->getPrice());
 
-        // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[1]->getPrice());
-        $this->assertSame(0, $declinations[1]->getQuantity());
-        $this->assertNull($declinations[1]->getCrossedOutPrice());
-        $this->assertNull($declinations[1]->getAffiliateLink());
-        $this->assertNull($declinations[1]->getCode());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[2]->getPrice());
-        $this->assertSame(0, $declinations[2]->getQuantity());
-        $this->assertNull($declinations[2]->getCrossedOutPrice());
-        $this->assertNull($declinations[2]->getAffiliateLink());
-        $this->assertNull($declinations[2]->getCode());
+        static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[1]->getPrice());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
+        static::assertSame(0, $declinations[1]->getQuantity());
+        static::assertNull($declinations[1]->getCrossedOutPrice());
+        static::assertNull($declinations[1]->getAffiliateLink());
+        static::assertNull($declinations[1]->getCode());
 
-        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(100.0, $declinations[3]->getPrice());
-        $this->assertSame(3, $declinations[3]->getQuantity());
-        $this->assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
-        $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertNull($declinations[3]->getCode());
+        // empty declination generated automatically to complete the matrix
+        static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[2]->getPrice());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
+        static::assertSame(0, $declinations[2]->getQuantity());
+        static::assertNull($declinations[2]->getCrossedOutPrice());
+        static::assertNull($declinations[2]->getAffiliateLink());
+        static::assertNull($declinations[2]->getCode());
+
+        static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        static::assertSame(99.59, $declinations[3]->getPrice());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(99.59, $declinations[3]->getPriceTiers()[0]->getPrice());
+        static::assertSame(30, $declinations[3]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(80.99, $declinations[3]->getPriceTiers()[1]->getPrice());
+        static::assertSame(3, $declinations[3]->getQuantity());
+        static::assertSame(1000.0, $declinations[3]->getCrossedOutPrice());
+        static::assertNull($declinations[3]->getAffiliateLink());
+        static::assertNull($declinations[3]->getCode());
     }
 
     public function testUpdateComplexProduct(): void
     {
         $data = (new CreateProductCommand())
-            ->setCode("code_full")
+            ->setCode("code_full_A")
             ->setGreenTax(0.1)
             ->setIsBrandNew(true)
             ->setName("Full product")
@@ -770,7 +816,17 @@ final class ProductServiceTest extends ApiTestCase
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
-                    ->setQuantity(12),
+                    ->setQuantity(12)
+                    ->setPriceTiers([
+                        [
+                            'lowerLimit' => 0,
+                            'price' => 2.7,
+                        ],
+                        [
+                            'lowerLimit' => 50,
+                            'price' => 2.5,
+                        ],
+                    ]),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
@@ -781,11 +837,11 @@ final class ProductServiceTest extends ApiTestCase
 
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
-        $this->assertInternalType('int', $productId);
-        $this->assertGreaterThan(0, $productId);
+        static::assertInternalType('int', $productId);
+        static::assertGreaterThan(0, $productId);
 
         $data = (new UpdateProductCommand($productId))
-            ->setCode("code_full2")
+            ->setCode("code_full_BB")
             ->setGreenTax(0.2)
             ->setIsBrandNew(false)
             ->setName("Full product2")
@@ -820,96 +876,116 @@ final class ProductServiceTest extends ApiTestCase
                     ->setPrice(3.6)
                     ->setQuantity(13),
                 (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
-                    ->setPrice(100.1)
                     ->setCrossedOutPrice(1000.2)
-                    ->setQuantity(4),
+                    ->setQuantity(4)
+                    ->setPriceTiers([
+                        [
+                            'lowerLimit' => 0,
+                            'price' => 99.99,
+                        ],
+                        [
+                            'lowerLimit' => 120,
+                            'price' => 89.99,
+                        ],
+                    ]),
             ])
             ->setMaxPriceAdjustment(10)
             ->setAttachments([new ProductAttachmentUpload('favicon2', 'https://www.google.com/favicon.ico')])
             ->setProductTemplateType('product');
+
         $newProductId = $productService->updateProduct($data);
-        $this->assertSame($productId, $newProductId);
+        static::assertSame($productId, $newProductId);
 
         $product = $productService->getProductById($productId);
-        $this->assertInstanceOf(Product::class, $product);
+        static::assertInstanceOf(Product::class, $product);
 
-        $this->assertSame($productId, $product->getId());
-        $this->assertSame(4, $product->getMainCategoryId());
-        $this->assertSame("code_full2", $product->getCode());
-        $this->assertSame("Full product2", $product->getName());
-        $this->assertSame('supplierref_full2', $product->getSupplierReference());
-        $this->assertSame("super full description 2", $product->getFullDescription());
-        $this->assertSame("super short description 2", $product->getShortDescription());
-        $this->assertFalse($product->isBrandNew());
-        $this->assertFalse($product->hasFreeShipping());
-        $this->assertSame([2, 3], $product->getTaxIds());
-        $this->assertSame([
+        static::assertSame($productId, $product->getId());
+        static::assertSame(4, $product->getMainCategoryId());
+        static::assertSame("code_full_BB", $product->getCode());
+        static::assertSame("Full product2", $product->getName());
+        static::assertSame('supplierref_full2', $product->getSupplierReference());
+        static::assertSame("super full description 2", $product->getFullDescription());
+        static::assertSame("super short description 2", $product->getShortDescription());
+        static::assertFalse($product->isBrandNew());
+        static::assertFalse($product->hasFreeShipping());
+        static::assertSame([2, 3], $product->getTaxIds());
+        static::assertSame([
             'freeAttr1' => ['freeAttr1Value2'],
             'freeAttr2' => [43],
             'freeAttr3' => ['freeAttr3Value2', 43],
         ], $product->getFreeAttributes());
-        $this->assertSame(0.2, $product->getGreenTax());
-        $this->assertSame(0.3, $product->getWeight());
-        $this->assertTrue(ProductStatus::DISABLED()->equals($product->getStatus()));
-        $this->assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
-        $this->assertFalse($product->isDownloadable());
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
+        static::assertSame(0.2, $product->getGreenTax());
+        static::assertSame(0.3, $product->getWeight());
+        static::assertTrue(ProductStatus::DISABLED()->equals($product->getStatus()));
+        static::assertTrue(ProductApprovalStatus::PENDING()->equals($product->getApprovalStatus()));
+        static::assertFalse($product->isDownloadable());
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $product->getMainImage());
         $additionalImages = $product->getAdditionalImages();
-        $this->assertCount(2, $additionalImages);
+        static::assertCount(2, $additionalImages);
         [$additionalImages1, $additionalImages2] = array_values($additionalImages);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages1);
-        $this->assertRegExp('#/images/detailed/0/[^.]+.ico#', (string) $additionalImages2);
-        $this->assertNotEquals((string) $additionalImages1, (string) $additionalImages2);
+        static::assertRegExp('#/images/detailed/0/[^.]+.png#', (string) $additionalImages1);
+        static::assertRegExp('#/images/detailed/0/[^.]+.ico#', (string) $additionalImages2);
+        static::assertNotEquals((string) $additionalImages1, (string) $additionalImages2);
 
         $attachments = $product->getAttachments();
-        $this->assertContainsOnly(ProductAttachment::class, $attachments);
-        $this->assertCount(1, $attachments);
-        $this->assertSame('favicon', $attachments[0]->getLabel());
-        $this->assertNotEmpty($attachments[0]->getId());
+        static::assertContainsOnly(ProductAttachment::class, $attachments);
+        static::assertCount(1, $attachments);
+        static::assertSame('favicon', $attachments[0]->getLabel());
+        static::assertNotEmpty($attachments[0]->getId());
 
-        $this->assertSame('product', $product->getProductTemplateType());
+        static::assertSame('product', $product->getProductTemplateType());
 
         // Checking declinations
         $declinations = $product->getDeclinations();
-        $this->assertContainsOnly(ProductDeclination::class, $declinations);
-        $this->assertCount(4, $declinations);
+        static::assertContainsOnly(ProductDeclination::class, $declinations);
+        static::assertCount(4, $declinations);
 
-        $this->assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
-        $this->assertSame('code_full_declA', $declinations[0]->getCode());
-        $this->assertNull($declinations[0]->getAffiliateLink());
-        $this->assertNull($declinations[0]->getCrossedOutPrice());
-        $this->assertSame(13, $declinations[0]->getQuantity());
-        $this->assertSame(3.6, $declinations[0]->getPrice());
-
-        // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[1]->getPrice());
-        $this->assertSame(0, $declinations[1]->getQuantity());
-        $this->assertNull($declinations[1]->getCrossedOutPrice());
-        $this->assertNull($declinations[1]->getAffiliateLink());
-        $this->assertNull($declinations[1]->getCode());
+        static::assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
+        static::assertSame('code_full_declA', $declinations[0]->getCode());
+        static::assertNull($declinations[0]->getAffiliateLink());
+        static::assertNull($declinations[0]->getCrossedOutPrice());
+        static::assertSame(13, $declinations[0]->getQuantity());
+        static::assertSame(3.6, $declinations[0]->getPrice());
+        static::assertSame(0, $declinations[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(3.6, $declinations[0]->getPriceTiers()[0]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        $this->assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
-        $this->assertSame(0.0, $declinations[2]->getPrice());
-        $this->assertSame(0, $declinations[2]->getQuantity());
-        $this->assertNull($declinations[2]->getCrossedOutPrice());
-        $this->assertNull($declinations[2]->getAffiliateLink());
-        $this->assertNull($declinations[2]->getCode());
+        static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[1]->getPrice());
+        static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[1]->getPriceTiers()[0]->getPrice());
+        static::assertSame(0, $declinations[1]->getQuantity());
+        static::assertNull($declinations[1]->getCrossedOutPrice());
+        static::assertNull($declinations[1]->getAffiliateLink());
+        static::assertNull($declinations[1]->getCode());
 
-        $this->assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
-        $this->assertSame(100.1, $declinations[3]->getPrice());
-        $this->assertSame(4, $declinations[3]->getQuantity());
-        $this->assertSame(1000.2, $declinations[3]->getCrossedOutPrice());
-        $this->assertNull($declinations[3]->getAffiliateLink());
-        $this->assertNull($declinations[3]->getCode());
+        // empty declination generated automatically to complete the matrix
+        static::assertSame([1 => 1, 2 => 6, 3 => 7], $declinations[2]->getOptionsVariants());
+        static::assertSame(0.0, $declinations[2]->getPrice());
+        static::assertSame(0, $declinations[2]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(0.0, $declinations[2]->getPriceTiers()[0]->getPrice());
+        static::assertSame(0, $declinations[2]->getQuantity());
+        static::assertNull($declinations[2]->getCrossedOutPrice());
+        static::assertNull($declinations[2]->getAffiliateLink());
+        static::assertNull($declinations[2]->getCode());
+
+        static::assertSame([1 => 1, 2 => 6, 3 => 9], $declinations[3]->getOptionsVariants());
+        static::assertSame(99.99, $declinations[3]->getPrice());
+        static::assertSame(0, $declinations[3]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(99.99, $declinations[3]->getPriceTiers()[0]->getPrice());
+        static::assertSame(120, $declinations[3]->getPriceTiers()[1]->getLowerLimit());
+        static::assertSame(89.99, $declinations[3]->getPriceTiers()[1]->getPrice());
+        static::assertSame(4, $declinations[3]->getQuantity());
+        static::assertSame(1000.2, $declinations[3]->getCrossedOutPrice());
+        static::assertNull($declinations[3]->getAffiliateLink());
+        static::assertNull($declinations[3]->getCode());
     }
 
     public function testGetProductShipping(): void
     {
         $shipping = $this->buildProductService()->getShipping(5, 1);
 
-        $this->assertInstanceOf(Shipping::class, $shipping);
+        static::assertInstanceOf(Shipping::class, $shipping);
     }
 
     public function testGetProductShippings(): void
@@ -917,7 +993,7 @@ final class ProductServiceTest extends ApiTestCase
         $shippings = $this->buildProductService()->getShippings(5);
 
         foreach ($shippings as $shipping) {
-            $this->assertInstanceOf(Shipping::class, $shipping);
+            static::assertInstanceOf(Shipping::class, $shipping);
         }
     }
 
@@ -946,8 +1022,8 @@ final class ProductServiceTest extends ApiTestCase
 
         $shipping = $productService->getShipping(5, 1);
 
-        $this->assertInstanceOf(Shipping::class, $shipping);
-        $this->assertSame(100.0, $shipping->getRates()[0]['value']);
+        static::assertInstanceOf(Shipping::class, $shipping);
+        static::assertSame(100.0, $shipping->getRates()[0]['value']);
     }
 
     public function testUpdateShippingCommandConstraints(): void
@@ -980,8 +1056,8 @@ final class ProductServiceTest extends ApiTestCase
         $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
 
         $countriesCodes = $service->getDivisionsCountriesCodes(1);
-        $this->assertCount(1, $countriesCodes);
-        $this->assertEquals("FR", $countriesCodes[0]);
+        static::assertCount(1, $countriesCodes);
+        static::assertEquals("FR", $countriesCodes[0]);
     }
 
     public function testGettingAListOfDivisionsProducts(): void
@@ -989,11 +1065,11 @@ final class ProductServiceTest extends ApiTestCase
         $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
 
         $divisions = $service->getDivisions(1, 'FR');
-        $this->assertCount(3, $divisions);
+        static::assertCount(3, $divisions);
 
-        $this->assertTrue(in_array('FR', $divisions));
-        $this->assertTrue(in_array('FR-ARA', $divisions));
-        $this->assertTrue(in_array('FR-03', $divisions));
+        static::assertTrue(in_array('FR', $divisions));
+        static::assertTrue(in_array('FR-ARA', $divisions));
+        static::assertTrue(in_array('FR-03', $divisions));
     }
 
     public function testSettingDivisionsProducts(): void
@@ -1001,12 +1077,12 @@ final class ProductServiceTest extends ApiTestCase
         $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
 
         $divisions = $service->putDivisions(1, 'FR', ['FR-01', 'FR-03']);
-        $this->assertCount(4, $divisions);
+        static::assertCount(4, $divisions);
 
-        $this->assertTrue(in_array('FR', $divisions));
-        $this->assertTrue(in_array('FR-ARA', $divisions));
-        $this->assertTrue(in_array('FR-01', $divisions));
-        $this->assertTrue(in_array('FR-03', $divisions));
+        static::assertTrue(in_array('FR', $divisions));
+        static::assertTrue(in_array('FR-ARA', $divisions));
+        static::assertTrue(in_array('FR-01', $divisions));
+        static::assertTrue(in_array('FR-03', $divisions));
     }
 
     public function testAddVideo(): void
@@ -1054,8 +1130,8 @@ final class ProductServiceTest extends ApiTestCase
 
         $video = $productService->addVideo($productId, 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4');
 
-        $this->assertTrue(is_array($video));
-        $this->assertRegExp(
+        static::assertTrue(is_array($video));
+        static::assertRegExp(
             '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
             $video['id']
         );
@@ -1069,7 +1145,7 @@ final class ProductServiceTest extends ApiTestCase
 
         $video = $service->deleteVideo($product->getId());
 
-        $this->assertEquals(204, $video->getStatusCode());
+        static::assertEquals(204, $video->getStatusCode());
     }
 
     public function testUpdateProductFromEan(): void
@@ -1177,7 +1253,7 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertCount(4, $uuids);
         foreach ($uuids as $uuid) {
-            $this->assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
+            static::assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
         }
     }
 
@@ -1199,10 +1275,10 @@ final class ProductServiceTest extends ApiTestCase
 
         static::assertCount(4, $uuids);
         foreach ($uuids as $uuid) {
-            $this->assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
+            static::assertRegExp("/[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}/", $uuid);
 
             $attachment = $service->removeAttachment(1, $uuid);
-            $this->assertEquals(204, $attachment->getStatusCode());
+            static::assertEquals(204, $attachment->getStatusCode());
         }
     }
 
@@ -1213,8 +1289,8 @@ final class ProductServiceTest extends ApiTestCase
         $products = $products->getProducts();
 
         foreach ($products as $product) {
-            $this->assertInstanceOf(ProductSummary::class, $product);
-            $this->assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
+            static::assertInstanceOf(ProductSummary::class, $product);
+            static::assertTrue(ProductApprovalStatus::APPROVED()->equals($product->getApprovalStatus()));
         }
     }
 
@@ -1226,7 +1302,7 @@ final class ProductServiceTest extends ApiTestCase
 
         $dateTimeRef = new \DateTime('09-07-2019');
         foreach ($products as $product) {
-            $this->assertLessThan($dateTimeRef->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
+            static::assertLessThan($dateTimeRef->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
         }
     }
 
@@ -1238,8 +1314,18 @@ final class ProductServiceTest extends ApiTestCase
 
         $dateTimeRef = new \DateTime('09-07-2019');
         foreach ($products as $product) {
-            $this->assertGreaterThan($product->getLastUpdateAt()->getTimestamp(), $dateTimeRef->getTimestamp());
+            static::assertGreaterThan($product->getLastUpdateAt()->getTimestamp(), $dateTimeRef->getTimestamp());
         }
+    }
+
+    public function testGetProductWithPriceTiers(): void
+    {
+        $product = $this->buildProductService()->getProductById(2);
+
+        static::assertInstanceOf(Product::class, $product);
+        static::assertSame(2, $product->getId());
+        static::assertSame(0, $product->getDeclinations()[0]->getPriceTiers()[0]->getLowerLimit());
+        static::assertSame(15.5, $product->getDeclinations()[0]->getPriceTiers()[0]->getPrice());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService

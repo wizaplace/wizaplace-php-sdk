@@ -83,7 +83,6 @@ class ProductSummary
     /** @var ProductInventory[] */
     private $inventory;
 
-
     /**
      * @internal
      *
