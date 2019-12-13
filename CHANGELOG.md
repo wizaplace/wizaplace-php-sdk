@@ -1,5 +1,35 @@
 # Changelog
 
+## 1.96.0
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Product\PriceTier`
+- Added `Wizaplace\SDK\Pim\Product\PriceTier::getLowerLimit`
+- Added `Wizaplace\SDK\Pim\Product\PriceTier::setLowerLimit`
+- Added `Wizaplace\SDK\Pim\Product\PriceTier::getPrice`
+- Added `Wizaplace\SDK\Pim\Product\PriceTier::setPrice`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::getTaxes`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::setTaxes`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::getPriceIncludeTax`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::setPriceIncludeTax`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::getPriceExcludingTaxes`
+- Added `Wizaplace\SDK\Pim\Product\ExtendedPriceTier::setPriceExcludingTaxes`
+- Updated `Wizaplace\SDK\Catalog\Declination` Add 'priceTiers' to Declination
+- Added `Wizaplace\SDK\Catalog\Declination::addPriceTier`
+- Added `Wizaplace\SDK\Catalog\Declination::getPriceTiers`
+- Updated `Wizaplace\SDK\Catalog\Product` Add 'priceTiers' to Product
+- Added `Wizaplace\SDK\Catalog\Product::addPriceTier`
+- Added `Wizaplace\SDK\Catalog\Product::getPriceTier`
+- Updated `Wizaplace\SDK\Pim\Product\ProductDeclination` Add 'priceTiers' to ProductDeclination
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclination::addPriceTier`
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclination::getPriceTiers`
+- Updated `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData` Add 'priceTiers' to ProductDeclinationUpsertData
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData::setPriceTiers`
+- Updated `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData::loadValidatorMetadata`
+- Updated `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData::toArray`
+
 ## 1.94.0
 
 ### New features

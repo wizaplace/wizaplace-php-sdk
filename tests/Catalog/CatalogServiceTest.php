@@ -2247,6 +2247,17 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
     }
 
+    public function testGetProductWithPriceTier(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById('1');
+
+        static::assertEquals(1, count($product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()));
+        static::assertEquals(1.4, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getTaxes());
+        static::assertEquals(67.9, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getPriceIncludeTax());
+        static::assertEquals(0, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getLowerLimit());
+    }
+
     public function testGetBrandFromMVP(): void
     {
         $mvp = $this->buildCatalogService()->getProductsByMvpId('0adaf6bc-d362-34be-b72f-42d5aa3b4a4e');

@@ -8,6 +8,8 @@ declare(strict_types = 1);
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
+use Wizaplace\SDK\Pim\Product\PriceTier;
 
 /**
  * Class Declination
@@ -72,6 +74,9 @@ final class Declination
     /** @var array|null */
     private $shippings = null;
 
+    /** @var array */
+    private $priceTiers;
+
     /** @var null|bool */
     private $isSubscription;
 
@@ -111,6 +116,14 @@ final class Declination
 
         if (isset($data['shippings'])) {
             $this->shippings = $data['shippings'];
+        }
+
+        $this->priceTiers = [];
+
+        if (\array_key_exists('priceTiers', $data) && \is_array($data['priceTiers'])) {
+            foreach ($data['priceTiers'] as $priceTier) {
+                $this->addPriceTier($priceTier);
+            }
         }
 
         $this->isSubscription = $data['isSubscription'] ?? null;
@@ -314,6 +327,18 @@ final class Declination
     public function setShippings(?array $shippings): void
     {
         $this->shippings = $shippings;
+    }
+
+    /** @param array $priceTier */
+    public function addPriceTier(array $priceTier): void
+    {
+        $this->priceTiers[] = array_key_exists('price', $priceTier) ? new PriceTier($priceTier) : new ExtendedPriceTier($priceTier);
+    }
+
+    /** @return PriceTier[] */
+    public function getPriceTiers(): array
+    {
+        return $this->priceTiers;
     }
 
     /**
