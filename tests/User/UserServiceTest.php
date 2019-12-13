@@ -1453,4 +1453,84 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('testLegalIdentifier16@test.com', $user->getEmail());
         static::assertSame('wizaplace', $user->getLegalIdentifier());
     }
+
+    public function testRegisterUserLoyaltyIdentifier(): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail('testLoyaltyIdentifier@test.com')
+            ->setPassword("password")
+            ->setTitle(UserTitle::MR())
+            ->setBirthday(new \DateTimeImmutable("2019-11-18"))
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+            ->setIsProfessional(true)
+            ->setLoyaltyIdentifier("wizaplace")
+        ;
+
+        $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
+
+        $apiClient->authenticate("testLoyaltyIdentifier@test.com", 'password');
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame("wizaplace", $user->getLoyaltyIdentifier());
+    }
+
+    public function testUpdateUserLoyaltyIdentifier(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testLoyaltyIdentifierUpdate@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testLoyaltyIdentifierUpdate@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLoyaltyIdentifierUpdate@test.com', $user->getEmail());
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('testLoyaltyIdentifierUpdate@test.com')
+                ->setFirstName('Paul')
+                ->setLastName('Emploi')
+                ->setBirthday(null)
+                ->setIsProfessional(true)
+                ->setLoyaltyIdentifier('wizaplace')
+        );
+
+        $client->authenticate('testLoyaltyIdentifierUpdate@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLoyaltyIdentifierUpdate@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getLoyaltyIdentifier());
+    }
+
+    public function testPatchUserLoyaltyIdentifier(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('testLoyaltyIdentifierPatch@test.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('testLoyaltyIdentifierPatch@test.com', 'password');
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLoyaltyIdentifierPatch@test.com', $user->getEmail());
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setIsProfessional(true)
+                ->setLoyaltyIdentifier('wizaplace')
+        );
+
+        $client->authenticate('testLoyaltyIdentifierPatch@test.com', 'password');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame('testLoyaltyIdentifierPatch@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getLoyaltyIdentifier());
+    }
 }

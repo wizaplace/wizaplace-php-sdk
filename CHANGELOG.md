@@ -39,6 +39,11 @@
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setLegalIdentifier`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::getLegalIdentifier`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\User::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLoyaltyIdentifier`
 
 ## 1.96.0
 

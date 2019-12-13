@@ -60,6 +60,8 @@ final class User
     private $comment;
     /** @var string|null */
     private $legalIdentifier;
+    /** @var string|null */
+    private $loyaltyIdentifier;
 
     /**
      * @internal
@@ -89,6 +91,7 @@ final class User
         $this->function = $data['function'] ?? null;
         $this->comment = $data['comment'] ?? null;
         $this->legalIdentifier = $data['legalIdentifier'] ?? null;
+        $this->loyaltyIdentifier = $data['loyaltyIdentifier'] ?? null;
     }
 
     /**
@@ -241,5 +244,10 @@ final class User
     public function getLegalIdentifier(): ?string
     {
         return $this->legalIdentifier;
+    }
+
+    public function getLoyaltyIdentifier(): ?string
+    {
+        return $this->loyaltyIdentifier;
     }
 }

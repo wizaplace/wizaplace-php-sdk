@@ -60,6 +60,9 @@ final class UpdateUserCommand
     /** @var string|null */
     private $legalIdentifier;
 
+    /** @var string|null */
+    private $loyaltyIdentifier;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -340,6 +343,24 @@ final class UpdateUserCommand
     public function setLegalIdentifier(?string $legalIdentifier): self
     {
         $this->legalIdentifier = $legalIdentifier;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getLoyaltyIdentifier(): ?string
+    {
+        return $this->loyaltyIdentifier;
+    }
+
+    /**
+     * @param string|null $loyaltyIdentifier
+     *
+     * @return $this
+     */
+    public function setLoyaltyIdentifier(?string $loyaltyIdentifier): self
+    {
+        $this->loyaltyIdentifier = $loyaltyIdentifier;
 
         return $this;
     }
