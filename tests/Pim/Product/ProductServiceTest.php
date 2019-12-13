@@ -1241,6 +1241,7 @@ final class ProductServiceTest extends ApiTestCase
         }
     }
 
+    // Subscription Feature flag is supposed to be activated
     public function testCreateAndUpdateProductWithSubscription(): void
     {
         $service = $this->buildProductService("vendor@wizaplace.com", "password");
