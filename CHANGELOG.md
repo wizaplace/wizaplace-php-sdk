@@ -49,6 +49,12 @@
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
 - Added `Wizaplace\SDK\Basket\BasketService::deleteUserBasket`
 
+## 1.88.14
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+
 ## 1.80.0
 
 ### New features
