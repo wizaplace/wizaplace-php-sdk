@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,15 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 16 Aug 2019 13:41:43 GMT'
+            Date: 'Mon, 16 Dec 2019 09:45:20 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 9244d1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9244d1'
-            X-Request-Id: f5a8b33d2d254718561bd3ffd8b81d01
-        body: '{"id":4,"apiKey":"59aPTgwRk3T\/vBh7g\/bS1dKJgU9WAJyrXbDuTM\/j"}'
+            X-Debug-Token: 90bfee
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90bfee'
+            X-Request-Id: b15f8804e2acdca9138272535eb2ef61
+        body: '{"id":4,"apiKey":"OCUfE20Crn1b2lSzb\/fXh1TB5wND7ZwiyxGzY\/bf"}'
 -
     request:
         method: POST
@@ -38,11 +38,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token 59aPTgwRk3T/vBh7g/bS1dKJgU9WAJyrXbDuTM/j'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token OCUfE20Crn1b2lSzb/fXh1TB5wND7ZwiyxGzY/bf'
             VCR-index: '1'
             Accept: null
-        body: '{"product_code":"product_with_sub_update","supplier_ref":"product_with_sub_ref","product":"Product with subscription","status":"A","main_category":1,"green_tax":0,"condition":"N","weight":0,"full_description":"Product with subscription full description","short_description":"Product with subscription short description","tax_ids":[1],"inventory":[{"amount":12,"price":3.5,"combination":[],"combination_code":"product_with_sub","infinite_stock":false}],"allowed_options_variants":[],"is_subscription":true,"is_renewable":true}'
+        body: '{"product_code":"product_with_sub_update","supplier_ref":"product_with_sub_ref","product":"Product with subscription","status":"A","main_category":1,"green_tax":0,"condition":"N","weight":0,"full_description":"Product with subscription full description","short_description":"Product with subscription short description","tax_ids":[1],"inventory":[{"amount":12,"price":3.5,"combination":[],"priceTiers":null,"combination_code":"product_with_sub","infinite_stock":false}],"allowed_options_variants":[],"is_subscription":true,"is_renewable":true}'
     response:
         status:
             http_version: '1.1'
@@ -53,25 +53,25 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 16 Aug 2019 13:41:43 GMT'
+            Date: 'Mon, 16 Dec 2019 09:45:22 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b47e1b
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b47e1b'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22b47e1b%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: f8aab5daf684969b8826484883e8ef30
-        body: '{"product_id":38}'
+            X-Debug-Token: 15c160
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/15c160'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2215c160%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 4d2562422f784f724ab5380ed16879bd
+        body: '{"product_id":36}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/38'
+        url: 'http://wizaplace.loc/api/v1/products/36'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token 59aPTgwRk3T/vBh7g/bS1dKJgU9WAJyrXbDuTM/j'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token OCUfE20Crn1b2lSzb/fXh1TB5wND7ZwiyxGzY/bf'
             VCR-index: '2'
             Accept: null
     response:
@@ -84,26 +84,26 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 16 Aug 2019 13:41:43 GMT'
+            Date: 'Mon, 16 Dec 2019 09:45:23 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 1b7cd8
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/1b7cd8'
-            X-Request-Id: 5859874fd4d9fa8b242d408b7a2e9318
-        body: '{"product_id":38,"product_code":"product_with_sub_update","status":"A","company_id":2,"approved":"P","weight":0.0,"timestamp":1565962903,"updated_timestamp":1565962903,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":true,"is_renewable":true,"product":"Product with subscription","short_description":"Product with subscription short description","full_description":"Product with subscription full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"price":3.5}],"green_tax":0.0,"supplier_ref":"product_with_sub_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            X-Debug-Token: 7d5081
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7d5081'
+            X-Request-Id: 6476abae0bf50ab4a99de38d20051fd6
+        body: '{"product_id":36,"product_code":"product_with_sub_update","status":"A","company_id":2,"approved":"P","weight":0.0,"timestamp":1576489521,"updated_timestamp":1576489521,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":true,"is_renewable":true,"product":"Product with subscription","short_description":"Product with subscription short description","full_description":"Product with subscription full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"price":3.5,"priceTiers":[{"lowerLimit":0,"price":3.5}]}],"green_tax":0.0,"supplier_ref":"product_with_sub_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
 -
     request:
         method: PUT
-        url: 'http://wizaplace.loc/api/v1/products/38'
+        url: 'http://wizaplace.loc/api/v1/products/36'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token 59aPTgwRk3T/vBh7g/bS1dKJgU9WAJyrXbDuTM/j'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token OCUfE20Crn1b2lSzb/fXh1TB5wND7ZwiyxGzY/bf'
             VCR-index: '3'
             Accept: null
         body: '{"is_subscription":false,"is_renewable":false}'
@@ -117,24 +117,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 16 Aug 2019 13:41:43 GMT'
+            Date: 'Mon, 16 Dec 2019 09:45:24 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f48e11
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f48e11'
-            X-Request-Id: 043ef32bce2928ad2357c6b517ec6890
-        body: '{"product_id":38}'
+            X-Debug-Token: e20c11
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/e20c11'
+            X-Request-Id: d1c3730d38338fb5bf219be893f11a99
+        body: '{"product_id":36}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/38'
+        url: 'http://wizaplace.loc/api/v1/products/36'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token 59aPTgwRk3T/vBh7g/bS1dKJgU9WAJyrXbDuTM/j'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token OCUfE20Crn1b2lSzb/fXh1TB5wND7ZwiyxGzY/bf'
             VCR-index: '4'
             Accept: null
     response:
@@ -147,12 +147,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.2.16
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 16 Aug 2019 13:41:43 GMT'
+            Date: 'Mon, 16 Dec 2019 09:45:25 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 59dbd4
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/59dbd4'
-            X-Request-Id: eb644d3c650678901bcdbd0edd9434a5
-        body: '{"product_id":38,"product_code":"product_with_sub_update","status":"A","company_id":2,"approved":"P","weight":0.0,"timestamp":1565962903,"updated_timestamp":1565962903,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Product with subscription","short_description":"Product with subscription short description","full_description":"Product with subscription full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"price":3.5}],"green_tax":0.0,"supplier_ref":"product_with_sub_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
+            X-Debug-Token: '164451'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/164451'
+            X-Request-Id: 6f912f1efe01f2508f6067d86dd12f5b
+        body: '{"product_id":36,"product_code":"product_with_sub_update","status":"A","company_id":2,"approved":"P","weight":0.0,"timestamp":1576489521,"updated_timestamp":1576489524,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Product with subscription","short_description":"Product with subscription short description","full_description":"Product with subscription full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"price":3.5,"priceTiers":[{"lowerLimit":0,"price":3.5}]}],"green_tax":0.0,"supplier_ref":"product_with_sub_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[]}'
