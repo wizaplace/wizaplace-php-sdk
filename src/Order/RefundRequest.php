@@ -90,13 +90,11 @@ final class RefundRequest implements ArrayableInterface
     /** @return mixed[] */
     public function toArray(): array
     {
-        $items = array_map(function (RefundRequestItem $item): array {
-            return $item->toArray();
-        }, $this->items ?? []);
-
         return [
             'isPartial' => $this->isPartial,
-            'items' => $items,
+            'items' => array_map(function (RefundRequestItem $item): array {
+                return $item->toArray();
+            }, $this->items ?? []),
             'shipping' => $this->shipping ? $this->shipping->toArray() : null,
             'message' => $this->message,
         ];
