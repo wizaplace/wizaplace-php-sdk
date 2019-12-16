@@ -155,6 +155,12 @@
 - Added `Wizaplace\SDK\Pim\Option\SystemOption::PAYMENT_FREQUENCY`
 - Added `Wizaplace\SDK\Pim\Option\SystemOption::COMMITMENT_PERIOD`
 
+## 1.88.14
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
+
 ## 1.80.0
 
 ### New features
