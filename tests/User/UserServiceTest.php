@@ -1214,84 +1214,84 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('wizaplace', $user->getCompany());
     }
 
-    public function testRegisterUserFunction(): void
+    public function testRegisterUserJobTitle(): void
     {
         $apiClient = $this->buildApiClient();
 
         $registerUserCommand = (new RegisterUserCommand())
-            ->setEmail('testFunction11@test.com')
+            ->setEmail('testJobTitle11@test.com')
             ->setPassword("password")
             ->setTitle(UserTitle::MR())
             ->setBirthday(new \DateTimeImmutable("2019-11-18"))
             ->setShipping(new UpdateUserAddressCommand())
             ->setBilling(new UpdateUserAddressCommand())
             ->setIsProfessional(true)
-            ->setFunction("wizaplace")
+            ->setJobTitle("wizaplace")
         ;
 
         $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
 
-        $apiClient->authenticate("testFunction11@test.com", 'password');
+        $apiClient->authenticate("testJobTitle11@test.com", 'password');
 
         $user = (new UserService($apiClient))->getProfileFromId($userId);
 
-        static::assertSame("wizaplace", $user->getFunction());
+        static::assertSame("wizaplace", $user->getJobTitle());
     }
 
-    public function testUpdateUserFunction(): void
+    public function testUpdateUserJobTitle(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
 
         // create new user
-        $userId = $userService->register('testFunction12@test.com', 'password', 'Jean', 'Paul');
+        $userId = $userService->register('testJobTitle12@test.com', 'password', 'Jean', 'Paul');
 
-        $client->authenticate('testFunction12@test.com', 'password');
+        $client->authenticate('testJobTitle12@test.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        static::assertSame('testFunction12@test.com', $user->getEmail());
+        static::assertSame('testJobTitle12@test.com', $user->getEmail());
 
         $userService->updateUser(
             (new UpdateUserCommand())
                 ->setUserId($userId)
-                ->setEmail('testFunction12@test.com')
+                ->setEmail('testJobTitle12@test.com')
                 ->setFirstName('Paul')
                 ->setLastName('Emploi')
                 ->setBirthday(null)
                 ->setIsProfessional(true)
-                ->setFunction('wizaplace')
+                ->setJobTitle('wizaplace')
         );
 
-        $client->authenticate('testFunction12@test.com', 'password');
+        $client->authenticate('testJobTitle12@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
-        static::assertSame('testFunction12@test.com', $user->getEmail());
-        static::assertSame('wizaplace', $user->getFunction());
+        static::assertSame('testJobTitle12@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getJobTitle());
     }
 
-    public function testPatchUserFunction(): void
+    public function testPatchUserJobTitle(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
 
         // create new user
-        $userId = $userService->register('testFunction13@test.com', 'password', 'Jean', 'Paul');
+        $userId = $userService->register('testJobTitle13@test.com', 'password', 'Jean', 'Paul');
 
-        $client->authenticate('testFunction13@test.com', 'password');
+        $client->authenticate('testJobTitle13@test.com', 'password');
         $user = $userService->getProfileFromId($userId);
-        static::assertSame('testFunction13@test.com', $user->getEmail());
+        static::assertSame('testJobTitle13@test.com', $user->getEmail());
 
         $userService->patchUser(
             (new UpdateUserCommand())
                 ->setUserId($userId)
                 ->setIsProfessional(true)
-                ->setFunction('wizaplace')
+                ->setJobTitle('wizaplace')
         );
 
-        $client->authenticate('testFunction13@test.com', 'password');
+        $client->authenticate('testJobTitle13@test.com', 'password');
 
         $user = $userService->getProfileFromId($userId);
-        static::assertSame('testFunction13@test.com', $user->getEmail());
-        static::assertSame('wizaplace', $user->getFunction());
+        static::assertSame('testJobTitle13@test.com', $user->getEmail());
+        static::assertSame('wizaplace', $user->getJobTitle());
     }
 
     public function testRegisterUserComment(): void

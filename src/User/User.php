@@ -55,7 +55,7 @@ final class User
     /** @var string|null */
     private $company;
     /** @var string|null */
-    private $function;
+    private $jobTitle;
     /** @var string|null */
     private $comment;
     /** @var string|null */
@@ -88,7 +88,7 @@ final class User
         $this->isProfessional = $data['isProfessional'] ?? null;
         $this->intraEuropeanCommunityVAT = $data['intraEuropeanCommunityVAT'] ?? null;
         $this->company = $data['company'] ?? null;
-        $this->function = $data['function'] ?? null;
+        $this->jobTitle = $data['jobTitle'] ?? null;
         $this->comment = $data['comment'] ?? null;
         $this->legalIdentifier = $data['legalIdentifier'] ?? null;
         $this->loyaltyIdentifier = $data['loyaltyIdentifier'] ?? null;
@@ -231,9 +231,9 @@ final class User
         return $this->company;
     }
 
-    public function getFunction(): ?string
+    public function getJobTitle(): ?string
     {
-        return $this->function;
+        return $this->jobTitle;
     }
 
     public function getComment(): ?string

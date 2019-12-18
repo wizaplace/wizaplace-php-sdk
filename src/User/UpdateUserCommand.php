@@ -52,7 +52,7 @@ final class UpdateUserCommand
     private $company;
 
     /** @var string|null */
-    private $function;
+    private $jobTitle;
 
     /** @var string|null */
     private $comment;
@@ -294,19 +294,19 @@ final class UpdateUserCommand
     }
 
     /** @return string|null */
-    public function getFunction(): ?string
+    public function getJobTitle(): ?string
     {
-        return $this->function;
+        return $this->jobTitle;
     }
 
     /**
-     * @param string|null $function
+     * @param string|null $jobTitle
      *
      * @return $this
      */
-    public function setFunction(?string $function): self
+    public function setJobTitle(?string $jobTitle): self
     {
-        $this->function = $function;
+        $this->jobTitle = $jobTitle;
 
         return $this;
     }

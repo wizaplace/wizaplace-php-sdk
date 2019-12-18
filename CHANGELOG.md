@@ -24,11 +24,11 @@
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setCompany`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::getCompany`
 - Added `Wizaplace\SDK\User\UpdateUserCommand::setCompany`
-- Added `Wizaplace\SDK\User\User::getFunction`
-- Added `Wizaplace\SDK\User\RegisterUserCommand::getFunction`
-- Added `Wizaplace\SDK\User\RegisterUserCommand::setFunction`
-- Added `Wizaplace\SDK\User\UpdateUserCommand::getFunction`
-- Added `Wizaplace\SDK\User\UpdateUserCommand::setFunction`
+- Added `Wizaplace\SDK\User\User::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setJobTitle`
 - Added `Wizaplace\SDK\User\User::getComment`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getComment`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::setComment`
