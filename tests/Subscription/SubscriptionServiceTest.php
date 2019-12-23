@@ -170,6 +170,7 @@ class SubscriptionServiceTest extends ApiTestCase
             static::assertInstanceOf(VendorOrder::class, $order);
             static::assertUuid($order->getSubscriptionId());
             static::assertSame("2fe16ba9-42b7-4028-908f-677dce2f2b2d", $order->getSubscriptionId());
+            static::assertFalse($order->isSubscriptionInitiator());
         }
     }
 

@@ -51,6 +51,8 @@ final class Order
     private $customerTotal;
     /** @var null|string */
     private $subscriptionId;
+    /** @var bool */
+    private $isSubscriptionInitiator;
     /** @var null|bool */
     private $isPaid;
 
@@ -84,6 +86,7 @@ final class Order
         $this->marketplaceDiscountTotal = $data['marketplaceDiscountTotal'] ?? 0.0;
         $this->customerTotal = $data['customerTotal'] ?? $data['total'];
         $this->subscriptionId = $data['subscriptionId'] ?? null;
+        $this->isSubscriptionInitiator = $data['isSubscriptionInitiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
     }
 
@@ -231,6 +234,14 @@ final class Order
     public function getSubscriptionId(): ?string
     {
         return $this->subscriptionId;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSubscriptionInitiator(): bool
+    {
+        return $this->isSubscriptionInitiator;
     }
 
     public function isPaid(): ?bool

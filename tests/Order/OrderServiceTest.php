@@ -313,6 +313,7 @@ final class OrderServiceTest extends ApiTestCase
 
         static::assertCount(1, $orders);
         static::assertUuid($orders[0]->getSubscriptionId());
+        static::assertFalse($orders[0]->isSubscriptionInitiator());
     }
 
     public function testGetUserOrderWithSubscriptionId(): void
@@ -321,6 +322,7 @@ final class OrderServiceTest extends ApiTestCase
         $order = $orderService->getOrder(130000);
 
         static::assertUuid($order->getSubscriptionId());
+        static::assertFalse($order->isSubscriptionInitiator());
     }
 
     public function testGetUserSubscriptions(): void
