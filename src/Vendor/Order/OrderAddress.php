@@ -40,6 +40,9 @@ final class OrderAddress
     /** @var string */
     private $company;
 
+    /** @var string */
+    private $civility;
+
     /**
      * @internal
      *
@@ -56,6 +59,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
+        $this->civility = $data['title'];
     }
 
     /**
@@ -128,6 +132,14 @@ final class OrderAddress
         return $this->company;
     }
 
+
+    /**
+     * @return string
+     */
+    public function getCivility(): string
+    {
+        return $this->civility;
+    }
 
     /**
      * @internal

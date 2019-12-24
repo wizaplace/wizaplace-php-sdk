@@ -363,4 +363,11 @@ final class OrderServiceTest extends ApiTestCase
     {
         return new OrderService($this->buildApiClient());
     }
+
+    public function testGetOrdershippingAddress()
+    {
+        $order = $this->buildOrderService()->getOrder(2);
+        $this->assertSame('mr', $order->getShippingAddress()->getCivility());
+        $this->assertSame('mr', $order->getBillingAddress()->getCivility());
+     }
 }
