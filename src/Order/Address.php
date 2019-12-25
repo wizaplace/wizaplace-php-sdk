@@ -27,8 +27,6 @@ abstract class Address
     private $zipcode;
     /** @var string */
     private $country;
-    /** @var string */
-    private $civility;
 
     /**
      * @internal
@@ -44,7 +42,6 @@ abstract class Address
         $this->city = $data['city'];
         $this->zipcode = $data['zipcode'];
         $this->country = $data['country'];
-        $this->civility = $data['title'];
     }
 
     /**
@@ -101,13 +98,5 @@ abstract class Address
     public function getCountry(): string
     {
         return $this->country;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCivility(): string
-    {
-        return $this->civility;
     }
 }
