@@ -75,15 +75,25 @@ final class UserService extends AbstractService
         $this->client->put(
             "users/{$command->getUserId()}",
             [
-                RequestOptions::JSON => [
-                    'email' => $command->getEmail(),
-                    'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
-                    'firstName' => $command->getFirstName(),
-                    'lastName' => $command->getLastName(),
-                    'phone' => $command->getPhone(),
-                    'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
-                    'currencyCode' => $command->getCurrencyCode(),
-                ],
+                RequestOptions::JSON => $this->filterPayload(
+                    [
+                        'email' => $command->getEmail(),
+                        'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                        'firstName' => $command->getFirstName(),
+                        'lastName' => $command->getLastName(),
+                        'phone' => $command->getPhone(),
+                        'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                        'currencyCode' => $command->getCurrencyCode(),
+                        'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
+                        'isProfessional' => is_null($command->getIsProfessional()) ? null : $command->getIsProfessional(),
+                        'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                        'company' => $command->getCompany(),
+                        'jobTitle' => $command->getJobTitle(),
+                        'comment' => $command->getComment(),
+                        'legalIdentifier' => $command->getLegalIdentifier(),
+                        'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                    ]
+                ),
             ]
         );
     }
@@ -96,10 +106,20 @@ final class UserService extends AbstractService
             return $this->client->patch(
                 "users/{$command->getUserId()}",
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'currencyCode' => $command->getCurrencyCode(),
-                        'phone' => $command->getPhone(),
-                    ],
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'currencyCode' => $command->getCurrencyCode(),
+                            'phone' => $command->getPhone(),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'jobTitle' => $command->getJobTitle(),
+                            'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
+                            'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                        ]
+                    ),
                 ]
             );
         } catch (ClientException $e) {
@@ -211,17 +231,27 @@ final class UserService extends AbstractService
             $userData = $this->client->post(
                 'users',
                 [
-                    RequestOptions::FORM_PARAMS => [
-                        'email' => $command->getEmail(),
-                        'password' => $command->getPassword(),
-                        'firstName' => $command->getFirstName(),
-                        'lastName' => $command->getLastName(),
-                        'title' => $command->getTitle()->getValue(),
-                        'phone' => $command->getPhone(),
-                        'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
-                        'billing' => self::serializeUserAddressUpdate($command->getBilling()),
-                        'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
-                    ],
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'email' => $command->getEmail(),
+                            'password' => $command->getPassword(),
+                            'firstName' => $command->getFirstName(),
+                            'lastName' => $command->getLastName(),
+                            'title' => $command->getTitle()->getValue(),
+                            'phone' => $command->getPhone(),
+                            'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                            'billing' => self::serializeUserAddressUpdate($command->getBilling()),
+                            'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'jobTitle' => $command->getJobTitle(),
+                            'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
+                            'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                        ]
+                    ),
                 ]
             );
         } catch (ClientException $e) {
@@ -382,5 +412,23 @@ final class UserService extends AbstractService
             'country' => $command->getCountry(),
             'division_code' => $command->getDivisionCode(),
         ];
+    }
+
+    /**
+     * Remove null values
+     *
+     * @param mixed[] $data
+     *
+     * @return mixed[]
+     */
+    private function filterPayload(array $data): array
+    {
+        return array_filter(
+            $data,
+            /** @param mixed $d */
+            function ($d): bool {
+                return false === \is_null($d);
+            }
+        );
     }
 }

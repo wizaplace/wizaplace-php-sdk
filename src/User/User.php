@@ -46,6 +46,22 @@ final class User
     private $currencyCode;
     /** @var int|null */
     private $pendingCompanyId;
+    /** @var string */
+    private $externalIdentifier;
+    /** @var bool|null */
+    private $isProfessional;
+    /** @var string|null */
+    private $intraEuropeanCommunityVAT;
+    /** @var string|null */
+    private $company;
+    /** @var string|null */
+    private $jobTitle;
+    /** @var string|null */
+    private $comment;
+    /** @var string|null */
+    private $legalIdentifier;
+    /** @var string|null */
+    private $loyaltyIdentifier;
 
     /**
      * @internal
@@ -68,6 +84,14 @@ final class User
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
         $this->phone = $data['phone'] ?? null;
         $this->currencyCode = $data['currencyCode'] ?? null;
+        $this->externalIdentifier = $data['externalIdentifier'] ?? '';
+        $this->isProfessional = $data['isProfessional'] ?? null;
+        $this->intraEuropeanCommunityVAT = $data['intraEuropeanCommunityVAT'] ?? null;
+        $this->company = $data['company'] ?? null;
+        $this->jobTitle = $data['jobTitle'] ?? null;
+        $this->comment = $data['comment'] ?? null;
+        $this->legalIdentifier = $data['legalIdentifier'] ?? null;
+        $this->loyaltyIdentifier = $data['loyaltyIdentifier'] ?? null;
     }
 
     /**
@@ -185,5 +209,45 @@ final class User
     public function getPendingCompanyId(): ?int
     {
         return $this->pendingCompanyId;
+    }
+
+    public function getExternalIdentifier(): string
+    {
+        return $this->externalIdentifier;
+    }
+
+    public function isProfessional(): ?bool
+    {
+        return $this->isProfessional;
+    }
+
+    public function getIntraEuropeanCommunityVAT(): ?string
+    {
+        return $this->intraEuropeanCommunityVAT;
+    }
+
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    public function getJobTitle(): ?string
+    {
+        return $this->jobTitle;
+    }
+
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    public function getLegalIdentifier(): ?string
+    {
+        return $this->legalIdentifier;
+    }
+
+    public function getLoyaltyIdentifier(): ?string
+    {
+        return $this->loyaltyIdentifier;
     }
 }

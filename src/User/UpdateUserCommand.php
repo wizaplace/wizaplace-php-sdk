@@ -39,6 +39,30 @@ final class UpdateUserCommand
     /** @var string|null */
     private $phone;
 
+    /** @var string|null */
+    private $externalIdentifier;
+
+    /** @var bool|null */
+    private $isProfessional;
+
+    /** @var string|null */
+    private $intraEuropeanCommunityVAT;
+
+    /** @var string|null */
+    private $company;
+
+    /** @var string|null */
+    private $jobTitle;
+
+    /** @var string|null */
+    private $comment;
+
+    /** @var string|null */
+    private $legalIdentifier;
+
+    /** @var string|null */
+    private $loyaltyIdentifier;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -187,11 +211,156 @@ final class UpdateUserCommand
 
     /**
      * @param string $currencyCode
+     *
      * @return UpdateUserCommand
      */
     public function setCurrencyCode(string $currencyCode): self
     {
         $this->currencyCode = $currencyCode;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getExternalIdentifier(): ?string
+    {
+        return $this->externalIdentifier;
+    }
+
+    /**
+     * @param string|null $externalIdentifier
+     *
+     * @return $this
+     */
+    public function setExternalIdentifier(?string $externalIdentifier): self
+    {
+        $this->externalIdentifier = $externalIdentifier;
+
+        return $this;
+    }
+
+    /** @return bool|null */
+    public function getIsProfessional(): ?bool
+    {
+        return $this->isProfessional;
+    }
+
+    /**
+     * @param bool|null $isProfessional
+     *
+     * @return $this
+     */
+    public function setIsProfessional(?bool $isProfessional): self
+    {
+        $this->isProfessional = $isProfessional;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getIntraEuropeanCommunityVAT(): ?string
+    {
+        return $this->intraEuropeanCommunityVAT;
+    }
+
+    /**
+     * @param string|null $intraEuropeanCommunityVAT
+     *
+     * @return $this
+     */
+    public function setIntraEuropeanCommunityVAT(?string $intraEuropeanCommunityVAT): self
+    {
+        $this->intraEuropeanCommunityVAT = $intraEuropeanCommunityVAT;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getCompany(): ?string
+    {
+        return $this->company;
+    }
+
+    /**
+     * @param string|null $company
+     *
+     * @return $this
+     */
+    public function setCompany(?string $company): self
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getJobTitle(): ?string
+    {
+        return $this->jobTitle;
+    }
+
+    /**
+     * @param string|null $jobTitle
+     *
+     * @return $this
+     */
+    public function setJobTitle(?string $jobTitle): self
+    {
+        $this->jobTitle = $jobTitle;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string|null $comment
+     *
+     * @return $this
+     */
+    public function setComment(?string $comment): self
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getLegalIdentifier(): ?string
+    {
+        return $this->legalIdentifier;
+    }
+
+    /**
+     * @param string|null $legalIdentifier
+     *
+     * @return $this
+     */
+    public function setLegalIdentifier(?string $legalIdentifier): self
+    {
+        $this->legalIdentifier = $legalIdentifier;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getLoyaltyIdentifier(): ?string
+    {
+        return $this->loyaltyIdentifier;
+    }
+
+    /**
+     * @param string|null $loyaltyIdentifier
+     *
+     * @return $this
+     */
+    public function setLoyaltyIdentifier(?string $loyaltyIdentifier): self
+    {
+        $this->loyaltyIdentifier = $loyaltyIdentifier;
 
         return $this;
     }

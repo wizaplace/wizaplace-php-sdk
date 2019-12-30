@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.97.0
+
+### New features
+
+- Added `Wizaplace\SDK\User\User::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\User::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\User::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\User::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\User::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setJobTitle`
+- Added `Wizaplace\SDK\User\User::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setComment`
+- Added `Wizaplace\SDK\User\User::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\User::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLoyaltyIdentifier`
+
 ## 1.96.0
 
 ### New features
