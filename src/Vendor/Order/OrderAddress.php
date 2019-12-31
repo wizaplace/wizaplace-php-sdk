@@ -59,7 +59,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
-        $this->civility = $data['title'];
+        $this->civility = array_key_exists('title', $data) ? $data['title'] : null;
     }
 
     /**
@@ -136,7 +136,7 @@ final class OrderAddress
     /**
      * @return string
      */
-    public function getCivility(): string
+    public function getCivility(): ?string
     {
         return $this->civility;
     }
