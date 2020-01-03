@@ -12,6 +12,9 @@ use Wizaplace\SDK\ArrayableInterface;
 
 final class RefundRequest implements ArrayableInterface
 {
+    /** @var RefundPaymentMethod */
+    private $paymentMethod;
+
     /** @var bool */
     private $isPartial;
 
@@ -26,15 +29,29 @@ final class RefundRequest implements ArrayableInterface
 
     /** @param RefundRequestItem[]|null $items */
     public function __construct(
+        RefundPaymentMethod $paymentMethod,
         bool $isPartial = null,
         array $items = null,
         RefundRequestShipping $shipping = null,
         string $message = null
     ) {
+        $this->paymentMethod = $paymentMethod;
         $this->isPartial = $isPartial === true;
         $this->items = $items;
         $this->shipping = $shipping;
         $this->message = $message;
+    }
+
+    public function getPaymentMethod(): RefundPaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(RefundPaymentMethod $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
+
+        return $this;
     }
 
     public function isPartial(): bool
@@ -91,6 +108,7 @@ final class RefundRequest implements ArrayableInterface
     public function toArray(): array
     {
         return [
+            'paymentMethod' => $this->paymentMethod->getValue(),
             'isPartial' => $this->isPartial,
             'items' => array_map(function (RefundRequestItem $item): array {
                 return $item->toArray();

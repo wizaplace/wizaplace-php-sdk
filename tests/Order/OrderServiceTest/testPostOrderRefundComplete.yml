@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             VCR-index: '0'
             Accept: null
     response:
@@ -22,27 +22,27 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 07 Nov 2019 09:31:39 GMT'
+            Date: 'Thu, 02 Jan 2020 15:21:24 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ecadac
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ecadac'
-            X-Request-Id: ab479b06152b14ba428c60dfae26fdbc
-        body: '{"id":2,"apiKey":"ekXfKKrmZr3\/i9Wk5kEX8abUZDYxgYNoFIr2H9qx"}'
+            X-Debug-Token: c2d3ab
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c2d3ab'
+            X-Request-Id: 334717b44977a9d94d3f901998a72e61
+        body: '{"id":2,"apiKey":"4b1c0+8dugRSuc0V9rz3nM1QDPxLHzcra5WWTMWx"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/orders/29/refunds'
+        url: 'http://wizaplace.loc/api/v1/orders/34/refunds'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3759-shipping-position@a76ba62
-            Authorization: 'token ekXfKKrmZr3/i9Wk5kEX8abUZDYxgYNoFIr2H9qx'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            Authorization: 'token 4b1c0+8dugRSuc0V9rz3nM1QDPxLHzcra5WWTMWx'
             VCR-index: '1'
             Accept: null
-        body: '{"isPartial":false,"items":[],"shipping":null,"message":null}'
+        body: '{"paymentMethod":"mark_refund_as_paid","isPartial":false,"items":[],"shipping":null,"message":null}'
     response:
         status:
             http_version: '1.1'
@@ -55,11 +55,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 07 Nov 2019 09:31:40 GMT'
+            Date: 'Thu, 02 Jan 2020 15:21:25 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 6c9247
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6c9247'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%226c9247%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: f4646c3ca60cec36000359510eb12701
-        body: '{"refundId":3,"orderId":29,"isPartial":false,"hasShipping":true,"amount":97,"shippingAmount":0,"message":null,"status":"created","createdAt":"2019-11-07T10:31:40+01:00","updatedAt":"2019-11-07T10:31:40+01:00","items":[{"itemId":4261345357,"amount":97,"quantity":1}]}'
+            X-Debug-Token: a0981f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0981f'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a0981f%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: cd5364c80454a8668919215de810d6de
+        body: '{"refundId":53,"orderId":34,"isPartial":false,"hasShipping":true,"amount":145,"shippingAmount":4,"message":null,"status":"marked_as_paid","createdAt":"2020-01-02T16:21:25+01:00","updatedAt":"2020-01-02T16:21:25+01:00","items":[{"itemId":2973481700,"amount":141,"quantity":1}]}'
