@@ -32,7 +32,7 @@
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/orders/4756687/cancels'
+        url: 'http://wizaplace.loc/api/v1/orders/4756687/cancel'
         headers:
             Host: wizaplace.loc
             Expect: null

@@ -291,7 +291,7 @@ final class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post('orders/'.$orderId.'/cancels', [
+            $this->client->post('orders/'.$orderId.'/cancel', [
                 'json' => [
                     'message' => $message,
                 ],
