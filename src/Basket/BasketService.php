@@ -439,6 +439,7 @@ final class BasketService extends AbstractService
      *                            (should be true else the order cannot be created)
      * @param string $redirectUrl URL to redirect to when the payment is made
      *                            (usually the order confirmation page)
+     * @param string $css         URL of the css file to include in the payment page
      *
      * @return PaymentInformation Information to proceed to the payment of the order that was created.
      *
@@ -449,8 +450,13 @@ final class BasketService extends AbstractService
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @see getPayments()
      */
-    public function checkout(string $basketId, int $paymentId, bool $acceptTerms, string $redirectUrl): PaymentInformation
-    {
+    public function checkout(
+        string $basketId,
+        int $paymentId,
+        bool $acceptTerms,
+        string $redirectUrl,
+        string $css = null
+    ): PaymentInformation {
         $this->client->mustBeAuthenticated();
         try {
             $result = $this->client->post(
@@ -458,8 +464,9 @@ final class BasketService extends AbstractService
                 [
                     RequestOptions::FORM_PARAMS => [
                         'paymentId' => $paymentId,
-                        "acceptTermsAndConditions" => $acceptTerms,
+                        'acceptTermsAndConditions' => $acceptTerms,
                         'redirectUrl' => $redirectUrl,
+                        'css' => $css,
                     ],
                 ]
             );

@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cf36a0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf36a0'
+            X-Request-Id: 63032bd1e399bd2b2e33f7e524830a59
+        body: '{"id":2,"apiKey":"JCDBtlVr\/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/subscriptions/2fe16ba9-42b7-4028-908f-677dce2f2b2d/orders?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token JCDBtlVr/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 18 Sep 2019 09:40:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6cdb20
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6cdb20'
+            X-Request-Id: 5f55cd805714998360c504fd1507e872
+        body: '{"limit":10,"offset":0,"total":1,"items":[{"order_id":150001,"company_id":3,"user_id":3,"basket_id":"da7d487e-6318-41eb-98d7-e0f245e9398a","total":1000,"discount":0,"shipping_cost":0,"timestamp":1568787397,"status":"P","notes":"","details":"","promotions":[],"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"user@wizaplace.com","decline_reason":null,"invoice_date":"","subscription_id":"2fe16ba9-42b7-4028-908f-677dce2f2b2d","products":{"1803332789":{"item_id":"1803332789","product_id":1,"price":1000,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"Fr\u00e9quence de paiement","variant_name":"3"},{"option_name":"Engagement (p\u00e9riodes)","variant_name":"3"}]},"discount":0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":20.5681,"description":"TVA 2.1%","applies":{"P_1803332789":20.5681}}},"tax_subtotal":0,"need_shipping":true,"shipping":[{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0},{"amount":1,"value":0}],"specific_rate":false,"description":null}],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-09-18T06:17:19+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"credit-card","processorName":"hipay","commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":1000,"marketplace_discount_total":0,"totals":{"excluding_taxes":979.4319,"taxes":20.5681,"including_taxes":1000},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"vendor_share":{"excluding_taxes":833.3333,"taxes":166.6667,"including_taxes":1000}}]}'

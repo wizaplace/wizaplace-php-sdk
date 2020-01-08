@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/37'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 19 Aug 2019 05:59:36 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c61ee8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c61ee8'
+            X-Request-Id: bafef7d6343fa7c7fc441be0154bf767
+        body: '{"id":37,"code":"product_with_sub","supplierReference":"product_with_sub_ref","name":"Product with subscription","url":"http:\/\/wizaplace.loc\/it\/headsets\/product-with-subscription-2.html","shortDescription":"Product with subscription short description","description":"Product with subscription full description","slug":"product-with-subscription-2","minPrice":3.5,"greenTax":0,"isTransactional":true,"weight":0,"averageRating":null,"shippings":[{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"deliveryTime":"24h"}],"companies":[{"id":2,"name":"ACME","slug":"acme","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}],"geolocation":null,"createdAt":"2019-08-16T13:37:39+00:00","updatedAt":"2019-08-16T14:55:17+00:00","availableSince":null,"infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"37_0","code":"product_with_sub","isAvailable":true,"supplierReference":"product_with_sub_ref","price":3.5,"originalPrice":3.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":3.5,"priceWithoutVat":3.5,"vat":0},"greenTax":0,"amount":12,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":2,"name":"ACME","slug":"acme","isProfessional":true,"image":null,"averageRating":null}}],"offers":[{"productId":37,"companyId":2,"price":3.5,"status":"A","divisions":[]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":true,"isRenewable":true}'

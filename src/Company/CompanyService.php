@@ -7,15 +7,17 @@ declare(strict_types = 1);
 
 namespace Wizaplace\SDK\Company;
 
-use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Division\DivisionCompany;
-use Wizaplace\SDK\Exception\CompanyNotFound;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\Subscription\SubscriptionFilter;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 
 /**
  * Class CompanyService
@@ -23,6 +25,8 @@ use Wizaplace\SDK\Exception\NotFound;
  */
 final class CompanyService extends AbstractService
 {
+    use AssertRessourceNotFoundTrait;
+
     /**
      * Only for an authenticated registration (normal and C2C) as we don't send legalRepresentativeFirstName and legalRepresentativeLastName properties
      * for unauthenticated registration, use unauthenticatedRegister() method, see API companies documentation.
@@ -445,6 +449,42 @@ final class CompanyService extends AbstractService
             }
             throw $e;
         }
+    }
+
+    /**
+     * @param int                     $companyId
+     * @param null|SubscriptionFilter $subscriptionFilter
+     *
+     * @return PaginatedData
+     */
+    public function listSubscriptionsBy(int $companyId, SubscriptionFilter $subscriptionFilter = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        if (false === $subscriptionFilter instanceof SubscriptionFilter) {
+            $subscriptionFilter = (new SubscriptionFilter())
+                ->setLimit(10)
+                ->setOffset(0);
+        }
+
+        return $this->assertRessourceNotFound(
+            function () use ($companyId, $subscriptionFilter): PaginatedData {
+                $response = $this->client->get(
+                    "companies/{$companyId}/subscriptions",
+                    [RequestOptions::QUERY => $subscriptionFilter->getFilters()]
+                );
+
+                return new PaginatedData(
+                    $response['limit'],
+                    $response['offset'],
+                    $response['total'],
+                    array_map(function (array $subscription): SubscriptionSummary {
+                        return new SubscriptionSummary($subscription);
+                    }, $response['items'])
+                );
+            },
+            "Company '{$companyId}' not found."
+        );
     }
 
     /**

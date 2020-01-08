@@ -18,6 +18,8 @@ use Wizaplace\SDK\Company\CompanyService;
 use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\UserType;
@@ -519,6 +521,27 @@ final class CompanyServiceTest extends ApiTestCase
 
         static::expectExceptionCode(Response::HTTP_NOT_FOUND);
         $service->getCompany(3);
+    }
+
+    public function testListSubscriptionsBy(): void
+    {
+        $companyService = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+        $subscriptions = $companyService->listSubscriptionsBy(1);
+
+        static::assertInstanceOf(PaginatedData::class, $subscriptions);
+        static::assertEquals(10, $subscriptions->getLimit());
+        static::assertEquals(0, $subscriptions->getOffset());
+        static::assertEquals(1, $subscriptions->getTotal());
+        static::assertCount(1, $subscriptions->getItems());
+
+        /** @var SubscriptionSummary $subscription */
+        $subscription = $subscriptions->getItems()[0];
+
+        static::assertInstanceOf(SubscriptionSummary::class, $subscription);
+        static::assertUuid($subscription->getId());
+        static::assertEquals(1, $subscription->getUserId());
+        static::assertEquals(1, $subscription->getCompanyId());
+        static::assertUuid($subscription->getCardId());
     }
 
     private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService

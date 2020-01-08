@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 24 Sep 2019 14:40:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 029bb5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/029bb5'
+            X-Request-Id: 5d3ef7b30af24a1ffed7cae4422807b8
+        body: '{"id":3,"apiKey":"k18oI7fwbPwH9axIWjojyZPBdgqMv\/VFmA\/u16iH"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/payments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token k18oI7fwbPwH9axIWjojyZPBdgqMv/VFmA/u16iH'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 24 Sep 2019 14:40:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3eeaad
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3eeaad'
+            X-Request-Id: 610d62485af9b7842ec66574bcbb485f
+        body: '[{"id":5,"name":"Real Credit Card","description":"Real Credit Card","position":0,"image":null,"type":"credit-card","externalReference":null}]'

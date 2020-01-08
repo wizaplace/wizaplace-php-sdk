@@ -51,6 +51,12 @@ final class OrderSummary
     /** @var AmountsTaxesDetails */
     private $amountsTaxesDetails;
 
+    /** @var null|string */
+    private $subscriptionId;
+
+    /** @var null|bool */
+    private $isPaid;
+
     /**
      * @internal
      *
@@ -72,6 +78,8 @@ final class OrderSummary
         $this->total = $data['total'];
         $this->lastStatusChange = VendorOrder::denormalizeLastStatusChange($data['last_status_change'] ?? null);
         $this->amountsTaxesDetails = Order::denormalizeAmountsTaxesDetails($data);
+        $this->subscriptionId = $data['subscription_id'] ?? null;
+        $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
     }
 
     /**
@@ -185,5 +193,15 @@ final class OrderSummary
     public function getVendorShareTaxesDetail(): ?AmountTaxesDetail
     {
         return $this->amountsTaxesDetails->get(AmountsTaxesDetails::VENDOR_SHARE);
+    }
+
+    public function getSubscriptionId(): ?string
+    {
+        return $this->subscriptionId;
+    }
+
+    public function isPaid(): ?bool
+    {
+        return $this->isPaid;
     }
 }

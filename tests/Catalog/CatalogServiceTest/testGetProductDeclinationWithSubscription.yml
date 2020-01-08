@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/declinations/36_0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 21 Aug 2019 11:42:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '517367'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/517367'
+            X-Request-Id: 46b0a3bd396e51e1e2a958bc9e88875b
+        body: '{"id":"36_0","code":"5d5ba26eb08c4","isAvailable":true,"supplierReference":"","price":10,"originalPrice":10,"crossedOutPrice":null,"prices":{"priceWithTaxes":10,"priceWithoutVat":10,"vat":0},"greenTax":0,"amount":100,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":2,"name":"ACME","slug":"acme","isProfessional":true,"image":null,"averageRating":null},"shippings":{"1":{"shipping_id":1,"name":"TNT Express","image":{"id":0,"path":null},"delivery_time":"24h","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"delivery_type":"S"}},"isSubscription":true,"isRenewable":true}'

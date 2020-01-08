@@ -1,5 +1,50 @@
 # Changelog
 
+## 1.97.0
+
+### New features
+
+- Added `Wizaplace\SDK\User\User::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getExternalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setExternalIdentifier`
+- Added `Wizaplace\SDK\User\User::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIsProfessional`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIsProfessional`
+- Added `Wizaplace\SDK\User\User::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setIntraEuropeanCommunityVAT`
+- Added `Wizaplace\SDK\User\User::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getCompany`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setCompany`
+- Added `Wizaplace\SDK\User\User::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getJobTitle`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setJobTitle`
+- Added `Wizaplace\SDK\User\User::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getComment`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getComment`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setComment`
+- Added `Wizaplace\SDK\User\User::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLegalIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLegalIdentifier`
+- Added `Wizaplace\SDK\User\User::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLoyaltyIdentifier`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLoyaltyIdentifier`
+
 ## 1.96.0
 
 ### New features
@@ -48,6 +93,112 @@
 - Added `Wizaplace\SDK\Commission\CommissionService::deleteCommission`
 - Added `Wizaplace\SDK\Vendor\Attribute\AttributeService::getAttribute`
 - Added `Wizaplace\SDK\Basket\BasketService::deleteUserBasket`
+- Added `Wizaplace\SDK\Pim\Product\Product::isSubscription`
+- Added `Wizaplace\SDK\Pim\Product\Product::isRenewable`
+- Added `Wizaplace\SDK\Catalog\Declination::isSubscription`
+- Added `Wizaplace\SDK\Catalog\Declination::setIsSubscription`
+- Added `Wizaplace\SDK\Catalog\Declination::isRenewable`
+- Added `Wizaplace\SDK\Catalog\Declination::setIsRenewable`
+- Added `Wizaplace\SDK\Catalog\Product::isSubscription`
+- Added `Wizaplace\SDK\Catalog\Product::isRenewable`
+- Added `Wizaplace\SDK\Pim\Option\Option::isSystem`
+- Added `Wizaplace\SDK\Pim\Option\Option::getCode`
+- Added `Wizaplace\SDK\Pim\Option\OptionService::getProductOptions`
+- Added `Wizaplace\SDK\Pim\Option\OptionService::getOption`
+- Added `Wizaplace\SDK\Vendor\Order\Order::isPaid`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getSubscriptionId`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getSubscriptions`
+- Added `Wizaplace\SDK\Vendor\Order\OrderSummary::isPaid`
+- Added `Wizaplace\SDK\Vendor\Order\OrderSummary::getSubscriptionId`
+- Added `Wizaplace\SDK\Order\Order::isPaid`
+- Added `Wizaplace\SDK\Order\Order::getSubscriptionId`
+- Added `Wizaplace\SDK\Order\OrderService::getSubscriptions`
+- Added `Wizaplace\SDK\Company\CompanyService::listSubscriptionsBy`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getFilters`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getLimit`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setLimit`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getOffset`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setOffset`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getStatus`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setStatus`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getCompanyId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setCompanyId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getUserId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setUserId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getProductId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setProductId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getCommitmentEndBefore`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setCommitmentEndBefore`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getCommitmentEndAfter`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setCommitmentEndAfter`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::getIsAutorenew`
+- Added `Wizaplace\SDK\Subscription\SubscriptionFilter::setIsAutorenew`
+- Added `Wizaplace\SDK\Subscription\SubscriptionStatus::ACTIVE`
+- Added `Wizaplace\SDK\Subscription\SubscriptionStatus::DEFAULTED`
+- Added `Wizaplace\SDK\Subscription\SubscriptionStatus::DISABLED`
+- Added `Wizaplace\SDK\Subscription\SubscriptionStatus::FINISHED`
+- Added `Wizaplace\SDK\Subscription\SubscriptionStatus::SUSPENDED`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getUserId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCompanyId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCardId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getFirstOrderId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getName`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getStatus`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getPrice`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::isAutorenew`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCommitmentPeriod`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getPaymentFrequency`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCreatedAt`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getNextPaymentAt`
+- Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getCommitmentEndAt`
+- Added `Wizaplace\SDK\Subscription\Subscription::getItems`
+- Added `Wizaplace\SDK\Subscription\Subscription::getTaxes`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getCategoryId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductCode`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getProductName`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::isProductIsRenewable`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getDeclinationId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getUnitPrice`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getQuantity`
+- Added `Wizaplace\SDK\Subscription\SubscriptionItem::getTotalPrice`
+- Added `Wizaplace\SDK\Subscription\SubscriptionTax::getTaxId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionTax::getTaxName`
+- Added `Wizaplace\SDK\Subscription\SubscriptionTax::getAmount`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::listBy`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::getSubscription`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::getItems`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::getTaxes`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::getOrders`
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::patchSubscription`
+- Added `Wizaplace\SDK\PaginatedData::getLimit`
+- Added `Wizaplace\SDK\PaginatedData::getOffset`
+- Added `Wizaplace\SDK\PaginatedData::getTotal`
+- Added `Wizaplace\SDK\PaginatedData::getItems`
+- Added `Wizaplace\SDK\Price::getExcludingTaxes`
+- Added `Wizaplace\SDK\Price::getIncludingTaxes`
+- Added `Wizaplace\SDK\Price::getTaxes`
+- Added `Wizaplace\SDK\User\UserService::listSubscriptionsBy`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getId`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getUserId`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getBrand`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getPan`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getHolder`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getExpiryMonth`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getExpiryYear`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getIssuer`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getCountry`
+- Added `Wizaplace\SDK\CreditCard\CreditCard::getCreatedAt`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCards`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getCreditCard`
+- Added `Wizaplace\SDK\CreditCard\CreditCardService::getRegistrationUrl`
+- Added `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`
+- Added `Wizaplace\SDK\Catalog\ProductFilter::IS_SUBSCRIPTION`
+- Added `Wizaplace\SDK\Catalog\ProductFilter::getIsSubscription`
+- Added `Wizaplace\SDK\Catalog\ProductFilter::setIsSubscription`
+- Added `Wizaplace\SDK\Pim\Option\SystemOption::PAYMENT_FREQUENCY`
+- Added `Wizaplace\SDK\Pim\Option\SystemOption::COMMITMENT_PERIOD`
 
 ## 1.88.14
 
@@ -78,7 +229,7 @@
 
 ## 1.70.8
 
-## Bugfixes
+### Bugfixes
 
 - Fixed `Vendor/Promotion/BasketPromotion::getRule` can return null
 

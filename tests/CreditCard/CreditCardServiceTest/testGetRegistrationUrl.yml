@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 26 Sep 2019 11:35:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d35fd5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d35fd5'
+            X-Request-Id: 499e1434ffc57318e03810d8aa9442b4
+        body: '{"id":1,"apiKey":"IChVUuut+N4PUdyy+aszaIEqcbyBDVFLk0xnECfs"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/1/credit-card-registration?redirectUrl=https%3A%2F%2Fwizaplace.loc%2Freturn-url&paymentId=10000'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token IChVUuut+N4PUdyy+aszaIEqcbyBDVFLk0xnECfs'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 26 Sep 2019 11:35:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '991572'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/991572'
+            X-Request-Id: a61710ab78cf2f57abbacc54b3356dad
+        body: '{"url":"https:\/\/stage-secure-gateway.hipay-tpp.com\/payment\/web\/pay\/796a7a2d-3e98-47c0-bdf5-a10655690921"}'

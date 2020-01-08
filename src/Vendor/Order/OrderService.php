@@ -18,6 +18,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
 
 /**
@@ -368,5 +369,15 @@ class OrderService extends AbstractService
         $response = $this->client->rawRequest("GET", "orders/{$orderId}/pdf-invoice", $options);
 
         return $response->getBody();
+    }
+
+    /** @return SubscriptionSummary[] */
+    public function getSubscriptions(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return array_map(function (array $data): SubscriptionSummary {
+            return new SubscriptionSummary($data);
+        }, $this->client->get("orders/${orderId}/subscriptions"));
     }
 }

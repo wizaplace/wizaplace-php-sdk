@@ -29,6 +29,7 @@ use Wizaplace\SDK\Order\RefundRequestItem;
 use Wizaplace\SDK\Order\RefundRequestShipping;
 use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus as VendorOrderStatus;
@@ -312,6 +313,34 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(67.9, $adjustment->getNewTotalIncludingTaxes());
         static::assertSame(7, $adjustment->getCreatedBy());
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
+    }
+
+    public function testGetUserOrdersWithSubscriptionId(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $orders = $orderService->getOrders();
+
+        static::assertCount(1, $orders);
+        static::assertUuid($orders[0]->getSubscriptionId());
+        static::assertFalse($orders[0]->isSubscriptionInitiator());
+    }
+
+    public function testGetUserOrderWithSubscriptionId(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $order = $orderService->getOrder(130000);
+
+        static::assertUuid($order->getSubscriptionId());
+        static::assertFalse($order->isSubscriptionInitiator());
+    }
+
+    public function testGetUserSubscriptions(): void
+    {
+        $subscriptions = $this->buildOrderService("user@wizaplace.com", "password")->getSubscriptions(210011);
+
+        static::assertCount(2, $subscriptions);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[0]);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[1]);
     }
 
     public function testGetOrderRefunds(): void

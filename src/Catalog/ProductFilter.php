@@ -19,6 +19,7 @@ final class ProductFilter
     public const SUPPLIER_REF = 'supplierRef';
     public const MVP_ID = 'mvpId';
     public const COMPANY_ID = 'companyId';
+    public const IS_SUBSCRIPTION = 'isSubscription';
 
     /** @var int[]  */
     private $ids = [];
@@ -35,6 +36,9 @@ final class ProductFilter
     /** @var null|int */
     private $companyId;
 
+    /** @var null|bool */
+    private $isSubscription;
+
     public function getFilters(): array
     {
         $filters = [
@@ -43,6 +47,7 @@ final class ProductFilter
             static::SUPPLIER_REF => $this->supplierRefs,
             static::MVP_ID => $this->mvpIds,
             static::COMPANY_ID => $this->companyId,
+            static::IS_SUBSCRIPTION => $this->isSubscription,
         ];
 
         array_filter($filters, function ($item) {
@@ -112,6 +117,18 @@ final class ProductFilter
     public function setCompanyId(int $companyId): self
     {
         $this->companyId = $companyId;
+
+        return $this;
+    }
+
+    public function getIsSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    public function setIsSubscription(bool $isSubscription): self
+    {
+        $this->isSubscription = $isSubscription;
 
         return $this;
     }

@@ -15,6 +15,7 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 
 /**
  * Class OrderService
@@ -284,6 +285,16 @@ final class OrderService extends AbstractService
             }
             throw $e;
         }
+    }
+
+    /** @return SubscriptionSummary[] */
+    public function getSubscriptions(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        return array_map(function (array $data): SubscriptionSummary {
+            return new SubscriptionSummary($data);
+        }, $this->client->get("user/orders/${orderId}/subscriptions"));
     }
 
     public function cancelOrder(int $orderId, string $message = null): void

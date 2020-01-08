@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 17 Sep 2019 09:32:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fe514f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe514f'
+            X-Request-Id: 544dd8e14681bf1f0e4ff2dba360bed8
+        body: '{"id":3,"apiKey":"AlD6cuelGrgeHWXzD34N787le0Vl0rgFhkiKNxlb"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token AlD6cuelGrgeHWXzD34N787le0Vl0rgFhkiKNxlb'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 17 Sep 2019 09:32:17 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: adca59
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/adca59'
+            X-Request-Id: b5293c751f24398c89e0fcb880c8f09a
+        body: '[{"id":130000,"basketId":"92ae28d6-2097-4d17-b791-f3cd9c57e538","companyId":3,"companyName":"The World Company Inc.","total":100,"taxTotal":2.06,"subtotal":100,"customerTotal":100,"marketplaceDiscountTotal":0,"timestamp":1568702993,"status":"STANDBY_VENDOR","workflow":"workflow_order_validation_pending_vendor_validation_processing","shippingName":"Lettre prioritaire","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"1803332789","declinationId":"1_1_2_2_7","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":100,"amount":1,"options":[{"optionId":1,"optionName":"Fr\u00e9quence de paiement","variantId":2,"variantName":"3","code":"payment_frequency"},{"optionId":2,"optionName":"Engagement (p\u00e9riodes)","variantId":7,"variantName":"3","code":"commitment_period"}],"customerComment":"","greenTax":0,"supplierRef":"INFO-001","isSubscription":true,"isRenewable":true}],"payment":{"type":"credit-card","processorName":"hipay","commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":"b94be1eb-0856-4072-8144-377fc093e873"}]'

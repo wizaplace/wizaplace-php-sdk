@@ -95,6 +95,12 @@ abstract class ProductUpsertData
     /** @var int */
     private $maxPriceAdjustment;
 
+    /** @var null|bool */
+    private $isSubscription;
+
+    /** @var null|bool */
+    private $isRenewable;
+
     /**
      * @param string $code
      * @return $this
@@ -366,6 +372,30 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param bool $isSubscription
+     *
+     * @return ProductUpsertData
+     */
+    public function setIsSubscription(bool $isSubscription): self
+    {
+        $this->isSubscription = $isSubscription;
+
+        return $this;
+    }
+
+    /**
+     * @param bool $isRenewable
+     *
+     * @return ProductUpsertData
+     */
+    public function setIsRenewable(bool $isRenewable): self
+    {
+        $this->isRenewable = $isRenewable;
+
+        return $this;
+    }
+
+    /**
      * @internal
      * @throws SomeParametersAreInvalid
      */
@@ -416,6 +446,8 @@ abstract class ProductUpsertData
             'infiniteStock',
             'productTemplateType',
             'maxPriceAdjustment',
+            'isSubscription',
+            'isRenewable',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -567,6 +599,14 @@ abstract class ProductUpsertData
 
         if (isset($this->productTemplateType)) {
             $data['product_template_type'] = to_string($this->productTemplateType);
+        }
+
+        if (is_bool($this->isSubscription)) {
+            $data['is_subscription'] = $this->isSubscription;
+        }
+
+        if (is_bool($this->isRenewable)) {
+            $data['is_renewable'] = $this->isRenewable;
         }
 
         return $data;

@@ -77,6 +77,12 @@ final class Declination
     /** @var array */
     private $priceTiers;
 
+    /** @var null|bool */
+    private $isSubscription;
+
+    /** @var null|bool */
+    private $isRenewable;
+
     /**
      * @internal
      *
@@ -119,6 +125,9 @@ final class Declination
                 $this->addPriceTier($priceTier);
             }
         }
+
+        $this->isSubscription = $data['isSubscription'] ?? null;
+        $this->isRenewable = $data['isRenewable'] ?? null;
     }
 
     /**
@@ -330,5 +339,45 @@ final class Declination
     public function getPriceTiers(): array
     {
         return $this->priceTiers;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    /**
+     * @param null|bool $isSubscription
+     *
+     * @return Declination
+     */
+    public function setIsSubscription(?bool $isSubscription): self
+    {
+        $this->isSubscription = $isSubscription;
+
+        return $this;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isRenewable(): ?bool
+    {
+        return $this->isRenewable;
+    }
+
+    /**
+     * @param null|bool $isRenewable
+     *
+     * @return Declination
+     */
+    public function setIsRenewable(?bool $isRenewable): self
+    {
+        $this->isRenewable = $isRenewable;
+
+        return $this;
     }
 }

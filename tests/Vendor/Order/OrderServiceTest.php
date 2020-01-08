@@ -12,6 +12,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
+use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Transaction\Transaction;
 use Wizaplace\SDK\Transaction\TransactionStatus;
@@ -641,6 +642,33 @@ class OrderServiceTest extends ApiTestCase
             ['admin@wizaplace.com', 'password', false, 0],
             ['vendor@world-company.com', 'password-vendor', false, 0],
         ];
+    }
+
+    public function testGetOrdersWithSubscription(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertCount(12, $orders);
+        static::assertUuid($orders[0]->getSubscriptionId());
+        static::assertNull($orders[1]->getSubscriptionId());
+    }
+
+    public function testGetOrdersWithIsPaid(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertGreaterThanOrEqual(2, \count($orders));
+        static::assertTrue($orders[0]->isPaid());
+        static::assertFalse($orders[1]->isPaid());
+    }
+
+    public function testGetSubscriptions(): void
+    {
+        $subscriptions = $this->buildVendorOrderService("admin@wizaplace.com", "password")->getSubscriptions(210011);
+
+        static::assertCount(2, $subscriptions);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[0]);
+        static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[1]);
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

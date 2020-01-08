@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 16 Sep 2019 08:18:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7795b9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7795b9'
+            X-Request-Id: 46f5caa147aae4787e46d4124d795608
+        body: '{"id":3,"apiKey":"\/0WWmGtaDkBC45WwzlCyB2ClFSR+NQv1LMQuJjr0"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3/subscriptions?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'token /0WWmGtaDkBC45WwzlCyB2ClFSR+NQv1LMQuJjr0'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.14
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 16 Sep 2019 08:18:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8d8f16
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8d8f16'
+            X-Request-Id: 42348f156516bc73ed590f1cb06033e8
+        body: '{"limit":10,"offset":0,"total":1,"items":[{"id":"dfd42c8b-9e50-47cf-95da-9f89009fa19f","userId":3,"companyId":3,"cardId":"ffb51120-5cbe-42a6-b1d5-f5787bb5cf40","firstOrderId":110000,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","status":"ACTIVE","price":{"excludingTaxes":"9.79","taxes":"0.21","includingTaxes":"10"},"isAutorenew":true,"commitmentPeriod":3,"paymentFrequency":3,"nextPaymentAt":"2019-09-13","commitmentEndAt":"2019-12-13","createdAt":"2019-09-13T15:48:15+02:00"}]}'

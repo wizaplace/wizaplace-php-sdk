@@ -89,10 +89,10 @@ final class BasketServiceTest extends ApiTestCase
 
                 /** @var Shipping $shipping */
                 $shipping = current($availableShippings);
-                $this->assertEquals(1, $shipping->getId());
-                $this->assertEquals('TNT Express', $shipping->getName());
+                $this->assertEquals(38, $shipping->getId());
+                $this->assertEquals('Lettre prioritaire', $shipping->getName());
                 $this->assertEquals(0., $shipping->getPrice());
-                $this->assertEquals('24h', $shipping->getDeliveryTime());
+                $this->assertEquals('', $shipping->getDeliveryTime());
                 $this->assertNull($shipping->getImage());
                 $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithoutVat());
                 $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithTaxes());
@@ -136,8 +136,15 @@ final class BasketServiceTest extends ApiTestCase
         }
         $selectedPayment = reset($availablePayments)->getId();
         $redirectUrl = 'https://demo.loc/order/confirm';
+        $cssUrl = 'https://demo.loc/custom.css';
 
-        $paymentInformation = $basketService->checkout($basket->getId(), $selectedPayment, true, $redirectUrl);
+        $paymentInformation = $basketService->checkout(
+            $basket->getId(),
+            $selectedPayment,
+            true,
+            $redirectUrl,
+            $cssUrl
+        );
 
         // @TODO : check that the two following values are normal
         $this->assertSame('', $paymentInformation->getHtml());
@@ -149,7 +156,7 @@ final class BasketServiceTest extends ApiTestCase
         $order = $orderService->getOrder($orders[0]->getId());
         $this->assertSame($orders[0]->getId(), $order->getId());
         $this->assertSame(3, $order->getCompanyId());
-        $this->assertSame('Colissmo', $order->getShippingName());
+        $this->assertSame('TNT Express', $order->getShippingName());
         $this->assertEquals(OrderStatus::STANDBY_BILLING(), $order->getStatus());
         $this->assertGreaterThan(1500000000, $order->getTimestamp()->getTimestamp());
         $this->assertSame(135.8, $order->getTotal());

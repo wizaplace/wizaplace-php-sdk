@@ -125,6 +125,12 @@ final class Product
     /** @var PriceTier[] */
     protected $priceTiers;
 
+    /** @var null|bool */
+    private $isSubscription;
+
+    /** @var null|bool */
+    private $isRenewable;
+
     /**
      * @internal
      *
@@ -161,12 +167,17 @@ final class Product
         $this->categoryPath = array_map(static function (array $category) : ProductCategory {
             return new ProductCategory($category);
         }, $data['categoryPath']);
+        $this->isSubscription = $data['isSubscription'] ?? null;
+        $this->isRenewable = $data['isRenewable'] ?? null;
         $this->declinations = array_map(function (array $declination) : Declination {
             // Only available for a product
             // For a MVP we're not able to know the shippings
             if (false === $this->isMvp()) {
                 $declination['shippings'] = $this->shippings;
             }
+
+            $declination['isSubscription'] = $this->isSubscription();
+            $declination['isRenewable'] = $this->isRenewable();
 
             return new Declination($declination);
         }, $data['declinations']);
@@ -558,5 +569,21 @@ final class Product
     public function getPriceTier(): array
     {
         return $this->priceTiers;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isSubscription(): ?bool
+    {
+        return $this->isSubscription;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isRenewable(): ?bool
+    {
+        return $this->isRenewable;
     }
 }
