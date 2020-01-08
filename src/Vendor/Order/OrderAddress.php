@@ -7,6 +7,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use Wizacha\Marketplace\User\UserTitle;
+
 /**
  * Class OrderAddress
  * @package Wizaplace\SDK\Vendor\Order
@@ -41,7 +43,7 @@ final class OrderAddress
     private $company;
 
     /** @var string */
-    private $civility;
+    private $title;
 
     /**
      * @internal
@@ -59,7 +61,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
-        $this->civility = array_key_exists('title', $data) ? $data['title'] : null;
+        $this->title = array_key_exists('title', $data) ? $data['title'] : UserTitle::MR;
     }
 
     /**
@@ -136,9 +138,9 @@ final class OrderAddress
     /**
      * @return string
      */
-    public function getCivility(): ?string
+    public function getTitle(): ?string
     {
-        return $this->civility;
+        return $this->title;
     }
 
     /**
