@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-wiz-5738-define-credit-note-number-via-api@ee21136
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 02 Jan 2020 14:13:58 GMT'
+            Date: 'Tue, 07 Jan 2020 13:47:51 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fb1567
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb1567'
-            X-Request-Id: ea71259857a7e10a6584e75ac1111431
-        body: '{"id":2,"apiKey":"4b1c0+8dugRSuc0V9rz3nM1QDPxLHzcra5WWTMWx"}'
+            X-Debug-Token: 960b19
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/960b19'
+            X-Request-Id: c4b837d940bd8a9f1a387dcd7adf88d0
+        body: '{"id":2,"apiKey":"TYdFMGE+PQ\/2BiPGh7gBrgPKCvbfR1C3RXHlyhyR"}'
 -
     request:
         method: POST
@@ -38,28 +38,26 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
-            Authorization: 'token 4b1c0+8dugRSuc0V9rz3nM1QDPxLHzcra5WWTMWx'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-wiz-5738-define-credit-note-number-via-api@ee21136
+            Authorization: 'token TYdFMGE+PQ/2BiPGh7gBrgPKCvbfR1C3RXHlyhyR'
             VCR-index: '1'
             Accept: null
-        body: '{"paymentMethod":"refund_cb","isPartial":true,"items":[{"itemId":2973481700,"quantity":2}],"shipping":{"hasShipping":false},"message":"NEIN!"}'
+        body: '{"paymentMethod":"refund_cb","isPartial":true,"items":[{"itemId":2973481700,"quantity":2}],"shipping":{"hasShipping":false},"message":"NEIN!","creditNoteReference":null}'
     response:
         status:
             http_version: '1.1'
             code: '201'
-            message: Created
+            message: 'Created'
         headers:
             Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
-            Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Thu, 02 Jan 2020 14:13:59 GMT'
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 07 Jan 2020 13:47:51 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 3aaa34
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3aaa34'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%223aaa34%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 8692220b4d08138f7415b5121bc60069
+            X-Debug-Token: f26896
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f26896'
         body: '{"refundId":44,"orderId":25,"isPartial":true,"hasShipping":false,"amount":282,"shippingAmount":0,"message":"NEIN!","status":"paid","createdAt":"2020-01-02T15:13:59+01:00","updatedAt":"2020-01-02T15:13:59+01:00","items":[{"itemId":2973481700,"amount":141,"quantity":2}]}'

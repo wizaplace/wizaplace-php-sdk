@@ -27,19 +27,24 @@ final class RefundRequest implements ArrayableInterface
     /** @var string|null */
     private $message;
 
+    /** @var string|null */
+    private $creditNoteReference;
+
     /** @param RefundRequestItem[]|null $items */
     public function __construct(
         RefundPaymentMethod $paymentMethod,
         bool $isPartial = null,
         array $items = null,
         RefundRequestShipping $shipping = null,
-        string $message = null
+        string $message = null,
+        string $creditNoteReference = null
     ) {
         $this->paymentMethod = $paymentMethod;
         $this->isPartial = $isPartial === true;
         $this->items = $items;
         $this->shipping = $shipping;
         $this->message = $message;
+        $this->creditNoteReference = $creditNoteReference;
     }
 
     public function getPaymentMethod(): RefundPaymentMethod
@@ -104,6 +109,18 @@ final class RefundRequest implements ArrayableInterface
         return $this;
     }
 
+    public function getCreditNoteReference(): ?string
+    {
+        return $this->creditNoteReference;
+    }
+
+    public function setCreditNoteReference(?string $creditNoteReference): self
+    {
+        $this->creditNoteReference = $creditNoteReference;
+
+        return $this;
+    }
+
     /** @return mixed[] */
     public function toArray(): array
     {
@@ -115,6 +132,7 @@ final class RefundRequest implements ArrayableInterface
             }, $this->items ?? []),
             'shipping' => $this->shipping ? $this->shipping->toArray() : null,
             'message' => $this->message,
+            'creditNoteReference' => $this->creditNoteReference,
         ];
     }
 }
