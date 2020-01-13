@@ -365,7 +365,7 @@ final class OrderService extends AbstractService
         try {
             return array_map(function (array $data): CreditNote {
                 return new CreditNote($data);
-            }, $this->client->get("orders/{$orderId}/credit-notes"));
+            }, $this->client->get("user/orders/{$orderId}/credit-notes"));
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -384,7 +384,7 @@ final class OrderService extends AbstractService
                     "Accept" => "application/pdf",
                 ],
             ];
-            $response = $this->client->rawRequest("GET", "orders/{$orderId}/credit-notes/{$refundId}", $options);
+            $response = $this->client->rawRequest("GET", "user/orders/{$orderId}/credit-notes/{$refundId}", $options);
 
             return $response->getBody();
         } catch (ClientException $e) {

@@ -671,6 +671,29 @@ class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[1]);
     }
 
+    public function testGetVendorOrderCreditNotes(): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $creditNotes = $orderService->getOrderCreditNotes(14);
+
+        static::assertCount(2, $creditNotes);
+
+        $creditNote = $creditNotes[0];
+
+        static::assertSame(1, $creditNote->getRefundId());
+    }
+
+    public function testGetVendorOrderCreditNote(): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $creditNote = $orderService->getOrderCreditNote(14, 2);
+
+        $pdfHeader = '%PDF-1.4';
+        $pdfContent = $creditNote->getContents();
+        static::assertStringStartsWith($pdfHeader, $pdfContent);
+        static::assertGreaterThan(strlen($pdfHeader), strlen($pdfContent));
+    }
+
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
     {
         $apiClient = $this->buildApiClient();

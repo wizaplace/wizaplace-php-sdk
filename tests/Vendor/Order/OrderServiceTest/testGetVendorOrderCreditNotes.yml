@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '0'
             Accept: null
@@ -22,22 +22,22 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 09 Jan 2020 12:46:07 GMT'
+            Date: 'Thu, 09 Jan 2020 14:17:56 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c58a89
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c58a89'
-            X-Request-Id: 22a356ab29199427dc6b633cd0797701
-        body: '{"id":3,"apiKey":"NP7FYZedmFCrY1ulsWNt4\/N37kmgMtfN7iCPHbo1"}'
+            X-Debug-Token: 235d64
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/235d64'
+            X-Request-Id: e68a0ba1062c7ac37bb95997679e2aae
+        body: '{"id":2,"apiKey":"NcuJd857WVB70KVr17hfGtAXPC8hXCUB2HULjwuk"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/user/orders/14/credit-notes'
+        url: 'http://wizaplace.loc/api/v1/orders/14/credit-notes'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
-            Authorization: 'token NP7FYZedmFCrY1ulsWNt4/N37kmgMtfN7iCPHbo1'
+            Authorization: 'token NcuJd857WVB70KVr17hfGtAXPC8hXCUB2HULjwuk'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 09 Jan 2020 12:46:07 GMT'
+            Date: 'Thu, 09 Jan 2020 14:17:56 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b90804
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b90804'
-            X-Request-Id: d4968f57852f236a03b091b270ceb4be
+            X-Debug-Token: 3baa4f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3baa4f'
+            X-Request-Id: ffbc281fa30add55408fb74af70d87dc
         body: '[{"refundId":1,"filename":"commande_14_avoir_1.pdf","url":"http:\/\/wizaplace.loc\/api\/v1\/orders\/14\/credit-notes\/1"},{"refundId":2,"filename":"commande_14_avoir_2.pdf","url":"http:\/\/wizaplace.loc\/api\/v1\/orders\/14\/credit-notes\/2"}]'

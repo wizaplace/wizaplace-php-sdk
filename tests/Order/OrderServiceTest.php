@@ -468,10 +468,10 @@ final class OrderServiceTest extends ApiTestCase
 
     public function testGetOrderCreditNotes(): void
     {
-        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
         $creditNotes = $orderService->getOrderCreditNotes(14);
 
-        static::assertCount(1, $creditNotes);
+        static::assertCount(2, $creditNotes);
 
         $creditNote = $creditNotes[0];
 
@@ -480,7 +480,7 @@ final class OrderServiceTest extends ApiTestCase
 
     public function testGetOrderCreditNote(): void
     {
-        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
         $creditNote = $orderService->getOrderCreditNote(14, 1);
 
         $pdfHeader = '%PDF-1.4';

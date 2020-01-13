@@ -17,6 +17,7 @@ use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderAdjustment;
+use Wizaplace\SDK\Order\CreditNote;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -379,5 +380,43 @@ class OrderService extends AbstractService
         return array_map(function (array $data): SubscriptionSummary {
             return new SubscriptionSummary($data);
         }, $this->client->get("orders/${orderId}/subscriptions"));
+    }
+
+    /** @return CreditNote[] */
+    public function getOrderCreditNotes(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(function (array $data): CreditNote {
+                return new CreditNote($data);
+            }, $this->client->get("orders/{$orderId}/credit-notes"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
+
+    public function getOrderCreditNote(int $orderId, int $refundId): StreamInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $options = [
+                RequestOptions::HEADERS => [
+                    "Accept" => "application/pdf",
+                ],
+            ];
+            $response = $this->client->rawRequest("GET", "orders/{$orderId}/credit-notes/{$refundId}", $options);
+
+            return $response->getBody();
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
     }
 }
