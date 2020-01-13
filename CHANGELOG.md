@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.98.3
+
+### Bugfixes
+
+- Added `Wizaplace\SDK\Catalog\Option::getCode`
+- Added `Wizaplace\SDK\Catalog\DeclinationOption::getCode`
+
 ## 1.97.0
 
 ### New features

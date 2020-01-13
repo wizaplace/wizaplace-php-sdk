@@ -40,6 +40,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Pim\Option\SystemOption;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -2319,6 +2320,22 @@ final class CatalogServiceTest extends ApiTestCase
 
         static::assertTrue($declination->isSubscription());
         static::assertTrue($declination->isRenewable());
+    }
+
+    public function testGetProductWithSystemOption(): void
+    {
+        $product = $this->buildCatalogService()->getProductById('1');
+
+        static::assertCount(9, $product->getDeclinations());
+        foreach ($product->getDeclinations() as $declination) {
+            static::assertCount(2, $declination->getOptions());
+            static::assertSame(SystemOption::PAYMENT_FREQUENCY()->getValue(), $declination->getOptions()[0]->getCode());
+            static::assertSame(SystemOption::COMMITMENT_PERIOD()->getValue(), $declination->getOptions()[1]->getCode());
+        }
+
+        static::assertCount(2, $product->getOptions());
+        static::assertSame(SystemOption::PAYMENT_FREQUENCY()->getValue(), $product->getOptions()[0]->getCode());
+        static::assertSame(SystemOption::COMMITMENT_PERIOD()->getValue(), $product->getOptions()[1]->getCode());
     }
 
     private function buildCatalogService(): CatalogServiceInterface
