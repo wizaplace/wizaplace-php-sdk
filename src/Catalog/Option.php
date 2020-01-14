@@ -26,6 +26,9 @@ final class Option implements \JsonSerializable
     /** @var OptionVariant[] */
     private $variants;
 
+    /** @var null|string */
+    private $code;
+
     /**
      * @internal
      *
@@ -39,6 +42,7 @@ final class Option implements \JsonSerializable
         $this->variants = array_map(static function (array $variantData) : OptionVariant {
             return new OptionVariant($variantData);
         }, $data['variants']);
+        $this->code = $data['code'] ?? null;
     }
 
     /**
@@ -73,6 +77,11 @@ final class Option implements \JsonSerializable
         return $this->variants;
     }
 
+    public function getCode(): ?string
+    {
+        return $this->code;
+    }
+
     /**
      * @return array
      */
@@ -83,6 +92,7 @@ final class Option implements \JsonSerializable
             'name' => $this->getName(),
             'position' => $this->getPosition(),
             'variants' => $this->getVariants(),
+            'code' => $this->getCode(),
         ];
     }
 }

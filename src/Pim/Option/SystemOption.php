@@ -12,8 +12,8 @@ namespace Wizaplace\SDK\Pim\Option;
 use MyCLabs\Enum\Enum;
 
 /**
- * @method static PAYMENT_FREQUENCY()
- * @method static COMMITMENT_PERIOD()
+ * @method static SystemOption PAYMENT_FREQUENCY()
+ * @method static SystemOption COMMITMENT_PERIOD()
  */
 final class SystemOption extends Enum
 {

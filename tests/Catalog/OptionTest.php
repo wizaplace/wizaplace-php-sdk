@@ -38,6 +38,7 @@ final class OptionTest extends TestCase
                     ],
                 ],
             ],
+            'code' => null,
         ]), JSON_PRETTY_PRINT);
 
         $expected = <<<JSON
@@ -68,7 +69,8 @@ final class OptionTest extends TestCase
                 "id": 1234
             }
         }
-    ]
+    ],
+    "code": null
 }
 JSON;
         $this->assertSame($expected, $result);
