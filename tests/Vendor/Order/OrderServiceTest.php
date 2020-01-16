@@ -706,11 +706,11 @@ class OrderServiceTest extends ApiTestCase
 
         $shippingAddress = $order->getShippingAddress();
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
-        static::assertSame(\Wizacha\Marketplace\User\UserTitle::MR, $shippingAddress->getTitle());
+        static::assertSame(UserTitle::MR(), $shippingAddress->getTitle());
 
         $billingAddress = $order->getBillingAddress();
         static::assertInstanceOf(OrderAddress::class, $billingAddress);
-        static::assertSame(\Wizacha\Marketplace\User\UserTitle::MR, $billingAddress->getTitle());
+        static::assertSame(UserTitle::MR(), $billingAddress->getTitle());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

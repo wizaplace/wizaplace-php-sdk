@@ -7,7 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
-use Wizacha\Marketplace\User\UserTitle;
+use Wizaplace\SDK\User\UserTitle;
 
 /**
  * Class OrderAddress
@@ -61,7 +61,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
-        $this->title = array_key_exists('title', $data) ? $data['title'] : UserTitle::MR;
+        $this->title = array_key_exists('title', $data) ? $data['title'] : UserTitle::MR();
     }
 
     /**
