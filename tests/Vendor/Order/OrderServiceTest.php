@@ -31,6 +31,7 @@ use Wizaplace\SDK\Vendor\Order\OrderSummary;
 use Wizaplace\SDK\Vendor\Order\OrderTax;
 use Wizaplace\SDK\Vendor\Order\Shipment;
 use Wizaplace\SDK\Vendor\Order\Tax;
+use Wizaplace\SDK\User\UserTitle;
 
 class OrderServiceTest extends ApiTestCase
 {
@@ -705,11 +706,11 @@ class OrderServiceTest extends ApiTestCase
 
         $shippingAddress = $order->getShippingAddress();
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
-        static::assertSame('mr', $shippingAddress->getCivility());
+        static::assertSame(\Wizacha\Marketplace\User\UserTitle::MR, $shippingAddress->getTitle());
 
         $billingAddress = $order->getBillingAddress();
         static::assertInstanceOf(OrderAddress::class, $billingAddress);
-        static::assertSame('mr', $billingAddress->getCivility());
+        static::assertSame(\Wizacha\Marketplace\User\UserTitle::MR, $billingAddress->getTitle());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
