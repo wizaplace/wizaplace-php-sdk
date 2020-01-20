@@ -8,6 +8,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
+use Wizaplace\SDK\Price;
+
 /**
  * Class OrderReturn
  * @package Wizaplace\SDK\Order
@@ -47,6 +49,18 @@ final class Refund
     /** @var RefundItem[] */
     private $items;
 
+    /** @var Price */
+    private $totalItemsPrice;
+
+    /** @var Price */
+    private $totalShippingPrice;
+
+    /** @var Price */
+    private $totalGlobalPrice;
+
+    /** @var mixed[] */
+    private $totalTaxes;
+
     /**
      * @internal
      *
@@ -67,6 +81,10 @@ final class Refund
         $this->items = array_map(function (array $item) : RefundItem {
             return new RefundItem($item);
         }, $data['items']);
+        $this->totalItemsPrice = new Price($data['totalItemsPrice']);
+        $this->totalShippingPrice = new Price($data['totalShippingPrice']);
+        $this->totalGlobalPrice = new Price($data['totalGlobalPrice']);
+        $this->totalTaxes = $data['totalTaxes'];
     }
 
     public function getRefundId(): int
@@ -123,5 +141,26 @@ final class Refund
     public function getItems(): array
     {
         return $this->items;
+    }
+
+    public function getTotalItemsPrice(): Price
+    {
+        return $this->totalItemsPrice;
+    }
+
+    public function getTotalShippingPrice(): Price
+    {
+        return $this->totalShippingPrice;
+    }
+
+    public function getTotalGlobalPrice(): Price
+    {
+        return $this->totalGlobalPrice;
+    }
+
+    /** @return mixed[] */
+    public function getTotalTaxes(): array
+    {
+        return $this->totalTaxes;
     }
 }

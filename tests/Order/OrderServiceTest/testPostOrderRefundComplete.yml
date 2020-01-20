@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-wiz-5738-define-credit-note-number-via-api@ee21136
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             VCR-index: '0'
             Accept: null
     response:
@@ -22,42 +22,45 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Jan 2020 13:47:50 GMT'
+            Date: 'Fri, 17 Jan 2020 14:37:47 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a46542
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a46542'
-            X-Request-Id: f42ed1a2ebfef51ced04fc1ca2658b37
-        body: '{"id":2,"apiKey":"TYdFMGE+PQ\/2BiPGh7gBrgPKCvbfR1C3RXHlyhyR"}'
+            X-Debug-Token: 99ead3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/99ead3'
+            X-Request-Id: 0643b4816c64c2cda625e6da801db81b
+        body: '{"id":2,"apiKey":"rifcioaQ3nArSz02EvOSmTR1xyXj25FjsJ0Gj9bd"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/orders/34/refunds'
+        url: 'http://wizaplace.loc/api/v1/orders/28/refunds'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-wiz-5738-define-credit-note-number-via-api@ee21136
-            Authorization: 'token TYdFMGE+PQ/2BiPGh7gBrgPKCvbfR1C3RXHlyhyR'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token rifcioaQ3nArSz02EvOSmTR1xyXj25FjsJ0Gj9bd'
             VCR-index: '1'
             Accept: null
-        body: '{"paymentMethod":"mark_refund_as_paid","isPartial":false,"items":[],"shipping":null,"message":null,"creditNoteReference":null}'
+        body: '{"paymentMethod":"mark_refund_as_paid","isPartial":false,"items":[],"shipping":{"hasShipping":false},"message":null,"creditNoteReference":null}'
     response:
         status:
             http_version: '1.1'
             code: '201'
-            message: 'Created'
+            message: Created
         headers:
             Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
-            Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Jan 2020 13:47:51 GMT'
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 17 Jan 2020 14:37:48 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '538935'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/538935'
-        body: '{"refundId":53,"orderId":34,"isPartial":false,"hasShipping":true,"amount":145,"shippingAmount":4,"message":null,"status":"marked_as_paid","createdAt":"2020-01-02T16:21:25+01:00","updatedAt":"2020-01-02T16:21:25+01:00","items":[{"itemId":2973481700,"amount":141,"quantity":1}]}'
+            X-Debug-Token: '056458'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/056458'
+            Expires: 'Fri, 17 Jan 2020 14:37:48 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22056458%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A74%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 7ae0c23df7cb2805116e23b6dc4d2643
+        body: '{"refundId":25,"orderId":28,"isPartial":false,"hasShipping":true,"amount":145,"shippingAmount":4,"message":null,"status":"marked_as_paid","createdAt":"2020-01-17T15:37:48+01:00","updatedAt":"2020-01-17T15:37:48+01:00","items":[{"itemId":2973481700,"unitPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"quantity":1,"totalPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141}}],"totalItemsPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"totalShippingPrice":{"excluding_taxes":3.3333,"taxes":0.6667,"including_taxes":4},"totalGlobalPrice":{"excluding_taxes":141.4332,"taxes":3.5668,"including_taxes":145},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0.67},{"taxId":2,"taxRate":2.1,"amount":2.9}]}'
