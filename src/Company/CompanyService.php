@@ -169,6 +169,22 @@ final class CompanyService extends AbstractService
         return new Company($responseData);
     }
 
+    public function patch(CompanyPatchCommand $command): Company
+    {
+        $this->client->mustBeAuthenticated();
+
+        $responseData = $this->client->patch(
+            'companies/'.$command->getCompanyId(),
+            [
+                RequestOptions::JSON => [
+                    'status' => $command->getStatus()->getValue(),
+                ],
+            ]
+        );
+
+        return new Company($responseData);
+    }
+
     /**
      * Same as register() method but with legalRepresentativeFirstName and legalRepresentativeLastName properties
      * allowing registering a company without being authenticated (see API companies documentation)

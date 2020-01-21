@@ -9,9 +9,9 @@ namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use Wizaplace\SDK\Seo\Metadata;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
-use Wizaplace\SDK\Seo\Metadata;
 
 /**
  * Class Company
@@ -30,6 +30,9 @@ final class Company
 
     /** @var string */
     private $description;
+
+    /** @var CompanyStatus */
+    private $status;
 
     /** @var string */
     private $zipcode;
@@ -99,6 +102,7 @@ final class Company
         $this->name = to_string($data['name']);
         $this->email = to_string($data['email']);
         $this->description = to_string($data['description']);
+        $this->status = isset($data['status']) ? new CompanyStatus(to_string($data['status'])) : null;
         $this->zipcode = to_string($data['zipcode']);
         $this->address = to_string($data['address']);
         $this->city = to_string($data['city']);
@@ -139,6 +143,11 @@ final class Company
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    public function getStatus(): ?CompanyStatus
+    {
+        return $this->status;
     }
 
     public function getZipcode(): string
