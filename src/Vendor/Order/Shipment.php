@@ -143,5 +143,4 @@ final class Shipment
     {
         return $this->position;
     }
-
 }
