@@ -689,8 +689,5 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
         static::assertSame('University of Southern California', $shippingAddress->getCompany());
-
-
-
     }
 }
