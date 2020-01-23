@@ -47,8 +47,8 @@ class PriceTier
         return $this;
     }
 
-    /** @return float */
-    public function getPrice(): float
+    /** @return null|float */
+    public function getPrice(): ?float
     {
         return $this->price;
     }
