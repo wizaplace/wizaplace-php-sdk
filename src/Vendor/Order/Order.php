@@ -450,6 +450,4 @@ final class Order
     {
         return $this->shipping;
     }
-
-
 }
