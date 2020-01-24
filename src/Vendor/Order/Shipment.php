@@ -40,9 +40,6 @@ final class Shipment
     /** @var int[] map of (int) itemId to (int) quantity shipped */
     private $shippedQuantityByItemId;
 
-    /** @var int */
-    private $position;
-
     /**
      * @internal
      *
@@ -61,7 +58,6 @@ final class Shipment
         $this->comment = $data['comments'];
         $this->createdAt = new \DateTimeImmutable('@'.$data['shipment_timestamp']);
         $this->shippedQuantityByItemId = $data['products'];
-        $this->position = $data['position'];
     }
 
     /**
@@ -134,13 +130,5 @@ final class Shipment
     public function getShippedQuantityByItemId(): array
     {
         return $this->shippedQuantityByItemId;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPosition(): int
-    {
-        return $this->position;
     }
 }

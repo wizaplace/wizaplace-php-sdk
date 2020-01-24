@@ -22,12 +22,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 23 Jan 2020 15:52:05 GMT'
+            Date: 'Fri, 24 Jan 2020 09:23:23 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: d2dd14
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d2dd14'
-            X-Request-Id: cf0c960d343f66978d54100d1832fc1f
+            X-Debug-Token: '434770'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/434770'
+            X-Request-Id: 3c7ba5486c545e0899fe86574237e278
         body: '{"id":6,"apiKey":"Z7jjUV8pQJHV\/l8ZKWKlDdXrziJisrxrvhWMbHcu"}'
 -
     request:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 23 Jan 2020 15:52:05 GMT'
+            Date: 'Fri, 24 Jan 2020 09:23:24 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 698e4e
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/698e4e'
-            X-Request-Id: 94e1eae92df4db1f8aad407625f1ac92
+            X-Debug-Token: bc551c
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/bc551c'
+            X-Request-Id: a733ee3ac881bdf2d58b8883d24f6838
         body: '{"order_id":7,"company_id":3,"user_id":12,"basket_id":"28afa4ec-7c08-4e76-9f8a-9f10a8546944","total":67.9,"discount":0.0,"shipping_cost":0.0,"timestamp":1579698432,"status":"H","notes":"","details":"","promotions":[],"b_firstname":"Antonio","b_lastname":"Damasio","b_company":"University of Southern California","b_address":"42228 Hunter Summit Suite 058","b_address_2":"","b_city":"Bettyeburgh","b_country":"FR","b_zipcode":"13736-4550","b_phone":"","s_firstname":"Antonio","s_lastname":"Damasio","s_company":"University of Southern California","s_address":"99410 Dach Views Apt. 994","s_address_2":"","s_city":"West Geraldport","s_country":"FR","s_zipcode":"00229","s_phone":"","s_pickup_point_id":"","email":"user+orga@usc.com","decline_reason":null,"is_paid":true,"invoice_date":"","subscription_id":null,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-01-22T13:08:14+01:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}'

@@ -12,6 +12,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
+use Wizaplace\SDK\Shipping\Shipping;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -677,10 +678,23 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertInstanceOf(Order::class, $order);
         $shippingAddress = $order->getShippingAddress();
+        $shipping = $order->getShipping()[0];
         static::assertSame([], $order->getShipmentsIds());
 
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
         static::assertSame('University of Southern California', $shippingAddress->getCompany());
+
+        static::assertInstanceOf(Shipping::class, $shipping);
+        $this->assertNotNull($shipping->getId());
+        $this->assertNotNull($shipping->getName());
+        $this->assertNotNull($shipping->getDeliveryTime());
+        $this->assertTrue($shipping->isEnabled());
+        $this->assertNotNull($shipping->getRates());
+        $this->assertNotNull($shipping->getDescription());
+        static::assertSame(1, $shipping->getId());
+        static::assertSame(40, $shipping->getPosition());
+        static::assertSame("TNT Express", $shipping->getName());
+        static::assertSame("24h", $shipping->getDeliveryTime());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
