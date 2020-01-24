@@ -155,7 +155,7 @@ final class Order
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isSubscriptionInitiator = $data['is_subscription_initiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
-        $this->shipping = \array_key_exists('is_paid', $data) ? array_map(function (array $itemData): Shipping {
+        $this->shipping = \array_key_exists('shipping', $data) ? array_map(function (array $itemData): Shipping {
             return new Shipping($itemData);
         }, $data['shipping']) : null;
     }
