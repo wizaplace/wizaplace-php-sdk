@@ -106,7 +106,7 @@ final class Order
     /** @var null|bool */
     private $isPaid;
 
-    /** @var Shipping[] */
+    /** @var Shipping[]|null */
     private $shipping;
 
     /**
@@ -155,9 +155,9 @@ final class Order
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isSubscriptionInitiator = $data['is_subscription_initiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
-        $this->shipping = array_map(function (array $itemData): Shipping {
+        $this->shipping = \array_key_exists('is_paid', $data) ? array_map(function (array $itemData): Shipping {
             return new Shipping($itemData);
-        }, $data['shipping']);
+        }, $data['shipping']) : null;
     }
 
     /**
@@ -444,10 +444,12 @@ final class Order
     }
 
     /**
-     * @return Shipping[]
+     * @return Shipping[]|null
      */
-    public function getShipping(): array
+    public function getShipping(): ?array
     {
         return $this->shipping;
     }
+
+
 }
