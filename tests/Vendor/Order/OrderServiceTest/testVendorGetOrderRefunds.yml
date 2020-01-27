@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
             VCR-index: '0'
             Accept: null
@@ -22,22 +22,22 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 24 Jan 2020 09:40:21 GMT'
+            Date: 'Fri, 24 Jan 2020 10:02:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f4ae00
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f4ae00'
-            X-Request-Id: 119a80fe0e59f495a2aef2dcad3a9e08
-        body: '{"id":3,"apiKey":"\/PqSlAqNyJvvep8aThQnkEK0Zw6zbamgYZF0JC11"}'
+            X-Debug-Token: 614bb1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/614bb1'
+            X-Request-Id: 8f9752483fb409d07b1029eed180d3f5
+        body: '{"id":2,"apiKey":"L749NcLsOw1Iuc8SG1p3dDFrfpUgXHDnzPVq8wGs"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/user/orders/14/refunds'
+        url: 'http://wizaplace.loc/api/v1/orders/14/refunds'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
-            Authorization: 'token /PqSlAqNyJvvep8aThQnkEK0Zw6zbamgYZF0JC11'
+            Authorization: 'token L749NcLsOw1Iuc8SG1p3dDFrfpUgXHDnzPVq8wGs'
             VCR-index: '1'
             Accept: null
     response:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 24 Jan 2020 09:40:21 GMT'
+            Date: 'Fri, 24 Jan 2020 10:02:44 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a624e5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a624e5'
-            X-Request-Id: e31bb20db2b5e056b9c51a36ba9c96bd
+            X-Debug-Token: 9e6d26
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e6d26'
+            X-Request-Id: a5d45e694c71b0b051b3da9631fc5efa
         body: '[{"refundId":1,"orderId":14,"isPartial":false,"hasShipping":true,"amount":15.5,"shippingAmount":0,"message":null,"status":"paid","createdAt":"2020-01-24T09:56:03+01:00","updatedAt":"2020-01-24T09:56:04+01:00","items":[{"itemId":969482885,"unitPrice":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"quantity":1,"totalPrice":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5}}],"totalItemsPrice":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"totalShippingPrice":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"totalGlobalPrice":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0},{"taxId":2,"taxRate":2.1,"amount":0.32}]}]'

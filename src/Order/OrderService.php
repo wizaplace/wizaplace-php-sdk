@@ -328,12 +328,27 @@ final class OrderService extends AbstractService
         try {
             return array_map(function (array $data): Refund {
                 return new Refund($data);
-            }, $this->client->get("orders/{$orderId}/refunds"));
+            }, $this->client->get("user/orders/{$orderId}/refunds"));
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
             }
+
             throw $e;
+        }
+    }
+
+    public function getOrderRefund(int $orderId, int $refundId): Refund
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return new Refund($this->client->get("user/orders/{$orderId}/refunds/{$refundId}"));
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Refund #{$refundId} not found for #{$orderId}", $exception);
+            }
+
+            throw $exception;
         }
     }
 

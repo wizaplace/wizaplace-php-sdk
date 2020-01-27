@@ -11,6 +11,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Order\OrderAdjustment;
+use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -692,6 +693,60 @@ class OrderServiceTest extends ApiTestCase
         $pdfContent = $creditNote->getContents();
         static::assertStringStartsWith($pdfHeader, $pdfContent);
         static::assertGreaterThan(strlen($pdfHeader), strlen($pdfContent));
+    }
+
+    public function testVendorGetOrderRefunds(): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $refunds = $orderService->getOrderRefunds(14);
+
+        static::assertCount(1, $refunds);
+
+        $refund = $refunds[0];
+
+        static::assertSame(1, $refund->getRefundId());
+        static::assertSame(14, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(15.5, $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertEquals(RefundStatus::PAID(), $refund->getStatus());
+        static::assertNull($refund->getMessage());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(969482885, $item->getItemId());
+        static::assertSame(1, $item->getQuantity());
+        static::assertSame(15.5, $item->getTotalPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalItemsPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalGlobalPrice()->getIncludingTaxes());
+        static::assertSame(0., $refund->getTotalShippingPrice()->getIncludingTaxes());
+    }
+
+    public function testVendorGetOrderRefund(): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $refund = $orderService->getOrderRefund(14, 1);
+
+        static::assertSame(1, $refund->getRefundId());
+        static::assertSame(14, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(15.5, $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertEquals(RefundStatus::PAID(), $refund->getStatus());
+        static::assertNull($refund->getMessage());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(969482885, $item->getItemId());
+        static::assertSame(1, $item->getQuantity());
+        static::assertSame(15.5, $item->getTotalPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalItemsPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalGlobalPrice()->getIncludingTaxes());
+        static::assertSame(0., $refund->getTotalShippingPrice()->getIncludingTaxes());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

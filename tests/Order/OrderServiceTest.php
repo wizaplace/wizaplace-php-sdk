@@ -345,32 +345,55 @@ final class OrderServiceTest extends ApiTestCase
 
     public function testGetOrderRefunds(): void
     {
-        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
-        $refunds = $orderService->getOrderRefunds(25);
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $refunds = $orderService->getOrderRefunds(14);
 
         static::assertCount(1, $refunds);
 
         $refund = $refunds[0];
 
-        static::assertSame(22, $refund->getRefundId());
-        static::assertSame(25, $refund->getOrderId());
-        static::assertSame(true, $refund->isPartial());
-        static::assertSame(false, $refund->hasShipping());
-        static::assertSame(141., $refund->getAmount());
+        static::assertSame(1, $refund->getRefundId());
+        static::assertSame(14, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(15.5, $refund->getAmount());
         static::assertSame(0., $refund->getShippingAmount());
         static::assertEquals(RefundStatus::PAID(), $refund->getStatus());
         static::assertNull($refund->getMessage());
-        static::assertEquals(new \DateTime('2020-01-17T09:35:56+01:00'), $refund->getCreatedAt());
-        static::assertEquals(new \DateTime('2020-01-17T09:35:56+01:00'), $refund->getUpdatedAt());
         static::assertCount(1, $refund->getItems());
 
         $item = $refund->getItems()[0];
 
-        static::assertSame(2973481700, $item->getItemId());
+        static::assertSame(969482885, $item->getItemId());
         static::assertSame(1, $item->getQuantity());
-        static::assertSame(141., $item->getTotalPrice()->getIncludingTaxes());
-        static::assertSame(141., $refund->getTotalItemsPrice()->getIncludingTaxes());
-        static::assertSame(141., $refund->getTotalGlobalPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $item->getTotalPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalItemsPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalGlobalPrice()->getIncludingTaxes());
+        static::assertSame(0., $refund->getTotalShippingPrice()->getIncludingTaxes());
+    }
+
+    public function testGetOrderRefund(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $refund = $orderService->getOrderRefund(14, 1);
+
+        static::assertSame(1, $refund->getRefundId());
+        static::assertSame(14, $refund->getOrderId());
+        static::assertSame(false, $refund->isPartial());
+        static::assertSame(true, $refund->hasShipping());
+        static::assertSame(15.5, $refund->getAmount());
+        static::assertSame(0., $refund->getShippingAmount());
+        static::assertEquals(RefundStatus::PAID(), $refund->getStatus());
+        static::assertNull($refund->getMessage());
+        static::assertCount(1, $refund->getItems());
+
+        $item = $refund->getItems()[0];
+
+        static::assertSame(969482885, $item->getItemId());
+        static::assertSame(1, $item->getQuantity());
+        static::assertSame(15.5, $item->getTotalPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalItemsPrice()->getIncludingTaxes());
+        static::assertSame(15.5, $refund->getTotalGlobalPrice()->getIncludingTaxes());
         static::assertSame(0., $refund->getTotalShippingPrice()->getIncludingTaxes());
     }
 

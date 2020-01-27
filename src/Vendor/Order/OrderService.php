@@ -18,6 +18,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\CreditNote;
+use Wizaplace\SDK\Order\Refund;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -417,6 +418,39 @@ class OrderService extends AbstractService
                 throw new NotFound("Order #{$orderId} not found", $e);
             }
             throw $e;
+        }
+    }
+
+    /** @return Refund[] */
+    public function getOrderRefunds(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(function (array $data): Refund {
+                return new Refund($data);
+            }, $this->client->get("orders/{$orderId}/refunds"));
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function getOrderRefund(int $orderId, int $refundId): Refund
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return new Refund($this->client->get("orders/{$orderId}/refunds/{$refundId}"));
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Refund {$refundId} not found for order {$orderId}", $exception);
+            }
+
+            throw $exception;
         }
     }
 }
