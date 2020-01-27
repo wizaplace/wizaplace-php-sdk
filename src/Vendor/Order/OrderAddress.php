@@ -130,15 +130,6 @@ final class OrderAddress
 
 
     /**
-     * @return string
-     */
-    public function getCompany(): string
-    {
-        return $this->company;
-    }
-
-
-    /**
      * @internal
      *
      * @param array $data
