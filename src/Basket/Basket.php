@@ -99,7 +99,7 @@ final class Basket
                 $this->shippingAddress = null; // The API returns an address with all the values set but empty. We consider this a null address.
             }
         }
-        if (array_key_exist($data['billingAddress']) === true) {
+        if (array_key_exists($data['billingAddress']) === true) {
             $this->billingAddress = new Address($data['billingAddress']);
             if ($this->billingAddress->getTitle() === null && $this->billingAddress->getAddress() === '' && $this->getBillingAddress()->getCity() === '') {
                 $this->billingAddress = null; // The API returns an address with all the values set but empty. We consider this a null address.
