@@ -122,9 +122,7 @@ final class OrderAddress
         return $this->zipCode;
     }
 
-    /**
-     * @return string
-     */
+    /** @return string */
     public function getCompany(): string
     {
         return $this->company;

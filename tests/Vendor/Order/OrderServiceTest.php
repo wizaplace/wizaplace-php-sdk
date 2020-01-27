@@ -685,12 +685,12 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame('University of Southern California', $shippingAddress->getCompany());
 
         static::assertInstanceOf(Shipping::class, $shipping);
-        $this->assertNotNull($shipping->getId());
-        $this->assertNotNull($shipping->getName());
-        $this->assertNotNull($shipping->getDeliveryTime());
-        $this->assertTrue($shipping->isEnabled());
-        $this->assertNotNull($shipping->getRates());
-        $this->assertNotNull($shipping->getDescription());
+        static::assertNotNull($shipping->getId());
+        static::assertNotNull($shipping->getName());
+        static::assertNotNull($shipping->getDeliveryTime());
+        static::assertTrue($shipping->isEnabled());
+        static::assertNotNull($shipping->getRates());
+        static::assertNotNull($shipping->getDescription());
         static::assertSame(1, $shipping->getId());
         static::assertSame(40, $shipping->getPosition());
         static::assertSame("TNT Express", $shipping->getName());

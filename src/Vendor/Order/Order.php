@@ -106,7 +106,7 @@ final class Order
     /** @var null|bool */
     private $isPaid;
 
-    /** @var Shipping[]|null */
+    /** @var null|Shipping[] */
     private $shipping;
 
     /**
