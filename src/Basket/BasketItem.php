@@ -63,6 +63,9 @@ final class BasketItem
     /** @var array  */
     private $divisions;
 
+    /** @var null|float  */
+    private $individualTax;
+
     /**
      * @internal
      */
@@ -90,6 +93,7 @@ final class BasketItem
         $this->totalPrice = new Price($data['totalPrice']);
         $this->greenTax = $data['greenTax'];
         $this->divisions = $data['divisions'] ?? [];
+        $this->individualTax = $data['individualTax'] ?? null;
     }
 
     /**
@@ -210,5 +214,11 @@ final class BasketItem
     public function getDivisions(): array
     {
         return $this->divisions;
+    }
+
+    /** @return null|float */
+    public function getIndividualTax(): ?float
+    {
+        return $this->individualTax;
     }
 }
