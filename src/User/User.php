@@ -139,6 +139,10 @@ final class User
      */
     public function getBirthday(): ?\DateTimeImmutable
     {
+        if ($this->birthday instanceof \DateTimeImmutable) {
+            $this->birthday = $this->birthday->setTime(0, 0, 0, 0);
+        }
+
         return $this->birthday;
     }
 

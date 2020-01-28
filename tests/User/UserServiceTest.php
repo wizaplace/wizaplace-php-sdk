@@ -1558,4 +1558,94 @@ final class UserServiceTest extends ApiTestCase
         static::assertEquals(3, $subscription->getCompanyId());
         static::assertUuid($subscription->getCardId());
     }
+
+    /**
+     * @dataProvider partialUserProvider
+     */
+    public function testRegisterUserPartially(RegisterUserCommand $registerUserCommand, array $expectedData): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $userId = (new UserService($apiClient))->registerPartially($registerUserCommand);
+
+        $apiClient->authenticate($expectedData['email'], 'password');
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame($expectedData['email'], $user->getEmail());
+        static::assertSame($expectedData['firstName'], $user->getFirstname());
+        static::assertSame($expectedData['lastName'], $user->getLastname());
+        static::assertEquals($expectedData['title'], $user->getTitle());
+        static::assertSame($expectedData['phone'], $user->getPhone());
+        static::assertEquals($expectedData['birthday'], $user->getBirthday());
+        static::assertInstanceOf($expectedData['billing'], $user->getBillingAddress());
+        static::assertInstanceOf($expectedData['shipping'], $user->getShippingAddress());
+        static::assertSame($expectedData['externalIdentifier'], $user->getExternalIdentifier());
+        static::assertSame($expectedData['isProfessional'], $user->isProfessional());
+        static::assertSame($expectedData['intraEuropeanCommunityVAT'], $user->getIntraEuropeanCommunityVAT());
+        static::assertSame($expectedData['company'], $user->getCompany());
+        static::assertSame($expectedData['jobTitle'], $user->getJobTitle());
+        static::assertSame($expectedData['comment'], $user->getComment());
+        static::assertSame($expectedData['legalIdentifier'], $user->getLegalIdentifier());
+        static::assertSame($expectedData['loyaltyIdentifier'], $user->getLoyaltyIdentifier());
+    }
+
+    public function partialUserProvider(): array
+    {
+        $birthday = (new \DateTimeImmutable("2019-11-18"));
+
+        return [
+            [
+                (new RegisterUserCommand())
+                    ->setEmail('partialUser@wizacha.com')
+                    ->setPassword("password")
+                    ->setTitle(UserTitle::MR())
+                    ->setBirthday($birthday),
+                [
+                    'email' => 'partialUser@wizacha.com',
+                    'firstName' => '',
+                    'lastName' => '',
+                    'title' => UserTitle::MR(),
+                    'phone' => '',
+                    'birthday' => $birthday,
+                    'billing' => UserAddress::class,
+                    'shipping' => UserAddress::class,
+                    'externalIdentifier' => '',
+                    'isProfessional' => false,
+                    'intraEuropeanCommunityVAT' => '',
+                    'company' => '',
+                    'jobTitle' => '',
+                    'comment' => '',
+                    'legalIdentifier' => '',
+                    'loyaltyIdentifier' => null,
+                ],
+            ],
+            [
+                (new RegisterUserCommand())
+                    ->setEmail('partialUser2@wizacha.com')
+                    ->setPassword("password")
+                    ->setFirstName('Paul')
+                    ->setLastName('WIZA')
+                    ->setComment('this is a comment'),
+                [
+                    'email' => 'partialUser2@wizacha.com',
+                    'firstName' => 'Paul',
+                    'lastName' => 'WIZA',
+                    'title' => null,
+                    'phone' => '',
+                    'birthday' => null,
+                    'billing' => UserAddress::class,
+                    'shipping' => UserAddress::class,
+                    'externalIdentifier' => '',
+                    'isProfessional' => false,
+                    'intraEuropeanCommunityVAT' => '',
+                    'company' => '',
+                    'jobTitle' => '',
+                    'comment' => 'this is a comment',
+                    'legalIdentifier' => '',
+                    'loyaltyIdentifier' => null,
+                ],
+            ],
+        ];
+    }
 }

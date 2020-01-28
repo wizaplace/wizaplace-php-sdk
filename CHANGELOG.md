@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Added `Wizaplace\SDK\User\UserService::registerPartially`
+
 ## 1.98.3
 
 ### Bugfixes

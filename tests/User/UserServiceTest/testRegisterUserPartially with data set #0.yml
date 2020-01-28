@@ -1,0 +1,94 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            VCR-index: '0'
+            Accept: null
+        body: 'email=partialUser%40wizacha.com&password=password&title=mr&birthday=2019-11-18'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 24 Jan 2020 08:37:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1c1143
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c1143'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221c1143%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 70d4667c6bb48208252eff593a157f5d
+        body: '{"id":30}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic cGFydGlhbFVzZXJAd2l6YWNoYS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 24 Jan 2020 08:37:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 35b346
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/35b346'
+            X-Request-Id: 8d55ea3f911617a551d2f95554370850
+        body: '{"id":30,"apiKey":"6b\/7trfucUrLMBnsguyJpNVmWqurULUoB0b6N6Cd"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/30'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token 6b/7trfucUrLMBnsguyJpNVmWqurULUoB0b6N6Cd'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 24 Jan 2020 08:37:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6efdfe
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6efdfe'
+            X-Request-Id: 40bd1a93356c458511331bed75de48aa
+        body: '{"id":30,"title":"mr","email":"partialUser@wizacha.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":"2019-11-18","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
