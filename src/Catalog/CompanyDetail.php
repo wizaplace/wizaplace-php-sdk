@@ -60,6 +60,18 @@ final class CompanyDetail
     /** @var null|Metadata */
     private $metadata;
 
+    /** @var null|string */
+    private $capital;
+
+    /** @var null|string */
+    private $legalStatus;
+
+    /** @var null|string */
+    private $siretNumber;
+
+    /** @var null|string */
+    private $vatNumber;
+
     public function __construct(array $data)
     {
         $this->id = to_int($data['id']);
@@ -80,6 +92,10 @@ final class CompanyDetail
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
         $this->extra = (array) $data['extra'];
         $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
+        $this->capital = (array_key_exists("capital", $data) === true && $data['capital'] !== null) ? (string) $data['capital'] : null;
+        $this->legalStatus = (array_key_exists("legalStatus", $data) === true && $data['legalStatus'] !== null) ? (string) $data['legalStatus'] : null;
+        $this->siretNumber = (array_key_exists("siretNumber", $data) === true && $data['siretNumber'] !== null) ? (string) $data['siretNumber'] : null;
+        $this->vatNumber = (array_key_exists("vatNumber", $data) === true && $data['vatNumber'] !== null) ? (string) $data['vatNumber'] : null;
     }
 
     public function getFullAddress(): CompanyAddress
@@ -150,5 +166,25 @@ final class CompanyDetail
     public function getMetadata(): ?Metadata
     {
         return $this->metadata;
+    }
+
+    public function getCapital(): ?string
+    {
+        return $this->capital;
+    }
+
+    public function getLegalStatus(): ?string
+    {
+        return $this->legalStatus;
+    }
+
+    public function getSiretNumber(): ?string
+    {
+        return $this->siretNumber;
+    }
+
+    public function getVatNumber(): ?string
+    {
+        return $this->vatNumber;
     }
 }

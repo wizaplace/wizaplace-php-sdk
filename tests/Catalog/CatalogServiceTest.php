@@ -2166,6 +2166,34 @@ final class CatalogServiceTest extends ApiTestCase
         ]));
     }
 
+    public function testGetCompanyByIdWidhMoreInfo(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $company = $catalogService->getCompanyById(3);
+
+        static::assertSame(3, $company->getId());
+        static::assertSame('The World Company Inc.', $company->getName());
+        static::assertSame('the-world-company-inc', $company->getSlug());
+        static::assertSame('The World Company Inc.', $company->getDescription());
+        static::assertSame('40 rue Laure Diebold', $company->getAddress());
+        static::assertSame('01 02 03 04 05', $company->getPhoneNumber());
+        static::assertTrue($company->isProfessional());
+        static::assertEquals(45.778847, $company->getLocation()->getLatitude());
+        static::assertEquals(4.800039, $company->getLocation()->getLongitude());
+        static::assertSame(5, $company->getAverageRating());
+        static::assertSame('Lorem Ipsum', $company->getTerms());
+        static::assertSame('FR', $company->getFullAddress()->getCountry());
+        static::assertSame('40 rue Laure Diebold', $company->getFullAddress()->getAddress());
+        static::assertSame('Paris', $company->getFullAddress()->getCity());
+        static::assertSame('75001', $company->getFullAddress()->getZipCode());
+        static::assertNull($company->getCapital());
+        static::assertNull($company->getLegalStatus());
+        static::assertSame("40483304800023", $company->getSiretNumber());
+        static::assertSame("FR83404833049", $company->getVatNumber());
+        static::assertSame([], $company->getExtra());
+    }
+
     public function testNumericFacet(): void
     {
         $catalogService = $this->buildCatalogService();

@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jan 2020 08:54:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c280a0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c280a0'
+            X-Request-Id: 40b51537872c37a36b50ab0c6da66ef5
+        body: '{"id":3,"name":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":"40483304800023","vatNumber":"FR83404833049","terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
