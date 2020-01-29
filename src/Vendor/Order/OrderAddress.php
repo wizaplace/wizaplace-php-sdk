@@ -61,7 +61,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
-        $this->title = array_key_exists('title', $data) ? $data['title'] : UserTitle::MR();
+        $this->title = array_key_exists('title', $data) ? new UserTitle($data['title']) : null;
     }
 
     /**
@@ -136,9 +136,9 @@ final class OrderAddress
 
 
     /**
-     * @return string
+     * @return UserTitle|null
      */
-    public function getTitle(): ?string
+    public function getTitle(): ?UserTitle
     {
         return $this->title;
     }
