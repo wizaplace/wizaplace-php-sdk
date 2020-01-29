@@ -704,24 +704,4 @@ class OrderServiceTest extends ApiTestCase
 
         return new OrderService($apiClient);
     }
-
-    public function testGetAnOrderById(): void
-    {
-        $order = $this->buildVendorOrderService()->getOrderById(7);
-
-        static::assertInstanceOf(Order::class, $order);
-        $shippingAddress = $order->getShippingAddress();
-        static::assertSame([], $order->getShipmentsIds());
-
-        static::assertInstanceOf(OrderAddress::class, $shippingAddress);
-        static::assertSame('University of Southern California', $shippingAddress->getCompany());
-    }
-
-    private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
-    {
-        $apiClient = $this->buildApiClient();
-        $apiClient->authenticate($email, $password);
-
-        return new OrderService($apiClient);
-    }
 }
