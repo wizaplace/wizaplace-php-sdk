@@ -705,11 +705,11 @@ class OrderServiceTest extends ApiTestCase
 
         $shippingAddress = $order->getShippingAddress();
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);
-        static::assertSame('mr', $shippingAddress->getTitle());
+        static::assertSame('mr', $shippingAddress->getTitle()->getValue());
 
         $billingAddress = $order->getBillingAddress();
         static::assertInstanceOf(OrderAddress::class, $billingAddress);
-        static::assertSame('mr', $billingAddress->getTitle());
+        static::assertSame('mr', $billingAddress->getTitle()->getValue());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
