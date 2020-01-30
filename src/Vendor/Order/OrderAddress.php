@@ -42,7 +42,7 @@ final class OrderAddress
     /** @var string */
     private $company;
 
-    /** @var string */
+    /** @var null|UserTitle */
     private $title;
 
     /**
