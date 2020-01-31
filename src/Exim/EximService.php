@@ -1,17 +1,19 @@
 <?php
+declare(strict_types=1);
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
 
+namespace Wizaplace\SDK\Exim;
+
 use GuzzleHttp\Psr7\Stream;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\FileNotFound;
-
-declare(strict_types=1);
 
 /**
  * Class EximService
