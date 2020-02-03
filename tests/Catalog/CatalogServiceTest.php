@@ -2299,6 +2299,47 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertSame(13, $brand->getImage()->getId());
     }
 
+    public function testGetProductByWithMaxPriceAdjustment()
+    {
+        $catalogService = $this->buildCatalogService();
+        $product1 = $catalogService->getProductById((string) 1);
+        static::assertSame((string) 1, $product1->getId());
+        static::assertSame(24, $product1->getMaxPriceAdjustment());
+
+        $product2 = $catalogService->getProductById((string) 4);
+        static::assertSame((string) 4, $product2->getId());
+        static::assertSame(35, $product2->getMaxPriceAdjustment());
+
+        $product3 = $catalogService->getProductById((string) 3);
+        static::assertSame((string) 3, $product3->getId());
+        static::assertNull($product3->getMaxPriceAdjustment());
+    }
+
+    public function testGetProductByFiltersWithMaxPriceAdjustment(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $filters = (new ProductFilter())->setIds([1, 4, 3]);
+
+        $products = $catalogService->getProductsByFilters($filters);
+        static::assertCount(3, $products);
+
+        $expected = ['1', '3', '4'];
+
+        foreach ($products as $key => $product) {
+            static::assertSame($expected[$key], $product->getId());
+        }
+
+        static::assertSame('1', $products[0]->getId());
+        static::assertSame(24, $products[0]->getMaxPriceAdjustment());
+
+        static::assertSame('4', $products[2]->getId());
+        static::assertSame(35, $products[2]->getMaxPriceAdjustment());
+
+        static::assertSame('3', $products[1]->getId());
+        static::assertNull($products[1]->getMaxPriceAdjustment());
+    }
+
     public function testGetProductsWithSubscription(): void
     {
         $products = $this->buildCatalogService()->getProductsByCode("product_with_sub");

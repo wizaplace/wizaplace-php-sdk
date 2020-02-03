@@ -1,5 +1,11 @@
 # Changelog
 
+# Next release
+
+## New features
+
+- Added `Wizaplace\SDK\Catalog\Product::getMaxPriceAdjustment`
+
 ## 1.100.4
 
 ### New features
