@@ -21,6 +21,8 @@ final class OrderItem
     private $productName;
     /** @var string */
     private $productCode;
+    /** @var int|null */
+    private $maxPriceAdjustment;
     /** @var string|null */
     private $productImageId;
     /** @var float */
@@ -46,6 +48,7 @@ final class OrderItem
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productName = $data['productName'];
         $this->productCode = $data['productCode'];
+        $this->maxPriceAdjustment = $data['maxPriceAdjustment'] ?? null;
         $this->productImageId = $data['productImageId'] ?? null;
         $this->price = $data['price'];
         $this->amount = $data['amount'];
@@ -87,6 +90,14 @@ final class OrderItem
     public function getProductImageId(): ?string
     {
         return $this->productImageId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 
     /**
