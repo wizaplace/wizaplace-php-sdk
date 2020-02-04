@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.100.6
+
+## New features
+
+- Added `Wizaplace\SDK\Catalog\Product::getMaxPriceAdjustment`
+
+## 1.100.4
+
+### New features
+
+- Added `Wizaplace\SDK\User\UserService::registerPartially`
+
 ## 1.98.3
 
 ### Bugfixes

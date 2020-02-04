@@ -70,6 +70,23 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame("CORSAIR-CASQUE-GAMING", $firstItem->getSupplierRef());
     }
 
+    public function testGetOrderWithMaxPriceAdjustment()
+    {
+        $order = $this->buildOrderService()->getOrder(10);
+
+        static::assertSame(10, $order->getId());
+
+        // Premier orderItem
+        $firstItem = $order->getOrderItems()[0];
+        static::assertTrue((new DeclinationId('2_3_34_4_38'))->equals($firstItem->getDeclinationId()));
+        static::assertSame('Souris sans fil avec récepteur nano 6 boutons', $firstItem->getProductName());
+        static::assertSame('color_white_connectivity_wireles', $firstItem->getProductCode());
+        static::assertSame(15.5, $firstItem->getPrice());
+        static::assertSame(1, $firstItem->getAmount());
+        static::assertSame("INFO-002", $firstItem->getSupplierRef());
+        static::assertSame(50, $firstItem->getMaxPriceAdjustment());
+    }
+
     public function testGetInexistingOrderYieldsAnError(): void
     {
         $this->expectException(OrderNotFound::class);

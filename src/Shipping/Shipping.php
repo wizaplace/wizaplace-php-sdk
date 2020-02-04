@@ -41,10 +41,10 @@ final class Shipping
      */
     public function __construct(array $data)
     {
-        $this->id = $data['shipping_id'];
-        $this->name = $data['shipping'];
-        $this->deliveryTime = $data['delivery_time'];
-        $this->isEnabled = $data['status'] === "A";
+        $this->id = $data['shipping_id'] ?? null;
+        $this->name = $data['shipping'] ?? null;
+        $this->deliveryTime = $data['delivery_time'] ?? null;
+        $this->isEnabled = array_key_exists('status', $data) ? $data['status'] === "A" : null;
 
         if (isset($data['rates'])) {
             $this->rates = array_map(function ($rate) {

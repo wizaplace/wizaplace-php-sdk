@@ -125,6 +125,9 @@ final class Product
     /** @var PriceTier[] */
     protected $priceTiers;
 
+    /** @var null|int */
+    private $maxPriceAdjustment;
+
     /** @var null|bool */
     private $isSubscription;
 
@@ -146,6 +149,9 @@ final class Product
         $this->name = $data['name'];
         $this->url = $data['url'];
         $this->shortDescription = $data['shortDescription'];
+        if (array_key_exists('maxPriceAdjustment', $data) === true) {
+            $this->maxPriceAdjustment = $data['maxPriceAdjustment'];
+        }
         $this->description = $data['description'];
         $this->slug = to_string($data['slug']);
         $this->minPrice = to_float($data['minPrice']);
@@ -496,6 +502,11 @@ final class Product
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
+    }
+
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 
     /**

@@ -264,6 +264,45 @@ final class UserService extends AbstractService
         return $userData['id'];
     }
 
+    public function registerPartially(RegisterUserCommand $command): int
+    {
+        try {
+            $userData = $this->client->post(
+                'users',
+                [
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'email' => $command->getEmail(),
+                            'password' => $command->getPassword(),
+                            'firstName' => $command->getFirstName(),
+                            'lastName' => $command->getLastName(),
+                            'title' => \is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                            'phone' => $command->getPhone(),
+                            'birthday' => \is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                            'billing' => \is_null($command->getBilling()) ? null : self::serializeUserAddressUpdate($command->getBilling()),
+                            'shipping' => \is_null($command->getShipping()) ? null : self::serializeUserAddressUpdate($command->getShipping()),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'jobTitle' => $command->getJobTitle(),
+                            'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
+                            'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                        ]
+                    ),
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 409) {
+                throw new UserAlreadyExists($e);
+            }
+            throw $e;
+        }
+
+        return $userData['id'];
+    }
+
     /**
      * @param string            $email
      * @param UriInterface|null $recoverBaseUrl

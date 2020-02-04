@@ -37,6 +37,9 @@ final class OrderAddress
     /** @var string */
     private $zipCode;
 
+    /** @var string */
+    private $company;
+
     /**
      * @internal
      *
@@ -52,6 +55,7 @@ final class OrderAddress
         $this->lastName = $data['lastname'];
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
+        $this->company = $data['company'];
     }
 
     /**
@@ -117,6 +121,13 @@ final class OrderAddress
     {
         return $this->zipCode;
     }
+
+    /** @return string */
+    public function getCompany(): string
+    {
+        return $this->company;
+    }
+
 
     /**
      * @internal
