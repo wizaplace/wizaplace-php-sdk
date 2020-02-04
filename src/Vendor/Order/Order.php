@@ -7,6 +7,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use Wizaplace\SDK\Shipping\Shipping;
 use function theodorejb\polycast\to_int;
 
 /**
@@ -105,6 +106,9 @@ final class Order
     /** @var null|bool */
     private $isPaid;
 
+    /** @var null|Shipping[] */
+    private $shipping;
+
     /**
      * @internal
      *
@@ -151,6 +155,9 @@ final class Order
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isSubscriptionInitiator = $data['is_subscription_initiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
+        $this->shipping = \array_key_exists('shipping', $data) ? array_map(function (array $itemData): Shipping {
+            return new Shipping($itemData);
+        }, $data['shipping']) : null;
     }
 
     /**
@@ -434,5 +441,13 @@ final class Order
     public function isPaid(): ?bool
     {
         return $this->isPaid;
+    }
+
+    /**
+     * @return Shipping[]|null
+     */
+    public function getShipping(): ?array
+    {
+        return $this->shipping;
     }
 }
