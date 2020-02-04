@@ -32,9 +32,10 @@ final class EximService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         // Open CSV file
-        $file = fopen($filePath, 'r+');
+        // We need the @ the catch the exception ourself in dev mode
+        $file = @fopen($filePath, 'r+');
         if(false === $file) {
-            throw new FileNotFound('File not found', ['file' => $filePath]);
+            throw new FileNotFound('File not found ' . $filePath, ['file' => $filePath]);
         }
 
         // Add stream to HTTP body

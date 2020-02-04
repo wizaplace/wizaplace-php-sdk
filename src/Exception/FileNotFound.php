@@ -30,6 +30,6 @@ final class FileNotFound extends \Exception
     {
         $this->context = $context;
 
-        parent::__construct($message, $previous);
+        parent::__construct($message, 404, $previous);
     }
 }
