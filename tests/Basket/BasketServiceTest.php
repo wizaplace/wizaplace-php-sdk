@@ -1,9 +1,12 @@
 <?php
+
 /**
- * @copyright Copyright (c) Wizacha
- * @license Proprietary
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
@@ -285,15 +288,33 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1));
+        static::assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_5_40'), 1));
 
         $basket = $basketService->getBasket($basketId);
 
-        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[3];
-        $this->assertSame(3, $declinationOption->getOptionId());
-        $this->assertSame('size', $declinationOption->getOptionName());
-        $this->assertSame(7, $declinationOption->getVariantId());
-        $this->assertSame('13', $declinationOption->getVariantName());
+        $declinationOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[5];
+        static::assertSame(5, $declinationOption->getOptionId());
+        static::assertSame('size', $declinationOption->getOptionName());
+        static::assertSame(null, $declinationOption->getOptionCode());
+        static::assertSame(40, $declinationOption->getVariantId());
+        static::assertSame('13', $declinationOption->getVariantName());
+    }
+
+    public function testGetBasketWithSystemOption(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        $basketId = $basketService->create();
+        static::assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('1_6_44'), 1));
+
+        $basket = $basketService->getBasket($basketId);
+
+        $declinationSystemOption = $basket->getCompanyGroups()[0]->getShippingGroups()[0]->getItems()[0]->getDeclinationOptions()[6];
+        static::assertSame(6, $declinationSystemOption->getOptionId());
+        static::assertSame('Fréquence de paiement', $declinationSystemOption->getOptionName());
+        static::assertSame('payment_frequency', $declinationSystemOption->getOptionCode());
+        static::assertSame(44, $declinationSystemOption->getVariantId());
+        static::assertSame('1', $declinationSystemOption->getVariantName());
     }
 
     public function testGetBasketItems(): void
@@ -303,21 +324,30 @@ final class BasketServiceTest extends ApiTestCase
         $basketId = $basketService->create();
 
         // add 2 distinct items
-        static::assertSame(5, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 5));
+        static::assertSame(5, $basketService->addProductToBasket($basketId, new DeclinationId('3_5_40'), 5));
         static::assertSame(3, $basketService->addProductToBasket($basketId, new DeclinationId('13_0'), 3));
+        static::assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('1_6_44'), 1));
 
         $basketItems = $basketService->getBasketItems($basketId);
-        static::assertSame(8, $basketItems->getQuantitiesTotal());
-        static::assertSame(2, $basketItems->getTotal());
+        static::assertSame(9, $basketItems->getQuantitiesTotal());
+        static::assertSame(3, $basketItems->getTotal());
 
         $items = $basketItems->getItems();
         static::assertSame(5, $items[0]['quantity']);
         static::assertSame(3, $items[1]['quantity']);
+        static::assertSame(1, $items[2]['quantity']);
 
         $option = $items[0]['options'][0];
-        static::assertSame(3, $option['optionId']);
+        static::assertSame(5, $option['optionId']);
         static::assertSame('size', $option['optionName']);
+        static::assertSame(null, $option['optionCode']);
         static::assertSame('13', $option['valueName']);
+
+        $systemOption = $items[2]['options'][0];
+        static::assertSame(6, $systemOption['optionId']);
+        static::assertSame('Fréquence de paiement', $systemOption['optionName']);
+        static::assertSame('payment_frequency', $systemOption['optionCode']);
+        static::assertSame('1', $systemOption['valueName']);
     }
 
     public function testGetBasketItemsPaginate(): void
@@ -384,9 +414,9 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = $this->buildAuthenticatedBasketService();
 
         $basketId = $basketService->create();
-        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1));
+        $this->assertSame(1, $basketService->addProductToBasket($basketId, new DeclinationId('3_5_40'), 1));
         $comments = [
-            new ProductComment(new DeclinationId('3_3_7'), 'I will be available only during the afternoon'),
+            new ProductComment(new DeclinationId('3_5_40'), 'I will be available only during the afternoon'),
         ];
         $basketService->updateComments($basketId, $comments);
 
@@ -516,12 +546,12 @@ final class BasketServiceTest extends ApiTestCase
         $basketService = new BasketService($apiClient);
 
         $basketId = $basketService->create();
-        $basketService->addProductToBasket($basketId, new DeclinationId('1_0'), 1);
-        $basketService->addProductToBasket($basketId, new DeclinationId('3_3_7'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('1_6_44'), 1);
+        $basketService->addProductToBasket($basketId, new DeclinationId('3_5_40'), 1);
 
         $basketId2 = $basketService->create();
-        $basketService->addProductToBasket($basketId2, new DeclinationId('1_0'), 2);
-        $basketService->addProductToBasket($basketId2, new DeclinationId('3_3_8'), 1);
+        $basketService->addProductToBasket($basketId2, new DeclinationId('1_6_44'), 2);
+        $basketService->addProductToBasket($basketId2, new DeclinationId('3_5_41'), 1);
 
         $basketService->mergeBaskets($basketId, $basketId2);
 
@@ -537,9 +567,9 @@ final class BasketServiceTest extends ApiTestCase
         }
 
         $this->assertSame([
-            '1_0' => 2,
-            '3_3_7' => 1,
-            '3_3_8' => 1,
+            '1_6_44' => 2,
+            '3_5_40' => 1,
+            '3_5_41' => 1,
         ], $quantitiesMap);
 
         // check that the source basket is unchanged
@@ -554,8 +584,8 @@ final class BasketServiceTest extends ApiTestCase
         }
 
         $this->assertSame([
-            '1_0' => 2,
-            '3_3_8' => 1,
+            '1_6_44' => 2,
+            '3_5_41' => 1,
         ], $quantitiesMap);
     }
 
