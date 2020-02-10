@@ -389,6 +389,7 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('Jean', $user->getFirstname());
         static::assertSame('Paul', $user->getLastname());
         static::assertNull($user->getBirthday());
+        static::assertSame('fr', $user->getLanguage());
         static::assertNull($user->getCompanyId());
         static::assertFalse($user->isVendor());
         static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
@@ -403,6 +404,7 @@ final class UserServiceTest extends ApiTestCase
                 ->setTitle(UserTitle::MR())
                 ->setPhone('0102030405')
                 ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
+                ->setLanguage('en')
                 ->setCurrencyCode('EUR')
         );
 
@@ -415,6 +417,7 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('Jules', $user->getLastname());
         static::assertSame('1963-02-17', $user->getBirthday()->format('Y-m-d'));
         static::assertSame('0102030405', $user->getPhone());
+        static::assertSame('en', $user->getLanguage());
         static::assertNull($user->getCompanyId());
         static::assertFalse($user->isVendor());
         static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
@@ -1577,6 +1580,7 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame($expectedData['lastName'], $user->getLastname());
         static::assertEquals($expectedData['title'], $user->getTitle());
         static::assertSame($expectedData['phone'], $user->getPhone());
+        static::assertSame($expectedData['lang'], $user->getLanguage());
         static::assertEquals($expectedData['birthday'], $user->getBirthday());
         static::assertInstanceOf($expectedData['billing'], $user->getBillingAddress());
         static::assertInstanceOf($expectedData['shipping'], $user->getShippingAddress());
@@ -1607,6 +1611,7 @@ final class UserServiceTest extends ApiTestCase
                     'lastName' => '',
                     'title' => UserTitle::MR(),
                     'phone' => '',
+                    'lang' => 'fr',
                     'birthday' => $birthday,
                     'billing' => UserAddress::class,
                     'shipping' => UserAddress::class,
@@ -1633,6 +1638,7 @@ final class UserServiceTest extends ApiTestCase
                     'lastName' => 'WIZA',
                     'title' => null,
                     'phone' => '',
+                    'lang' => 'fr',
                     'birthday' => null,
                     'billing' => UserAddress::class,
                     'shipping' => UserAddress::class,

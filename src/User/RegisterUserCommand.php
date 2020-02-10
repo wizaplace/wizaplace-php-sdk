@@ -64,6 +64,9 @@ final class RegisterUserCommand
     /** @var string|null */
     private $loyaltyIdentifier;
 
+    /** @var string|null */
+    private $lang;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -382,5 +385,19 @@ final class RegisterUserCommand
         $this->loyaltyIdentifier = $loyaltyIdentifier;
 
         return $this;
+    }
+
+    /** @param string|null $lang */
+    public function setLanguage(?string $lang): self
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /** @return null|string */
+    public function getLanguage(): ?string
+    {
+        return $this->lang;
     }
 }

@@ -1,5 +1,15 @@
 # Changelog
 
+## Next release
+
+## New features
+
+- Added `Wizaplace\SDK\User\User::getLanguage`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getLanguage`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setLanguage`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getLanguage`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setLanguage`
+
 ## 1.100.6
 
 ## New features
