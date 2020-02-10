@@ -544,8 +544,27 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertUuid($subscription->getCardId());
     }
 
-    private function buildUserCompanyService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3'): CompanyService
+    public function testRegisteringACompanyWithNullNafCode(): void
     {
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setNafCode(null);
+
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3')
+            ->register($companyRegistration)
+        ;
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertStringStartsWith('acme-test-inc', $company->getSlug());
+        static::assertSame('acme@example.com', $company->getEmail());
+        static::assertEmpty($company->getFax());
+        static::assertNull($company->getNafCode());
+    }
+
+    private function buildUserCompanyService(
+        string $email = 'customer-3@world-company.com',
+        string $password = 'password-customer-3'
+    ): CompanyService {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);
 
