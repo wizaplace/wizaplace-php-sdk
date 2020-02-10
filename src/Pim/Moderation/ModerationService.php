@@ -32,6 +32,6 @@ class ModerationService extends AbstractService
         }
 
         $this->client->mustBeAuthenticated();
-        $this->client->put("moderation/companies/{$companyId}/products/{moderationAction}");
+        $this->client->put("moderation/companies/{$companyId}/products/{$moderationAction}");
     }
 }
