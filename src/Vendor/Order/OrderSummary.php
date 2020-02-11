@@ -45,6 +45,9 @@ final class OrderSummary
     /** @var int  */
     private $companyId;
 
+    /** @var string|null  */
+    private $companyName;
+
     /** @var \DateTimeImmutable|null */
     private $lastStatusChange;
 
@@ -71,6 +74,7 @@ final class OrderSummary
         $this->customerLastName = $data['customer_lastname'];
         $this->orderId = $data['order_id'];
         $this->companyId = $data['company_id'];
+        $this->companyName = (array_key_exists('company_name', $data) === true) ? $data['company_name'] : null;
         $this->status = new OrderStatus($data['status']);
         $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
         $this->customerUserId = $data['user_id'];
@@ -120,6 +124,12 @@ final class OrderSummary
     public function getCompanyId(): int
     {
         return $this->companyId;
+    }
+
+    /*** @return string */
+    public function getCompanyName(): ?string
+    {
+        return $this->companyName;
     }
 
     /**
