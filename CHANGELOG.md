@@ -1,8 +1,18 @@
 # Changelog
 
+## Next release
+
+### Deprecated
+
+- `Wizaplace\SDK\Basket\BasketService::addProductToBasket` use `addProduct` instead
+
+### New features
+
+- Added `Wizaplace\SDK\Basket\BasketService::addProduct`
+
 ## 1.100.13
 
-## New features
+### New features
 
 - Added `Wizaplace\SDK\User\User::getLanguage`
 - Added `Wizaplace\SDK\User\RegisterUserCommand::getLanguage`
@@ -12,7 +22,7 @@
 
 ## 1.100.6
 
-## New features
+### New features
 
 - Added `Wizaplace\SDK\Catalog\Product::getMaxPriceAdjustment`
 

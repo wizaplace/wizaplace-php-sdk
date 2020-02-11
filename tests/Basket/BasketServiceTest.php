@@ -734,6 +734,34 @@ final class BasketServiceTest extends ApiTestCase
         static::assertNull($service->getUserBasketId());
     }
 
+    public function testAddProduct(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $basketService = new BasketService($apiClient);
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+        $expectedResult = [
+            'quantity' => 10,
+            'added' => 10,
+        ];
+        $basketBody = $basketService->addProduct($basketId, new DeclinationId('1_0'), 10);
+        static::assertSame($expectedResult, $basketBody);
+
+        $basketService = new BasketService($apiClient);
+
+        $basketId = $basketService->create();
+        $this->assertNotEmpty($basketId);
+        $expectedResult = [
+            'quantity' => 0,
+            'added' => 0,
+        ];
+        $basketBody = $basketService->addProduct($basketId, new DeclinationId('1_0'), 3);
+        static::assertSame($expectedResult, $basketBody);
+    }
+
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService
     {
         $apiClient = $this->buildApiClient();
