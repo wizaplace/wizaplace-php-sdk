@@ -13,8 +13,8 @@
         "jean85/pretty-package-versions": "^1.0",
         "myclabs/php-enum": "^1.5",
         "psr/log": "^1.0",
-        "symfony/serializer": "^4.0|^3.0",
-        "symfony/validator": "^4.0|^3.3",
+        "symfony/serializer": "^5.0|^4.0|^3.0",
+        "symfony/validator": "^5.0|^4.0|^3.3",
         "theodorejb/polycast": "^1.0"
     },
     "autoload": {

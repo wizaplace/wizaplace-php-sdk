@@ -15,6 +15,7 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Order\Order;
+use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
@@ -662,6 +663,38 @@ final class OrganisationServiceTest extends ApiTestCase
                 }
             }
         }
+    }
+
+    public function testGetOrganisationWithCompanyName(): void
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+        $organisationId = $this->getOrganisationId();
+
+        if (is_string($organisationId) === true) {
+            $organisationService->get($organisationId);
+            $organisationGetOrder = $organisationService->getOrganisationOrders($organisationId);
+            $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+            $orders = $orderService->getOrder($organisationGetOrder['orders'][0]->getOrderId());
+            $this->assertSame('The World Company Inc.', $orders->getCompanyName());
+        }
+    }
+
+    /**
+     * Return and Order service, depending of a logged user, or not
+     * @param string $email
+     * @param string $password
+     * @param bool $authenticate
+     * @return OrderService
+     * @throws BadCredentials
+     */
+    public function buildOrderService(string $email = 'admin@wizaplace.com', string $password = 'password', bool $authenticate = true): OrderService
+    {
+        $apiClient = $this->buildApiClient();
+        if ($authenticate === true) {
+            $apiClient->authenticate($email, $password);
+        }
+
+        return new OrderService($apiClient);
     }
 
     /**

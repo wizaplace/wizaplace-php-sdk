@@ -117,8 +117,9 @@ final class Company
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
-        $this->nafCode = array_key_exists('nafCode', $data) && is_string($data['nafCode']) ? to_string($data['nafCode']) : null;
-        $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
+        $this->nafCode = (\array_key_exists('nafCode', $data) && is_string($data['nafCode'])) ? $data['nafCode'] : null;
+        $this->metadata = (\array_key_exists('meta', $data) && count($data['meta']) > 0)
+            ? new Metadata($data['meta']) : null;
     }
 
     public function getId(): int

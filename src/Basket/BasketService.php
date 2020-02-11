@@ -53,6 +53,8 @@ use function theodorejb\polycast\to_string;
  */
 final class BasketService extends AbstractService
 {
+    private const QUANTITY = 'quantity';
+
     /**
      * Create a new basket.
      *
@@ -94,14 +96,36 @@ final class BasketService extends AbstractService
      *
      * @param int           $quantity
      *
-     * @return int quantity added
+     * @return int Total product quantity in the basket
+     *
+     * @throws BadQuantity The quantity is invalid.
+     * @throws NotFound The basket could not be found.
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     *
+     * @deprecated use addProduct
+     */
+    public function addProductToBasket(string $basketId, DeclinationId $declinationId, int $quantity): int
+    {
+        return (int) $this->addProduct($basketId, $declinationId, $quantity)[static::QUANTITY];
+    }
+
+    /**
+     * Add a product or a product's declination to a basket.
+     *
+     * @param string        $basketId
+     * @param DeclinationId $declinationId ID of the product or the product's declination to add to the basket.
+     *
+     * @param int           $quantity
+     *
+     * @return array[] Total product quantity in the basket and product quantity added to basket
      *
      * @throws BadQuantity The quantity is invalid.
      * @throws NotFound The basket could not be found.
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addProductToBasket(string $basketId, DeclinationId $declinationId, int $quantity): int
+    public function addProduct(string $basketId, DeclinationId $declinationId, int $quantity): array
     {
         if ($quantity < 1) {
             throw new BadQuantity('"quantity" must be greater than 0');
@@ -111,7 +135,7 @@ final class BasketService extends AbstractService
             $responseData = $this->client->post("basket/{$basketId}/add", [
                 RequestOptions::FORM_PARAMS => [
                     'declinationId' => to_string($declinationId),
-                    'quantity' => $quantity,
+                     static::QUANTITY => $quantity,
                 ],
             ]);
         } catch (ClientException $ex) {
@@ -124,7 +148,7 @@ final class BasketService extends AbstractService
             throw $ex;
         }
 
-        return $responseData['quantity'];
+        return $responseData;
     }
 
     /**
@@ -323,7 +347,7 @@ final class BasketService extends AbstractService
             $responseData = $this->client->post("basket/{$basketId}/modify", [
                 RequestOptions::FORM_PARAMS => [
                     'declinationId' => to_string($declinationId),
-                    'quantity' => $quantity,
+                     static::QUANTITY => $quantity,
                 ],
             ]);
         } catch (ClientException $ex) {
@@ -336,7 +360,7 @@ final class BasketService extends AbstractService
             throw $ex;
         }
 
-        return $responseData['quantity'];
+        return $responseData[static::QUANTITY];
     }
 
     /**
