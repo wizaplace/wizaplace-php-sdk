@@ -15,6 +15,8 @@ use Wizaplace\SDK\Catalog\DeclinationId;
  */
 final class OrderItem
 {
+    /** @var null|string */
+    private $itemId;
     /** @var DeclinationId */
     private $declinationId;
     /** @var string */
@@ -37,6 +39,10 @@ final class OrderItem
     private $greenTax;
     /** @var null|string */
     private $supplierRef;
+    /** @var bool */
+    private $isSubscription;
+    /** @var bool */
+    private $isRenewable;
 
     /**
      * @internal
@@ -45,6 +51,7 @@ final class OrderItem
      */
     public function __construct(array $data)
     {
+        $this->itemId = $data['itemId'] ?? null;
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productName = $data['productName'];
         $this->productCode = $data['productCode'];
@@ -58,6 +65,14 @@ final class OrderItem
         $this->customerComment = $data['customerComment'];
         $this->greenTax = $data['greenTax'];
         $this->supplierRef = $data['supplierRef'];
+        $this->isSubscription = $data['isSubscription'] ?? false;
+        $this->isRenewable = $data['isRenewable'] ?? false;
+    }
+
+    /** @return null|string */
+    public function getItemId(): ?string
+    {
+        return $this->itemId;
     }
 
     /**
@@ -143,5 +158,17 @@ final class OrderItem
     public function getSupplierRef(): ?string
     {
         return $this->supplierRef;
+    }
+
+    /** @return bool */
+    public function isSubscription(): bool
+    {
+        return $this->isSubscription;
+    }
+
+    /** @return bool */
+    public function isRenewable(): bool
+    {
+        return $this->isRenewable;
     }
 }

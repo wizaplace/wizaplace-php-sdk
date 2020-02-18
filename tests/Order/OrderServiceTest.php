@@ -360,6 +360,16 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(SubscriptionSummary::class, $subscriptions[1]);
     }
 
+    public function testNewOrderItemProperties(): void
+    {
+        $order = $this->buildOrderService()->getOrder(2);
+        $firstItem = $order->getOrderItems()[0];
+
+        static::assertSame('19377517', $firstItem->getItemId());
+        static::assertFalse($firstItem->IsSubscription());
+        static::assertFalse($firstItem->IsRenewable());
+    }
+
     public function testGetOrderRefunds(): void
     {
         $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
