@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Attribute;
@@ -23,7 +25,7 @@ class AttributeServiceTest extends ApiTestCase
         $attributes = $this->buildAttributeService()->getProductAttributes(8);
 
         $this->assertContainsOnly(ProductAttribute::class, $attributes);
-        $this->assertGreaterThanOrEqual(7, count($attributes));
+        $this->assertGreaterThanOrEqual(7, \count($attributes));
 
         foreach ($attributes as $attribute) {
             $this->assertNotEmpty($attribute->getName());
@@ -50,7 +52,7 @@ class AttributeServiceTest extends ApiTestCase
         $attributes = $this->buildAttributeService()->getCategoryAttributes(6);
 
         $this->assertContainsOnly(Attribute::class, $attributes);
-        $this->assertGreaterThanOrEqual(7, count($attributes));
+        $this->assertGreaterThanOrEqual(7, \count($attributes));
 
         foreach ($attributes as $attribute) {
             $this->assertNotEmpty($attribute->getName());
@@ -116,9 +118,15 @@ class AttributeServiceTest extends ApiTestCase
 
         /** @var ProductAttributeVariants $attribute */
         $attribute = $this->buildAttributeService()->getProductAttribute(8, 1);
-        $this->assertSame([1 => 1, 3 => 3], array_map(function (AttributeVariant $variant): int {
-            return $variant->getId();
-        }, $attribute->getSelectedVariants()));
+        $this->assertSame(
+            [1 => 1, 3 => 3],
+            array_map(
+                function (AttributeVariant $variant): int {
+                    return $variant->getId();
+                },
+                $attribute->getSelectedVariants()
+            )
+        );
     }
 
     private function buildAttributeService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): AttributeService

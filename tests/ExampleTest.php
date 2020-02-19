@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests;
 
@@ -21,9 +23,11 @@ final class ExampleTest extends ApiTestCase
     {
         // Setup
         $marketplaceApiUri = 'http://wizaplace.loc/api/v1/'; // replace that value with your own
-        $httpClient = new \GuzzleHttp\Client([
-            'base_uri' => $marketplaceApiUri,
-        ]);
+        $httpClient = new \GuzzleHttp\Client(
+            [
+                'base_uri' => $marketplaceApiUri,
+            ]
+        );
         $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
         $catalogService = new \Wizaplace\SDK\Catalog\CatalogService($wizaplaceClient);
 
@@ -42,9 +46,11 @@ final class ExampleTest extends ApiTestCase
     {
         // Setup
         $marketplaceApiUri = 'http://wizaplace.loc/api/v1/'; // replace that value with your own
-        $httpClient = new \GuzzleHttp\Client([
-            'base_uri' => $marketplaceApiUri,
-        ]);
+        $httpClient = new \GuzzleHttp\Client(
+            [
+                'base_uri' => $marketplaceApiUri,
+            ]
+        );
         $wizaplaceClient = new \Wizaplace\SDK\ApiClient($httpClient);
         $orderService = new \Wizaplace\SDK\Order\OrderService($wizaplaceClient);
 

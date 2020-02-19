@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -68,7 +70,7 @@ final class AttributeType extends Enum
             case 'G':
                 return self::GROUP();
             default:
-                throw new \UnexpectedValueException("Value '$value' is not part of the legacy mapping for enum ".self::class);
+                throw new \UnexpectedValueException("Value '$value' is not part of the legacy mapping for enum " . self::class);
         }
     }
 }

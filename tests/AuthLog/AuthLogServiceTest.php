@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\AuthLog;
 
@@ -54,10 +56,12 @@ class AuthLogServiceTest extends ApiTestCase
     public function testSearch(): void
     {
         $authLogService = $this->buildAuthLogService();
-        $authLogs = $authLogService->search([
-            'status' => ['SUCCESS'],
-            'sort_order' => 'asc',
-        ]);
+        $authLogs = $authLogService->search(
+            [
+                'status' => ['SUCCESS'],
+                'sort_order' => 'asc',
+            ]
+        );
         $this->assertEquals(19, $authLogs['total']);
     }
 

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
@@ -20,15 +22,20 @@ class MultiVendorProductList
 
     public function __construct(array $data)
     {
-        $this->multiVendorProducts = array_map(function (array $item): MultiVendorProduct {
-            return new MultiVendorProduct($item);
-        }, $data['_embedded']['multiVendorProducts']);
-        $this->pagination = new Pagination([
-            'page' => $data['page'],
-            'nbResults' => $data['total'],
-            'nbPages' => ($data['count'] > 0) ? ceil($data['total'] / $data['count']) : 0,
-            'resultsPerPage' => $data['count'],
-        ]);
+        $this->multiVendorProducts = array_map(
+            function (array $item): MultiVendorProduct {
+                return new MultiVendorProduct($item);
+            },
+            $data['_embedded']['multiVendorProducts']
+        );
+        $this->pagination = new Pagination(
+            [
+                'page' => $data['page'],
+                'nbResults' => $data['total'],
+                'nbPages' => ($data['count'] > 0) ? ceil($data['total'] / $data['count']) : 0,
+                'resultsPerPage' => $data['count'],
+            ]
+        );
     }
 
     /**

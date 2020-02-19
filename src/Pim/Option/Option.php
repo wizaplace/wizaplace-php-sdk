@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Option;
@@ -41,9 +43,12 @@ final class Option
         $this->id = $data['option_id'];
         $this->name = $data['option_name'];
         $this->status = new OptionStatus($data['status']);
-        $this->variants = array_map(function (array $variantData): OptionVariant {
-            return new OptionVariant($variantData);
-        }, $data['variants']);
+        $this->variants = array_map(
+            function (array $variantData): OptionVariant {
+                return new OptionVariant($variantData);
+            },
+            $data['variants']
+        );
         $this->isSystem = $data['is_system'] ?? false;
         $this->code = $data['code'] ?? null;
     }

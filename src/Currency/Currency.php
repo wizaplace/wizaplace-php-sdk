@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Currency;
@@ -46,9 +48,12 @@ final class Currency
         $this->setEnabled($data['enabled']);
         $this->setExchangeRate($data['exchangeRate'] ?? null);
         $this->setSymbol($data['symbol'] ?? null);
-        $this->countryCodes = array_map(function (array $itemData): CurrencyCountries {
-            return new CurrencyCountries($itemData);
-        }, $data['countries']);
+        $this->countryCodes = array_map(
+            function (array $itemData): CurrencyCountries {
+                return new CurrencyCountries($itemData);
+            },
+            $data['countries']
+        );
     }
 
     public function setExchangeRate(?float $exchangeRate): self

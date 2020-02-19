@@ -1,16 +1,19 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Seo\Metadata;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
-use Wizaplace\SDK\Seo\Metadata;
 
 /**
  * Class CompanyDetail
@@ -91,11 +94,11 @@ final class CompanyDetail
         $this->terms = to_string($data['terms']);
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
         $this->extra = (array) $data['extra'];
-        $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
-        $this->capital = (array_key_exists("capital", $data) === true && $data['capital'] !== null) ? (string) $data['capital'] : null;
-        $this->legalStatus = (array_key_exists("legalStatus", $data) === true && $data['legalStatus'] !== null) ? (string) $data['legalStatus'] : null;
-        $this->siretNumber = (array_key_exists("siretNumber", $data) === true && $data['siretNumber'] !== null) ? (string) $data['siretNumber'] : null;
-        $this->vatNumber = (array_key_exists("vatNumber", $data) === true && $data['vatNumber'] !== null) ? (string) $data['vatNumber'] : null;
+        $this->metadata = (\array_key_exists('meta', $data) && \count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
+        $this->capital = (\array_key_exists("capital", $data) === true && $data['capital'] !== null) ? (string) $data['capital'] : null;
+        $this->legalStatus = (\array_key_exists("legalStatus", $data) === true && $data['legalStatus'] !== null) ? (string) $data['legalStatus'] : null;
+        $this->siretNumber = (\array_key_exists("siretNumber", $data) === true && $data['siretNumber'] !== null) ? (string) $data['siretNumber'] : null;
+        $this->vatNumber = (\array_key_exists("vatNumber", $data) === true && $data['vatNumber'] !== null) ? (string) $data['vatNumber'] : null;
     }
 
     public function getFullAddress(): CompanyAddress

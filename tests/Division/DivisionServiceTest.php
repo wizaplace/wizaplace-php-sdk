@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 namespace Wizaplace\SDK\Tests\Division;
 
 use Wizaplace\SDK\Division\Division;
@@ -53,7 +55,7 @@ class DivisionServiceTest extends ApiTestCase
     private function buildDivisionService(string $email = null, string $password = null)
     {
         $apiClient = $this->buildApiClient();
-        if (!is_null($email) && !is_null($password)) {
+        if (!\is_null($email) && !\is_null($password)) {
             $apiClient->authenticate($email, $password);
         }
 

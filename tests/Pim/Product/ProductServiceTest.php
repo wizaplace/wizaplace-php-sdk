@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Product;
@@ -62,25 +64,28 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame(0.0, $product->getGreenTax());
         static::assertNull($product->getGeolocation());
         static::assertTrue($product->isBrandNew());
-        static::assertSame([
-            'Free attribute multiple' => [
-                'réponse - 1 #',
-                'réponse - 2 @',
-                4985,
+        static::assertSame(
+            [
+                'Free attribute multiple' => [
+                    'réponse - 1 #',
+                    'réponse - 2 @',
+                    4985,
+                ],
+                'Free attribute simple' => [
+                    'valeur simple du free attribute #12M%M_°09£*/.?',
+                ],
+                'Free attribute simple mais en tableau' => [
+                    'une bien belle valeur déjà encapsulée',
+                ],
+                'Free attribute integer ?' => [
+                    92254094,
+                ],
+                'Free attribute integer mais en tableau' => [
+                    'la même histoire par ici',
+                ],
             ],
-            'Free attribute simple' => [
-                'valeur simple du free attribute #12M%M_°09£*/.?',
-            ],
-            'Free attribute simple mais en tableau' => [
-                'une bien belle valeur déjà encapsulée',
-            ],
-            'Free attribute integer ?' => [
-                92254094,
-            ],
-            'Free attribute integer mais en tableau' => [
-                'la même histoire par ici',
-            ],
-        ], $product->getFreeAttributes());
+            $product->getFreeAttributes()
+        );
         static::assertContainsOnly(ProductAttachment::class, $product->getAttachments());
         static::assertSame([2], $product->getTaxIds());
         static::assertNull($product->getMainImage());
@@ -155,8 +160,8 @@ final class ProductServiceTest extends ApiTestCase
         $result = $this->buildProductService()->listProducts();
         $products = $result->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
-        static::assertLessThanOrEqual(100, count($products));
-        static::assertGreaterThan(0, count($products));
+        static::assertLessThanOrEqual(100, \count($products));
+        static::assertGreaterThan(0, \count($products));
 
         $pagination = $result->getPagination();
         static::assertInstanceOf(Pagination::class, $pagination);
@@ -173,7 +178,7 @@ final class ProductServiceTest extends ApiTestCase
             static::assertGreaterThan(1500000000, $product->getCreatedAt()->getTimestamp());
             static::assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
             static::assertGreaterThan(0, $product->getCompanyId());
-            static::assertTrue(is_array($product->getDivisions()));
+            static::assertTrue(\is_array($product->getDivisions()));
         }
     }
 
@@ -254,7 +259,7 @@ final class ProductServiceTest extends ApiTestCase
         $filter = (new ProductListFilter())->byCategoryIds([3], false);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
-        static::assertGreaterThanOrEqual(2, count($products));
+        static::assertGreaterThanOrEqual(2, \count($products));
 
         foreach ($products as $product) {
             static::assertSame(3, $product->getMainCategoryId());
@@ -266,17 +271,20 @@ final class ProductServiceTest extends ApiTestCase
         $filter = (new ProductListFilter())->byCategoryIds([3], true);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
-        static::assertGreaterThanOrEqual(2, count($products));
+        static::assertGreaterThanOrEqual(2, \count($products));
 
         $categoriesIds = [];
         foreach ($products as $product) {
             $categoriesIds[$product->getMainCategoryId()] = true;
         }
 
-        static::assertSame([
-            3 => true,
-            4 => true,
-        ], $categoriesIds);
+        static::assertSame(
+            [
+                3 => true,
+                4 => true,
+            ],
+            $categoriesIds
+        );
     }
 
     public function testDeleteProduct(): void
@@ -297,7 +305,7 @@ final class ProductServiceTest extends ApiTestCase
         $filter = (new ProductListFilter())->byStatus($status);
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
-        static::assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+        static::assertGreaterThanOrEqual($minimumExpectedCount, \count($products));
 
         foreach ($products as $product) {
             static::assertTrue($status->equals($product->getStatus()));
@@ -340,19 +348,19 @@ final class ProductServiceTest extends ApiTestCase
         if ($productCode !== null) {
             $filter->byProductCode($productCode);
         }
-        if (is_array($ids)) {
+        if (\is_array($ids)) {
             $filter->byIds($ids);
         }
-        if (is_array($productCodes)) {
+        if (\is_array($productCodes)) {
             $filter->byProductCodes($productCodes);
         }
-        if (is_array($supplierReferences)) {
+        if (\is_array($supplierReferences)) {
             $filter->bySupplierReferences($supplierReferences);
         }
 
         $products = $this->buildProductService()->listProducts($filter)->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
-        static::assertGreaterThanOrEqual($minimumExpectedCount, count($products));
+        static::assertGreaterThanOrEqual($minimumExpectedCount, \count($products));
 
         $categoriesIds = [];
         foreach ($products as $product) {
@@ -490,46 +498,54 @@ final class ProductServiceTest extends ApiTestCase
             ->setSupplierReference('supplierref_full')
             ->setStatus(ProductStatus::ENABLED())
             ->setMainCategoryId(4)
-            ->setFreeAttributes([
-                'freeAttr1' => 'freeAttr1Value',
-                'freeAttr2' => 42,
-                'freeAttr3' => ['freeAttr3Value', 42],
-            ])
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value',
+                    'freeAttr2' => 42,
+                    'freeAttr3' => ['freeAttr3Value', 42],
+                ]
+            )
             ->setHasFreeShipping(true)
             ->setWeight(0.2)
             ->setIsDownloadable(true)
             ->setMainImage(new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'))
-            ->setAdditionalImages([
-                (new ProductImageUpload())->setName('image1.png')
+            ->setAdditionalImages(
+                [
+                    (new ProductImageUpload())->setName('image1.png')
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'),
-            ])
+                    new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'),
+                ]
+            )
             ->setFullDescription("super full description")
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
-            ->setDeclinations([
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
                     ->setInfiniteStock(true)
-                    ->setPriceTiers([
+                    ->setPriceTiers(
                         [
-                            'lowerLimit' => 0,
-                            'price' => 18.99,
-                        ],
-                        [
-                            'lowerLimit' => 15,
-                            'price' => 15.99,
-                        ],
-                    ]),
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                            [
+                                'lowerLimit' => 0,
+                                'price' => 18.99,
+                            ],
+                            [
+                                'lowerLimit' => 15,
+                                'price' => 15.99,
+                            ],
+                        ]
+                    ),
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
                     ->setInfiniteStock(true),
-            ])
+                ]
+            )
             ->setGeolocation(
                 (new ProductGeolocationUpsertData(/* latitude */ 45.778848, /* longitude */ 4.800039))
                     ->setLabel('Wizacha')
@@ -557,11 +573,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertTrue($product->isBrandNew());
         static::assertTrue($product->hasFreeShipping());
         static::assertSame([1, 2], $product->getTaxIds());
-        static::assertSame([
-            'freeAttr1' => ['freeAttr1Value'],
-            'freeAttr2' => [42],
-            'freeAttr3' => ['freeAttr3Value', 42],
-        ], $product->getFreeAttributes());
+        static::assertSame(
+            [
+                'freeAttr1' => ['freeAttr1Value'],
+                'freeAttr2' => [42],
+                'freeAttr3' => ['freeAttr3Value', 42],
+            ],
+            $product->getFreeAttributes()
+        );
         static::assertSame(0.1, $product->getGreenTax());
         static::assertTrue($product->hasInfiniteStock());
         static::assertSame(0.2, $product->getWeight());
@@ -647,46 +666,54 @@ final class ProductServiceTest extends ApiTestCase
             ->setSupplierReference('supplierref_full')
             ->setStatus(ProductStatus::ENABLED())
             ->setMainCategoryId(4)
-            ->setFreeAttributes([
-                'freeAttr1' => 'freeAttr1Value',
-                'freeAttr2' => 42,
-                'freeAttr3' => ['freeAttr3Value', 42],
-            ])
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value',
+                    'freeAttr2' => 42,
+                    'freeAttr3' => ['freeAttr3Value', 42],
+                ]
+            )
             ->setHasFreeShipping(true)
             ->setWeight(0.2)
             ->setIsDownloadable(true)
             ->setMainImage(new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'))
-            ->setAdditionalImages([
-                (new ProductImageUpload())->setName('image1.png')
+            ->setAdditionalImages(
+                [
+                    (new ProductImageUpload())->setName('image1.png')
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'),
-            ])
+                    new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'),
+                ]
+            )
             ->setFullDescription("super full description")
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
-            ->setDeclinations([
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
                     ->setInfiniteStock(true),
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
                     ->setInfiniteStock(true)
-                    ->setPriceTiers([
+                    ->setPriceTiers(
                         [
-                            'lowerLimit' => 0,
-                            'price' => 99.59,
-                        ],
-                        [
-                            'lowerLimit' => 30,
-                            'price' => 80.99,
-                        ],
-                    ]),
-            ])
+                            [
+                                'lowerLimit' => 0,
+                                'price' => 99.59,
+                            ],
+                            [
+                                'lowerLimit' => 30,
+                                'price' => 80.99,
+                            ],
+                        ]
+                    ),
+                ]
+            )
             ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png')])
             ->setProductTemplateType('product');
 
@@ -710,11 +737,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertTrue($product->isBrandNew());
         static::assertTrue($product->hasFreeShipping());
         static::assertSame([1, 2], $product->getTaxIds());
-        static::assertSame([
-            'freeAttr1' => ['freeAttr1Value'],
-            'freeAttr2' => [42],
-            'freeAttr3' => ['freeAttr3Value', 42],
-        ], $product->getFreeAttributes());
+        static::assertSame(
+            [
+                'freeAttr1' => ['freeAttr1Value'],
+                'freeAttr2' => [42],
+                'freeAttr3' => ['freeAttr3Value', 42],
+            ],
+            $product->getFreeAttributes()
+        );
         static::assertSame(0.1, $product->getGreenTax());
         static::assertSame(0.2, $product->getWeight());
         static::assertTrue(ProductStatus::ENABLED()->equals($product->getStatus()));
@@ -792,44 +822,52 @@ final class ProductServiceTest extends ApiTestCase
             ->setSupplierReference('supplierref_full')
             ->setStatus(ProductStatus::ENABLED())
             ->setMainCategoryId(4)
-            ->setFreeAttributes([
-                'freeAttr1' => 'freeAttr1Value',
-                'freeAttr2' => 42,
-                'freeAttr3' => ['freeAttr3Value', 42],
-            ])
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value',
+                    'freeAttr2' => 42,
+                    'freeAttr3' => ['freeAttr3Value', 42],
+                ]
+            )
             ->setHasFreeShipping(true)
             ->setWeight(0.2)
             ->setIsDownloadable(true)
             ->setMainImage(new Uri('https://www.google.com/favicon.ico'))
-            ->setAdditionalImages([
-                (new ProductImageUpload())->setName('image1.png')
+            ->setAdditionalImages(
+                [
+                    (new ProductImageUpload())->setName('image1.png')
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                new Uri('https://www.google.com/favicon.ico'),
-            ])
+                    new Uri('https://www.google.com/favicon.ico'),
+                ]
+            )
             ->setFullDescription("super full description")
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
-            ->setDeclinations([
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
-                    ->setPriceTiers([
+                    ->setPriceTiers(
                         [
-                            'lowerLimit' => 0,
-                            'price' => 2.7,
-                        ],
-                        [
-                            'lowerLimit' => 50,
-                            'price' => 2.5,
-                        ],
-                    ]),
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                            [
+                                'lowerLimit' => 0,
+                                'price' => 2.7,
+                            ],
+                            [
+                                'lowerLimit' => 50,
+                                'price' => 2.5,
+                            ],
+                        ]
+                    ),
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3),
-            ])
+                ]
+            )
         ->setAttachments([new ProductAttachmentUpload('favicon', 'https://www.google.com/favicon.ico')])
         ->setProductTemplateType('product');
 
@@ -846,11 +884,13 @@ final class ProductServiceTest extends ApiTestCase
             ->setSupplierReference('supplierref_full2')
             ->setStatus(ProductStatus::DISABLED())
             ->setMainCategoryId(4)
-            ->setFreeAttributes([
-                'freeAttr1' => 'freeAttr1Value2',
-                'freeAttr2' => 43,
-                'freeAttr3' => ['freeAttr3Value2', 43],
-            ])
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value2',
+                    'freeAttr2' => 43,
+                    'freeAttr3' => ['freeAttr3Value2', 43],
+                ]
+            )
             ->setHasFreeShipping(false)
             ->setWeight(0.3)
             ->setIsDownloadable(false)
@@ -859,34 +899,40 @@ final class ProductServiceTest extends ApiTestCase
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII=')
             )
-            ->setAdditionalImages([
-                new Uri('https://www.google.com/favicon.ico'),
-                (new ProductImageUpload())->setName('image2.png')
+            ->setAdditionalImages(
+                [
+                    new Uri('https://www.google.com/favicon.ico'),
+                    (new ProductImageUpload())->setName('image2.png')
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-            ])
+                ]
+            )
             ->setFullDescription("super full description 2")
             ->setShortDescription("super short description 2")
             ->setTaxIds([2, 3])
-            ->setDeclinations([
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.6)
                     ->setQuantity(13),
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setCrossedOutPrice(1000.2)
                     ->setQuantity(4)
-                    ->setPriceTiers([
+                    ->setPriceTiers(
                         [
-                            'lowerLimit' => 0,
-                            'price' => 99.99,
-                        ],
-                        [
-                            'lowerLimit' => 120,
-                            'price' => 89.99,
-                        ],
-                    ]),
-            ])
+                            [
+                                'lowerLimit' => 0,
+                                'price' => 99.99,
+                            ],
+                            [
+                                'lowerLimit' => 120,
+                                'price' => 89.99,
+                            ],
+                        ]
+                    ),
+                ]
+            )
             ->setMaxPriceAdjustment(10)
             ->setAttachments([new ProductAttachmentUpload('favicon2', 'https://www.google.com/favicon.ico')])
             ->setProductTemplateType('product');
@@ -907,11 +953,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertFalse($product->isBrandNew());
         static::assertFalse($product->hasFreeShipping());
         static::assertSame([2, 3], $product->getTaxIds());
-        static::assertSame([
-            'freeAttr1' => ['freeAttr1Value2'],
-            'freeAttr2' => [43],
-            'freeAttr3' => ['freeAttr3Value2', 43],
-        ], $product->getFreeAttributes());
+        static::assertSame(
+            [
+                'freeAttr1' => ['freeAttr1Value2'],
+                'freeAttr2' => [43],
+                'freeAttr3' => ['freeAttr3Value2', 43],
+            ],
+            $product->getFreeAttributes()
+        );
         static::assertSame(0.2, $product->getGreenTax());
         static::assertSame(0.3, $product->getWeight());
         static::assertTrue(ProductStatus::DISABLED()->equals($product->getStatus()));
@@ -1001,16 +1050,18 @@ final class ProductServiceTest extends ApiTestCase
 
         $command = new UpdateShippingCommand();
         $command->setStatus("D")
-                ->setRates([
+                ->setRates(
                     [
-                        'amount' => 0,
-                        'value'  => 100,
-                    ],
-                    [
-                        'amount' => 1,
-                        'value'  => 50,
-                    ],
-                ])
+                        [
+                            'amount' => 0,
+                            'value'  => 100,
+                        ],
+                        [
+                            'amount' => 1,
+                            'value'  => 50,
+                        ],
+                    ]
+                )
                 ->setSpecificRate(false)
                 ->setProductId(5);
 
@@ -1030,16 +1081,18 @@ final class ProductServiceTest extends ApiTestCase
 
         $command = new UpdateShippingCommand();
         $command->setStatus("Status qui n'existe pas")
-            ->setRates([
+            ->setRates(
                 [
-                    'amount' => 0,
-                    'value'  => 100,
-                ],
-                [
-                    'amount' => 1,
-                    'value'  => 50,
-                ],
-            ])
+                    [
+                        'amount' => 0,
+                        'value'  => 100,
+                    ],
+                    [
+                        'amount' => 1,
+                        'value'  => 50,
+                    ],
+                ]
+            )
             ->setSpecificRate(false)
             ->setProductId(-1);
 
@@ -1065,9 +1118,9 @@ final class ProductServiceTest extends ApiTestCase
         $divisions = $service->getDivisions(1, 'FR');
         static::assertCount(3, $divisions);
 
-        static::assertTrue(in_array('FR', $divisions));
-        static::assertTrue(in_array('FR-ARA', $divisions));
-        static::assertTrue(in_array('FR-03', $divisions));
+        static::assertTrue(\in_array('FR', $divisions));
+        static::assertTrue(\in_array('FR-ARA', $divisions));
+        static::assertTrue(\in_array('FR-03', $divisions));
     }
 
     public function testSettingDivisionsProducts(): void
@@ -1077,10 +1130,10 @@ final class ProductServiceTest extends ApiTestCase
         $divisions = $service->putDivisions(1, 'FR', ['FR-01', 'FR-03']);
         static::assertCount(4, $divisions);
 
-        static::assertTrue(in_array('FR', $divisions));
-        static::assertTrue(in_array('FR-ARA', $divisions));
-        static::assertTrue(in_array('FR-01', $divisions));
-        static::assertTrue(in_array('FR-03', $divisions));
+        static::assertTrue(\in_array('FR', $divisions));
+        static::assertTrue(\in_array('FR-ARA', $divisions));
+        static::assertTrue(\in_array('FR-01', $divisions));
+        static::assertTrue(\in_array('FR-03', $divisions));
     }
 
     public function testAddVideo(): void
@@ -1093,42 +1146,48 @@ final class ProductServiceTest extends ApiTestCase
             ->setSupplierReference('supplierref_full')
             ->setStatus(ProductStatus::ENABLED())
             ->setMainCategoryId(4)
-            ->setFreeAttributes([
-                'freeAttr1' => 'freeAttr1Value',
-                'freeAttr2' => 42,
-                'freeAttr3' => ['freeAttr3Value', 42],
-            ])
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value',
+                    'freeAttr2' => 42,
+                    'freeAttr3' => ['freeAttr3Value', 42],
+                ]
+            )
             ->setHasFreeShipping(true)
             ->setWeight(0.2)
             ->setIsDownloadable(true)
             ->setMainImage(new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'))
-            ->setAdditionalImages([
-                (new ProductImageUpload())->setName('image1.png')
+            ->setAdditionalImages(
+                [
+                    (new ProductImageUpload())->setName('image1.png')
                     ->setMimeType('image/png')
                     ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
-            ])
+                    new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
+                ]
+            )
             ->setFullDescription("super full description")
             ->setShortDescription("super short description")
             ->setTaxIds([1, 2])
-            ->setDeclinations([
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                     ->setCode('code_full_declA')
                     ->setPrice(3.5)
                     ->setQuantity(12)
                     ->setInfiniteStock(true),
-                (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
                     ->setPrice(100.0)
                     ->setCrossedOutPrice(1000.0)
                     ->setQuantity(3)
                     ->setInfiniteStock(true),
-            ]);
+                ]
+            );
         $productService = $this->buildProductService('vendor@wizaplace.com');
         $productId = $productService->createProduct($data);
 
         $video = $productService->addVideo($productId, 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4');
 
-        static::assertTrue(is_array($video));
+        static::assertTrue(\is_array($video));
         static::assertRegExp(
             '~^[a-zA-Z0-9]{8}(-[a-zA-Z0-9]{4}){4}[a-zA-Z0-9]{8}$~',
             $video['id']
@@ -1161,31 +1220,37 @@ final class ProductServiceTest extends ApiTestCase
                 ->setSupplierReference('supplierref_full')
                 ->setStatus(ProductStatus::ENABLED())
                 ->setMainCategoryId(4)
-                ->setFreeAttributes([
-                    'freeAttr1' => 'freeAttr1Value',
-                    'freeAttr2' => 42,
-                    'freeAttr3' => ['freeAttr3Value', 42],
-                ])
+                ->setFreeAttributes(
+                    [
+                        'freeAttr1' => 'freeAttr1Value',
+                        'freeAttr2' => 42,
+                        'freeAttr3' => ['freeAttr3Value', 42],
+                    ]
+                )
                 ->setHasFreeShipping(true)
                 ->setWeight(0.2)
                 ->setIsDownloadable(true)
                 ->setMainImage(new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'))
-                ->setAdditionalImages([
-                    (new ProductImageUpload())->setName('image1.png')
+                ->setAdditionalImages(
+                    [
+                        (new ProductImageUpload())->setName('image1.png')
                         ->setMimeType('image/png')
                         ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                    new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
-                ])
+                        new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
+                    ]
+                )
                 ->setFullDescription("super full description")
                 ->setShortDescription("super short description")
                 ->setTaxIds([1, 2])
-                ->setDeclinations([
-                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                         ->setCode($ean)
                         ->setPrice(3.5)
                         ->setQuantity(10)
                         ->setInfiniteStock(true),
-                ])
+                    ]
+                )
         );
         $product2Id = $service->createProduct(
             (new CreateProductCommand())
@@ -1196,31 +1261,37 @@ final class ProductServiceTest extends ApiTestCase
                 ->setSupplierReference('supplierref_full')
                 ->setStatus(ProductStatus::ENABLED())
                 ->setMainCategoryId(4)
-                ->setFreeAttributes([
-                    'freeAttr1' => 'freeAttr1Value',
-                    'freeAttr2' => 42,
-                    'freeAttr3' => ['freeAttr3Value', 42],
-                ])
+                ->setFreeAttributes(
+                    [
+                        'freeAttr1' => 'freeAttr1Value',
+                        'freeAttr2' => 42,
+                        'freeAttr3' => ['freeAttr3Value', 42],
+                    ]
+                )
                 ->setHasFreeShipping(true)
                 ->setWeight(0.2)
                 ->setIsDownloadable(true)
                 ->setMainImage(new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'))
-                ->setAdditionalImages([
-                    (new ProductImageUpload())->setName('image1.png')
+                ->setAdditionalImages(
+                    [
+                        (new ProductImageUpload())->setName('image1.png')
                         ->setMimeType('image/png')
                         ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
-                    new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
-                ])
+                        new Uri('https://sandbox.wizaplace.com/api/v1/doc/favicon.png'),
+                    ]
+                )
                 ->setFullDescription("super full description")
                 ->setShortDescription("super short description")
                 ->setTaxIds([1, 2])
-                ->setDeclinations([
-                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
                         ->setCode($ean)
                         ->setPrice(3.5)
                         ->setQuantity(15)
                         ->setInfiniteStock(true),
-                ])
+                    ]
+                )
         );
 
         $response = $service->updateStock($ean, 5);
@@ -1339,13 +1410,15 @@ final class ProductServiceTest extends ApiTestCase
                 ->setMainCategoryId(1)
                 ->setGreenTax(0.)
                 ->setTaxIds([1])
-                ->setDeclinations([
-                    (new ProductDeclinationUpsertData([]))
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([]))
                         ->setCode('product_with_sub')
                         ->setPrice(3.5)
                         ->setQuantity(12)
                         ->setInfiniteStock(false),
-                ])
+                    ]
+                )
                 ->setStatus(ProductStatus::ENABLED())
                 ->setIsBrandNew(true)
                 ->setWeight(0.)
@@ -1355,7 +1428,7 @@ final class ProductServiceTest extends ApiTestCase
                 ->setIsRenewable(true)
         );
 
-        static::assertTrue(is_int($id));
+        static::assertTrue(\is_int($id));
 
         $product = $service->getProductById($id);
 
@@ -1384,7 +1457,7 @@ final class ProductServiceTest extends ApiTestCase
     private function loadAnnotations(): void
     {
         /** @var ClassLoader $loader */
-        $loader = require __DIR__.'/../../../vendor/autoload.php';
+        $loader = require __DIR__ . '/../../../vendor/autoload.php';
         AnnotationRegistry::registerLoader([$loader, 'loadClass']);
     }
 }

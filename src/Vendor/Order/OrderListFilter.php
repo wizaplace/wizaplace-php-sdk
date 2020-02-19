@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -67,7 +69,7 @@ final class OrderListFilter implements ArrayableInterface
     {
         $filters = [];
 
-        if (count($this->companyIds) > 0) {
+        if (\count($this->companyIds) > 0) {
             $filters['company_ids'] = $this->companyIds;
         }
 

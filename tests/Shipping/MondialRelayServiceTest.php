@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Shipping;
 
@@ -40,12 +42,15 @@ final class MondialRelayServiceTest extends ApiTestCase
         $point = $mondialRelay->getPickupPoint('003393');
 
         $this->assertSame($point->getId(), '003393');
-        $this->assertSame($point->getAddress(), [
-            'KFE TOLSTOI PMU',
-            '',
-            '97 COURS TOLSTOI',
-            '',
-        ]);
+        $this->assertSame(
+            $point->getAddress(),
+            [
+                'KFE TOLSTOI PMU',
+                '',
+                '97 COURS TOLSTOI',
+                '',
+            ]
+        );
         $this->assertSame($point->getZipCode(), '69100');
         $this->assertSame($point->getCity(), 'VILLEURBANNE');
         $this->assertSame($point->getCountry(), 'FR');

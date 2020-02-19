@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Cms;
 
@@ -17,7 +19,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners();
 
-        $this->assertSame(2, count($banners));
+        $this->assertSame(2, \count($banners));
 
         $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
         $this->assertSame(8, $banners[0]->getImageId());
@@ -34,7 +36,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('mobile');
 
-        $this->assertSame(1, count($banners));
+        $this->assertSame(1, \count($banners));
         $this->assertSame('http://url-de-test.com', (string) $banners[0]->getLink());
         $this->assertSame(8, $banners[0]->getImageId());
         $this->assertTrue($banners[0]->getShouldOpenInNewWindow());
@@ -45,7 +47,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getHomepageBanners('desktop');
 
-        $this->assertSame(1, count($banners));
+        $this->assertSame(1, \count($banners));
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
         $this->assertSame(9, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
@@ -56,7 +58,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3);
 
-        $this->assertSame(2, count($banners));
+        $this->assertSame(2, \count($banners));
 
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
         $this->assertSame(9, $banners[0]->getImageId());
@@ -72,7 +74,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'mobile');
 
-        $this->assertSame(1, count($banners));
+        $this->assertSame(1, \count($banners));
         $this->assertSame('http://url-de-test-3.com', (string) $banners[0]->getLink());
         $this->assertSame(10, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
@@ -83,7 +85,7 @@ final class BannerServiceTest extends ApiTestCase
         $cmsService = $this->buildBannerService();
         $banners = $cmsService->getCategoriesBanners(3, 'desktop');
 
-        $this->assertSame(1, count($banners));
+        $this->assertSame(1, \count($banners));
         $this->assertSame('http://url-de-test-2.com', (string) $banners[0]->getLink());
         $this->assertSame(9, $banners[0]->getImageId());
         $this->assertFalse($banners[0]->getShouldOpenInNewWindow());
@@ -109,14 +111,14 @@ final class BannerServiceTest extends ApiTestCase
     {
         $cmsService = $this->buildBannerService();
         $banners1 = $cmsService->getHomepageBanners();
-        static::assertSame(2, count($banners1));
+        static::assertSame(2, \count($banners1));
         static::assertSame(8, $banners1[0]->getImageId());
         static::assertSame("Texte alternatif image", $banners1[0]->getAlt());
         static::assertSame('http://url-de-test-2.com', (string) $banners1[1]->getLink());
         static::assertSame(9, $banners1[1]->getImageId());
         static::assertFalse($banners1[1]->getShouldOpenInNewWindow());
         $banners2 = $cmsService->getCategoriesBanners(3, 'desktop');
-        static::assertSame(1, count($banners2));
+        static::assertSame(1, \count($banners2));
         static::assertSame(9, $banners2[0]->getImageId());
         static::assertSame("Texte alternatif image", $banners2[0]->getAlt());
     }

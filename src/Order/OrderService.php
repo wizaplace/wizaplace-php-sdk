@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -39,9 +41,12 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $datas = $this->client->get('user/orders', []);
-        $orders = array_map(static function (array $orderData) : Order {
-            return new Order($orderData);
-        }, $datas);
+        $orders = array_map(
+            static function (array $orderData): Order {
+                return new Order($orderData);
+            },
+            $datas
+        );
 
         return $orders;
     }
@@ -60,7 +65,7 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return new Order($this->client->get('user/orders/'.$orderId, []));
+        return new Order($this->client->get('user/orders/' . $orderId, []));
     }
 
     /**
@@ -91,9 +96,12 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $data = $this->client->get("user/orders/returns", []);
-        $orderReturns = array_map(static function (array $orderReturn) : OrderReturn {
-            return new OrderReturn($orderReturn);
-        }, $data);
+        $orderReturns = array_map(
+            static function (array $orderReturn): OrderReturn {
+                return new OrderReturn($orderReturn);
+            },
+            $data
+        );
 
         return $orderReturns;
     }
@@ -170,12 +178,15 @@ final class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post("user/orders/{$request->getOrderId()}/after-sales", [
-                RequestOptions::JSON => [
-                    'comments' => $request->getComments(),
-                    'items' => $request->getItemsDeclinationsIds(),
-                ],
-            ]);
+            $this->client->post(
+                "user/orders/{$request->getOrderId()}/after-sales",
+                [
+                    RequestOptions::JSON => [
+                        'comments' => $request->getComments(),
+                        'items' => $request->getItemsDeclinationsIds(),
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$request->getOrderId()} not found", $e);
@@ -261,12 +272,15 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/$orderId/adjustments", [
-            'json' => [
-                'itemId' => $itemId,
-                'newTotalWithoutTaxes' => $newPrice,
-            ],
-        ]);
+        $this->client->post(
+            "orders/$orderId/adjustments",
+            [
+                'json' => [
+                    'itemId' => $itemId,
+                    'newTotalWithoutTaxes' => $newPrice,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -275,9 +289,12 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         try {
-            return array_map(function (array $data): OrderAdjustment {
-                return new OrderAdjustment($data);
-            }, $this->client->get("orders/{$orderId}/adjustments"));
+            return array_map(
+                function (array $data): OrderAdjustment {
+                    return new OrderAdjustment($data);
+                },
+                $this->client->get("orders/{$orderId}/adjustments")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -291,8 +308,11 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): SubscriptionSummary {
-            return new SubscriptionSummary($data);
-        }, $this->client->get("user/orders/${orderId}/subscriptions"));
+        return array_map(
+            function (array $data): SubscriptionSummary {
+                return new SubscriptionSummary($data);
+            },
+            $this->client->get("user/orders/${orderId}/subscriptions")
+        );
     }
 }

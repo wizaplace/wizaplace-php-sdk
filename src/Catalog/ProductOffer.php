@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
@@ -35,9 +37,9 @@ class ProductOffer
         $this->productId = (int) $data['productId'];
         $this->companyId = (int) $data['companyId'];
         $this->price     = (float) $data['price'];
-        $this->divisions = is_array($data['divisions']) ? array_filter($data['divisions']) : [];
+        $this->divisions = \is_array($data['divisions']) ? array_filter($data['divisions']) : [];
 
-        if (isset($data['status']) && in_array($data['status'], ProductStatus::toArray())) {
+        if (isset($data['status']) && \in_array($data['status'], ProductStatus::toArray())) {
             $this->status = new ProductStatus($data['status']);
         }
 

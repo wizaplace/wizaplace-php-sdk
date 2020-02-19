@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -30,9 +32,12 @@ final class PaymentInformation
      */
     public function __construct(array $data)
     {
-        $this->orders = array_map(static function (array $orderData): BasketOrder {
-            return new BasketOrder($orderData);
-        }, $data['orders']);
+        $this->orders = array_map(
+            static function (array $orderData): BasketOrder {
+                return new BasketOrder($orderData);
+            },
+            $data['orders']
+        );
         $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($data['redirectUrl']);
         $this->html = $data['html'] ?? '';
     }

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Favorite;
 
@@ -13,6 +15,7 @@ use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Catalog\DeclinationSummary;
 use Wizaplace\SDK\Favorite\Exception\CannotFavoriteDisabledOrInexistentDeclination;
 use Wizaplace\SDK\Favorite\Exception\FavoriteAlreadyExist;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -31,14 +34,17 @@ final class FavoriteService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getAll() : array
+    public function getAll(): array
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations', []);
 
-        return array_map(static function (array $favorite) : DeclinationSummary {
-            return new DeclinationSummary($favorite);
-        }, $results['_embedded']['favorites']);
+        return array_map(
+            static function (array $favorite): DeclinationSummary {
+                return new DeclinationSummary($favorite);
+            },
+            $results['_embedded']['favorites']
+        );
     }
 
     /**
@@ -51,7 +57,7 @@ final class FavoriteService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function isInFavorites(DeclinationId $declinationId) : bool
+    public function isInFavorites(DeclinationId $declinationId): bool
     {
         $this->client->mustBeAuthenticated();
         $results = $this->client->get('user/favorites/declinations/ids', []);
@@ -75,11 +81,11 @@ final class FavoriteService extends AbstractService
      * @throws CannotFavoriteDisabledOrInexistentDeclination
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function addDeclinationToUserFavorites(DeclinationId $declinationId) : void
+    public function addDeclinationToUserFavorites(DeclinationId $declinationId): void
     {
         $this->client->mustBeAuthenticated();
         try {
-            $this->client->rawRequest('post', 'user/favorites/declinations/'.$declinationId);
+            $this->client->rawRequest('post', 'user/favorites/declinations/' . $declinationId);
         } catch (\Exception $e) {
             $code = $e->getCode();
             switch ($code) {
@@ -97,9 +103,9 @@ final class FavoriteService extends AbstractService
      * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function removeDeclinationToUserFavorites(DeclinationId $declinationId) : void
+    public function removeDeclinationToUserFavorites(DeclinationId $declinationId): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->rawRequest('delete', 'user/favorites/declinations/'.$declinationId);
+        $this->client->rawRequest('delete', 'user/favorites/declinations/' . $declinationId);
     }
 }

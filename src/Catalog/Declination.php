@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -103,13 +105,19 @@ final class Declination
         $this->greenTax = $data['greenTax'] ?? 0;
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
-        $this->images = array_map(static function (array $imageData) : Image {
-            return new Image($imageData);
-        }, $data['images']);
+        $this->images = array_map(
+            static function (array $imageData): Image {
+                return new Image($imageData);
+            },
+            $data['images']
+        );
         $this->isBrandNew = $data['isBrandNew'] ?? true;
-        $this->options = array_map(static function (array $optionData) : DeclinationOption {
-            return new DeclinationOption($optionData);
-        }, $data['options']);
+        $this->options = array_map(
+            static function (array $optionData): DeclinationOption {
+                return new DeclinationOption($optionData);
+            },
+            $data['options']
+        );
         $this->company = new CompanySummary($data['company']);
         $this->isAvailable = $data['isAvailable'];
         $this->infiniteStock = $data['infiniteStock'];
@@ -274,7 +282,7 @@ final class Declination
          */
         $foundIds = 0;
         foreach ($variantIds as $variantId) {
-            if (in_array($variantId, $declinationVariantIds)) {
+            if (\in_array($variantId, $declinationVariantIds)) {
                 $foundIds++;
             }
         }
@@ -284,7 +292,7 @@ final class Declination
          * Also checking that the declination has no other variants
          * by checking if the count of $variantIds is the same than the $declinationVariantIds'
          */
-        return (count($variantIds) === $foundIds && count($variantIds) === count($declinationVariantIds));
+        return (\count($variantIds) === $foundIds && \count($variantIds) === \count($declinationVariantIds));
     }
 
     /**
@@ -332,7 +340,7 @@ final class Declination
     /** @param array $priceTier */
     public function addPriceTier(array $priceTier): void
     {
-        $this->priceTiers[] = array_key_exists('price', $priceTier) ? new PriceTier($priceTier) : new ExtendedPriceTier($priceTier);
+        $this->priceTiers[] = \array_key_exists('price', $priceTier) ? new PriceTier($priceTier) : new ExtendedPriceTier($priceTier);
     }
 
     /** @return PriceTier[] */

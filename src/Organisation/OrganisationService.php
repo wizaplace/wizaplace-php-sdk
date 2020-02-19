@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Organisation;
 
@@ -52,9 +54,12 @@ class OrganisationService extends AbstractService
         ];
 
         try {
-            $registrationReturn = $this->client->post('organisations/registrations', [
-                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $organisation->getFiles()),
-            ]);
+            $registrationReturn = $this->client->post(
+                'organisations/registrations',
+                [
+                    RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $organisation->getFiles()),
+                ]
+            );
 
             return $registrationReturn;
         } catch (ClientException $e) {
@@ -77,12 +82,12 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function get(string $organisationId) : Organisation
+    public function get(string $organisationId): Organisation
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $organisationData = $this->client->get('organisations/'.$organisationId);
+            $organisationData = $this->client->get('organisations/' . $organisationId);
 
             return new Organisation($organisationData);
         } catch (ClientException $e) {
@@ -107,7 +112,7 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getList() : array
+    public function getList(): array
     {
         $this->client->mustBeAuthenticated();
 
@@ -135,12 +140,12 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getListUsers(string $organisationId) : array
+    public function getListUsers(string $organisationId): array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $listUsers = $this->client->get('organisations/'.$organisationId.'/users');
+            $listUsers = $this->client->get('organisations/' . $organisationId . '/users');
 
             return $listUsers;
         } catch (ClientException $e) {
@@ -168,14 +173,17 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addNewUser(string $organisationId, array $data, array $files) : User
+    public function addNewUser(string $organisationId, array $data, array $files): User
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->post("organisations/{$organisationId}/users", [
-                RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $files),
-            ]);
+            $response = $this->client->post(
+                "organisations/{$organisationId}/users",
+                [
+                    RequestOptions::MULTIPART => Multipart::createMultipartArray($data, $files),
+                ]
+            );
 
             return new User($response);
         } catch (ClientException $e) {
@@ -218,9 +226,12 @@ class OrganisationService extends AbstractService
         ];
 
         try {
-            $this->client->put('organisations/'.$organisationId, [
-                RequestOptions::FORM_PARAMS => $data,
-            ]);
+            $this->client->put(
+                'organisations/' . $organisationId,
+                [
+                    RequestOptions::FORM_PARAMS => $data,
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
                 throw new \Exception("Invalid request", $e->getResponse()->getStatusCode(), $e);
@@ -259,9 +270,12 @@ class OrganisationService extends AbstractService
         $data['shippingAddress'] = $shippingAddress->toArray();
 
         try {
-            $responseData = $this->client->put('organisations/'.$organisationId.'/addresses', [
-                RequestOptions::JSON => $data,
-            ]);
+            $responseData = $this->client->put(
+                'organisations/' . $organisationId . '/addresses',
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
 
             return $responseData;
         } catch (ClientException $e) {
@@ -296,11 +310,14 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets', [
-                RequestOptions::FORM_PARAMS => [
-                    'name' => $name,
-                ],
-            ]);
+            $responseData = $this->client->post(
+                'organisations/' . $organisationId . '/baskets',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'name' => $name,
+                    ],
+                ]
+            );
 
             return $responseData;
         } catch (ClientException $e) {
@@ -332,7 +349,7 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/lock');
+            $responseData = $this->client->post('organisations/' . $organisationId . '/baskets/' . $basketId . '/lock');
 
             return $responseData;
         } catch (ClientException $e) {
@@ -364,7 +381,7 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/validation');
+            $responseData = $this->client->post('organisations/' . $organisationId . '/baskets/' . $basketId . '/validation');
 
             return $responseData;
         } catch (ClientException $e) {
@@ -399,7 +416,7 @@ class OrganisationService extends AbstractService
 
         try {
             $responseData = $this->client->post(
-                'organisations/'.$organisationId.'/baskets/'.$basketId.'/order',
+                'organisations/' . $organisationId . '/baskets/' . $basketId . '/order',
                 [
                     RequestOptions::FORM_PARAMS => [
                         'paymentId' => $paymentId,
@@ -440,7 +457,7 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $responseData = $this->client->post('organisations/'.$organisationId.'/baskets/'.$basketId.'/hide');
+            $responseData = $this->client->post('organisations/' . $organisationId . '/baskets/' . $basketId . '/hide');
 
             return $responseData;
         } catch (ClientException $e) {
@@ -462,7 +479,7 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getOrganisationFromUserId(int $userId) : Organisation
+    public function getOrganisationFromUserId(int $userId): Organisation
     {
         $this->client->mustBeAuthenticated();
 
@@ -568,16 +585,19 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addUserToGroup(string $groupId, int $userId) : void
+    public function addUserToGroup(string $groupId, int $userId): void
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post("organisations/groups/{$groupId}/users", [
-                RequestOptions::FORM_PARAMS => [
-                    'userId' => $userId,
-                ],
-            ]);
+            $this->client->post(
+                "organisations/groups/{$groupId}/users",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'userId' => $userId,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case Response::HTTP_BAD_REQUEST:
@@ -645,7 +665,7 @@ class OrganisationService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function removeUserFromGroup(string $groupId, int $userId) : void
+    public function removeUserFromGroup(string $groupId, int $userId): void
     {
         $this->client->mustBeAuthenticated();
 
@@ -725,12 +745,15 @@ class OrganisationService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->get("organisations/{$organisationId}/orders", [
-                RequestOptions::QUERY => [
-                    'start' => $start,
-                    'limit' => $limit,
-                ],
-            ]);
+            $response = $this->client->get(
+                "organisations/{$organisationId}/orders",
+                [
+                    RequestOptions::QUERY => [
+                        'start' => $start,
+                        'limit' => $limit,
+                    ],
+                ]
+            );
 
             $data['total'] = $response['total'];
             $data['count'] = $response['count'];

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Seo;
 
@@ -19,14 +21,16 @@ final class SeoServiceTest extends ApiTestCase
     {
         $seoService = $this->buildSeoService();
 
-        $slugTargets = $seoService->resolveSlugs([
-            'ecran-pc-full-hd-24-noir',
-            'informatique',
-            'blanc',
-            'test-cms-page-slug',
-            'the-world-company-inc.',
-            '404-does-not-exist',
-        ]);
+        $slugTargets = $seoService->resolveSlugs(
+            [
+                'ecran-pc-full-hd-24-noir',
+                'informatique',
+                'blanc',
+                'test-cms-page-slug',
+                'the-world-company-inc.',
+                '404-does-not-exist',
+            ]
+        );
 
         $this->assertCount(6, $slugTargets);
         foreach ([
@@ -76,7 +80,7 @@ final class SeoServiceTest extends ApiTestCase
     {
         $catalog = iterator_to_array($this->buildSeoService()->listSlugs());
         $this->assertContainsOnly(SlugCatalogItem::class, $catalog);
-        $this->assertGreaterThanOrEqual(28, count($catalog));
+        $this->assertGreaterThanOrEqual(28, \count($catalog));
 
         foreach ($catalog as $item) {
             $this->assertInternalType('string', $item->getSlug());

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -58,9 +60,12 @@ class OrderService extends AbstractService
         }
 
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => $options,
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => $options,
+            ]
+        );
     }
 
     /**
@@ -74,12 +79,15 @@ class OrderService extends AbstractService
     public function declineOrder(int $orderId, $declineReason = ''): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'approved' => false,
-                'decline_reason' => $declineReason,
-            ],
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'approved' => false,
+                    'decline_reason' => $declineReason,
+                ],
+            ]
+        );
     }
 
     /**
@@ -104,13 +112,19 @@ class OrderService extends AbstractService
             $query = array_merge($query, $additionalFilter->toArray());
         }
 
-        $data = $this->client->get('orders', [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            'orders',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
-        return array_map(function (array $orderData): OrderSummary {
-            return new OrderSummary($orderData);
-        }, $data);
+        return array_map(
+            function (array $orderData): OrderSummary {
+                return new OrderSummary($orderData);
+            },
+            $data
+        );
     }
 
     /**
@@ -146,13 +160,19 @@ class OrderService extends AbstractService
         if ($orderIdFilter !== null) {
             $query['order_id'] = $orderIdFilter;
         }
-        $data = $this->client->get('shipments', [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            'shipments',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
-        return array_map(static function (array $shipmentData): Shipment {
-            return new Shipment($shipmentData);
-        }, $data);
+        return array_map(
+            static function (array $shipmentData): Shipment {
+                return new Shipment($shipmentData);
+            },
+            $data
+        );
     }
 
     /**
@@ -183,9 +203,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
         $command->validate();
 
-        $data = $this->client->post('shipments', [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $data = $this->client->post(
+            'shipments',
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return $data['shipment_id'];
     }
@@ -201,11 +224,14 @@ class OrderService extends AbstractService
     public function setInvoiceNumber(int $orderId, string $invoiceNumber): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'invoice_number' => $invoiceNumber,
-            ],
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'invoice_number' => $invoiceNumber,
+                ],
+            ]
+        );
     }
 
     /**
@@ -219,9 +245,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
         $taxesData = $this->client->get('taxes');
 
-        return array_map(static function (array $taxData): Tax {
-            return new Tax($taxData);
-        }, $taxesData);
+        return array_map(
+            static function (array $taxData): Tax {
+                return new Tax($taxData);
+            },
+            $taxesData
+        );
     }
 
     /**
@@ -254,11 +283,14 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post("orders/${orderId}/handDelivery", [
-                RequestOptions::JSON => [
-                    'code' => $deliveryCode,
-                ],
-            ]);
+            $this->client->post(
+                "orders/${orderId}/handDelivery",
+                [
+                    RequestOptions::JSON => [
+                        'code' => $deliveryCode,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
                 throw new SomeParametersAreInvalid($e->getMessage(), 400, $e);
@@ -285,9 +317,12 @@ class OrderService extends AbstractService
     {
         $command->validate();
 
-        $result = $this->client->post("_orders/${orderId}/mondialRelayLabel", [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $result = $this->client->post(
+            "_orders/${orderId}/mondialRelayLabel",
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return new MondialRelayLabel($result);
     }
@@ -300,11 +335,14 @@ class OrderService extends AbstractService
     public function setOrderDetails(int $orderId, string $details): self
     {
         $this->client->mustBeAuthenticated();
-        $this->client->patch("orders/$orderId/details", [
-            RequestOptions::JSON => [
-                "details" => $details,
-            ],
-        ]);
+        $this->client->patch(
+            "orders/$orderId/details",
+            [
+                RequestOptions::JSON => [
+                    "details" => $details,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -313,12 +351,15 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/$orderId/adjustments", [
-            RequestOptions::JSON => [
-                'itemId' => $itemId,
-                'newTotalWithoutTaxes' => $newPrice,
-            ],
-        ]);
+        $this->client->post(
+            "orders/$orderId/adjustments",
+            [
+                RequestOptions::JSON => [
+                    'itemId' => $itemId,
+                    'newTotalWithoutTaxes' => $newPrice,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -327,9 +368,12 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         try {
-            return array_map(function (array $data): OrderAdjustment {
-                return new OrderAdjustment($data);
-            }, $this->client->get("orders/{$orderId}/adjustments"));
+            return array_map(
+                function (array $data): OrderAdjustment {
+                    return new OrderAdjustment($data);
+                },
+                $this->client->get("orders/{$orderId}/adjustments")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -343,9 +387,12 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): Transaction {
-            return new Transaction($data);
-        }, $this->client->get("orders/${orderId}/transactions"));
+        return array_map(
+            function (array $data): Transaction {
+                return new Transaction($data);
+            },
+            $this->client->get("orders/${orderId}/transactions")
+        );
     }
 
     /**
@@ -376,8 +423,11 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): SubscriptionSummary {
-            return new SubscriptionSummary($data);
-        }, $this->client->get("orders/${orderId}/subscriptions"));
+        return array_map(
+            function (array $data): SubscriptionSummary {
+                return new SubscriptionSummary($data);
+            },
+            $this->client->get("orders/${orderId}/subscriptions")
+        );
     }
 }

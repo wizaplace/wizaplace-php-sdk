@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
 
@@ -17,22 +19,23 @@ final class ProductTest extends TestCase
 {
     public function testGetMultipleOtherOffers()
     {
-        $product = new Product(array(
-            'id' => 3,
-            'code' => '0000001',
-            'supplierReference' => 'INFO-ECRAN-001',
-            'name' => 'Ecran PC Full HD Noir',
-            'url' => 'http://wizaplace.loc/informatique/ecrans/ecran-pc-full-hd-noir.html',
-            'shortDescription' => '',
-            'description' => '',
-            'slug' => 'ecran-pc-full-hd-noir',
-            'minPrice' => 15.5,
-            'greenTax' => 0,
-            'isTransactional' => true,
-            'infiniteStock' => false,
-            'weight' => 1.23,
-            'averageRating' => null,
-            'shippings' =>
+        $product = new Product(
+            array(
+                'id' => 3,
+                'code' => '0000001',
+                'supplierReference' => 'INFO-ECRAN-001',
+                'name' => 'Ecran PC Full HD Noir',
+                'url' => 'http://wizaplace.loc/informatique/ecrans/ecran-pc-full-hd-noir.html',
+                'shortDescription' => '',
+                'description' => '',
+                'slug' => 'ecran-pc-full-hd-noir',
+                'minPrice' => 15.5,
+                'greenTax' => 0,
+                'isTransactional' => true,
+                'infiniteStock' => false,
+                'weight' => 1.23,
+                'averageRating' => null,
+                'shippings' =>
                 array(
                     0 =>
                         array(
@@ -59,7 +62,7 @@ final class ProductTest extends TestCase
                             'deliveryTime' => '',
                         ),
                 ),
-            'companies' =>
+                'companies' =>
                 array(
                     0 =>
                         array(
@@ -71,7 +74,7 @@ final class ProductTest extends TestCase
                             'averageRating' => null,
                         ),
                 ),
-            'categoryPath' =>
+                'categoryPath' =>
                 array(
                     0 =>
                         array(
@@ -86,13 +89,13 @@ final class ProductTest extends TestCase
                             'slug' => 'ecrans',
                         ),
                 ),
-            'geolocation' => null,
-            'video' =>
+                'geolocation' => null,
+                'video' =>
                 array(
                     'thumbnailUrl' => '//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480-00001.png',
                     'videoUrl' => '//s3-eu-west-1.amazonaws.com/wizachatest/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4',
                 ),
-            'declinations' =>
+                'declinations' =>
                 array(
                     0 =>
                         array(
@@ -347,9 +350,9 @@ final class ProductTest extends TestCase
                             'infiniteStock' => false,
                         ),
                 ),
-            'attributes' =>
+                'attributes' =>
                 array(),
-            'options' =>
+                'options' =>
                 array(
                     0 =>
                         array(
@@ -380,55 +383,77 @@ final class ProductTest extends TestCase
                                 ),
                         ),
                 ),
-            'attachments' =>
+                'attachments' =>
                 array(),
-        ), new Uri('https://example.com/'));
+            ),
+            new Uri('https://example.com/')
+        );
 
         $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('4_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
-        $this->assertSame(['3_8_10', '6_8_10'], array_map(function (Declination $declination): string {
-            return (string) $declination->getId();
-        }, $otherOffers));
+        $this->assertSame(
+            ['3_8_10', '6_8_10'],
+            array_map(
+                function (Declination $declination): string {
+                    return (string) $declination->getId();
+                },
+                $otherOffers
+            )
+        );
 
         $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('6_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
-        $this->assertSame(['3_8_10', '4_8_10'], array_map(function (Declination $declination): string {
-            return (string) $declination->getId();
-        }, $otherOffers));
+        $this->assertSame(
+            ['3_8_10', '4_8_10'],
+            array_map(
+                function (Declination $declination): string {
+                    return (string) $declination->getId();
+                },
+                $otherOffers
+            )
+        );
 
         $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('3_8_10')));
         $this->assertContainsOnly(Declination::class, $otherOffers);
         $this->assertCount(2, $otherOffers);
-        $this->assertSame(['4_8_10', '6_8_10'], array_map(function (Declination $declination): string {
-            return (string) $declination->getId();
-        }, $otherOffers));
+        $this->assertSame(
+            ['4_8_10', '6_8_10'],
+            array_map(
+                function (Declination $declination): string {
+                    return (string) $declination->getId();
+                },
+                $otherOffers
+            )
+        );
 
         // Declination without other offers
         $otherOffers = $product->getOtherOffers($product->getDeclination(new DeclinationId('3_8_9')));
         $this->assertCount(0, $otherOffers);
 
         $this->expectException(\InvalidArgumentException::class);
-        $product->getOtherOffers(new Declination(array(
-            'id' => '404_404_404',
-            'code' => 'size_17',
-            'supplierReference' => 'INFO-ECRAN-001',
-            'price' => 15.5,
-            'originalPrice' => 15.5,
-            'crossedOutPrice' => null,
-            'prices' =>
+        $product->getOtherOffers(
+            new Declination(
+                array(
+                    'id' => '404_404_404',
+                    'code' => 'size_17',
+                    'supplierReference' => 'INFO-ECRAN-001',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' =>
                 array(
                     'priceWithTaxes' => 15.5,
                     'priceWithoutVat' => 15.18,
                     'vat' => 0.32,
                 ),
-            'greenTax' => 0,
-            'amount' => 10,
-            'affiliateLink' => null,
-            'images' =>
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'affiliateLink' => null,
+                    'images' =>
                 array(),
-            'options' =>
+                    'options' =>
                 array(
                     0 =>
                         array(
@@ -438,8 +463,8 @@ final class ProductTest extends TestCase
                             'variantName' => '17',
                         ),
                 ),
-            'isBrandNew' => true,
-            'company' =>
+                    'isBrandNew' => true,
+                    'company' =>
                 array(
                     'id' => 3,
                     'name' => 'The World Company Inc.',
@@ -448,8 +473,10 @@ final class ProductTest extends TestCase
                     'image' => null,
                     'averageRating' => null,
                 ),
-            'isAvailable' => true,
-            'infiniteStock' => false,
-        )));
+                    'isAvailable' => true,
+                    'infiniteStock' => false,
+                )
+            )
+        );
     }
 }

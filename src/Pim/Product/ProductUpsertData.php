@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
@@ -13,6 +15,7 @@ use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -343,7 +346,7 @@ abstract class ProductUpsertData
         if ($availabilityDate instanceof \DateTimeImmutable) {
             $this->availabilityDate = $availabilityDate;
         } else {
-            $this->availabilityDate = new \DateTimeImmutable('@'.$availabilityDate->getTimestamp());
+            $this->availabilityDate = new \DateTimeImmutable('@' . $availabilityDate->getTimestamp());
         }
 
         return $this;
@@ -414,13 +417,20 @@ abstract class ProductUpsertData
 
         $violations = $validator->getViolations();
 
-        if (count($violations) > 0) {
-            throw new SomeParametersAreInvalid('Product data validation failed: '.json_encode(array_map(function (ConstraintViolationInterface $violation): array {
-                return [
-                    'field' => $violation->getPropertyPath(),
-                    'message' => $violation->getMessage(),
-                ];
-            }, iterator_to_array($violations))));
+        if (\count($violations) > 0) {
+            throw new SomeParametersAreInvalid(
+                'Product data validation failed: ' . json_encode(
+                    array_map(
+                        function (ConstraintViolationInterface $violation): array {
+                            return [
+                                'field' => $violation->getPropertyPath(),
+                                'message' => $violation->getMessage(),
+                            ];
+                        },
+                        iterator_to_array($violations)
+                    )
+                )
+            );
         }
     }
 
@@ -451,7 +461,7 @@ abstract class ProductUpsertData
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (!in_array($prop->getName(), $nullableProperties)) {
+            if (!\in_array($prop->getName(), $nullableProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
             }
         }
@@ -473,7 +483,7 @@ abstract class ProductUpsertData
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (in_array($prop->getName(), $selfValidatingProperties)) {
+            if (\in_array($prop->getName(), $selfValidatingProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Constraints\Valid());
             }
         }
@@ -552,9 +562,12 @@ abstract class ProductUpsertData
         }
 
         if (isset($this->declinations)) {
-            $data['inventory'] = array_map(function (ProductDeclinationUpsertData $data): array {
-                return $data->toArray();
-            }, $this->declinations);
+            $data['inventory'] = array_map(
+                function (ProductDeclinationUpsertData $data): array {
+                    return $data->toArray();
+                },
+                $this->declinations
+            );
 
             $allowedOptionsVariants = [];
             foreach ($data['inventory'] as $inventory) {
@@ -576,9 +589,12 @@ abstract class ProductUpsertData
         }
 
         if (isset($this->attachments)) {
-            $data['attachments'] = array_map(function (ProductAttachmentUpload $data): array {
-                return $data->toArray();
-            }, $this->attachments);
+            $data['attachments'] = array_map(
+                function (ProductAttachmentUpload $data): array {
+                    return $data->toArray();
+                },
+                $this->attachments
+            );
         }
 
         if (isset($this->affiliateLink)) {
@@ -601,11 +617,11 @@ abstract class ProductUpsertData
             $data['product_template_type'] = to_string($this->productTemplateType);
         }
 
-        if (is_bool($this->isSubscription)) {
+        if (\is_bool($this->isSubscription)) {
             $data['is_subscription'] = $this->isSubscription;
         }
 
-        if (is_bool($this->isRenewable)) {
+        if (\is_bool($this->isRenewable)) {
             $data['is_renewable'] = $this->isRenewable;
         }
 

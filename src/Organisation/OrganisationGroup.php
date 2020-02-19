@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 namespace Wizaplace\SDK\Organisation;
 
 /**
@@ -41,7 +43,7 @@ class OrganisationGroup
     /**
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -57,7 +59,7 @@ class OrganisationGroup
     /**
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -73,7 +75,7 @@ class OrganisationGroup
     /**
      * @return string
      */
-    public function getType() : string
+    public function getType(): string
     {
         return $this->type;
     }

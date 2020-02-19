@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Promotion;
@@ -39,10 +41,12 @@ final class CatalogPromotionServiceTest extends ApiTestCase
             SaveCatalogPromotionCommand::createNew()
                 ->setName('test promotion')
                 ->setActive(true)
-                ->setDiscounts([
-                    new PercentageDiscount(2),
-                    new FixedDiscount(3.5),
-                ])
+                ->setDiscounts(
+                    [
+                        new PercentageDiscount(2),
+                        new FixedDiscount(3.5),
+                    ]
+                )
                 ->setPeriod(new PromotionPeriod($from, $to))
                 ->setRule(
                     new AndCatalogRule(
@@ -108,7 +112,7 @@ final class CatalogPromotionServiceTest extends ApiTestCase
         $this->assertInstanceOf(ProductInCategoryListRule::class, $productInCategoryList);
         $this->assertSame([4, 5, 6], $productInCategoryList->getCategoriesIds());
         $jsonSerialization = json_encode($savedPromotion);
-        $this->assertGreaterThan(2, strlen($jsonSerialization));
+        $this->assertGreaterThan(2, \strlen($jsonSerialization));
 
         $actualPromotion = $service->getPromotion($savedPromotion->getPromotionId());
         $this->assertEquals($savedPromotion, $actualPromotion);

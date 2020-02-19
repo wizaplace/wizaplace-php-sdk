@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -162,7 +164,7 @@ final class OrderAddress
     private static function extractData(string $prefix, array $data)
     {
         $newData = [];
-        $prefixLength = strlen($prefix);
+        $prefixLength = \strlen($prefix);
         foreach ($data as $key => $value) {
             if (strpos($key, $prefix) !== 0) {
                 continue;

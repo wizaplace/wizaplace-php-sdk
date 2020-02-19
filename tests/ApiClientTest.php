@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests;
 
@@ -44,7 +46,7 @@ final class ApiClientTest extends ApiTestCase
 
         $expectedRequestOptions = [
             'headers' => [
-                'User-Agent' => 'Wizaplace-PHP-SDK/'.$version,
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version,
             ],
         ];
 

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
@@ -87,12 +89,15 @@ class OrderServiceTest extends ApiTestCase
         $orders = $this->buildVendorOrderService()->listOrders();
 
         static::assertContainsOnly(OrderSummary::class, $orders);
-        static::assertTrue(count($orders) >= 2);
+        static::assertTrue(\count($orders) >= 2);
 
         // To fix random sort
-        usort($orders, function (OrderSummary $a, OrderSummary $b): int {
-            return $a->getOrderId() <=> $b->getOrderId();
-        });
+        usort(
+            $orders,
+            function (OrderSummary $a, OrderSummary $b): int {
+                return $a->getOrderId() <=> $b->getOrderId();
+            }
+        );
 
         $order = array_shift($orders);
         static::assertSame(4, $order->getOrderId());
@@ -363,7 +368,6 @@ class OrderServiceTest extends ApiTestCase
 
             default:
                 throw new \Exception('$expected value "$expected" is not a valid test case : null, Throwable::class, DateTimeImmutable::class');
-                break;
         }
     }
 
@@ -417,7 +421,7 @@ class OrderServiceTest extends ApiTestCase
         static::assertCount(4, $orders);
 
         foreach ($orders as $order) {
-            static::assertTrue(array_key_exists($order->getOrderId(), $expectedOrders));
+            static::assertTrue(\array_key_exists($order->getOrderId(), $expectedOrders));
 
             static::assertSame($expectedOrders[$order->getOrderId()]['totals']['excludingTaxes'], $order->getTotalsTaxesDetail()->getExcludingTaxes());
             static::assertSame($expectedOrders[$order->getOrderId()]['totals']['taxes'], $order->getTotalsTaxesDetail()->getTaxes());
@@ -597,7 +601,7 @@ class OrderServiceTest extends ApiTestCase
         static::assertCount(1, $transactions);
 
         static::assertInstanceOf(Transaction::class, $transactions[0]);
-        static::assertSame(36, strlen($transactions[0]->getId()));
+        static::assertSame(36, \strlen($transactions[0]->getId()));
         static::assertSame("a123456789", $transactions[0]->getTransactionReference());
         static::assertEquals(TransactionType::TRANSFER(), $transactions[0]->getType());
         static::assertEquals(TransactionStatus::SUCCESS(), $transactions[0]->getStatus());

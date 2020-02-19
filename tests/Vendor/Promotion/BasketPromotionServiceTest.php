@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Promotion;
@@ -44,10 +46,12 @@ final class BasketPromotionServiceTest extends ApiTestCase
             SaveBasketPromotionCommand::createNew()
                 ->setName('test promotion')
                 ->setActive(true)
-                ->setDiscounts([
-                    new PercentageDiscount(2),
-                    new FixedDiscount(3.5),
-                ])
+                ->setDiscounts(
+                    [
+                        new PercentageDiscount(2),
+                        new FixedDiscount(3.5),
+                    ]
+                )
                 ->setPeriod(new PromotionPeriod($from, $to))
                 ->setRule(
                     new AndBasketRule(
@@ -125,7 +129,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
         $this->assertSame(1, $maxUsageCountPerUser->getValue());
 
         $jsonSerialization = json_encode($savedPromotion);
-        $this->assertGreaterThan(2, strlen($jsonSerialization));
+        $this->assertGreaterThan(2, \strlen($jsonSerialization));
 
         $actualPromotion = $service->getPromotion($savedPromotion->getPromotionId());
         $this->assertEquals($savedPromotion, $actualPromotion);
@@ -166,7 +170,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
      */
     public function testPromotionsTarget(string $targetClass, ?array $args = null): void
     {
-        if (is_null($args) === true) {
+        if (\is_null($args) === true) {
             $target = new $targetClass();
         } else {
             $target = new $targetClass(...$args);
@@ -183,7 +187,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
         $this->assertInstanceOf($targetClass, $savedPromotion->getTarget());
     }
 
-    public function basketPromotionTargetProvider() : array
+    public function basketPromotionTargetProvider(): array
     {
         return [
             [BasketTarget::class],
@@ -224,7 +228,7 @@ final class BasketPromotionServiceTest extends ApiTestCase
     {
         $basketPromotionsService = $this->buildBasketPromotionService();
 
-        $nbPromotions = count($basketPromotionsService->listPromotions());
+        $nbPromotions = \count($basketPromotionsService->listPromotions());
 
         $savedPromotion = $basketPromotionsService->savePromotion(
             SaveBasketPromotionCommand::createNew()
@@ -247,10 +251,12 @@ final class BasketPromotionServiceTest extends ApiTestCase
         return SaveBasketPromotionCommand::createNew()
             ->setName('test promotion')
             ->setActive(true)
-            ->setDiscounts([
-                new PercentageDiscount(2),
-                new FixedDiscount(3.5),
-            ])
+            ->setDiscounts(
+                [
+                    new PercentageDiscount(2),
+                    new FixedDiscount(3.5),
+                ]
+            )
             ->setPeriod(new PromotionPeriod($from, $to))
             ->setRule(
                 new AndBasketRule(

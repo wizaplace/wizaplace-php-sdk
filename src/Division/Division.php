@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -136,7 +137,7 @@ final class Division
      */
     public function getDisabledBy(): ?UserType
     {
-        if (is_null($this->disabledBy)) {
+        if (\is_null($this->disabledBy)) {
             return null;
         }
 

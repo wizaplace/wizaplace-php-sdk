@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
@@ -15,6 +17,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -63,9 +66,12 @@ final class MultiVendorProductService extends AbstractService
             $query = array_merge($query, $filter->toArray());
         }
 
-        $data = $this->client->get("pim/multi-vendor-products", [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            "pim/multi-vendor-products",
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
         $data['page'] = $page;
 
@@ -86,9 +92,12 @@ final class MultiVendorProductService extends AbstractService
         $this->client->mustBeAuthenticated();
         $mvp->validate(MultiVendorProduct::CONTEXT_CREATE);
 
-        $response = $this->client->post("pim/multi-vendor-products", [
-            RequestOptions::JSON => $mvp->toArray(),
-        ]);
+        $response = $this->client->post(
+            "pim/multi-vendor-products",
+            [
+                RequestOptions::JSON => $mvp->toArray(),
+            ]
+        );
 
         return to_string($response['id']);
     }
@@ -109,9 +118,12 @@ final class MultiVendorProductService extends AbstractService
 
         $id = $mvp->getId();
 
-        $response = $this->client->put("pim/multi-vendor-products/$id", [
-            RequestOptions::JSON => $mvp->toArray(),
-        ]);
+        $response = $this->client->put(
+            "pim/multi-vendor-products/$id",
+            [
+                RequestOptions::JSON => $mvp->toArray(),
+            ]
+        );
 
         return to_string($response['id']);
     }
@@ -127,14 +139,17 @@ final class MultiVendorProductService extends AbstractService
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addImageToMultiVendorProduct(string $mvpId, array $files) : MultiVendorProduct
+    public function addImageToMultiVendorProduct(string $mvpId, array $files): MultiVendorProduct
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/images", [
-                RequestOptions::MULTIPART => Multipart::createMultipartArray([], $files),
-            ]);
+            $response = $this->client->post(
+                "pim/multi-vendor-products/{$mvpId}/images",
+                [
+                    RequestOptions::MULTIPART => Multipart::createMultipartArray([], $files),
+                ]
+            );
 
             return new MultiVendorProduct($response);
         } catch (ClientException $e) {
@@ -158,11 +173,14 @@ final class MultiVendorProductService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
-                RequestOptions::FORM_PARAMS => [
-                    'file' => $file,
-                ],
-            ]);
+            $response = $this->client->post(
+                "pim/multi-vendor-products/{$mvpId}/video",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'file' => $file,
+                    ],
+                ]
+            );
 
             return new MultiVendorProductVideo($response);
         } catch (ClientException $e) {
@@ -186,9 +204,12 @@ final class MultiVendorProductService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->post("pim/multi-vendor-products/{$mvpId}/video", [
-                RequestOptions::MULTIPART => Multipart::createMultipartArray([], [$file]),
-            ]);
+            $response = $this->client->post(
+                "pim/multi-vendor-products/{$mvpId}/video",
+                [
+                    RequestOptions::MULTIPART => Multipart::createMultipartArray([], [$file]),
+                ]
+            );
 
             return new MultiVendorProductVideo($response);
         } catch (ClientException $e) {

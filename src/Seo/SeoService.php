@@ -1,15 +1,18 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Seo;
 
 use Clue\JsonStream\StreamingJsonParser;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+
 use function theodorejb\polycast\to_string;
 
 /**

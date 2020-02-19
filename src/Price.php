@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK;
@@ -21,9 +23,9 @@ final class Price
 
     public function __construct(array $data)
     {
-        $this->excludingTaxes = floatval($data['excludingTaxes']);
-        $this->includingTaxes = floatval($data['includingTaxes']);
-        $this->taxes = floatval($data['taxes']);
+        $this->excludingTaxes = \floatval($data['excludingTaxes']);
+        $this->includingTaxes = \floatval($data['includingTaxes']);
+        $this->taxes = \floatval($data['taxes']);
     }
 
     public function getExcludingTaxes(): float

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
@@ -192,13 +194,20 @@ final class UpdateShippingCommand implements ArrayableInterface
 
         $violations = $validator->getViolations();
 
-        if (count($violations) > 0) {
-            throw new SomeParametersAreInvalid('Shipping data validation failed: '.json_encode(array_map(function (ConstraintViolationInterface $violation): array {
-                return [
-                    'field' => $violation->getPropertyPath(),
-                    'message' => $violation->getMessage(),
-                ];
-            }, iterator_to_array($violations))));
+        if (\count($violations) > 0) {
+            throw new SomeParametersAreInvalid(
+                'Shipping data validation failed: ' . json_encode(
+                    array_map(
+                        function (ConstraintViolationInterface $violation): array {
+                            return [
+                                'field' => $violation->getPropertyPath(),
+                                'message' => $violation->getMessage(),
+                            ];
+                        },
+                        iterator_to_array($violations)
+                    )
+                )
+            );
         }
     }
 

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -74,9 +76,9 @@ final class OrderSummary
         $this->customerLastName = $data['customer_lastname'];
         $this->orderId = $data['order_id'];
         $this->companyId = $data['company_id'];
-        $this->companyName = (array_key_exists('company_name', $data) === true) ? $data['company_name'] : null;
+        $this->companyName = (\array_key_exists('company_name', $data) === true) ? $data['company_name'] : null;
         $this->status = new OrderStatus($data['status']);
-        $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
+        $this->createdAt = new \DateTimeImmutable('@' . $data['timestamp']);
         $this->customerUserId = $data['user_id'];
         $this->basketId = $data['basket_id'];
         $this->total = $data['total'];

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Option;
@@ -19,7 +21,7 @@ class OptionServiceTest extends ApiTestCase
         $options = $this->buildOptionService()->getCategoryOptions(4);
 
         $this->assertContainsOnly(Option::class, $options);
-        $this->assertGreaterThanOrEqual(3, count($options));
+        $this->assertGreaterThanOrEqual(3, \count($options));
 
         foreach ($options as $option) {
             $this->assertGreaterThan(0, $option->getId());

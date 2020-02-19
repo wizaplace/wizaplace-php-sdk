@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
 
@@ -404,269 +406,289 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('eius-et-velit-eum-corrupti-voluptatibus-velit-totam', $product->getSlug());
 
         $expectedAttributes = [
-            new ProductAttribute([
-                'id' => 3,
-                'name' => 'Commentaire',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => 3,
-                        'name' => 'Commentaire #12M%M_°09£*/.?',
-                        'slug' => '',
-                        'image' => null,
+            new ProductAttribute(
+                [
+                    'id' => 3,
+                    'name' => 'Commentaire',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => 3,
+                            'name' => 'Commentaire #12M%M_°09£*/.?',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                ],
-                'value' => 'Commentaire #12M%M_°09£*/.?',
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE_TEXT()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => 1,
-                'name' => 'Couleur',
-                'values' => [
-                    [
-                        'id' => 2,
-                        'attributeId' => 1,
-                        'name' => 'Blanc',
-                        'slug' => 'blanc',
-                        'image' => null,
+                    'value' => 'Commentaire #12M%M_°09£*/.?',
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE_TEXT()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => 1,
+                    'name' => 'Couleur',
+                    'values' => [
+                        [
+                            'id' => 2,
+                            'attributeId' => 1,
+                            'name' => 'Blanc',
+                            'slug' => 'blanc',
+                            'image' => null,
+                        ],
+                        [
+                            'id' => 3,
+                            'attributeId' => 1,
+                            'name' => 'Rouge',
+                            'slug' => 'rouge',
+                            'image' => [
+                                'id' => 5,
+                            ],
+                        ],
                     ],
-                    [
-                        'id' => 3,
-                        'attributeId' => 1,
-                        'name' => 'Rouge',
-                        'slug' => 'rouge',
-                        'image' => [
+                    'value' => [
+                        'Blanc',
+                        'Rouge',
+                    ],
+                    'valueIds' => [2, 3],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => 4,
+                    'name' => 'Groupe attributs',
+                    'values' => null,
+                    'value' => null,
+                    'valueIds' => [],
+                    'children' => [
+                        [
+                            'id' => 7,
+                            'name' => 'Complément adresse',
+                            'values' => [
+                                [
+                                    'id' => null,
+                                    'attributeId' => 7,
+                                    'name' => 'Complément d\'adresse pour la stepo',
+                                    'slug' => '',
+                                    'image' => null,
+                                ],
+                            ],
+                            'value' => 'Complément d\'adresse pour la stepo',
+                            'valueIds' => [],
+                            'children' => [],
+                            'imageUrls' => [],
+                            'type' => AttributeType::FREE_TEXT()->getValue(),
+                        ],
+                        [
                             'id' => 5,
-                        ],
-                    ],
-                ],
-                'value' => [
-                    'Blanc',
-                    'Rouge',
-                ],
-                'valueIds' => [2, 3],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => 4,
-                'name' => 'Groupe attributs',
-                'values' => null,
-                'value' => null,
-                'valueIds' => [],
-                'children' => [
-                    [
-                        'id' => 7,
-                        'name' => 'Complément adresse',
-                        'values' => [
-                            [
-                                'id' => null,
-                                'attributeId' => 7,
-                                'name' => 'Complément d\'adresse pour la stepo',
-                                'slug' => '',
-                                'image' => null,
-                            ],
-                        ],
-                        'value' => 'Complément d\'adresse pour la stepo',
-                        'valueIds' => [],
-                        'children' => [],
-                        'imageUrls' => [],
-                        'type' => AttributeType::FREE_TEXT()->getValue(),
-                    ],
-                    [
-                        'id' => 5,
-                        'name' => 'Couleur secondaire',
-                        'values' => [
-                            [
-                                'id' => 9,
-                                'attributeId' => 5,
-                                'name' => 'Orange',
-                                'slug' => 'orange',
-                                'image' => [
-                                    'id' => 6,
+                            'name' => 'Couleur secondaire',
+                            'values' => [
+                                [
+                                    'id' => 9,
+                                    'attributeId' => 5,
+                                    'name' => 'Orange',
+                                    'slug' => 'orange',
+                                    'image' => [
+                                        'id' => 6,
+                                    ],
                                 ],
                             ],
+                            'value' => ['Orange'],
+                            'valueIds' => [9],
+                            'children' => [],
+                            'imageUrls' => [],
+                            'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
                         ],
-                        'value' => ['Orange'],
-                        'valueIds' => [9],
-                        'children' => [],
-                        'imageUrls' => [],
-                        'type' => AttributeType::CHECKBOX_MULTIPLE()->getValue(),
-                    ],
-                    [
-                        'id' => 6,
-                        'name' => 'Pointure',
-                        'values' => [
-                            [
-                                'id' => 17,
-                                'attributeId' => 6,
-                                'name' => '44',
-                                'slug' => '44',
-                                'image' => [
-                                    'id' => 7,
+                        [
+                            'id' => 6,
+                            'name' => 'Pointure',
+                            'values' => [
+                                [
+                                    'id' => 17,
+                                    'attributeId' => 6,
+                                    'name' => '44',
+                                    'slug' => '44',
+                                    'image' => [
+                                        'id' => 7,
+                                    ],
                                 ],
                             ],
-                        ],
-                        'value' => ['44'],
-                        'valueIds' => [17],
-                        'children' => [],
-                        'imageUrls' => [],
-                        'type' => AttributeType::LIST_TEXT()->getValue(),
-                    ],
-                ],
-                'imageUrls' => [],
-                'type' => AttributeType::GROUP()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => 9,
-                'name' => 'Marque',
-                'values' => [
-                    [
-                        'id' => 20,
-                        'attributeId' => 9,
-                        'name' => 'Puma',
-                        'slug' => 'puma',
-                        'image' => [
-                            'id' => 13,
+                            'value' => ['44'],
+                            'valueIds' => [17],
+                            'children' => [],
+                            'imageUrls' => [],
+                            'type' => AttributeType::LIST_TEXT()->getValue(),
                         ],
                     ],
-                ],
-                'value' => ['Puma'],
-                'valueIds' => [20],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::LIST_BRAND()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => 2,
-                'name' => 'Taille',
-                'values' => [
-                    [
-                        'id' => 5,
-                        'attributeId' => 2,
-                        'name' => 'M',
-                        'slug' => 'm',
-                        'image' => null,
+                    'imageUrls' => [],
+                    'type' => AttributeType::GROUP()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => 9,
+                    'name' => 'Marque',
+                    'values' => [
+                        [
+                            'id' => 20,
+                            'attributeId' => 9,
+                            'name' => 'Puma',
+                            'slug' => 'puma',
+                            'image' => [
+                                'id' => 13,
+                            ],
+                        ],
                     ],
-                ],
-                'value' => ['M'],
-                'valueIds' => [5],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::LIST_TEXT()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => null,
-                'name' => 'Free attribute multiple',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => 'réponse - 1 #',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => ['Puma'],
+                    'valueIds' => [20],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::LIST_BRAND()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => 2,
+                    'name' => 'Taille',
+                    'values' => [
+                        [
+                            'id' => 5,
+                            'attributeId' => 2,
+                            'name' => 'M',
+                            'slug' => 'm',
+                            'image' => null,
+                        ],
                     ],
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => 'réponse - 2 @',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => ['M'],
+                    'valueIds' => [5],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::LIST_TEXT()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => null,
+                    'name' => 'Free attribute multiple',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => 'réponse - 1 #',
+                            'slug' => '',
+                            'image' => null,
+                        ],
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => 'réponse - 2 @',
+                            'slug' => '',
+                            'image' => null,
+                        ],
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => '4985',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => '4985',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => [
+                        'réponse - 1 #',
+                        'réponse - 2 @',
+                        4985,
                     ],
-                ],
-                'value' => [
-                    'réponse - 1 #',
-                    'réponse - 2 @',
-                    4985,
-                ],
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => null,
-                'name' => 'Free attribute simple',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
-                        'slug' => '',
-                        'image' => null,
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => null,
+                    'name' => 'Free attribute simple',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                ],
-                'value' => ['valeur simple du free attribute #12M%M_°09£*/.?'],
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => null,
-                'name' => 'Free attribute simple mais en tableau',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => 'une bien belle valeur déjà encapsulée',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => ['valeur simple du free attribute #12M%M_°09£*/.?'],
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => null,
+                    'name' => 'Free attribute simple mais en tableau',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => 'une bien belle valeur déjà encapsulée',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                ],
-                'value' => ['une bien belle valeur déjà encapsulée'],
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => null,
-                'name' => 'Free attribute integer ?',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => '92254094',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => ['une bien belle valeur déjà encapsulée'],
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => null,
+                    'name' => 'Free attribute integer ?',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => '92254094',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                ],
-                'value' => [92254094],
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE()->getValue(),
-            ]),
-            new ProductAttribute([
-                'id' => null,
-                'name' => 'Free attribute integer mais en tableau',
-                'values' => [
-                    [
-                        'id' => null,
-                        'attributeId' => null,
-                        'name' => 'la même histoire par ici',
-                        'slug' => '',
-                        'image' => null,
+                    'value' => [92254094],
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE()->getValue(),
+                ]
+            ),
+            new ProductAttribute(
+                [
+                    'id' => null,
+                    'name' => 'Free attribute integer mais en tableau',
+                    'values' => [
+                        [
+                            'id' => null,
+                            'attributeId' => null,
+                            'name' => 'la même histoire par ici',
+                            'slug' => '',
+                            'image' => null,
+                        ],
                     ],
-                ],
-                'value' => ['la même histoire par ici'],
-                'valueIds' => [],
-                'children' => [],
-                'imageUrls' => [],
-                'type' => AttributeType::FREE()->getValue(),
-            ]),
+                    'value' => ['la même histoire par ici'],
+                    'valueIds' => [],
+                    'children' => [],
+                    'imageUrls' => [],
+                    'type' => AttributeType::FREE()->getValue(),
+                ]
+            ),
         ];
 
         $actualAttributes = $product->getAttributes();
@@ -746,7 +768,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Product with shippings', $product->getName());
         $this->assertContainsOnly(Condition::class, $product->getConditions());
         $this->assertEquals([Condition::BRAND_NEW()], $product->getConditions());
-        $this->assertTrue((new DeclinationId('4_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
+        $this->assertTrue((new DeclinationId('4_0'))->equals($product->getMainDeclinationId()), "got " . $product->getMainDeclinationId());
         $this->assertSame(1, $product->getDeclinationCount());
         $this->assertSame('', $product->getSubtitle());
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
@@ -785,13 +807,18 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('categories', $categoryFacet->getName());
         $this->assertSame('Catégorie', $categoryFacet->getLabel());
         $this->assertInstanceOf(ListFacet::class, $categoryFacet);
-        $this->assertEquals([
-            5 => new \Wizaplace\SDK\Catalog\Facet\ListFacetValue([
-                'label' => 'Special category dedicated to specific tests',
-                'count' => '1',
-                'position' => '0',
-            ]),
-        ], $categoryFacet->getValues());
+        $this->assertEquals(
+            [
+                5 => new \Wizaplace\SDK\Catalog\Facet\ListFacetValue(
+                    [
+                        'label' => 'Special category dedicated to specific tests',
+                        'count' => '1',
+                        'position' => '0',
+                    ]
+                ),
+            ],
+            $categoryFacet->getValues()
+        );
 
         $this->assertNull($catalogService->getBrand($product));
     }
@@ -808,7 +835,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $product = $products[0];
         $this->assertSame('c659af24-56b8-48fd-8b86-34ddff28ba1b', $product->getId());
-        $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got ".$product->getMainDeclinationId());
+        $this->assertTrue((new DeclinationId('8_0'))->equals($product->getMainDeclinationId()), "got " . $product->getMainDeclinationId());
     }
 
     public function testSearchProductWithComplexAttributes(): void
@@ -841,58 +868,79 @@ final class CatalogServiceTest extends ApiTestCase
         // Couleur
         $this->assertSame('Couleur', $attributesMap[1]->getName());
         $this->assertSame('', $attributesMap[1]->getSlug());
-        $this->assertEquals([
-            new ProductAttributeValue([
-                'id' => 2,
-                'attributeId' => 1,
-                'name' => 'Blanc',
-                'slug' => 'blanc',
-                'image' => null,
-            ]),
-            new ProductAttributeValue([
-                'id' => 3,
-                'attributeId' => 1,
-                'name' => 'Rouge',
-                'slug' => 'rouge',
-                'image' => null,
-            ]),
-        ], $attributesMap[1]->getValues());
+        $this->assertEquals(
+            [
+                new ProductAttributeValue(
+                    [
+                        'id' => 2,
+                        'attributeId' => 1,
+                        'name' => 'Blanc',
+                        'slug' => 'blanc',
+                        'image' => null,
+                    ]
+                ),
+                new ProductAttributeValue(
+                    [
+                        'id' => 3,
+                        'attributeId' => 1,
+                        'name' => 'Rouge',
+                        'slug' => 'rouge',
+                        'image' => null,
+                    ]
+                ),
+            ],
+            $attributesMap[1]->getValues()
+        );
         $this->assertTrue(AttributeType::CHECKBOX_MULTIPLE()->equals($attributesMap[1]->getType()));
 
         // Free attributes
-        $this->assertEquals([
-            new ProductAttributeValue([
-                'id' => null,
-                'attributeId' => null,
-                'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
-                'slug' => '',
-                'image' => null,
-            ]),
-        ], $freeAttributesMap['Free attribute simple']->getValues());
+        $this->assertEquals(
+            [
+                new ProductAttributeValue(
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'valeur simple du free attribute #12M%M_°09£*/.?',
+                        'slug' => '',
+                        'image' => null,
+                    ]
+                ),
+            ],
+            $freeAttributesMap['Free attribute simple']->getValues()
+        );
 
-        $this->assertEquals([
-            new ProductAttributeValue([
-                'id' => null,
-                'attributeId' => null,
-                'name' => 'réponse - 1 #',
-                'slug' => '',
-                'image' => null,
-            ]),
-            new ProductAttributeValue([
-                'id' => null,
-                'attributeId' => null,
-                'name' => 'réponse - 2 @',
-                'slug' => '',
-                'image' => null,
-            ]),
-            new ProductAttributeValue([
-                'id' => null,
-                'attributeId' => null,
-                'name' => '4985',
-                'slug' => '',
-                'image' => null,
-            ]),
-        ], $freeAttributesMap['Free attribute multiple']->getValues());
+        $this->assertEquals(
+            [
+                new ProductAttributeValue(
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'réponse - 1 #',
+                        'slug' => '',
+                        'image' => null,
+                    ]
+                ),
+                new ProductAttributeValue(
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => 'réponse - 2 @',
+                        'slug' => '',
+                        'image' => null,
+                    ]
+                ),
+                new ProductAttributeValue(
+                    [
+                        'id' => null,
+                        'attributeId' => null,
+                        'name' => '4985',
+                        'slug' => '',
+                        'image' => null,
+                    ]
+                ),
+            ],
+            $freeAttributesMap['Free attribute multiple']->getValues()
+        );
 
         $brand = $catalogService->getBrand($product);
         $this->assertInstanceOf(ProductAttributeValue::class, $brand);
@@ -969,7 +1017,7 @@ final class CatalogServiceTest extends ApiTestCase
         $companies = $catalogService->getCompanies();
 
         $this->assertInternalType('array', $companies);
-        $this->assertGreaterThanOrEqual(4, count($companies));
+        $this->assertGreaterThanOrEqual(4, \count($companies));
         $this->assertContainsOnly(CompanyListItem::class, $companies);
         $this->assertSame(1, $companies[0]->getId());
         $this->assertSame('Marchand de test', $companies[0]->getName());
@@ -1096,7 +1144,7 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $categories = $this->buildCatalogService()->getCategories();
 
-        $this->assertGreaterThanOrEqual(5, count($categories));
+        $this->assertGreaterThanOrEqual(5, \count($categories));
         $this->assertContainsOnly(Category::class, $categories);
     }
 
@@ -1156,30 +1204,36 @@ final class CatalogServiceTest extends ApiTestCase
         $variants = $this->buildCatalogService()->getAttributeVariants(1);
 
         $expectedVariants = [
-            new AttributeVariant([
-                'id' => 1,
-                'attributeId' => 1,
-                'name' => 'Bleu',
-                'slug' => '',
-                'image' => ['id' => 4],
-                'description' => '',
-            ]),
-            new AttributeVariant([
-                'id' => 2,
-                'attributeId' => 1,
-                'name' => 'Blanc',
-                'slug' => 'blanc',
-                'image' => null,
-                'description' => '',
-            ]),
-            new AttributeVariant([
-                'id' => 3,
-                'attributeId' => 1,
-                'name' => 'Rouge',
-                'slug' => 'rouge',
-                'image' => ['id' => 5],
-                'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
-            ]),
+            new AttributeVariant(
+                [
+                    'id' => 1,
+                    'attributeId' => 1,
+                    'name' => 'Bleu',
+                    'slug' => '',
+                    'image' => ['id' => 4],
+                    'description' => '',
+                ]
+            ),
+            new AttributeVariant(
+                [
+                    'id' => 2,
+                    'attributeId' => 1,
+                    'name' => 'Blanc',
+                    'slug' => 'blanc',
+                    'image' => null,
+                    'description' => '',
+                ]
+            ),
+            new AttributeVariant(
+                [
+                    'id' => 3,
+                    'attributeId' => 1,
+                    'name' => 'Rouge',
+                    'slug' => 'rouge',
+                    'image' => ['id' => 5],
+                    'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
+                ]
+            ),
         ];
 
         $this->assertEquals($expectedVariants, $variants);
@@ -1197,254 +1251,286 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $catalogService->getProductById('3');
 
         $expectedDeclinations = [
-            new Declination([
-                'id' => '3_3_7',
-                'code' => 'size_13',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-ECRAN-001',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => true,
-                'options' => [
-                    [
-                        'id' => 3,
-                        'name' => 'size',
-                        'variantId' => 7,
-                        'variantName' => '13',
+            new Declination(
+                [
+                    'id' => '3_3_7',
+                    'code' => 'size_13',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-ECRAN-001',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '3_3_8',
-                'code' => 'size_15',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-ECRAN-001',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => true,
-                'options' => [
-                    [
-                        'id' => 3,
-                        'name' => 'size',
-                        'variantId' => 8,
-                        'variantName' => '15',
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => true,
+                    'options' => [
+                        [
+                            'id' => 3,
+                            'name' => 'size',
+                            'variantId' => 7,
+                            'variantName' => '13',
+                        ],
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '3_3_9',
-                'code' => 'size_17',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-ECRAN-001',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => true,
-                'options' => [
-                    [
+                    'company' => [
                         'id' => 3,
-                        'name' => 'size',
-                        'variantId' => 9,
-                        'variantName' => '17',
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '3_3_10',
-                'code' => 'size_21',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-ECRAN-001',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => true,
-                'options' => [
-                    [
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '3_3_8',
+                    'code' => 'size_15',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-ECRAN-001',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => true,
+                    'options' => [
+                        [
+                            'id' => 3,
+                            'name' => 'size',
+                            'variantId' => 8,
+                            'variantName' => '15',
+                        ],
+                    ],
+                    'company' => [
                         'id' => 3,
-                        'name' => 'size',
-                        'variantId' => 10,
-                        'variantName' => '21',
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '3_3_9',
+                    'code' => 'size_17',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-ECRAN-001',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => true,
+                    'options' => [
+                        [
+                            'id' => 3,
+                            'name' => 'size',
+                            'variantId' => 9,
+                            'variantName' => '17',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '3_3_10',
+                    'code' => 'size_21',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-ECRAN-001',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => true,
+                    'options' => [
+                        [
+                            'id' => 3,
+                            'name' => 'size',
+                            'variantId' => 10,
+                            'variantName' => '21',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
         ];
 
         $expectedOption = [
@@ -1477,7 +1563,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('3', $product->getId());
         $this->assertEquals($expectedDeclinations, $product->getDeclinations());
         $this->assertEquals($expectedOptions, $product->getOptions());
-        $this->assertTrue(in_array($product->getDeclinationFromOptions([7]), $expectedDeclinations));
+        $this->assertTrue(\in_array($product->getDeclinationFromOptions([7]), $expectedDeclinations));
         $this->assertEquals($expectedDeclinations[0], $product->getDeclinationFromOptions([7]));
     }
 
@@ -1487,550 +1573,614 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $catalogService->getProductById('2');
 
         $expectedDeclinations = [
-            new Declination([
-                'id' => '2_1_1_2_5',
-                'code' => 'color_white_connectivity_wireles',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 1,
-                        'variantName' => 'white',
+            new Declination(
+                [
+                    'id' => '2_1_1_2_5',
+                    'code' => 'color_white_connectivity_wireles',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 5,
-                        'variantName' => 'wireless',
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 1,
+                            'variantName' => 'white',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 5,
+                            'variantName' => 'wireless',
+                        ],
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_1_2_6',
-                'code' => 'color_white_connectivity_wired',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 1,
-                        'variantName' => 'white',
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_2_2_5',
-                'code' => 'color_black_connectivity_wireles',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => null,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 2,
-                        'variantName' => 'black',
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_1_2_6',
+                    'code' => 'color_white_connectivity_wired',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 5,
-                        'variantName' => 'wireless',
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 1,
+                            'variantName' => 'white',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 6,
+                            'variantName' => 'wired',
+                        ],
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_2_2_6',
-                'code' => 'color_black_connectivity_wired',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 2,
-                        'variantName' => 'black',
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_3_2_5',
-                'code' => 'color_blue_connectivity_wireless',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 3,
-                        'variantName' => 'blue',
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_2_2_5',
+                    'code' => 'color_black_connectivity_wireles',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 5,
-                        'variantName' => 'wireless',
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => null,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 2,
+                            'variantName' => 'black',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 5,
+                            'variantName' => 'wireless',
+                        ],
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_3_2_6',
-                'code' => 'color_blue_connectivity_wired',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => null,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 3,
-                        'variantName' => 'blue',
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_4_2_5',
-                'code' => 'color_red_connectivity_wireless',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 4,
-                        'variantName' => 'red',
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_2_2_6',
+                    'code' => 'color_black_connectivity_wired',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 5,
-                        'variantName' => 'wireless',
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 2,
+                            'variantName' => 'black',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 6,
+                            'variantName' => 'wired',
+                        ],
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
-            new Declination([
-                'id' => '2_1_4_2_6',
-                'code' => 'color_red_connectivity_wired',
-                'isAvailable' => true,
-                'supplierReference' => 'INFO-002',
-                'price' => 15.5,
-                'originalPrice' => 15.5,
-                'crossedOutPrice' => null,
-                'prices' => [
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ],
-                'greenTax' => 0,
-                'amount' => 10,
-                'infiniteStock' => false,
-                'affiliateLink' => null,
-                'images' => [],
-                'isBrandNew' => false,
-                'options' => [
-                    [
-                        'id' => 1,
-                        'name' => 'color',
-                        'variantId' => 4,
-                        'variantName' => 'red',
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
                     ],
-                    [
-                        'id' => 2,
-                        'name' => 'connectivity',
-                        'variantId' => 6,
-                        'variantName' => 'wired',
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
                     ],
-                ],
-                'company' => [
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ],
-                'shippings' => [
-                    new Shipping([
-                        "shipping_id" => 1,
-                        "name" => "TNT Express",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "24h",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 38,
-                        "name" => "Lettre prioritaire",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                    new Shipping([
-                        "shipping_id" => 39,
-                        "name" => "Colissmo",
-                        "image" => null,
-                        "firstRate" => 0,
-                        "nextRate" => 0,
-                        "deliveryTime" => "",
-                    ]),
-                ],
-            ]),
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_3_2_5',
+                    'code' => 'color_blue_connectivity_wireless',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 3,
+                            'variantName' => 'blue',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 5,
+                            'variantName' => 'wireless',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_3_2_6',
+                    'code' => 'color_blue_connectivity_wired',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => null,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 3,
+                            'variantName' => 'blue',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 6,
+                            'variantName' => 'wired',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_4_2_5',
+                    'code' => 'color_red_connectivity_wireless',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 4,
+                            'variantName' => 'red',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 5,
+                            'variantName' => 'wireless',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
+            new Declination(
+                [
+                    'id' => '2_1_4_2_6',
+                    'code' => 'color_red_connectivity_wired',
+                    'isAvailable' => true,
+                    'supplierReference' => 'INFO-002',
+                    'price' => 15.5,
+                    'originalPrice' => 15.5,
+                    'crossedOutPrice' => null,
+                    'prices' => [
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 10,
+                    'infiniteStock' => false,
+                    'affiliateLink' => null,
+                    'images' => [],
+                    'isBrandNew' => false,
+                    'options' => [
+                        [
+                            'id' => 1,
+                            'name' => 'color',
+                            'variantId' => 4,
+                            'variantName' => 'red',
+                        ],
+                        [
+                            'id' => 2,
+                            'name' => 'connectivity',
+                            'variantId' => 6,
+                            'variantName' => 'wired',
+                        ],
+                    ],
+                    'company' => [
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ],
+                    'shippings' => [
+                        new Shipping(
+                            [
+                                "shipping_id" => 1,
+                                "name" => "TNT Express",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "24h",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 38,
+                                "name" => "Lettre prioritaire",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                        new Shipping(
+                            [
+                                "shipping_id" => 39,
+                                "name" => "Colissmo",
+                                "image" => null,
+                                "firstRate" => 0,
+                                "nextRate" => 0,
+                                "deliveryTime" => "",
+                            ]
+                        ),
+                    ],
+                ]
+            ),
         ];
 
         $this->assertSame('2', $product->getId());
@@ -2136,34 +2286,38 @@ final class CatalogServiceTest extends ApiTestCase
     public function testGetBrandFromWrongType(): void
     {
         $this->expectException(\TypeError::class);
-        $this->buildCatalogService()->getBrand(new Declination([
-            'id' => 1,
-            'code' => '0123456789123',
-            'isAvailable' => true,
-            'supplierReference' => 'test-supplier',
-            'price' => 10,
-            'originalPrice' => 10,
-            'crossedOutPrice' => 10,
-            'prices' => [
-                'priceWithTaxes' => 10,
-                'priceWithoutVat' => 8,
-                'vat' => 2,
-            ],
-            'greenTax' => 0,
-            'amount' => 14,
-            'infiniteStock' => false,
-            'affiliateLink' => '',
-            'images' => [],
-            'options' => [],
-            'company' => [
-                'id' => 1,
-                'name' => 'Test company',
-                'slug' => 'test-company',
-                'isProfessional' => true,
-                'averageRating' => null,
-                'image' => null,
-            ],
-        ]));
+        $this->buildCatalogService()->getBrand(
+            new Declination(
+                [
+                    'id' => 1,
+                    'code' => '0123456789123',
+                    'isAvailable' => true,
+                    'supplierReference' => 'test-supplier',
+                    'price' => 10,
+                    'originalPrice' => 10,
+                    'crossedOutPrice' => 10,
+                    'prices' => [
+                        'priceWithTaxes' => 10,
+                        'priceWithoutVat' => 8,
+                        'vat' => 2,
+                    ],
+                    'greenTax' => 0,
+                    'amount' => 14,
+                    'infiniteStock' => false,
+                    'affiliateLink' => '',
+                    'images' => [],
+                    'options' => [],
+                    'company' => [
+                        'id' => 1,
+                        'name' => 'Test company',
+                        'slug' => 'test-company',
+                        'isProfessional' => true,
+                        'averageRating' => null,
+                        'image' => null,
+                    ],
+                ]
+            )
+        );
     }
 
     public function testGetCompanyByIdWidhMoreInfo(): void
@@ -2281,7 +2435,7 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
         $product = $catalogService->getProductById('1');
 
-        static::assertEquals(1, count($product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()));
+        static::assertEquals(1, \count($product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()));
         static::assertEquals(1.4, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getTaxes());
         static::assertEquals(67.9, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getPriceIncludeTax());
         static::assertEquals(0, $product->getDeclination(new DeclinationId('1_0'))->getPriceTiers()[0]->getLowerLimit());

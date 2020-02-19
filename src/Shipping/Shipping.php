@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Shipping;
 
@@ -44,12 +46,15 @@ final class Shipping
         $this->id = $data['shipping_id'] ?? null;
         $this->name = $data['shipping'] ?? null;
         $this->deliveryTime = $data['delivery_time'] ?? null;
-        $this->isEnabled = array_key_exists('status', $data) ? $data['status'] === "A" : null;
+        $this->isEnabled = \array_key_exists('status', $data) ? $data['status'] === "A" : null;
 
         if (isset($data['rates'])) {
-            $this->rates = array_map(function ($rate) {
-                return new ShippingRate($rate);
-            }, $data['rates']);
+            $this->rates = array_map(
+                function ($rate) {
+                    return new ShippingRate($rate);
+                },
+                $data['rates']
+            );
         }
         $this->position = $data['position'] ?? null;
         $this->description = $data['description'] ?? null;

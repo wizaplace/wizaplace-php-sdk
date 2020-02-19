@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+
 use function theodorejb\polycast\to_float;
 
 /**
@@ -96,8 +99,8 @@ class ProductSummary
         $this->code = $data['product_code'];
         $this->supplierReference = $data['supplier_ref'];
         $this->name = $data['product'];
-        $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
-        $this->lastUpdateAt = new \DateTimeImmutable('@'.$data['updated_timestamp']);
+        $this->createdAt = new \DateTimeImmutable('@' . $data['timestamp']);
+        $this->lastUpdateAt = new \DateTimeImmutable('@' . $data['updated_timestamp']);
         $this->companyId = $data['company_id'];
         $this->mainCategoryId = $data['main_category'];
         $this->weight = to_float($data['weight']);
@@ -114,14 +117,20 @@ class ProductSummary
         }
         $this->isBrandNew = $data['condition'] === 'N';
         $this->freeAttributes = $data['free_features'];
-        $this->attachments = array_map(static function (array $attachmentData): ProductAttachment {
-            return new ProductAttachment($attachmentData);
-        }, $data['attachments'] ?? []);
+        $this->attachments = array_map(
+            static function (array $attachmentData): ProductAttachment {
+                return new ProductAttachment($attachmentData);
+            },
+            $data['attachments'] ?? []
+        );
         $this->divisions = $data['divisions'] ?? [];
-        $this->maxPriceAdjustment = array_key_exists('max_price_adjustment', $data) ? $data['max_price_adjustment'] : null;
-        $this->inventory = array_map(function (array $inventoryData): ProductInventory {
-            return new ProductInventory($inventoryData);
-        }, $data['inventory'] ?? []);
+        $this->maxPriceAdjustment = \array_key_exists('max_price_adjustment', $data) ? $data['max_price_adjustment'] : null;
+        $this->inventory = array_map(
+            function (array $inventoryData): ProductInventory {
+                return new ProductInventory($inventoryData);
+            },
+            $data['inventory'] ?? []
+        );
     }
 
     /**

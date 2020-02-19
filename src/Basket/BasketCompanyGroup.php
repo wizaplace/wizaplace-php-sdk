@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -26,9 +28,12 @@ final class BasketCompanyGroup
     {
         $this->basketCompany = new BasketCompany($data['company']);
 
-        $this->shippingGroups = array_map(static function (array $shippingGroup) : BasketShippingGroup {
-            return new BasketShippingGroup($shippingGroup);
-        }, $data['shippingGroups']);
+        $this->shippingGroups = array_map(
+            static function (array $shippingGroup): BasketShippingGroup {
+                return new BasketShippingGroup($shippingGroup);
+            },
+            $data['shippingGroups']
+        );
     }
 
     /**

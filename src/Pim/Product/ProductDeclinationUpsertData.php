@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
@@ -182,7 +184,7 @@ final class ProductDeclinationUpsertData
             'priceTiers',
         ];
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (!in_array($prop->getName(), $nullableProperties)) {
+            if (!\in_array($prop->getName(), $nullableProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
             }
         }
