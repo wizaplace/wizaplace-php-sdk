@@ -120,7 +120,8 @@ class ModerationServiceTest extends ApiTestCase
                     = true === \array_key_exists($statusKey, $productSummaryArray[$companyID])
                         ? $productSummaryArray[$companyID][$statusKey] + 1
                         : 1;
-            }, $productsToApprove
+            },
+            $productsToApprove
         );
 
         return $productSummaryArray;
