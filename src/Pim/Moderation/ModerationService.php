@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Moderation;
@@ -28,8 +30,10 @@ class ModerationService extends AbstractService
      */
     public function moderateByCompany(int $companyId, string $moderationAction): void
     {
-        if (false === in_array($moderationAction, self::AUTHORIZED_ACTIONS)) {
-            throw new UnauthorizedModerationAction('Unauthorized action, must be '.implode(', ', self::AUTHORIZED_ACTIONS));
+        if (false === \in_array($moderationAction, self::AUTHORIZED_ACTIONS)) {
+            throw new UnauthorizedModerationAction(
+                'Unauthorized action, must be ' . implode(', ', self::AUTHORIZED_ACTIONS)
+            );
         }
 
         $this->client->mustBeAuthenticated();
@@ -45,8 +49,10 @@ class ModerationService extends AbstractService
      */
     public function moderateByProduct(int $productId, string $moderationAction): void
     {
-        if (false === in_array($moderationAction, self::AUTHORIZED_ACTIONS)) {
-            throw new UnauthorizedModerationAction('Unauthorized action, must be '.implode(', ', self::AUTHORIZED_ACTIONS));
+        if (false === \in_array($moderationAction, self::AUTHORIZED_ACTIONS)) {
+            throw new UnauthorizedModerationAction(
+                'Unauthorized action, must be ' . implode(', ', self::AUTHORIZED_ACTIONS)
+            );
         }
 
         $this->client->mustBeAuthenticated();

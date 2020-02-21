@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Category;
@@ -107,17 +109,19 @@ class ModerationServiceTest extends ApiTestCase
         $productSummaryArray = [];
 
         // Summary array filling
-        array_map(function (ProductSummary $product) use (&$productSummaryArray): void {
-            $companyID = $product->getCompanyId();
-            $statusKey = $product->getApprovalStatus()->getKey();
+        array_map(
+            function (ProductSummary $product) use (&$productSummaryArray): void {
+                $companyID = $product->getCompanyId();
+                $statusKey = $product->getApprovalStatus()->getKey();
 
-            $productSummaryArray[$companyID] = $productSummaryArray[$companyID] ?? [];
+                $productSummaryArray[$companyID] = $productSummaryArray[$companyID] ?? [];
 
-            $productSummaryArray[$companyID][$statusKey] =
-                true === array_key_exists($statusKey, $productSummaryArray[$companyID])
-                    ? $productSummaryArray[$companyID][$statusKey] + 1
-                    : 1;
-        }, $productsToApprove);
+                $productSummaryArray[$companyID][$statusKey]
+                    = true === \array_key_exists($statusKey, $productSummaryArray[$companyID])
+                        ? $productSummaryArray[$companyID][$statusKey] + 1
+                        : 1;
+            }, $productsToApprove
+        );
 
         return $productSummaryArray;
     }
