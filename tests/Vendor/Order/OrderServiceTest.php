@@ -701,6 +701,21 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame("24h", $shipping->getDeliveryTime());
     }
 
+    public function testGetOrderShippingAddress(): void
+    {
+        $order = $this->buildVendorOrderService()->getOrderById(12);
+
+        static::assertInstanceOf(Order::class, $order);
+
+        $shippingAddress = $order->getShippingAddress();
+        static::assertInstanceOf(OrderAddress::class, $shippingAddress);
+        static::assertSame('mr', $shippingAddress->getTitle()->getValue());
+
+        $billingAddress = $order->getBillingAddress();
+        static::assertInstanceOf(OrderAddress::class, $billingAddress);
+        static::assertSame('mr', $billingAddress->getTitle()->getValue());
+    }
+
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
     {
         $apiClient = $this->buildApiClient();

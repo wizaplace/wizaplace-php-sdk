@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
+use Wizaplace\SDK\User\UserTitle;
+
 /**
  * Class OrderAddress
  * @package Wizaplace\SDK\Vendor\Order
@@ -42,6 +44,9 @@ final class OrderAddress
     /** @var string */
     private $company;
 
+    /** @var null|UserTitle */
+    private $title;
+
     /**
      * @internal
      *
@@ -58,6 +63,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
+        $this->title = array_key_exists('title', $data) === true ? new UserTitle($data['title']) : null;
     }
 
     /**
@@ -130,6 +136,12 @@ final class OrderAddress
         return $this->company;
     }
 
+
+    /** @return UserTitle|null */
+    public function getTitle(): ?UserTitle
+    {
+        return $this->title;
+    }
 
     /**
      * @internal
