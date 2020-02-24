@@ -42,7 +42,7 @@
             Authorization: 'token rifcioaQ3nArSz02EvOSmTR1xyXj25FjsJ0Gj9bd'
             VCR-index: '1'
             Accept: null
-        body: '{"paymentMethod":"mark_refund_as_paid","isPartial":false,"items":[],"shipping":{"hasShipping":false},"message":null,"creditNoteReference":null}'
+        body: '{"isPartial":false,"items":[],"shipping":{"hasShipping":false},"message":null,"creditNoteReference":null}'
     response:
         status:
             http_version: '1.1'
@@ -63,4 +63,4 @@
             Expires: 'Fri, 17 Jan 2020 14:37:48 GMT'
             Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22056458%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A74%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
             X-Request-Id: 7ae0c23df7cb2805116e23b6dc4d2643
-        body: '{"refundId":25,"orderId":28,"isPartial":false,"hasShipping":true,"amount":145,"shippingAmount":4,"message":null,"status":"marked_as_paid","createdAt":"2020-01-17T15:37:48+01:00","updatedAt":"2020-01-17T15:37:48+01:00","items":[{"itemId":2973481700,"unitPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"quantity":1,"totalPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141}}],"totalItemsPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"totalShippingPrice":{"excluding_taxes":3.3333,"taxes":0.6667,"including_taxes":4},"totalGlobalPrice":{"excluding_taxes":141.4332,"taxes":3.5668,"including_taxes":145},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0.67},{"taxId":2,"taxRate":2.1,"amount":2.9}]}'
+        body: '{"refundId":25,"orderId":28,"isPartial":false,"hasShipping":true,"amount":145,"shippingAmount":4,"message":null,"status":"paid","createdAt":"2020-01-17T15:37:48+01:00","updatedAt":"2020-01-17T15:37:48+01:00","items":[{"itemId":2973481700,"unitPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"quantity":1,"totalPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141}}],"totalItemsPrice":{"excluding_taxes":138.0999,"taxes":2.9001,"including_taxes":141},"totalShippingPrice":{"excluding_taxes":3.3333,"taxes":0.6667,"including_taxes":4},"totalGlobalPrice":{"excluding_taxes":141.4332,"taxes":3.5668,"including_taxes":145},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0.67},{"taxId":2,"taxRate":2.1,"amount":2.9}]}'

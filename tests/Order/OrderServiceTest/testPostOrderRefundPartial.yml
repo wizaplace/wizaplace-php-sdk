@@ -42,7 +42,7 @@
             Authorization: 'token rifcioaQ3nArSz02EvOSmTR1xyXj25FjsJ0Gj9bd'
             VCR-index: '1'
             Accept: null
-        body: '{"paymentMethod":"refund_cb","isPartial":true,"items":[{"itemId":2973481700,"quantity":2}],"shipping":{"hasShipping":false},"message":"NEIN!","creditNoteReference":null}'
+        body: '{"isPartial":true,"items":[{"itemId":2973481700,"quantity":2}],"shipping":{"hasShipping":false},"message":"NEIN!","creditNoteReference":null}'
     response:
         status:
             http_version: '1.1'

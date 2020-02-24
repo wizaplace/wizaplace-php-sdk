@@ -23,7 +23,6 @@ use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
-use Wizaplace\SDK\Order\RefundPaymentMethod;
 use Wizaplace\SDK\Order\RefundRequest;
 use Wizaplace\SDK\Order\RefundRequestItem;
 use Wizaplace\SDK\Order\RefundRequestShipping;
@@ -469,7 +468,6 @@ final class OrderServiceTest extends ApiTestCase
     {
         $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
         $request = new RefundRequest(
-            RefundPaymentMethod::MARK_AS_PAID(),
             false,
             null,
             new RefundRequestShipping(false)
@@ -483,7 +481,7 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(true, $refund->hasShipping());
         static::assertSame(145., $refund->getAmount());
         static::assertSame(4., $refund->getShippingAmount());
-        static::assertTrue(RefundStatus::MARKED_AS_PAID()->equals($refund->getStatus()));
+        static::assertTrue(RefundStatus::PAID()->equals($refund->getStatus()));
         static::assertNull($refund->getMessage());
         static::assertEquals(new \DateTime('2020-01-17T15:37:48+01:00'), $refund->getCreatedAt());
         static::assertEquals(new \DateTime('2020-01-17T15:37:48+01:00'), $refund->getUpdatedAt());
@@ -504,7 +502,7 @@ final class OrderServiceTest extends ApiTestCase
         $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
         $item = new RefundRequestItem(2973481700, 2);
         $shipping = new RefundRequestShipping(false);
-        $request = new RefundRequest(RefundPaymentMethod::REFUND_CB(), true, [$item], $shipping, 'NEIN!');
+        $request = new RefundRequest(true, [$item], $shipping, 'NEIN!');
 
         $refund = $orderService->postRefundOrder(29, $request);
 
