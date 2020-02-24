@@ -63,7 +63,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
-        $this->title = array_key_exists('title', $data) === true ? new UserTitle($data['title']) : null;
+        $this->title = \array_key_exists('title', $data) === true ? new UserTitle($data['title']) : null;
     }
 
     /**
