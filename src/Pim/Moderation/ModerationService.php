@@ -19,14 +19,14 @@ use Wizaplace\SDK\Exception\UnauthorizedModerationAction;
  */
 class ModerationService extends AbstractService
 {
-    private const AUTHORIZED_ACTIONS = ['approve', 'disapprove', 'standby'];
+    protected const AUTHORIZED_ACTIONS = ['approve', 'disapprove', 'standby'];
 
     /**
+     * Change moderation state of all products for a company ID
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws UnauthorizedModerationAction
-     * Change moderation state of all products for a company ID
      */
     public function moderateByCompany(int $companyId, string $moderationAction): void
     {
@@ -41,11 +41,11 @@ class ModerationService extends AbstractService
     }
 
     /**
+     * Change moderation state for one product ID
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws UnauthorizedModerationAction
-     * Change moderation state for one product ID
      */
     public function moderateByProduct(int $productId, string $moderationAction): void
     {
