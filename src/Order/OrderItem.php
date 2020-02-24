@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -59,9 +61,12 @@ final class OrderItem
         $this->productImageId = $data['productImageId'] ?? null;
         $this->price = $data['price'];
         $this->amount = $data['amount'];
-        $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
-            return new DeclinationOption($data);
-        }, $data['options'] ?? []);
+        $this->declinationOptions = array_map(
+            static function (array $data): DeclinationOption {
+                return new DeclinationOption($data);
+            },
+            $data['options'] ?? []
+        );
         $this->customerComment = $data['customerComment'];
         $this->greenTax = $data['greenTax'];
         $this->supplierRef = $data['supplierRef'];

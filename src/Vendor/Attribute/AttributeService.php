@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary

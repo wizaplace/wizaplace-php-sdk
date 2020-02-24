@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Discussion;
 
@@ -55,9 +57,12 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $discussions = array_map(static function (array $discussionData) : Discussion {
-            return new Discussion($discussionData);
-        }, $this->client->get('discussions'));
+        $discussions = array_map(
+            static function (array $discussionData): Discussion {
+                return new Discussion($discussionData);
+            },
+            $this->client->get('discussions')
+        );
 
         return $discussions;
     }
@@ -76,7 +81,7 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return new Discussion($this->client->get('discussions/'.$discussionId));
+        return new Discussion($this->client->get('discussions/' . $discussionId));
     }
 
     /**
@@ -156,14 +161,17 @@ final class DiscussionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $messages = $this->client->get('discussions/'.$discussionId.'/messages');
+        $messages = $this->client->get('discussions/' . $discussionId . '/messages');
         $userId = $this->client->getApiKey()->getId();
 
-        return array_map(static function (array $messageData) use ($userId) : Message {
-            $messageData['isAuthor'] = ($messageData['authorId'] === $userId);
+        return array_map(
+            static function (array $messageData) use ($userId): Message {
+                $messageData['isAuthor'] = ($messageData['authorId'] === $userId);
 
-            return new Message($messageData);
-        }, $messages);
+                return new Message($messageData);
+            },
+            $messages
+        );
     }
 
     /**
@@ -183,7 +191,7 @@ final class DiscussionService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $messageData = $this->client->post('discussions/'.$discussionId.'/messages', [RequestOptions::JSON => ['content' => $content]]);
+            $messageData = $this->client->post('discussions/' . $discussionId . '/messages', [RequestOptions::JSON => ['content' => $content]]);
             $messageData['isAuthor'] = ($messageData['authorId'] === $this->client->getApiKey()->getId());
 
             return new Message($messageData);
@@ -228,14 +236,14 @@ final class DiscussionService extends AbstractService
             ],
         ];
 
-        if (is_string($recipientEmail)) {
+        if (\is_string($recipientEmail)) {
             $data[] = [
                 'name' => 'recipientEmail',
                 'contents' => $recipientEmail,
             ];
         }
 
-        if (count($attachmentsUrls) > 0) {
+        if (\count($attachmentsUrls) > 0) {
             foreach ($attachmentsUrls as $url) {
                 $data[] = [
                     'name'     => 'attachments[]',
@@ -244,7 +252,7 @@ final class DiscussionService extends AbstractService
             }
         }
 
-        if (count($files) > 0) {
+        if (\count($files) > 0) {
             /** @var UploadedFileInterface $file */
             foreach ($files as $file) {
                 if (false === $file instanceof UploadedFileInterface) {
@@ -259,9 +267,12 @@ final class DiscussionService extends AbstractService
             }
         }
 
-        $this->client->post('contact-request', [
-            RequestOptions::MULTIPART => $data,
-        ]);
+        $this->client->post(
+            'contact-request',
+            [
+                RequestOptions::MULTIPART => $data,
+            ]
+        );
 
         return $this;
     }

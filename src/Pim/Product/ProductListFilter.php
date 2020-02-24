@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
-use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\ArrayableInterface;
+
+use function theodorejb\polycast\to_string;
 
 /**
  * Class ProductListFilter
@@ -123,14 +126,14 @@ final class ProductListFilter implements ArrayableInterface
         return $this;
     }
 
-    public function byUpdatedBefore(string $updatedBefore) : self
+    public function byUpdatedBefore(string $updatedBefore): self
     {
         $this->updatedBefore = $updatedBefore;
 
         return $this;
     }
 
-    public function byUpdatedAfter(string $updatedAfter) : self
+    public function byUpdatedAfter(string $updatedAfter): self
     {
         $this->updatedAfter = $updatedAfter;
 
@@ -154,11 +157,11 @@ final class ProductListFilter implements ArrayableInterface
             $filters['subcats'] = $this->includeSubCategories ? 'Y' : 'N';
         }
 
-        if (count($this->ids) > 0) {
+        if (\count($this->ids) > 0) {
             $filters['pid'] = $this->ids;
         }
 
-        if (count($this->productCodes) > 0) {
+        if (\count($this->productCodes) > 0) {
             $filters['pcode'] = $this->productCodes;
 
             if (isset($this->productCode)) {
@@ -171,15 +174,15 @@ final class ProductListFilter implements ArrayableInterface
             $filters['approved'] = to_string($this->approvalStatus);
         }
 
-        if (is_string($this->updatedAfter)) {
+        if (\is_string($this->updatedAfter)) {
             $filters['updatedAfter'] = $this->updatedAfter;
         }
 
-        if (is_string($this->updatedBefore)) {
+        if (\is_string($this->updatedBefore)) {
             $filters['updatedBefore'] = $this->updatedBefore;
         }
 
-        if (count($this->supplierReferences) > 0) {
+        if (\count($this->supplierReferences) > 0) {
             $filters['supplier_ref'] = $this->supplierReferences;
         }
 

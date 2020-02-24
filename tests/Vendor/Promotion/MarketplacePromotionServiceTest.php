@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Promotion;
@@ -40,9 +42,11 @@ class MarketplacePromotionServiceTest extends ApiTestCase
                 ->setName('summer promotion')
                 ->setActive(true)
                 ->setCoupon('SUMMER')
-                ->setDiscounts([
-                    new FixedDiscount(40),
-                ])
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(40),
+                    ]
+                )
                 ->setPeriod(new PromotionPeriod($from, $to))
                 ->setRule(
                     new AndBasketRule(
@@ -158,9 +162,11 @@ class MarketplacePromotionServiceTest extends ApiTestCase
                 ->setName($coupon)
                 ->setActive($isActive)
                 ->setCoupon($coupon)
-                ->setDiscounts([
-                    new FixedDiscount(10),
-                ])
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(10),
+                    ]
+                )
                 ->setPeriod($period)
                 ->setTarget(new BasketTarget())
         );

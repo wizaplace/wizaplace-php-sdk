@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Company;
 
@@ -94,14 +96,21 @@ final class CompanyServiceTest extends ApiTestCase
         // Update file
         $file = $this->mockUploadedFile('minimal.pdf');
 
-        $update = $companyService->updateFile($company->getId(), 'idCard', [
-            'name'     => "idCard",
-            'contents' => $file->getStream(),
-            'filename' => $file->getClientFilename(),
-        ]);
-        $this->assertSame([
-            'success' => true,
-        ], $update);
+        $update = $companyService->updateFile(
+            $company->getId(),
+            'idCard',
+            [
+                'name'     => "idCard",
+                'contents' => $file->getStream(),
+                'filename' => $file->getClientFilename(),
+            ]
+        );
+        $this->assertSame(
+            [
+                'success' => true,
+            ],
+            $update
+        );
 
         $files = $companyService->getCompanyFiles($company->getId());
         $this->assertCount(2, $files);
@@ -242,12 +251,12 @@ final class CompanyServiceTest extends ApiTestCase
     {
         $service = $this->buildUserCompanyService();
         $file = [
-                    [
-                        'name'     => 'idCard',
-                        'contents' => fopen(__DIR__.'/../fixtures/files/minimal.pdf', 'r'),
-                        'filename' => 'minimal.pdf',
-                    ],
-            ];
+            [
+                'name'     => 'idCard',
+                'contents' => fopen(__DIR__ . '/../fixtures/files/minimal.pdf', 'r'),
+                'filename' => 'minimal.pdf',
+            ],
+        ];
         $result = $service->registerC2CCompany('C2C Vendor', '', '', $file);
 
         $this->assertInstanceOf(CompanyRegistrationResult::class, $result);
@@ -276,11 +285,14 @@ final class CompanyServiceTest extends ApiTestCase
 
         $file = $this->mockUploadedFile('favicon.png');
 
-        $imageId = $service->updateCompanyImage($companyId, [
-            'name'     => "file",
-            'contents' => $file->getStream(),
-            'filename' => $file->getClientFilename(),
-        ]);
+        $imageId = $service->updateCompanyImage(
+            $companyId,
+            [
+                'name'     => "file",
+                'contents' => $file->getStream(),
+                'filename' => $file->getClientFilename(),
+            ]
+        );
         $this->assertGreaterThan(0, $imageId);
 
         $companyImageId = $service->getCompanyImageId($companyId);
@@ -288,7 +300,7 @@ final class CompanyServiceTest extends ApiTestCase
 
         $result = $service->deleteCompanyImage($companyId, $companyImageId);
         $this->assertEquals(true, $result["success"]);
-        $this->assertEquals("Image ".$imageId." successfully deleted", $result["message"]);
+        $this->assertEquals("Image " . $imageId . " successfully deleted", $result["message"]);
     }
 
     public function testGettingAListOfDivisionsCountriesCode(): void

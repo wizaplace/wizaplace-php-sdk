@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\MailingList;
 
@@ -46,7 +48,7 @@ final class MailingListService extends AbstractService
     public function subscribe(int $mailingListId, string $email)
     {
         try {
-            $this->client->rawRequest('post', 'mailinglists/'.$mailingListId.'/subscriptions/'.$email);
+            $this->client->rawRequest('post', 'mailinglists/' . $mailingListId . '/subscriptions/' . $email);
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case 404:

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Favorite;
 
@@ -70,7 +72,7 @@ final class FavoriteServiceTest extends ApiTestCase
         $favorites = $this->favService->getAll();
         $this->favService->removeDeclinationToUserFavorites(new DeclinationId('2'));
 
-        $this->assertTrue(is_array($favorites));
+        $this->assertTrue(\is_array($favorites));
         $this->assertCount(2, $favorites);
         $this->assertInstanceOf(DeclinationSummary::class, reset($favorites));
         $this->assertSame('1', reset($favorites)->getProductId());
@@ -87,7 +89,7 @@ final class FavoriteServiceTest extends ApiTestCase
         $this->assertFalse($this->favService->isInFavorites(new DeclinationId('1')));
     }
 
-    public function tearDown() :void
+    public function tearDown(): void
     {
         $this->favService->removeDeclinationToUserFavorites(new DeclinationId('1'));
         $this->favService->removeDeclinationToUserFavorites(new DeclinationId('2'));

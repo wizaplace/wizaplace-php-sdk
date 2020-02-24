@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -28,7 +30,7 @@ final class CatalogPromotionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $promotionData = $this->client->get('promotions/catalog/'.$promotionId);
+        $promotionData = $this->client->get('promotions/catalog/' . $promotionId);
 
         return new CatalogPromotion($promotionData);
     }
@@ -45,9 +47,12 @@ final class CatalogPromotionService extends AbstractService
 
         $responseData = $this->client->get('promotions/catalog');
 
-        return array_map(static function (array $promotionData): CatalogPromotion {
-            return new CatalogPromotion($promotionData);
-        }, $responseData['promotions']);
+        return array_map(
+            static function (array $promotionData): CatalogPromotion {
+                return new CatalogPromotion($promotionData);
+            },
+            $responseData['promotions']
+        );
     }
 
     /**
@@ -67,13 +72,19 @@ final class CatalogPromotionService extends AbstractService
         $promotionId = $command->getPromotionId();
 
         if ($promotionId === null) {
-            $promotionData = $this->client->post('promotions/catalog', [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->post(
+                'promotions/catalog',
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         } else {
-            $promotionData = $this->client->put('promotions/catalog/'.$promotionId, [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->put(
+                'promotions/catalog/' . $promotionId,
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         }
 
         return new CatalogPromotion($promotionData);
@@ -90,6 +101,6 @@ final class CatalogPromotionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->delete('promotions/catalog/'.$promotionId);
+        $this->client->delete('promotions/catalog/' . $promotionId);
     }
 }

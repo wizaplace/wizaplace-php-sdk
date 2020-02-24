@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -30,6 +32,7 @@ use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ShippingTarget;
+
 use function theodorejb\polycast\to_string;
 use function theodorejb\polycast\to_float;
 
@@ -74,7 +77,7 @@ final class MarketplacePromotion implements \JsonSerializable
         $this->promotionId = to_string($data['promotion_id']);
         $this->name = to_string($data['name']);
         $this->active = (bool) $data['active'];
-        $this->isValid = array_key_exists('isValid', $data) ? (bool) $data['isValid'] : false;
+        $this->isValid = \array_key_exists('isValid', $data) ? (bool) $data['isValid'] : false;
         $this->rule = self::denormalizeRule($data['rule']);
         $this->discounts = array_map([self::class, 'denormalizeDiscount'], $data['discounts']);
         $this->period = self::denormalizePeriod($data['period']);
@@ -138,11 +141,13 @@ final class MarketplacePromotion implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        $serializer = new Serializer([
-            new DateTimeNormalizer(),
-            new CustomNormalizer(),
-            new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
-        ]);
+        $serializer = new Serializer(
+            [
+                new DateTimeNormalizer(),
+                new CustomNormalizer(),
+                new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
+            ]
+        );
 
         return $serializer->normalize($this);
     }
@@ -172,7 +177,7 @@ final class MarketplacePromotion implements \JsonSerializable
     private static function denormalizeTarget(array $targetData): BasketPromotionTarget
     {
         // We have to explode 'type' property because product_ids are serialized in it :(
-        if (array_key_exists('type', $targetData) === false || is_string($targetData['type']) === false) {
+        if (\array_key_exists('type', $targetData) === false || \is_string($targetData['type']) === false) {
             throw new \Exception('Target type is empty');
         }
 
@@ -185,18 +190,19 @@ final class MarketplacePromotion implements \JsonSerializable
 
             case BasketPromotionTargetType::PRODUCTS()->equals($type):
                 // We have to format products_ids data for ProductTarget constructor
-                if (isset($target[1]) && is_string($target[1]) && $target[1] !== "") {
+                if (isset($target[1]) && \is_string($target[1]) && $target[1] !== "") {
                     $targetData['products_ids'] = array_map(
-                        function (string $id):int {
+                        function (string $id): int {
                             return (int) $id;
                         },
                         explode(',', $target[1])
                     );
                 }
 
-                if (array_key_exists('products_ids', $targetData) === false
-                    || is_array($targetData['products_ids']) === false
-                    || count($targetData['products_ids']) === 0) {
+                if (\array_key_exists('products_ids', $targetData) === false
+                    || \is_array($targetData['products_ids']) === false
+                    || \count($targetData['products_ids']) === 0
+                ) {
                     throw new \Exception('Empty target products ids');
                 }
 

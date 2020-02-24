@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -91,9 +93,12 @@ final class Basket
             }
         }
 
-        $this->companyGroups = array_map(static function (array $companyGroup) : BasketCompanyGroup {
-            return new BasketCompanyGroup($companyGroup);
-        }, $data['companyGroups']);
+        $this->companyGroups = array_map(
+            static function (array $companyGroup): BasketCompanyGroup {
+                return new BasketCompanyGroup($companyGroup);
+            },
+            $data['companyGroups']
+        );
     }
 
     /**
@@ -235,35 +240,37 @@ final class Basket
      */
     public static function createEmpty(string $id): self
     {
-        return new self([
-            'id' => $id,
-            'coupons' => [],
-            'subtotal' => 0.0,
-            'totalDiscount' => 0.0,
-            'totalShipping' => 0.0,
-            'totalTax' => 0.0,
-            'total' => 0.0,
-            'totalQuantity' => 0,
-            'comment' => '',
-            'companyGroups' => [],
-            'totalItemsPrice' => [
-                'priceWithoutVat' => 0.0,
-                'priceWithTaxes' => 0.0,
-                'vat' => 0.0,
-            ],
-            'totalShippingsPrice' => [
-                'priceWithoutVat' => 0.0,
-                'priceWithTaxes' => 0.0,
-                'vat' => 0.0,
-            ],
-            'totalGlobalPrice' => [
-                'priceWithoutVat' => 0.0,
-                'priceWithTaxes' => 0.0,
-                'vat' => 0.0,
-            ],
-            'isEligibleToPickupPointsShipping' => false,
-            'isPickupPointsShipping' => false,
-        ]);
+        return new self(
+            [
+                'id' => $id,
+                'coupons' => [],
+                'subtotal' => 0.0,
+                'totalDiscount' => 0.0,
+                'totalShipping' => 0.0,
+                'totalTax' => 0.0,
+                'total' => 0.0,
+                'totalQuantity' => 0,
+                'comment' => '',
+                'companyGroups' => [],
+                'totalItemsPrice' => [
+                    'priceWithoutVat' => 0.0,
+                    'priceWithTaxes' => 0.0,
+                    'vat' => 0.0,
+                ],
+                'totalShippingsPrice' => [
+                    'priceWithoutVat' => 0.0,
+                    'priceWithTaxes' => 0.0,
+                    'vat' => 0.0,
+                ],
+                'totalGlobalPrice' => [
+                    'priceWithoutVat' => 0.0,
+                    'priceWithTaxes' => 0.0,
+                    'vat' => 0.0,
+                ],
+                'isEligibleToPickupPointsShipping' => false,
+                'isPickupPointsShipping' => false,
+            ]
+        );
     }
 
     public function getTotalMarketplaceDiscount(): float

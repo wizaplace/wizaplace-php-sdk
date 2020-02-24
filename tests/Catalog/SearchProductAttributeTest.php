@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
@@ -44,16 +46,21 @@ JSON;
         $this->assertSame('', $attribute->getSlug()); // @FIXME @TODO : the API does not give us this data. It should be added to the API, or removed from the SDK
         $this->assertTrue(AttributeType::CHECKBOX_MULTIPLE()->equals($attribute->getType()));
         $this->assertSame('Couleur test', $attribute->getName());
-        $this->assertEquals([
-            new ProductAttributeValue([
-                'id' => 64,
-                'attributeId' => 52,
-                'name' => 'blue',
-                'slug' => 'blue-color',
-                'image' => [
-                    'id' => 708,
-                ],
-            ]),
-        ], $attribute->getValues());
+        $this->assertEquals(
+            [
+                new ProductAttributeValue(
+                    [
+                        'id' => 64,
+                        'attributeId' => 52,
+                        'name' => 'blue',
+                        'slug' => 'blue-color',
+                        'image' => [
+                            'id' => 708,
+                        ],
+                    ]
+                ),
+            ],
+            $attribute->getValues()
+        );
     }
 }

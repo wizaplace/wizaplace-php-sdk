@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Company;
 
@@ -44,30 +46,33 @@ final class CompanyService extends AbstractService
 
         $endpoint = $companyRegistration->isC2C() ? 'companies/c2c' : 'companies';
 
-        $responseData = $this->client->post($endpoint, [
-            RequestOptions::JSON => [
-                'name' => $companyRegistration->getName(),
-                'email' => $companyRegistration->getEmail(),
-                'description' => $companyRegistration->getDescription(),
-                'slug' => $companyRegistration->getSlug(),
-                'address' => $companyRegistration->getAddress(),
-                'country' => $companyRegistration->getCountry(),
-                'zipcode' => $companyRegistration->getZipcode(),
-                'city' => $companyRegistration->getCity(),
-                'phoneNumber' => $companyRegistration->getPhoneNumber(),
-                'url' => $companyRegistration->getUrl(),
-                'fax' => $companyRegistration->getFax(),
-                'vatNumber' => $companyRegistration->getVatNumber(),
-                'siretNumber' => $companyRegistration->getSiretNumber(),
-                'rcs' => $companyRegistration->getRcs(),
-                'legalStatus' => $companyRegistration->getLegalStatus(),
-                'capital' => $companyRegistration->getCapital(),
-                'iban' => $companyRegistration->getIban(),
-                'bic' => $companyRegistration->getBic(),
-                'extra' => $companyRegistration->getExtra(),
-                'nafCode' => $companyRegistration->getNafCode(),
-            ],
-        ]);
+        $responseData = $this->client->post(
+            $endpoint,
+            [
+                RequestOptions::JSON => [
+                    'name' => $companyRegistration->getName(),
+                    'email' => $companyRegistration->getEmail(),
+                    'description' => $companyRegistration->getDescription(),
+                    'slug' => $companyRegistration->getSlug(),
+                    'address' => $companyRegistration->getAddress(),
+                    'country' => $companyRegistration->getCountry(),
+                    'zipcode' => $companyRegistration->getZipcode(),
+                    'city' => $companyRegistration->getCity(),
+                    'phoneNumber' => $companyRegistration->getPhoneNumber(),
+                    'url' => $companyRegistration->getUrl(),
+                    'fax' => $companyRegistration->getFax(),
+                    'vatNumber' => $companyRegistration->getVatNumber(),
+                    'siretNumber' => $companyRegistration->getSiretNumber(),
+                    'rcs' => $companyRegistration->getRcs(),
+                    'legalStatus' => $companyRegistration->getLegalStatus(),
+                    'capital' => $companyRegistration->getCapital(),
+                    'iban' => $companyRegistration->getIban(),
+                    'bic' => $companyRegistration->getBic(),
+                    'extra' => $companyRegistration->getExtra(),
+                    'nafCode' => $companyRegistration->getNafCode(),
+                ],
+            ]
+        );
 
         $company = new Company($responseData);
 
@@ -90,13 +95,16 @@ final class CompanyService extends AbstractService
 
         $this->client->mustBeAuthenticated();
 
-        $responseData = $this->client->post('companies/c2c', [
-            RequestOptions::JSON => [
-                'name' => $companyName,
-                'iban' => $iban ?? "",
-                'bic'  => $bic ?? "",
-            ],
-        ]);
+        $responseData = $this->client->post(
+            'companies/c2c',
+            [
+                RequestOptions::JSON => [
+                    'name' => $companyName,
+                    'iban' => $iban ?? "",
+                    'bic'  => $bic ?? "",
+                ],
+            ]
+        );
 
         $company = new Company($responseData);
 
@@ -122,7 +130,7 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $isNotNull =  function ($value): bool {
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 return $value !== [];
             }
 
@@ -130,7 +138,7 @@ final class CompanyService extends AbstractService
         };
 
         $responseData = $this->client->put(
-            'companies/'.$command->getCompanyId(),
+            'companies/' . $command->getCompanyId(),
             [
                 RequestOptions::JSON => array_filter(
                     [
@@ -181,32 +189,35 @@ final class CompanyService extends AbstractService
      */
     public function unauthenticatedRegister(UnauthenticatedCompanyRegistration $companyRegistration): CompanyRegistrationResult
     {
-        $responseData = $this->client->post('companies', [
-            RequestOptions::JSON => [
-                'name' => $companyRegistration->getName(),
-                'email' => $companyRegistration->getEmail(),
-                'description' => $companyRegistration->getDescription(),
-                'slug' => $companyRegistration->getSlug(),
-                'address' => $companyRegistration->getAddress(),
-                'country' => $companyRegistration->getCountry(),
-                'zipcode' => $companyRegistration->getZipcode(),
-                'city' => $companyRegistration->getCity(),
-                'phoneNumber' => $companyRegistration->getPhoneNumber(),
-                'url' => $companyRegistration->getUrl(),
-                'fax' => $companyRegistration->getFax(),
-                'vatNumber' => $companyRegistration->getVatNumber(),
-                'siretNumber' => $companyRegistration->getSiretNumber(),
-                'rcs' => $companyRegistration->getRcs(),
-                'legalStatus' => $companyRegistration->getLegalStatus(),
-                'capital' => $companyRegistration->getCapital(),
-                'iban' => $companyRegistration->getIban(),
-                'bic' => $companyRegistration->getBic(),
-                'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
-                'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
-                'extra' => $companyRegistration->getExtra(),
-                'nafCode' => $companyRegistration->getNafCode(),
-            ],
-        ]);
+        $responseData = $this->client->post(
+            'companies',
+            [
+                RequestOptions::JSON => [
+                    'name' => $companyRegistration->getName(),
+                    'email' => $companyRegistration->getEmail(),
+                    'description' => $companyRegistration->getDescription(),
+                    'slug' => $companyRegistration->getSlug(),
+                    'address' => $companyRegistration->getAddress(),
+                    'country' => $companyRegistration->getCountry(),
+                    'zipcode' => $companyRegistration->getZipcode(),
+                    'city' => $companyRegistration->getCity(),
+                    'phoneNumber' => $companyRegistration->getPhoneNumber(),
+                    'url' => $companyRegistration->getUrl(),
+                    'fax' => $companyRegistration->getFax(),
+                    'vatNumber' => $companyRegistration->getVatNumber(),
+                    'siretNumber' => $companyRegistration->getSiretNumber(),
+                    'rcs' => $companyRegistration->getRcs(),
+                    'legalStatus' => $companyRegistration->getLegalStatus(),
+                    'capital' => $companyRegistration->getCapital(),
+                    'iban' => $companyRegistration->getIban(),
+                    'bic' => $companyRegistration->getBic(),
+                    'legalRepresentativeFirstName' => $companyRegistration->getLegalRepresentativeFirstName(),
+                    'legalRepresentativeLastName' => $companyRegistration->getLegalRepresentativeLastName(),
+                    'extra' => $companyRegistration->getExtra(),
+                    'nafCode' => $companyRegistration->getNafCode(),
+                ],
+            ]
+        );
 
         $company = new Company($responseData);
 
@@ -226,11 +237,11 @@ final class CompanyService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCompany(int $companyId) :Company
+    public function getCompany(int $companyId): Company
     {
         $this->client->mustBeAuthenticated();
 
-        $companyData = $this->client->get('companies/'.$companyId);
+        $companyData = $this->client->get('companies/' . $companyId);
 
         return new Company($companyData);
     }
@@ -243,11 +254,11 @@ final class CompanyService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCompanyFiles(int $companyId) :array
+    public function getCompanyFiles(int $companyId): array
     {
         $this->client->mustBeAuthenticated();
 
-        $files = $this->client->get('companies/'.$companyId.'/files');
+        $files = $this->client->get('companies/' . $companyId . '/files');
         $return = [];
         foreach ($files as $file) {
             $return[] = new CompanyFile($companyId, $file);
@@ -263,7 +274,7 @@ final class CompanyService extends AbstractService
      * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function fetchFile(CompanyFile $file) :ResponseInterface
+    public function fetchFile(CompanyFile $file): ResponseInterface
     {
         $this->client->mustBeAuthenticated();
 
@@ -286,11 +297,14 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return $this->client->post("companies/{$companyId}/files/{$filename}", [
-            RequestOptions::MULTIPART => [
-                $filename => $file,
-            ],
-        ]);
+        return $this->client->post(
+            "companies/{$companyId}/files/{$filename}",
+            [
+                RequestOptions::MULTIPART => [
+                    $filename => $file,
+                ],
+            ]
+        );
     }
 
     /**
@@ -323,11 +337,15 @@ final class CompanyService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return (int) $this->client->rawRequest("POST", "companies/{$companyId}/image", [
-            RequestOptions::MULTIPART => [
-                'file' => $imageFile,
-            ],
-        ])
+        return (int) $this->client->rawRequest(
+            "POST",
+            "companies/{$companyId}/image",
+            [
+                RequestOptions::MULTIPART => [
+                    'file' => $imageFile,
+                ],
+            ]
+        )
             ->getBody()
             ->getContents();
     }
@@ -405,9 +423,12 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return array_map(function ($datas) {
-                return new DivisionCompany($datas);
-            }, $this->client->get("companies/{$companyId}/divisions/{$countryCode}"));
+            return array_map(
+                function ($datas) {
+                    return new DivisionCompany($datas);
+                },
+                $this->client->get("companies/{$companyId}/divisions/{$countryCode}")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound($e);
@@ -434,15 +455,21 @@ final class CompanyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $divisions = $this->client->put("companies/{$companyId}/divisions/{$countryCode}", [
-                RequestOptions::FORM_PARAMS => [
-                    'code' => $codes,
-                ],
-            ]);
+            $divisions = $this->client->put(
+                "companies/{$companyId}/divisions/{$countryCode}",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'code' => $codes,
+                    ],
+                ]
+            );
 
-            return array_map(function ($datas) {
-                return new DivisionCompany($datas);
-            }, $divisions);
+            return array_map(
+                function ($datas) {
+                    return new DivisionCompany($datas);
+                },
+                $divisions
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound($e);
@@ -478,9 +505,12 @@ final class CompanyService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $subscription): SubscriptionSummary {
-                        return new SubscriptionSummary($subscription);
-                    }, $response['items'])
+                    array_map(
+                        function (array $subscription): SubscriptionSummary {
+                            return new SubscriptionSummary($subscription);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "Company '{$companyId}' not found."
@@ -501,12 +531,18 @@ final class CompanyService extends AbstractService
             return [];
         }
 
-        $responseData = $this->client->post("companies/$companyId/files", [
-            RequestOptions::MULTIPART => $files,
-        ]);
+        $responseData = $this->client->post(
+            "companies/$companyId/files",
+            [
+                RequestOptions::MULTIPART => $files,
+            ]
+        );
 
-        return array_map(static function (array $data) {
-            return new FileUploadResult($data['error'] ?? null);
-        }, $responseData);
+        return array_map(
+            static function (array $data) {
+                return new FileUploadResult($data['error'] ?? null);
+            },
+            $responseData
+        );
     }
 }

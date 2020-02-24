@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Cms;
 
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\AbstractService;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
@@ -37,9 +40,9 @@ final class CmsService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getPage(int $pageId) : Page
+    public function getPage(int $pageId): Page
     {
-        $data = $this->client->get('cms/page/'.$pageId);
+        $data = $this->client->get('cms/page/' . $pageId);
 
         $page = new Page(
             $data['id'],

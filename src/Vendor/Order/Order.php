@@ -1,13 +1,16 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
 
 use Wizaplace\SDK\Shipping\Shipping;
+
 use function theodorejb\polycast\to_int;
 
 /**
@@ -128,24 +131,33 @@ final class Order
         $this->invoiceNumber = $data['invoice_number'];
         $this->declineReason = $data['decline_reason'] ?? '';
         $this->needsShipping = $data['need_shipping'];
-        $this->shipmentsIds = array_map(static function ($v): int {
-            return to_int($v);
-        }, $data['shipment_ids']);
+        $this->shipmentsIds = array_map(
+            static function ($v): int {
+                return to_int($v);
+            },
+            $data['shipment_ids']
+        );
         $this->shippingCost = $data['shipping_cost'];
         $this->notes = $data['notes'];
         $this->details = $data['details'] ?? null;
         $this->taxSubtotal = $data['tax_subtotal'];
         $this->total = $data['total'];
         $this->status = new OrderStatus($data['status']);
-        $this->createdAt = new \DateTimeImmutable('@'.$data['timestamp']);
+        $this->createdAt = new \DateTimeImmutable('@' . $data['timestamp']);
         $this->billingAddress = OrderAddress::extractBillingAddressData($data);
         $this->shippingAddress = OrderAddress::extractShippingAddressData($data);
-        $this->taxes = array_map(function (array $itemData): OrderTax {
-            return new OrderTax($itemData);
-        }, $data['taxes']);
-        $this->items = array_map(function (array $itemData): OrderItem {
-            return new OrderItem($itemData);
-        }, $data['products']);
+        $this->taxes = array_map(
+            function (array $itemData): OrderTax {
+                return new OrderTax($itemData);
+            },
+            $data['taxes']
+        );
+        $this->items = array_map(
+            function (array $itemData): OrderItem {
+                return new OrderItem($itemData);
+            },
+            $data['products']
+        );
         $this->comment = $data['notes'] ?? '';
         $this->lastStatusChange = static::denormalizeLastStatusChange($data['last_status_change'] ?? null);
         $this->billingAddress = OrderAddress::extractBillingAddressData($data);
@@ -155,9 +167,12 @@ final class Order
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isSubscriptionInitiator = $data['is_subscription_initiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
-        $this->shipping = \array_key_exists('shipping', $data) ? array_map(function (array $itemData): Shipping {
-            return new Shipping($itemData);
-        }, $data['shipping']) : null;
+        $this->shipping = \array_key_exists('shipping', $data) ? array_map(
+            function (array $itemData): Shipping {
+                return new Shipping($itemData);
+            },
+            $data['shipping']
+        ) : null;
     }
 
     /**
@@ -358,7 +373,7 @@ final class Order
      */
     public static function denormalizeLastStatusChange(?string $value): ?\DateTimeImmutable
     {
-        if (is_null($value) === true || trim($value) === "") {
+        if (\is_null($value) === true || trim($value) === "") {
             return null;
         }
 
@@ -373,20 +388,22 @@ final class Order
     {
         $amountsTaxesDetails = new AmountsTaxesDetails();
         foreach (AmountsTaxesDetails::getKeys() as $key) {
-            if (array_key_exists($key, $data)) {
-                if (array_key_exists('excluding_taxes', $data[$key]) === false
-                    || array_key_exists('taxes', $data[$key]) === false
-                    || array_key_exists('including_taxes', $data[$key])  === false
+            if (\array_key_exists($key, $data)) {
+                if (\array_key_exists('excluding_taxes', $data[$key]) === false
+                    || \array_key_exists('taxes', $data[$key]) === false
+                    || \array_key_exists('including_taxes', $data[$key])  === false
                 ) {
                     throw new \Exception("Bad format for '$key' property");
                 }
 
-                $amountsTaxesDetails->add(new AmountTaxesDetail(
-                    $key,
-                    $data[$key]['excluding_taxes'],
-                    $data[$key]['taxes'],
-                    $data[$key]['including_taxes']
-                ));
+                $amountsTaxesDetails->add(
+                    new AmountTaxesDetail(
+                        $key,
+                        $data[$key]['excluding_taxes'],
+                        $data[$key]['taxes'],
+                        $data[$key]['including_taxes']
+                    )
+                );
             }
         }
 

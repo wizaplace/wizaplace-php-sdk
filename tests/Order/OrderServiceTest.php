@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Order;
 
@@ -548,7 +550,7 @@ final class OrderServiceTest extends ApiTestCase
         $pdfHeader = '%PDF-1.4';
         $pdfContent = $creditNote->getContents();
         $this->assertStringStartsWith($pdfHeader, $pdfContent);
-        $this->assertGreaterThan(strlen($pdfHeader), strlen($pdfContent));
+        $this->assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 namespace Wizaplace\SDK\Organisation;
 
 /**
@@ -71,7 +73,7 @@ class OrganisationBasket
     /**
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -87,7 +89,7 @@ class OrganisationBasket
     /**
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }

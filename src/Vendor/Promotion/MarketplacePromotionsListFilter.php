@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -74,15 +76,15 @@ class MarketplacePromotionsListFilter implements ArrayableInterface
     {
         $filters = [];
 
-        if (is_string($this->getCoupon())) {
+        if (\is_string($this->getCoupon())) {
             $filters['coupon'] = $this->getCoupon();
         }
 
-        if (is_bool($this->isActive())) {
+        if (\is_bool($this->isActive())) {
             $filters['active'] = $this->isActive();
         }
 
-        if (is_bool($this->isValid())) {
+        if (\is_bool($this->isValid())) {
             $filters['isValid'] = $this->isValid();
         }
 

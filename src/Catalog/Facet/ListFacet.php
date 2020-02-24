@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog\Facet;
@@ -26,9 +28,12 @@ final class ListFacet extends Facet
     public function __construct(array $data)
     {
         parent::__construct($data);
-        $this->values = array_map(static function (array $valueData) {
-            return new ListFacetValue($valueData);
-        }, $data['values']);
+        $this->values = array_map(
+            static function (array $valueData) {
+                return new ListFacetValue($valueData);
+            },
+            $data['values']
+        );
     }
 
     /**

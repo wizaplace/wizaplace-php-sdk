@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Company;
 
@@ -39,6 +41,6 @@ final class FileUploadResult
      */
     public function isSuccess(): bool
     {
-        return is_null($this->errorMessage);
+        return \is_null($this->errorMessage);
     }
 }

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Option;
@@ -36,9 +38,12 @@ final class OptionService extends AbstractService
             throw $e;
         }
 
-        return array_map(function (array $optionData): Option {
-            return new Option($optionData);
-        }, $data);
+        return array_map(
+            function (array $optionData): Option {
+                return new Option($optionData);
+            },
+            $data
+        );
     }
 
     /**
@@ -60,9 +65,12 @@ final class OptionService extends AbstractService
             throw $e;
         }
 
-        return array_map(function (array $optionData): Option {
-            return new Option($optionData);
-        }, $data);
+        return array_map(
+            function (array $optionData): Option {
+                return new Option($optionData);
+            },
+            $data
+        );
     }
 
     /**

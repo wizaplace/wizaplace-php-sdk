@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Catalog;
 
@@ -19,52 +21,54 @@ final class DeclinationSummaryTest extends TestCase
 {
     public function testInterface()
     {
-        $favorite = new DeclinationSummary([
-            'id' => '42_1_2',
-            'productId' => 42,
-            'name' => 'Very comfortable chair',
-            'shortDescription' => '',
-            'code' => '4006381333933',
-            'prices' => [
-                'priceWithoutVat' => 67.49,
-                'priceWithTaxes' => 79.99,
-                'vat' => 12.5,
-            ],
-            'crossedOutPrice' => 99.99,
-            'amount' => 24,
-            'infiniteStock' => false,
-            'affiliateLink' => 'http://example.com',
-            'options' => [
-                [
-                    'id' => 1,
-                    'name' => 'Color',
-                    'variantId' => 2,
-                    'variantName' => 'white',
+        $favorite = new DeclinationSummary(
+            [
+                'id' => '42_1_2',
+                'productId' => 42,
+                'name' => 'Very comfortable chair',
+                'shortDescription' => '',
+                'code' => '4006381333933',
+                'prices' => [
+                    'priceWithoutVat' => 67.49,
+                    'priceWithTaxes' => 79.99,
+                    'vat' => 12.5,
                 ],
-            ],
-            'mainImage' => [
-                'id' => 8,
-            ],
-            'company' => [
-                'id' => 1,
-                'name' => 'Test company',
-                'slug' => 'test-company',
-                'averageRating' => 3.5,
-                'isProfessional' => true,
-                'image' => [
+                'crossedOutPrice' => 99.99,
+                'amount' => 24,
+                'infiniteStock' => false,
+                'affiliateLink' => 'http://example.com',
+                'options' => [
+                    [
+                        'id' => 1,
+                        'name' => 'Color',
+                        'variantId' => 2,
+                        'variantName' => 'white',
+                    ],
+                ],
+                'mainImage' => [
                     'id' => 8,
                 ],
-            ],
-            'slug' => 'very-confortable-chair',
-            'categoryPath' => [
-                [
+                'company' => [
                     'id' => 1,
-                    'name' => 'Food',
-                    'slug' => 'food',
+                    'name' => 'Test company',
+                    'slug' => 'test-company',
+                    'averageRating' => 3.5,
+                    'isProfessional' => true,
+                    'image' => [
+                        'id' => 8,
+                    ],
                 ],
-            ],
-            'isAvailable' => false,
-        ]);
+                'slug' => 'very-confortable-chair',
+                'categoryPath' => [
+                    [
+                        'id' => 1,
+                        'name' => 'Food',
+                        'slug' => 'food',
+                    ],
+                ],
+                'isAvailable' => false,
+            ]
+        );
 
         $this->assertTrue((new DeclinationId('42_1_2'))->equals($favorite->getId()));
         $this->assertSame('42', $favorite->getProductId());

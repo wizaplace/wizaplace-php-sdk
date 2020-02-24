@@ -1,13 +1,16 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\AuthLog;
 
@@ -16,7 +18,7 @@ final class AuthLogService extends AbstractService
      *
      * int $id: AuthLog specific id
      */
-    public function get(int $id) : array
+    public function get(int $id): array
     {
         $this->client->mustBeAuthenticated();
 

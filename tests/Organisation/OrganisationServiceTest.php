@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
@@ -107,7 +108,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $organisation = $organisationService->get($organisationId);
 
             $this->assertSame($organisationId, $organisation->getId());
@@ -137,7 +138,7 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $organisationService = $this->buildOrganisationService();
 
             $this->expectExceptionCode(404);
@@ -178,7 +179,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $listUsers = $organisationService->getListUsers($organisationId);
 
             $this->assertNotEmpty($listUsers);
@@ -197,7 +198,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $this->expectException(UserDoesntBelongToOrganisation::class);
             $organisationService->getListUsers($organisationId);
         }
@@ -209,7 +210,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $address = [
                 'address' => '10 rue de la gare',
                 'additionalAddress' => 'Lieu dit: au dessus de LDLC',
@@ -258,7 +259,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $address = [
                 'address' => '10 rue de la gare',
                 'additionalAddress' => 'Lieu dit: au dessus de LDLC',
@@ -294,7 +295,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $organisation = $organisationService->get($organisationId);
 
             $organisation->setName("New name");
@@ -323,7 +324,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $organisation = $organisationService->get($organisationId);
 
             $organisation->setName("New name");
@@ -346,7 +347,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $this->assertSame("Mon nouveau panier", $responseData['name']);
@@ -361,7 +362,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $this->expectException(UserDoesntBelongToOrganisation::class);
             $organisationService->addBasket($organisationId, "Mon nouveau panier");
         }
@@ -373,7 +374,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -392,7 +393,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -410,7 +411,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -429,7 +430,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -447,7 +448,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -464,7 +465,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -484,7 +485,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->addBasket($organisationId, "Mon nouveau panier");
 
             $basketId = $responseData['basketId'];
@@ -603,7 +604,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $responseData = $organisationService->createGroup($organisationId, "name", "type");
 
             $this->assertRegExp(
@@ -619,7 +620,7 @@ final class OrganisationServiceTest extends ApiTestCase
 
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             $groups = $organisationService->getOrganisationGroups($organisationId);
 
             foreach ($groups as $group) {
@@ -650,7 +651,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationId = $this->getOrganisationId(1);
         $this->assertInternalType('string', $organisationId);
 
-        if (is_string($organisationId)) {
+        if (\is_string($organisationId)) {
             // Get all the organisation orders
             $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
 
@@ -670,7 +671,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId();
 
-        if (is_string($organisationId) === true) {
+        if (\is_string($organisationId) === true) {
             $organisationService->get($organisationId);
             $organisationGetOrder = $organisationService->getOrganisationOrders($organisationId);
             $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
@@ -711,9 +712,10 @@ final class OrganisationServiceTest extends ApiTestCase
         //get the list of all organisation, to have their ID
         $listOrga = $organisationService->getList();
 
-        if (is_array($listOrga)
-            && count($listOrga) > 0
-            && isset($listOrga['_embedded'], $listOrga['_embedded']['organisations'], $listOrga['_embedded']['organisations'][$index])) {
+        if (\is_array($listOrga)
+            && \count($listOrga) > 0
+            && isset($listOrga['_embedded'], $listOrga['_embedded']['organisations'], $listOrga['_embedded']['organisations'][$index])
+        ) {
             $tempOrga = $listOrga['_embedded']['organisations'][$index];
             $organisationId = $tempOrga['id'];
 

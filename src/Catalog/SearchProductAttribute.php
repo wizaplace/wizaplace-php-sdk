@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -34,9 +36,12 @@ final class SearchProductAttribute
         $this->id = $data['attribute']['id'];
         $this->name = $data['attribute']['name'];
         $this->slug = $data['attribute']['slug'] ?? '';
-        $this->values = array_map(static function (array $valueData): ProductAttributeValue {
-            return new ProductAttributeValue($valueData);
-        }, $data['values'] ?? []);
+        $this->values = array_map(
+            static function (array $valueData): ProductAttributeValue {
+                return new ProductAttributeValue($valueData);
+            },
+            $data['values'] ?? []
+        );
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
     }
 

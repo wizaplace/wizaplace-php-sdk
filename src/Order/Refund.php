@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
@@ -78,7 +80,7 @@ final class Refund
         $this->message = $data['message'];
         $this->createdAt = new \DateTimeImmutable($data['createdAt']);
         $this->updatedAt = new \DateTimeImmutable($data['updatedAt']);
-        $this->items = array_map(function (array $item) : RefundItem {
+        $this->items = array_map(function (array $item): RefundItem {
             return new RefundItem($item);
         }, $data['items']);
         $this->totalItemsPrice = new Price($data['totalItemsPrice']);

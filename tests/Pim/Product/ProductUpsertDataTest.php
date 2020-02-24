@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\Product;
@@ -28,27 +30,30 @@ final class ProductUpsertDataTest extends TestCase
         $data = $this->minimumValidData();
         $data->validate();
         $array = $data->toArray();
-        $this->assertEquals(array (
-            'product_code' => '',
-            'supplier_ref' => '',
-            'product' => '',
-            'status' => 'A',
-            'main_category' => 1,
-            'green_tax' => 0.1,
-            'condition' => 'U',
-            'weight' => 0.1,
-            'full_description' => '',
-            'short_description' => '',
-            'tax_ids' =>
+        $this->assertEquals(
+            array (
+                'product_code' => '',
+                'supplier_ref' => '',
+                'product' => '',
+                'status' => 'A',
+                'main_category' => 1,
+                'green_tax' => 0.1,
+                'condition' => 'U',
+                'weight' => 0.1,
+                'full_description' => '',
+                'short_description' => '',
+                'tax_ids' =>
                 array (
                 ),
-            'inventory' =>
+                'inventory' =>
                 array (
                 ),
-            'allowed_options_variants' =>
+                'allowed_options_variants' =>
                 array (
                 ),
-        ), $array);
+            ),
+            $array
+        );
     }
 
     public function testIncompleteProductImageFails(): void
