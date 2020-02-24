@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\MailingList;
 
@@ -36,7 +38,7 @@ final class MailingListTest extends ApiTestCase
             $this->assertInstanceOf(MailingList::class, $mailingList);
         }
 
-        $this->assertSame(1, count($mailingLists));
+        $this->assertSame(1, \count($mailingLists));
         $this->assertSame(1, $mailingLists[0]->getId());
         $this->assertSame('Newsletter', $mailingLists[0]->getName());
     }

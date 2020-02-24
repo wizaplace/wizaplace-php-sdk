@@ -1,15 +1,18 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Image\Image;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -89,15 +92,21 @@ final class DeclinationSummary
         $this->crossedOutPrice = $data['crossedOutPrice'] ?? null;
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'] === '' ? null : new Uri($data['affiliateLink']);
-        $this->options = array_map(static function (array $data): DeclinationOption {
-            return new DeclinationOption($data);
-        }, $data['options']);
+        $this->options = array_map(
+            static function (array $data): DeclinationOption {
+                return new DeclinationOption($data);
+            },
+            $data['options']
+        );
         $this->mainImage = isset($data['mainImage']) ? new Image($data['mainImage']) : null;
         $this->company = new CompanySummary($data['company']);
         $this->slug = $data['slug'];
-        $this->categoryPath = array_map(static function (array $data): ProductCategory {
-            return new ProductCategory($data);
-        }, $data['categoryPath']);
+        $this->categoryPath = array_map(
+            static function (array $data): ProductCategory {
+                return new ProductCategory($data);
+            },
+            $data['categoryPath']
+        );
         $this->isAvailable = $data['isAvailable'];
         $this->shortDescription = $data['shortDescription'];
         $this->infiniteStock = $data['infiniteStock'];

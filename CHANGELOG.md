@@ -1,6 +1,6 @@
 # Changelog
 
-## Next release
+## 1.100.20
 
 ### Deprecated
 
@@ -9,6 +9,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\Basket\BasketService::addProduct`
+- Added `Wizaplace\SDK\Vendor\Order\OrderAddress::getTitle()`
 
 ## 1.100.13
 

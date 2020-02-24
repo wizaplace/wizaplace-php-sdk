@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\CreditCard;
@@ -44,9 +46,12 @@ final class CreditCardService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $creditCard): CreditCard {
-                        return new CreditCard($creditCard);
-                    }, $response['items'])
+                    array_map(
+                        function (array $creditCard): CreditCard {
+                            return new CreditCard($creditCard);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "User '{$userId}' not found."

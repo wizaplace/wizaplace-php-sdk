@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
@@ -86,13 +88,15 @@ final class MultiVendorProductFilter implements ArrayableInterface
 
     public function toArray(): array
     {
-        return array_filter([
-            'id' => $this->ids,
-            'code' => $this->codes,
-            'supplierReference' => $this->supplierReferences,
-            'categoryId' => $this->categoryId,
-            'updatedBefore' => $this->updatedBefore,
-            'updatedAfter' => $this->updatedAfter,
-        ]);
+        return array_filter(
+            [
+                'id' => $this->ids,
+                'code' => $this->codes,
+                'supplierReference' => $this->supplierReferences,
+                'categoryId' => $this->categoryId,
+                'updatedBefore' => $this->updatedBefore,
+                'updatedAfter' => $this->updatedAfter,
+            ]
+        );
     }
 }

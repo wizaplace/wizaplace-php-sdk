@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests;
 
@@ -15,6 +17,7 @@ use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use VCR\VCR;
 use Wizaplace\SDK\ApiClient;
+
 use function GuzzleHttp\Psr7\stream_for;
 
 abstract class ApiTestCase extends TestCase
@@ -41,19 +44,25 @@ abstract class ApiTestCase extends TestCase
         $handlerStack = HandlerStack::create();
         $handlerStack->push($historyMiddleware);
         $i = &$this->requestIndex;
-        $handlerStack->push(static function (callable $handler) use (&$i) {
-            return static function (RequestInterface $request, array $options) use ($handler, &$i) {
-                $request = $request->withHeader('VCR-index', $i);
-                $i++;
+        $handlerStack->push(
+            static function (callable $handler) use (&$i) {
+                return static function (RequestInterface $request, array $options) use ($handler, &$i) {
+                    $request = $request->withHeader('VCR-index', $i);
+                    $i++;
 
-                return $handler($request, $options);
-            };
-        });
+                    return $handler($request, $options);
+                };
+            }
+        );
 
-        return new ApiClient(new Client([
-            'handler' => $handlerStack,
-            'base_uri' => self::getApiBaseUrl(),
-        ]));
+        return new ApiClient(
+            new Client(
+                [
+                    'handler' => $handlerStack,
+                    'base_uri' => self::getApiBaseUrl(),
+                ]
+            )
+        );
     }
 
     public function buildAdminApiClient(): ApiClient
@@ -71,10 +80,10 @@ abstract class ApiTestCase extends TestCase
         $this->requestIndex = 0;
         $reflectionClass = (new \ReflectionClass($this));
 
-        $this->cassettePath = dirname($reflectionClass->getFileName());
+        $this->cassettePath = \dirname($reflectionClass->getFileName());
         VCR::configure()->setCassettePath($this->cassettePath);
 
-        $this->cassetteName = $reflectionClass->getShortName().DIRECTORY_SEPARATOR.$this->getName().'.yml';
+        $this->cassetteName = $reflectionClass->getShortName() . DIRECTORY_SEPARATOR . $this->getName() . '.yml';
 
         VCR::turnOn();
         VCR::insertCassette($this->cassetteName);
@@ -87,7 +96,7 @@ abstract class ApiTestCase extends TestCase
         } catch (\LogicException $e) {
             if (strpos($e->getMessage(), 'request does not match a previously recorded request') !== false) {
                 /* @see \VCR\Videorecorder::handleRequest */
-                unlink($this->cassettePath.DIRECTORY_SEPARATOR.$this->cassetteName);
+                unlink($this->cassettePath . DIRECTORY_SEPARATOR . $this->cassetteName);
                 throw new \Exception(
                     "VCR fixtures did not match the requests made during the tests.\nFixtures got deleted, re-run the test to re-populate them.",
                     $e->getCode(),
@@ -109,7 +118,7 @@ abstract class ApiTestCase extends TestCase
 
     protected function mockUploadedFile(string $filename): UploadedFileInterface
     {
-        $path = __DIR__.'/fixtures/files/'.$filename;
+        $path = __DIR__ . '/fixtures/files/' . $filename;
 
         /** @var UploadedFileInterface|\PHPUnit_Framework_MockObject_MockObject $file */
         $file = $this->createMock(UploadedFileInterface::class);

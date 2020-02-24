@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -89,7 +91,7 @@ final class CreateShipmentCommand
      */
     public function validate(): void
     {
-        if (count($this->shippedQuantityByItemId) === 0) {
+        if (\count($this->shippedQuantityByItemId) === 0) {
             throw new SomeParametersAreInvalid('at least 1 order item id is required');
         }
     }

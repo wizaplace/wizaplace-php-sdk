@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -16,6 +18,7 @@ use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -132,12 +135,15 @@ final class BasketService extends AbstractService
         }
 
         try {
-            $responseData = $this->client->post("basket/{$basketId}/add", [
-                RequestOptions::FORM_PARAMS => [
-                    'declinationId' => to_string($declinationId),
-                     static::QUANTITY => $quantity,
-                ],
-            ]);
+            $responseData = $this->client->post(
+                "basket/{$basketId}/add",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'declinationId' => to_string($declinationId),
+                        static::QUANTITY => $quantity,
+                    ],
+                ]
+            );
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -217,11 +223,14 @@ final class BasketService extends AbstractService
         $this->client->mustBeAuthenticated();
         $userId = $this->client->getApiKey()->getId();
 
-        $this->client->post("users/$userId/basket", [
-            RequestOptions::JSON => [
-                'id' => $basketId,
-            ],
-        ]);
+        $this->client->post(
+            "users/$userId/basket",
+            [
+                RequestOptions::JSON => [
+                    'id' => $basketId,
+                ],
+            ]
+        );
     }
 
     public function deleteUserBasket(): void
@@ -255,11 +264,14 @@ final class BasketService extends AbstractService
     public function removeProductFromBasket(string $basketId, DeclinationId $declinationId): void
     {
         try {
-            $this->client->post("basket/{$basketId}/remove", [
-                RequestOptions::FORM_PARAMS => [
-                    'declinationId' => to_string($declinationId),
-                ],
-            ]);
+            $this->client->post(
+                "basket/{$basketId}/remove",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'declinationId' => to_string($declinationId),
+                    ],
+                ]
+            );
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -285,11 +297,14 @@ final class BasketService extends AbstractService
         }
 
         try {
-            $this->client->post("basket/{$basketId}/bulk-remove", [
-                RequestOptions::JSON => [
-                    'declinations' => $jsonDeclinations,
-                ],
-            ]);
+            $this->client->post(
+                "basket/{$basketId}/bulk-remove",
+                [
+                    RequestOptions::JSON => [
+                        'declinations' => $jsonDeclinations,
+                    ],
+                ]
+            );
         } catch (ClientException $exception) {
             $code = $exception->getResponse()->getStatusCode();
 
@@ -344,12 +359,15 @@ final class BasketService extends AbstractService
         }
 
         try {
-            $responseData = $this->client->post("basket/{$basketId}/modify", [
-                RequestOptions::FORM_PARAMS => [
-                    'declinationId' => to_string($declinationId),
-                     static::QUANTITY => $quantity,
-                ],
-            ]);
+            $responseData = $this->client->post(
+                "basket/{$basketId}/modify",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'declinationId' => to_string($declinationId),
+                        static::QUANTITY => $quantity,
+                    ],
+                ]
+            );
         } catch (ClientException $ex) {
             $code = $ex->getResponse()->getStatusCode();
 
@@ -431,9 +449,12 @@ final class BasketService extends AbstractService
 
             throw $ex;
         }
-        $payments = array_map(static function (array $payment) : Payment {
-            return new Payment($payment);
-        }, $payments);
+        $payments = array_map(
+            static function (array $payment): Payment {
+                return new Payment($payment);
+            },
+            $payments
+        );
 
         return $payments;
     }
@@ -447,11 +468,14 @@ final class BasketService extends AbstractService
      */
     public function selectShippings(string $basketId, array $selections): void
     {
-        $this->client->post("basket/$basketId/shippings", [
-            RequestOptions::JSON => [
-                'shippingGroups' => $selections,
-            ],
-        ]);
+        $this->client->post(
+            "basket/$basketId/shippings",
+            [
+                RequestOptions::JSON => [
+                    'shippingGroups' => $selections,
+                ],
+            ]
+        );
     }
 
     /**
@@ -568,11 +592,14 @@ final class BasketService extends AbstractService
      */
     public function mergeBaskets(string $targetBasketId, string $sourceBasketId)
     {
-        $this->client->post("basket/$targetBasketId/merge", [
-            RequestOptions::JSON => [
-                'basketId' => $sourceBasketId,
-            ],
-        ]);
+        $this->client->post(
+            "basket/$targetBasketId/merge",
+            [
+                RequestOptions::JSON => [
+                    'basketId' => $sourceBasketId,
+                ],
+            ]
+        );
     }
 
     /**
@@ -589,14 +616,17 @@ final class BasketService extends AbstractService
     {
         $command->validate();
 
-        $this->client->post('basket/'.$command->getBasketId().'/chronorelais-pickup-point', [
-            RequestOptions::JSON => [
-                'pickupPointId' => $command->getPickupPointId(),
-                'title' => $command->getTitle()->getValue(),
-                'firstName' => $command->getFirstName(),
-                'lastName' => $command->getLastName(),
-            ],
-        ]);
+        $this->client->post(
+            'basket/' . $command->getBasketId() . '/chronorelais-pickup-point',
+            [
+                RequestOptions::JSON => [
+                    'pickupPointId' => $command->getPickupPointId(),
+                    'title' => $command->getTitle()->getValue(),
+                    'firstName' => $command->getFirstName(),
+                    'lastName' => $command->getLastName(),
+                ],
+            ]
+        );
     }
 
     /**
@@ -615,14 +645,17 @@ final class BasketService extends AbstractService
     {
         $command->validate();
 
-        return $this->client->post(sprintf('basket/%s/mondialrelay-pickup-point', $command->getBasketId()), [
-            RequestOptions::JSON => [
-                'pickupPointId' => $command->getPickupPointId(),
-                'title' => $command->getTitle()->getValue(),
-                'firstName' => $command->getFirstName(),
-                'lastName' => $command->getLastName(),
-            ],
-        ]);
+        return $this->client->post(
+            sprintf('basket/%s/mondialrelay-pickup-point', $command->getBasketId()),
+            [
+                RequestOptions::JSON => [
+                    'pickupPointId' => $command->getPickupPointId(),
+                    'title' => $command->getTitle()->getValue(),
+                    'firstName' => $command->getFirstName(),
+                    'lastName' => $command->getLastName(),
+                ],
+            ]
+        );
     }
 
     /**

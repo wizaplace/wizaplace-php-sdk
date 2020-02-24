@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Organisation;
 
-use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\ArrayableInterface;
+
+use function theodorejb\polycast\to_string;
 
 /**
  * Class OrganisationAddress
@@ -52,7 +55,7 @@ class OrganisationAddress implements ArrayableInterface
     /**
      * @return array
      */
-    public function toArray() : array
+    public function toArray(): array
     {
         $data = [];
 

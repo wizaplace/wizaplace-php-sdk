@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -51,7 +52,7 @@ class DivisionUtils
 
         if (is_numeric($keys[0])) {
             foreach ($availableOffers as $availableOffer) {
-                if (is_null($productId)) {
+                if (\is_null($productId)) {
                     $this->divisions[] = new Division($availableOffer);
                 } else {
                     $this->divisions[$productId][] = new Division($availableOffer);
@@ -83,7 +84,7 @@ class DivisionUtils
         }
 
         foreach ($divisions as $key => $d) {
-            if (!is_null($d->getParentCode())) {
+            if (!\is_null($d->getParentCode())) {
                 if (isset($objectsById[$d->getParentCode()])) {
                     // Ajout de l'enfant dans le parent
                     $objectsById[$d->getParentCode()]->addChild($d);

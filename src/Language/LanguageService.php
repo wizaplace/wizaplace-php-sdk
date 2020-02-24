@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Language;
 
@@ -19,8 +20,11 @@ final class LanguageService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $language): Language {
-            return new Language($language);
-        }, $this->client->get('languages'));
+        return array_map(
+            function (array $language): Language {
+                return new Language($language);
+            },
+            $this->client->get('languages')
+        );
     }
 }

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\User;
 
@@ -90,31 +92,35 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'John';
         $userLastname = 'Doe';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "Phone_b",
-            'address'   => "Address_b",
-            'address_2' => "Address 2_b",
-            'zipcode'   => "Zipcode_b",
-            'city'      => "City_b",
-            'country'   => "FR",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "Phone_s",
-            'address'   => "Address_s",
-            'address_2' => "Address 2_s",
-            'zipcode'   => "Zipcode_s",
-            'city'      => "City_s",
-            'country'   => "FR",
-            'division_code' => "FR-69",
-        ]);
+        $userBilling = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+            ]
+        );
+        $userShipping = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+                'division_code' => "FR-69",
+            ]
+        );
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -172,30 +178,34 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'John';
         $userLastname = 'Doe';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "Phone_b",
-            'address'   => "Address_b",
-            'address_2' => "Address 2_b",
-            'zipcode'   => "Zipcode_b",
-            'city'      => "City_b",
-            'country'   => "FR",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "Phone_s",
-            'address'   => "Address_s",
-            'address_2' => "Address 2_s",
-            'zipcode'   => "Zipcode_s",
-            'city'      => "City_s",
-            'country'   => "FR",
-        ]);
+        $userBilling = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+            ]
+        );
+        $userShipping = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+            ]
+        );
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);
@@ -215,30 +225,34 @@ final class UserServiceTest extends ApiTestCase
         $userPassword = 'password';
         $userFistname = 'Paul';
         $userLastname = 'Jean';
-        $userBilling = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_b",
-            'phone'     => "",
-            'address'   => "",
-            'address_2' => "",
-            'zipcode'   => "",
-            'city'      => "",
-            'country'   => "",
-        ]);
-        $userShipping = new UserAddress([
-            'title'     => UserTitle::MR()->getValue(),
-            'firstname' => $userFistname,
-            'lastname'  => $userLastname,
-            'company'   => "Company_s",
-            'phone'     => "",
-            'address'   => "",
-            'address_2' => "",
-            'zipcode'   => "",
-            'city'      => "",
-            'country'   => "",
-        ]);
+        $userBilling = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "",
+                'address'   => "",
+                'address_2' => "",
+                'zipcode'   => "",
+                'city'      => "",
+                'country'   => "",
+            ]
+        );
+        $userShipping = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "",
+                'address'   => "",
+                'address_2' => "",
+                'zipcode'   => "",
+                'city'      => "",
+                'country'   => "",
+            ]
+        );
 
         $client = $this->buildApiClient();
         $userService = new UserService($client);

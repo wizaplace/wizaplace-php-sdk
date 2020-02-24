@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -22,6 +24,7 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\ProductInCategoryListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\ProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\ProductPriceInferiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\ProductPriceSuperiorToRule;
+
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
@@ -134,11 +137,13 @@ final class CatalogPromotion implements \JsonSerializable
      */
     public function jsonSerialize(): array
     {
-        $serializer = new Serializer([
-            new DateTimeNormalizer(),
-            new CustomNormalizer(),
-            new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
-        ]);
+        $serializer = new Serializer(
+            [
+                new DateTimeNormalizer(),
+                new CustomNormalizer(),
+                new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
+            ]
+        );
 
         return $serializer->normalize($this);
     }

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog\Review;
 
@@ -74,7 +76,7 @@ final class ReviewService extends AbstractService
      * @throws ProductNotFound
      * @throws ReviewsAreDisabled
      */
-    public function reviewProduct(string $productId, string $author, string $message, int $rating) : void
+    public function reviewProduct(string $productId, string $author, string $message, int $rating): void
     {
         $review = [
             'author' => $author,
@@ -151,7 +153,7 @@ final class ReviewService extends AbstractService
      * @return bool
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function canUserReviewProduct(string $productId) : bool
+    public function canUserReviewProduct(string $productId): bool
     {
         try {
             $this->client->get(sprintf(self::AUTHORIZATION_PRODUCT_ENDPOINT, $productId));
@@ -172,7 +174,7 @@ final class ReviewService extends AbstractService
      */
     private function createReview(array $review): Review
     {
-        if (is_array($review['author'])) {
+        if (\is_array($review['author'])) {
             //if $review['author'] is an array, then it's a companyReview
             $author = $this->createAuthor($review['author']['name'], $review['author']['id'], $review['author']['email']);
         } else { // else it's a productReview

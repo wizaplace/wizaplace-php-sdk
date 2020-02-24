@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -29,7 +31,7 @@ final class BasketPromotionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $promotionData = $this->client->get('promotions/basket/'.$promotionId);
+        $promotionData = $this->client->get('promotions/basket/' . $promotionId);
 
         return new BasketPromotion($promotionData);
     }
@@ -46,9 +48,12 @@ final class BasketPromotionService extends AbstractService
 
         $responseData = $this->client->get('promotions/basket');
 
-        return array_map(static function (array $promotionData): BasketPromotion {
-            return new BasketPromotion($promotionData);
-        }, $responseData['promotions']);
+        return array_map(
+            static function (array $promotionData): BasketPromotion {
+                return new BasketPromotion($promotionData);
+            },
+            $responseData['promotions']
+        );
     }
 
     /**
@@ -68,13 +73,19 @@ final class BasketPromotionService extends AbstractService
         $promotionId = $command->getPromotionId();
 
         if ($promotionId === null) {
-            $promotionData = $this->client->post('promotions/basket', [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->post(
+                'promotions/basket',
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         } else {
-            $promotionData = $this->client->put('promotions/basket/'.$promotionId, [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->put(
+                'promotions/basket/' . $promotionId,
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         }
 
         return new BasketPromotion($promotionData);
@@ -91,6 +102,6 @@ final class BasketPromotionService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->delete('promotions/basket/'.$promotionId);
+        $this->client->delete('promotions/basket/' . $promotionId);
     }
 }

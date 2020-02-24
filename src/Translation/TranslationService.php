@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Translation;
 
@@ -35,7 +37,7 @@ final class TranslationService extends AbstractService
             RequestOptions::BODY => $xliffCatalog,
             RequestOptions::AUTH => ['system', $password],
         ];
-        $this->client->post("translations/front/".$locale, $options);
+        $this->client->post("translations/front/" . $locale, $options);
     }
 
     /**
@@ -51,7 +53,7 @@ final class TranslationService extends AbstractService
                 "Accept" => "application/x-xliff+xml",
             ],
         ];
-        $response = $this->client->rawRequest("GET", "translations/front/".$locale, $options);
+        $response = $this->client->rawRequest("GET", "translations/front/" . $locale, $options);
 
         return $response->getBody();
     }

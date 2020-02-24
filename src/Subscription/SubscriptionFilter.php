@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
@@ -62,9 +63,12 @@ final class SubscriptionFilter
             static::IS_AUTORENEW => $this->getIsAutorenew(),
         ];
 
-        return array_filter($filters, function ($item): bool {
-            return false === is_null($item);
-        });
+        return array_filter(
+            $filters,
+            function ($item): bool {
+                return false === \is_null($item);
+            }
+        );
     }
 
     public function getLimit(): ?int

@@ -1,13 +1,16 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
 use Wizaplace\SDK\Catalog\DeclinationId;
+
 use function theodorejb\polycast\to_string;
 
 /**

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Subscription;
@@ -20,12 +22,18 @@ final class Subscription extends SubscriptionSummary
     {
         parent::__construct($data);
 
-        $this->items = array_map(function (array $_data): SubscriptionItem {
-            return new SubscriptionItem($_data);
-        }, $data['items']);
-        $this->taxes = array_map(function (array $_data): SubscriptionTax {
-            return new SubscriptionTax($_data);
-        }, $data['taxes']);
+        $this->items = array_map(
+            function (array $_data): SubscriptionItem {
+                return new SubscriptionItem($_data);
+            },
+            $data['items']
+        );
+        $this->taxes = array_map(
+            function (array $_data): SubscriptionTax {
+                return new SubscriptionTax($_data);
+            },
+            $data['taxes']
+        );
     }
 
     /** @return SubscriptionItem[] */

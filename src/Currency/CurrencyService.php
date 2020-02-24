@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Currency;
@@ -34,7 +36,7 @@ class CurrencyService extends AbstractService
     public function getCountries(string $currencyCode): array
     {
         try {
-            $currencyCountriesData = $this->client->get('currencies/'.$currencyCode.'/countries');
+            $currencyCountriesData = $this->client->get('currencies/' . $currencyCode . '/countries');
             $data = [];
             foreach ($currencyCountriesData as $code) {
                 $data[] = new CurrencyCountries($code);
@@ -56,11 +58,14 @@ class CurrencyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->post('currencies/'.$currencyCode.'/countries', [
-                RequestOptions::FORM_PARAMS => [
-                    'countryCode' => $countryCode,
-                ],
-            ]);
+            return $this->client->post(
+                'currencies/' . $currencyCode . '/countries',
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'countryCode' => $countryCode,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case 403:
@@ -68,7 +73,7 @@ class CurrencyService extends AbstractService
                 case 404:
                     throw new NotFound("Currency '$currencyCode' not found.");
                 case 400:
-                    throw new SomeParametersAreInvalid("CountryCode '".$countryCode."' already exist for currency '".$currencyCode."'.");
+                    throw new SomeParametersAreInvalid("CountryCode '" . $countryCode . "' already exist for currency '" . $currencyCode . "'.");
                 default:
                     throw $e;
             }
@@ -97,7 +102,7 @@ class CurrencyService extends AbstractService
     /** @return Currency[] */
     public function getByFilters(array $filters): array
     {
-        $currencies = $this->client->get('currencies?'.http_build_query($filters));
+        $currencies = $this->client->get('currencies?' . http_build_query($filters));
 
         return array_map(
             function (array $data): Currency {
@@ -111,7 +116,7 @@ class CurrencyService extends AbstractService
     {
         $currencies = $this->getByFilters(['countryCode' => $code]);
 
-        return count($currencies) > 0 ? array_shift($currencies) : null;
+        return \count($currencies) > 0 ? array_shift($currencies) : null;
     }
 
     public function updateCurrency(Currency $currency): array
@@ -119,13 +124,16 @@ class CurrencyService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->patch("currencies/{$currency->getCode()}", [
-                RequestOptions::JSON => [
-                    'enabled' => $currency->isEnabled(),
-                    'exchangeRate' => $currency->getExchangeRate(),
-                ],
+            return $this->client->patch(
+                "currencies/{$currency->getCode()}",
+                [
+                    RequestOptions::JSON => [
+                        'enabled' => $currency->isEnabled(),
+                        'exchangeRate' => $currency->getExchangeRate(),
+                    ],
 
-            ]);
+                ]
+            );
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case 403:
@@ -143,7 +151,7 @@ class CurrencyService extends AbstractService
     public function getCurrency(string $currencyCode): Currency
     {
         try {
-            return new Currency($this->client->get('currencies/'.$currencyCode));
+            return new Currency($this->client->get('currencies/' . $currencyCode));
         } catch (ClientException $e) {
             switch ($e->getResponse()->getStatusCode()) {
                 case 404:

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -30,13 +32,19 @@ final class SearchResult
      */
     public function __construct(array $data)
     {
-        $this->products = array_map(static function (array $product) : ProductSummary {
-            return new ProductSummary($product);
-        }, $data['results']);
+        $this->products = array_map(
+            static function (array $product): ProductSummary {
+                return new ProductSummary($product);
+            },
+            $data['results']
+        );
         $this->pagination = new Pagination($data['pagination']);
-        $this->facets = array_map(static function (array $facet) : Facet {
-            return Facet::buildFromJson($facet);
-        }, $data['facets']);
+        $this->facets = array_map(
+            static function (array $facet): Facet {
+                return Facet::buildFromJson($facet);
+            },
+            $data['facets']
+        );
     }
 
     /**

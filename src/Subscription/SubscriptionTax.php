@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Subscription;
@@ -23,7 +25,7 @@ final class SubscriptionTax
     {
         $this->taxId = $data["taxId"];
         $this->taxName = $data["taxName"];
-        $this->amount = floatval($data["amount"]);
+        $this->amount = \floatval($data["amount"]);
     }
 
     public function getTaxId(): int

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK;
 
@@ -181,7 +183,7 @@ final class ApiClient
      */
     public function mustBeAuthenticated(): void
     {
-        if (is_null($this->getApiKey())) {
+        if (\is_null($this->getApiKey())) {
             throw new AuthenticationRequired();
         }
     }
@@ -281,7 +283,7 @@ final class ApiClient
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
-        $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/'.$this->version;
+        $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/' . $this->version;
         if ($this->language !== null) {
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
         }
@@ -289,13 +291,15 @@ final class ApiClient
         if ($this->requestLogger !== null) {
             $logger = $this->requestLogger;
             $options[RequestOptions::ON_STATS] = function (TransferStats $stats) use ($logger) {
-                $logger->info(sprintf(
-                    '%s %s %s %f',
-                    $stats->getRequest()->getMethod(),
-                    $stats->getRequest()->getUri(),
-                    $_SERVER['HTTP_X_REQUEST_ID'] ?? '-',
-                    $stats->getTransferTime()
-                ));
+                $logger->info(
+                    sprintf(
+                        '%s %s %s %f',
+                        $stats->getRequest()->getMethod(),
+                        $stats->getRequest()->getUri(),
+                        $_SERVER['HTTP_X_REQUEST_ID'] ?? '-',
+                        $stats->getTransferTime()
+                    )
+                );
             };
         }
 
@@ -403,7 +407,7 @@ final class ApiClient
         $lastJsonError = json_last_error();
         if (JSON_ERROR_NONE !== $lastJsonError) {
             throw new JsonDecodingError(
-                'Unable to parse JSON data: '.json_last_error_msg(),
+                'Unable to parse JSON data: ' . json_last_error_msg(),
                 $lastJsonError
             );
         }
@@ -418,10 +422,10 @@ final class ApiClient
      */
     private function addAuth(array $options): array
     {
-        if (!is_null($this->apiKey)) {
-            $options['headers']['Authorization'] = 'token '.$this->apiKey->getKey();
+        if (!\is_null($this->apiKey)) {
+            $options['headers']['Authorization'] = 'token ' . $this->apiKey->getKey();
         }
-        if (!is_null($this->applicationToken)) {
+        if (!\is_null($this->applicationToken)) {
             $options['headers']['Application-Token'] = $this->applicationToken;
         }
 

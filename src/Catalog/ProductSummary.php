@@ -1,13 +1,16 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -88,27 +91,42 @@ final class ProductSummary
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRating'] ?? null;
-        $this->conditions = array_map(function (string $condition): Condition {
-            return new Condition($condition);
-        }, $data['conditions']);
-        $this->attributes = array_map(static function (array $attribute) : SearchProductAttribute {
-            return new SearchProductAttribute($attribute);
-        }, $data['attributes']);
-        $this->categoryPath = array_map(static function (array $categoryPath) : SearchCategoryPath {
-            return new SearchCategoryPath($categoryPath);
-        }, $data['categoryPath']);
+        $this->conditions = array_map(
+            function (string $condition): Condition {
+                return new Condition($condition);
+            },
+            $data['conditions']
+        );
+        $this->attributes = array_map(
+            static function (array $attribute): SearchProductAttribute {
+                return new SearchProductAttribute($attribute);
+            },
+            $data['attributes']
+        );
+        $this->categoryPath = array_map(
+            static function (array $categoryPath): SearchCategoryPath {
+                return new SearchCategoryPath($categoryPath);
+            },
+            $data['categoryPath']
+        );
         $this->slug = to_string($data['slug']);
-        $this->companies = array_map(static function (array $companyData) : CompanySummary {
-            return new CompanySummary($companyData);
-        }, $data['companies'] ?? []);
+        $this->companies = array_map(
+            static function (array $companyData): CompanySummary {
+                return new CompanySummary($companyData);
+            },
+            $data['companies'] ?? []
+        );
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
         if (isset($data['mainDeclination']['id'])) {
             $this->mainDeclinationId = new DeclinationId($data['mainDeclination']['id']);
         }
         if (isset($data['offers'])) {
-            $this->offers = array_map(function (array $offer): ProductOffer {
-                return new ProductOffer($offer);
-            }, $data['offers']);
+            $this->offers = array_map(
+                function (array $offer): ProductOffer {
+                    return new ProductOffer($offer);
+                },
+                $data['offers']
+            );
         }
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;

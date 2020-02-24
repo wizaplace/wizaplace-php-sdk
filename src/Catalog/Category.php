@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -58,9 +60,12 @@ final class Category
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
-        $this->categoryPath = array_map(static function (array $path) : CategorySummary {
-            return new CategorySummary($path);
-        }, $data['categoryPath'] ?? []);
+        $this->categoryPath = array_map(
+            static function (array $path): CategorySummary {
+                return new CategorySummary($path);
+            },
+            $data['categoryPath'] ?? []
+        );
     }
 
     /**

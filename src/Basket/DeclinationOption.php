@@ -42,7 +42,7 @@ final class DeclinationOption
     {
         $this->optionId = $data['optionId'];
         $this->optionName = to_string($data['optionName']);
-        $this->optionCode = array_key_exists('optionCode', $data) && is_string($data['optionCode'])
+        $this->optionCode = \array_key_exists('optionCode', $data) && \is_string($data['optionCode'])
             ? $data['optionCode'] : null;
         $this->variantId = $data['variantId'];
         $this->variantName = to_string($data['variantName']);

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
@@ -46,39 +48,45 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame('', $mvp->getSeoKeywords());
         $this->assertTrue(MultiVendorProductStatus::ENABLED()->equals($mvp->getStatus()));
         $this->assertSame(6, $mvp->getCategoryId());
-        $this->assertSame([
-            'Free attribute multiple' => [
-                'réponse - 1 #',
-                'réponse - 2 @',
-                4985,
+        $this->assertSame(
+            [
+                'Free attribute multiple' => [
+                    'réponse - 1 #',
+                    'réponse - 2 @',
+                    4985,
+                ],
+                'Free attribute simple' => [
+                    'valeur simple du free attribute #12M%M_°09£*/.?',
+                ],
+                'Free attribute simple mais en tableau' => [
+                    'une bien belle valeur déjà encapsulée',
+                ],
+                'Free attribute integer ?' => [
+                    92254094,
+                ],
+                'Free attribute integer mais en tableau' => [
+                    'la même histoire par ici',
+                ],
             ],
-            'Free attribute simple' => [
-                'valeur simple du free attribute #12M%M_°09£*/.?',
+            $mvp->getFreeAttributes()
+        );
+        $this->assertSame(
+            [
+                3 => 'Commentaire #12M%M_°09£*/.?',
+                1 => [
+                    0 => 2,
+                    1 => 3,
+                ],
+                7 => 'Complément d\'adresse pour la stepo',
+                5 => [
+                    0 => 9,
+                ],
+                6 => 17,
+                9 => 20,
+                2 => 5,
             ],
-            'Free attribute simple mais en tableau' => [
-                'une bien belle valeur déjà encapsulée',
-            ],
-            'Free attribute integer ?' => [
-                92254094,
-            ],
-            'Free attribute integer mais en tableau' => [
-                'la même histoire par ici',
-            ],
-        ], $mvp->getFreeAttributes());
-        $this->assertSame([
-            3 => 'Commentaire #12M%M_°09£*/.?',
-            1 => [
-                0 => 2,
-                1 => 3,
-            ],
-            7 => 'Complément d\'adresse pour la stepo',
-            5 => [
-                0 => 9,
-            ],
-            6 => 17,
-            9 => 20,
-            2 => 5,
-        ], $mvp->getAttributes());
+            $mvp->getAttributes()
+        );
         $this->assertSame([], $mvp->getImageIds());
     }
 
@@ -104,7 +112,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetListMultiVendorProductByDates() : void
+    public function testGetListMultiVendorProductByDates(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -125,7 +133,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetListMultiVendorProductByWrongDates() : void
+    public function testGetListMultiVendorProductByWrongDates(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -143,7 +151,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertMultiVendorProductFilter($mvpList, $arrayOptions);
     }
 
-    public function testGetListMultiVendorProductByUpdateDateIsBefore() : void
+    public function testGetListMultiVendorProductByUpdateDateIsBefore(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -161,7 +169,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         static::assertInstanceOf(MultiVendorProduct::class, $mvpList->getMultiVendorProducts()[0]);
     }
 
-    public function testGetListMultiVendorProductByUpdateDateIsAfter() : void
+    public function testGetListMultiVendorProductByUpdateDateIsAfter(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -178,7 +186,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         static::assertInstanceOf(MultiVendorProduct::class, $mvpList->getMultiVendorProducts()[0]);
     }
 
-    public function testGetListMultiVendorProductByCategories() : void
+    public function testGetListMultiVendorProductByCategories(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -193,9 +201,11 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     {
         $service = $this->buildMultiVendorProductService();
 
-        $newMvp = new MultiVendorProduct([
-            'supplierReference' => 'ThisProductIsNotValid',
-        ]);
+        $newMvp = new MultiVendorProduct(
+            [
+                'supplierReference' => 'ThisProductIsNotValid',
+            ]
+        );
 
         $this->expectException(SomeParametersAreInvalid::class);
         $id = $service->createMultiVendorProduct($newMvp);
@@ -205,31 +215,33 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     {
         $service = $this->buildMultiVendorProductService();
 
-        $newMvp = new MultiVendorProduct([
-            'name' => 'New Test MVP',
-            'code' => 'XXX-xxx-XXX',
-            'supplierReference' => 'AZAZPMPKKD23',
-            'productTemplateType' => 'product',
-            'slug' => 'new-test-mvp',
-            'shortDescription' => 'Nihil est qui quibusdam exercitationem',
-            'description' => 'Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi',
-            'seoTitle' => 'New Test MVP',
-            'seoDescription' => 'New Test MVP Nihil est qui quibusdam exercitationem',
-            'seoKeywords' => 'MVP, PRODUCT, TEST',
-            'status' => 'A',
-            'categoryId' => 3,
-            'freeAttributes' => [
-                'Free attribute multiple' => [
-                    'Num 1',
-                    'Num 2',
-                    51,
+        $newMvp = new MultiVendorProduct(
+            [
+                'name' => 'New Test MVP',
+                'code' => 'XXX-xxx-XXX',
+                'supplierReference' => 'AZAZPMPKKD23',
+                'productTemplateType' => 'product',
+                'slug' => 'new-test-mvp',
+                'shortDescription' => 'Nihil est qui quibusdam exercitationem',
+                'description' => 'Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi',
+                'seoTitle' => 'New Test MVP',
+                'seoDescription' => 'New Test MVP Nihil est qui quibusdam exercitationem',
+                'seoKeywords' => 'MVP, PRODUCT, TEST',
+                'status' => 'A',
+                'categoryId' => 3,
+                'freeAttributes' => [
+                    'Free attribute multiple' => [
+                        'Num 1',
+                        'Num 2',
+                        51,
+                    ],
+                    'Free attribute simple' => [
+                        'Bla',
+                    ],
                 ],
-                'Free attribute simple' => [
-                    'Bla',
-                ],
-            ],
-            'attributes' => [],
-        ]);
+                'attributes' => [],
+            ]
+        );
 
         $id = $service->createMultiVendorProduct($newMvp);
 
@@ -250,16 +262,19 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame('MVP, PRODUCT, TEST', $mvp->getSeoKeywords());
         $this->assertTrue(MultiVendorProductStatus::ENABLED()->equals($mvp->getStatus()));
         $this->assertSame(3, $mvp->getCategoryId());
-        $this->assertSame([
-            'Free attribute multiple' => [
-                'Num 1',
-                'Num 2',
-                51,
+        $this->assertSame(
+            [
+                'Free attribute multiple' => [
+                    'Num 1',
+                    'Num 2',
+                    51,
+                ],
+                'Free attribute simple' => [
+                    'Bla',
+                ],
             ],
-            'Free attribute simple' => [
-                'Bla',
-            ],
-        ], $mvp->getFreeAttributes());
+            $mvp->getFreeAttributes()
+        );
         $this->assertSame([], $mvp->getAttributes());
         $this->assertSame([], $mvp->getImageIds());
     }
@@ -287,39 +302,45 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertSame('', $updatedMvp->getSeoDescription());
         $this->assertSame('', $updatedMvp->getSeoKeywords());
         $this->assertSame(6, $updatedMvp->getCategoryId());
-        $this->assertSame([
-            'Free attribute multiple' => [
-                'réponse - 1 #',
-                'réponse - 2 @',
-                4985,
+        $this->assertSame(
+            [
+                'Free attribute multiple' => [
+                    'réponse - 1 #',
+                    'réponse - 2 @',
+                    4985,
+                ],
+                'Free attribute simple' => [
+                    'valeur simple du free attribute #12M%M_°09£*/.?',
+                ],
+                'Free attribute simple mais en tableau' => [
+                    'une bien belle valeur déjà encapsulée',
+                ],
+                'Free attribute integer ?' => [
+                    92254094,
+                ],
+                'Free attribute integer mais en tableau' => [
+                    'la même histoire par ici',
+                ],
             ],
-            'Free attribute simple' => [
-                'valeur simple du free attribute #12M%M_°09£*/.?',
+            $updatedMvp->getFreeAttributes()
+        );
+        $this->assertSame(
+            [
+                3 => 'Commentaire #12M%M_°09£*/.?',
+                1 => [
+                    0 => 2,
+                    1 => 3,
+                ],
+                7 => 'Complément d\'adresse pour la stepo',
+                5 => [
+                    0 => 9,
+                ],
+                6 => 17,
+                9 => 20,
+                2 => 5,
             ],
-            'Free attribute simple mais en tableau' => [
-                'une bien belle valeur déjà encapsulée',
-            ],
-            'Free attribute integer ?' => [
-                92254094,
-            ],
-            'Free attribute integer mais en tableau' => [
-                'la même histoire par ici',
-            ],
-        ], $updatedMvp->getFreeAttributes());
-        $this->assertSame([
-            3 => 'Commentaire #12M%M_°09£*/.?',
-            1 => [
-                0 => 2,
-                1 => 3,
-            ],
-            7 => 'Complément d\'adresse pour la stepo',
-            5 => [
-                0 => 9,
-            ],
-            6 => 17,
-            9 => 20,
-            2 => 5,
-        ], $updatedMvp->getAttributes());
+            $updatedMvp->getAttributes()
+        );
         $this->assertSame([], $updatedMvp->getImageIds());
     }
 
@@ -392,7 +413,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         return new MultiVendorProductService($apiClient);
     }
 
-    private function assertMultiVendorProductFilter(MultiVendorProductList $mvpList, array $arrayOptions) : void
+    private function assertMultiVendorProductFilter(MultiVendorProductList $mvpList, array $arrayOptions): void
     {
         static::assertInstanceOf(Pagination::class, $mvpList->getPagination());
         static::assertSame($arrayOptions['requestedNbResult'], $mvpList->getPagination()->getNbResults());

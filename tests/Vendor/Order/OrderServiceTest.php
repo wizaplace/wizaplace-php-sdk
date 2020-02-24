@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Vendor\Order;
@@ -88,12 +90,15 @@ class OrderServiceTest extends ApiTestCase
         $orders = $this->buildVendorOrderService()->listOrders();
 
         static::assertContainsOnly(OrderSummary::class, $orders);
-        static::assertTrue(count($orders) >= 2);
+        static::assertTrue(\count($orders) >= 2);
 
         // To fix random sort
-        usort($orders, function (OrderSummary $a, OrderSummary $b): int {
-            return $a->getOrderId() <=> $b->getOrderId();
-        });
+        usort(
+            $orders,
+            function (OrderSummary $a, OrderSummary $b): int {
+                return $a->getOrderId() <=> $b->getOrderId();
+            }
+        );
 
         $order = array_shift($orders);
         static::assertSame(4, $order->getOrderId());
@@ -364,7 +369,6 @@ class OrderServiceTest extends ApiTestCase
 
             default:
                 throw new \Exception('$expected value "$expected" is not a valid test case : null, Throwable::class, DateTimeImmutable::class');
-                break;
         }
     }
 
@@ -418,7 +422,7 @@ class OrderServiceTest extends ApiTestCase
         static::assertCount(4, $orders);
 
         foreach ($orders as $order) {
-            static::assertTrue(array_key_exists($order->getOrderId(), $expectedOrders));
+            static::assertTrue(\array_key_exists($order->getOrderId(), $expectedOrders));
 
             static::assertSame($expectedOrders[$order->getOrderId()]['totals']['excludingTaxes'], $order->getTotalsTaxesDetail()->getExcludingTaxes());
             static::assertSame($expectedOrders[$order->getOrderId()]['totals']['taxes'], $order->getTotalsTaxesDetail()->getTaxes());
@@ -598,7 +602,7 @@ class OrderServiceTest extends ApiTestCase
         static::assertCount(1, $transactions);
 
         static::assertInstanceOf(Transaction::class, $transactions[0]);
-        static::assertSame(36, strlen($transactions[0]->getId()));
+        static::assertSame(36, \strlen($transactions[0]->getId()));
         static::assertSame("a123456789", $transactions[0]->getTransactionReference());
         static::assertEquals(TransactionType::TRANSFER(), $transactions[0]->getType());
         static::assertEquals(TransactionStatus::SUCCESS(), $transactions[0]->getStatus());
@@ -773,6 +777,21 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(40, $shipping->getPosition());
         static::assertSame("TNT Express", $shipping->getName());
         static::assertSame("24h", $shipping->getDeliveryTime());
+    }
+
+    public function testGetOrderShippingAddress(): void
+    {
+        $order = $this->buildVendorOrderService()->getOrderById(12);
+
+        static::assertInstanceOf(Order::class, $order);
+
+        $shippingAddress = $order->getShippingAddress();
+        static::assertInstanceOf(OrderAddress::class, $shippingAddress);
+        static::assertSame('mr', $shippingAddress->getTitle()->getValue());
+
+        $billingAddress = $order->getBillingAddress();
+        static::assertInstanceOf(OrderAddress::class, $billingAddress);
+        static::assertSame('mr', $billingAddress->getTitle()->getValue());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

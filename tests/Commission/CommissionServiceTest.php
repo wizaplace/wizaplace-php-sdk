@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
@@ -28,13 +29,15 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testAddMarketplaceCommission(): void
     {
-        $this->commissionService->addMarketplaceCommission(new Commission(
-            [
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $defaultCommission = $this->commissionService->getMarketplaceCommission();
 
         static::assertSame(2.50, $defaultCommission->getPercentAmount());
@@ -44,14 +47,16 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testAddCategoryCommission(): void
     {
-        $commissionId = $this->commissionService->addCategoryCommission(new Commission(
-            [
-                'category' => 5,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $commissionId = $this->commissionService->addCategoryCommission(
+            new Commission(
+                [
+                    'category' => 5,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $addedCommission = $this->commissionService->getCommission($commissionId);
 
         static::assertSame(5, $addedCommission->getCategoryId());
@@ -63,15 +68,17 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testAddCompanyCommission(): void
     {
-        $commissionId = $this->commissionService->addCompanyCommission(new Commission(
-            [
-                'company' => 2,
-                'category' => 5,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $commissionId = $this->commissionService->addCompanyCommission(
+            new Commission(
+                [
+                    'company' => 2,
+                    'category' => 5,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $addedCommission = $this->commissionService->getCommission($commissionId);
 
         static::assertSame(2, $addedCommission->getCompanyId());
@@ -83,21 +90,25 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testUpdateMarketplaceCommission(): void
     {
-        $commissionId = $this->commissionService->addMarketplaceCommission(new Commission(
-            [
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
-        $this->commissionService->updateMarketplaceCommission(new Commission(
-            [
-                'id' => $commissionId,
-                'percent' => 3.50,
-                'fixed' => 1.50,
-                'maximum' => 20,
-            ]
-        ));
+        $commissionId = $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
+        $this->commissionService->updateMarketplaceCommission(
+            new Commission(
+                [
+                    'id' => $commissionId,
+                    'percent' => 3.50,
+                    'fixed' => 1.50,
+                    'maximum' => 20,
+                ]
+            )
+        );
         $defaultCommission = $this->commissionService->getMarketplaceCommission();
 
         static::assertSame(3.50, $defaultCommission->getPercentAmount());
@@ -107,23 +118,27 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testUpdateCategoryCommission(): void
     {
-        $commissionId = $this->commissionService->addCategoryCommission(new Commission(
-            [
-                'category' => 8,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
-        $this->commissionService->updateCategoryCommission(new Commission(
-            [
-                'id' => $commissionId,
-                'category' => 8,
-                'percent' => 3.50,
-                'fixed' => 1.50,
-                'maximum' => 20,
-            ]
-        ));
+        $commissionId = $this->commissionService->addCategoryCommission(
+            new Commission(
+                [
+                    'category' => 8,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
+        $this->commissionService->updateCategoryCommission(
+            new Commission(
+                [
+                    'id' => $commissionId,
+                    'category' => 8,
+                    'percent' => 3.50,
+                    'fixed' => 1.50,
+                    'maximum' => 20,
+                ]
+            )
+        );
         $commission = $this->commissionService->getCommission($commissionId);
 
         static::assertSame(0, $commission->getCompanyId());
@@ -135,26 +150,30 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testUpdateCompanyCommission(): void
     {
-        $commissionId = $this->commissionService->addCompanyCommission(new Commission(
-            [
-                'company' => 3,
-                'category' => 5,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
-        $this->commissionService->updateCompanyCommission(new Commission(
-            [
-                'id' => $commissionId,
-                'company' => 3,
-                'category' => 5,
-                'percent' => 3.50,
-                'fixed' => 1.50,
-                'maximum' => 20,
+        $commissionId = $this->commissionService->addCompanyCommission(
+            new Commission(
+                [
+                    'company' => 3,
+                    'category' => 5,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
+        $this->commissionService->updateCompanyCommission(
+            new Commission(
+                [
+                    'id' => $commissionId,
+                    'company' => 3,
+                    'category' => 5,
+                    'percent' => 3.50,
+                    'fixed' => 1.50,
+                    'maximum' => 20,
 
-            ]
-        ));
+                ]
+            )
+        );
         $commission = $this->commissionService->getCommission($commissionId);
 
         static::assertSame(3, $commission->getCompanyId());
@@ -166,22 +185,26 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testGetCommissions(): void
     {
-        $marketplaceCommissionId = $this->commissionService->addMarketplaceCommission(new Commission(
-            [
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
-        $companyCommissionId = $this->commissionService->addCompanyCommission(new Commission(
-            [
-                'company' => 3,
-                'category' => 9,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $marketplaceCommissionId = $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
+        $companyCommissionId = $this->commissionService->addCompanyCommission(
+            new Commission(
+                [
+                    'company' => 3,
+                    'category' => 9,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $commissions = $this->commissionService->getCommissions();
         $marketplaceCommission = $this->commissionService->getCommission($marketplaceCommissionId);
         $companyCommission = $this->commissionService->getCommission($companyCommissionId);
@@ -192,13 +215,15 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testGetCommission(): void
     {
-        $commissionId = $this->commissionService->addMarketplaceCommission(new Commission(
-            [
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $commissionId = $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $commission = $this->commissionService->getCommission($commissionId);
 
         static::assertSame(2.50, $commission->getPercentAmount());
@@ -208,14 +233,16 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testGetCategoryCommission(): void
     {
-        $categoryCommissionId = $this->commissionService->addCategoryCommission(new Commission(
-            [
-                'category' => 9,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $categoryCommissionId = $this->commissionService->addCategoryCommission(
+            new Commission(
+                [
+                    'category' => 9,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $commissions = $this->commissionService->getCategoryCommissions(9);
         $categoryCommission = $this->commissionService->getCommission($categoryCommissionId);
 
@@ -224,15 +251,17 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testGetCompanyCommission(): void
     {
-        $companyCommissionId = $this->commissionService->addCompanyCommission(new Commission(
-            [
-                'company' => 1,
-                'category' => 9,
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $companyCommissionId = $this->commissionService->addCompanyCommission(
+            new Commission(
+                [
+                    'company' => 1,
+                    'category' => 9,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $commissions = $this->commissionService->getCompanyCommissions(1);
         $companyCommission = $this->commissionService->getCommission($companyCommissionId);
 
@@ -241,13 +270,15 @@ class CommissionServiceTest extends ApiTestCase
 
     public function testDeleteCommission(): void
     {
-        $this->commissionService->addMarketplaceCommission(new Commission(
-            [
-                'percent' => 2.50,
-                'fixed' => 0.50,
-                'maximum' => 10,
-            ]
-        ));
+        $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
         $this->commissionService->deleteCommission($this->commissionService->getMarketplaceCommission()->getId());
         $defaultCommission = $this->commissionService->getMarketplaceCommission();
 

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Shipping;
 
@@ -63,16 +65,24 @@ final class ShippingServiceTest extends ApiTestCase
     {
         $shippingService = $this->buildShippingService();
 
-        $id = $shippingService->put(1, ShippingStatus::DISABLED(), [
-            new ShippingRate([
-                'amount' => 0,
-                'value' => 10,
-            ]),
-            new ShippingRate([
-                'amount' => 1,
-                'value' => 10,
-            ]),
-        ]);
+        $id = $shippingService->put(
+            1,
+            ShippingStatus::DISABLED(),
+            [
+                new ShippingRate(
+                    [
+                        'amount' => 0,
+                        'value' => 10,
+                    ]
+                ),
+                new ShippingRate(
+                    [
+                        'amount' => 1,
+                        'value' => 10,
+                    ]
+                ),
+            ]
+        );
         $this->assertSame(1, $id);
 
 

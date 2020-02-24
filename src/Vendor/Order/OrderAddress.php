@@ -1,11 +1,15 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
+
+use Wizaplace\SDK\User\UserTitle;
 
 /**
  * Class OrderAddress
@@ -40,6 +44,9 @@ final class OrderAddress
     /** @var string */
     private $company;
 
+    /** @var null|UserTitle */
+    private $title;
+
     /**
      * @internal
      *
@@ -56,6 +63,7 @@ final class OrderAddress
         $this->phoneNumber = $data['phone'];
         $this->zipCode = $data['zipcode'];
         $this->company = $data['company'];
+        $this->title = \array_key_exists('title', $data) === true ? new UserTitle($data['title']) : null;
     }
 
     /**
@@ -129,6 +137,12 @@ final class OrderAddress
     }
 
 
+    /** @return UserTitle|null */
+    public function getTitle(): ?UserTitle
+    {
+        return $this->title;
+    }
+
     /**
      * @internal
      *
@@ -162,7 +176,7 @@ final class OrderAddress
     private static function extractData(string $prefix, array $data)
     {
         $newData = [];
-        $prefixLength = strlen($prefix);
+        $prefixLength = \strlen($prefix);
         foreach ($data as $key => $value) {
             if (strpos($key, $prefix) !== 0) {
                 continue;

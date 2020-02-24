@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Attribute;
@@ -30,9 +32,12 @@ final class AttributeService extends AbstractService
 
         $data = $this->client->get("products/${productId}/features");
 
-        return array_map(static function (array $attributeData): ProductAttribute {
-            return ProductAttribute::build($attributeData);
-        }, $data);
+        return array_map(
+            static function (array $attributeData): ProductAttribute {
+                return ProductAttribute::build($attributeData);
+            },
+            $data
+        );
     }
 
     /**
@@ -67,9 +72,12 @@ final class AttributeService extends AbstractService
 
         $data = $this->client->get("categories/${categoryId}/features");
 
-        return array_map(static function (array $attributeData): Attribute {
-            return new Attribute($attributeData);
-        }, $data);
+        return array_map(
+            static function (array $attributeData): Attribute {
+                return new Attribute($attributeData);
+            },
+            $data
+        );
     }
 
     /**
@@ -85,11 +93,14 @@ final class AttributeService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->put("products/${productId}/features/${attributeId}", [
-            RequestOptions::JSON => [
-                'value_str' => $value,
-            ],
-        ]);
+        $this->client->put(
+            "products/${productId}/features/${attributeId}",
+            [
+                RequestOptions::JSON => [
+                    'value_str' => $value,
+                ],
+            ]
+        );
     }
 
     /**
@@ -105,10 +116,13 @@ final class AttributeService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->put("products/${productId}/features/${attributeId}", [
-            RequestOptions::JSON => [
-                'variant_id' => $variantIds,
-            ],
-        ]);
+        $this->client->put(
+            "products/${productId}/features/${attributeId}",
+            [
+                RequestOptions::JSON => [
+                    'variant_id' => $variantIds,
+                ],
+            ]
+        );
     }
 }

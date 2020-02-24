@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -6,9 +7,9 @@
 
 namespace Wizaplace\SDK\Organisation;
 
-use Symfony\Component\Validator\Constraints\Uuid;
-use function theodorejb\polycast\to_string;
 use Wizaplace\SDK\ArrayableInterface;
+
+use function theodorejb\polycast\to_string;
 
 /**
  * Class OrganisationAdministrator
@@ -52,7 +53,7 @@ class OrganisationAdministrator implements ArrayableInterface
     /**
      * @return array
      */
-    public function toArray() : array
+    public function toArray(): array
     {
         $data = [];
 

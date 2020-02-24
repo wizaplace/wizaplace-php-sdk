@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
@@ -33,8 +34,8 @@ class DivisionService extends AbstractService
     public function get(?string $code = null)
     {
         $url = "divisions";
-        if (!is_null($code)) {
-            $url = $url."/${code}";
+        if (!\is_null($code)) {
+            $url = $url . "/${code}";
         }
 
         try {
@@ -69,11 +70,16 @@ class DivisionService extends AbstractService
         try {
             $divisionUtils = new DivisionUtils();
 
-            return $divisionUtils->getDivisions($this->client->patch("divisions/{$code}", [
-                RequestOptions::FORM_PARAMS => [
-                    'is_enabled' => $isEnabled,
-                ],
-            ]));
+            return $divisionUtils->getDivisions(
+                $this->client->patch(
+                    "divisions/{$code}",
+                    [
+                        RequestOptions::FORM_PARAMS => [
+                            'is_enabled' => $isEnabled,
+                        ],
+                    ]
+                )
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("The division doesn't exist", $e);

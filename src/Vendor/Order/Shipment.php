@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -56,7 +58,7 @@ final class Shipment
         $this->trackingNumber = $data['tracking_number'];
         $this->labelUrl = $data['label_url'];
         $this->comment = $data['comments'];
-        $this->createdAt = new \DateTimeImmutable('@'.$data['shipment_timestamp']);
+        $this->createdAt = new \DateTimeImmutable('@' . $data['shipment_timestamp']);
         $this->shippedQuantityByItemId = $data['products'];
     }
 

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Subscription;
@@ -55,9 +57,9 @@ abstract class SubscriptionUpsertData
             ->validate($this)
             ->getViolations();
 
-        if (count($violations) > 0) {
+        if (\count($violations) > 0) {
             throw new SomeParametersAreInvalid(
-                'Subscription data validation failed: '.json_encode(
+                'Subscription data validation failed: ' . json_encode(
                     array_map(
                         function (ConstraintViolationInterface $violation): array {
                             return [
@@ -82,7 +84,7 @@ abstract class SubscriptionUpsertData
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (in_array($prop->getName(), $selfValidatingProperties)) {
+            if (\in_array($prop->getName(), $selfValidatingProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Valid());
             }
         }
@@ -98,7 +100,7 @@ abstract class SubscriptionUpsertData
         $nullableProperties = [];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (false === in_array($prop->getName(), $nullableProperties)) {
+            if (false === \in_array($prop->getName(), $nullableProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new NotNull());
             }
         }
@@ -112,7 +114,7 @@ abstract class SubscriptionUpsertData
             $data['status'] = $this->status->getValue();
         }
 
-        if (is_bool($this->isAutorenew)) {
+        if (\is_bool($this->isAutorenew)) {
             $data['isAutorenew'] = $this->isAutorenew;
         }
 

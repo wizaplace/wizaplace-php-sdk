@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -60,14 +62,20 @@ final class ProductAttribute
         $this->value = $data['value'];
         $this->valueIds = $data['valueIds'];
         $this->imageUrls = $data['imageUrls'] ?? [];
-        $this->children = array_map(static function (array $childrenData) : self {
-            return new self($childrenData);
-        }, $data['children']);
+        $this->children = array_map(
+            static function (array $childrenData): self {
+                return new self($childrenData);
+            },
+            $data['children']
+        );
         $this->type = new AttributeType($data['type']);
         if (isset($data['values'])) {
-            $this->values = array_map(function (array $valueData): ProductAttributeValue {
-                return new ProductAttributeValue($valueData);
-            }, $data['values'] ?? []);
+            $this->values = array_map(
+                function (array $valueData): ProductAttributeValue {
+                    return new ProductAttributeValue($valueData);
+                },
+                $data['values'] ?? []
+            );
         }
     }
 

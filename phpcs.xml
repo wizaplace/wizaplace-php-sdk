@@ -1,9 +1,39 @@
 <?xml version="1.0"?>
 <ruleset>
-    <rule ref="vendor/wizaplace/php-coding-standard/Wizaplace/ruleset.xml">
-        <exclude name="Symfony.Functions.ReturnType.Invalid" /><!-- removed because it is buggy with closures -->
-        <exclude name="Symfony.Objects.ObjectInstantiation.Invalid" /><!-- removed because it is buggy with anonymous classes -->
+    <arg name="basepath" value="." />
+    <arg name="colors" />
+    <arg name="extensions" value="php" />
+
+    <rule ref="vendor/wizaplace/phpcs/BaBeuloula/ruleset.xml">
+        <exclude name="Squiz.Operators.ComparisonOperatorUsage" />
+        <exclude name="Squiz.PHP.DisallowBooleanStatement" />
+        <exclude name="Generic.Files.LineLength" />
+        <exclude name="BaBeuloula.Uses.GroupUses" />
+        <exclude name="BaBeuloula.CodeAnalysis.StrictTypes" />
+        <exclude name="Squiz.PHP.DisallowMultipleAssignments" />
+        <exclude name="PEAR.Commenting.FileComment.MissingAuthorTag"/>
+        <exclude name="Generic.Commenting.Todo" />
+        <exclude name="PSR12.Properties.ConstantVisibility" />
+        <exclude name="Generic.CodeAnalysis.UnusedFunctionParameter" />
     </rule>
+
+    <rule ref="Generic.PHP.ForbiddenFunctions">
+        <properties>
+            <property name="forbiddenFunctions" type="array" extend="false">
+                <element key="split" value="explode" />
+                <element key="delete" value="unset"/>
+                <element key="print" value="echo"/>
+                <element key="create_function" value="null"/>
+                <element key="error_log" value="null" />
+                <element key="print_r" value="null" />
+                <element key="var_dump" value="null" />
+                <element key="dump" value="null" />
+                <element key="dd" value="null" />
+                <element key="die" value="null" />
+            </property>
+        </properties>
+    </rule>
+
     <file>src</file>
     <file>tests</file>
 </ruleset>

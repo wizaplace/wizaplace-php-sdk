@@ -119,7 +119,7 @@ final class BasketServiceTest extends ApiTestCase
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithTaxes(), $basketItem->getTotalPrice()->getPriceWithTaxes());
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getPriceWithoutVat(), $basketItem->getTotalPrice()->getPriceWithoutVat());
                     $this->assertGreaterThanOrEqual($basketItem->getUnitPrice()->getVat(), $basketItem->getTotalPrice()->getVat());
-                    $this->assertTrue(is_array($basketItem->getDivisions()));
+                    $this->assertTrue(\is_array($basketItem->getDivisions()));
                     $basketItem->getMainImage();
                     $basketItem->getCrossedOutPrice();
                 }
@@ -179,7 +179,7 @@ final class BasketServiceTest extends ApiTestCase
         $pdfHeader = '%PDF-1.4';
         $pdfContents = $pdf->getContents();
         $this->assertStringStartsWith($pdfHeader, $pdfContents);
-        $this->assertGreaterThan(strlen($pdfHeader), strlen($pdfContents));
+        $this->assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContents));
     }
 
     public function testCleanBasket()
@@ -261,9 +261,12 @@ final class BasketServiceTest extends ApiTestCase
         $this->assertFalse($shippings[1]->isSelected());
 
         // Act
-        $basketService->selectShippings($basketId, [
-            $shippingGroups[0]->getId() => $shippings[1]->getId(),
-        ]);
+        $basketService->selectShippings(
+            $basketId,
+            [
+                $shippingGroups[0]->getId() => $shippings[1]->getId(),
+            ]
+        );
 
         // Assert
         $basket = $basketService->getBasket($basketId);
@@ -365,19 +368,19 @@ final class BasketServiceTest extends ApiTestCase
         // First page
         $basketItems = $basketService->getBasketItems($basketId, 0, $limit);
         $items = $basketItems->getItems();
-        static::assertSame($limit, count($items));
+        static::assertSame($limit, \count($items));
         static::assertSame(5, $items[0]['quantity']);
 
         // Second page
         $basketItems = $basketService->getBasketItems($basketId, 1, $limit);
         $items = $basketItems->getItems();
-        static::assertSame($limit, count($items));
+        static::assertSame($limit, \count($items));
         static::assertSame(3, $items[0]['quantity']);
 
         // Third page / should be empty
         $basketItems = $basketService->getBasketItems($basketId, 2, $limit);
         $items = $basketItems->getItems();
-        static::assertSame(0, count($items));
+        static::assertSame(0, \count($items));
     }
 
     public function testNewEmptyBasketItems(): void
@@ -566,11 +569,14 @@ final class BasketServiceTest extends ApiTestCase
             }
         }
 
-        $this->assertSame([
-            '1_6_44' => 2,
-            '3_5_40' => 1,
-            '3_5_41' => 1,
-        ], $quantitiesMap);
+        $this->assertSame(
+            [
+                '1_6_44' => 2,
+                '3_5_40' => 1,
+                '3_5_41' => 1,
+            ],
+            $quantitiesMap
+        );
 
         // check that the source basket is unchanged
         $sourceBasket = $basketService->getBasket($basketId2);
@@ -583,10 +589,13 @@ final class BasketServiceTest extends ApiTestCase
             }
         }
 
-        $this->assertSame([
-            '1_6_44' => 2,
-            '3_5_41' => 1,
-        ], $quantitiesMap);
+        $this->assertSame(
+            [
+                '1_6_44' => 2,
+                '3_5_41' => 1,
+            ],
+            $quantitiesMap
+        );
     }
 
     public function testCoupons(): void
@@ -711,7 +720,7 @@ final class BasketServiceTest extends ApiTestCase
 
         foreach ($sourceBasket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
-                $totalItemsInBasket += count($shippingGroup->getItems());
+                $totalItemsInBasket += \count($shippingGroup->getItems());
             }
         }
 
