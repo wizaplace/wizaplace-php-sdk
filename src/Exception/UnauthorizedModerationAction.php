@@ -24,7 +24,7 @@ final class UnauthorizedModerationAction extends \Exception
      * @param string          $message
      * @param \Throwable|null $previous
      */
-    public function __construct($message = "", Throwable $previous = null)
+    public function __construct(string $message = "", Throwable $previous = null)
     {
         parent::__construct($message, 401, $previous);
     }
