@@ -439,9 +439,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return array_map(function (array $data): CreditNote {
-                return new CreditNote($data);
-            }, $this->client->get("orders/{$orderId}/credit-notes"));
+            return array_map(
+                function (array $data): CreditNote {
+                    return new CreditNote($data);
+                },
+                $this->client->get("orders/{$orderId}/credit-notes")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -477,9 +480,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return array_map(function (array $data): Refund {
-                return new Refund($data);
-            }, $this->client->get("orders/{$orderId}/refunds"));
+            return array_map(
+                function (array $data): Refund {
+                    return new Refund($data);
+                },
+                $this->client->get("orders/{$orderId}/refunds")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);

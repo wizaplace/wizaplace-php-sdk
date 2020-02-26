@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
@@ -109,9 +111,12 @@ final class RefundRequest implements ArrayableInterface
     {
         return [
             'isPartial' => $this->isPartial,
-            'items' => array_map(function (RefundRequestItem $item): array {
-                return $item->toArray();
-            }, $this->items ?? []),
+            'items' => array_map(
+                function (RefundRequestItem $item): array {
+                    return $item->toArray();
+                },
+                $this->items ?? []
+            ),
             'shipping' => $this->shipping ? $this->shipping->toArray() : null,
             'message' => $this->message,
             'creditNoteReference' => $this->creditNoteReference,

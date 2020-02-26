@@ -697,7 +697,7 @@ class OrderServiceTest extends ApiTestCase
         $pdfHeader = '%PDF-1.4';
         $pdfContent = $creditNote->getContents();
         static::assertStringStartsWith($pdfHeader, $pdfContent);
-        static::assertGreaterThan(strlen($pdfHeader), strlen($pdfContent));
+        static::assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
 
     public function testVendorGetOrderRefunds(): void
