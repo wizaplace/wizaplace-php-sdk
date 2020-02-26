@@ -31,16 +31,45 @@ final class OrderService extends AbstractService
     /**
      * List the orders of the current user.
      *
+     * @param array $sort
+     * @param int  $start
+     * @param int  $limit
+     *
      * @return Order[]
      *
      * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getOrders(): array
+    public function getOrders(array $sort = null, int $start = null, int $limit = null): array
     {
         $this->client->mustBeAuthenticated();
-        $datas = $this->client->get('user/orders', []);
+
+        $query = [];
+
+        if (\is_array($sort)) {
+            $stringSort = '';
+            foreach ($sort as $key => $value) {
+                $stringSort .= $key . ':' . $value . ',';
+            }
+
+            $query['sort'] = $stringSort ;
+        }
+
+        if (\is_int($start) === true) {
+            $query['start'] = $start ;
+        }
+
+        if (\is_int($limit) === true) {
+            $query['limit'] = $limit ;
+        }
+
+        $datas = $this->client->get(
+            'user/orders',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
         $orders = array_map(
             static function (array $orderData): Order {
                 return new Order($orderData);

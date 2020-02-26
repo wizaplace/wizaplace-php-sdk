@@ -325,16 +325,6 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
-    public function testGetUserOrdersWithSubscriptionId(): void
-    {
-        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
-        $orders = $orderService->getOrders();
-
-        static::assertCount(1, $orders);
-        static::assertUuid($orders[0]->getSubscriptionId());
-        static::assertFalse($orders[0]->isSubscriptionInitiator());
-    }
-
     public function testGetUserOrderWithSubscriptionId(): void
     {
         $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
@@ -361,6 +351,29 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame('19377517', $firstItem->getItemId());
         static::assertFalse($firstItem->IsSubscription());
         static::assertFalse($firstItem->IsRenewable());
+    }
+
+    public function testGetOrdersWithSortAndPagination(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+
+        $orders = $orderService->getOrders(["id" => "desc"]);
+        static::assertSame(12, $orders[0]->getId());
+        static::assertSame(11, $orders[1]->getId());
+        static::assertSame(10, $orders[2]->getId());
+
+        $orders = $orderService->getOrders(["id" => "asc"], 2, 4);
+        static::assertSame(4, $orders[0]->getId());
+        static::assertSame(5, $orders[1]->getId());
+        static::assertSame(10, $orders[2]->getId());
+        static::assertSame(11, $orders[3]->getId());
+
+        $orders = $orderService->getOrders();
+        static::assertSame(1, $orders[0]->getId());
+        static::assertSame(2, $orders[1]->getId());
+        static::assertSame(4, $orders[2]->getId());
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
