@@ -9,6 +9,8 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
+use Wizaplace\SDK\Pim\Option\SystemOption;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -29,6 +31,9 @@ final class DeclinationOption
     /** @var string */
     private $variantName;
 
+    /** @var null|SystemOption */
+    private $code = null;
+
     /**
      * @internal
      *
@@ -40,6 +45,9 @@ final class DeclinationOption
         $this->optionName = to_string($data['optionName']);
         $this->variantId = $data['variantId'];
         $this->variantName = to_string($data['variantName']);
+        if (\array_key_exists('optionCode', $data)) {
+            $this->code = new SystemOption($data['optionCode']);
+        }
     }
 
     /**
@@ -72,5 +80,11 @@ final class DeclinationOption
     public function getVariantName(): string
     {
         return $this->variantName;
+    }
+
+    /** @return null|SystemOption */
+    public function getCode(): ?SystemOption
+    {
+        return $this->code;
     }
 }
