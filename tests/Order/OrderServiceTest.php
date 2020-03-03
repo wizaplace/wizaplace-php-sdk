@@ -24,6 +24,7 @@ use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Order\Payment;
 use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Pim\Option\SystemOption;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
@@ -374,6 +375,22 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(1, $orders[0]->getId());
         static::assertSame(2, $orders[1]->getId());
         static::assertSame(4, $orders[2]->getId());
+    }
+
+    public function testGetAnOrderWithSystemOption(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $orderService = new OrderService($apiClient);
+
+        static::assertInstanceOf(
+            SystemOption::class,
+            $orderService
+                ->getOrder(14)
+                ->getOrderItems()[0]
+                ->getDeclinationOptions()[0]
+                ->getCode()
+        );
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
