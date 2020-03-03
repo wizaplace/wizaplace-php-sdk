@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.100.24
+
+### New features
+
+- Added `Wizaplace\SDK\Order\DeclinationOption::getCode`
+
 ## 1.100.20
 
 ### Deprecated

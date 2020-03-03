@@ -46,7 +46,7 @@ final class DeclinationOption
         $this->variantId = $data['variantId'];
         $this->variantName = to_string($data['variantName']);
         if (\array_key_exists('optionCode', $data)) {
-            $this->code = new SystemOption($data['optionCode']);
+            $this->code = new SystemOption($data['code']);
         }
     }
 
