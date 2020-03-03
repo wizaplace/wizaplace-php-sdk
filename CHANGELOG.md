@@ -1,5 +1,13 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclination::getSupplierReference()`
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData::getSupplierReference()`
+- Added `Wizaplace\SDK\Pim\Product\ProductDeclinationUpsertData::setSupplierReference()`
+
 ## 1.100.24
 
 ### New features

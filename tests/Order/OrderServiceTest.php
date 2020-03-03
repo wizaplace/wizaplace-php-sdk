@@ -99,7 +99,7 @@ final class OrderServiceTest extends ApiTestCase
     {
         $orderService = $this->buildOrderService();
         $creationCommand = new CreateOrderReturn(1, "Broken on arrival");
-        $creationCommand->addItem(new DeclinationId('1_0'), 1, 1);
+        $creationCommand->addItem(new DeclinationId('1_0'), 3, 1);
 
         $returnId = $orderService->createOrderReturn($creationCommand);
         $this->assertGreaterThan(0, $returnId);
@@ -118,7 +118,8 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertTrue((new DeclinationId('1_0'))->equals($returnItem->getDeclinationId()));
         $this->assertSame(67.9, $returnItem->getPrice());
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $returnItem->getProductName());
-        $this->assertSame(1, $returnItem->getReason());
+        $this->assertSame(3, $returnItem->getReason());
+        $this->assertSame("INFO-001", $returnItem->getSupplierRef());
 
         $returns = $orderService->getOrderReturns();
         $this->assertCount(1, $returns);

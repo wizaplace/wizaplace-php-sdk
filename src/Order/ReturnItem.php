@@ -25,6 +25,8 @@ final class ReturnItem
     private $reason;
     /** @var int */
     private $amount;
+    /** @var null|string */
+    private $supplierRef;
 
     /**
      * @internal
@@ -38,6 +40,7 @@ final class ReturnItem
         $this->price = $data['price'];
         $this->reason = $data['reason'];
         $this->amount = $data['amount'];
+        $this->supplierRef = \array_key_exists('supplierRef', $data) === true ? $data['supplierRef'] : null;
     }
 
     public function getProductName(): string
@@ -67,5 +70,10 @@ final class ReturnItem
     public function getAmount(): int
     {
         return $this->amount;
+    }
+
+    public function getSupplierRef(): ?string
+    {
+        return $this->supplierRef;
     }
 }
