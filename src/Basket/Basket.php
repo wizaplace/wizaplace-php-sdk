@@ -33,6 +33,9 @@ final class Basket
     /** @var float */
     private $totalShipping;
 
+    /** @var null|float */
+    private $totalShippingTax;
+
     /** @var float */
     private $totalTax;
 
@@ -63,6 +66,9 @@ final class Basket
     /** @var null|Address */
     private $shippingAddress;
 
+    /** @var null|Address */
+    private $billingAddress;
+
     /** @var float */
     private $totalMarketplaceDiscount;
 
@@ -77,6 +83,7 @@ final class Basket
         $this->totalDiscount = $data['totalDiscount'];
         $this->totalMarketplaceDiscount = $data['totalMarketplaceDiscount'] ?? 0.0;
         $this->totalShipping = $data['totalShipping'];
+        $this->totalShippingTax = $data['totalShippingTax'] ?? null ;
         $this->totalTax = $data['totalTax'];
         $this->total = $data['total'];
         $this->totalQuantity = $data['totalQuantity'];
@@ -90,6 +97,12 @@ final class Basket
             $this->shippingAddress = new Address($data['shippingAddress']);
             if ($this->shippingAddress->getTitle() === null && $this->shippingAddress->getAddress() === '' && $this->getShippingAddress()->getCity() === '') {
                 $this->shippingAddress = null; // The API returns an address with all the values set but empty. We consider this a null address.
+            }
+        }
+        if (\array_key_exists('billingAddress', $data) === true) {
+            $this->billingAddress = new Address($data['billingAddress']);
+            if ($this->billingAddress->getTitle() === null && $this->billingAddress->getAddress() === '' && $this->getBillingAddress()->getCity() === '') {
+                $this->billingAddress = null; // The API returns an address with all the values set but empty. We consider this a null address.
             }
         }
 
@@ -147,6 +160,12 @@ final class Basket
     public function getTotalShipping(): float
     {
         return $this->totalShipping;
+    }
+
+    /** @return null|float */
+    public function getTotalShippingTax(): ?float
+    {
+        return $this->totalShippingTax;
     }
 
     /**
@@ -231,6 +250,12 @@ final class Basket
     public function getShippingAddress(): ?Address
     {
         return $this->shippingAddress;
+    }
+
+    /** @return Address|null */
+    public function getBillingAddress(): ?Address
+    {
+        return $this->billingAddress;
     }
 
     /**
