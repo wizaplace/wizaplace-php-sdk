@@ -47,12 +47,12 @@ class ModerationServiceTest extends ApiTestCase
         // Initial state
         $productSummaryArray = $this->getProductsSummary();
 
-        static::assertEquals(11, $productSummaryArray[3][ProductApprovalStatus::APPROVED()->getKey()]);
-        static::assertEquals(2, $productSummaryArray[3][ProductApprovalStatus::PENDING()->getKey()]);
-        static::assertEquals(1, $productSummaryArray[3][ProductApprovalStatus::REJECTED()->getKey()]);
+        static::assertSame(11, $productSummaryArray[3][ProductApprovalStatus::APPROVED()->getKey()]);
+        static::assertSame(2, $productSummaryArray[3][ProductApprovalStatus::PENDING()->getKey()]);
+        static::assertSame(1, $productSummaryArray[3][ProductApprovalStatus::REJECTED()->getKey()]);
 
-        static::assertEquals(1, $productSummaryArray[4][ProductApprovalStatus::APPROVED()->getKey()]);
-        static::assertEquals(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
+        static::assertSame(1, $productSummaryArray[4][ProductApprovalStatus::APPROVED()->getKey()]);
+        static::assertSame(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
 
         // We approve all products of company 3
         $this->moderationService->moderateByCompany(3, 'approve');
@@ -60,12 +60,12 @@ class ModerationServiceTest extends ApiTestCase
         // Pending products of company 3 should now be approved
         $productSummaryArray = $this->getProductsSummary();
 
-        static::assertEquals(13, $productSummaryArray[3][ProductApprovalStatus::APPROVED()->getKey()]);
+        static::assertSame(13, $productSummaryArray[3][ProductApprovalStatus::APPROVED()->getKey()]);
         static::assertArrayNotHasKey(ProductApprovalStatus::PENDING()->getKey(), $productSummaryArray[3]);
-        static::assertEquals(1, $productSummaryArray[3][ProductApprovalStatus::REJECTED()->getKey()]);
+        static::assertSame(1, $productSummaryArray[3][ProductApprovalStatus::REJECTED()->getKey()]);
 
-        static::assertEquals(1, $productSummaryArray[4][ProductApprovalStatus::APPROVED()->getKey()]);
-        static::assertEquals(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
+        static::assertSame(1, $productSummaryArray[4][ProductApprovalStatus::APPROVED()->getKey()]);
+        static::assertSame(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
     }
 
     /**
@@ -74,7 +74,7 @@ class ModerationServiceTest extends ApiTestCase
     public function testModerationByProduct(): void
     {
         $productSummaryArray = $this->getProductsSummary();
-        static::assertEquals(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
+        static::assertSame(1, $productSummaryArray[4][ProductApprovalStatus::PENDING()->getKey()]);
 
         $this->moderationService->moderateByProduct(17, 'approve');
         $productSummaryArray = $this->getProductsSummary();
