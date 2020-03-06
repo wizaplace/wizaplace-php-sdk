@@ -1,0 +1,62 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 04 Mar 2020 15:26:17 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ae2ab2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ae2ab2'
+            X-Request-Id: e352d8d3e6f11ade41dc3e779db0df0c
+        body: '{"id":2,"apiKey":"R+rOySPl7LWhfwWHI+XIc9lV5Ye43miC6lLUacOf"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/direct_debit_payment/process_payment/1013/10'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            Authorization: 'token R+rOySPl7LWhfwWHI+XIc9lV5Ye43miC6lLUacOf'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 04 Mar 2020 15:26:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d91c83
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d91c83'
+            X-Request-Id: e3c2f1c6f9221362b3645de5cdb247b9
+        body: '{"message":"success","redirectUrl":""}'

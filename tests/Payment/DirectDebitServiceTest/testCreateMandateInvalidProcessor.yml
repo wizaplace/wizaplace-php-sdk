@@ -1,0 +1,31 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 04 Mar 2020 15:26:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7526b4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7526b4'
+            X-Request-Id: 3a5145a1c907fdbbd16841679e2f959b
+        body: '{"id":2,"apiKey":"R+rOySPl7LWhfwWHI+XIc9lV5Ye43miC6lLUacOf"}'
