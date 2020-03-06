@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:26 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: c0379e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c0379e'
-            Content-Length: '60'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 13 Feb 2020 09:34:50 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 693bf3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/693bf3'
+            X-Request-Id: f410915115c2744a3d1e371bc24afd39
+        body: '{"id":7,"apiKey":"EkSKz1F\/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR"}'
 -
     request:
         method: POST
@@ -34,25 +38,31 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
+            Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
             VCR-index: '1'
             Accept: null
-        body: 'userId=7&comments=Broken+on+arrival&items%5B0%5D%5BdeclinationId%5D=1_0&items%5B0%5D%5Breason%5D=1&items%5B0%5D%5Bamount%5D=1'
+        body: 'userId=7&comments=Broken+on+arrival&items%5B0%5D%5BdeclinationId%5D=1_0&items%5B0%5D%5Breason%5D=3&items%5B0%5D%5Bamount%5D=1'
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:27 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: d0adbf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0adbf'
-            Content-Length: '14'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Thu, 13 Feb 2020 09:34:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1d44a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1d44a2'
+            Expires: 'Thu, 13 Feb 2020 09:34:53 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221d44a2%22%2C%22route%22%3A%22api_create_return%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrderReturnController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrderReturnController.php%22%2C%22line%22%3A52%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 37ae3c5042c91349f9e340c552a1bb9f
         body: '{"returnId":1}'
 -
     request:
@@ -61,8 +71,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
+            Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
             VCR-index: '2'
             Accept: null
     response:
@@ -71,15 +81,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:27 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b30658
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b30658'
-            Content-Length: '247'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":1,"orderId":1,"userId":7,"createdAt":"2017-10-23T15:23:27+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","price":67.9,"amount":1,"reason":1}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 13 Feb 2020 09:34:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cad1b8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cad1b8'
+            X-Request-Id: e1ba23dff973ed9b943cc490af8cb963
+        body: '{"id":1,"orderId":1,"userId":7,"createdAt":"2020-02-13T10:34:50+01:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","supplierRef":"INFO-001","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"reason":3,"options":[],"customerComment":""}}}'
 -
     request:
         method: GET
@@ -87,8 +101,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/9999999-dev@512a763
-            Authorization: 'token 4hA5DW04UGHa8yhWORpabTZ3cig6Oy8UEz9hMoBh'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
+            Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
             VCR-index: '3'
             Accept: null
     response:
@@ -97,12 +111,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 23 Oct 2017 13:23:28 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: e97603
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e97603'
-            Content-Length: '249'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"id":1,"orderId":1,"userId":7,"createdAt":"2017-10-23T15:23:27+02:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","price":67.9,"amount":1,"reason":1}}}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 13 Feb 2020 09:34:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e0ea6e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e0ea6e'
+            X-Request-Id: de4f754a1e95fc1eb89e02387154dbb4
+        body: '[{"id":1,"orderId":1,"userId":7,"createdAt":"2020-02-13T10:34:50+01:00","comments":"Broken on arrival","status":"R","items":{"2085640488":{"declinationId":"1_0","supplierRef":"INFO-001","product":"Z11 Plus Bo\u00eetier PC en Acier ATX","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","price":67.9,"amount":1,"reason":3,"options":[],"customerComment":""}}}]'

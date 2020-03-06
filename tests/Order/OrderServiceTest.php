@@ -30,6 +30,7 @@ use Wizaplace\SDK\Order\RefundRequestItem;
 use Wizaplace\SDK\Order\RefundRequestShipping;
 use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\Order\ReturnItem;
+use Wizaplace\SDK\Pim\Option\SystemOption;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
@@ -106,7 +107,7 @@ final class OrderServiceTest extends ApiTestCase
     {
         $orderService = $this->buildOrderService();
         $creationCommand = new CreateOrderReturn(1, "Broken on arrival");
-        $creationCommand->addItem(new DeclinationId('1_0'), 1, 1);
+        $creationCommand->addItem(new DeclinationId('1_0'), 3, 1);
 
         $returnId = $orderService->createOrderReturn($creationCommand);
         $this->assertGreaterThan(0, $returnId);
@@ -125,7 +126,8 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertTrue((new DeclinationId('1_0'))->equals($returnItem->getDeclinationId()));
         $this->assertSame(67.9, $returnItem->getPrice());
         $this->assertSame('Z11 Plus Boîtier PC en Acier ATX', $returnItem->getProductName());
-        $this->assertSame(1, $returnItem->getReason());
+        $this->assertSame(3, $returnItem->getReason());
+        $this->assertSame("INFO-001", $returnItem->getSupplierRef());
 
         $returns = $orderService->getOrderReturns();
         $this->assertCount(1, $returns);
@@ -333,16 +335,6 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
-    public function testGetUserOrdersWithSubscriptionId(): void
-    {
-        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
-        $orders = $orderService->getOrders();
-
-        static::assertCount(1, $orders);
-        static::assertUuid($orders[0]->getSubscriptionId());
-        static::assertFalse($orders[0]->isSubscriptionInitiator());
-    }
-
     public function testGetUserOrderWithSubscriptionId(): void
     {
         $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
@@ -369,6 +361,45 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame('19377517', $firstItem->getItemId());
         static::assertFalse($firstItem->IsSubscription());
         static::assertFalse($firstItem->IsRenewable());
+    }
+
+    public function testGetOrdersWithSortAndPagination(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+
+        $orders = $orderService->getOrders(["id" => "desc"]);
+        static::assertSame(12, $orders[0]->getId());
+        static::assertSame(11, $orders[1]->getId());
+        static::assertSame(10, $orders[2]->getId());
+
+        $orders = $orderService->getOrders(["id" => "asc"], 2, 4);
+        static::assertSame(4, $orders[0]->getId());
+        static::assertSame(5, $orders[1]->getId());
+        static::assertSame(10, $orders[2]->getId());
+        static::assertSame(11, $orders[3]->getId());
+
+        $orders = $orderService->getOrders();
+        static::assertSame(1, $orders[0]->getId());
+        static::assertSame(2, $orders[1]->getId());
+        static::assertSame(4, $orders[2]->getId());
+    }
+
+    public function testGetAnOrderWithSystemOption(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('user@wizaplace.com', 'password');
+        $orderService = new OrderService($apiClient);
+
+        static::assertInstanceOf(
+            SystemOption::class,
+            $orderService
+                ->getOrder(14)
+                ->getOrderItems()[0]
+                ->getDeclinationOptions()[0]
+                ->getCode()
+        );
     }
 
     public function testGetOrderRefunds(): void

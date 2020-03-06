@@ -42,6 +42,9 @@ final class ProductDeclination
     /** @var PriceTier[] */
     private $priceTiers;
 
+    /** @var null|string */
+    protected $supplierReference;
+
     /**
      * @internal
      *
@@ -72,6 +75,8 @@ final class ProductDeclination
                 $this->addPriceTier($priceTier);
             }
         }
+
+        $this->supplierReference = \array_key_exists('supplier_reference', $data) === true ? $data['supplier_reference'] : null;
     }
 
     public function getQuantity(): int
@@ -115,5 +120,11 @@ final class ProductDeclination
     public function getPriceTiers(): array
     {
         return $this->priceTiers;
+    }
+
+    /** @return string|null */
+    public function getSupplierReference(): ?string
+    {
+        return $this->supplierReference;
     }
 }
