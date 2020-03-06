@@ -80,9 +80,12 @@ final class Refund
         $this->message = $data['message'];
         $this->createdAt = new \DateTimeImmutable($data['createdAt']);
         $this->updatedAt = new \DateTimeImmutable($data['updatedAt']);
-        $this->items = array_map(function (array $item): RefundItem {
-            return new RefundItem($item);
-        }, $data['items']);
+        $this->items = array_map(
+            function (array $item): RefundItem {
+                return new RefundItem($item);
+            },
+            $data['items']
+        );
         $this->totalItemsPrice = new Price($data['totalItemsPrice']);
         $this->totalShippingPrice = new Price($data['totalShippingPrice']);
         $this->totalGlobalPrice = new Price($data['totalGlobalPrice']);

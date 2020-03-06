@@ -111,9 +111,12 @@ final class RefundRequest implements ArrayableInterface
     {
         return [
             'isPartial' => $this->isPartial,
-            'items' => array_map(function (RefundRequestItem $item): array {
-                return $item->toArray();
-            }, $this->items ?? []),
+            'items' => array_map(
+                function (RefundRequestItem $item): array {
+                    return $item->toArray();
+                },
+                $this->items ?? []
+            ),
             'shipping' => $this->shipping ? $this->shipping->toArray() : null,
             'message' => $this->message,
             'creditNoteReference' => $this->creditNoteReference,

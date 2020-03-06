@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-27-organisation-add-information@b216234
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 24 Dec 2019 11:28:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a0697d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0697d'
+            X-Request-Id: 7110d3cec8ea63b4b3add0927c7e5cbe
+        body: '{"id":6,"apiKey":"NTboIu5clfS9y13ff3ig7LGCCqtv0pCdB79lVlof"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/12'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-27-organisation-add-information@b216234
+            Authorization: 'token NTboIu5clfS9y13ff3ig7LGCCqtv0pCdB79lVlof'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 24 Dec 2019 11:28:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 150d9e
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/150d9e'
+            X-Request-Id: 90339b2eaa5ff1df2bfafa2481955874
+        body: '{"order_id":12,"company_id":3,"user_id":7,"basket_id":"7ff03d72-a909-4a00-bc8e-bf669f61ac27","total":15.5,"discount":0.0,"shipping_cost":0.0,"timestamp":1576688068,"status":"H","notes":"","details":"","promotions":{"1c048ec9-95ed-4612-ba73-b2137280fc0f":{"id":"1c048ec9-95ed-4612-ba73-b2137280fc0f","name":"FIRST"}},"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"mondial","s_lastname":"relay","s_company":"wiz","s_address":"25 rue de la gare","s_address_2":"","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"00393","email":"customer-1@world-company.com","decline_reason":null,"invoice_date":"2019-12-20 14:47:00","products":{"3230927120":{"item_id":"3230927120","product_id":2,"price":15.5,"amount":1,"comment":"","extra":{"combinations":[{"option_name":"color","variant_name":"white"},{"option_name":"connectivity","variant_name":"wireless"}]},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"color_white_connectivity_wireles","supplier_ref":null,"declination_id":"2_1_1_2_5"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.3188,"description":"TVA 2.1%","applies":{"P_3230927120":0.3188}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[[]],"shipment_ids":[],"invoice_number":"","last_status_change":"2019-12-18T17:04:48+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":5.5,"marketplace_discount_total":10.0,"totals":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.1542,"taxes":0.0308,"including_taxes":0.185},"vendor_share":{"excluding_taxes":12.7625,"taxes":2.5525,"including_taxes":15.315}}'
