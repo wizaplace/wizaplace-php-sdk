@@ -64,7 +64,7 @@ class DirectDebitService extends AbstractService
 
         try {
             return $this->client->post(
-                'direct_debit_payment/create_mandate/' . $paymentProcessorId . '/' . $orderId,
+                'payment/' . $orderId . '/create-direct-debit-mandate/' . $paymentProcessorId,
                 [RequestOptions::FORM_PARAMS => $data]
             );
         } catch (ClientException $e) {
@@ -88,7 +88,7 @@ class DirectDebitService extends AbstractService
 
         try {
             return $this->client->post(
-                'direct_debit_payment/process_payment/' . $paymentProcessorId . '/' . $orderId
+                'payment/' . $orderId . '/process-direct-debit-payment/' . $paymentProcessorId
             );
         } catch (ClientException $e) {
             if (400 === $e->getResponse()->getStatusCode()) {

@@ -24,6 +24,8 @@ final class PaymentInformation
     private $redirectUrl;
     /** @var string */
     private $html;
+    /** @var bool */
+    private $isPartial;
     /** @var int */
     private $parentOrderId;
 
@@ -42,6 +44,7 @@ final class PaymentInformation
         );
         $this->parentOrderId = $data['parentOrderId'];
         $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($data['redirectUrl']);
+        $this->isPartial = false === \array_key_exists('isPartial', $data) ? false : $data['isPartial'];
         $this->html = $data['html'] ?? '';
     }
 

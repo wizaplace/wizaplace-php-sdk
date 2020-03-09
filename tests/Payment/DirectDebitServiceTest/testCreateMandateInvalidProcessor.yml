@@ -22,10 +22,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 04 Mar 2020 15:26:16 GMT'
+            Date: 'Mon, 09 Mar 2020 12:59:35 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 7526b4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7526b4'
-            X-Request-Id: 3a5145a1c907fdbbd16841679e2f959b
-        body: '{"id":2,"apiKey":"R+rOySPl7LWhfwWHI+XIc9lV5Ye43miC6lLUacOf"}'
+            X-Debug-Token: 473f4b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/473f4b'
+            X-Request-Id: 8475a416d4bb16a1d8dd8416dfe0c2a4
+        body: '{"id":2,"apiKey":"kef1Qe6j83y+s6h8ql7WOHkjEDBbr8yBOhugg9nP"}'
