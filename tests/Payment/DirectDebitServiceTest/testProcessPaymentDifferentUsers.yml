@@ -22,17 +22,17 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 15:01:34 GMT'
+            Date: 'Tue, 10 Mar 2020 16:09:51 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a691fd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a691fd'
-            X-Request-Id: 89bbf22737f1d82ef0cb4dd77c50ab8d
+            X-Debug-Token: 82f7bb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/82f7bb'
+            X-Request-Id: 02eadb8f1584ec126fea32e7584a0699
         body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/1/process-direct-debit-payment/1013'
+        url: 'http://wizaplace.loc/api/v1/payment/2/process-direct-debit-payment/1013'
         headers:
             Host: wizaplace.loc
             Content-Length: '0'
@@ -44,8 +44,8 @@
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '500'
+            message: 'Internal Server Error'
         headers:
             Server: nginx
             Content-Type: application/json
@@ -53,9 +53,9 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 15:01:35 GMT'
+            Date: 'Tue, 10 Mar 2020 16:09:51 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c986e5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c986e5'
-        body: '{"message":"success"}'
+            X-Debug-Token: 91a336
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/91a336'
+        body: '{"message":"Internal server error"}'

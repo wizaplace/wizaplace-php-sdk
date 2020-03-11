@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
             VCR-index: '0'
             Accept: null
@@ -22,27 +22,27 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 09 Mar 2020 12:59:34 GMT'
+            Date: 'Tue, 10 Mar 2020 14:57:18 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 3ea66d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ea66d'
-            X-Request-Id: 0ea587aa7357a039854df80f280ac15e
-        body: '{"id":2,"apiKey":"kef1Qe6j83y+s6h8ql7WOHkjEDBbr8yBOhugg9nP"}'
+            X-Debug-Token: b7c44f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7c44f'
+            X-Request-Id: b378092860677a49f42a573f3d47f895
+        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/10/create-direct-debit-mandate/1013'
+        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/1013'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
-            Authorization: 'token kef1Qe6j83y+s6h8ql7WOHkjEDBbr8yBOhugg9nP'
+            Authorization: 'token u+9fECM1MY2WU7d6ooFhF/zxbj3yLEsnbD92bHc8'
             VCR-index: '1'
             Accept: null
-        body: 'iban=SE35+5000+0000+0549+1000+0003&bic=BCRTFRPP&bank-name=Mock+Bank&gender=M&firstname=Robert&lastname=Jean'
+        body: 'iban=FR1420041010050500013M02606&bic=CCBPFRPPVER&bank-name=World+bank&gender=M&firstname=Robert&lastname=Jean'
     response:
         status:
             http_version: '1.1'
@@ -55,11 +55,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 09 Mar 2020 12:59:34 GMT'
+            Date: 'Tue, 10 Mar 2020 14:57:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: bd1e1c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd1e1c'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22bd1e1c%22%2C%22route%22%3A%22api_direct_debit_payment_create_mandate%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CPayment%5C%5CDirectDebitPaymentController%22%2C%22method%22%3A%22createMandateAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FPayment%5C%2FDirectDebitPaymentController.php%22%2C%22line%22%3A33%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 2add8958154948db4914105dea3a1ae6
+            X-Debug-Token: '687822'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/687822'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22687822%22%2C%22route%22%3A%22api_direct_debit_payment_create_mandate%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CPayment%5C%5CDirectDebitPaymentController%22%2C%22method%22%3A%22createMandateAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FPayment%5C%2FDirectDebitPaymentController.php%22%2C%22line%22%3A35%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 58d7447a80297ace428f593864656dc1
         body: '{"message":"success"}'

@@ -42,6 +42,15 @@ class DirectDebitService extends AbstractService
                     'gender' => [new Choice(['M', 'F'])],
                     'firstname' => [new NotBlank()],
                     'lastname' =>  [new NotBlank()]
+                ],
+            1014 =>
+                [
+                    'iban' => [new NotBlank(), new Iban()],
+                    'bic' => [new NotBlank(), new Bic()],
+                    'bank-name' => [new NotBlank()],
+                    'gender' => [new Choice(['M', 'F'])],
+                    'firstname' => [new NotBlank()],
+                    'lastname' =>  [new NotBlank()]
                 ]
         ];
     }
@@ -54,7 +63,7 @@ class DirectDebitService extends AbstractService
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws SomeParametersAreInvalid
      */
-    public function createMandate(int $paymentProcessorId, int $orderId, array $data): array
+    public function createMandate(int $paymentProcessorId, array $data): array
     {
         $this->client->mustBeAuthenticated();
 
@@ -64,7 +73,7 @@ class DirectDebitService extends AbstractService
 
         try {
             return $this->client->post(
-                'payment/' . $orderId . '/create-direct-debit-mandate/' . $paymentProcessorId,
+                'payment/create-direct-debit-mandate/' . $paymentProcessorId,
                 [RequestOptions::FORM_PARAMS => $data]
             );
         } catch (ClientException $e) {

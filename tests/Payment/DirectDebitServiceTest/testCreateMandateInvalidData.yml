@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
             VCR-index: '0'
             Accept: null
@@ -22,10 +22,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 09 Mar 2020 12:59:35 GMT'
+            Date: 'Tue, 10 Mar 2020 14:57:20 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 3f20eb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3f20eb'
-            X-Request-Id: 2fccfcf58008a22dacdae9f474bd912f
-        body: '{"id":2,"apiKey":"kef1Qe6j83y+s6h8ql7WOHkjEDBbr8yBOhugg9nP"}'
+            X-Debug-Token: fec300
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fec300'
+            X-Request-Id: ec162d4344a807ae6816b84d2c20e5d0
+        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'

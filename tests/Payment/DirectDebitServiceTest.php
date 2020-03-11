@@ -22,11 +22,10 @@ final class DirectDebitServiceTest extends ApiTestCase
 
         $response = $directDebitService->createMandate(
             1013,
-            10,
             [
-                'iban' => 'SE35 5000 0000 0549 1000 0003',
-                'bic' => 'BCRTFRPP',
-                'bank-name' => 'Mock Bank',
+                'iban' => 'FR1420041010050500013M02606',
+                'bic' => 'CCBPFRPPVER',
+                'bank-name' => 'World bank',
                 'gender' => 'M',
                 'firstname' => 'Robert',
                 'lastname' => 'Jean'
@@ -45,11 +44,10 @@ final class DirectDebitServiceTest extends ApiTestCase
 
         $directDebitService->createMandate(
             -1,
-            10,
             [
-                'iban' => 'SE35 5000 0000 0549 1000 0003',
-                'bic' => 'BCRTFRPP',
-                'bank-name' => 'Mock Bank',
+                'iban' => 'DE23100000001234567890',
+                'bic' => 'MARKDEF1100',
+                'bank-name' => 'World bank',
                 'gender' => 'M',
                 'firstname' => 'Robert',
                 'lastname' => 'Jean'
@@ -65,11 +63,10 @@ final class DirectDebitServiceTest extends ApiTestCase
 
         $directDebitService->createMandate(
             1013,
-            10,
             [
-                'iban' => 'SE35 5000 0000 0549 1000 0003',
+                'iban' => 'DE23100000001234567890',
                 'bic' => 'Wrong bic',
-                'bank-name' => 'Mock Bank',
+                'bank-name' => 'World bank',
                 'gender' => 'M',
                 'firstname' => 'Robert',
                 'lastname' => 'Jean'
@@ -80,13 +77,13 @@ final class DirectDebitServiceTest extends ApiTestCase
     public function testProcessPayment(): void
     {
         $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-        $response = $directDebitService->processPayment(1013, 10);
+        $response = $directDebitService->processPayment(1013, 1);
 
         static::assertEquals('success', $response['message']);
     }
 
     private function buildDirectDebitPaymentServiceTest(
-        string $email = 'admin@wizaplace.com',
+        string $email = 'user@wizaplace.com',
         string $password = 'password'
     ): DirectDebitService {
         $apiClient = $this->buildApiClient();
