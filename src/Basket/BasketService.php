@@ -153,7 +153,6 @@ final class BasketService extends AbstractService
 
             throw $ex;
         }
-
         return $responseData;
     }
 

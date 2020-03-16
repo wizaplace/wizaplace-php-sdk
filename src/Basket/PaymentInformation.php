@@ -24,6 +24,8 @@ final class PaymentInformation
     private $redirectUrl;
     /** @var string */
     private $html;
+    /** @var int */
+    private $parentOrderId;
 
     /**
      * @internal
@@ -38,6 +40,7 @@ final class PaymentInformation
             },
             $data['orders']
         );
+        $this->parentOrderId = $data['parentOrderId'];
         $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($data['redirectUrl']);
         $this->html = $data['html'] ?? '';
     }
@@ -48,6 +51,14 @@ final class PaymentInformation
     public function getOrders(): array
     {
         return $this->orders;
+    }
+
+    /**
+     * @return int
+     */
+    public function getParentOrderId(): int
+    {
+        return $this->parentOrderId;
     }
 
     /**
