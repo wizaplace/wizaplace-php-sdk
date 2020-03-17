@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+## New features
+
+- Added `Wizaplace\SDK\Basket\PaymentInformation::getParentOrderId`
+
 ## 1.100.26
 
 ### New features

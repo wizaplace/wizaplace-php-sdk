@@ -155,6 +155,7 @@ final class BasketServiceTest extends ApiTestCase
 
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
+        $this->assertSame(15, $paymentInformation->getParentOrderId());
 
         $order = $orderService->getOrder($orders[0]->getId());
         $this->assertSame($orders[0]->getId(), $order->getId());

@@ -250,7 +250,7 @@
             X-Debug-Token: '708923'
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/708923'
             X-Request-Id: 580b6b5b202d766fcdf512f379b217a7
-        body: '{"orders":[{"id":15}]}'
+        body: '{"parentOrderId": 15, "orders":[{"id":15}]}'
 -
     request:
         method: GET
