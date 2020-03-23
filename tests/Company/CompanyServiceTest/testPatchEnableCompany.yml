@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-5975-sdk-symfo-5@063d115
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jan 2020 08:40:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ba91f0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ba91f0'
+            X-Request-Id: 9ea078c887b6c9c2ff1158724a4cf5f2
+        body: '{"id":12,"apiKey":"d7e6e4a4d558c23e00f6ad8ac11f2880c6768305"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/companies/155'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-5975-sdk-symfo-5@063d115
+            Authorization: 'token d7e6e4a4d558c23e00f6ad8ac11f2880c6768305'
+            VCR-index: '1'
+            Accept: null
+        body: '{"status":"ENABLED"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 21 Jan 2020 08:40:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5c3a7f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5c3a7f'
+            Expires: 'Tue, 21 Jan 2020 08:40:16 GMT'
+            X-Request-Id: fb7f3b4bc9d23085188e45f4979903aa
+        body: '{"id":155,"name":"JEANBOB","slug":"acme-inc-20","email":"jean20@bob.us","description":"ACME corporation","status":"ENABLED","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"Auvergne-Rh\u00f4ne-Alpes","country":"FR","phoneNumber":"342391","legalStatus":"SARL","siretNumber":"752 360 180 00034","vatNumber":"FR 65 752 360 180","capital":"100 000 euros","rcs":"RCS LYON B 752 360 180","fax":"342391","url":"https:\/\/www.acme.example.com\/","iban":"AD1200012030200359100100","bic":"AGFBFRCC","legalRepresentativeFirstName":"Eric","legalRepresentativeLastName":"Alessandri","extra":["string"],"nafCode":"58.29B","meta":{"title":"JEANBOB","keywords":"JEANBOB, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand JEANBOB au meilleur prix."}}'

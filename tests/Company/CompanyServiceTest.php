@@ -14,9 +14,11 @@ use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Company\Company;
 use Wizaplace\SDK\Company\CompanyC2CRegistration;
+use Wizaplace\SDK\Company\CompanyPatchCommand;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyRegistrationResult;
 use Wizaplace\SDK\Company\CompanyService;
+use Wizaplace\SDK\Company\CompanyStatus;
 use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
@@ -556,6 +558,18 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertUuid($subscription->getCardId());
     }
 
+    public function testPatchEnableCompany(): void
+    {
+        $service = $this->buildAdminCompanyService();
+
+        $company = new CompanyPatchCommand(155, new CompanyStatus('ENABLED'));
+
+        $newCompany = $service->patch($company);
+
+        static::assertSame(155, $newCompany->getId());
+        static::assertEquals(new CompanyStatus('ENABLED'), $newCompany->getStatus());
+    }
+
     public function testRegisteringACompanyWithNullNafCode(): void
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
@@ -579,6 +593,13 @@ final class CompanyServiceTest extends ApiTestCase
     ): CompanyService {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);
+
+        return new CompanyService($apiClient);
+    }
+
+    private function buildAdminCompanyService(): CompanyService
+    {
+        $apiClient = $this->buildAdminApiClient();
 
         return new CompanyService($apiClient);
     }
