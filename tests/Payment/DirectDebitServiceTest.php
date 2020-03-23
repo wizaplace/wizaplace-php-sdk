@@ -21,7 +21,7 @@ final class DirectDebitServiceTest extends ApiTestCase
         $directDebitService = $this->buildDirectDebitPaymentServiceTest();
 
         $response = $directDebitService->createMandate(
-            1013,
+            5,
             [
                 'iban' => 'FR1420041010050500013M02606',
                 'bic' => 'CCBPFRPPVER',
@@ -32,18 +32,18 @@ final class DirectDebitServiceTest extends ApiTestCase
             ]
         );
 
-        static::assertEquals('success', $response['message']);
+        static::assertEquals([''], $response);
     }
 
     public function testCreateMandateInvalidProcessor(): void
     {
         static::expectException(SomeParametersAreInvalid::class);
-        static::expectExceptionMessage('Invalid payment processor id');
+        static::expectExceptionMessage('Invalid payment id');
 
         $directDebitService = $this->buildDirectDebitPaymentServiceTest();
 
         $directDebitService->createMandate(
-            -1,
+            40000,
             [
                 'iban' => 'DE23100000001234567890',
                 'bic' => 'MARKDEF1100',
@@ -58,11 +58,12 @@ final class DirectDebitServiceTest extends ApiTestCase
     public function testCreateMandateInvalidData(): void
     {
         static::expectException(SomeParametersAreInvalid::class);
+        static::expectExceptionMessage('This is not a valid Business Identifier Code (BIC).');
 
         $directDebitService = $this->buildDirectDebitPaymentServiceTest();
 
         $directDebitService->createMandate(
-            1013,
+            5,
             [
                 'iban' => 'DE23100000001234567890',
                 'bic' => 'Wrong bic',
@@ -77,7 +78,7 @@ final class DirectDebitServiceTest extends ApiTestCase
     public function testProcessPayment(): void
     {
         $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-        $response = $directDebitService->processPayment(1013, 1);
+        $response = $directDebitService->processPayment(5, 1);
 
         static::assertEquals('success', $response['message']);
     }

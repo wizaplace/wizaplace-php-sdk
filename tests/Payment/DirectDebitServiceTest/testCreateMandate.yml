@@ -22,24 +22,24 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 14:57:18 GMT'
+            Date: 'Mon, 23 Mar 2020 09:53:11 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b7c44f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7c44f'
-            X-Request-Id: b378092860677a49f42a573f3d47f895
-        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
+            X-Debug-Token: '260558'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/260558'
+            X-Request-Id: ecc7081d079fddb27978052153a384be
+        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/1013'
+        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/5'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
-            Authorization: 'token u+9fECM1MY2WU7d6ooFhF/zxbj3yLEsnbD92bHc8'
+            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
             VCR-index: '1'
             Accept: null
         body: 'iban=FR1420041010050500013M02606&bic=CCBPFRPPVER&bank-name=World+bank&gender=M&firstname=Robert&lastname=Jean'
@@ -55,11 +55,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 14:57:19 GMT'
+            Date: 'Mon, 23 Mar 2020 09:53:13 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '687822'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/687822'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22687822%22%2C%22route%22%3A%22api_direct_debit_payment_create_mandate%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CPayment%5C%5CDirectDebitPaymentController%22%2C%22method%22%3A%22createMandateAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FPayment%5C%2FDirectDebitPaymentController.php%22%2C%22line%22%3A35%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 58d7447a80297ace428f593864656dc1
-        body: '{"message":"success"}'
+            X-Debug-Token: 63a2ef
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/63a2ef'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2263a2ef%22%2C%22route%22%3A%22api_direct_debit_payment_create_mandate%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CPayment%5C%5CDirectDebitPaymentController%22%2C%22method%22%3A%22createMandateAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FPayment%5C%2FDirectDebitPaymentController.php%22%2C%22line%22%3A36%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 0d9fcea0747fc106d6e76967d09fd4d7
+        body: '[""]'

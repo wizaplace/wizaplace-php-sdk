@@ -22,23 +22,23 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 15:01:34 GMT'
+            Date: 'Mon, 23 Mar 2020 10:28:49 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a691fd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a691fd'
-            X-Request-Id: 89bbf22737f1d82ef0cb4dd77c50ab8d
-        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
+            X-Debug-Token: '946161'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/946161'
+            X-Request-Id: 520ff4123311f35519ad82cffdd71eb2
+        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/1/process-direct-debit-payment/1013'
+        url: 'http://wizaplace.loc/api/v1/payment/1/process-direct-debit-payment/5'
         headers:
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
-            Authorization: 'token u+9fECM1MY2WU7d6ooFhF/zxbj3yLEsnbD92bHc8'
+            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
             VCR-index: '1'
             Accept: null
     response:
@@ -53,9 +53,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 15:01:35 GMT'
+            Date: 'Mon, 23 Mar 2020 10:28:57 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c986e5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c986e5'
-        body: '{"message":"success"}'
+            X-Debug-Token: ec1ab1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec1ab1'
+            X-Request-Id: 42b66e454afa50a2aadf63ca621e9983
+        body: '{"message":"success","redirectUrl":""}'

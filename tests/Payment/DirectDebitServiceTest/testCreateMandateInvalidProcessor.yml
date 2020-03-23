@@ -22,10 +22,42 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 14:57:19 GMT'
+            Date: 'Mon, 23 Mar 2020 09:53:14 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b68f80
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b68f80'
-            X-Request-Id: d77d5a673ff5bed3c847143304f3e3fa
-        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
+            X-Debug-Token: 5d0f59
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d0f59'
+            X-Request-Id: 67349195fb0d292c405adf2f214d0cfa
+        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/40000'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
+            VCR-index: '1'
+            Accept: null
+        body: 'iban=DE23100000001234567890&bic=MARKDEF1100&bank-name=World+bank&gender=M&firstname=Robert&lastname=Jean'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Mar 2020 09:53:14 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2d671a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2d671a'
+        body: '{"error":"Invalid payment id"}'

@@ -22,10 +22,42 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 10 Mar 2020 14:57:20 GMT'
+            Date: 'Mon, 23 Mar 2020 09:53:15 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fec300
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fec300'
-            X-Request-Id: ec162d4344a807ae6816b84d2c20e5d0
-        body: '{"id":3,"apiKey":"u+9fECM1MY2WU7d6ooFhF\/zxbj3yLEsnbD92bHc8"}'
+            X-Debug-Token: 7aea3d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7aea3d'
+            X-Request-Id: e9af2ae481abb63512c0703776b9d244
+        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/5'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
+            VCR-index: '1'
+            Accept: null
+        body: 'iban=DE23100000001234567890&bic=Wrong+bic&bank-name=World+bank&gender=M&firstname=Robert&lastname=Jean'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Mar 2020 09:53:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4bd335
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bd335'
+        body: '{"error":"This is not a valid Business Identifier Code (BIC)."}'
