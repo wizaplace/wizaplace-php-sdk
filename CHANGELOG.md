@@ -1,11 +1,11 @@
 # Changelog
 
-## Next release
+## 1.101.4
+
 - Added `Wizaplace\SDK\Company\CompanyPatchCommand`
 - Added `Wizaplace\SDK\Company\CompanyStatus`
 - Added `Wizaplace\SDK\Company\Company::getStatus`
 - Added `Wizaplace\SDK\Company\CompanyService::patch`
-
 
 ## 1.101.0
 
