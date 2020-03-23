@@ -335,6 +335,16 @@ final class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
 
+    public function testGetUserOrdersWithSubscriptionId(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
+        $orders = $orderService->getOrders();
+
+        static::assertCount(1, $orders);
+        static::assertUuid($orders[0]->getSubscriptionId());
+        static::assertFalse($orders[0]->isSubscriptionInitiator());
+    }
+
     public function testGetUserOrderWithSubscriptionId(): void
     {
         $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
@@ -384,6 +394,13 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(1, $orders[0]->getId());
         static::assertSame(2, $orders[1]->getId());
         static::assertSame(4, $orders[2]->getId());
+    }
+
+    public function testGetOrderWithBillingShippingAddress(): void
+    {
+        $order = $this->buildOrderService()->getOrder(10);
+        $this->assertSame("01234567890", $order->getBillingAddress()->getPhone());
+        $this->assertSame("01234567890", $order->getShippingAddress()->getPhone());
     }
 
     public function testGetAnOrderWithSystemOption(): void

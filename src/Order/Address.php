@@ -29,6 +29,8 @@ abstract class Address
     private $zipcode;
     /** @var string */
     private $country;
+    /** @var ?string */
+    private $phone;
 
     /**
      * @internal
@@ -44,6 +46,7 @@ abstract class Address
         $this->city = $data['city'];
         $this->zipcode = $data['zipcode'];
         $this->country = $data['country'];
+        $this->phone = $data['phone'] ?? null;
     }
 
     /**
@@ -100,5 +103,11 @@ abstract class Address
     public function getCountry(): string
     {
         return $this->country;
+    }
+
+    /** @return string */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
     }
 }
