@@ -72,6 +72,12 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertSame("CORSAIR-CASQUE-GAMING", $firstItem->getSupplierRef());
     }
 
+    public function testGetOrderCarriagePaid(): void
+    {
+        $order = $this->buildOrderService()->getOrder(15);
+        static::assertTrue($order->isCarriagePaid());
+    }
+
     public function testGetOrderWithMaxPriceAdjustment()
     {
         $order = $this->buildOrderService()->getOrder(10);

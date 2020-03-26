@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:11:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 96729f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/96729f'
+            X-Request-Id: f95594573565f1b8380357d4185e48ec
+        body: '{"id":6,"apiKey":"LKjPnAGcXC6X8NzLwlOuk+JW+wuBZnBKpAhYxC\/f"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/15'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token LKjPnAGcXC6X8NzLwlOuk+JW+wuBZnBKpAhYxC/f'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:11:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b48469
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b48469'
+            X-Request-Id: 38fd050b70db414728530294228ad731
+        body: '{"order_id":15,"company_id":3,"user_id":7,"basket_id":"e872a501-dfc8-4b4b-b2a5-757a76f857f1","total":67.9,"discount":0.0,"shipping_cost":0.0,"timestamp":1585058453,"status":"P","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"is_paid":true,"invoice_date":"","subscription_id":null,"carriage_paid":true,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":20.0,"description":null}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-03-24T15:48:27+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":"nopayment","commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":67.9,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"vendor_share":{"excluding_taxes":56.5833,"taxes":11.3167,"including_taxes":67.9}}'

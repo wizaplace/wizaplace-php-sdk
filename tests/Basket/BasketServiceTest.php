@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Basket;
 
+use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketItems;
 use Wizaplace\SDK\Basket\BasketService;
@@ -87,6 +88,7 @@ final class BasketServiceTest extends ApiTestCase
                 $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithTaxes());
                 $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getPriceWithoutVat());
                 $this->assertSame(0.0, $shippingGroup->getShippingPrice()->getVat());
+                static::assertFalse($shippingGroup->isCarriagePaid());
 
                 $availableShippings = $shippingGroup->getShippings();
 
@@ -100,6 +102,7 @@ final class BasketServiceTest extends ApiTestCase
                 $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithoutVat());
                 $this->assertEquals(0., $shipping->getShippingPrice()->getPriceWithTaxes());
                 $this->assertEquals(0., $shipping->getShippingPrice()->getVat());
+                static::assertNull($shipping->getCarriagePaidThreshold());
 
                 $shippings[$shippingGroup->getId()] = end($availableShippings)->getId();
 
@@ -770,6 +773,340 @@ final class BasketServiceTest extends ApiTestCase
         ];
         $basketBody = $basketService->addProduct($basketId, new DeclinationId('1_0'), 3);
         static::assertSame($expectedResult, $basketBody);
+    }
+
+    /** @dataProvider basketProvider */
+    public function testCarriagePaid(array $basketData, bool $isCarriagePaid): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+
+        $basket = new Basket($basketData);
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                static::assertSame($isCarriagePaid, $shippingGroup->isCarriagePaid());
+                $availableShippings = $shippingGroup->getShippings();
+                static::assertSame(50., $availableShippings[0]->getCarriagePaidThreshold());
+            }
+        }
+    }
+
+    public function basketProvider(): array
+    {
+        return [
+            [
+                [
+                    'id' => uniqid('id', true),
+                    'coupons' => [],
+                    'subtotal' => 0.0,
+                    'totalDiscount' => 0.0,
+                    'totalShipping' => 0.0,
+                    'totalTax' => 0.0,
+                    'total' => 0.0,
+                    'totalQuantity' => 0,
+                    'comment' => '',
+                    'companyGroups' => [
+                        [
+                            'company' => [
+                                'id' => 1,
+                                'name' => 'Marchand de test',
+                                'slug' => 'toto'
+                            ],
+                            'shippingGroups' => [
+                                [
+                                    'id' => 1,
+                                    'items' => [
+                                        [
+                                            'declinationId' => uniqid('id', true),
+                                            'productId' => 1,
+                                            'productName' => 'Toto',
+                                            'productCode' => '12345',
+                                            'individualPrice' => 50.,
+                                            'crossedOutPrice' => 50.,
+                                            'mainImage' => [
+                                                'id' => 1,
+                                            ],
+                                            'quantity' => 1,
+                                            'total' => 50.,
+                                            'comment' => 'toto',
+                                            'unitPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'totalPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'greenTax' => 0.,
+                                        ],
+                                    ],
+                                    'shippings' => [
+                                        [
+                                            'id' => 1,
+                                            'name' => 'Lettre prioritaire',
+                                            'price' => 5.,
+                                            'deliveryTime' => "24h",
+                                            'selected' => true,
+                                            'shippingPrice' => [
+                                                'priceWithoutVat' => 5.,
+                                                'priceWithTaxes' => 5.,
+                                                'vat' => 0.,
+                                            ],
+                                            'image' => null,
+                                            'carriagePaidThreshold' => 50.,
+                                        ],
+                                    ],
+                                    'itemsPrice' => [
+                                        'priceWithoutVat' => 50.,
+                                        'priceWithTaxes' => 50.,
+                                        'vat' => 0.,
+                                    ],
+                                    'selectedShippingPrice' => [
+                                        'priceWithoutVat' => 5.,
+                                        'priceWithTaxes' => 5.,
+                                        'vat' => 0.,
+                                    ],
+                                    'totalPrice' => [
+                                        'priceWithoutVat' => 55.,
+                                        'priceWithTaxes' => 55.,
+                                        'vat' => 0.,
+                                    ],
+                                    'carriagePaid' => true,
+                                ],
+                            ],
+                        ],
+                    ],
+                    'totalItemsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalShippingsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalGlobalPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'isEligibleToPickupPointsShipping' => false,
+                    'isPickupPointsShipping' => false,
+                ],
+                true
+            ],
+            [
+                [
+                    'id' => uniqid('id', true),
+                    'coupons' => [],
+                    'subtotal' => 0.0,
+                    'totalDiscount' => 0.0,
+                    'totalShipping' => 0.0,
+                    'totalTax' => 0.0,
+                    'total' => 0.0,
+                    'totalQuantity' => 0,
+                    'comment' => '',
+                    'companyGroups' => [
+                        [
+                            'company' => [
+                                'id' => 1,
+                                'name' => 'Marchand de test',
+                                'slug' => 'toto'
+                            ],
+                            'shippingGroups' => [
+                                [
+                                    'id' => 1,
+                                    'items' => [
+                                        [
+                                            'declinationId' => uniqid('id', true),
+                                            'productId' => 1,
+                                            'productName' => 'Toto',
+                                            'productCode' => '12345',
+                                            'individualPrice' => 50.,
+                                            'crossedOutPrice' => 50.,
+                                            'mainImage' => [
+                                                'id' => 1,
+                                            ],
+                                            'quantity' => 1,
+                                            'total' => 50.,
+                                            'comment' => 'toto',
+                                            'unitPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'totalPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'greenTax' => 0.,
+                                        ],
+                                    ],
+                                    'shippings' => [
+                                        [
+                                            'id' => 1,
+                                            'name' => 'Lettre prioritaire',
+                                            'price' => 5.,
+                                            'deliveryTime' => "24h",
+                                            'selected' => true,
+                                            'shippingPrice' => [
+                                                'priceWithoutVat' => 5.,
+                                                'priceWithTaxes' => 5.,
+                                                'vat' => 0.,
+                                            ],
+                                            'image' => null,
+                                            'carriagePaidThreshold' => 50.,
+                                        ]
+                                    ],
+                                    'itemsPrice' => [
+                                        'priceWithoutVat' => 50.,
+                                        'priceWithTaxes' => 50.,
+                                        'vat' => 0.,
+                                    ],
+                                    'selectedShippingPrice' => [
+                                        'priceWithoutVat' => 5.,
+                                        'priceWithTaxes' => 5.,
+                                        'vat' => 0.,
+                                    ],
+                                    'totalPrice' => [
+                                        'priceWithoutVat' => 55.,
+                                        'priceWithTaxes' => 55.,
+                                        'vat' => 0.,
+                                    ],
+                                    'carriagePaid' => false,
+                                ],
+                            ],
+                        ]
+                    ],
+                    'totalItemsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalShippingsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalGlobalPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'isEligibleToPickupPointsShipping' => false,
+                    'isPickupPointsShipping' => false,
+                ],
+                false
+            ],
+            [
+                [
+                    'id' => uniqid('id', true),
+                    'coupons' => [],
+                    'subtotal' => 0.0,
+                    'totalDiscount' => 0.0,
+                    'totalShipping' => 0.0,
+                    'totalTax' => 0.0,
+                    'total' => 0.0,
+                    'totalQuantity' => 0,
+                    'comment' => '',
+                    'companyGroups' => [
+                        [
+                            'company' => [
+                                'id' => 1,
+                                'name' => 'Marchand de test',
+                                'slug' => 'toto'
+                            ],
+                            'shippingGroups' => [
+                                [
+                                    'id' => 1,
+                                    'items' => [
+                                        [
+                                            'declinationId' => uniqid('id', true),
+                                            'productId' => 1,
+                                            'productName' => 'Toto',
+                                            'productCode' => '12345',
+                                            'individualPrice' => 50.,
+                                            'crossedOutPrice' => 50.,
+                                            'mainImage' => [
+                                                'id' => 1,
+                                            ],
+                                            'quantity' => 1,
+                                            'total' => 50.,
+                                            'comment' => 'toto',
+                                            'unitPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'totalPrice' => [
+                                                'priceWithoutVat' => 50.,
+                                                'priceWithTaxes' => 50.,
+                                                'vat' => 0.,
+                                            ],
+                                            'greenTax' => 0.,
+                                        ],
+                                    ],
+                                    'shippings' => [
+                                        [
+                                            'id' => 1,
+                                            'name' => 'Lettre prioritaire',
+                                            'price' => 5.,
+                                            'deliveryTime' => "24h",
+                                            'selected' => true,
+                                            'shippingPrice' => [
+                                                'priceWithoutVat' => 5.,
+                                                'priceWithTaxes' => 5.,
+                                                'vat' => 0.,
+                                            ],
+                                            'image' => null,
+                                            'carriagePaidThreshold' => 50.,
+                                        ]
+                                    ],
+                                    'itemsPrice' => [
+                                        'priceWithoutVat' => 50.,
+                                        'priceWithTaxes' => 50.,
+                                        'vat' => 0.,
+                                    ],
+                                    'selectedShippingPrice' => [
+                                        'priceWithoutVat' => 5.,
+                                        'priceWithTaxes' => 5.,
+                                        'vat' => 0.,
+                                    ],
+                                    'totalPrice' => [
+                                        'priceWithoutVat' => 55.,
+                                        'priceWithTaxes' => 55.,
+                                        'vat' => 0.,
+                                    ],
+                                ],
+                            ],
+                        ]
+                    ],
+                    'totalItemsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalShippingsPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'totalGlobalPrice' => [
+                        'priceWithoutVat' => 0.0,
+                        'priceWithTaxes' => 0.0,
+                        'vat' => 0.0,
+                    ],
+                    'isEligibleToPickupPointsShipping' => false,
+                    'isPickupPointsShipping' => false,
+                ],
+                false
+            ],
+        ];
     }
 
     private function buildAuthenticatedBasketService(string $email = "admin@wizaplace.com", string $password = "password"): BasketService

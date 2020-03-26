@@ -36,6 +36,9 @@ final class Shipping
     /** @var null|string  */
     private $image;
 
+    /** @var null|float */
+    private $carriagePaidThreshold;
+
     /**
      * @internal
      *
@@ -50,6 +53,7 @@ final class Shipping
         $this->selected = $data['selected'];
         $this->shippingPrice = new Price($data['shippingPrice']);
         $this->image = $data['image'];
+        $this->carriagePaidThreshold = $data['carriagePaidThreshold'] ?? null;
     }
 
     /**
@@ -106,5 +110,10 @@ final class Shipping
     public function getImage(): ?string
     {
         return $this->image;
+    }
+
+    public function getCarriagePaidThreshold(): ?float
+    {
+        return $this->carriagePaidThreshold;
     }
 }

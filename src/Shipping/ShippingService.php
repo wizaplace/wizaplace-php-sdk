@@ -87,7 +87,7 @@ class ShippingService extends AbstractService
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function put(int $id, ShippingStatus $status, array $rates): int
+    public function put(int $id, ShippingStatus $status, array $rates, float $carriagePaidThreshold = null): int
     {
         $this->client->mustBeAuthenticated();
 
@@ -115,6 +115,7 @@ class ShippingService extends AbstractService
                                 "value" => isset($rates[1]) ? $rates[1]->getValue() : $rates[0]->getValue(),
                             ],
                         ],
+                        "carriage_paid_threshold" => $carriagePaidThreshold
                     ],
                 ]
             );

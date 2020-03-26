@@ -57,6 +57,8 @@ final class Order
     private $isSubscriptionInitiator;
     /** @var null|bool */
     private $isPaid;
+    /** @var bool */
+    private $carriagePaid;
 
     /**
      * @internal
@@ -93,6 +95,7 @@ final class Order
         $this->subscriptionId = $data['subscriptionId'] ?? null;
         $this->isSubscriptionInitiator = $data['isSubscriptionInitiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
+        $this->carriagePaid = $data['carriagePaid'] ?? false;
     }
 
     /**
@@ -252,5 +255,10 @@ final class Order
     public function isPaid(): ?bool
     {
         return $this->isPaid;
+    }
+
+    public function isCarriagePaid(): bool
+    {
+        return $this->carriagePaid;
     }
 }

@@ -103,18 +103,19 @@ final class CatalogServiceTest extends ApiTestCase
 
         /** @var Shipping $shipping */
         $shipping = current($product->getShippings());
-        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertSame('Lettre prioritaire', $shipping->getName());
         $this->assertNull($shipping->getImage());
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
-        $this->assertSame('24h', $shipping->getDeliveryTime());
+        $this->assertSame('', $shipping->getDeliveryTime());
+        static::assertSame(20., $shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals('', $product->getAverageRating());
+        $this->assertEquals(3.0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -127,14 +128,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals('', $companies[0]->getAverageRating());
+        $this->assertEquals(5.0, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
         $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
-        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
+        $this->assertSame(1386284400, $product->getAvailableSince()->getTimestamp());
 
         $this->assertEmpty($product->getImages());
 
@@ -177,7 +178,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(3, $declination->getShippings());
     }
 
-    public function testGetProducstByCode(): void
+    public function testGetProductsByCode(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -200,18 +201,19 @@ final class CatalogServiceTest extends ApiTestCase
 
         /** @var Shipping $shipping */
         $shipping = current($product->getShippings());
-        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertSame('Lettre prioritaire', $shipping->getName());
         $this->assertNull($shipping->getImage());
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
-        $this->assertSame('24h', $shipping->getDeliveryTime());
+        $this->assertSame('', $shipping->getDeliveryTime());
+        static::assertSame(20., $shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals('', $product->getAverageRating());
+        $this->assertEquals(3.0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -225,19 +227,19 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals('', $companies[0]->getAverageRating());
+        $this->assertEquals(5.0, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
-        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
+        $this->assertSame(1386284400, $product->getAvailableSince()->getTimestamp());
         $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
 
         $this->assertEmpty($product->getImages());
     }
 
-    public function testGetProducstBySupplierReference(): void
+    public function testGetProductsBySupplierReference(): void
     {
         $catalogService = $this->buildCatalogService();
 
@@ -261,18 +263,19 @@ final class CatalogServiceTest extends ApiTestCase
 
         /** @var Shipping $shipping */
         $shipping = current($product->getShippings());
-        $this->assertSame('TNT Express', $shipping->getName());
+        $this->assertSame('Lettre prioritaire', $shipping->getName());
         $this->assertNull($shipping->getImage());
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
-        $this->assertSame('24h', $shipping->getDeliveryTime());
+        $this->assertSame('', $shipping->getDeliveryTime());
+        static::assertSame(20., $shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals('', $product->getAverageRating());
+        $this->assertEquals(3.0, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -285,14 +288,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(3, $companies[0]->getId());
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
         $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
-        $this->assertEquals('', $companies[0]->getAverageRating());
+        $this->assertEquals(5.0, $companies[0]->getAverageRating());
         $this->assertNull($companies[0]->getImage());
         $this->assertTrue($companies[0]->isProfessional());
 
         $this->assertGreaterThanOrEqual(1400000000, $product->getCreatedAt()->getTimestamp());
         $this->assertGreaterThanOrEqual(0, $product->getCreatedAt()->diff($product->getUpdatedAt())->s);
         $this->assertInstanceOf(\DateTimeInterface::class, $product->getAvailableSince());
-        $this->assertSame(1386316800, $product->getAvailableSince()->getTimestamp());
+        $this->assertSame(1386284400, $product->getAvailableSince()->getTimestamp());
 
         $this->assertEmpty($product->getImages());
     }

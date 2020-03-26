@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@c12ea2b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             VCR-index: '0'
             Accept: null
     response:
@@ -16,24 +16,28 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 15 Oct 2018 11:31:48 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 7e08f6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e08f6'
-            Content-Length: '61'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"yPLJ7a\/mLwAClH6mu5SthhzPvhawksB16Ml0ZkTF"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:04:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6f0596
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6f0596'
+            X-Request-Id: 42c6961b913a8cc7adf6f1836213bda7
+        body: '{"id":2,"apiKey":"02mmMr6KMwmP85s0rXS+aq2BPXH7KdsGZoE3ndoD"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/products/5/shippings/1'
+        url: 'http://wizaplace.loc/api/v1/products/5/shippings/38'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-149-shipping-product@c12ea2b
-            Authorization: 'token yPLJ7a/mLwAClH6mu5SthhzPvhawksB16Ml0ZkTF'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 02mmMr6KMwmP85s0rXS+aq2BPXH7KdsGZoE3ndoD'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +46,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 15 Oct 2018 11:31:48 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 8b8845
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/8b8845'
-            Content-Length: '535'
+            Server: nginx
             Content-Type: application/json
-        body: '{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"product_id":5,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:04:50 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d62e92
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/d62e92'
+            X-Request-Id: e5ca14457ad45f896dcde767c9e794bf
+        body: '{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":20.0,"product_id":5,"description":null}'

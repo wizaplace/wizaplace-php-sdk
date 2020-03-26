@@ -35,6 +35,9 @@ final class BasketShippingGroup
     /** @var Price */
     private $totalPrice;
 
+    /** @var bool */
+    private $carriagePaid;
+
     /**
      * @internal
      *
@@ -61,6 +64,7 @@ final class BasketShippingGroup
         $this->itemsPrice = new Price($data['itemsPrice']);
         $this->shippingPrice = new Price($data['selectedShippingPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
+        $this->carriagePaid = $data['carriagePaid'] ?? false;
     }
 
     /**
@@ -109,5 +113,10 @@ final class BasketShippingGroup
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
+    }
+
+    public function isCarriagePaid(): bool
+    {
+        return $this->carriagePaid;
     }
 }

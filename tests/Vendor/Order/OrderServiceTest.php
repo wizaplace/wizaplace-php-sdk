@@ -251,6 +251,15 @@ class OrderServiceTest extends ApiTestCase
         static::assertTrue($tax->doesPriceIncludesTax());
     }
 
+    public function testGetOrderByIdCarriagePaid(): void
+    {
+        $order = $this
+            ->buildVendorOrderService()
+            ->getOrderById(15)
+        ;
+        static::assertTrue($order->isCarriagePaid());
+    }
+
     public function testGetOrderComments(): void
     {
         $order = $this->buildVendorOrderService()->getOrderById(4);
@@ -476,7 +485,6 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame(7, $adjustment->getCreatedBy());
         static::assertInstanceOf(\DateTime::class, $adjustment->getCreatedAt());
     }
-
 
     public function orderWithStatus(): array
     {

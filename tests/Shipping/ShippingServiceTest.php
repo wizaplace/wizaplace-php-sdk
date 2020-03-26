@@ -51,6 +51,7 @@ final class ShippingServiceTest extends ApiTestCase
             $this->assertNotNull($rate->getValue());
         }
         $this->assertNotNull($shipping->getDescription());
+        static::assertSame(25., $shipping->getCarriagePaidThreshold());
     }
 
     public function testGetANotFoundShipping()
@@ -81,7 +82,8 @@ final class ShippingServiceTest extends ApiTestCase
                         'value' => 10,
                     ]
                 ),
-            ]
+            ],
+            25.
         );
         $this->assertSame(1, $id);
 
@@ -101,6 +103,7 @@ final class ShippingServiceTest extends ApiTestCase
         $this->assertEquals(10, $shipping->getRates()[0]->getValue());
         $this->assertEquals(10, $shipping->getRates()[1]->getValue());
         $this->assertNotNull($shipping->getDescription());
+        static::assertSame(25., $shipping->getCarriagePaidThreshold());
     }
 
     private function buildShippingService($userEmail = 'vendor@wizaplace.com', $userPassword = 'password'): ShippingService

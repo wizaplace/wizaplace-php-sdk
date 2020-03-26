@@ -112,6 +112,9 @@ final class Order
     /** @var null|Shipping[] */
     private $shipping;
 
+    /** @var bool */
+    private $carriagePaid;
+
     /**
      * @internal
      *
@@ -173,6 +176,7 @@ final class Order
             },
             $data['shipping']
         ) : null;
+        $this->carriagePaid = $data['carriage_paid'] ?? false;
     }
 
     /**
@@ -466,5 +470,10 @@ final class Order
     public function getShipping(): ?array
     {
         return $this->shipping;
+    }
+
+    public function isCarriagePaid(): bool
+    {
+        return $this->carriagePaid;
     }
 }

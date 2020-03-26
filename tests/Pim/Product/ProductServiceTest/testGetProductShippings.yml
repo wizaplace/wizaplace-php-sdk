@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/get-product-shippings@68ef25c
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 22 Oct 2018 09:56:53 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 05d83c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/05d83c'
-            Content-Length: '60'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"CpzarKUNiv4aC1sMCgXmNa1Fq1HgVVI7Agaitk5n"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:04:50 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '1098e9'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1098e9'
+            X-Request-Id: 8e353177a93833553e983921695d4d56
+        body: '{"id":2,"apiKey":"02mmMr6KMwmP85s0rXS+aq2BPXH7KdsGZoE3ndoD"}'
 -
     request:
         method: GET
@@ -32,8 +36,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/get-product-shippings@68ef25c
-            Authorization: 'token CpzarKUNiv4aC1sMCgXmNa1Fq1HgVVI7Agaitk5n'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 02mmMr6KMwmP85s0rXS+aq2BPXH7KdsGZoE3ndoD'
             VCR-index: '1'
             Accept: null
     response:
@@ -42,12 +46,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Mon, 22 Oct 2018 09:56:54 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 7eb4df
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7eb4df'
-            Content-Length: '939'
+            Server: nginx
             Content-Type: application/json
-        body: '{"1":{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"product_id":5,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"},"38":{"shipping_id":38,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"product_id":5,"description":null},"39":{"shipping_id":39,"status":"A","shipping":"Colissmo","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"product_id":5,"description":null}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 25 Mar 2020 09:04:50 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b7b477
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/b7b477'
+            X-Request-Id: 4f05a16e18f7831cad1116102df51ad2
+        body: '{"38":{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":20.0,"product_id":5,"description":null},"39":{"shipping_id":39,"position":0,"status":"A","shipping":"Colissmo","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":null,"product_id":5,"description":null},"1":{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":20.0,"product_id":5,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}}'

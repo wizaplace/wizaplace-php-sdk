@@ -33,6 +33,9 @@ final class Shipping
     /** @var string|null  */
     private $deliveryTime;
 
+    /** @var float|null */
+    private $carriagePaidThreshold;
+
     /**
      * @internal
      *
@@ -46,6 +49,7 @@ final class Shipping
         $this->nextRate = $data['nextRate'];
         $this->deliveryTime = $data['deliveryTime'];
         $this->position = $data['position'] ?? null;
+        $this->carriagePaidThreshold = $data['carriagePaidThreshold'] ?? null;
     }
 
     /**
@@ -92,5 +96,10 @@ final class Shipping
     public function getDeliveryTime(): ?string
     {
         return $this->deliveryTime;
+    }
+
+    public function getCarriagePaidThreshold(): ?float
+    {
+        return $this->carriagePaidThreshold;
     }
 }

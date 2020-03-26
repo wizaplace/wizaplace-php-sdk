@@ -36,6 +36,9 @@ final class Shipping
     /** @var string|null */
     private $description;
 
+    /** @var float|null */
+    private $carriagePaidThreshold;
+
     /**
      * @internal
      *
@@ -58,6 +61,7 @@ final class Shipping
         }
         $this->position = $data['position'] ?? null;
         $this->description = $data['description'] ?? null;
+        $this->carriagePaidThreshold = $data['carriage_paid_threshold'] ?? null;
     }
 
     /**
@@ -112,5 +116,10 @@ final class Shipping
     public function getDescription(): ?string
     {
         return $this->description;
+    }
+
+    public function getCarriagePaidThreshold(): ?float
+    {
+        return $this->carriagePaidThreshold;
     }
 }

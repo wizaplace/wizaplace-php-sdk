@@ -1030,9 +1030,10 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testGetProductShipping(): void
     {
-        $shipping = $this->buildProductService()->getShipping(5, 1);
+        $shipping = $this->buildProductService()->getShipping(5, 38);
 
         static::assertInstanceOf(Shipping::class, $shipping);
+        static::assertSame(20., $shipping->getCarriagePaidThreshold());
     }
 
     public function testGetProductShippings(): void
@@ -1041,6 +1042,12 @@ final class ProductServiceTest extends ApiTestCase
 
         foreach ($shippings as $shipping) {
             static::assertInstanceOf(Shipping::class, $shipping);
+
+            if ($shipping->getId() === 38 || $shipping->getId() === 1) {
+                static::assertSame(20., $shipping->getCarriagePaidThreshold());
+            } else {
+                static::assertNull($shipping->getCarriagePaidThreshold());
+            }
         }
     }
 
