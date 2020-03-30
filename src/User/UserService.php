@@ -231,6 +231,11 @@ final class UserService extends AbstractService
      */
     public function registerWithFullInfos(RegisterUserCommand $command): int
     {
+        $title = $command->getTitle() instanceof UserTitle ? $command->getTitle()->getValue() : null;
+        $birthday = $command->getBirthday() instanceof \DateTimeInterface
+            ? $command->getBirthday()->format(self::BIRTHDAY_FORMAT)
+            : null;
+
         try {
             $userData = $this->client->post(
                 'users',
@@ -241,10 +246,10 @@ final class UserService extends AbstractService
                             'password' => $command->getPassword(),
                             'firstName' => $command->getFirstName(),
                             'lastName' => $command->getLastName(),
-                            'title' => $command->getTitle()->getValue(),
+                            'title' => $title,
                             'phone' => $command->getPhone(),
                             'lang' => $command->getLanguage(),
-                            'birthday' => $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                            'birthday' => $birthday,
                             'billing' => self::serializeUserAddressUpdate($command->getBilling()),
                             'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
                             'externalIdentifier' => $command->getExternalIdentifier(),

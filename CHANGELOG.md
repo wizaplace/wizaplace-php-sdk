@@ -3,6 +3,7 @@
 ## 1.102.2
 - Added `Wizaplace\SDK\Exception\FileNotFound`
 - Added `Wizaplace\SDK\Exim\EximService`
+- `Wizaplace\SDK\User\UserService::registerWithFullInfos`: fix user title
 
 ## 1.101.4
 

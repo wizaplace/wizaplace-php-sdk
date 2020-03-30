@@ -1473,6 +1473,26 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('wizaplace', $user->getLegalIdentifier());
     }
 
+    public function testRegisterUserMinimal(): void
+    {
+        $apiClient = $this->buildApiClient();
+
+        $registerUserCommand = (new RegisterUserCommand())
+            ->setEmail($email = 'testMinimalUser@test.com')
+            ->setPassword("password")
+            ->setShipping(new UpdateUserAddressCommand())
+            ->setBilling(new UpdateUserAddressCommand())
+        ;
+
+        $userId = (new UserService($apiClient))->registerWithFullInfos($registerUserCommand);
+
+        $apiClient->authenticate($email, 'password');
+
+        $user = (new UserService($apiClient))->getProfileFromId($userId);
+
+        static::assertSame("testMinimalUser@test.com", $user->getEmail());
+    }
+
     public function testRegisterUserLoyaltyIdentifier(): void
     {
         $apiClient = $this->buildApiClient();
