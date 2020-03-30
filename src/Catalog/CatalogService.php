@@ -16,6 +16,7 @@ use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 
 use function theodorejb\polycast\to_string;
 
@@ -25,6 +26,8 @@ use function theodorejb\polycast\to_string;
  */
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
+    use AssertRessourceNotFoundTrait;
+
     /**
      * @param string|null $language
      *
@@ -266,17 +269,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      */
     public function getCompanyById(int $id): CompanyDetail
     {
-        try {
-            $response = $this->client->get("catalog/companies/{$id}");
-        } catch (ClientException $exception) {
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Company #{$id} not found.", $exception);
-            }
-
-            throw $exception;
-        }
-
-        return new CompanyDetail($response);
+        return $this->assertRessourceNotFound(
+            function () use ($id): CompanyDetail {
+                return new CompanyDetail($this->client->get("catalog/companies/{$id}"));
+            },
+            "Company #{$id} not found."
+        );
     }
 
     /**
