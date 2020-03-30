@@ -1,0 +1,64 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6086-add-EXIM-object@260c425
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 03 Feb 2020 12:36:21 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 954a73
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/954a73'
+            X-Request-Id: d7271725d39400ab9140f7433414c4d3
+        body: '{"id":4,"apiKey":"IvkVyINE\/eq\/2eMhKidX2hUkHGuKsj0SgmbF4k4T"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/import/products'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=f333bcec75fdc86bf2ac59083da1e06050f63e70'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6086-add-EXIM-object@260c425
+            Authorization: 'token IvkVyINE/eq/2eMhKidX2hUkHGuKsj0SgmbF4k4T'
+            VCR-index: '1'
+            Accept: null
+        body: "--f333bcec75fdc86bf2ac59083da1e06050f63e70\r\nContent-Disposition: form-data; name=\"file\"; filename=\"product.csv\"\r\nContent-Length: 279\r\nContent-Type: text/csv\r\n\r\nProduct code;Language;Category;Price;Status;Quantity;Weight;Product name;Description;Features;Image URL;Supplier reference;Template;Brand\n7d445f-b45c-4fb4-8427-7364de904340;fr;4;20;A;15;10;Nom du produit;Description du produit;;;7d445f-b45c-4fb4-8427-7364de904340;product;Marque\n\r\n--f333bcec75fdc86bf2ac59083da1e06050f63e70--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 03 Feb 2020 12:36:22 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c75e7a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c75e7a'
+            X-Request-Id: 5e95efc2b4489bf1decc7e16a49574e0
+        body: '{"jobId":"c8b825c2-4681-11ea-bf70-0242ac130006"}'

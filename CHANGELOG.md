@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.102.2
+- Added `Wizaplace\SDK\Exception\FileNotFound`
+- Added `Wizaplace\SDK\Exim\EximService`
+
 ## 1.101.4
 
 - Added `Wizaplace\SDK\Company\CompanyPatchCommand`
