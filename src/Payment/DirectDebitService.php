@@ -16,30 +16,26 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 /**
- *  Service for generating direct debit mandates and processing payments
+ *  Service for get and create direct debit mandates for user
  * @package Wizaplace\SDK\Payment
  */
 class DirectDebitService extends AbstractService
 {
     /**
-     * @param int $paymentId ID of the payment method to use (see getPayments())
      * @param string[] $data Data send to the PSP
      *
-     * @return string[]
+     * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws SomeParametersAreInvalid
      */
-    public function createMandate(int $paymentId, array $data): array
+    public function createMandate(array $data): string
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->post(
-                'payment/create-direct-debit-mandate/' . $paymentId,
-                [RequestOptions::FORM_PARAMS => $data]
-            );
+            return (string) $this->client->post('user/mandates', [RequestOptions::JSON => $data]);
         } catch (ClientException $e) {
             if (400 === $e->getResponse()->getStatusCode() || 404 === $e->getResponse()->getStatusCode()) {
                 throw new SomeParametersAreInvalid($e->getMessage(), $e->getCode(), $e);
@@ -49,28 +45,16 @@ class DirectDebitService extends AbstractService
     }
 
     /**
-     * @param int $paymentId ID of the payment method to use (see getPayments())
-     * @param int $orderId
-     *
-     * @return string[]
-     * @throws SomeParametersAreInvalid
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     *
+     * @return array[]
      */
-    public function processPayment(int $paymentId, int $orderId): array
+    public function getMandates(): array
     {
         $this->client->mustBeAuthenticated();
 
-        try {
-            return $this->client->post(
-                'payment/' . $orderId . '/process-direct-debit-payment/' . $paymentId
-            );
-        } catch (ClientException $e) {
-            if (400 === $e->getResponse()->getStatusCode()) {
-                throw new SomeParametersAreInvalid($e->getMessage(), $e->getCode(), $e);
-            }
-            throw $e;
-        }
+        return $this->client->get('user/mandates');
     }
 }

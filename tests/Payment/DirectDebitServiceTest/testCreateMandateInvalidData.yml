@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -22,27 +22,27 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Mar 2020 09:53:15 GMT'
+            Date: 'Wed, 08 Apr 2020 12:00:06 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 7aea3d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7aea3d'
-            X-Request-Id: e9af2ae481abb63512c0703776b9d244
-        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
+            X-Debug-Token: 63a074
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/63a074'
+            X-Request-Id: dab0e11f78a9fed541deaf90e899f862
+        body: '{"id":3,"apiKey":"2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/create-direct-debit-mandate/5'
+        url: 'http://wizaplace.loc/api/v1/user/mandates'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
-            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg'
             VCR-index: '1'
             Accept: null
-        body: 'iban=DE23100000001234567890&bic=Wrong+bic&bank-name=World+bank&gender=M&firstname=Robert&lastname=Jean'
+        body: '{"iban":"DE23100000001234567890","bic":"Wrong bic","bankName":"World bank","gender":"M","firstName":"Robert","lastName":"Jean","paymentId":5}'
     response:
         status:
             http_version: '1.1'
@@ -55,9 +55,9 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Mar 2020 09:53:16 GMT'
+            Date: 'Wed, 08 Apr 2020 12:00:06 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4bd335
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bd335'
+            X-Debug-Token: b90aa8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b90aa8'
         body: '{"error":"This is not a valid Business Identifier Code (BIC)."}'

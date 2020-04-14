@@ -16,23 +16,30 @@ use Wizaplace\SDK\Tests\ApiTestCase;
 
 final class DirectDebitServiceTest extends ApiTestCase
 {
+    /** @var DirectDebitService */
+    protected $directDebitService;
+
+    public function setUp(): void
+    {
+        parent::setUp();
+        $this->directDebitService = $this->buildDirectDebitPaymentServiceTest();
+    }
+
     public function testCreateMandate(): void
     {
-        $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-
-        $response = $directDebitService->createMandate(
-            5,
+        $response = $this->directDebitService->createMandate(
             [
                 'iban' => 'FR1420041010050500013M02606',
                 'bic' => 'CCBPFRPPVER',
-                'bank-name' => 'World bank',
+                'bankName' => 'World bank',
                 'gender' => 'M',
-                'firstname' => 'Robert',
-                'lastname' => 'Jean'
+                'firstName' => 'Robert',
+                'lastName' => 'Jean',
+                'paymentId' => 5,
             ]
         );
 
-        static::assertEquals([''], $response);
+        static::assertEquals('', $response);
     }
 
     public function testCreateMandateInvalidProcessor(): void
@@ -40,17 +47,15 @@ final class DirectDebitServiceTest extends ApiTestCase
         static::expectException(SomeParametersAreInvalid::class);
         static::expectExceptionMessage('Invalid payment id');
 
-        $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-
-        $directDebitService->createMandate(
-            40000,
+        $this->directDebitService->createMandate(
             [
                 'iban' => 'DE23100000001234567890',
                 'bic' => 'MARKDEF1100',
-                'bank-name' => 'World bank',
+                'bankName' => 'World bank',
                 'gender' => 'M',
-                'firstname' => 'Robert',
-                'lastname' => 'Jean'
+                'firstName' => 'Robert',
+                'lastName' => 'Jean',
+                'paymentId' => 40000,
             ]
         );
     }
@@ -60,27 +65,45 @@ final class DirectDebitServiceTest extends ApiTestCase
         static::expectException(SomeParametersAreInvalid::class);
         static::expectExceptionMessage('This is not a valid Business Identifier Code (BIC).');
 
-        $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-
-        $directDebitService->createMandate(
-            5,
+        $this->directDebitService->createMandate(
             [
                 'iban' => 'DE23100000001234567890',
                 'bic' => 'Wrong bic',
-                'bank-name' => 'World bank',
+                'bankName' => 'World bank',
                 'gender' => 'M',
-                'firstname' => 'Robert',
-                'lastname' => 'Jean'
+                'firstName' => 'Robert',
+                'lastName' => 'Jean',
+                'paymentId' => 5,
             ]
         );
     }
 
-    public function testProcessPayment(): void
+    public function testGetMandates(): void
     {
-        $directDebitService = $this->buildDirectDebitPaymentServiceTest();
-        $response = $directDebitService->processPayment(5, 1);
+        $response = $this->directDebitService->getMandates();
 
-        static::assertEquals('success', $response['message']);
+        $expectedResult = [
+            [
+                "createdAt" => "2020-04-08T14:00:05+02:00",
+                "iban" => "FR14*******************2606",
+                "issuerBankId" => "CCBPFRPPVER",
+                "bankName" => "World bank",
+                "gender" => "M",
+                "firstName" => "Robert",
+                "lastName" => "Jean"
+            ]
+        ];
+
+        static::assertEquals($expectedResult, $response);
+    }
+
+    public function testGetMandatesNoMandate(): void
+    {
+        $response = $this->directDebitService->getMandates();
+
+        $expectedResult = [[]];
+
+        static::assertEquals($expectedResult, $response);
     }
 
     private function buildDirectDebitPaymentServiceTest(

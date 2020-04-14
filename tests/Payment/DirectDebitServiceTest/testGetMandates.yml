@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -22,23 +22,22 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Mar 2020 10:28:49 GMT'
+            Date: 'Wed, 08 Apr 2020 12:03:53 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '946161'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/946161'
-            X-Request-Id: 520ff4123311f35519ad82cffdd71eb2
-        body: '{"id":3,"apiKey":"saQgMj9IscD\/iFmNffvDD4xt5dke1zCfa3zUgDIb"}'
+            X-Debug-Token: 8aaa55
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8aaa55'
+            X-Request-Id: 852418ea764afc9248f23b22da87af45
+        body: '{"id":3,"apiKey":"2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg"}'
 -
     request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/payment/1/process-direct-debit-payment/5'
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/mandates'
         headers:
             Host: wizaplace.loc
-            Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6170-api-async-product-moderation@d09bad4
-            Authorization: 'token saQgMj9IscD/iFmNffvDD4xt5dke1zCfa3zUgDIb'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg'
             VCR-index: '1'
             Accept: null
     response:
@@ -53,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Mar 2020 10:28:57 GMT'
+            Date: 'Wed, 08 Apr 2020 12:03:56 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ec1ab1
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec1ab1'
-            X-Request-Id: 42b66e454afa50a2aadf63ca621e9983
-        body: '{"message":"success","redirectUrl":""}'
+            X-Debug-Token: aa2dcd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aa2dcd'
+            X-Request-Id: 74b2933147a81a78102627e4a689820b
+        body: '[{"createdAt":"2020-04-08T14:00:05+02:00","iban":"FR14*******************2606","issuerBankId":"CCBPFRPPVER","bankName":"World bank","gender":"M","firstName":"Robert","lastName":"Jean"}]'
