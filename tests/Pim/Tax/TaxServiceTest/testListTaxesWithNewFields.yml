@@ -22,12 +22,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Apr 2020 14:57:03 GMT'
+            Date: 'Tue, 07 Apr 2020 14:58:23 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 33c7c5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/33c7c5'
-            X-Request-Id: 008082cd97153a64433a151c550ae56b
+            X-Debug-Token: 92d2ab
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92d2ab'
+            X-Request-Id: 12337f63351bef220031eb4d123e2dfe
         body: '{"id":4,"apiKey":"OKukKkbhvL87gTWhEhf2lFfiJsM\/RPiev7T6ZGrw"}'
 -
     request:
@@ -52,10 +52,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.17
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Apr 2020 14:57:03 GMT'
+            Date: 'Tue, 07 Apr 2020 14:58:23 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fbea21
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/fbea21'
-            X-Request-Id: f4c7f96880f458a5fd56d0c7e7be0d0c
-        body: '[{"id":2,"tax_id":2,"priority":0,"code":"445711","is_enabled":true,"tax":"TVA 2.1%","name":"TVA 2.1%","rate":2.1},{"id":3,"tax_id":3,"priority":0,"code":"445712","is_enabled":true,"tax":"TVA 5.5%","name":"TVA 5.5%","rate":5.5},{"id":4,"tax_id":4,"priority":0,"code":"445713","is_enabled":true,"tax":"TVA 10%","name":"TVA 10%","rate":10.0},{"id":5,"tax_id":5,"priority":0,"code":"445714","is_enabled":true,"tax":"TVA 20%","name":"TVA 20%","rate":20.0},{"id":1,"tax_id":1,"priority":0,"code":"445710","is_enabled":true,"tax":"TVA 0%","name":"TVA 0%","rate":0.0}]'
+            X-Debug-Token: 7a1d45
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/7a1d45'
+            X-Request-Id: ddffef9198942be834b8c45e4171ad7f
+        body: '[{"id":4,"tax_id":4,"priority":0,"code":"445713","is_enabled":true,"tax":"TVA 10%","name":"TVA 10%","rate":10.0},{"id":5,"tax_id":5,"priority":0,"code":"445714","is_enabled":true,"tax":"TVA 20%","name":"TVA 20%","rate":20.0},{"id":1,"tax_id":1,"priority":0,"code":"445710","is_enabled":true,"tax":"TVA 0%","name":"TVA 0%","rate":0.0},{"id":2,"tax_id":2,"priority":0,"code":"445711","is_enabled":true,"tax":"TVA 2.1%","name":"TVA 2.1%","rate":2.1},{"id":3,"tax_id":3,"priority":0,"code":"445712","is_enabled":true,"tax":"TVA 5.5%","name":"TVA 5.5%","rate":5.5}]'

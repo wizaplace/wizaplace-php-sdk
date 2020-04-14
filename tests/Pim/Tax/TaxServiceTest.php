@@ -32,4 +32,21 @@ class TaxServiceTest extends ApiTestCase
 
         return new TaxService($apiClient);
     }
+
+    public function testListTaxesWithNewFields()
+    {
+        $taxes = $this->buildTaxService()->listTaxes();
+        $this->assertNotEmpty($taxes);
+        $this->assertContainsOnly(Tax::class, $taxes);
+        $this->assertNotNull($taxes[0]->getId());
+        $this->assertNotNull($taxes[0]->getTaxId());
+        $this->assertSame($taxes[0]->getId(), $taxes[0]->getTaxId());
+        $this->assertNotNull($taxes[0]->getName());
+        $this->assertNotNull($taxes[0]->getTax());
+        $this->assertSame($taxes[0]->getName(), $taxes[0]->getTax());
+        $this->assertNotNull($taxes[0]->getPriority());
+        $this->assertNotNull($taxes[0]->getCode());
+        $this->assertTrue($taxes[0]->isEnabled());
+        $this->assertNotNull($taxes[0]->getRate());
+    }
 }
