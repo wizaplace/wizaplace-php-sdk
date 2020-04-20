@@ -63,7 +63,7 @@ final class Product
     /** @var float */
     private $weight;
 
-    /** @var null|float */
+    /** @var float */
     private $averageRating;
 
     /** @var Shipping[] */
@@ -167,9 +167,7 @@ final class Product
         );
         $this->isTransactional = $data['isTransactional'];
         $this->weight = $data['weight'];
-        if (isset($data['averageRating'])) {
-            $this->averageRating = $data['averageRating'];
-        }
+        $this->averageRating = $data['averageRating'] ?? 0;
         $this->shippings = array_map(
             static function (array $shippingData): Shipping {
                 return new Shipping($shippingData);
@@ -353,10 +351,8 @@ final class Product
         return $this->weight;
     }
 
-    /**
-     * @return float|null
-     */
-    public function getAverageRating(): ?float
+    /** @return float */
+    public function getAverageRating(): float
     {
         return $this->averageRating;
     }

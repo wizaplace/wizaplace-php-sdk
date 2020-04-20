@@ -2596,4 +2596,22 @@ final class CatalogServiceTest extends ApiTestCase
             }
         }
     }
+
+    public function testAverageRaitingOnProductHasComments(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('1');
+
+        static::assertSame(2.0, $product->getAverageRating());
+    }
+
+    public function testNullAverageRaiting(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('2');
+
+        static::assertSame(0.0, $product->getAverageRating());
+    }
 }
