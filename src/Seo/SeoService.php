@@ -9,7 +9,6 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Seo;
 
-use Clue\JsonStream\StreamingJsonParser;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\JsonDecodingError;
 
@@ -21,6 +20,9 @@ use function theodorejb\polycast\to_string;
  */
 final class SeoService extends AbstractService
 {
+    private const OFFSET = 0;
+    private const LIMIT = 100;
+
     // All slugs should fully match this regexp
     public const SLUG_REGEXP = '[a-z0-9][a-z0-9-\.]*';
 
@@ -70,48 +72,33 @@ final class SeoService extends AbstractService
     }
 
     /**
-     * @return \Traversable|SlugCatalogItem[]
+     * @return array
+     *
+     * @param null|int $offset
+     * @param null|int $limit
+     *
      * @throws JsonDecodingError
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function listSlugs(): \Traversable
+    public function listSlugs(int $offset = null, int $limit = null): array
     {
-        $response = $this->client->rawRequest('GET', 'seo/slugs/catalog');
-
-        $parser = new StreamingJsonParser();
-
-        $body = $response->getBody();
-
-        // We read and ignore the first array's opening
-        if ($body->read(1) !== '[') {
-            throw new JsonDecodingError();
+        if (\is_integer($offset) === false || \is_integer($limit) === false) {
+            $response = $this->client->get('seo/slugs/list');
+        } else {
+            $response = $this->client->get('seo/slugs/list?offset=' . $offset . '&limit=' . $limit);
         }
 
-        while (($char = $body->read(1)) !== '') {
-            // we keep reading from the stream while we don't have a full object
-            $data = $parser->push($char);
-            if (empty($data)) {
-                continue;
-            }
-
-            foreach ($data as $itemData) {
-                try {
-                    yield new SlugCatalogItem($itemData);
-                } catch (\UnexpectedValueException $e) {
-                    // we do not support all slug target types
-                }
-            }
-
-            switch ($body->read(1)) {
-                case ']': // end of the original array, we stop here
-                    return;
-                case ',': // new item, we keep going
-                    break;
-                default:
-                    throw new JsonDecodingError();
+        $arrayItems = [];
+        foreach ($response['items'] as $itemData) {
+            try {
+                $arrayItems[] =  new SlugCatalogItem($itemData);
+            } catch (\UnexpectedValueException $e) {
+                // we do not support all slug target types
             }
         }
 
-        throw new JsonDecodingError(); // We should have found the end of the original array
+        $response['items'] = $arrayItems;
+
+        return $response;
     }
 }

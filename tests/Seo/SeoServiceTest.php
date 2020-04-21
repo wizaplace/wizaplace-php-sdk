@@ -10,7 +10,6 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Seo;
 
 use Wizaplace\SDK\Seo\SeoService;
-use Wizaplace\SDK\Seo\SlugCatalogItem;
 use Wizaplace\SDK\Seo\SlugTarget;
 use Wizaplace\SDK\Seo\SlugTargetType;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -78,11 +77,67 @@ final class SeoServiceTest extends ApiTestCase
 
     public function testListSlugs(): void
     {
-        $catalog = iterator_to_array($this->buildSeoService()->listSlugs());
-        $this->assertContainsOnly(SlugCatalogItem::class, $catalog);
-        $this->assertGreaterThanOrEqual(28, \count($catalog));
+        //test without params
+        $response = $this->buildSeoService()->listSlugs();
+        static::assertSame(0, $response['offset']);
+        static::assertSame(100, $response['limit']);
+        static::assertGreaterThan(28, $response['total']);
 
-        foreach ($catalog as $item) {
+        foreach ($response['items'] as $item) {
+            static::assertInternalType('string', $item->getSlug());
+            static::assertNotEmpty($item->getSlug());
+
+            $target = $item->getTarget();
+            static::assertInstanceOf(SlugTarget::class, $target);
+            static::assertInternalType('string', $target->getObjectId());
+            static::assertNotEmpty($target->getObjectId());
+            static::assertInstanceOf(SlugTargetType::class, $target->getObjectType());
+        }
+    }
+
+    public function testListSlugsWithOffSetAndLimit(): void
+    {
+        //test with limit = 3
+        $response = $this->buildSeoService()->listSlugs(0, 3);
+        static::assertSame(0, $response['offset']);
+        static::assertSame(3, $response['limit']);
+        static::assertSame(3, $response['total']);
+
+        foreach ($response['items'] as $item) {
+            static::assertInternalType('string', $item->getSlug());
+            static::assertNotEmpty($item->getSlug());
+
+            $target = $item->getTarget();
+            static::assertInstanceOf(SlugTarget::class, $target);
+            static::assertInternalType('string', $target->getObjectId());
+            static::assertNotEmpty($target->getObjectId());
+            static::assertInstanceOf(SlugTargetType::class, $target->getObjectType());
+        }
+
+        //test with limit = 10
+        $response = $this->buildSeoService()->listSlugs(0, 10);
+        static::assertSame(0, $response['offset']);
+        static::assertSame(10, $response['limit']);
+        static::assertSame(10, $response['total']);
+
+        foreach ($response['items'] as $item) {
+            $this->assertInternalType('string', $item->getSlug());
+            $this->assertNotEmpty($item->getSlug());
+
+            $target = $item->getTarget();
+            $this->assertInstanceOf(SlugTarget::class, $target);
+            $this->assertInternalType('string', $target->getObjectId());
+            $this->assertNotEmpty($target->getObjectId());
+            $this->assertInstanceOf(SlugTargetType::class, $target->getObjectType());
+        }
+
+        //test with offset = 10 limit = 5
+        $response = $this->buildSeoService()->listSlugs(10, 5);
+        static::assertSame(10, $response['offset']);
+        static::assertSame(5, $response['limit']);
+        static::assertSame(5, $response['total']);
+
+        foreach ($response['items'] as $item) {
             $this->assertInternalType('string', $item->getSlug());
             $this->assertNotEmpty($item->getSlug());
 

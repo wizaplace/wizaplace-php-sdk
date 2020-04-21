@@ -1,0 +1,88 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs/list?offset=0&limit=3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 19 Mar 2020 12:57:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 42807f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/42807f'
+            X-Request-Id: 9fcc9dd88ab94e9093c1c9808729374b
+        body: '{"limit":3,"offset":0,"total":3,"items":[{"slug":"categorie-principale","target":{"type":"category","id":"2"}},{"slug":"ecrans","target":{"type":"category","id":"9"}},{"slug":"headsets","target":{"type":"category","id":"5"}}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs/list?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 19 Mar 2020 12:57:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4eecfb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4eecfb'
+            X-Request-Id: 0b12c6735ee502ea813e29548abafadb
+        body: '{"limit":10,"offset":0,"total":10,"items":[{"slug":"categorie-principale","target":{"type":"category","id":"2"}},{"slug":"ecrans","target":{"type":"category","id":"9"}},{"slug":"headsets","target":{"type":"category","id":"5"}},{"slug":"informatique","target":{"type":"category","id":"7"}},{"slug":"it","target":{"type":"category","id":"3"}},{"slug":"ordinateurs-portables","target":{"type":"category","id":"8"}},{"slug":"screens","target":{"type":"category","id":"4"}},{"slug":"special-category-dedicated-to-specific-tests-en","target":{"type":"category","id":"6"}},{"slug":"telephone","target":{"type":"category","id":"10"}},{"slug":"38","target":{"type":"attribute_variant","id":"11"}}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/seo/slugs/list?offset=10&limit=5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 19 Mar 2020 12:57:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1dddde
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1dddde'
+            X-Request-Id: 7918ad12972501befe48801cdcf8a571
+        body: '{"limit":5,"offset":10,"total":5,"items":[{"slug":"39","target":{"type":"attribute_variant","id":"12"}},{"slug":"40","target":{"type":"attribute_variant","id":"13"}},{"slug":"41","target":{"type":"attribute_variant","id":"14"}},{"slug":"42","target":{"type":"attribute_variant","id":"15"}},{"slug":"43","target":{"type":"attribute_variant","id":"16"}}]}'

@@ -1,5 +1,11 @@
 # Changelog
 
+## Next release
+
+### New features
+
+- Update `Wizaplace/SDK/Seo/SeoService.php::listSlugs` add 2 optional params `$offset` and `$limit`
+
 ## 1.102.2
 - Added `Wizaplace\SDK\Exception\FileNotFound`
 - Added `Wizaplace\SDK\Exim\EximService`
