@@ -1149,6 +1149,11 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertGreaterThanOrEqual(5, \count($categories));
         $this->assertContainsOnly(Category::class, $categories);
+
+        $categories = $this->buildCatalogService()->getCategories([3,4,5]);
+
+        $this->assertCount(3, $categories);
+        $this->assertContainsOnly(Category::class, $categories);
     }
 
     public function testGetAttributes(): void

@@ -198,13 +198,17 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param int|int[] $ids
+     *
      * @return Category[]
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCategories(): array
+    public function getCategories($ids = []): array
     {
-        $categories = $this->client->get('catalog/categories');
+        $ids = \is_int($ids) ? [$ids] : $ids;
+        $url = \count($ids) > 0 ? 'catalog/categories?id[]=' . implode('&id[]=', $ids) : 'catalog/categories';
+        $categories = $this->client->get($url);
 
         return array_map(
             static function ($category) {
@@ -215,11 +219,11 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
-     * @param string         $query
-     * @param array          $filters
-     * @param array          $sorting
-     * @param int            $resultsPerPage
-     * @param int            $page
+     * @param string $query
+     * @param array $filters
+     * @param array $sorting
+     * @param int $resultsPerPage
+     * @param int $page
      * @param GeoFilter|null $geoFilter
      *
      * @return SearchResult

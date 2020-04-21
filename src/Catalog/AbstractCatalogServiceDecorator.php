@@ -116,11 +116,12 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
     }
 
     /**
+     * @param int|int[] $ids
      * @return Category[]
      */
-    public function getCategories(): array
+    public function getCategories($ids = []): array
     {
-        return $this->decorated->getCategories();
+        return $this->decorated->getCategories($ids);
     }
 
     /**

@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@907dbfd
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6113-categoriesSearchById@2a90f50
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,45 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 21 Mar 2018 14:24:57 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: a88260
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a88260'
-            Content-Length: '1128'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":""}},{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":""}},{"id":5,"parentId":3,"name":"Casques","description":"","slug":"headsets","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":""}},{"id":6,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests-en","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":""}},{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide."}}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 31 Mar 2020 13:39:10 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 97f9f3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97f9f3'
+            X-Request-Id: 9862a00a67ea3ba856f601bf5d9df6cd
+        body: '[{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}]},{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}]},{"id":5,"parentId":3,"name":"Casques","description":"","slug":"headsets","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}]},{"id":6,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests-en","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}]},{"id":7,"parentId":null,"name":"Informatique","description":"Dolores est repellat eum atque provident culpa. Modi enim debitis enim laboriosam et veritatis. Tempore omnis deleniti odio nihil animi rerum non.","slug":"informatique","image":null,"position":0,"productCount":7,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"}]},{"id":8,"parentId":7,"name":"Ordinateurs portables","description":"Placeat aperiam dolore magnam. Dolores veniam cumque vero quo repellat. Ut eum reiciendis quos.","slug":"ordinateurs-portables","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":8,"name":"Ordinateurs portables","slug":"ordinateurs-portables"}]},{"id":9,"parentId":7,"name":"\u00c9crans","description":"Tenetur delectus minima et voluptates harum. Ipsam ratione provident corrupti unde maiores omnis voluptas. Tempore repudiandae ut fuga labore et qui.","slug":"ecrans","image":null,"position":0,"productCount":4,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":9,"name":"\u00c9crans","slug":"ecrans"}]},{"id":10,"parentId":null,"name":"T\u00e9l\u00e9phone","description":"Aut maxime eaque delectus qui. Quidem sed et cum deleniti eum incidunt. Temporibus eaque eum perspiciatis sint voluptas tenetur consequatur.","slug":"telephone","image":null,"position":0,"productCount":2,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":10,"name":"T\u00e9l\u00e9phone","slug":"telephone"}]},{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide.","keywords":"Cat\u00e9gorie principale"},"categoryPath":[{"id":2,"name":"Cat\u00e9gorie principale","slug":"categorie-principale"}]},{"id":11,"parentId":null,"name":"Category 1","description":"","slug":"","image":null,"position":100,"productCount":0,"seoData":{"title":"Category 1 - Vente Category 1 - au meilleur prix - en ligne","description":"Vente Category 1 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 1. Livraison rapide.","keywords":"Category 1"},"categoryPath":[{"id":11,"name":"Category 1","slug":""}]},{"id":12,"parentId":null,"name":"Category 2","description":"","slug":"","image":null,"position":200,"productCount":0,"seoData":{"title":"Category 2 - Vente Category 2 - au meilleur prix - en ligne","description":"Vente Category 2 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 2. Livraison rapide.","keywords":"Category 2"},"categoryPath":[{"id":12,"name":"Category 2","slug":""}]},{"id":13,"parentId":null,"name":"Category 3","description":"","slug":"","image":null,"position":300,"productCount":0,"seoData":{"title":"Category 3 - Vente Category 3 - au meilleur prix - en ligne","description":"Vente Category 3 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 3. Livraison rapide.","keywords":"Category 3"},"categoryPath":[{"id":13,"name":"Category 3","slug":""}]},{"id":14,"parentId":null,"name":"Category 4","description":"","slug":"","image":null,"position":400,"productCount":0,"seoData":{"title":"Category 4 - Vente Category 4 - au meilleur prix - en ligne","description":"Vente Category 4 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 4. Livraison rapide.","keywords":"Category 4"},"categoryPath":[{"id":14,"name":"Category 4","slug":""}]},{"id":15,"parentId":null,"name":"Category 5","description":"","slug":"","image":null,"position":500,"productCount":0,"seoData":{"title":"Category 5 - Vente Category 5 - au meilleur prix - en ligne","description":"Vente Category 5 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 5. Livraison rapide.","keywords":"Category 5"},"categoryPath":[{"id":15,"name":"Category 5","slug":""}]},{"id":16,"parentId":null,"name":"Category 6","description":"","slug":"","image":null,"position":600,"productCount":0,"seoData":{"title":"Category 6 - Vente Category 6 - au meilleur prix - en ligne","description":"Vente Category 6 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 6. Livraison rapide.","keywords":"Category 6"},"categoryPath":[{"id":16,"name":"Category 6","slug":""}]},{"id":17,"parentId":null,"name":"Category 7","description":"","slug":"","image":null,"position":700,"productCount":0,"seoData":{"title":"Category 7 - Vente Category 7 - au meilleur prix - en ligne","description":"Vente Category 7 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 7. Livraison rapide.","keywords":"Category 7"},"categoryPath":[{"id":17,"name":"Category 7","slug":""}]},{"id":18,"parentId":null,"name":"Category 8","description":"","slug":"","image":null,"position":800,"productCount":0,"seoData":{"title":"Category 8 - Vente Category 8 - au meilleur prix - en ligne","description":"Vente Category 8 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 8. Livraison rapide.","keywords":"Category 8"},"categoryPath":[{"id":18,"name":"Category 8","slug":""}]},{"id":19,"parentId":null,"name":"Category 9","description":"","slug":"","image":null,"position":900,"productCount":0,"seoData":{"title":"Category 9 - Vente Category 9 - au meilleur prix - en ligne","description":"Vente Category 9 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 9. Livraison rapide.","keywords":"Category 9"},"categoryPath":[{"id":19,"name":"Category 9","slug":""}]},{"id":20,"parentId":null,"name":"Category 10","description":"","slug":"","image":null,"position":1000,"productCount":0,"seoData":{"title":"Category 10 - Vente Category 10 - au meilleur prix - en ligne","description":"Vente Category 10 au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Category 10. Livraison rapide.","keywords":"Category 10"},"categoryPath":[{"id":20,"name":"Category 10","slug":""}]}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories?id%5B%5D=3&id%5B%5D=4&id%5B%5D=5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6113-categoriesSearchById@2a90f50
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 31 Mar 2020 13:39:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d0e1dd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0e1dd'
+            X-Request-Id: 887f2ab5b4bb8439e88044d8506abc66
+        body: '[{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}]},{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}]},{"id":5,"parentId":3,"name":"Casques","description":"","slug":"headsets","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}]}]'

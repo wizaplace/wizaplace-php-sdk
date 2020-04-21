@@ -81,9 +81,10 @@ interface CatalogServiceInterface
     public function getCategory(int $id): Category;
 
     /**
+     * @param int|int[] $ids
      * @return Category[]
      */
-    public function getCategories(): array;
+    public function getCategories($ids = []): array;
 
     /**
      * @param string         $query
