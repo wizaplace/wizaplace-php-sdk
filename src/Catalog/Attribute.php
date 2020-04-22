@@ -25,6 +25,8 @@ final class Attribute
     private $position;
     /** @var null|int */
     private $parentId;
+    /** @var null|string */
+    private $code;
 
     /**
      * @internal
@@ -34,14 +36,16 @@ final class Attribute
      * @param AttributeType $type
      * @param int           $position
      * @param int|null      $parentId
+     * @param string|null   $code
      */
-    public function __construct(int $id, string $name, AttributeType $type, int $position, ?int $parentId)
+    public function __construct(int $id, string $name, AttributeType $type, int $position, ?int $parentId, ?string $code)
     {
         $this->id = $id;
         $this->name = $name;
         $this->type = $type;
         $this->position = $position;
         $this->parentId = $parentId;
+        $this->code = $code;
     }
 
     /**
@@ -82,5 +86,11 @@ final class Attribute
     public function getParentId(): ?int
     {
         return $this->parentId;
+    }
+
+    /** @return string|null */
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 }

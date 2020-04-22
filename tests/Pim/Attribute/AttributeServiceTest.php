@@ -70,6 +70,29 @@ class AttributeServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetCategoryAttributesWithParentId(): void
+    {
+        $attributes = $this->buildAttributeService()->getCategoryAttributes(6);
+        static::assertContainsOnly(Attribute::class, $attributes);
+        static::assertGreaterThan(0, $attributes[6]->getId());
+        //Test with parent_id = 4
+        static::assertSame(4, $attributes[6]->getParentId());
+
+        $attributes = $this->buildAttributeService()->getCategoryAttributes(1);
+        static::assertContainsOnly(Attribute::class, $attributes);
+        //Test parent_id = 0
+        static::assertSame(0, $attributes[0]->getParentId());
+    }
+
+    public function testGetProductAttributeWithParentId()
+    {
+        /** @var ProductAttributeVariants $attribute */
+        $attribute = $this->buildAttributeService()->getProductAttribute(8, 1);
+        static::assertInstanceOf(ProductAttributeVariants::class, $attribute);
+        static::assertSame(1, $attribute->getId());
+        static::assertSame(0, $attribute->getParentId());
+    }
+
     public function testGetProductAttributeVariants()
     {
         /** @var ProductAttributeVariants $attribute */

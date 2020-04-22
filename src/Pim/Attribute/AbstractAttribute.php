@@ -20,6 +20,9 @@ abstract class AbstractAttribute
     /** @var int */
     private $id;
 
+    /** @var int */
+    private $parentId;
+
     /** @var string */
     private $name;
 
@@ -37,6 +40,7 @@ abstract class AbstractAttribute
     public function __construct(array $data)
     {
         $this->id = $data['feature_id'];
+        $this->parentId = (\array_key_exists('parent_id', $data)) ? $data['parent_id'] : 0;
         $this->name = $data['description'];
         $this->type = new AttributeType($data['feature_type']);
         $this->categoriesPath = $data['categories_path'];
@@ -48,6 +52,12 @@ abstract class AbstractAttribute
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /** @return int */
+    public function getParentId(): int
+    {
+        return $this->parentId;
     }
 
     /**

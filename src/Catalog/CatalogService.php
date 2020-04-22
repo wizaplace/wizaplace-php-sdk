@@ -521,7 +521,8 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
             $attributeData['name'],
             new AttributeType($attributeData['type']),
             $attributeData['position'],
-            $attributeData['parentId'] ?? null
+            $attributeData['parentId'] ?? null,
+            $attributeData['code'] ?? null
         );
     }
 }
