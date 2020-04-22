@@ -1,9 +1,12 @@
 <?php
+
 /**
- * @copyright Copyright (c) Wizacha
- * @license Proprietary
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -15,6 +18,9 @@ use function theodorejb\polycast\to_string;
  */
 final class DeclinationOption
 {
+    /** @var string|null */
+    private $optionCode;
+
     /** @var int */
     private $optionId;
 
@@ -36,6 +42,8 @@ final class DeclinationOption
     {
         $this->optionId = $data['optionId'];
         $this->optionName = to_string($data['optionName']);
+        $this->optionCode = \array_key_exists('optionCode', $data) && \is_string($data['optionCode'])
+            ? $data['optionCode'] : null;
         $this->variantId = $data['variantId'];
         $this->variantName = to_string($data['variantName']);
     }
@@ -54,6 +62,11 @@ final class DeclinationOption
     public function getOptionName(): string
     {
         return $this->optionName;
+    }
+
+    public function getOptionCode(): ?string
+    {
+        return $this->optionCode;
     }
 
     /**

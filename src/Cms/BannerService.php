@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Cms;
 
 use GuzzleHttp\Psr7\Uri;
 use Wizaplace\SDK\AbstractService;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -28,7 +31,7 @@ final class BannerService extends AbstractService
      */
     public function getHomepageBanners(?string $device = null): array
     {
-        $results = (null !== $device) ? $this->client->get('cms/banners?device='.$device) : $this->client->get('cms/banners');
+        $results = (null !== $device) ? $this->client->get('cms/banners?device=' . $device) : $this->client->get('cms/banners');
 
         return $this->buildBannersArray($results);
     }
@@ -45,7 +48,7 @@ final class BannerService extends AbstractService
      */
     public function getCategoriesBanners(int $categoryId, ?string $device = null): array
     {
-        $results = (null !== $device) ? $this->client->get('cms/banners/category/'.$categoryId.'?device='.$device) : $this->client->get('cms/banners/category/'.$categoryId);
+        $results = (null !== $device) ? $this->client->get('cms/banners/category/' . $categoryId . '?device=' . $device) : $this->client->get('cms/banners/category/' . $categoryId);
 
         return $this->buildBannersArray($results);
     }

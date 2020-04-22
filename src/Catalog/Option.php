@@ -1,10 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
 
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -39,9 +40,12 @@ final class Option implements \JsonSerializable
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->position = $data['position'] ?? 0;
-        $this->variants = array_map(static function (array $variantData) : OptionVariant {
-            return new OptionVariant($variantData);
-        }, $data['variants']);
+        $this->variants = array_map(
+            static function (array $variantData): OptionVariant {
+                return new OptionVariant($variantData);
+            },
+            $data['variants']
+        );
         $this->code = $data['code'] ?? null;
     }
 

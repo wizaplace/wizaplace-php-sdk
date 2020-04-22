@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\User;
 
@@ -62,6 +64,9 @@ final class UpdateUserCommand
 
     /** @var string|null */
     private $loyaltyIdentifier;
+
+    /** @var string|null */
+    private $lang;
 
     /** @return string|null */
     public function getPhone(): ?string
@@ -363,6 +368,24 @@ final class UpdateUserCommand
         $this->loyaltyIdentifier = $loyaltyIdentifier;
 
         return $this;
+    }
+
+    /**
+     * @param string|null $lang
+     *
+     * @return UpdateUserCommand
+     */
+    public function setLanguage(?string $lang): self
+    {
+        $this->lang = $lang;
+
+        return $this;
+    }
+
+    /** @return string|null */
+    public function getLanguage(): ?string
+    {
+        return $this->lang;
     }
 
     /**

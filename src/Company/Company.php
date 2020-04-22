@@ -1,15 +1,18 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Company;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Seo\Metadata;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
@@ -116,13 +119,14 @@ final class Company
         $this->capital = to_string($data['capital']);
         $this->rcs = to_string($data['rcs']);
         $this->slug = to_string($data['slug']);
-        $this->iban = (isset($data['iban']) && !is_null($data['iban'])) ? to_string($data['iban']) : "";
-        $this->bic = (isset($data['bic']) && !is_null($data['bic'])) ? to_string($data['bic']) : "";
+        $this->iban = (isset($data['iban']) && !\is_null($data['iban'])) ? to_string($data['iban']) : "";
+        $this->bic = (isset($data['bic']) && !\is_null($data['bic'])) ? to_string($data['bic']) : "";
         $this->legalRepresentativeFirstName = to_string($data['legalRepresentativeFirstName']);
         $this->legalRepresentativeLastName = to_string($data['legalRepresentativeLastName']);
         $this->extra = (array) $data['extra'];
-        $this->nafCode = array_key_exists('nafCode', $data) && is_string($data['nafCode']) ? to_string($data['nafCode']) : null;
-        $this->metadata = (array_key_exists('meta', $data) && count($data['meta']) > 0) ? new Metadata($data['meta']) : null;
+        $this->nafCode = (\array_key_exists('nafCode', $data) && \is_string($data['nafCode'])) ? $data['nafCode'] : null;
+        $this->metadata = (\array_key_exists('meta', $data) && \count($data['meta']) > 0)
+            ? new Metadata($data['meta']) : null;
     }
 
     public function getId(): int

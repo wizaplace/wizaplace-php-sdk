@@ -1,14 +1,17 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_int;
 
@@ -38,6 +41,9 @@ final class ProductDeclination
 
     /** @var PriceTier[] */
     private $priceTiers;
+
+    /** @var null|string */
+    protected $supplierReference;
 
     /**
      * @internal
@@ -69,6 +75,8 @@ final class ProductDeclination
                 $this->addPriceTier($priceTier);
             }
         }
+
+        $this->supplierReference = \array_key_exists('supplier_reference', $data) === true ? $data['supplier_reference'] : null;
     }
 
     public function getQuantity(): int
@@ -112,5 +120,11 @@ final class ProductDeclination
     public function getPriceTiers(): array
     {
         return $this->priceTiers;
+    }
+
+    /** @return string|null */
+    public function getSupplierReference(): ?string
+    {
+        return $this->supplierReference;
     }
 }

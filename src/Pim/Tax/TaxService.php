@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Tax;
@@ -26,8 +28,11 @@ class TaxService extends AbstractService
         $this->client->mustBeAuthenticated();
         $taxes = $this->client->get("taxes");
 
-        return array_map(static function ($tax) {
-            return new Tax($tax);
-        }, $taxes);
+        return array_map(
+            static function ($tax) {
+                return new Tax($tax);
+            },
+            $taxes
+        );
     }
 }

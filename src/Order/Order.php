@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -55,6 +57,8 @@ final class Order
     private $isSubscriptionInitiator;
     /** @var null|bool */
     private $isPaid;
+    /** @var bool */
+    private $carriagePaid;
 
     /**
      * @internal
@@ -71,14 +75,17 @@ final class Order
         $this->total = $data['total'];
         $this->subtotal = $data['subtotal'];
         $this->taxtotal = $data['taxTotal'];
-        $this->timestamp = new \DateTimeImmutable('@'.$data['timestamp']);
+        $this->timestamp = new \DateTimeImmutable('@' . $data['timestamp']);
         $this->status = new OrderStatus($data['status']);
         $this->shippingName = $data['shippingName'];
         $this->shippingAddress = new ShippingAddress($data['shippingAddress']);
         $this->billingAddress = new BillingAddress($data['billingAddress']);
-        $this->orderItems = array_map(static function (array $orderItemData) : OrderItem {
-            return new OrderItem($orderItemData);
-        }, $data['items']);
+        $this->orderItems = array_map(
+            static function (array $orderItemData): OrderItem {
+                return new OrderItem($orderItemData);
+            },
+            $data['items']
+        );
         $this->customerComment = $data['customerComment'];
         $this->payment = new Payment($data['payment']);
         $this->shippingCost = $data['shippingCost'] ?? 0;
@@ -88,6 +95,7 @@ final class Order
         $this->subscriptionId = $data['subscriptionId'] ?? null;
         $this->isSubscriptionInitiator = $data['isSubscriptionInitiator'] ?? false;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
+        $this->carriagePaid = $data['carriagePaid'] ?? false;
     }
 
     /**
@@ -247,5 +255,10 @@ final class Order
     public function isPaid(): ?bool
     {
         return $this->isPaid;
+    }
+
+    public function isCarriagePaid(): bool
+    {
+        return $this->carriagePaid;
     }
 }

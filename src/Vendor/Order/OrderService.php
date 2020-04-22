@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
@@ -11,12 +13,17 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\StreamInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Order\CreditNote;
 use Wizaplace\SDK\Order\OrderAdjustment;
+use Wizaplace\SDK\Order\Refund;
+use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -58,9 +65,12 @@ class OrderService extends AbstractService
         }
 
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => $options,
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => $options,
+            ]
+        );
     }
 
     /**
@@ -74,12 +84,15 @@ class OrderService extends AbstractService
     public function declineOrder(int $orderId, $declineReason = ''): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'approved' => false,
-                'decline_reason' => $declineReason,
-            ],
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'approved' => false,
+                    'decline_reason' => $declineReason,
+                ],
+            ]
+        );
     }
 
     /**
@@ -104,13 +117,19 @@ class OrderService extends AbstractService
             $query = array_merge($query, $additionalFilter->toArray());
         }
 
-        $data = $this->client->get('orders', [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            'orders',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
-        return array_map(function (array $orderData): OrderSummary {
-            return new OrderSummary($orderData);
-        }, $data);
+        return array_map(
+            function (array $orderData): OrderSummary {
+                return new OrderSummary($orderData);
+            },
+            $data
+        );
     }
 
     /**
@@ -146,13 +165,19 @@ class OrderService extends AbstractService
         if ($orderIdFilter !== null) {
             $query['order_id'] = $orderIdFilter;
         }
-        $data = $this->client->get('shipments', [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            'shipments',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
-        return array_map(static function (array $shipmentData): Shipment {
-            return new Shipment($shipmentData);
-        }, $data);
+        return array_map(
+            static function (array $shipmentData): Shipment {
+                return new Shipment($shipmentData);
+            },
+            $data
+        );
     }
 
     /**
@@ -183,9 +208,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
         $command->validate();
 
-        $data = $this->client->post('shipments', [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $data = $this->client->post(
+            'shipments',
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return $data['shipment_id'];
     }
@@ -201,11 +229,14 @@ class OrderService extends AbstractService
     public function setInvoiceNumber(int $orderId, string $invoiceNumber): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put("orders/${orderId}", [
-            RequestOptions::JSON => [
-                'invoice_number' => $invoiceNumber,
-            ],
-        ]);
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'invoice_number' => $invoiceNumber,
+                ],
+            ]
+        );
     }
 
     /**
@@ -219,9 +250,12 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
         $taxesData = $this->client->get('taxes');
 
-        return array_map(static function (array $taxData): Tax {
-            return new Tax($taxData);
-        }, $taxesData);
+        return array_map(
+            static function (array $taxData): Tax {
+                return new Tax($taxData);
+            },
+            $taxesData
+        );
     }
 
     /**
@@ -254,11 +288,14 @@ class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post("orders/${orderId}/handDelivery", [
-                RequestOptions::JSON => [
-                    'code' => $deliveryCode,
-                ],
-            ]);
+            $this->client->post(
+                "orders/${orderId}/handDelivery",
+                [
+                    RequestOptions::JSON => [
+                        'code' => $deliveryCode,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 400) {
                 throw new SomeParametersAreInvalid($e->getMessage(), 400, $e);
@@ -285,9 +322,12 @@ class OrderService extends AbstractService
     {
         $command->validate();
 
-        $result = $this->client->post("_orders/${orderId}/mondialRelayLabel", [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $result = $this->client->post(
+            "_orders/${orderId}/mondialRelayLabel",
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return new MondialRelayLabel($result);
     }
@@ -300,11 +340,14 @@ class OrderService extends AbstractService
     public function setOrderDetails(int $orderId, string $details): self
     {
         $this->client->mustBeAuthenticated();
-        $this->client->patch("orders/$orderId/details", [
-            RequestOptions::JSON => [
-                "details" => $details,
-            ],
-        ]);
+        $this->client->patch(
+            "orders/$orderId/details",
+            [
+                RequestOptions::JSON => [
+                    "details" => $details,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -313,12 +356,15 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/$orderId/adjustments", [
-            RequestOptions::JSON => [
-                'itemId' => $itemId,
-                'newTotalWithoutTaxes' => $newPrice,
-            ],
-        ]);
+        $this->client->post(
+            "orders/$orderId/adjustments",
+            [
+                RequestOptions::JSON => [
+                    'itemId' => $itemId,
+                    'newTotalWithoutTaxes' => $newPrice,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -327,9 +373,12 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         try {
-            return array_map(function (array $data): OrderAdjustment {
-                return new OrderAdjustment($data);
-            }, $this->client->get("orders/{$orderId}/adjustments"));
+            return array_map(
+                function (array $data): OrderAdjustment {
+                    return new OrderAdjustment($data);
+                },
+                $this->client->get("orders/{$orderId}/adjustments")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -343,9 +392,12 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): Transaction {
-            return new Transaction($data);
-        }, $this->client->get("orders/${orderId}/transactions"));
+        return array_map(
+            function (array $data): Transaction {
+                return new Transaction($data);
+            },
+            $this->client->get("orders/${orderId}/transactions")
+        );
     }
 
     /**
@@ -376,8 +428,300 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): SubscriptionSummary {
-            return new SubscriptionSummary($data);
-        }, $this->client->get("orders/${orderId}/subscriptions"));
+        return array_map(
+            function (array $data): SubscriptionSummary {
+                return new SubscriptionSummary($data);
+            },
+            $this->client->get("orders/${orderId}/subscriptions")
+        );
+    }
+
+    /** @return CreditNote[] */
+    public function getOrderCreditNotes(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(
+                function (array $data): CreditNote {
+                    return new CreditNote($data);
+                },
+                $this->client->get("orders/{$orderId}/credit-notes")
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
+
+    public function getOrderCreditNote(int $orderId, int $refundId): StreamInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $options = [
+                RequestOptions::HEADERS => [
+                    "Accept" => "application/pdf",
+                ],
+            ];
+            $response = $this->client->rawRequest("GET", "orders/{$orderId}/credit-notes/{$refundId}", $options);
+
+            return $response->getBody();
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
+
+    /** @return Refund[] */
+    public function getOrderRefunds(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(
+                function (array $data): Refund {
+                    return new Refund($data);
+                },
+                $this->client->get("orders/{$orderId}/refunds")
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function getOrderRefund(int $orderId, int $refundId): Refund
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return new Refund($this->client->get("orders/{$orderId}/refunds/{$refundId}"));
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Refund {$refundId} not found for order {$orderId}", $exception);
+            }
+
+            throw $exception;
+        }
+    }
+
+    /** @param mixed[] $orderAttachmentData */
+    public function postOrderAttachment(int $orderId, array $orderAttachmentData): OrderAttachment
+    {
+        $this->client->mustBeAuthenticated();
+
+        $payload = [];
+
+        if (\array_key_exists('name', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'name',
+                'contents' => $orderAttachmentData['name'],
+            ];
+        }
+
+        if (\array_key_exists('file', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'file',
+                'contents' => $orderAttachmentData['file'],
+            ];
+        }
+
+        if (\array_key_exists('type', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'type',
+                'contents' => $orderAttachmentData['type'],
+            ];
+        }
+
+        if (\array_key_exists('url', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'url',
+                'contents' => $orderAttachmentData['url'],
+            ];
+        }
+
+        try {
+            $response = $this->client->post(
+                "orders/$orderId/attachments",
+                [RequestOptions::MULTIPART => $payload]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new OrderNotFound("Order #{$orderId} not found");
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function getOrderAttachment(int $orderId, string $orderAttachmentId): OrderAttachment
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get(
+                "orders/$orderId/attachments/$orderAttachmentId"
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function listOrderAttachment(int $orderId, OrderAttachmentFilter $filter): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get(
+                "orders/$orderId/attachments",
+                [RequestOptions::QUERY => $filter->getFilters()]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new OrderNotFound("Order #{$orderId} not found");
+            }
+
+            throw $exception;
+        }
+
+        return new PaginatedData(
+            $response['limit'],
+            $response['offset'],
+            $response['total'],
+            array_map(
+                /** @param mixed[] $subscription */
+                function (array $subscription): OrderAttachment {
+                    return new OrderAttachment($subscription);
+                },
+                $response['items']
+            )
+        );
+    }
+
+    /** @param mixed[] $orderAttachmentData */
+    public function updateOrderAttachment(
+        int $orderId,
+        string $orderAttachmentId,
+        array $orderAttachmentData
+    ): OrderAttachment {
+        $this->client->mustBeAuthenticated();
+
+        $payload = [];
+
+        if (\array_key_exists('name', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'name',
+                'contents' => $orderAttachmentData['name'],
+            ];
+        }
+
+        if (\array_key_exists('file', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'file',
+                'contents' => $orderAttachmentData['file'],
+            ];
+        }
+
+        if (\array_key_exists('type', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'type',
+                'contents' => $orderAttachmentData['type'],
+            ];
+        }
+
+        if (\array_key_exists('url', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'url',
+                'contents' => $orderAttachmentData['url'],
+            ];
+        }
+
+        try {
+            $response = $this->client->post(
+                "orders/$orderId/attachments/$orderAttachmentId",
+                [RequestOptions::MULTIPART => $payload]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function deleteOrderAttachment(int $orderId, string $orderAttachmentId): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->delete(
+                "orders/$orderId/attachments/$orderAttachmentId"
+            );
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
+            }
+
+            throw $exception;
+        }
     }
 }

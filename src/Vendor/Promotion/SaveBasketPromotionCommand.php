@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -206,23 +208,27 @@ final class SaveBasketPromotionCommand
      */
     public function toArray(): array
     {
-        $serializer = new Serializer([
-            new DateTimeNormalizer(),
-            new CustomNormalizer(),
-            new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
-        ]);
+        $serializer = new Serializer(
+            [
+                new DateTimeNormalizer(),
+                new CustomNormalizer(),
+                new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
+            ]
+        );
 
         return array_filter(
-            $serializer->normalize([
-                'promotion_id' => $this->promotionId,
-                'name' => $this->name,
-                'active' => $this->active,
-                'rule' => $this->rule,
-                'discounts' => $this->discounts,
-                'period' => $this->period,
-                'coupon' => $this->coupon,
-                'target' => $this->target,
-            ]),
+            $serializer->normalize(
+                [
+                    'promotion_id' => $this->promotionId,
+                    'name' => $this->name,
+                    'active' => $this->active,
+                    'rule' => $this->rule,
+                    'discounts' => $this->discounts,
+                    'period' => $this->period,
+                    'coupon' => $this->coupon,
+                    'target' => $this->target,
+                ]
+            ),
             static function ($value): bool {
                 return $value !== null;
             }

@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -15,12 +17,16 @@ use Wizaplace\SDK\Catalog\DeclinationId;
  */
 final class OrderItem
 {
+    /** @var null|string */
+    private $itemId;
     /** @var DeclinationId */
     private $declinationId;
     /** @var string */
     private $productName;
     /** @var string */
     private $productCode;
+    /** @var int|null */
+    private $maxPriceAdjustment;
     /** @var string|null */
     private $productImageId;
     /** @var float */
@@ -35,6 +41,10 @@ final class OrderItem
     private $greenTax;
     /** @var null|string */
     private $supplierRef;
+    /** @var bool */
+    private $isSubscription;
+    /** @var bool */
+    private $isRenewable;
 
     /**
      * @internal
@@ -43,18 +53,31 @@ final class OrderItem
      */
     public function __construct(array $data)
     {
+        $this->itemId = $data['itemId'] ?? null;
         $this->declinationId = new DeclinationId($data['declinationId']);
         $this->productName = $data['productName'];
         $this->productCode = $data['productCode'];
+        $this->maxPriceAdjustment = $data['maxPriceAdjustment'] ?? null;
         $this->productImageId = $data['productImageId'] ?? null;
         $this->price = $data['price'];
         $this->amount = $data['amount'];
-        $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
-            return new DeclinationOption($data);
-        }, $data['options'] ?? []);
+        $this->declinationOptions = array_map(
+            static function (array $data): DeclinationOption {
+                return new DeclinationOption($data);
+            },
+            $data['options'] ?? []
+        );
         $this->customerComment = $data['customerComment'];
         $this->greenTax = $data['greenTax'];
         $this->supplierRef = $data['supplierRef'];
+        $this->isSubscription = $data['isSubscription'] ?? false;
+        $this->isRenewable = $data['isRenewable'] ?? false;
+    }
+
+    /** @return null|string */
+    public function getItemId(): ?string
+    {
+        return $this->itemId;
     }
 
     /**
@@ -87,6 +110,14 @@ final class OrderItem
     public function getProductImageId(): ?string
     {
         return $this->productImageId;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 
     /**
@@ -132,5 +163,17 @@ final class OrderItem
     public function getSupplierRef(): ?string
     {
         return $this->supplierRef;
+    }
+
+    /** @return bool */
+    public function isSubscription(): bool
+    {
+        return $this->isSubscription;
+    }
+
+    /** @return bool */
+    public function isRenewable(): bool
+    {
+        return $this->isRenewable;
     }
 }

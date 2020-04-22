@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -22,6 +24,10 @@ final class PaymentInformation
     private $redirectUrl;
     /** @var string */
     private $html;
+    /** @var bool */
+    private $isPartial;
+    /** @var int */
+    private $parentOrderId;
 
     /**
      * @internal
@@ -30,10 +36,15 @@ final class PaymentInformation
      */
     public function __construct(array $data)
     {
-        $this->orders = array_map(static function (array $orderData): BasketOrder {
-            return new BasketOrder($orderData);
-        }, $data['orders']);
+        $this->orders = array_map(
+            static function (array $orderData): BasketOrder {
+                return new BasketOrder($orderData);
+            },
+            $data['orders']
+        );
+        $this->parentOrderId = $data['parentOrderId'];
         $this->redirectUrl = !isset($data['redirectUrl']) || $data['redirectUrl'] === '' ? null : new Uri($data['redirectUrl']);
+        $this->isPartial = false === \array_key_exists('isPartial', $data) ? false : $data['isPartial'];
         $this->html = $data['html'] ?? '';
     }
 
@@ -43,6 +54,14 @@ final class PaymentInformation
     public function getOrders(): array
     {
         return $this->orders;
+    }
+
+    /**
+     * @return int
+     */
+    public function getParentOrderId(): int
+    {
+        return $this->parentOrderId;
     }
 
     /**

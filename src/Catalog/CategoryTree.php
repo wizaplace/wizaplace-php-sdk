@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -52,13 +54,19 @@ final class CategoryTree
      */
     public static function buildCollection(array $data): array
     {
-        $collection = array_map(static function (array $itemData) : self {
-            return new self($itemData);
-        }, $data);
+        $collection = array_map(
+            static function (array $itemData): self {
+                return new self($itemData);
+            },
+            $data
+        );
 
-        usort($collection, static function (CategoryTree $itemA, CategoryTree $itemB): int {
-            return $itemA->getCategory()->getPosition() <=> $itemB->getCategory()->getPosition();
-        });
+        usort(
+            $collection,
+            static function (CategoryTree $itemA, CategoryTree $itemB): int {
+                return $itemA->getCategory()->getPosition() <=> $itemB->getCategory()->getPosition();
+            }
+        );
 
         return $collection;
     }

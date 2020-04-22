@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -41,12 +43,15 @@ final class OrderReturn
         $this->createdAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['createdAt']);
         $this->comments = $data['comments'];
         $this->status = new OrderReturnStatus($data['status']);
-        $this->items = array_map(static function (array $item) : ReturnItem {
-            $item['productName'] = $item['product'];
-            unset($item['product']);
+        $this->items = array_map(
+            static function (array $item): ReturnItem {
+                $item['productName'] = $item['product'];
+                unset($item['product']);
 
-            return new ReturnItem($item);
-        }, $data['items']);
+                return new ReturnItem($item);
+            },
+            $data['items']
+        );
     }
 
     /**

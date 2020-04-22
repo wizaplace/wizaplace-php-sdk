@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
@@ -50,9 +52,12 @@ final class ProductFilter
             static::IS_SUBSCRIPTION => $this->isSubscription,
         ];
 
-        array_filter($filters, function ($item) {
-            return empty($item) === false;
-        });
+        array_filter(
+            $filters,
+            function ($item) {
+                return empty($item) === false;
+            }
+        );
 
         return $filters;
     }

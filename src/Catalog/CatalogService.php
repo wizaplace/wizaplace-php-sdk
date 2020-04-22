@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -14,6 +16,8 @@ use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -22,6 +26,8 @@ use function theodorejb\polycast\to_string;
  */
 final class CatalogService extends AbstractService implements CatalogServiceInterface
 {
+    use AssertRessourceNotFoundTrait;
+
     /**
      * @param string|null $language
      *
@@ -35,13 +41,13 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
         while (true) {
             $options = [];
-            if (!is_null($language)) {
+            if (!\is_null($language)) {
                 $options[RequestOptions::HEADERS]['Accept-Language'] = $language;
             }
 
             $response = $this->client->get("catalog/export/{$page}", $options);
 
-            if (!isset($response['result']) || !is_array($response['result'])) {
+            if (!isset($response['result']) || !\is_array($response['result'])) {
                 throw new \Exception('Results missing in response');
             }
 
@@ -64,7 +70,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductById(string $id) : Product
+    public function getProductById(string $id): Product
     {
         $response = $this->client->get("catalog/products/{$id}");
 
@@ -93,13 +99,16 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsByCode(string $code, bool $allowMvp = true) : array
+    public function getProductsByCode(string $code, bool $allowMvp = true): array
     {
         $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['code' => $code, 'allowMvp' => (int) $allowMvp]]);
 
-        return array_map(function ($product) {
-            return new Product($product, $this->client->getBaseUri());
-        }, $response);
+        return array_map(
+            function ($product) {
+                return new Product($product, $this->client->getBaseUri());
+            },
+            $response
+        );
     }
 
     /**
@@ -110,13 +119,16 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsBySupplierReference(string $supplierReference, bool $allowMvp = true) : array
+    public function getProductsBySupplierReference(string $supplierReference, bool $allowMvp = true): array
     {
         $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['supplierRef' => $supplierReference, 'allowMvp' => (int) $allowMvp]]);
 
-        return array_map(function ($product) {
-            return new Product($product, $this->client->getBaseUri());
-        }, $response);
+        return array_map(
+            function ($product) {
+                return new Product($product, $this->client->getBaseUri());
+            },
+            $response
+        );
     }
 
     /**
@@ -127,13 +139,16 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getProductsByMvpId(string $mvpId, bool $allowMvp = true) : array
+    public function getProductsByMvpId(string $mvpId, bool $allowMvp = true): array
     {
         $response = $this->client->get('catalog/products', [RequestOptions::QUERY => ['mvpId' => $mvpId, 'allowMvp' => (int) $allowMvp]]);
 
-        return array_map(function ($product) {
-            return new Product($product, $this->client->getBaseUri());
-        }, $response);
+        return array_map(
+            function ($product) {
+                return new Product($product, $this->client->getBaseUri());
+            },
+            $response
+        );
     }
 
     /**
@@ -148,9 +163,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     {
         $response = $this->client->get('catalog/products', [RequestOptions::QUERY => array_merge($productFilter->getFilters(), ['allowMvp' => (int) $allowMvp])]);
 
-        return array_map(function ($product) {
-            return new Product($product, $this->client->getBaseUri());
-        }, $response);
+        return array_map(
+            function ($product) {
+                return new Product($product, $this->client->getBaseUri());
+            },
+            $response
+        );
     }
 
     /**
@@ -158,7 +176,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCategoryTree():array
+    public function getCategoryTree(): array
     {
         $categoryTree = $this->client->get('catalog/categories/tree');
 
@@ -188,9 +206,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     {
         $categories = $this->client->get('catalog/categories');
 
-        return array_map(static function ($category) {
-            return new Category($category);
-        }, $categories);
+        return array_map(
+            static function ($category) {
+                return new Category($category);
+            },
+            $categories
+        );
     }
 
     /**
@@ -248,17 +269,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
      */
     public function getCompanyById(int $id): CompanyDetail
     {
-        try {
-            $response = $this->client->get("catalog/companies/{$id}");
-        } catch (ClientException $exception) {
-            if ($exception->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Company #{$id} not found.", $exception);
-            }
-
-            throw $exception;
-        }
-
-        return new CompanyDetail($response);
+        return $this->assertRessourceNotFound(
+            function () use ($id): CompanyDetail {
+                return new CompanyDetail($this->client->get("catalog/companies/{$id}"));
+            },
+            "Company #{$id} not found."
+        );
     }
 
     /**
@@ -270,9 +286,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     {
         $response = $this->client->get("catalog/companies");
 
-        $companies = array_map(function ($companyData) {
-            return new CompanyListItem($companyData);
-        }, $response);
+        $companies = array_map(
+            function ($companyData) {
+                return new CompanyListItem($companyData);
+            },
+            $response
+        );
 
         return $companies;
     }
@@ -352,9 +371,12 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
             throw $e;
         }
 
-        return array_map(function (array $variantData): AttributeVariant {
-            return new AttributeVariant($variantData);
-        }, $variantsData);
+        return array_map(
+            function (array $variantData): AttributeVariant {
+                return new AttributeVariant($variantData);
+            },
+            $variantsData
+        );
     }
 
     /**
@@ -371,14 +393,17 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
         $report->validate();
 
         try {
-            $this->client->post("catalog/products/{$report->getProductId()}/report", [
-                RequestOptions::JSON => [
-                    'productId' => $report->getProductId(),
-                    'name' => $report->getReporterName(),
-                    'email' => $report->getReporterEmail(),
-                    'message' => $report->getMessage(),
-                ],
-            ]);
+            $this->client->post(
+                "catalog/products/{$report->getProductId()}/report",
+                [
+                    RequestOptions::JSON => [
+                        'productId' => $report->getProductId(),
+                        'name' => $report->getReporterName(),
+                        'email' => $report->getReporterEmail(),
+                        'message' => $report->getMessage(),
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             switch ($e->getCode()) {
                 case 400:
@@ -408,7 +433,7 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
             return $this->getBrandFromProduct($product);
         }
 
-        throw new \TypeError('Unexpected type for $product in getBrand : '.(is_object($product) ? get_class($product) : gettype($product)));
+        throw new \TypeError('Unexpected type for $product in getBrand : ' . (\is_object($product) ? \get_class($product) : \gettype($product)));
     }
 
     /**
@@ -445,13 +470,15 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
                 $values = $attribute->getValueIds();
                 $variant = $this->getAttributeVariant(reset($values));
 
-                return new ProductAttributeValue([
-                    'id' => $variant->getId(),
-                    'slug' => $variant->getSlug(),
-                    'name' => $variant->getName(),
-                    'attributeId' => $variant->getAttributeId(),
-                    'image' => $variant->getImage(),
-                ]);
+                return new ProductAttributeValue(
+                    [
+                        'id' => $variant->getId(),
+                        'slug' => $variant->getSlug(),
+                        'name' => $variant->getName(),
+                        'attributeId' => $variant->getAttributeId(),
+                        'image' => $variant->getImage(),
+                    ]
+                );
             }
         }
 

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -68,6 +70,6 @@ final class PromotionPeriod
             return \DateTimeImmutable::createFromMutable($dateTime);
         }
 
-        return new \DateTimeImmutable('@'.$dateTime->getTimestamp());
+        return new \DateTimeImmutable('@' . $dateTime->getTimestamp());
     }
 }

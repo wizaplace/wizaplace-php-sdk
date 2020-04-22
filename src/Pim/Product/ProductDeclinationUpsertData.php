@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
@@ -40,6 +42,9 @@ final class ProductDeclinationUpsertData
 
     /** @var array */
     private $priceTiers;
+
+    /** @var null|string */
+    protected $supplierReference;
 
     /**
      * ProductDeclinationUpsertData constructor.
@@ -180,9 +185,10 @@ final class ProductDeclinationUpsertData
             'affiliateLink',
             'infiniteStock',
             'priceTiers',
+            'supplierReference',
         ];
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
-            if (!in_array($prop->getName(), $nullableProperties)) {
+            if (!\in_array($prop->getName(), $nullableProperties)) {
                 $metadata->addPropertyConstraint($prop->getName(), new Constraints\NotNull());
             }
         }
@@ -212,6 +218,28 @@ final class ProductDeclinationUpsertData
             $data['infinite_stock'] = $this->infiniteStock;
         }
 
+        if ($this->supplierReference !== null) {
+            $data['supplier_reference'] = $this->supplierReference;
+        }
+
         return $data;
+    }
+
+    /** @return string|null */
+    public function getSupplierReference(): ?string
+    {
+        return $this->supplierReference;
+    }
+
+    /**
+     * @param string|null $supplierReference
+     *
+     * @return ProductDeclinationUpsertData
+     */
+    public function setSupplierReference(?string $supplierReference): self
+    {
+        $this->supplierReference = $supplierReference;
+
+        return $this;
     }
 }

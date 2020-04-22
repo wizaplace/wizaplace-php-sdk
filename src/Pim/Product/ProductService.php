@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
@@ -14,6 +16,7 @@ use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
+
 use function theodorejb\polycast\to_int;
 
 /**
@@ -69,9 +72,12 @@ final class ProductService extends AbstractService
             $query = array_merge($query, $filter->toArray());
         }
 
-        $data = $this->client->get('products', [
-            RequestOptions::QUERY => $query,
-        ]);
+        $data = $this->client->get(
+            'products',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
 
         return new ProductList($data);
     }
@@ -90,9 +96,12 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
         $command->validate();
 
-        $data = $this->client->post('products', [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $data = $this->client->post(
+            'products',
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return to_int($data['product_id']);
     }
@@ -113,9 +122,12 @@ final class ProductService extends AbstractService
 
         $id = $command->getId();
 
-        $data = $this->client->put("products/${id}", [
-            RequestOptions::JSON => $command->toArray(),
-        ]);
+        $data = $this->client->put(
+            "products/${id}",
+            [
+                RequestOptions::JSON => $command->toArray(),
+            ]
+        );
 
         return to_int($data['product_id']);
     }
@@ -143,7 +155,7 @@ final class ProductService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getShipping(int $productId, int $shippingId) : Shipping
+    public function getShipping(int $productId, int $shippingId): Shipping
     {
         $this->client->mustBeAuthenticated();
         try {
@@ -168,7 +180,7 @@ final class ProductService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getShippings(int $productId) : array
+    public function getShippings(int $productId): array
     {
         $shippings = [];
 
@@ -200,7 +212,7 @@ final class ProductService extends AbstractService
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws \Wizaplace\SDK\Exception\SomeParametersAreInvalid
      */
-    public function putShipping(int $shippingId, UpdateShippingCommand $command) : void
+    public function putShipping(int $shippingId, UpdateShippingCommand $command): void
     {
         $this->client->mustBeAuthenticated();
 
@@ -209,9 +221,12 @@ final class ProductService extends AbstractService
         $productId = $command->getProductId();
 
         try {
-            $this->client->put("products/${productId}/shippings/${shippingId}", [
-                RequestOptions::JSON => $command->toArray(),
-            ]);
+            $this->client->put(
+                "products/${productId}/shippings/${shippingId}",
+                [
+                    RequestOptions::JSON => $command->toArray(),
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("product #${productId} or shipping #${shippingId} not found", $e);
@@ -290,11 +305,14 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->put("products/{$productId}/divisions/{$countryCode}", [
-                RequestOptions::FORM_PARAMS => [
-                    'code' => $codes,
-                ],
-            ]);
+            return $this->client->put(
+                "products/{$productId}/divisions/{$countryCode}",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'code' => $codes,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound($e);
@@ -312,16 +330,19 @@ final class ProductService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addVideo(int $productId, string $url) : array
+    public function addVideo(int $productId, string $url): array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->post("products/${productId}/video", [
-                RequestOptions::FORM_PARAMS => [
-                    'url' => $url,
-                ],
-            ]);
+            return $this->client->post(
+                "products/${productId}/video",
+                [
+                    RequestOptions::FORM_PARAMS => [
+                        'url' => $url,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new \Exception("Product #${productId} not found", $e);
@@ -370,11 +391,14 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            return $this->client->put("pim/products/{$ean}/stocks", [
-                RequestOptions::JSON => [
-                    'stock' => $stock,
-                ],
-            ]);
+            return $this->client->put(
+                "pim/products/{$ean}/stocks",
+                [
+                    RequestOptions::JSON => [
+                        'stock' => $stock,
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("Product EAN #{$ean} not found", $e);
@@ -399,7 +423,7 @@ final class ProductService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         $data = [];
-        if (count($urls) > 0) {
+        if (\count($urls) > 0) {
             foreach ($urls as $url) {
                 $data[] = [
                     'name'     => 'attachments[]',
@@ -408,11 +432,11 @@ final class ProductService extends AbstractService
             }
         }
 
-        if (count($files) > 0) {
+        if (\count($files) > 0) {
             /** @var UploadedFileInterface $file */
             foreach ($files as $file) {
                 if (false === $file instanceof UploadedFileInterface) {
-                    throw new \InvalidArgumentException('The $files parameter must be an array of '.UploadedFileInterface::class.'.');
+                    throw new \InvalidArgumentException('The $files parameter must be an array of ' . UploadedFileInterface::class . '.');
                 }
 
                 $data[] = [
@@ -424,9 +448,12 @@ final class ProductService extends AbstractService
         }
 
         try {
-            return $this->client->post("pim/products/$productId/attachments", [
-                RequestOptions::MULTIPART => $data,
-            ]);
+            return $this->client->post(
+                "pim/products/$productId/attachments",
+                [
+                    RequestOptions::MULTIPART => $data,
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getCode() === 404) {
                 throw new NotFound("Product #$productId not found.", $e);

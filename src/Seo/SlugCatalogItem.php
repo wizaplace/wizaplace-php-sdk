@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Seo;
@@ -29,9 +31,12 @@ class SlugCatalogItem
     {
         $this->slug = $data['slug'];
         $this->target = new SlugTarget(new SlugTargetType($data['target']['type']), $data['target']['id']);
-        $this->categoryPath = array_map(function (array $categoryData): self {
-            return new self($categoryData);
-        }, $data['categoryPath'] ?? []);
+        $this->categoryPath = array_map(
+            function (array $categoryData): self {
+                return new self($categoryData);
+            },
+            $data['categoryPath'] ?? []
+        );
     }
 
     /**

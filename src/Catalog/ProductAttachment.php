@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
@@ -34,7 +36,7 @@ final class ProductAttachment
     {
         $this->id = $data['id'];
         $this->label = $data['label'];
-        $this->url = $apiBaseUrl->withPath($apiBaseUrl->getPath()."catalog/products/attachments/{$this->id}");
+        $this->url = $apiBaseUrl->withPath($apiBaseUrl->getPath() . "catalog/products/attachments/{$this->id}");
     }
 
     /**

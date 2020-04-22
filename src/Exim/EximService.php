@@ -1,11 +1,12 @@
 <?php
-declare(strict_types=1);
 
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Exim;
 
@@ -34,7 +35,7 @@ final class EximService extends AbstractService
         // Open CSV file
         // We need the @ the catch the exception ourself in dev mode
         $file = @fopen($filePath, 'r+');
-        if(false === $file) {
+        if (false === $file) {
             throw new FileNotFound('File not found ' . $filePath, ['file' => $filePath]);
         }
 
@@ -47,9 +48,12 @@ final class EximService extends AbstractService
         ];
 
         // Send CSV file to API
-        $data = $this->client->post('import/products', [
-            RequestOptions::MULTIPART => $data,
-        ]);
+        $data = $this->client->post(
+            'import/products',
+            [
+                RequestOptions::MULTIPART => $data,
+            ]
+        );
 
         return $data['jobId'];
     }

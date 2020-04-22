@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Catalog;
 
@@ -12,6 +14,7 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
 use Wizaplace\SDK\Pim\Product\PriceTier;
+
 use function theodorejb\polycast\to_float;
 use function theodorejb\polycast\to_string;
 
@@ -125,6 +128,9 @@ final class Product
     /** @var PriceTier[] */
     protected $priceTiers;
 
+    /** @var null|int */
+    private $maxPriceAdjustment;
+
     /** @var null|bool */
     private $isSubscription;
 
@@ -146,49 +152,73 @@ final class Product
         $this->name = $data['name'];
         $this->url = $data['url'];
         $this->shortDescription = $data['shortDescription'];
+        if (\array_key_exists('maxPriceAdjustment', $data) === true) {
+            $this->maxPriceAdjustment = $data['maxPriceAdjustment'];
+        }
         $this->description = $data['description'];
         $this->slug = to_string($data['slug']);
         $this->minPrice = to_float($data['minPrice']);
         $this->greenTax = to_float($data['greenTax']);
-        $this->attributes = array_map(static function (array $attributeData) : ProductAttribute {
-            return new ProductAttribute($attributeData);
-        }, $data['attributes']);
+        $this->attributes = array_map(
+            static function (array $attributeData): ProductAttribute {
+                return new ProductAttribute($attributeData);
+            },
+            $data['attributes']
+        );
         $this->isTransactional = $data['isTransactional'];
         $this->weight = $data['weight'];
         if (isset($data['averageRating'])) {
             $this->averageRating = $data['averageRating'];
         }
-        $this->shippings = array_map(static function (array $shippingData) : Shipping {
-            return new Shipping($shippingData);
-        }, $data['shippings']);
-        $this->companies = array_map(static function (array $companyData) : CompanySummary {
-            return new CompanySummary($companyData);
-        }, $data['companies']);
-        $this->categoryPath = array_map(static function (array $category) : ProductCategory {
-            return new ProductCategory($category);
-        }, $data['categoryPath']);
+        $this->shippings = array_map(
+            static function (array $shippingData): Shipping {
+                return new Shipping($shippingData);
+            },
+            $data['shippings']
+        );
+        $this->companies = array_map(
+            static function (array $companyData): CompanySummary {
+                return new CompanySummary($companyData);
+            },
+            $data['companies']
+        );
+        $this->categoryPath = array_map(
+            static function (array $category): ProductCategory {
+                return new ProductCategory($category);
+            },
+            $data['categoryPath']
+        );
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;
-        $this->declinations = array_map(function (array $declination) : Declination {
+        $this->declinations = array_map(
+            function (array $declination): Declination {
             // Only available for a product
             // For a MVP we're not able to know the shippings
-            if (false === $this->isMvp()) {
-                $declination['shippings'] = $this->shippings;
-            }
+                if (false === $this->isMvp()) {
+                    $declination['shippings'] = $this->shippings;
+                }
 
-            $declination['isSubscription'] = $this->isSubscription();
-            $declination['isRenewable'] = $this->isRenewable();
+                $declination['isSubscription'] = $this->isSubscription();
+                $declination['isRenewable'] = $this->isRenewable();
 
-            return new Declination($declination);
-        }, $data['declinations']);
-        $this->options = array_map(static function (array $option) : Option {
-            return new Option($option);
-        }, $data['options']);
+                return new Declination($declination);
+            },
+            $data['declinations']
+        );
+        $this->options = array_map(
+            static function (array $option): Option {
+                return new Option($option);
+            },
+            $data['options']
+        );
         $this->geolocation = isset($data['geolocation']) ? new ProductLocation($data['geolocation']) : null;
         $this->video = isset($data['video']) ? new ProductVideo($data['video']) : null;
-        $this->attachments = array_map(static function (array $attachmentData) use ($apiBaseUrl) : ProductAttachment {
-            return new ProductAttachment($attachmentData, $apiBaseUrl);
-        }, $data['attachments'] ?? []);
+        $this->attachments = array_map(
+            static function (array $attachmentData) use ($apiBaseUrl): ProductAttachment {
+                return new ProductAttachment($attachmentData, $apiBaseUrl);
+            },
+            $data['attachments'] ?? []
+        );
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
@@ -200,15 +230,21 @@ final class Product
         if (!isset($data['images'])) {
             $this->images = [];
         } else {
-            $this->images = array_map(static function (array $imageData) : Image {
-                return new Image($imageData);
-            }, $data['images']);
+            $this->images = array_map(
+                static function (array $imageData): Image {
+                    return new Image($imageData);
+                },
+                $data['images']
+            );
         }
 
         if (isset($data['offers'])) {
-            $this->offers = array_map(function (array $offer): ProductOffer {
-                return new ProductOffer($offer);
-            }, $data['offers']);
+            $this->offers = array_map(
+                function (array $offer): ProductOffer {
+                    return new ProductOffer($offer);
+                },
+                $data['offers']
+            );
         }
         $this->priceTiers = [];
 
@@ -377,7 +413,7 @@ final class Product
             }
         }
 
-        throw new NotFound('Declination '.$declinationId.' was not found.');
+        throw new NotFound('Declination ' . $declinationId . ' was not found.');
     }
 
     /**
@@ -415,33 +451,38 @@ final class Product
 
         $givenDeclinationFound = false;
         /** @var Declination[] $result */
-        $result = array_values(array_filter($this->declinations, static function (Declination $declination) use ($currentOffer, $optionsMap, &$givenDeclinationFound): bool {
-            if ($currentOffer->getId() === $declination->getId()) {
-                $givenDeclinationFound = true;
-                // Skip the given declination, as we only want *other* offers
-                return false;
-            }
+        $result = array_values(
+            array_filter(
+                $this->declinations,
+                static function (Declination $declination) use ($currentOffer, $optionsMap, &$givenDeclinationFound): bool {
+                    if ($currentOffer->getId() === $declination->getId()) {
+                        $givenDeclinationFound = true;
+                        // Skip the given declination, as we only want *other* offers
+                        return false;
+                    }
 
-            $declinationOptions = $declination->getOptions();
-            if (count($optionsMap) !== count($declinationOptions)) {
-                // Number of options doesn't match, skip this declination
-                return false;
-            }
+                    $declinationOptions = $declination->getOptions();
+                    if (\count($optionsMap) !== \count($declinationOptions)) {
+                        // Number of options doesn't match, skip this declination
+                        return false;
+                    }
 
-            // Search for other declinations with options 100% matching those of the given offer
-            foreach ($declinationOptions as $declinationOption) {
-                $referenceOption = $optionsMap[$declinationOption->getId()] ?? null;
-                if ($referenceOption === null) {
-                    return false;
+                // Search for other declinations with options 100% matching those of the given offer
+                    foreach ($declinationOptions as $declinationOption) {
+                        $referenceOption = $optionsMap[$declinationOption->getId()] ?? null;
+                        if ($referenceOption === null) {
+                            return false;
+                        }
+
+                        if ($referenceOption->getVariantId() !== $declinationOption->getVariantId()) {
+                            return false;
+                        }
+                    }
+
+                    return true;
                 }
-
-                if ($referenceOption->getVariantId() !== $declinationOption->getVariantId()) {
-                    return false;
-                }
-            }
-
-            return true;
-        }));
+            )
+        );
 
         if (!$givenDeclinationFound) {
             throw new \InvalidArgumentException("The given declination does not belong to this product");
@@ -496,6 +537,11 @@ final class Product
     public function getCreatedAt(): ?\DateTimeInterface
     {
         return $this->createdAt;
+    }
+
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 
     /**

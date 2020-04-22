@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\User;
 
@@ -19,6 +21,7 @@ use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionFilter;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
+
 use function theodorejb\polycast\to_string;
 
 /**
@@ -78,14 +81,15 @@ final class UserService extends AbstractService
                 RequestOptions::JSON => $this->filterPayload(
                     [
                         'email' => $command->getEmail(),
-                        'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                        'title' => \is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
                         'firstName' => $command->getFirstName(),
                         'lastName' => $command->getLastName(),
                         'phone' => $command->getPhone(),
-                        'birthday' => is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                        'lang' => $command->getLanguage(),
+                        'birthday' => \is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
                         'currencyCode' => $command->getCurrencyCode(),
-                        'externalIdentifier' =>  is_null($command->getExternalIdentifier()) ? null :$command->getExternalIdentifier(),
-                        'isProfessional' => is_null($command->getIsProfessional()) ? null : $command->getIsProfessional(),
+                        'externalIdentifier' =>  \is_null($command->getExternalIdentifier()) ? null : $command->getExternalIdentifier(),
+                        'isProfessional' => \is_null($command->getIsProfessional()) ? null : $command->getIsProfessional(),
                         'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
                         'company' => $command->getCompany(),
                         'jobTitle' => $command->getJobTitle(),
@@ -244,9 +248,50 @@ final class UserService extends AbstractService
                             'lastName' => $command->getLastName(),
                             'title' => $title,
                             'phone' => $command->getPhone(),
+                            'lang' => $command->getLanguage(),
                             'birthday' => $birthday,
                             'billing' => self::serializeUserAddressUpdate($command->getBilling()),
                             'shipping' => self::serializeUserAddressUpdate($command->getShipping()),
+                            'externalIdentifier' => $command->getExternalIdentifier(),
+                            'isProfessional' => $command->getIsProfessional(),
+                            'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
+                            'company' => $command->getCompany(),
+                            'jobTitle' => $command->getJobTitle(),
+                            'comment' => $command->getComment(),
+                            'legalIdentifier' => $command->getLegalIdentifier(),
+                            'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                        ]
+                    ),
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 409) {
+                throw new UserAlreadyExists($e);
+            }
+            throw $e;
+        }
+
+        return $userData['id'];
+    }
+
+    public function registerPartially(RegisterUserCommand $command): int
+    {
+        try {
+            $userData = $this->client->post(
+                'users',
+                [
+                    RequestOptions::FORM_PARAMS => $this->filterPayload(
+                        [
+                            'email' => $command->getEmail(),
+                            'password' => $command->getPassword(),
+                            'firstName' => $command->getFirstName(),
+                            'lastName' => $command->getLastName(),
+                            'title' => \is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+                            'phone' => $command->getPhone(),
+                            'lang' => $command->getLanguage(),
+                            'birthday' => \is_null($command->getBirthday()) ? null : $command->getBirthday()->format(self::BIRTHDAY_FORMAT),
+                            'billing' => \is_null($command->getBilling()) ? null : self::serializeUserAddressUpdate($command->getBilling()),
+                            'shipping' => \is_null($command->getShipping()) ? null : self::serializeUserAddressUpdate($command->getShipping()),
                             'externalIdentifier' => $command->getExternalIdentifier(),
                             'isProfessional' => $command->getIsProfessional(),
                             'intraEuropeanCommunityVAT' => $command->getIntraEuropeanCommunityVAT(),
@@ -303,12 +348,15 @@ final class UserService extends AbstractService
      */
     public function changePasswordWithRecoveryToken(string $token, string $newPassword): void
     {
-        $this->client->put("users/password/change-with-token", [
-            RequestOptions::JSON => [
-                'token' => $token,
-                'password' => $newPassword,
-            ],
-        ]);
+        $this->client->put(
+            "users/password/change-with-token",
+            [
+                RequestOptions::JSON => [
+                    'token' => $token,
+                    'password' => $newPassword,
+                ],
+            ]
+        );
     }
 
     /**
@@ -322,11 +370,14 @@ final class UserService extends AbstractService
     public function changePassword(int $userId, string $newPassword): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put("users/$userId/password", [
-            RequestOptions::JSON => [
-                'password' => $newPassword,
-            ],
-        ]);
+        $this->client->put(
+            "users/$userId/password",
+            [
+                RequestOptions::JSON => [
+                    'password' => $newPassword,
+                ],
+            ]
+        );
     }
 
     /**
@@ -339,7 +390,7 @@ final class UserService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function enable(int $userId) : void
+    public function enable(int $userId): void
     {
         $this->client->mustBeAuthenticated();
         $this->client->post("users/{$userId}/enable");
@@ -355,7 +406,7 @@ final class UserService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function disable(int $userId) : void
+    public function disable(int $userId): void
     {
         $this->client->mustBeAuthenticated();
         $this->client->post("users/{$userId}/disable");
@@ -388,9 +439,12 @@ final class UserService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $subscription): SubscriptionSummary {
-                        return new SubscriptionSummary($subscription);
-                    }, $response['items'])
+                    array_map(
+                        function (array $subscription): SubscriptionSummary {
+                            return new SubscriptionSummary($subscription);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "User '{$userId}' not found."
@@ -405,7 +459,7 @@ final class UserService extends AbstractService
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
     {
         return [
-            'title' => is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
+            'title' => \is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
             'firstname' => $command->getFirstName(),
             'lastname' => $command->getLastName(),
             'company' => $command->getCompany(),

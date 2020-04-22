@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Order;
 
@@ -13,6 +15,7 @@ use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 
@@ -29,19 +32,51 @@ final class OrderService extends AbstractService
     /**
      * List the orders of the current user.
      *
+     * @param array $sort
+     * @param int  $start
+     * @param int  $limit
+     *
      * @return Order[]
      *
      * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getOrders(): array
+    public function getOrders(array $sort = null, int $start = null, int $limit = null): array
     {
         $this->client->mustBeAuthenticated();
-        $datas = $this->client->get('user/orders', []);
-        $orders = array_map(static function (array $orderData) : Order {
-            return new Order($orderData);
-        }, $datas);
+
+        $query = [];
+
+        if (\is_array($sort)) {
+            $stringSort = '';
+            foreach ($sort as $key => $value) {
+                $stringSort .= $key . ':' . $value . ',';
+            }
+
+            $query['sort'] = $stringSort ;
+        }
+
+        if (\is_int($start) === true) {
+            $query['start'] = $start ;
+        }
+
+        if (\is_int($limit) === true) {
+            $query['limit'] = $limit ;
+        }
+
+        $datas = $this->client->get(
+            'user/orders',
+            [
+                RequestOptions::QUERY => $query,
+            ]
+        );
+        $orders = array_map(
+            static function (array $orderData): Order {
+                return new Order($orderData);
+            },
+            $datas
+        );
 
         return $orders;
     }
@@ -60,7 +95,7 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return new Order($this->client->get('user/orders/'.$orderId, []));
+        return new Order($this->client->get('user/orders/' . $orderId, []));
     }
 
     /**
@@ -91,9 +126,12 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $data = $this->client->get("user/orders/returns", []);
-        $orderReturns = array_map(static function (array $orderReturn) : OrderReturn {
-            return new OrderReturn($orderReturn);
-        }, $data);
+        $orderReturns = array_map(
+            static function (array $orderReturn): OrderReturn {
+                return new OrderReturn($orderReturn);
+            },
+            $data
+        );
 
         return $orderReturns;
     }
@@ -170,12 +208,15 @@ final class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $this->client->post("user/orders/{$request->getOrderId()}/after-sales", [
-                RequestOptions::JSON => [
-                    'comments' => $request->getComments(),
-                    'items' => $request->getItemsDeclinationsIds(),
-                ],
-            ]);
+            $this->client->post(
+                "user/orders/{$request->getOrderId()}/after-sales",
+                [
+                    RequestOptions::JSON => [
+                        'comments' => $request->getComments(),
+                        'items' => $request->getItemsDeclinationsIds(),
+                    ],
+                ]
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$request->getOrderId()} not found", $e);
@@ -261,12 +302,15 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $this->client->post("orders/$orderId/adjustments", [
-            'json' => [
-                'itemId' => $itemId,
-                'newTotalWithoutTaxes' => $newPrice,
-            ],
-        ]);
+        $this->client->post(
+            "orders/$orderId/adjustments",
+            [
+                'json' => [
+                    'itemId' => $itemId,
+                    'newTotalWithoutTaxes' => $newPrice,
+                ],
+            ]
+        );
 
         return $this;
     }
@@ -275,9 +319,12 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         try {
-            return array_map(function (array $data): OrderAdjustment {
-                return new OrderAdjustment($data);
-            }, $this->client->get("orders/{$orderId}/adjustments"));
+            return array_map(
+                function (array $data): OrderAdjustment {
+                    return new OrderAdjustment($data);
+                },
+                $this->client->get("orders/{$orderId}/adjustments")
+            );
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
@@ -291,8 +338,133 @@ final class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        return array_map(function (array $data): SubscriptionSummary {
-            return new SubscriptionSummary($data);
-        }, $this->client->get("user/orders/${orderId}/subscriptions"));
+        return array_map(
+            function (array $data): SubscriptionSummary {
+                return new SubscriptionSummary($data);
+            },
+            $this->client->get("user/orders/${orderId}/subscriptions")
+        );
+    }
+
+    public function cancelOrder(int $orderId, string $message = null): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->post(
+                'orders/' . $orderId . '/cancel',
+                [
+                    'json' => [
+                        'message' => $message,
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new OrderNotCancellable('This order is not cancellable', [], $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /** @return Refund[] */
+    public function getOrderRefunds(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(
+                function (array $data): Refund {
+                    return new Refund($data);
+                },
+                $this->client->get("user/orders/{$orderId}/refunds")
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    public function getOrderRefund(int $orderId, int $refundId): Refund
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return new Refund($this->client->get("user/orders/{$orderId}/refunds/{$refundId}"));
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Refund #{$refundId} not found for #{$orderId}", $exception);
+            }
+
+            throw $exception;
+        }
+    }
+
+    public function postRefundOrder(int $orderId, RefundRequest $request): Refund
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->post(
+                "orders/{$orderId}/refunds",
+                [RequestOptions::JSON => $request->toArray()]
+            );
+
+            return new Refund($response);
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+
+            throw $e;
+        }
+    }
+
+    /** @return CreditNote[] */
+    public function getOrderCreditNotes(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return array_map(
+                function (array $data): CreditNote {
+                    return new CreditNote($data);
+                },
+                $this->client->get("user/orders/{$orderId}/credit-notes")
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
+
+    public function getOrderCreditNote(int $orderId, int $refundId): StreamInterface
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $options = [
+                RequestOptions::HEADERS => [
+                    "Accept" => "application/pdf",
+                ],
+            ];
+            $response = $this->client->rawRequest("GET", "user/orders/{$orderId}/credit-notes/{$refundId}", $options);
+
+            return $response->getBody();
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
     }
 }

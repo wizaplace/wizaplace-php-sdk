@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -33,6 +35,9 @@ final class BasketShippingGroup
     /** @var Price */
     private $totalPrice;
 
+    /** @var bool */
+    private $carriagePaid;
+
     /**
      * @internal
      *
@@ -42,17 +47,24 @@ final class BasketShippingGroup
     {
         $this->id = to_int($data['id']);
 
-        $this->items = array_map(static function (array $item) : BasketItem {
-            return new BasketItem($item);
-        }, $data['items']);
+        $this->items = array_map(
+            static function (array $item): BasketItem {
+                return new BasketItem($item);
+            },
+            $data['items']
+        );
 
-        $this->shippings = array_map(static function (array $shipping) : Shipping {
-            return new Shipping($shipping);
-        }, $data['shippings']);
+        $this->shippings = array_map(
+            static function (array $shipping): Shipping {
+                return new Shipping($shipping);
+            },
+            $data['shippings']
+        );
 
         $this->itemsPrice = new Price($data['itemsPrice']);
         $this->shippingPrice = new Price($data['selectedShippingPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
+        $this->carriagePaid = $data['carriagePaid'] ?? false;
     }
 
     /**
@@ -101,5 +113,10 @@ final class BasketShippingGroup
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
+    }
+
+    public function isCarriagePaid(): bool
+    {
+        return $this->carriagePaid;
     }
 }

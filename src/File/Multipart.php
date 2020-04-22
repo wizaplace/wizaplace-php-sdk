@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 namespace Wizaplace\SDK\File;
 
 use Wizaplace\SDK\ArrayableInterface;
@@ -19,7 +21,7 @@ class Multipart
      *
      * @return array
      */
-    public static function createMultipartArray(array $data, array $files) : array
+    public static function createMultipartArray(array $data, array $files): array
     {
         $dataToSend = [];
 
@@ -63,10 +65,10 @@ class Multipart
             if (empty($originalKey)) {
                 $newKey .= $key;
             } else {
-                $newKey .= '['.$key.']';
+                $newKey .= '[' . $key . ']';
             }
 
-            if (is_array($value)) {
+            if (\is_array($value)) {
                 $output = array_merge($output, self::flattenArray($value, $newKey));
             } elseif ($value instanceof ArrayableInterface) {
                 $output = array_merge($output, self::flattenArray($value->toArray(), $newKey));

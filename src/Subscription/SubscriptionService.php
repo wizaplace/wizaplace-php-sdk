@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @license     Proprietary
  * @copyright   Copyright (c) Wizacha
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Subscription;
@@ -61,9 +63,12 @@ final class SubscriptionService extends AbstractService
             $response['limit'],
             $response['offset'],
             $response['total'],
-            array_map(function (array $subscription): SubscriptionSummary {
-                return new SubscriptionSummary($subscription);
-            }, $response['items'])
+            array_map(
+                function (array $subscription): SubscriptionSummary {
+                    return new SubscriptionSummary($subscription);
+                },
+                $response['items']
+            )
         );
     }
 
@@ -112,9 +117,12 @@ final class SubscriptionService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $item): SubscriptionItem {
-                        return new SubscriptionItem($item);
-                    }, $response['items'])
+                    array_map(
+                        function (array $item): SubscriptionItem {
+                            return new SubscriptionItem($item);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "You're not allowed to access to this subscription.",
@@ -149,9 +157,12 @@ final class SubscriptionService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $item): SubscriptionTax {
-                        return new SubscriptionTax($item);
-                    }, $response['items'])
+                    array_map(
+                        function (array $item): SubscriptionTax {
+                            return new SubscriptionTax($item);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "You're not allowed to access to this subscription.",
@@ -186,9 +197,12 @@ final class SubscriptionService extends AbstractService
                     $response['limit'],
                     $response['offset'],
                     $response['total'],
-                    array_map(function (array $item): VendorOrder {
-                        return new VendorOrder($item);
-                    }, $response['items'])
+                    array_map(
+                        function (array $item): VendorOrder {
+                            return new VendorOrder($item);
+                        },
+                        $response['items']
+                    )
                 );
             },
             "You're not allowed to access to this subscription.",
@@ -208,12 +222,14 @@ final class SubscriptionService extends AbstractService
 
         return $this->assertRessourceForbiddenOrNotFound(
             function () use ($command): Subscription {
-                return new Subscription($this->client->patch(
-                    "subscriptions/{$command->getSubscriptionId()}",
-                    [
-                        RequestOptions::FORM_PARAMS => $command->toArray(),
-                    ]
-                ));
+                return new Subscription(
+                    $this->client->patch(
+                        "subscriptions/{$command->getSubscriptionId()}",
+                        [
+                            RequestOptions::FORM_PARAMS => $command->toArray(),
+                        ]
+                    )
+                );
             },
             "You're not allowed to access to this subscription.",
             "Subscription '{$command->getSubscriptionId()}' not found."

@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\MultiVendorProduct;
@@ -12,6 +14,7 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
@@ -524,14 +527,19 @@ final class MultiVendorProduct
         $validator->validate($this, null, [$context]);
         $violations = $validator->getViolations();
 
-        if (count($violations) > 0) {
+        if (\count($violations) > 0) {
             throw new SomeParametersAreInvalid(
-                'Multi Vendor Product data validation failed: '.json_encode(array_map(function (ConstraintViolationInterface $violation): array {
-                    return [
-                        'field' => $violation->getPropertyPath(),
-                        'message' => $violation->getMessage(),
-                    ];
-                }, iterator_to_array($violations)))
+                'Multi Vendor Product data validation failed: ' . json_encode(
+                    array_map(
+                        function (ConstraintViolationInterface $violation): array {
+                            return [
+                                'field' => $violation->getPropertyPath(),
+                                'message' => $violation->getMessage(),
+                            ];
+                        },
+                        iterator_to_array($violations)
+                    )
+                )
             );
         }
     }

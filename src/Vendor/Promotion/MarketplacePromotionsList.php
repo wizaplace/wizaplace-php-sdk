@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author    Wizaplace DevTeam <dev@wizaplace.com
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -57,8 +59,11 @@ final class MarketplacePromotionsList
     /** @return MarketplacePromotion[] */
     private function denormalizeItems(array $items): array
     {
-        return array_map(static function (array $item): MarketplacePromotion {
-            return new MarketplacePromotion($item);
-        }, $items);
+        return array_map(
+            static function (array $item): MarketplacePromotion {
+                return new MarketplacePromotion($item);
+            },
+            $items
+        );
     }
 }

@@ -1,10 +1,12 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Shipping;
 
@@ -116,9 +118,12 @@ class MondialRelayPoint
         $this->longitude = $data['longitude'];
         $this->activityType = $data['activityType'];
         $this->information = $data['information'];
-        $this->openingHours = array_map(function ($elt) {
-            return new MondialRelayOpening($elt);
-        }, $data['openingHours']);
+        $this->openingHours = array_map(
+            function ($elt) {
+                return new MondialRelayOpening($elt);
+            },
+            $data['openingHours']
+        );
         $this->availabilityInformation = $data['availabilityInformation'];
         $this->urlPicture = $data['urlPicture'];
         $this->urlMap = $data['urlMap'];

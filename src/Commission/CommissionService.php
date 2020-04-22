@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
@@ -54,7 +55,7 @@ final class CommissionService extends AbstractService
 
         try {
             return $this->client->post(
-                'categories/'.$commission->getCategoryId().'/commissions',
+                'categories/' . $commission->getCategoryId() . '/commissions',
                 [
                     RequestOptions::JSON => [
                         'company' => $commission->getCompanyId(),
@@ -86,7 +87,7 @@ final class CommissionService extends AbstractService
 
         try {
             return $this->client->post(
-                'companies/'.$commission->getCompanyId().'/commissions',
+                'companies/' . $commission->getCompanyId() . '/commissions',
                 [
                     RequestOptions::JSON => [
                         'category' => $commission->getCategoryId(),
@@ -119,7 +120,7 @@ final class CommissionService extends AbstractService
 
         try {
             return $this->client->patch(
-                'commissions/'.$commission->getId(),
+                'commissions/' . $commission->getId(),
                 [
                     RequestOptions::JSON => [
                         'percent' => $commission->getPercentAmount(),
@@ -148,7 +149,7 @@ final class CommissionService extends AbstractService
 
         try {
             return $this->client->patch(
-                'categories/'.$commission->getCategoryId().'/commissions/'.$commission->getId(),
+                'categories/' . $commission->getCategoryId() . '/commissions/' . $commission->getId(),
                 [
                     RequestOptions::JSON => [
                         'company' => $commission->getCompanyId(),
@@ -179,7 +180,7 @@ final class CommissionService extends AbstractService
 
         try {
             return $this->client->patch(
-                'companies/'.$commission->getCompanyId().'/commissions/'.$commission->getId(),
+                'companies/' . $commission->getCompanyId() . '/commissions/' . $commission->getId(),
                 [
                     RequestOptions::JSON => [
                         'category' => $commission->getCategoryId(),

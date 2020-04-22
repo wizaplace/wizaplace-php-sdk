@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
@@ -66,14 +68,20 @@ final class Product extends ProductSummary
         if (isset($data['main_pair']['detailed']['image_path'])) {
             $this->mainImage = self::unserializeImage($data['main_pair']);
         }
-        usort($data['image_pairs'], function ($a, $b) {
-            return $a['detailed']['position'] <=> $b['detailed']['position'];
-        });
+        usort(
+            $data['image_pairs'],
+            function ($a, $b) {
+                return $a['detailed']['position'] <=> $b['detailed']['position'];
+            }
+        );
         $this->additionalImages = array_map([self::class, 'unserializeImage'], $data['image_pairs'] ?? []);
-        $this->declinations = array_map(static function (array $declinationData): ProductDeclination {
-            return new ProductDeclination($declinationData);
-        }, $data['inventory'] ?? []);
-        $this->availibilityDate = new \DateTimeImmutable('@'.$data['avail_since']);
+        $this->declinations = array_map(
+            static function (array $declinationData): ProductDeclination {
+                return new ProductDeclination($declinationData);
+            },
+            $data['inventory'] ?? []
+        );
+        $this->availibilityDate = new \DateTimeImmutable('@' . $data['avail_since']);
         $this->infiniteStock = (bool) $data['infinite_stock'];
         $this->productTemplateType = $data['product_template_type'] ?? null;
         $this->isSubscription = $data['is_subscription'] ?? null;

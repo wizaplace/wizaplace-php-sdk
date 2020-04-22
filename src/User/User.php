@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\User;
 
@@ -62,6 +64,8 @@ final class User
     private $legalIdentifier;
     /** @var string|null */
     private $loyaltyIdentifier;
+    /** @var string|null */
+    private $lang;
 
     /**
      * @internal
@@ -83,6 +87,7 @@ final class User
         $this->status = $data['status'] ?? null;
         $this->type = empty($data['type']) ? null : new UserType($data['type']);
         $this->phone = $data['phone'] ?? null;
+        $this->lang = $data['lang'] ?? null;
         $this->currencyCode = $data['currencyCode'] ?? null;
         $this->externalIdentifier = $data['externalIdentifier'] ?? '';
         $this->isProfessional = $data['isProfessional'] ?? null;
@@ -139,6 +144,10 @@ final class User
      */
     public function getBirthday(): ?\DateTimeImmutable
     {
+        if ($this->birthday instanceof \DateTimeImmutable) {
+            $this->birthday = $this->birthday->setTime(0, 0, 0, 0);
+        }
+
         return $this->birthday;
     }
 
@@ -249,5 +258,10 @@ final class User
     public function getLoyaltyIdentifier(): ?string
     {
         return $this->loyaltyIdentifier;
+    }
+
+    public function getLanguage(): ?string
+    {
+        return $this->lang;
     }
 }

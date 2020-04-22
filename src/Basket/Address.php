@@ -1,8 +1,10 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
@@ -45,6 +47,15 @@ final class Address
     /** @var string */
     private $country;
 
+    /** @var null|string */
+    private $email;
+
+    /** @var null|string */
+    private $state;
+
+    /** @var null|string */
+    private $division;
+
     /**
      * @internal
      */
@@ -60,6 +71,9 @@ final class Address
         $this->zipCode = $data['zipcode'];
         $this->city = $data['city'];
         $this->country = $data['country'];
+        $this->email = $data['email'] ?? null;
+        $this->state = $data['state'] ?? null;
+        $this->division = $data['division'] ?? null;
     }
 
     /**
@@ -140,5 +154,23 @@ final class Address
     public function getCountry(): string
     {
         return $this->country;
+    }
+
+    /** @return null|string */
+    public function getEmail(): ?string
+    {
+        return $this->email;
+    }
+
+    /** @return null|string */
+    public function getState(): ?string
+    {
+        return $this->state;
+    }
+
+    /** @return null|string */
+    public function getDivision(): ?string
+    {
+        return $this->division;
     }
 }

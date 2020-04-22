@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Basket;
 
@@ -61,6 +63,9 @@ final class BasketItem
     /** @var array  */
     private $divisions;
 
+    /** @var null|float  */
+    private $individualTax;
+
     /**
      * @internal
      */
@@ -77,14 +82,18 @@ final class BasketItem
         }
         $this->quantity = $data['quantity'];
         $this->total = $data['total'];
-        $this->declinationOptions = array_map(static function (array $data) : DeclinationOption {
-            return new DeclinationOption($data);
-        }, $data['options'] ?? []);
+        $this->declinationOptions = array_map(
+            static function (array $data): DeclinationOption {
+                return new DeclinationOption($data);
+            },
+            $data['options'] ?? []
+        );
         $this->comment = $data['comment'];
         $this->unitPrice = new Price($data['unitPrice']);
         $this->totalPrice = new Price($data['totalPrice']);
         $this->greenTax = $data['greenTax'];
         $this->divisions = $data['divisions'] ?? [];
+        $this->individualTax = $data['individualTax'] ?? null;
     }
 
     /**
@@ -205,5 +214,11 @@ final class BasketItem
     public function getDivisions(): array
     {
         return $this->divisions;
+    }
+
+    /** @return null|float */
+    public function getIndividualTax(): ?float
+    {
+        return $this->individualTax;
     }
 }

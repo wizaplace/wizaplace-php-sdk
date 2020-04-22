@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
  * @license     Proprietary
  */
+
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
@@ -22,10 +24,15 @@ final class MarketplacePromotionService extends AbstractService
 
         return new MarketplacePromotionsList(
             $this->client->get(
-                'promotions/marketplace?'.http_build_query(array_merge([
-                    'offset' => $offset,
-                    'limit' => $limit,
-                ], \is_null($filter) ? [] : $filter->toArray()))
+                'promotions/marketplace?' . http_build_query(
+                    array_merge(
+                        [
+                            'offset' => $offset,
+                            'limit' => $limit,
+                        ],
+                        \is_null($filter) ? [] : $filter->toArray()
+                    )
+                )
             )
         );
     }
@@ -38,13 +45,19 @@ final class MarketplacePromotionService extends AbstractService
         $promotionId = $command->getPromotionId();
 
         if ($promotionId === null) {
-            $promotionData = $this->client->post('promotions/marketplace', [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->post(
+                'promotions/marketplace',
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         } else {
-            $promotionData = $this->client->patch('promotions/marketplace/'.$promotionId, [
-                RequestOptions::JSON => $data,
-            ]);
+            $promotionData = $this->client->patch(
+                'promotions/marketplace/' . $promotionId,
+                [
+                    RequestOptions::JSON => $data,
+                ]
+            );
         }
 
         return new MarketplacePromotion($promotionData);

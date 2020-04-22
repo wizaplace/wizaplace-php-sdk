@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product;
 
@@ -54,6 +56,11 @@ final class Shipping
     private $description;
 
     /**
+     * @var float|null
+     */
+    private $carriagePaidThreshold;
+
+    /**
      * Shipping constructor.
      *
      * @param array $data
@@ -68,6 +75,7 @@ final class Shipping
         $this->specificRate = $data['specific_rate'];
         $this->productId    = $data['product_id'];
         $this->description  = $data['description'];
+        $this->carriagePaidThreshold = $data['carriage_paid_threshold'] ?? null;
     }
 
     /**
@@ -132,5 +140,10 @@ final class Shipping
     public function getProductId(): int
     {
         return $this->productId;
+    }
+
+    public function getCarriagePaidThreshold(): ?float
+    {
+        return $this->carriagePaidThreshold;
     }
 }

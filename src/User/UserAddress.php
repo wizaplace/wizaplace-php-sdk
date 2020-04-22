@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\User;
 
@@ -159,10 +161,10 @@ final class UserAddress implements ArrayableInterface
     /**
      * @return array
      */
-    public function toArray() : array
+    public function toArray(): array
     {
         return [
-            'title'         => is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
+            'title'         => \is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
             'firstname'     => $this->getFirstName(),
             'lastname'      => $this->getLastName(),
             'company'       => $this->getCompany(),

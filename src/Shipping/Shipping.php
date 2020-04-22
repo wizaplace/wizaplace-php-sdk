@@ -1,9 +1,11 @@
 <?php
+
 /**
  * @copyright Copyright (c) Wizacha
  * @license Proprietary
  */
-declare(strict_types = 1);
+
+declare(strict_types=1);
 
 namespace Wizaplace\SDK\Shipping;
 
@@ -34,6 +36,9 @@ final class Shipping
     /** @var string|null */
     private $description;
 
+    /** @var float|null */
+    private $carriagePaidThreshold;
+
     /**
      * @internal
      *
@@ -41,18 +46,22 @@ final class Shipping
      */
     public function __construct(array $data)
     {
-        $this->id = $data['shipping_id'];
-        $this->name = $data['shipping'];
-        $this->deliveryTime = $data['delivery_time'];
-        $this->isEnabled = $data['status'] === "A";
+        $this->id = $data['shipping_id'] ?? null;
+        $this->name = $data['shipping'] ?? null;
+        $this->deliveryTime = $data['delivery_time'] ?? null;
+        $this->isEnabled = \array_key_exists('status', $data) ? $data['status'] === "A" : null;
 
         if (isset($data['rates'])) {
-            $this->rates = array_map(function ($rate) {
-                return new ShippingRate($rate);
-            }, $data['rates']);
+            $this->rates = array_map(
+                function ($rate) {
+                    return new ShippingRate($rate);
+                },
+                $data['rates']
+            );
         }
         $this->position = $data['position'] ?? null;
         $this->description = $data['description'] ?? null;
+        $this->carriagePaidThreshold = $data['carriage_paid_threshold'] ?? null;
     }
 
     /**
@@ -107,5 +116,10 @@ final class Shipping
     public function getDescription(): ?string
     {
         return $this->description;
+    }
+
+    public function getCarriagePaidThreshold(): ?float
+    {
+        return $this->carriagePaidThreshold;
     }
 }
