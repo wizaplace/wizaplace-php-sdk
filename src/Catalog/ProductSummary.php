@@ -67,6 +67,8 @@ final class ProductSummary
     private $isSubscription;
     /** @var null|bool */
     private $isRenewable;
+    /** @var null|int */
+    private $maxPriceAdjustment;
 
     /**
      * @internal
@@ -130,6 +132,7 @@ final class ProductSummary
         }
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;
+        $this->maxPriceAdjustment = \array_key_exists('maxPriceAdjustment', $data) === true ? $data['maxPriceAdjustment'] : null;
     }
 
     /**
@@ -315,5 +318,10 @@ final class ProductSummary
     public function isRenewable(): ?bool
     {
         return $this->isRenewable;
+    }
+
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 }

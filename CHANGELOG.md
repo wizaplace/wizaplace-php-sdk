@@ -23,6 +23,8 @@
 ## New features
 
 - Added `Wizaplace\SDK\Basket\PaymentInformation::getParentOrderId`
+- Added `Wizaplace\SDK\Catalog\ProductSummary::getMaxPriceAdjustment`
+- Added `Wizaplace\SDK\Catalog\Declination::getMaxPriceAdjustment`
 
 ## 1.100.26
 

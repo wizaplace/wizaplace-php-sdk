@@ -85,6 +85,9 @@ final class Declination
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|int */
+    private $maxPriceAdjustment;
+
     /**
      * @internal
      *
@@ -136,6 +139,7 @@ final class Declination
 
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;
+        $this->maxPriceAdjustment = \array_key_exists('maxPriceAdjustment', $data) === true ? $data['maxPriceAdjustment'] : null;
     }
 
     /**
@@ -387,5 +391,10 @@ final class Declination
         $this->isRenewable = $isRenewable;
 
         return $this;
+    }
+
+    public function getMaxPriceAdjustment(): ?int
+    {
+        return $this->maxPriceAdjustment;
     }
 }

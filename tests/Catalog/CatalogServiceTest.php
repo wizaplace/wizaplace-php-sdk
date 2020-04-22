@@ -753,6 +753,17 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService->getProductById('404');
     }
 
+    public function testSearchReturnMaxPriceAdjustment(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search('Product with shippings');
+        $products = $result->getProducts();
+        static::assertCount(1, $products);
+        $product = $products[0];
+        static::assertNull($product->getMaxPriceAdjustment());
+    }
+
     public function testSearchOneProductByName(): void
     {
         $catalogService = $this->buildCatalogService();
