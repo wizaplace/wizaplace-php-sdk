@@ -13,6 +13,7 @@ use GuzzleHttp\Psr7\Response;
 use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
+use Wizaplace\SDK\Catalog\AttributeFilter;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Catalog\Category;
@@ -2629,5 +2630,79 @@ final class CatalogServiceTest extends ApiTestCase
         $product = $catalogService->getProductById('2');
 
         static::assertSame(0.0, $product->getAverageRating());
+    }
+
+    public function testGetAttributesByFiltersUsingOneId(): void
+    {
+        $filters = (new AttributeFilter())->setIds([1]);
+
+        $catalogService = $this->buildCatalogService();
+        $attributes = $catalogService->getAttributes($filters);
+
+        static::assertCount(1, $attributes);
+
+        $attribute = $attributes[0];
+        static::assertInstanceOf(Attribute::class, $attribute);
+        static::assertSame(1, $attribute->getId());
+        static::assertSame(0, $attribute->getPosition());
+        static::assertSame('Couleur', $attribute->getName());
+        static::assertTrue(AttributeType::CHECKBOX_MULTIPLE()->equals($attribute->getType()));
+        static::assertNull($attribute->getParentId());
+    }
+
+    public function testGetAttributesByFiltersUsingManyIds(): void
+    {
+        $ids = [1, 2];
+        $filters = (new AttributeFilter())->setIds($ids);
+
+        $catalogService = $this->buildCatalogService();
+        $attributes = $catalogService->getAttributes($filters);
+
+        static::assertCount(2, $attributes);
+
+        foreach ($attributes as $key => $attribute) {
+            static::assertInstanceOf(Attribute::class, $attribute);
+            static::assertSame($ids[$key], $attribute->getId());
+        }
+    }
+
+    public function testGetAttributesByFiltersUsingIOneCode(): void
+    {
+        $filters = (new AttributeFilter())->setCodes(['code commentaire']);
+
+        $catalogService = $this->buildCatalogService();
+        $attributes = $catalogService->getAttributes($filters);
+
+        static::assertCount(1, $attributes);
+
+        $attribute = $attributes[0];
+        static::assertInstanceOf(Attribute::class, $attribute);
+        static::assertSame(3, $attribute->getId());
+        static::assertSame(0, $attribute->getPosition());
+        static::assertSame('Commentaire', $attribute->getName());
+        static::assertTrue(AttributeType::FREE_TEXT()->equals($attribute->getType()));
+        static::assertNull($attribute->getParentId());
+    }
+
+    public function testGetAttributesByFilters(): void
+    {
+        $filters = (new AttributeFilter())
+            ->setIds([1, 2, 3,])
+            ->setCodes(['code commentaire',]);
+
+        $catalogService = $this->buildCatalogService();
+        $attributes = $catalogService->getAttributes($filters);
+
+        static::assertCount(1, $attributes);
+        static::assertSame(3, $attributes[0]->getId());
+        static::assertSame('code commentaire', $attributes[0]->getCode());
+    }
+
+    public function testGetAttributesWithoutFilter(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $attributes = $catalogService->getAttributes();
+
+        static::assertCount(13, $attributes);
     }
 }

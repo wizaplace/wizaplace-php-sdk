@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 23 Apr 2020 15:24:46 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: dc1c24
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dc1c24'
+            X-Request-Id: 1deacc225774ec993c46f3ae4543fd64
+        body: '[{"id":1,"code":"","name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":2,"code":"","name":"Taille","position":0,"parentId":null,"type":"LIST_TEXT"},{"id":3,"code":"code commentaire","name":"Commentaire","position":0,"parentId":null,"type":"FREE_TEXT"},{"id":4,"code":"","name":"Groupe attributs","position":0,"parentId":null,"type":"GROUP"},{"id":5,"code":"","name":"Couleur secondaire","position":0,"parentId":4,"type":"CHECKBOX_MULTIPLE"},{"id":6,"code":"","name":"Pointure","position":0,"parentId":4,"type":"LIST_TEXT"},{"id":7,"code":"","name":"Compl\u00e9ment adresse","position":0,"parentId":4,"type":"FREE_TEXT"},{"id":8,"code":"","name":"Groupe vide","position":0,"parentId":null,"type":"GROUP"},{"id":9,"code":"","name":"Marque","position":0,"parentId":null,"type":"LIST_BRAND"},{"id":10,"code":"","name":"color","position":0,"parentId":null,"type":"FREE_TEXT"},{"id":11,"code":"","name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":12,"code":"","name":"Dimensions","position":0,"parentId":null,"type":"GROUP"},{"id":13,"code":"","name":"Hauteur","position":0,"parentId":12,"type":"FREE_NUMBER"}]'

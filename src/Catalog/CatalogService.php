@@ -301,13 +301,19 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param null|AttributeFilter $attributeFilter
+     *
      * @return Attribute[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getAttributes(): array
+    public function getAttributes(AttributeFilter $attributeFilter = null): array
     {
-        $attributesData = $this->client->get("catalog/attributes");
+        if (\is_null($attributeFilter) === true) {
+            $attributesData = $this->client->get('catalog/attributes');
+        } else {
+            $attributesData = $this->client->get('catalog/attributes', [RequestOptions::QUERY => array_merge($attributeFilter->getFilters())]);
+        }
 
         return array_map([$this, 'unserializeAttribute'], $attributesData);
     }

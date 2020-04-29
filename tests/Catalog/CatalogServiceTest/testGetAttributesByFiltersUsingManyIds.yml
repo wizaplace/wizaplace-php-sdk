@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/attributes?id%5B0%5D=1&id%5B1%5D=2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 23 Apr 2020 15:24:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6965eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6965eb'
+            X-Request-Id: 3aec352a3db9446370ff1a2d04968f7a
+        body: '[{"id":1,"code":"","name":"Couleur","position":0,"parentId":null,"type":"CHECKBOX_MULTIPLE"},{"id":2,"code":"","name":"Taille","position":0,"parentId":null,"type":"LIST_TEXT"}]'
