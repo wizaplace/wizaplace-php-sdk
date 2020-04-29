@@ -1,36 +1,38 @@
 <?php
 
 /**
- * @copyright Copyright (c) Wizacha
- * @license Proprietary
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
  */
 
-namespace Wizaplace\SDK\Division;
+declare(strict_types=1);
+
+namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Division\DivisionSettings;
 use Wizaplace\SDK\Exception\AccessDenied;
-use Wizaplace\SDK\Exception\FeatureNotEnabled;
 use Wizaplace\SDK\Exception\NotFound;
 
-/**
- * Class DivisionService
- * @package Wizaplace\SDK\Division
- */
 class DivisionService extends AbstractService
 {
-    public function getDivisionsSettings(): DivisionSettings
+    public function getDivisionsSettings(int $productId): DivisionSettings
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return new DivisionSettings($this->client->get("divisions"));
+            return new DivisionSettings($this->client->get("products/{$productId}/divisions"));
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin.");
+                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    break;
+                case Response::HTTP_NOT_FOUND:
+                    $exception = new NotFound("Product '$productId' not found.");
                     break;
                 default:
                     $exception = $previousException;
@@ -39,13 +41,13 @@ class DivisionService extends AbstractService
         }
     }
 
-    public function patchDivisionsSettings(DivisionSettings $divisionSettings): void
+    public function patchDivisionsSettings(int $productId, DivisionSettings $divisionSettings): void
     {
         $this->client->mustBeAuthenticated();
 
         try {
             $this->client->patch(
-                "divisions",
+                "products/{$productId}/divisions",
                 [
                     RequestOptions::JSON => [
                         'included' => $divisionSettings->getIncluded(),
@@ -56,7 +58,10 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin.");
+                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    break;
+                case Response::HTTP_NOT_FOUND:
+                    $exception = new NotFound("Product '$productId' not found.");
                     break;
                 default:
                     $exception = $previousException;

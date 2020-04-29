@@ -1,28 +1,31 @@
 <?php
 
 /**
- * @copyright Copyright (c) Wizacha
- * @license Proprietary
+ * @author      Wizacha DevTeam <dev@wizacha.com>
+ * @copyright   Copyright (c) Wizacha
+ * @license     Proprietary
  */
 
-namespace Wizaplace\SDK\Tests\Division;
+declare(strict_types=1);
 
-use Wizaplace\SDK\Division\DivisionService;
+namespace Wizaplace\SDK\Tests\Company;
+
+use Wizaplace\SDK\Company\DivisionService;
 use Wizaplace\SDK\Division\DivisionSettings;
 use Wizaplace\SDK\Tests\ApiTestCase;
 
 class DivisionServiceTest extends ApiTestCase
 {
-    public function testGetDivisionsSettings(): void
+    public function testGetCompanyDivisionsSettings(): void
     {
         $divisionService = $this->buildDivisionService();
-        $divisionsSettings = $divisionService->getDivisionsSettings();
+        $divisionsSettings = $divisionService->getDivisionsSettings(3);
 
         static::assertEquals(['FR'], $divisionsSettings->getIncluded());
         static::assertEquals(['FR-59', 'FR-IDF'], $divisionsSettings->getExcluded());
     }
 
-    public function testPatchDivisionsSettings(): void
+    public function testPatchCompanyDivisionsSettings(): void
     {
         $divisionService = $this->buildDivisionService();
         $data = [
@@ -30,15 +33,15 @@ class DivisionServiceTest extends ApiTestCase
             'excluded' => ['FR-ARA', 'FR-NC']
         ];
         $divisionsSettings = new DivisionSettings($data);
-        $divisionService->patchDivisionsSettings($divisionsSettings);
+        $divisionService->patchDivisionsSettings(3, $divisionsSettings);
 
-        static::assertEquals($data['included'], $divisionService->getDivisionsSettings()->getIncluded());
-        static::assertEquals($data['excluded'], $divisionService->getDivisionsSettings()->getExcluded());
+        static::assertEquals($data['included'], $divisionService->getDivisionsSettings(3)->getIncluded());
+        static::assertEquals($data['excluded'], $divisionService->getDivisionsSettings(3)->getExcluded());
     }
 
     private function buildDivisionService(
-        string $email = 'admin@wizaplace.com',
-        string $password = 'password'
+        string $email = 'vendor@world-company.com',
+        string $password = 'password-vendor'
     ): DivisionService {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, $password);

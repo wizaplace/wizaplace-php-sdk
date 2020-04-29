@@ -89,6 +89,19 @@
 ### New features
 
 - Update `Wizaplace/SDK/Seo/SeoService.php::listSlugs` add 2 optional params `$offset` and `$limit`
+- Added `Wizaplace\SDK\Division\DivisionSettings`
+- Added `Wizaplace\SDK\Division\DivisionSettings::getIncluded`
+- Added `Wizaplace\SDK\Division\DivisionSettings::setIncluded`
+- Added `Wizaplace\SDK\Division\DivisionSettings::getExcluded`
+- Added `Wizaplace\SDK\Division\DivisionSettings::setExcluded`
+- Added `Wizaplace\SDK\Division\DivisionService::getDivisionsSettings`
+- Added `Wizaplace\SDK\Division\DivisionService::patchDivisionsSettings`
+- Added `Wizaplace\SDK\Company\DivisionService`
+- Added `Wizaplace\SDK\Company\DivisionService::getDivisionsSettings`
+- Added `Wizaplace\SDK\Company\DivisionService::patchDivisionsSettings`
+- Added `Wizaplace\SDK\Pim\Product\DivisionService`
+- Added `Wizaplace\SDK\Pim\Product\DivisionService::getDivisionsSettings`
+- Added `Wizaplace\SDK\Pim\Product\DivisionService::patchDivisionsSettings`
 
 ## 1.102.2
 

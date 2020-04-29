@@ -1,0 +1,122 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 Apr 2020 12:45:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3c7c58
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3c7c58'
+            X-Request-Id: 475e93d32a3821e6f19d647b83d75e21
+        body: '{"id":6,"apiKey":"JqagaN8ynK\/ZGbTrhQ0DSoDa2eZwNc6qHptkZsiq"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token JqagaN8ynK/ZGbTrhQ0DSoDa2eZwNc6qHptkZsiq'
+            VCR-index: '1'
+            Accept: null
+        body: '{"included":["FR"],"excluded":["FR-ARA","FR-NC"]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 Apr 2020 12:45:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 36e5fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/36e5fd'
+            X-Request-Id: 635444c2b327799107ea8a32feba08cc
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token JqagaN8ynK/ZGbTrhQ0DSoDa2eZwNc6qHptkZsiq'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 Apr 2020 12:45:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d7f8ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d7f8ed'
+            X-Request-Id: 4498361ab42943597add12c80170cc8a
+        body: '{"included":["FR"],"excluded":["FR-ARA","FR-NC"]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'token JqagaN8ynK/ZGbTrhQ0DSoDa2eZwNc6qHptkZsiq'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 03 Apr 2020 12:45:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '642411'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/642411'
+            X-Request-Id: 92a3a2d04ae06dfe7eea8e7ebe26d325
+        body: '{"included":["FR"],"excluded":["FR-ARA","FR-NC"]}'

@@ -1109,40 +1109,6 @@ final class ProductServiceTest extends ApiTestCase
         $productService->putShipping(1, $command);
     }
 
-    public function testGettingAListOfDivisionsCountriesCode(): void
-    {
-        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
-
-        $countriesCodes = $service->getDivisionsCountriesCodes(1);
-        static::assertCount(1, $countriesCodes);
-        static::assertEquals("FR", $countriesCodes[0]);
-    }
-
-    public function testGettingAListOfDivisionsProducts(): void
-    {
-        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
-
-        $divisions = $service->getDivisions(1, 'FR');
-        static::assertCount(3, $divisions);
-
-        static::assertTrue(\in_array('FR', $divisions));
-        static::assertTrue(\in_array('FR-ARA', $divisions));
-        static::assertTrue(\in_array('FR-03', $divisions));
-    }
-
-    public function testSettingDivisionsProducts(): void
-    {
-        $service = $this->buildProductService('vendor@world-company.com', 'password-vendor');
-
-        $divisions = $service->putDivisions(1, 'FR', ['FR-01', 'FR-03']);
-        static::assertCount(4, $divisions);
-
-        static::assertTrue(\in_array('FR', $divisions));
-        static::assertTrue(\in_array('FR-ARA', $divisions));
-        static::assertTrue(\in_array('FR-01', $divisions));
-        static::assertTrue(\in_array('FR-03', $divisions));
-    }
-
     public function testAddVideo(): void
     {
         $data = (new CreateProductCommand())

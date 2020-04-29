@@ -2774,21 +2774,6 @@ final class CatalogServiceTest extends ApiTestCase
         return $a->getId() <=> $b->getId();
     }
 
-    /**
-     * Recursive test for divisions
-     *
-     * @param Division[] $divisions
-     */
-    private function divisionTester(array $divisions)
-    {
-        foreach ($divisions as $division) {
-            $this->assertInstanceOf(Division::class, $division);
-            if (!empty($division->getChildren())) {
-                $this->divisionTester($division->getChildren());
-            }
-        }
-    }
-
     public function testAverageRaitingOnProductHasComments(): void
     {
         $catalogService = $this->buildCatalogService();
