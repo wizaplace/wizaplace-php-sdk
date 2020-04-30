@@ -118,9 +118,11 @@ interface CatalogServiceInterface
     public function getCompanies(): array;
 
     /**
+     * @param null|AttributeFilter $attributeFilter
+     *
      * @return Attribute[]
      */
-    public function getAttributes(): array;
+    public function getAttributes(AttributeFilter $attributeFilter = null): array;
 
     /**
      * @param int $attributeId

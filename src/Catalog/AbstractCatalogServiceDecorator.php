@@ -164,11 +164,13 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
     }
 
     /**
+     * @param null|AttributeFilter $attributeFilter
+     *
      * @return Attribute[]
      */
-    public function getAttributes(): array
+    public function getAttributes(AttributeFilter $attributeFilter = null): array
     {
-        return $this->decorated->getAttributes();
+        return $this->decorated->getAttributes($attributeFilter);
     }
 
     /**
