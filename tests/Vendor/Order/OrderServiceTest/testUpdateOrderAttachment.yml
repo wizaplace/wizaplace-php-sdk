@@ -1,0 +1,99 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 09:26:29 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 24855f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/24855f'
+            X-Request-Id: ead7ae7b799bc166266b510e13eea96b
+        body: '{"id":6,"apiKey":"5MdHHw4OW4im3sBYmOvz7bxVMNfLPoYCpNIAsesZ"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/1/attachments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=7a66ab25c20c9f36f2b8082191a3d3b4eb185ca2'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 5MdHHw4OW4im3sBYmOvz7bxVMNfLPoYCpNIAsesZ'
+            VCR-index: '1'
+            Accept: null
+        body: "--7a66ab25c20c9f36f2b8082191a3d3b4eb185ca2\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--7a66ab25c20c9f36f2b8082191a3d3b4eb185ca2\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--7a66ab25c20c9f36f2b8082191a3d3b4eb185ca2\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 16\r\n\r\nCUSTOMER_INVOICE\r\n--7a66ab25c20c9f36f2b8082191a3d3b4eb185ca2--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 09:26:30 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0a498e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0a498e'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220a498e%22%2C%22route%22%3A%22api_order_attachment_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrder%5C%5COrderAttachmentController%22%2C%22method%22%3A%22postOrderAttachmentAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrder%5C%2FOrderAttachmentController.php%22%2C%22line%22%3A43%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 87e3263803721f8c7f5c5372bd2e683b
+        body: '{"id":"5fa5aaa6-6986-44fb-8e71-4beb88363130","name":"Faridoux","filename":"minimal.pdf","createdAt":"2020-04-17T11:26:30+02:00","updatedAt":"2020-04-17T11:26:30+02:00","url":"http:\/\/wizaplace.loc\/api\/v1\/orders\/1\/attachments\/5fa5aaa6-6986-44fb-8e71-4beb88363130\/download","type":"CUSTOMER_INVOICE","createdBy":6,"updatedBy":6}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/orders/1/attachments/5fa5aaa6-6986-44fb-8e71-4beb88363130'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 5MdHHw4OW4im3sBYmOvz7bxVMNfLPoYCpNIAsesZ'
+            VCR-index: '2'
+            Accept: null
+        body: '{"name":"TeamFaridouxRPZ","type":"DELIVERY_BILL"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 09:26:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7a88a1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7a88a1'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%227a88a1%22%2C%22route%22%3A%22api_order_attachment_update%22%2C%22method%22%3A%22PATCH%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrder%5C%5COrderAttachmentController%22%2C%22method%22%3A%22updateOrderAttachmentAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrder%5C%2FOrderAttachmentController.php%22%2C%22line%22%3A127%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 7790048216580f380bd853791b0ca1fc
+        body: '{"id":"5fa5aaa6-6986-44fb-8e71-4beb88363130","name":"TeamFaridouxRPZ","filename":"minimal.pdf","createdAt":"2020-04-17T11:26:30+02:00","updatedAt":"2020-04-17T11:26:31+02:00","url":"http:\/\/wizaplace.loc\/api\/v1\/orders\/1\/attachments\/5fa5aaa6-6986-44fb-8e71-4beb88363130\/download","type":"DELIVERY_BILL","createdBy":6,"updatedBy":6}'

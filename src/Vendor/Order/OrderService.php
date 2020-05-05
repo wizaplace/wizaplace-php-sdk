@@ -13,14 +13,17 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\StreamInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\CreditNote;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\Refund;
+use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -504,6 +507,198 @@ class OrderService extends AbstractService
         } catch (ClientException $exception) {
             if ($exception->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Refund {$refundId} not found for order {$orderId}", $exception);
+            }
+
+            throw $exception;
+        }
+    }
+
+    /** @param mixed[] $orderAttachmentData */
+    public function postOrderAttachment(int $orderId, array $orderAttachmentData): OrderAttachment
+    {
+        $this->client->mustBeAuthenticated();
+
+        $payload = [];
+
+        if (\array_key_exists('name', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'name',
+                'contents' => $orderAttachmentData['name'],
+            ];
+        }
+
+        if (\array_key_exists('file', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'file',
+                'contents' => $orderAttachmentData['file'],
+            ];
+        }
+
+        if (\array_key_exists('type', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'type',
+                'contents' => $orderAttachmentData['type'],
+            ];
+        }
+
+        if (\array_key_exists('url', $orderAttachmentData) === true) {
+            $payload[] = [
+                'name' => 'url',
+                'contents' => $orderAttachmentData['url'],
+            ];
+        }
+
+        try {
+            $response = $this->client->post(
+                "orders/$orderId/attachments",
+                [RequestOptions::MULTIPART => $payload]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new OrderNotFound("Order #{$orderId} not found");
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function getOrderAttachment(int $orderId, string $orderAttachmentId): OrderAttachment
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get(
+                "orders/$orderId/attachments/$orderAttachmentId"
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function listOrderAttachment(int $orderId, OrderAttachmentFilter $filter): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get(
+                "orders/$orderId/attachments",
+                [RequestOptions::QUERY => $filter->getFilters()]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new OrderNotFound("Order #{$orderId} not found");
+            }
+
+            throw $exception;
+        }
+
+        return new PaginatedData(
+            $response['limit'],
+            $response['offset'],
+            $response['total'],
+            array_map(
+                /** @param mixed[] $subscription */
+                function (array $subscription): OrderAttachment {
+                    return new OrderAttachment($subscription);
+                },
+                $response['items']
+            )
+        );
+    }
+
+    /** @param mixed[] $orderAttachmentData */
+    public function updateOrderAttachment(
+        int $orderId,
+        string $orderAttachmentId,
+        array $orderAttachmentData
+    ): OrderAttachment {
+        $this->client->mustBeAuthenticated();
+
+        $payload = [];
+
+        if (\array_key_exists('name', $orderAttachmentData) === true) {
+            $payload['name'] = $orderAttachmentData['name'];
+        }
+
+        if (\array_key_exists('type', $orderAttachmentData) === true) {
+            $payload['type'] = $orderAttachmentData['type'];
+        }
+
+        try {
+            $response = $this->client->patch(
+                "orders/$orderId/attachments/$orderAttachmentId",
+                [RequestOptions::JSON => $payload]
+            );
+        } catch (ClientException $exception) {
+            $statusCode = $exception->getResponse()->getStatusCode();
+
+            if ($statusCode === Response::HTTP_BAD_REQUEST) {
+                throw new SomeParametersAreInvalid($exception->getMessage());
+            }
+
+            if ($statusCode === Response::HTTP_FORBIDDEN) {
+                throw new AccessDenied('Access denied.');
+            }
+
+            if ($statusCode === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
+            }
+
+            throw $exception;
+        }
+
+        return new OrderAttachment($response);
+    }
+
+    public function deleteOrderAttachment(int $orderId, string $orderAttachmentId): void
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $this->client->delete(
+                "orders/$orderId/attachments/$orderAttachmentId"
+            );
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === Response::HTTP_NOT_FOUND) {
+                throw new NotFound("Order #{$orderId} or attachment #{$orderAttachmentId} not found", $exception);
             }
 
             throw $exception;

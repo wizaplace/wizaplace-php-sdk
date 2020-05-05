@@ -1,5 +1,16 @@
 # Changelog
 
+## New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::postOrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::listOrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::updateOrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::deleteOrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderAttachment`
+- Added `Wizaplace\SDK\Vendor\Order\OrderAttachmentFilter`
+- Added `Wizaplace\SDK\Vendor\Order\OrderAttachmentType`
+
 ## 1.104.8
 
 ### New features

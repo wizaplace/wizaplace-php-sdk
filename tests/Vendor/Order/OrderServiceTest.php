@@ -11,9 +11,13 @@ namespace Wizaplace\SDK\Tests\Vendor\Order;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
+use Nette\Utils\DateTime;
+use Rhumsaa\Uuid\Uuid;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\RefundStatus;
+use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Shipping\Shipping;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
@@ -26,6 +30,9 @@ use Wizaplace\SDK\Vendor\Order\CreateLabelCommand;
 use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
+use Wizaplace\SDK\Vendor\Order\OrderAttachment;
+use Wizaplace\SDK\Vendor\Order\OrderAttachmentFilter;
+use Wizaplace\SDK\Vendor\Order\OrderAttachmentType;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
 use Wizaplace\SDK\Vendor\Order\OrderListFilter;
 use Wizaplace\SDK\Vendor\Order\OrderService;
@@ -800,6 +807,171 @@ class OrderServiceTest extends ApiTestCase
         $billingAddress = $order->getBillingAddress();
         static::assertInstanceOf(OrderAddress::class, $billingAddress);
         static::assertSame('mr', $billingAddress->getTitle()->getValue());
+    }
+
+    public function testPostOrderAttachment(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $orderAttachmentData = [
+            'name' => 'Faridoux',
+            'type' => OrderAttachmentType::CUSTOMER_INVOICE(),
+            'file' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ];
+
+        $orderAttachment = $orderService->postOrderAttachment(1, $orderAttachmentData);
+
+        static::assertTrue(\is_string($orderAttachment->getId()));
+        static::assertSame('Faridoux', $orderAttachment->getName());
+        static::assertSame('minimal.pdf', $orderAttachment->getFilename());
+        static::assertEquals(OrderAttachmentType::CUSTOMER_INVOICE(), $orderAttachment->getType());
+        static::assertTrue(\is_string($orderAttachment->getUrl()));
+        static::assertSame(6, $orderAttachment->getCreatedBy());
+        static::assertSame(6, $orderAttachment->getUpdatedBy());
+        static::assertEquals(new \DateTime('2020-04-06T13:50:34+02:00'), $orderAttachment->getCreatedAt());
+        static::assertEquals(new \DateTime('2020-04-06T13:50:34+02:00'), $orderAttachment->getUpdatedAt());
+    }
+
+    public function testGetOrderAttachment(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $orderAttachmentData = [
+            'name' => 'Faridoux',
+            'type' => OrderAttachmentType::CUSTOMER_INVOICE(),
+            'file' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ];
+
+        $orderAttachment = $orderService->postOrderAttachment(1, $orderAttachmentData);
+
+        $getOrderAttachment = $orderService->getOrderAttachment(1, $orderAttachment->getId());
+
+        static::assertSame($orderAttachment->getId(), $getOrderAttachment->getId());
+        static::assertSame($orderAttachment->getName(), $getOrderAttachment->getName());
+        static::assertSame($orderAttachment->getFilename(), $getOrderAttachment->getFilename());
+        static::assertEquals($orderAttachment->getType(), $getOrderAttachment->getType());
+        static::assertSame($orderAttachment->getUrl(), $getOrderAttachment->getUrl());
+        static::assertEquals($orderAttachment->getCreatedAt(), $getOrderAttachment->getCreatedAt());
+        static::assertEquals($orderAttachment->getUpdatedAt(), $getOrderAttachment->getUpdatedAt());
+        static::assertSame($orderAttachment->getCreatedBy(), $getOrderAttachment->getCreatedBy());
+        static::assertSame($orderAttachment->getUpdatedBy(), $getOrderAttachment->getUpdatedBy());
+    }
+
+    public function testListOrderAttachments(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $orderAttachmentData = [
+            'name' => 'Faridoux',
+            'type' => OrderAttachmentType::CUSTOMER_INVOICE(),
+            'file' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ];
+
+        $orderService->postOrderAttachment(1, $orderAttachmentData);
+        $orderService->postOrderAttachment(1, $orderAttachmentData);
+        $orderAttachmentData['type'] = OrderAttachmentType::DELIVERY_BILL();
+        $orderService->postOrderAttachment(1, $orderAttachmentData);
+        $orderAttachment1 = $orderService->postOrderAttachment(1, $orderAttachmentData);
+        $orderAttachment2 = $orderService->postOrderAttachment(1, $orderAttachmentData);
+
+        $listOrderAttachments = $orderService->listOrderAttachment(
+            1,
+            (new OrderAttachmentFilter())
+                ->setOffset(1)
+                ->setLimit(4)
+                ->setType(OrderAttachmentType::DELIVERY_BILL())
+        );
+
+        $items = $listOrderAttachments->getItems();
+        static::assertTrue($listOrderAttachments instanceof PaginatedData);
+        static::assertSame(1, $listOrderAttachments->getOffset());
+        static::assertSame(4, $listOrderAttachments->getLimit());
+        static::assertSame(2, $listOrderAttachments->getTotal());
+        static::assertCount(2, $items);
+
+        static::assertInstanceOf(OrderAttachment::class, $items[0]);
+        static::assertSame($orderAttachment1->getId(), $items[0]->getId());
+        static::assertSame($orderAttachment1->getName(), $items[0]->getName());
+        static::assertSame($orderAttachment1->getFilename(), $items[0]->getFilename());
+        static::assertEquals($orderAttachment1->getType(), $items[0]->getType());
+        static::assertSame($orderAttachment1->getUrl(), $items[0]->getUrl());
+        static::assertEquals($orderAttachment1->getCreatedAt(), $items[0]->getCreatedAt());
+        static::assertEquals($orderAttachment1->getUpdatedAt(), $items[0]->getUpdatedAt());
+        static::assertSame($orderAttachment1->getCreatedBy(), $items[0]->getCreatedBy());
+        static::assertSame($orderAttachment1->getUpdatedBy(), $items[0]->getUpdatedBy());
+
+        static::assertInstanceOf(OrderAttachment::class, $items[1]);
+        static::assertSame($orderAttachment2->getId(), $items[1]->getId());
+        static::assertSame($orderAttachment2->getName(), $items[1]->getName());
+        static::assertSame($orderAttachment2->getFilename(), $items[1]->getFilename());
+        static::assertEquals($orderAttachment2->getType(), $items[1]->getType());
+        static::assertSame($orderAttachment2->getUrl(), $items[1]->getUrl());
+        static::assertEquals($orderAttachment2->getCreatedAt(), $items[1]->getCreatedAt());
+        static::assertEquals($orderAttachment2->getUpdatedAt(), $items[1]->getUpdatedAt());
+        static::assertSame($orderAttachment2->getCreatedBy(), $items[1]->getCreatedBy());
+        static::assertSame($orderAttachment2->getUpdatedBy(), $items[1]->getUpdatedBy());
+    }
+
+    public function testUpdateOrderAttachment(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $orderAttachmentData = [
+            'name' => 'Faridoux',
+            'type' => OrderAttachmentType::CUSTOMER_INVOICE(),
+            'file' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ];
+
+        $orderAttachment = $orderService->postOrderAttachment(1, $orderAttachmentData);
+
+        $payload = [
+            'name' => 'TeamFaridouxRPZ',
+            'type' => OrderAttachmentType::DELIVERY_BILL(),
+        ];
+
+        $orderAttachmentUpdated = $orderService->updateOrderAttachment(1, $orderAttachment->getId(), $payload);
+
+        static::assertSame($orderAttachment->getId(), $orderAttachmentUpdated->getId());
+        static::assertSame('TeamFaridouxRPZ', $orderAttachmentUpdated->getName());
+        static::assertSame('minimal.pdf', $orderAttachmentUpdated->getFilename());
+        static::assertEquals(OrderAttachmentType::DELIVERY_BILL(), $orderAttachmentUpdated->getType());
+        static::assertEquals($orderAttachment->getCreatedAt(), $orderAttachmentUpdated->getCreatedAt());
+        static::assertNotEquals($orderAttachment->getUpdatedAt(), $orderAttachmentUpdated->getUpdatedAt());
+        static::assertSame($orderAttachment->getCreatedBy(), $orderAttachmentUpdated->getCreatedBy());
+    }
+
+    public function testDeleteOrderAttachment(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $orderAttachmentData = [
+            'name' => 'Faridoux',
+            'type' => OrderAttachmentType::CUSTOMER_INVOICE(),
+            'file' => $file->getStream(),
+            'filename' => $file->getClientFilename(),
+        ];
+
+        $orderAttachment = $orderService->postOrderAttachment(1, $orderAttachmentData);
+
+        $orderService->deleteOrderAttachment(1, $orderAttachment->getId());
+
+        $this->expectExceptionCode(Response::HTTP_NOT_FOUND);
+        $this->expectExceptionMessage('Order #1 or attachment #' . $orderAttachment->getId() . ' not found');
+        $orderService->getOrderAttachment(1, $orderAttachment->getId());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService

@@ -1,0 +1,122 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 06 Apr 2020 11:54:42 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2d2ea9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2d2ea9'
+            X-Request-Id: 9083a144d2bc28c47761e4c73d27fdf0
+        body: '{"id":6,"apiKey":"5UPMK+2qJtqe667Xky5nUI3ueSC\/p4ySUazRE70v"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/1/attachments'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=913749eac7f086ac5e6e35f27a2ec19634a5734d'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
+            VCR-index: '1'
+            Accept: null
+        body: "--913749eac7f086ac5e6e35f27a2ec19634a5734d\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--913749eac7f086ac5e6e35f27a2ec19634a5734d\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--913749eac7f086ac5e6e35f27a2ec19634a5734d\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 16\r\n\r\nCUSTOMER_INVOICE\r\n--913749eac7f086ac5e6e35f27a2ec19634a5734d--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 06 Apr 2020 11:54:42 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 51bb27
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/51bb27'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2251bb27%22%2C%22route%22%3A%22api_order_attachment_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrder%5C%5COrderAttachmentController%22%2C%22method%22%3A%22postOrderAttachmentAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrder%5C%2FOrderAttachmentController.php%22%2C%22line%22%3A43%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 42d433e9f496af8ae829557bc52f974b
+        body: '{"id":"39d421d9-d3ec-4972-be8c-50e0758f7d84","name":"Faridoux","filename":"minimal.pdf","createdAt":"2020-04-06T13:54:42+02:00","updatedAt":"2020-04-06T13:54:42+02:00","url":"http:\/\/wizaplace.loc\/api\/v1\/orders\/1\/attachments\/39d421d9-d3ec-4972-be8c-50e0758f7d84\/download","type":"CUSTOMER_INVOICE","createdBy":6,"updatedBy":6}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/orders/1/attachments/39d421d9-d3ec-4972-be8c-50e0758f7d84'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 06 Apr 2020 11:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9a534f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9a534f'
+            X-Request-Id: 94de8d8c28a633aafc31cbcbc3febafa
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/1/attachments/39d421d9-d3ec-4972-be8c-50e0758f7d84'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
+            Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 06 Apr 2020 11:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 61ca44
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/61ca44'
+        body: '{"message":"Attachment not found."}'
