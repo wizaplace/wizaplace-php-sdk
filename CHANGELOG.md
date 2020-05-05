@@ -1,6 +1,8 @@
 # Changelog
 
-## New features
+## 1.106.0
+
+### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::postOrderAttachment`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderAttachment`
@@ -18,11 +20,19 @@
 - Update `Wizaplace/SDK/Seo/SeoService.php::listSlugs` add 2 optional params `$offset` and `$limit`
 
 ## 1.102.2
+
+### New features
+
 - Added `Wizaplace\SDK\Exception\FileNotFound`
 - Added `Wizaplace\SDK\Exim\EximService`
+
+### Bugfixes
+
 - `Wizaplace\SDK\User\UserService::registerWithFullInfos`: fix user title
 
 ## 1.101.4
+
+### New features
 
 - Added `Wizaplace\SDK\Company\CompanyPatchCommand`
 - Added `Wizaplace\SDK\Company\CompanyStatus`
@@ -31,7 +41,7 @@
 
 ## 1.101.0
 
-## New features
+### New features
 
 - Added `Wizaplace\SDK\Basket\PaymentInformation::getParentOrderId`
 - Added `Wizaplace\SDK\Catalog\ProductSummary::getMaxPriceAdjustment`
