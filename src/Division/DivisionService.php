@@ -21,6 +21,8 @@ use Wizaplace\SDK\Exception\NotFound;
  */
 class DivisionService extends AbstractService
 {
+    use DivisionsTreeTrait;
+
     public function getDivisionsSettings(): DivisionSettings
     {
         $this->client->mustBeAuthenticated();
@@ -63,5 +65,14 @@ class DivisionService extends AbstractService
             }
             throw $exception;
         }
+    }
+
+    /** @return Division[] a Division tree, see item's `parent` and `children` properties to navigate in the tree */
+    public function getDivisionsTree(DivisionsTreeFilters $divisionsTreeFilters = null): array
+    {
+        return $this->getDivisionsTreeByUrl(
+            'divisions-tree',
+            $divisionsTreeFilters
+        );
     }
 }

@@ -11,11 +11,19 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Company;
 
 use Wizaplace\SDK\Company\DivisionService;
+use Wizaplace\SDK\Division\Division;
 use Wizaplace\SDK\Division\DivisionSettings;
+use Wizaplace\SDK\Division\DivisionsTreeFilters;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Tests\Division\DivisionsTreeTrait;
 
 class DivisionServiceTest extends ApiTestCase
 {
+    use DivisionsTreeTrait;
+
+    /** @var int companyId used in most cases */
+    private $companyId = 3;
+
     public function testGetCompanyDivisionsSettings(): void
     {
         $divisionService = $this->buildDivisionService();
@@ -37,6 +45,38 @@ class DivisionServiceTest extends ApiTestCase
 
         static::assertEquals($data['included'], $divisionService->getDivisionsSettings(3)->getIncluded());
         static::assertEquals($data['excluded'], $divisionService->getDivisionsSettings(3)->getExcluded());
+    }
+
+    public function testCompanyDivisionsTree(): void
+    {
+        $divisionService = $this->buildDivisionService();
+        $this->assertDivisionTree($divisionService->getDivisionsTree(3));
+    }
+
+    public function testCompanyDivisionsTreeFiltersEnabled(): void
+    {
+        $divisionService = $this->buildDivisionService();
+
+        $this->assertDivisionTreeFiltersEnabled(
+            $divisionService->getDivisionsTree(
+                3,
+                (new DivisionsTreeFilters())->setIsEnabled(true)
+            ),
+            true
+        );
+    }
+
+    public function testCompanyDivisionsTreeFiltersRootCode()
+    {
+        $divisionService = $this->buildDivisionService();
+
+        $this->assertDivisionTreeFiltersRootCode(
+            $divisionService->getDivisionsTree(
+                3,
+                (new DivisionsTreeFilters())->setRootCode('FR-IDF')
+            ),
+            'FR-IDF'
+        );
     }
 
     private function buildDivisionService(

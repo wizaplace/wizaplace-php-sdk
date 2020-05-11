@@ -14,12 +14,19 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\Division\Division;
 use Wizaplace\SDK\Division\DivisionSettings;
+use Wizaplace\SDK\Division\DivisionsTreeFilters;
+use Wizaplace\SDK\Division\DivisionsTreeTrait;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 
 class DivisionService extends AbstractService
 {
+    use DivisionsTreeTrait;
+
+    const YOU_MUST_BE_AUTHENTICATED_MSG = "You must be authenticated as an admin or vendor.";
+
     public function getDivisionsSettings(int $companyId): DivisionSettings
     {
         $this->client->mustBeAuthenticated();
@@ -29,7 +36,7 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
                     break;
                 case Response::HTTP_NOT_FOUND:
                     $exception = new NotFound("Company '$companyId' not found.");
@@ -58,7 +65,7 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
                     break;
                 case Response::HTTP_NOT_FOUND:
                     $exception = new NotFound("Company '$companyId' not found.");
@@ -66,6 +73,32 @@ class DivisionService extends AbstractService
                 default:
                     $exception = $previousException;
             }
+            throw $exception;
+        }
+    }
+
+    /** @return Division[] a Division tree, see item's `parent` and `children` properties to navigate in the tree */
+    public function getDivisionsTree(int $companyId, DivisionsTreeFilters $divisionsTreeFilters = null): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            return $this->getDivisionsTreeByUrl(
+                "companies/{$companyId}/divisions-tree",
+                $divisionsTreeFilters
+            );
+        } catch (ClientException $previousException) {
+            switch ($previousException->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
+                    break;
+                case Response::HTTP_NOT_FOUND:
+                    $exception = new NotFound("Company '$companyId' not found.");
+                    break;
+                default:
+                    $exception = $previousException;
+            }
+
             throw $exception;
         }
     }

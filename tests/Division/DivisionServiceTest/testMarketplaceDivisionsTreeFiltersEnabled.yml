@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 May 2020 10:32:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9c7d1f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9c7d1f'
+            X-Request-Id: bd847ca5414755bdbb42611ffe13e595
+        body: '{"id":2,"apiKey":"ANLP1fB4JHBNhntmVH\/tuI4mC3NajsOr6bGeFkjc"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/divisions-tree?isEnabled=true'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
+            Authorization: 'token ANLP1fB4JHBNhntmVH/tuI4mC3NajsOr6bGeFkjc'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 May 2020 10:32:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ef062d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ef062d'
+            X-Request-Id: 5e0c77a42e35e791f3b11e7417af2a26
+        body: '[{"code":"FR","level":1,"isEnabled":true,"name":"France","children":[{"code":"FR-NC","level":2,"isEnabled":true,"name":"New Caledonia"},{"code":"FR-PM","level":2,"isEnabled":true,"name":"Saint Pierre And Miquelon"},{"code":"FR-TF","level":2,"isEnabled":true,"name":"French Southern Territories"},{"code":"FR-WF","level":2,"isEnabled":true,"name":"Wallis And Futuna"},{"code":"FR-BL","level":2,"isEnabled":true,"name":"Saint Barth\u00e9lemy"},{"code":"FR-PF","level":2,"isEnabled":true,"name":"French Polynesia"},{"code":"FR-ARA","level":2,"isEnabled":true,"name":"Auvergne-Rh\u00f4ne-Alpes","children":[{"code":"FR-03","level":3,"isEnabled":true,"name":"Allier"},{"code":"FR-26","level":3,"isEnabled":true,"name":"Dr\u00f4me"},{"code":"FR-15","level":3,"isEnabled":true,"name":"Cantal"},{"code":"FR-07","level":3,"isEnabled":true,"name":"Ard\u00e8che"},{"code":"FR-01","level":3,"isEnabled":true,"name":"Ain"},{"code":"FR-38","level":3,"isEnabled":true,"name":"Is\u00e8re"},{"code":"FR-43","level":3,"isEnabled":true,"name":"Haute-Loire"},{"code":"FR-74","level":3,"isEnabled":true,"name":"Haute-Savoie"},{"code":"FR-69","level":3,"isEnabled":true,"name":"Rh\u00f4ne"},{"code":"FR-42","level":3,"isEnabled":true,"name":"Loire"},{"code":"FR-63","level":3,"isEnabled":true,"name":"Puy-De-D\u00f4me"},{"code":"FR-73","level":3,"isEnabled":true,"name":"Savoie"}]},{"code":"FR-BFC","level":2,"isEnabled":true,"name":"Bourgogne-Franche-Comt\u00e9","children":[{"code":"FR-70","level":3,"isEnabled":true,"name":"Haute-Sa\u00f4ne"},{"code":"FR-71","level":3,"isEnabled":true,"name":"Sa\u00f4ne-Et-Loire"},{"code":"FR-21","level":3,"isEnabled":true,"name":"C\u00f4te-D\u0027or"},{"code":"FR-89","level":3,"isEnabled":true,"name":"Yonne"},{"code":"FR-90","level":3,"isEnabled":true,"name":"Territoire De Belfort"},{"code":"FR-39","level":3,"isEnabled":true,"name":"Jura"},{"code":"FR-58","level":3,"isEnabled":true,"name":"Ni\u00e8vre"},{"code":"FR-25","level":3,"isEnabled":true,"name":"Doubs"}]},{"code":"FR-BRE","level":2,"isEnabled":true,"name":"Bretagne","children":[{"code":"FR-22","level":3,"isEnabled":true,"name":"C\u00f4tes-D\u0027armor"},{"code":"FR-29","level":3,"isEnabled":true,"name":"Finist\u00e8re"},{"code":"FR-56","level":3,"isEnabled":true,"name":"Morbihan"},{"code":"FR-35","level":3,"isEnabled":true,"name":"Ille-Et-Vilaine"}]},{"code":"FR-CVL","level":2,"isEnabled":true,"name":"Centre-Val De Loire","children":[{"code":"FR-41","level":3,"isEnabled":true,"name":"Loir-Et-Cher"},{"code":"FR-45","level":3,"isEnabled":true,"name":"Loiret"},{"code":"FR-37","level":3,"isEnabled":true,"name":"Indre-Et-Loire"},{"code":"FR-36","level":3,"isEnabled":true,"name":"Indre"},{"code":"FR-28","level":3,"isEnabled":true,"name":"Eure-Et-Loir"},{"code":"FR-18","level":3,"isEnabled":true,"name":"Cher"}]},{"code":"FR-GES","level":2,"isEnabled":true,"name":"Grand-Est","children":[{"code":"FR-51","level":3,"isEnabled":true,"name":"Marne"},{"code":"FR-55","level":3,"isEnabled":true,"name":"Meuse"},{"code":"FR-57","level":3,"isEnabled":true,"name":"Moselle"},{"code":"FR-67","level":3,"isEnabled":true,"name":"Bas-Rhin"},{"code":"FR-68","level":3,"isEnabled":true,"name":"Haut-Rhin"},{"code":"FR-10","level":3,"isEnabled":true,"name":"Aube"},{"code":"FR-52","level":3,"isEnabled":true,"name":"Haute-Marne"},{"code":"FR-54","level":3,"isEnabled":true,"name":"Meurthe-Et-Moselle"},{"code":"FR-08","level":3,"isEnabled":true,"name":"Ardennes"},{"code":"FR-88","level":3,"isEnabled":true,"name":"Vosges"}]},{"code":"FR-HDF","level":2,"isEnabled":true,"name":"Hauts-De-France","children":[{"code":"FR-62","level":3,"isEnabled":true,"name":"Pas-De-Calais"},{"code":"FR-02","level":3,"isEnabled":true,"name":"Aisne"},{"code":"FR-80","level":3,"isEnabled":true,"name":"Somme"},{"code":"FR-59","level":3,"isEnabled":true,"name":"Nord"},{"code":"FR-60","level":3,"isEnabled":true,"name":"Oise"}]},{"code":"FR-IDF","level":2,"isEnabled":true,"name":"\u00cele-De-France","children":[{"code":"FR-77","level":3,"isEnabled":true,"name":"Seine-Et-Marne"},{"code":"FR-78","level":3,"isEnabled":true,"name":"Yvelines"},{"code":"FR-95","level":3,"isEnabled":true,"name":"Val-D\u0027oise"},{"code":"FR-92","level":3,"isEnabled":true,"name":"Hauts-De-Seine"},{"code":"FR-93","level":3,"isEnabled":true,"name":"Seine-Saint-Denis"},{"code":"FR-75","level":3,"isEnabled":true,"name":"Paris"},{"code":"FR-91","level":3,"isEnabled":true,"name":"Essonne"},{"code":"FR-94","level":3,"isEnabled":true,"name":"Val-De-Marne"}]},{"code":"FR-NOR","level":2,"isEnabled":true,"name":"Normandie","children":[{"code":"FR-14","level":3,"isEnabled":true,"name":"Calvados"},{"code":"FR-76","level":3,"isEnabled":true,"name":"Seine-Maritime"},{"code":"FR-27","level":3,"isEnabled":true,"name":"Eure"},{"code":"FR-50","level":3,"isEnabled":true,"name":"Manche"},{"code":"FR-61","level":3,"isEnabled":true,"name":"Orne"}]},{"code":"FR-NAQ","level":2,"isEnabled":true,"name":"Nouvelle-Aquitaine","children":[{"code":"FR-16","level":3,"isEnabled":true,"name":"Charente"},{"code":"FR-24","level":3,"isEnabled":true,"name":"Dordogne"},{"code":"FR-79","level":3,"isEnabled":true,"name":"Deux-S\u00e8vres"},{"code":"FR-19","level":3,"isEnabled":true,"name":"Corr\u00e8ze"},{"code":"FR-47","level":3,"isEnabled":true,"name":"Lot-Et-Garonne"},{"code":"FR-17","level":3,"isEnabled":true,"name":"Charente-Maritime"},{"code":"FR-86","level":3,"isEnabled":true,"name":"Vienne"},{"code":"FR-33","level":3,"isEnabled":true,"name":"Gironde"},{"code":"FR-64","level":3,"isEnabled":true,"name":"Pyr\u00e9n\u00e9es-Atlantiques"},{"code":"FR-23","level":3,"isEnabled":true,"name":"Creuse"},{"code":"FR-40","level":3,"isEnabled":true,"name":"Landes"},{"code":"FR-87","level":3,"isEnabled":true,"name":"Haute-Vienne"}]},{"code":"FR-OCC","level":2,"isEnabled":true,"name":"Occitanie","children":[{"code":"FR-30","level":3,"isEnabled":true,"name":"Gard"},{"code":"FR-11","level":3,"isEnabled":true,"name":"Aude"},{"code":"FR-48","level":3,"isEnabled":true,"name":"Loz\u00e8re"},{"code":"FR-09","level":3,"isEnabled":true,"name":"Ari\u00e8ge"},{"code":"FR-65","level":3,"isEnabled":true,"name":"Hautes-Pyr\u00e9n\u00e9es"},{"code":"FR-34","level":3,"isEnabled":true,"name":"H\u00e9rault"},{"code":"FR-46","level":3,"isEnabled":true,"name":"Lot"},{"code":"FR-82","level":3,"isEnabled":true,"name":"Tarn-Et-Garonne"},{"code":"FR-66","level":3,"isEnabled":true,"name":"Pyr\u00e9n\u00e9es-Orientales"},{"code":"FR-12","level":3,"isEnabled":true,"name":"Aveyron"},{"code":"FR-31","level":3,"isEnabled":true,"name":"Haute-Garonne"},{"code":"FR-32","level":3,"isEnabled":true,"name":"Gers"},{"code":"FR-81","level":3,"isEnabled":true,"name":"Tarn"}]},{"code":"FR-CP","level":2,"isEnabled":true,"name":"Clipperton"},{"code":"FR-MF","level":2,"isEnabled":true,"name":"Saint Martin (French Part)"},{"code":"FR-PDL","level":2,"isEnabled":true,"name":"Pays-De-La-Loire","children":[{"code":"FR-53","level":3,"isEnabled":true,"name":"Mayenne"},{"code":"FR-49","level":3,"isEnabled":true,"name":"Maine-Et-Loire"},{"code":"FR-72","level":3,"isEnabled":true,"name":"Sarthe"},{"code":"FR-44","level":3,"isEnabled":true,"name":"Loire-Atlantique"},{"code":"FR-85","level":3,"isEnabled":true,"name":"Vend\u00e9e"}]},{"code":"FR-PAC","level":2,"isEnabled":true,"name":"Provence-Alpes-C\u00f4te-D\u2019Azur","children":[{"code":"FR-04","level":3,"isEnabled":true,"name":"Alpes-De-Haute-Provence"},{"code":"FR-05","level":3,"isEnabled":true,"name":"Hautes-Alpes"},{"code":"FR-83","level":3,"isEnabled":true,"name":"Var"},{"code":"FR-06","level":3,"isEnabled":true,"name":"Alpes-Maritimes"},{"code":"FR-84","level":3,"isEnabled":true,"name":"Vaucluse"},{"code":"FR-13","level":3,"isEnabled":true,"name":"Bouches-Du-Rh\u00f4ne"}]},{"code":"FR-GUA","level":2,"isEnabled":true,"name":"Guadeloupe","children":[{"code":"FR-GP","level":3,"isEnabled":true,"name":"Guadeloupe"}]},{"code":"FR-LRE","level":2,"isEnabled":true,"name":"La R\u00e9union","children":[{"code":"FR-RE","level":3,"isEnabled":true,"name":"R\u00e9union"}]},{"code":"FR-MAY","level":2,"isEnabled":true,"name":"Mayotte","children":[{"code":"FR-YT","level":3,"isEnabled":true,"name":"Mayotte"}]},{"code":"FR-GF","level":2,"isEnabled":true,"name":"Guyane (Fran\u00e7aise) (See Also Separate Country Code Entry Under Gf)"},{"code":"FR-MQ","level":2,"isEnabled":true,"name":"Martinique (See Also Separate Country Code Entry Under Mq)"},{"code":"FR-COR","level":2,"isEnabled":true,"name":"Corse","children":[{"code":"FR-2A","level":3,"isEnabled":true,"name":"Corse-Du-Sud"},{"code":"FR-2B","level":3,"isEnabled":true,"name":"Haute-Corse"}]}]}]'

@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 May 2020 10:36:41 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 24fb22
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/24fb22'
+            X-Request-Id: 7f1317e8ca8f3fdddf4cd3511705ce2f
+        body: '{"id":6,"apiKey":"aFDxtGVKDusX\/zaC2ZqGf9DpJLOMxwbtFL56K8H2"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3/divisions-tree?rootCode=FR-IDF'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
+            Authorization: 'token aFDxtGVKDusX/zaC2ZqGf9DpJLOMxwbtFL56K8H2'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 May 2020 10:36:41 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6a1216
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6a1216'
+            X-Request-Id: d062ca66728576d64cd776d216b8872e
+        body: '[{"code":"FR-IDF","level":2,"isEnabled":true,"name":"\u00cele-De-France","children":[{"code":"FR-77","level":3,"isEnabled":true,"name":"Seine-Et-Marne"},{"code":"FR-78","level":3,"isEnabled":true,"name":"Yvelines"},{"code":"FR-95","level":3,"isEnabled":true,"name":"Val-D\u0027oise"},{"code":"FR-92","level":3,"isEnabled":true,"name":"Hauts-De-Seine"},{"code":"FR-93","level":3,"isEnabled":true,"name":"Seine-Saint-Denis"},{"code":"FR-75","level":3,"isEnabled":true,"name":"Paris"},{"code":"FR-91","level":3,"isEnabled":true,"name":"Essonne"},{"code":"FR-94","level":3,"isEnabled":true,"name":"Val-De-Marne"}]}]'

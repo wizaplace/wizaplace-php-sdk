@@ -11,15 +11,22 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Pim\Product;
 
 use Wizaplace\SDK\Division\DivisionSettings;
+use Wizaplace\SDK\Division\DivisionsTreeFilters;
 use Wizaplace\SDK\Pim\Product\DivisionService;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Tests\Division\DivisionsTreeTrait;
 
 class DivisionServiceTest extends ApiTestCase
 {
+    use DivisionsTreeTrait;
+
+    /** @var int productId used in most cases */
+    private $productId = 1;
+
     public function testGetProductDivisionsSettings(): void
     {
         $divisionService = $this->buildDivisionService();
-        $divisionsSettings = $divisionService->getDivisionsSettings(1);
+        $divisionsSettings = $divisionService->getDivisionsSettings($this->productId);
 
         static::assertEquals(['FR'], $divisionsSettings->getIncluded());
         static::assertEquals(['FR-59', 'FR-IDF'], $divisionsSettings->getExcluded());
@@ -33,10 +40,47 @@ class DivisionServiceTest extends ApiTestCase
             'excluded' => ['FR-ARA', 'FR-NC']
         ];
         $divisionsSettings = new DivisionSettings($data);
-        $divisionService->patchDivisionsSettings(1, $divisionsSettings);
+        $divisionService->patchDivisionsSettings($this->productId, $divisionsSettings);
 
-        static::assertEquals($data['included'], $divisionService->getDivisionsSettings(1)->getIncluded());
-        static::assertEquals($data['excluded'], $divisionService->getDivisionsSettings(1)->getExcluded());
+        static::assertEquals($data['included'], $divisionService->getDivisionsSettings($this->productId)->getIncluded());
+        static::assertEquals($data['excluded'], $divisionService->getDivisionsSettings($this->productId)->getExcluded());
+    }
+
+    public function testProductDivisionsTree(): void
+    {
+        $divisionService = $this->buildDivisionService();
+
+        $this->assertDivisionTree(
+            $divisionService->getDivisionsTree(
+                $this->productId
+            )
+        );
+    }
+
+    public function testProductDivisionsTreeFiltersEnabled(): void
+    {
+        $divisionService = $this->buildDivisionService();
+
+        $this->assertDivisionTreeFiltersEnabled(
+            $divisionService->getDivisionsTree(
+                $this->productId,
+                (new DivisionsTreeFilters())->setIsEnabled(true)
+            ),
+            true
+        );
+    }
+
+    public function testProductDivisionsTreeFiltersRootCode()
+    {
+        $divisionService = $this->buildDivisionService();
+
+        $this->assertDivisionTreeFiltersRootCode(
+            $divisionService->getDivisionsTree(
+                $this->productId,
+                (new DivisionsTreeFilters())->setRootCode('FR-IDF')
+            ),
+            'FR-IDF'
+        );
     }
 
     private function buildDivisionService(

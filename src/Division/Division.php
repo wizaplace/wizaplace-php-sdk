@@ -10,8 +10,8 @@ namespace Wizaplace\SDK\Division;
 use Wizaplace\SDK\User\UserType;
 
 /**
- * Class Division
- * @package Wizaplace\SDK\Division
+ * A Division entity with its tree properties
+ * see getParent and getChildren methods to navigate in the tree
  */
 final class Division
 {
@@ -19,11 +19,6 @@ final class Division
      * @var string
      */
     private $code;
-
-    /**
-     * @var null|string
-     */
-    private $parentCode;
 
     /**
      * @var int
@@ -41,24 +36,9 @@ final class Division
     private $name;
 
     /**
-     * @var null|int
+     * @var null|Division
      */
-    private $companyId;
-
-    /**
-     * @var null|UserType
-     */
-    private $disabledBy;
-
-    /**
-     * @var null|int
-     */
-    private $productId;
-
-    /**
-     * @var null|int
-     */
-    private $maxLevel;
+    private $parent;
 
     /**
      * @var Division[]
@@ -69,19 +49,25 @@ final class Division
      * Division constructor.
      *
      * @param array $data
+     * @param Division|null $parent
      */
-    public function __construct(array $data)
+    public function __construct(array $data, Division $parent = null)
     {
         $this->code       = $data['code'];
-        $this->parentCode = $data['parentCode'];
+        $this->parent     = $parent;
         $this->level      = $data['level'];
         $this->isEnabled  = $data['isEnabled'];
         $this->name       = $data['name'];
-        $this->companyId  = $data['companyId'] ?? null;
-        $this->disabledBy = $data['disabledBy'] ?? null;
-        $this->productId  = $data['productId'] ?? null;
-        $this->maxLevel   = $data['maxLevel'] ?? null;
         $this->children   = [];
+
+        // If we have some children data, we instancing them
+        if (\array_key_exists('children', $data)
+            && \is_array($data['children'])
+        ) {
+            foreach ($data['children'] as $child) {
+                $this->addChild(new Division($child, $this));
+            }
+        }
     }
 
     /**
@@ -90,14 +76,6 @@ final class Division
     public function getCode(): string
     {
         return $this->code;
-    }
-
-    /**
-     * @return null|string
-     */
-    public function getParentCode(): ?string
-    {
-        return $this->parentCode;
     }
 
     /**
@@ -125,42 +103,6 @@ final class Division
     }
 
     /**
-     * @return int|null
-     */
-    public function getCompanyId(): ?int
-    {
-        return $this->companyId;
-    }
-
-    /**
-     * @return null|UserType
-     */
-    public function getDisabledBy(): ?UserType
-    {
-        if (\is_null($this->disabledBy)) {
-            return null;
-        }
-
-        return ($this->disabledBy === UserType::ADMIN()->getValue()) ? UserType::ADMIN() : UserType::VENDOR();
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getProductId(): ?int
-    {
-        return $this->productId;
-    }
-
-    /**
-     * @return int|null
-     */
-    public function getMaxLevel(): ?int
-    {
-        return $this->maxLevel;
-    }
-
-    /**
      * @return Division[]
      */
     public function getChildren(): array
@@ -174,5 +116,13 @@ final class Division
     public function addChild(Division $child): void
     {
         $this->children[] = $child;
+    }
+
+    /**
+     * @return Division|null
+     */
+    public function getParent(): ?Division
+    {
+        return $this->parent;
     }
 }
