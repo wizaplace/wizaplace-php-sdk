@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 12:08:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c73585
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c73585'
+            X-Request-Id: 9633929c2f45af13a1b49f43214f1e52
+        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":4.5,"shippings":[{"shipping_id":28,"name":"Remise en main propre","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2020-04-29T09:57:10+00:00","updatedAt":"2020-04-29T11:49:03+00:00","availableSince":"2013-12-06T00:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"maxPriceAdjustment":null,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":9,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false}'
