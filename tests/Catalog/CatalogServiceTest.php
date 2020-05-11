@@ -2623,15 +2623,6 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertSame(2.0, $product->getAverageRating());
     }
 
-    public function testAverageRaitingOnProductFloatType(): void
-    {
-        $catalogService = $this->buildCatalogService();
-
-        $product = $catalogService->getProductById('1');
-        // float value  (5 + 4) / 2 = 4.5
-        static::assertSame(4.5, $product->getAverageRating());
-    }
-
     public function testNullAverageRaiting(): void
     {
         $catalogService = $this->buildCatalogService();
