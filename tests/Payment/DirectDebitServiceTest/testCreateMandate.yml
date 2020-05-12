@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 08 Apr 2020 12:00:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ac1aef
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ac1aef'
+            X-Request-Id: 3ad826b8e815fde2765e358a2a651e17
+        body: '{"id":3,"apiKey":"2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/user/mandates'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 2TngKNt48Oz9cx3KF9p57AaHdat1qN4pfpfcOLOg'
+            VCR-index: '1'
+            Accept: null
+        body: '{"iban":"FR1420041010050500013M02606","bic":"CCBPFRPPVER","bankName":"World bank","gender":"M","firstName":"Robert","lastName":"Jean","paymentId":5}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 08 Apr 2020 12:00:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d2f933
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d2f933'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d2f933%22%2C%22route%22%3A%22api_direct_debit_payment_create_mandate%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CPayment%5C%5CDirectDebitPaymentController%22%2C%22method%22%3A%22createMandateAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FPayment%5C%2FDirectDebitPaymentController.php%22%2C%22line%22%3A37%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: c89e8fe94f3823bde795b32000803b49
+        body: '""'
