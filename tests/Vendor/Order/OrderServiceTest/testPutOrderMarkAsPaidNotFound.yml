@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 Apr 2020 18:14:32 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ba0c37
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ba0c37'
+            X-Request-Id: e19b95f88a05a08564590482da569ea2
+        body: '{"id":2,"apiKey":"\/rX7xDLzO\/nxtTnKLFNaIsQ45TD8AYvpEafhdMZW"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/orders/4756687/mark-as-paid'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
+            Authorization: 'token /rX7xDLzO/nxtTnKLFNaIsQ45TD8AYvpEafhdMZW'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 Apr 2020 18:14:32 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2b4599
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2b4599'
+        body: '{"error":{"code":14,"message":"order not found","context":{"orderId":4756687}}}'

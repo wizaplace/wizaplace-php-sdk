@@ -15,6 +15,9 @@ use Nette\Utils\DateTime;
 use Rhumsaa\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\PaginatedData;
@@ -972,6 +975,55 @@ class OrderServiceTest extends ApiTestCase
         $this->expectExceptionCode(Response::HTTP_NOT_FOUND);
         $this->expectExceptionMessage('Order #1 or attachment #' . $orderAttachment->getId() . ' not found');
         $orderService->getOrderAttachment(1, $orderAttachment->getId());
+    }
+
+    public function testPutOrderMarkAsPaidNotFound(): void
+    {
+        static::expectException(NotFound::class);
+
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $orderService->orderMarkAsPaid(4756687);
+    }
+
+    public function testPutOrderMarkAsPaidUnauthorized(): void
+    {
+        static::expectException(ClientException::class);
+        static::expectExceptionCode(401);
+
+        $orderService = $this->buildVendorOrderService();
+
+        $orderService->orderMarkAsPaid(13);
+    }
+
+    public function testPutOrderMarkAsPaid(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $basketService = new BasketService($apiClient);
+        $orderService = new OrderService($apiClient);
+        $basket = $basketService->createEmptyBasket();
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basket = $basketService->getBasket($basket->getId());
+        $availablePayments = $basketService->getPayments($basket->getId());
+        $selectedPayment = $availablePayments[0]->getId();
+        $redirectUrl = 'https://demo.loc/order/confirm';
+        $cssUrl = 'https://demo.loc/custom.css';
+
+        $paymentInformation = $basketService->checkout(
+            $basket->getId(),
+            $selectedPayment,
+            true,
+            $redirectUrl,
+            $cssUrl
+        );
+
+        $orders = $paymentInformation->getOrders();
+        $orderService_admin = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $order = $orderService_admin->getOrderById($orders[0]->getId());
+        static::assertFalse($order->isPaid());
+        $orderService_admin->orderMarkAsPaid($order->getOrderId());
+        $order = $orderService_admin->getOrderById($order->getOrderId());
+        static::assertTrue($order->isPaid());
     }
 
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
