@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/tree'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 05 Mar 2020 07:32:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 59a83d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/59a83d'
+            X-Request-Id: 2e6712560c30c9be6d3702198f3c66a1
+        body: '[{"category":{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}]},"children":[{"category":{"id":4,"parentId":3,"name":"\u00c9crans","description":"","slug":"screens","image":null,"position":0,"productCount":1,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":4,"name":"\u00c9crans","slug":"screens"}]},"children":[]},{"category":{"id":5,"parentId":3,"name":"Casques","description":"","slug":"headsets","image":null,"position":0,"productCount":3,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"},{"id":5,"name":"Casques","slug":"headsets"}]},"children":[]}]},{"category":{"id":6,"parentId":null,"name":"Special category dedicated to specific tests","description":"","slug":"special-category-dedicated-to-specific-tests-en","image":null,"position":0,"productCount":6,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":6,"name":"Special category dedicated to specific tests","slug":"special-category-dedicated-to-specific-tests-en"}]},"children":[]},{"category":{"id":7,"parentId":null,"name":"Informatique","description":"Unde maiores omnis voluptas deserunt tempore. Ut fuga labore et qui velit et rem harum. Commodi mollitia totam illum sunt quibusdam ipsum voluptatem tempore.","slug":"informatique","image":null,"position":0,"productCount":10,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"}]},"children":[{"category":{"id":8,"parentId":7,"name":"Ordinateurs portables","description":"Amet optio a vero velit soluta cum. Reiciendis veniam excepturi consequatur tempora ut facilis eveniet. Earum nemo est iure voluptatum.","slug":"ordinateurs-portables","image":null,"position":0,"productCount":5,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":8,"name":"Ordinateurs portables","slug":"ordinateurs-portables"}]},"children":[]},{"category":{"id":9,"parentId":7,"name":"\u00c9crans","description":"Quo eos cum laboriosam id necessitatibus autem quasi qui. Ullam quaerat tempora distinctio qui. Voluptatibus odio sint non quaerat.","slug":"ecrans","image":null,"position":0,"productCount":5,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":7,"name":"Informatique","slug":"informatique"},{"id":9,"name":"\u00c9crans","slug":"ecrans"}]},"children":[]}]},{"category":{"id":10,"parentId":null,"name":"T\u00e9l\u00e9phone","description":"Provident dignissimos sequi hic sit. Libero est eum est deleniti corrupti. Exercitationem ipsum rerum asperiores.","slug":"telephone","image":null,"position":0,"productCount":2,"seoData":{"title":"","description":"","keywords":""},"categoryPath":[{"id":10,"name":"T\u00e9l\u00e9phone","slug":"telephone"}]},"children":[]},{"category":{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide.","keywords":"Cat\u00e9gorie principale"},"categoryPath":[{"id":2,"name":"Cat\u00e9gorie principale","slug":"categorie-principale"}]},"children":[]}]'

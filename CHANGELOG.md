@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.108.1
+
+### New features
+
+- Added `Wizaplace\SDK\Catalog\CatalogSortCriteria.php`
+- Added `Wizaplace\SDK\SortDirection.php`
+- Updated `Wizaplace\SDK\Catalog\CatalogServiceInterface.php::getCategoryTree` Add sort with Id, Name, Position and ProductCount
+
 ## 1.106.0
 
 ### New features
@@ -62,6 +70,10 @@
 - Added `Wizaplace\SDK\Order\DeclinationOption::getCode`
 
 ## 1.100.20
+
+- Added `Wizaplace\SDK\Catalog\CatalogSortCriteria.php`
+- Added `Wizaplace\SDK\Catalog\CatalogSortDirection.php`
+- Updated `Wizaplace\SDK\Catalog\CatalogServiceInterface.php::getCategoryTree` Add sort with Id, Name, Position and ProductCount
 
 ### Deprecated
 

@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Catalog;
 
 use GuzzleHttp\Psr7\Response;
+use Wizaplace\SDK\SortDirection;
 use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
 use Wizaplace\SDK\Catalog\AttributeVariant;
@@ -17,6 +18,7 @@ use Wizaplace\SDK\Catalog\AttributeFilter;
 use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Catalog\CatalogServiceInterface;
 use Wizaplace\SDK\Catalog\Category;
+use Wizaplace\SDK\Catalog\CategorySortCriteria;
 use Wizaplace\SDK\Catalog\CompanyListItem;
 use Wizaplace\SDK\Catalog\Condition;
 use Wizaplace\SDK\Catalog\Declination;
@@ -1153,6 +1155,153 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(4, $categoryPath[1]->getId());
         $this->assertSame('Écrans', $categoryPath[1]->getName());
         $this->assertSame('screens', $categoryPath[1]->getSlug());
+    }
+
+    public function testGetCategoryTreeWithFilterNameAsc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::NAME, SortDirection::ASC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::GreaterThanOrEqual($categoryTree[$key - 1]->getCategory()->getName(), $categorie->getCategory()->getName());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertGreaterThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getName(), $children->getCategory()->getName());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterNameDesc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::NAME, SortDirection::DESC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertLessThanOrEqual($categoryTree[$key - 1]->getCategory()->getName(), $categorie->getCategory()->getName());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertLessThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getName(), $children->getCategory()->getName());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterIdAsc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::ID, SortDirection::ASC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertGreaterThanOrEqual($categoryTree[$key - 1]->getCategory()->getId(), $categorie->getCategory()->getId());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertGreaterThanOrEqual($categoryTree[$key2 - 1]->getCategory()->getId(), $children->getCategory()->getId());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterIdDesc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::ID, SortDirection::DESC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertLessThanOrEqual($categoryTree[$key - 1]->getCategory()->getId(), $categorie->getCategory()->getId());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertLessThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getId(), $children->getCategory()->getId());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterProductCountAsc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::PRODUCT_COUNT, SortDirection::ASC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertGreaterThanOrEqual($categoryTree[$key - 1]->getCategory()->getProductCount(), $categorie->getCategory()->getProductCount());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertGreaterThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getProductCount(), $children->getCategory()->getProductCount());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterProductCountDesc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::PRODUCT_COUNT, SortDirection::DESC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertLessThanOrEqual($categoryTree[$key - 1]->getCategory()->getProductCount(), $categorie->getCategory()->getProductCount());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertLessThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getProductCount(), $children->getCategory()->getProductCount());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterPositionAsc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::POSITION, SortDirection::ASC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertGreaterThanOrEqual($categoryTree[$key - 1]->getCategory()->getPosition(), $categorie->getCategory()->getPosition());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertGreaterThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getPosition(), $children->getCategory()->getPosition());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithFilterPositionDesc(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::POSITION, SortDirection::DESC);
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertLessThanOrEqual($categoryTree[$key - 1]->getCategory()->getPosition(), $categorie->getCategory()->getPosition());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertLessThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getPosition(), $children->getCategory()->getPosition());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithoutFilter(): void
+    {
+        $categoryTree = $this->buildCatalogService()->getCategoryTree();
+        foreach ($categoryTree as $key => $categorie) {
+            if ($key > 0) {
+                static::assertGreaterThanOrEqual($categoryTree[$key - 1]->getCategory()->getPosition(), $categorie->getCategory()->getPosition());
+            }
+            foreach ($categorie->getChildren() as $key2 => $children) {
+                if ($key2 > 0) {
+                    static::assertGreaterThanOrEqual($categorie->getChildren()[$key2 - 1]->getCategory()->getPosition(), $children->getCategory()->getPosition());
+                }
+            }
+        }
+    }
+
+    public function testGetCategoryTreeWithWrongKey(): void
+    {
+        static::expectException(\UnexpectedValueException::class);
+        $this->buildCatalogService()->getCategoryTree('wrong', SortDirection::DESC);
+    }
+
+    public function testGetCategoryTreeWithWrongValue(): void
+    {
+        static::expectException(\UnexpectedValueException::class);
+        $this->buildCatalogService()->getCategoryTree(CategorySortCriteria::ID, 'wrong');
     }
 
     public function testGetCategories(): void

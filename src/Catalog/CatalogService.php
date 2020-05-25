@@ -14,6 +14,7 @@ use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\AbstractService;
+use Wizaplace\SDK\SortDirection;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
@@ -172,15 +173,35 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
     }
 
     /**
+     * @param string $criteria
+     * @param string $direction
+     *
      * @return CategoryTree[]
-     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCategoryTree(): array
+    public function getCategoryTree(string $criteria = CategorySortCriteria::POSITION, string $direction = SortDirection::ASC): array
     {
         $categoryTree = $this->client->get('catalog/categories/tree');
+        $collection = CategoryTree::buildCollection($categoryTree);
 
-        return CategoryTree::buildCollection($categoryTree);
+        if (CategorySortCriteria::isValid($criteria)) {
+            $functionGet = 'get' . $criteria;
+        } else {
+            throw new \UnexpectedValueException("Value '$criteria' is not part of the legacy mapping for enum " . CategorySortCriteria::class);
+        }
+        if (SortDirection::isValid($direction)) {
+            $sortOrder = $direction;
+        } else {
+            throw new \UnexpectedValueException("Value '$direction' is not part of the enum " . SortDirection::class);
+        }
+
+        //sort parent collection
+        $collection = $this->sortTree($collection, $functionGet, $sortOrder);
+        //sort all children for collection
+        $this->sortChildren($collection, $functionGet, $sortOrder);
+
+        return $collection;
     }
 
     /**
@@ -513,6 +534,37 @@ final class CatalogService extends AbstractService implements CatalogServiceInte
 
             throw $e;
         }
+    }
+
+    private function sortChildren(array $collection, string $functionGet, string $sortOrder): void
+    {
+        foreach ($collection as $childrenCollection) {
+            if (\is_array($childrenCollection->getChildren())) {
+                $children = $this->sortTree($childrenCollection->getChildren(), $functionGet, $sortOrder);
+                $childrenCollection->setChildren($children);
+                $this->sortChildren($childrenCollection->getChildren(), $functionGet, $sortOrder);
+            }
+        }
+    }
+
+    private function sortTree(array $element, string $functionGet, string $sortOrder): array
+    {
+        usort(
+            $element,
+            static function (CategoryTree $itemC, CategoryTree $itemD) use ($functionGet, $sortOrder): int {
+                $itemCAttribute = $itemC->getCategory()->$functionGet();
+                $itemDAttribute = $itemD->getCategory()->$functionGet();
+                if ($itemCAttribute === $itemDAttribute) {
+                    return 0;
+                } elseif ($sortOrder === SortDirection::ASC) {
+                    return ($itemCAttribute < $itemDAttribute) ? -1 : 1;
+                } else {
+                    return ($itemCAttribute > $itemDAttribute) ? -1 : 1;
+                }
+            }
+        );
+
+        return $element;
     }
 
     /**

@@ -47,6 +47,11 @@ final class CategoryTree
         return $this->children;
     }
 
+    public function setChildren(array $children): void
+    {
+        $this->children = $children;
+    }
+
     /**
      * @internal
      * @param array $data
@@ -54,20 +59,11 @@ final class CategoryTree
      */
     public static function buildCollection(array $data): array
     {
-        $collection = array_map(
+        return array_map(
             static function (array $itemData): self {
                 return new self($itemData);
             },
             $data
         );
-
-        usort(
-            $collection,
-            static function (CategoryTree $itemA, CategoryTree $itemB): int {
-                return $itemA->getCategory()->getPosition() <=> $itemB->getCategory()->getPosition();
-            }
-        );
-
-        return $collection;
     }
 }

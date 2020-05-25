@@ -12,6 +12,7 @@ namespace Wizaplace\SDK\Catalog;
 use Psr\Http\Message\ResponseInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\SortDirection;
 
 /**
  * Interface CatalogServiceInterface
@@ -71,7 +72,7 @@ interface CatalogServiceInterface
     /**
      * @return CategoryTree[]
      */
-    public function getCategoryTree(): array;
+    public function getCategoryTree(string $criteria = CategorySortCriteria::POSITION, string $direction = SortDirection::ASC): array;
 
     /**
      * @param int $id
