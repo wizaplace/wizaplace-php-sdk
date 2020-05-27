@@ -63,11 +63,12 @@ interface CatalogServiceInterface
     public function getProductsByMvpId(string $mvpId): array;
 
     /**
-     * @param ProductFilter $productFilter
+     * @param  ProductFilter $productFilter
+     * @param  bool $allowMvp
      *
      * @return Product[]
      */
-    public function getProductsByFilters(ProductFilter $productFilter): array;
+    public function getProductsByFilters(ProductFilter $productFilter, bool $allowMvp = true): array;
 
     /**
      * @return CategoryTree[]

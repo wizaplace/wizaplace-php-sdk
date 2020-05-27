@@ -93,9 +93,9 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
         return $this->decorated->getProductsBySupplierReference($mvpId);
     }
 
-    public function getProductsByFilters(ProductFilter $productFilter): array
+    public function getProductsByFilters(ProductFilter $productFilter, bool $allowMvp = true): array
     {
-        return $this->decorated->getProductsByFilters($productFilter);
+        return $this->decorated->getProductsByFilters($productFilter, $allowMvp);
     }
 
     /**
