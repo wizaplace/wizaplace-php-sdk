@@ -1,0 +1,185 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dGVzdDM5M0B3aXphLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 21 May 2020 11:38:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 48cf23
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/48cf23'
+            X-Request-Id: 2e3732debe97358037404e140031e83e
+        body: '{"id":21,"apiKey":"A42Jp3bZ53vJ0f7lXaREDzT\/\/m6EkILMl97HCpPQ"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/21'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token A42Jp3bZ53vJ0f7lXaREDzT//m6EkILMl97HCpPQ'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 21 May 2020 11:38:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 71df7e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/71df7e'
+            X-Request-Id: a817a1e4b9546efa214279bcfe8dc288
+        body: '{"id":21,"title":"mr","email":"test393@wiza.com","type":"V","lang":"fr","companyId":null,"pendingCompanyId":13,"firstName":"test","lastName":"wiza","phone":"+33612322456","birthday":"2020-03-30","currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"title":"mr","firstname":"test","lastname":"wiza","company":"aa","phone":"+33612322456","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":4,"38":4,"40":"aa","39":"aa"},"shipping":{"title":"mr","firstname":"test","lastname":"wiza","company":"aa","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":4,"38":4,"40":"aa","39":"aa"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 21 May 2020 11:38:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3ecb98
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ecb98'
+            X-Request-Id: 25df03e2be70a659f683e32704891976
+        body: '{"id":2,"apiKey":"nYywYzzxFFth24t7CHwjS2rOjOHL1KoM3GgXhcn1"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 21 May 2020 11:38:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '5934e9'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5934e9'
+            X-Request-Id: d343f05e1cafde4dbe39908e1ec10a78
+        body: '{"id":2,"apiKey":"nYywYzzxFFth24t7CHwjS2rOjOHL1KoM3GgXhcn1"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/companies/13'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token nYywYzzxFFth24t7CHwjS2rOjOHL1KoM3GgXhcn1'
+            VCR-index: '4'
+            Accept: null
+        body: '{"status":"ENABLED"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Thu, 21 May 2020 11:38:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '659599'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/659599'
+            Expires: 'Thu, 21 May 2020 11:38:09 GMT'
+            X-Request-Id: e3760552c362e63cccf3ae60b78275b4
+        body: '{"id":13,"name":"aa","slug":"aa-6","email":"test393@wiza.com","description":"","status":"ENABLED","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"0666666666","legalStatus":"SARL","siretNumber":"\u0022Lorem ipsum dolor","vatNumber":"\u0022Lorem ipsum dolor","capital":"\u0022Lorem ipsum dolor","rcs":"\u0022Lorem ipsum dolor sit amet, c","fax":"","url":"","iban":"FR7630001007941234567890185","bic":"CMBRFR2B","legalRepresentativeFirstName":"test","legalRepresentativeLastName":"wiza","extra":[],"nafCode":"Sac fa","meta":{"title":"aa","keywords":"aa, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand aa au meilleur prix."}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/21'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token nYywYzzxFFth24t7CHwjS2rOjOHL1KoM3GgXhcn1'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 21 May 2020 11:38:10 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: bc0249
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bc0249'
+            X-Request-Id: 0929a8b7a24c76566a8090d5df0416e7
+        body: '{"id":21,"title":"mr","email":"test393@wiza.com","type":"V","lang":"fr","companyId":13,"pendingCompanyId":null,"firstName":"test","lastName":"wiza","phone":"+33612322456","birthday":"2020-03-30","currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"title":"mr","firstname":"test","lastname":"wiza","company":"aa","phone":"+33612322456","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":4,"38":4,"40":"aa","39":"aa"},"shipping":{"title":"mr","firstname":"test","lastname":"wiza","company":"aa","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":4,"38":4,"40":"aa","39":"aa"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

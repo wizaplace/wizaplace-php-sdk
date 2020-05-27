@@ -26,6 +26,7 @@ use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
+use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserType;
 
 /**
@@ -568,6 +569,41 @@ final class CompanyServiceTest extends ApiTestCase
 
         static::assertSame(155, $newCompany->getId());
         static::assertEquals(new CompanyStatus('ENABLED'), $newCompany->getStatus());
+    }
+
+    public function testPatchEnableCompanyAndCheckCompanyID(): void
+    {
+        $userId = 21;
+        $companyId = 13;
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        //login as User
+        $client->authenticate('test393@wiza.com', 'password');
+
+        //check User info before update company status
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame(null, $user->getCompanyId());
+        static::assertSame($companyId, $user->getPendingCompanyId());
+
+        //update company status for the User
+        $service = $this->buildAdminCompanyService();
+        $company = new CompanyPatchCommand($companyId, new CompanyStatus('ENABLED'));
+
+        //Login as Admin
+        $client->authenticate('admin@wizaplace.com', 'password');
+        $newCompany = $service->patch($company);
+
+        //check company status after update
+        static::assertSame($companyId, $newCompany->getId());
+
+        static::assertSame((new CompanyStatus('ENABLED'))->getValue(), $newCompany->getStatus()->getValue());
+
+        //check User info after update company status
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame($companyId, $user->getCompanyId());
+        static::assertSame(null, $user->getPendingCompanyId());
     }
 
     public function testRegisteringACompanyWithNullNafCode(): void
