@@ -61,7 +61,8 @@ class DivisionsTreeFilters
             [
                 'isEnabled' => \is_bool($this->isEnabled())
                     ? $this->getIsEnabledToString()
-                    : null,
+                    : null
+                ,
                 'rootCode' => $this->getRootCode(),
             ],
             function ($item): bool {

@@ -25,6 +25,12 @@ class DivisionService extends AbstractService
 {
     use DivisionsTreeTrait;
 
+    /** @var string Exception messages */
+    private const MSG_YOU_MUST_BE_AUTHENTICATED = "You must be authenticated as an admin or vendor.";
+
+    /** @var string Exception messages */
+    private const MSG_PRODUCT_NOT_FOUND = "Product '%s' not found.";
+
     public function getDivisionsSettings(int $productId): DivisionSettings
     {
         $this->client->mustBeAuthenticated();
@@ -34,10 +40,14 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    $exception = new AccessDenied(
+                        static::MSG_YOU_MUST_BE_AUTHENTICATED
+                    );
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Product '$productId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_PRODUCT_NOT_FOUND, $productId)
+                    );
                     break;
                 default:
                     $exception = $previousException;
@@ -63,10 +73,14 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    $exception = new AccessDenied(
+                        static::MSG_YOU_MUST_BE_AUTHENTICATED
+                    );
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Product '$productId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_PRODUCT_NOT_FOUND, $productId)
+                    );
                     break;
                 default:
                     $exception = $previousException;
@@ -88,10 +102,14 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied("You must be authenticated as an admin or vendor.");
+                    $exception = new AccessDenied(
+                        static::MSG_YOU_MUST_BE_AUTHENTICATED
+                    );
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Product '$productId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_PRODUCT_NOT_FOUND, $productId)
+                    );
                     break;
                 default:
                     $exception = $previousException;

@@ -25,7 +25,11 @@ class DivisionService extends AbstractService
 {
     use DivisionsTreeTrait;
 
-    const YOU_MUST_BE_AUTHENTICATED_MSG = "You must be authenticated as an admin or vendor.";
+    /** @var string Exception messages */
+    private const MSG_YOU_MUST_BE_AUTHENTICATED = "You must be authenticated as an admin or vendor.";
+
+    /** @var string Exception messages */
+    private const MSG_COMPANY_NOT_FOUND = "Company '%s' not found.";
 
     public function getDivisionsSettings(int $companyId): DivisionSettings
     {
@@ -36,10 +40,12 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
+                    $exception = new AccessDenied(static::MSG_YOU_MUST_BE_AUTHENTICATED);
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Company '$companyId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_COMPANY_NOT_FOUND, $companyId)
+                    );
                     break;
                 default:
                     $exception = $previousException;
@@ -65,10 +71,12 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
+                    $exception = new AccessDenied(static::MSG_YOU_MUST_BE_AUTHENTICATED);
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Company '$companyId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_COMPANY_NOT_FOUND, $companyId)
+                    );
                     break;
                 default:
                     $exception = $previousException;
@@ -90,10 +98,12 @@ class DivisionService extends AbstractService
         } catch (ClientException $previousException) {
             switch ($previousException->getResponse()->getStatusCode()) {
                 case Response::HTTP_FORBIDDEN:
-                    $exception = new AccessDenied(static::YOU_MUST_BE_AUTHENTICATED_MSG);
+                    $exception = new AccessDenied(static::MSG_YOU_MUST_BE_AUTHENTICATED);
                     break;
                 case Response::HTTP_NOT_FOUND:
-                    $exception = new NotFound("Company '$companyId' not found.");
+                    $exception = new NotFound(
+                        sprintf(static::MSG_COMPANY_NOT_FOUND, $companyId)
+                    );
                     break;
                 default:
                     $exception = $previousException;

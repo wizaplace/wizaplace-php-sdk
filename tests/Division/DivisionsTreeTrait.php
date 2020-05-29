@@ -11,6 +11,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Division;
 
 use Wizaplace\SDK\Division\Division;
+use Wizaplace\SDK\Division\DivisionService;
 use Wizaplace\SDK\Division\DivisionsTreeFilters;
 
 trait DivisionsTreeTrait
@@ -24,7 +25,7 @@ trait DivisionsTreeTrait
 
         // Check the root divisions
         static::assertInstanceOf(Division::class, $rootDivision);
-        static::assertSame('ALL', $rootDivision->getCode());
+        static::assertSame(DivisionService::ROOT_DIVISION, $rootDivision->getCode());
         static::assertSame(0, $rootDivision->getLevel());
         static::assertFalse(false, $rootDivision->isEnabled());
         static::assertSame('Toutes les divisions', $rootDivision->getName());
