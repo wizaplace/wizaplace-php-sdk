@@ -45,7 +45,7 @@ final class ProductSummary
     private $affiliateLink;
     /** @var Image|null */
     private $mainImage;
-    /** @var float|null */
+    /** @var float */
     private $averageRating;
     /** @var Condition[] */
     private $conditions;
@@ -92,7 +92,7 @@ final class ProductSummary
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
-        $this->averageRating = $data['averageRating'] ?? null;
+        $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->conditions = array_map(
             function (string $condition): Condition {
                 return new Condition($condition);
@@ -232,7 +232,7 @@ final class ProductSummary
     }
 
     /**
-     * @return float|null
+     * @return float
      */
     public function getAverageRating()
     {

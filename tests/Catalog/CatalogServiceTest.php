@@ -111,14 +111,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('', $shipping->getDeliveryTime());
-        static::assertSame(20., $shipping->getCarriagePaidThreshold());
+        static::assertNull($shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3.0, $product->getAverageRating());
+        static::assertSame(2.5, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -209,14 +209,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('', $shipping->getDeliveryTime());
-        static::assertSame(20., $shipping->getCarriagePaidThreshold());
+        static::assertNull($shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3.0, $product->getAverageRating());
+        static::assertSame(2.5, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -271,14 +271,14 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(0.0, $shipping->getFirstRate());
         $this->assertSame(0.0, $shipping->getNextRate());
         $this->assertSame('', $shipping->getDeliveryTime());
-        static::assertSame(20., $shipping->getCarriagePaidThreshold());
+        static::assertNull($shipping->getCarriagePaidThreshold());
 
         $this->assertSame('', $product->getShortDescription());
         $this->assertSame('INFO-001', $product->getSupplierReference());
         $this->assertTrue($product->isTransactional());
         $this->assertSame(0.0, $product->getGreenTax());
         $this->assertSame(1.23, $product->getWeight());
-        $this->assertEquals(3.0, $product->getAverageRating());
+        static::assertSame(2.5, $product->getAverageRating());
         $this->assertNull($product->getGeolocation());
         $this->assertNull($product->getVideo());
         $this->assertCount(0, $product->getAttachments());
@@ -777,15 +777,15 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertCount(1, $products);
 
         $product = $products[0];
-        $this->assertSame('4', $product->getId());
+        $this->assertSame('7', $product->getId());
         $this->assertSame('product-with-shippings', $product->getSlug());
         $this->assertTrue($product->isAvailable());
         $this->assertGreaterThan(1400000000, $product->getCreatedAt()->getTimestamp());
-        $this->assertNull($product->getAverageRating());
+        $this->assertSame(0, $product->getAverageRating());
         $this->assertSame('Product with shippings', $product->getName());
         $this->assertContainsOnly(Condition::class, $product->getConditions());
         $this->assertEquals([Condition::BRAND_NEW()], $product->getConditions());
-        $this->assertTrue((new DeclinationId('4_0'))->equals($product->getMainDeclinationId()), "got " . $product->getMainDeclinationId());
+        $this->assertTrue((new DeclinationId('7_0'))->equals($product->getMainDeclinationId()), "got " . $product->getMainDeclinationId());
         $this->assertSame(1, $product->getDeclinationCount());
         $this->assertSame('', $product->getSubtitle());
         $this->assertSame("La nouvelle génération de notre tablette Fire phare - désormais plus fine, plus légère, dotée d'une plus longue autonomie et d'un écran amélioré.", $product->getShortDescription());
@@ -803,7 +803,7 @@ final class CatalogServiceTest extends ApiTestCase
         $companies = $product->getCompanies();
         $this->assertCount(1, $companies);
         $this->assertSame('The World Company Inc.', $companies[0]->getName());
-        $this->assertSame('the-world-company-inc.', $companies[0]->getSlug());
+        $this->assertSame('the-world-company-inc', $companies[0]->getSlug());
         $this->assertSame(3, $companies[0]->getId());
         $this->assertTrue($companies[0]->isProfessional());
         $this->assertNull($companies[0]->getImage());
@@ -817,7 +817,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame(12, $pagination->getResultsPerPage());
 
         $facets = $result->getFacets();
-        $this->assertCount(10, $facets);
+        $this->assertCount(11, $facets);
         $this->assertContainsOnly(Facet::class, $facets);
         /** @var ListFacet $categoryFacet */
         $categoryFacet = $facets[0];
@@ -826,7 +826,7 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertInstanceOf(ListFacet::class, $categoryFacet);
         $this->assertEquals(
             [
-                5 => new \Wizaplace\SDK\Catalog\Facet\ListFacetValue(
+                6 => new \Wizaplace\SDK\Catalog\Facet\ListFacetValue(
                     [
                         'label' => 'Special category dedicated to specific tests',
                         'count' => '1',
@@ -2769,7 +2769,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $product = $catalogService->getProductById('1');
 
-        static::assertSame(2.0, $product->getAverageRating());
+        static::assertSame(2.5, $product->getAverageRating());
     }
 
     public function testNullAverageRaiting(): void

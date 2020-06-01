@@ -167,7 +167,7 @@ final class Product
         );
         $this->isTransactional = $data['isTransactional'];
         $this->weight = $data['weight'];
-        $this->averageRating = $data['averageRating'] ?? 0;
+        $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->shippings = array_map(
             static function (array $shippingData): Shipping {
                 return new Shipping($shippingData);
