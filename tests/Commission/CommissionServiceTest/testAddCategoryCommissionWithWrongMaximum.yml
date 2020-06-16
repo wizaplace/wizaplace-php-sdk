@@ -1,0 +1,93 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 14 May 2020 10:52:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 302dd9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/302dd9'
+            X-Request-Id: 71f170bf4491f9b3c8bcf740f4012747
+        body: '{"id":14122,"apiKey":"oj7eMg3DlLshJHPmdAbDgNaQ3JfocjE7VPWxZO7f"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/commissions/default'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token oj7eMg3DlLshJHPmdAbDgNaQ3JfocjE7VPWxZO7f'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 14 May 2020 10:52:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b7c494
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7c494'
+            X-Request-Id: 67965c7436a2d3a953fa186306594a4d
+        body: '[]'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/categories/5/commissions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token oj7eMg3DlLshJHPmdAbDgNaQ3JfocjE7VPWxZO7f'
+            VCR-index: '2'
+            Accept: null
+        body: '{"company":0,"percent":2.5,"fixed":0.5,"maximum":0}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 14 May 2020 10:52:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d30cae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d30cae'
+        body: '{"message":"Invalid value in field maximum","errors":[{"field":"maximum","message":"Commission\u2019s maximum must be superior to 0 or null."}]}'

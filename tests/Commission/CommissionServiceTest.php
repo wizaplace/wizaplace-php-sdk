@@ -303,4 +303,78 @@ class CommissionServiceTest extends ApiTestCase
 
         return new CommissionService($apiClient);
     }
+
+    public function testAddMarketplaceCommissionWithWrongMaximum(): void
+    {
+        static::expectExceptionCode(400);
+        static::expectExceptionMessage('Some parameters are invalid');
+        $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 0,
+                ]
+            )
+        );
+    }
+
+    public function testUpdateMarketplaceCommissionWithWrongMaximum(): void
+    {
+        $commissionId = $this->commissionService->addMarketplaceCommission(
+            new Commission(
+                [
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 10,
+                ]
+            )
+        );
+
+        static::expectExceptionCode(400);
+        static::expectExceptionMessage('Some parameters are invalid');
+        $this->commissionService->updateMarketplaceCommission(
+            new Commission(
+                [
+                    'id' => $commissionId,
+                    'percent' => 3.50,
+                    'fixed' => 1.50,
+                    'maximum' => 0,
+                ]
+            )
+        );
+    }
+
+    public function testAddCompanyCommissionWithWrongMaximum(): void
+    {
+        static::expectExceptionCode(400);
+        static::expectExceptionMessage('Some parameters are invalid');
+        $this->commissionService->addCompanyCommission(
+            new Commission(
+                [
+                    'company' => 2,
+                    'category' => 5,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 0,
+                ]
+            )
+        );
+    }
+
+    public function testAddCategoryCommissionWithWrongMaximum(): void
+    {
+        static::expectExceptionCode(400);
+        static::expectExceptionMessage('Some parameters are invalid');
+        $this->commissionService->addCategoryCommission(
+            new Commission(
+                [
+                    'category' => 5,
+                    'percent' => 2.50,
+                    'fixed' => 0.50,
+                    'maximum' => 0,
+                ]
+            )
+        );
+    }
 }
