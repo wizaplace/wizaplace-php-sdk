@@ -115,6 +115,9 @@ final class Order
     /** @var bool */
     private $carriagePaid;
 
+    /** @var null|bool */
+    private $refunded;
+
     /**
      * @internal
      *
@@ -177,6 +180,7 @@ final class Order
             $data['shipping']
         ) : null;
         $this->carriagePaid = $data['carriage_paid'] ?? false;
+        $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
     }
 
     /**
@@ -475,5 +479,11 @@ final class Order
     public function isCarriagePaid(): bool
     {
         return $this->carriagePaid;
+    }
+
+    /** @return bool|null  */
+    public function isRefunded(): ?bool
+    {
+        return $this->refunded;
     }
 }

@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 04 Jun 2020 22:14:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e09d3f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e09d3f'
+            X-Request-Id: 4b0070087a5de4a550d23ff636f492f5
+        body: '{"id":12,"apiKey":"W0g0jCkwDUpF9tJ8T7Su0qZT8yXAoyo6jeB7n0pf"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/order/8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            Authorization: 'token W0g0jCkwDUpF9tJ8T7Su0qZT8yXAoyo6jeB7n0pf'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 04 Jun 2020 22:14:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fb5843
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb5843'
+            X-Request-Id: 4ca8e2e6027ecabd512e614eebab003a
+        body: '{"id":8,"basketId":"0e345d70-975d-45b1-b33c-58a1cf31047a","companyId":3,"companyName":"The World Company Inc.","total":147.4,"taxTotal":3.03,"subtotal":147.4,"customerTotal":147.4,"marketplaceDiscountTotal":0,"timestamp":1591293680,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","pickupPointId":null},"items":[{"itemId":"856805359","declinationId":"6_0","productName":"Casque Gaming Razer ManO\u0027War Sans fil 7.1 Surround (PC\/PS4)","productCode":"7531596248953","productImageId":null,"price":73.7,"maxPriceAdjustment":null,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"RAZER-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false}'

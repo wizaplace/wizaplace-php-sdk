@@ -62,6 +62,9 @@ final class OrderSummary
     /** @var null|bool */
     private $isPaid;
 
+    /** @var null|bool */
+    private $refunded;
+
     /**
      * @internal
      *
@@ -86,6 +89,7 @@ final class OrderSummary
         $this->amountsTaxesDetails = Order::denormalizeAmountsTaxesDetails($data);
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
+        $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
     }
 
     /**
@@ -215,5 +219,11 @@ final class OrderSummary
     public function isPaid(): ?bool
     {
         return $this->isPaid;
+    }
+
+    /** @return bool|null  */
+    public function isRefunded(): ?bool
+    {
+        return $this->refunded;
     }
 }

@@ -607,6 +607,24 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
 
+    public function testGetUserOrdersWithRefundedData(): void
+    {
+        $orderService = $this->buildOrderService();
+        $orders = $orderService->getOrders();
+        static::assertGreaterThanOrEqual(0, \count($orders));
+
+        foreach ($orders as $order) {
+            static::assertInternalType('boolean', $order->isRefunded());
+        }
+    }
+
+    public function testGetUserOrderByIdWithRefundedData(): void
+    {
+        $order = $this->buildOrderService()->getOrder(2);
+
+        static::assertFalse($order->isRefunded());
+    }
+
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();

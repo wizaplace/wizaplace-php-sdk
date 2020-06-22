@@ -680,6 +680,28 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetOrganisationOrdersByOrganisationIdWithRefundedData()
+    {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+        $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
+        $orders = $organisationOrders['orders'];
+
+        static::assertGreaterThan(0, \count($orders));
+        foreach ($orders as $order) {
+            static::assertInternalType('boolean', $order->isRefunded());
+        }
+    }
+
+    public function testGetOrganisationsOrderWithRefundedData()
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+
+        $organisationOrder = $organisationService->getOrder(8);
+
+        static::assertFalse($organisationOrder->isRefunded());
+    }
+
     /**
      * Return and Order service, depending of a logged user, or not
      * @param string $email

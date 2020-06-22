@@ -1026,6 +1026,25 @@ class OrderServiceTest extends ApiTestCase
         static::assertTrue($order->isPaid());
     }
 
+    public function testGetOrdersWithRefundData(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertGreaterThan(0, \count($orders));
+        foreach ($orders as $order) {
+            static::assertInternalType('boolean', $order->isRefunded());
+        }
+    }
+
+    public function testGetOrderByIdWithRefundData(): void
+    {
+        $orderService = $this->buildVendorOrderService("admin@wizaplace.com", "password");
+
+        $order = $orderService->getOrderById(13);
+
+        static::assertFalse($order->isRefunded());
+    }
+
     private function buildVendorOrderService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): OrderService
     {
         $apiClient = $this->buildApiClient();

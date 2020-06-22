@@ -1,5 +1,13 @@
 # Changelog
 
+## NEW VERSION
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Order::isRefunded`
+- Added `Wizaplace\SDK\Vendor\Order\OrderSummary::isRefunded`
+- Added `Wizaplace\SDK\Order\Order::isRefunded`
+
 ## 1.108.1
 
 ### New features
