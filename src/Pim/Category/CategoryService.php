@@ -36,4 +36,22 @@ class CategoryService extends AbstractService
             $categoriesData
         );
     }
+
+    /**
+     * @return Category|null
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getCategory(int $categoryId): ?Category
+    {
+        $this->client->mustBeAuthenticated();
+
+        $categoryData = $this->client->get('categories/' . $categoryId);
+        if ($categoryData !== null) {
+            return new Category($categoryData);
+        }
+
+        return null;
+    }
 }

@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.108.26
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Category\CategoryService.php::getCategory`
+
 ## 1.108.22
 
 ### New features

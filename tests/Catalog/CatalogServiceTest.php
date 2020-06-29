@@ -1117,6 +1117,21 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('screens', $categoryPath[1]->getSlug());
     }
 
+    public function testGetCategoryWithAgeLimit(): void
+    {
+        $category = $this->buildCatalogService()->getCategory(1);
+        static::assertSame(1, $category->getId());
+        static::assertSame(13, $category->getAgeLimit());
+
+        $category = $this->buildCatalogService()->getCategory(2);
+        static::assertSame(2, $category->getId());
+        static::assertSame(0, $category->getAgeLimit());
+
+        $category = $this->buildCatalogService()->getCategory(3);
+        static::assertSame(3, $category->getId());
+        static::assertSame(18, $category->getAgeLimit());
+    }
+
     public function testGetCategoryTree(): void
     {
         $categoryTree = $this->buildCatalogService()->getCategoryTree();
@@ -1315,6 +1330,17 @@ final class CatalogServiceTest extends ApiTestCase
 
         $this->assertCount(3, $categories);
         $this->assertContainsOnly(Category::class, $categories);
+    }
+
+    public function testGetCategoriesWithAgeLimit(): void
+    {
+        $categories = $this->buildCatalogService()->getCategories([2,3]);
+
+        static::assertCount(2, $categories);
+        static::assertContainsOnly(Category::class, $categories);
+
+        static::assertSame(18, $categories[0]->getAgeLimit());
+        static::assertSame(0, $categories[1]->getAgeLimit());
     }
 
     public function testGetAttributes(): void

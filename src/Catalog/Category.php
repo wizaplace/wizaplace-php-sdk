@@ -33,6 +33,8 @@ final class Category
     private $position;
     /** @var int */
     private $productCount;
+    /** @var int */
+    private $ageLimit;
     /** @var string */
     private $seoTitle;
     /** @var string */
@@ -57,6 +59,7 @@ final class Category
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
         $this->position = $data['position'];
         $this->productCount = $data['productCount'];
+        $this->ageLimit = \array_key_exists('ageLimit', $data) ? $data['ageLimit'] : 0;
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
@@ -130,6 +133,12 @@ final class Category
     public function getProductCount(): int
     {
         return $this->productCount;
+    }
+
+    /** @return int */
+    public function getAgeLimit(): int
+    {
+        return $this->ageLimit;
     }
 
     /**

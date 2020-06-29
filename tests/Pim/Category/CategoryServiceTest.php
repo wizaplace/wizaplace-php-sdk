@@ -31,6 +31,15 @@ class CategoryServiceTest extends ApiTestCase
         $this->assertTrue(CategoryStatus::HIDDEN()->equals($category->getStatus()));
     }
 
+    public function testGetCategory(): void
+    {
+        $category = $this->buildCategoryService()->getCategory(3);
+
+        static::assertNotEmpty($category);
+        static::assertSame(3, $category->getId());
+        static::assertSame(18, $category->getAgeLimit());
+    }
+
     private function buildCategoryService($userEmail = 'vendor@wizaplace.com', $userPassword = 'password'): CategoryService
     {
         $apiClient = $this->buildApiClient();

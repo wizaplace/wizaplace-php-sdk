@@ -28,6 +28,9 @@ final class Category
     /** @var int */
     private $parentId;
 
+    /** @var int */
+    private $ageLimit;
+
     /** @internal
      * @param array $data
      */
@@ -37,6 +40,7 @@ final class Category
         $this->name = $data['category'];
         $this->status = new CategoryStatus($data['status']);
         $this->parentId = $data['parent_id'];
+        $this->ageLimit = \array_key_exists('ageLimit', $data) ? $data['ageLimit'] : 0;
     }
 
     /**
@@ -69,5 +73,11 @@ final class Category
     public function getParentId(): int
     {
         return $this->parentId;
+    }
+
+    /** @return int */
+    public function getAgeLimit(): int
+    {
+        return $this->ageLimit;
     }
 }

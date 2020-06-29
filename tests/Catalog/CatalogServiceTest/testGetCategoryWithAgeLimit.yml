@@ -1,0 +1,88 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Jun 2020 14:40:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7e75ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e75ff'
+            X-Request-Id: 0b2f790ed9f9d31c5c35c6111dd4ea68
+        body: '{"id":1,"parentId":null,"name":"Echec import CSV","description":"","slug":"echec-import-csv","image":null,"position":9999,"productCount":0,"ageLimit":13,"seoData":{"title":"Echec import CSV - Vente Echec import CSV - au meilleur prix - en ligne","description":"Vente Echec import CSV au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Echec import CSV. Livraison rapide.","keywords":"Echec import CSV"},"categoryPath":[]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Jun 2020 14:40:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 517ff2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/517ff2'
+            X-Request-Id: 3e3546ec5754190873c040da77727fad
+        body: '{"id":2,"parentId":null,"name":"Cat\u00e9gorie principale","description":"","slug":"categorie-principale","image":null,"position":10,"productCount":0,"ageLimit":0,"seoData":{"title":"Cat\u00e9gorie principale - Vente Cat\u00e9gorie principale - au meilleur prix - en ligne","description":"Vente Cat\u00e9gorie principale au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Cat\u00e9gorie principale. Livraison rapide.","keywords":"Cat\u00e9gorie principale"},"categoryPath":[{"id":2,"name":"Cat\u00e9gorie principale","slug":"categorie-principale"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/categories/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 17 Jun 2020 14:40:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5e4f82
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5e4f82'
+            X-Request-Id: 27cac0a175b9c9b0f47c9c562f02b3f7
+        body: '{"id":3,"parentId":null,"name":"Informatique","description":"","slug":"it","image":null,"position":0,"productCount":6,"ageLimit":18,"seoData":{"title":"Informatique - Vente Informatique - au meilleur prix - en ligne","description":"Vente Informatique au meilleur prix. Paiement s\u00e9curis\u00e9. Grand choix Informatique. Livraison rapide.","keywords":"Informatique"},"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}]}'
