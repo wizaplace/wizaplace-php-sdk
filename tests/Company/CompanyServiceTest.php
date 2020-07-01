@@ -647,4 +647,97 @@ final class CompanyServiceTest extends ApiTestCase
             ->setMetaDescription($metadata['description'] ?? null)
             ->setMetaKeywords($metadata['keywords'] ?? null);
     }
+
+    public function testRegisteringACompanyWithDivisionOfPowersIds(): void
+    {
+        $companyRegistration = new CompanyRegistration('ACME2 Test Inc', 'acme9@example.com');
+        $companyRegistration->setAddress('24 rue de la gare');
+        $companyRegistration->setCapital('1 000 000 000 $');
+        $companyRegistration->setCity('Lyon');
+        $companyRegistration->setCountry('FR');
+        $companyRegistration->setDescription('Super ACME company');
+        $companyRegistration->setFax('01 02 03 04 05');
+        $companyRegistration->setLegalStatus('SARL');
+        $companyRegistration->setPhoneNumber('01 02 03 04 05 06');
+        $companyRegistration->setRcs('RCS VANNES B 514 919 844');
+        $companyRegistration->setVatNumber('12345678901');
+        $companyRegistration->setZipcode('69009');
+        $companyRegistration->setSiretNumber('732 829 320 00074');
+        $companyRegistration->setSlug('acme-inc-9');
+        $companyRegistration->setUrl('https://acme.example.com/');
+        $companyRegistration->setExtra(['driving_license_number' => '654987321']);
+        $companyRegistration->setNafCode('ABCDEF');
+
+        $companyRegistration->addUploadedFile('rib', $this->mockUploadedFile('minimal.pdf'));
+        $companyRegistration->addUploadedFile('idCard', $this->mockUploadedFile('minimal.pdf'));
+        $companyRegistration->addUploadedFile('division_of_powers_ids', $this->mockUploadedFile('minimal.pdf'));
+
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', 'password-customer-3');
+
+        $result = $companyService->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame('acme-inc-9', $company->getSlug());
+        static::assertSame('acme9@example.com', $company->getEmail());
+        static::assertSame('24 rue de la gare', $company->getAddress());
+        static::assertSame('1 000 000 000 $', $company->getCapital());
+        static::assertSame('Lyon', $company->getCity());
+        static::assertSame('FR', $company->getCountry());
+        static::assertSame('Super ACME company', $company->getDescription());
+        static::assertSame('01 02 03 04 05', $company->getFax());
+        static::assertSame('SARL', $company->getLegalStatus());
+        static::assertSame('01 02 03 04 05 06', $company->getPhoneNumber());
+        static::assertSame('RCS VANNES B 514 919 844', $company->getRcs());
+        static::assertSame('12345678901', $company->getVatNumber());
+        static::assertSame('69009', $company->getZipcode());
+        static::assertSame('732 829 320 00074', $company->getSiretNumber());
+        static::assertEquals('https://acme.example.com/', $company->getUrl());
+        static::assertSame(['driving_license_number' => '654987321'], $company->getExtra());
+        static::assertSame('ABCDEF', $company->getNafCode());
+
+        static::assertTrue($result->getFileUploadResult('rib')->isSuccess());
+        static::assertNull($result->getFileUploadResult('rib')->getErrorMessage());
+        static::assertTrue($result->getFileUploadResult('idCard')->isSuccess());
+        static::assertNull($result->getFileUploadResult('idCard')->getErrorMessage());
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        static::assertCount(3, $files);
+        foreach ($files as $file) {
+            $response = $companyService->fetchFile($file);
+
+            static::assertSame('application/pdf', $response->getHeaderLine('Content-Type'));
+            static::assertStringStartsWith('attachment; filename="', $response->getHeaderLine('Content-Disposition'));
+        }
+
+        // Update file
+        $file = $this->mockUploadedFile('minimal.pdf');
+
+        $update = $companyService->updateFile(
+            $company->getId(),
+            'division_of_powers_ids',
+            [
+                'name'     => "division_of_powers_ids",
+                'contents' => $file->getStream(),
+                'filename' => $file->getClientFilename(),
+            ]
+        );
+
+        static::assertSame(
+            [
+                'success' => true,
+            ],
+            $update
+        );
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        static::assertCount(3, $files);
+
+        // Delete file
+        $delete = $companyService->deleteFile($company->getId(), 'division_of_powers_ids');
+        static::assertNull($delete);
+
+        $files = $companyService->getCompanyFiles($company->getId());
+        static::assertCount(2, $files);
+    }
 }

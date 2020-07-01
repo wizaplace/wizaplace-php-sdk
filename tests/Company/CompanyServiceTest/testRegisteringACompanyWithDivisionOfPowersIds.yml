@@ -1,0 +1,349 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b922a8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b922a8'
+            X-Request-Id: a63f47360a2aedb25d92011f48d28427
+        body: '{"id":9,"apiKey":"JbcyWO0o0vl3F3Z2G\/3E2nq4zyEyicjC4oguJUlk"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"ACME2 Test Inc","email":"acme9@example.com","description":"Super ACME company","slug":"acme-inc-9","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Wed, 27 May 2020 14:55:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fb363c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb363c'
+            Expires: 'Wed, 27 May 2020 14:55:34 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fb363c%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A86%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 03a9da1f3bf82cd6dd8a8cada1c2af10
+        body: '{"id":16,"name":"ACME2 Test Inc","slug":"acme-inc-9","email":"acme9@example.com","description":"Super ACME company","status":"NEW","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF","meta":{"title":"ACME2 Test Inc","keywords":"ACME2 Test Inc, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand ACME2 Test Inc au meilleur prix."}}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/16/files'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=6080bec0147d7d4dc98f387a6d0e67bdb0c6affe'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '2'
+            Accept: null
+        body: "--6080bec0147d7d4dc98f387a6d0e67bdb0c6affe\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--6080bec0147d7d4dc98f387a6d0e67bdb0c6affe\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--6080bec0147d7d4dc98f387a6d0e67bdb0c6affe\r\nContent-Disposition: form-data; name=\"division_of_powers_ids\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--6080bec0147d7d4dc98f387a6d0e67bdb0c6affe--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:35 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 29c522
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/29c522'
+            X-Request-Id: d8dd45af7d9203933ce9c79ca54c1db5
+        body: '{"rib":{"success":true},"idCard":{"success":true},"division_of_powers_id_cards":{"success":true}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:37 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a9de59
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a9de59'
+            X-Request-Id: 8169b3407a37768ae5f250052aab114b
+        body: '["idCard","rib","division_of_powers_id_cards"]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files/idCard'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/pdf
+            Content-Length: '739'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: public
+            Date: 'Wed, 27 May 2020 14:55:38 GMT'
+            Last-Modified: 'Wed, 27 May 2020 14:55:35 GMT'
+            Content-Disposition: 'attachment; filename="w_ID_card_16_minimal.pdf"'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7fc56a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7fc56a'
+            X-Request-Id: 99f20623959d009d6a158fcde32f2a98
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files/rib'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/pdf
+            Content-Length: '739'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: public
+            Date: 'Wed, 27 May 2020 14:55:40 GMT'
+            Last-Modified: 'Wed, 27 May 2020 14:55:35 GMT'
+            Content-Disposition: 'attachment; filename="w_RIB_16_minimal.pdf"'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fe2c6a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe2c6a'
+            X-Request-Id: 0ba68c3fc7e9c4d7e6bddf6eff383a2f
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files/division_of_powers_id_cards'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/pdf
+            Content-Length: '739'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: public
+            Date: 'Wed, 27 May 2020 14:55:42 GMT'
+            Last-Modified: 'Wed, 27 May 2020 14:55:35 GMT'
+            Content-Disposition: 'attachment; filename="w_division_of_powers_id_cards_16_minimal.pdf"'
+            Accept-Ranges: bytes
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5734db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5734db'
+            X-Request-Id: db123b1fbe33029e2e2cc528aa299ca8
+        body: "%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n"
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/16/files/division_of_powers_ids'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=cdde5b335097a705239be803f61bed29bd204977'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '7'
+            Accept: null
+        body: "--cdde5b335097a705239be803f61bed29bd204977\r\nContent-Disposition: form-data; name=\"division_of_powers_ids\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--cdde5b335097a705239be803f61bed29bd204977--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f241d0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f241d0'
+            X-Request-Id: fff44abc633e2537bd2d4f6975246786
+        body: '{"success":true}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:46 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3e58d8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3e58d8'
+            X-Request-Id: 7805ecce918413a02a767165d5400f1d
+        body: '["idCard","rib","division_of_powers_id_cards"]'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/companies/16/files/division_of_powers_ids'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '9'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '796443'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/796443'
+            X-Request-Id: 0979b742ae7b9a746c69f4396c586a59
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/16/files'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
+            VCR-index: '10'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 27 May 2020 14:55:50 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c03375
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c03375'
+            X-Request-Id: 68c0cd50f007701bd3b1eeecace3e9c9
+        body: '["idCard","rib"]'
