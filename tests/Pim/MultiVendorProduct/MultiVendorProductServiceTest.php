@@ -11,6 +11,7 @@ namespace Wizaplace\SDK\Tests\Pim\MultiVendorProduct;
 
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\File\File;
+use Wizaplace\SDK\Image\Image;
 use Wizaplace\SDK\Pagination;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct;
 use Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProductFile;
@@ -359,6 +360,53 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         $this->assertInstanceOf(MultiVendorProduct::class, $multiVendorProduct);
         $this->assertEquals($uuid, $multiVendorProduct->getId());
+    }
+
+    public function testAddImageToMultiVendorProductWithAlt()
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        $newMvp = new MultiVendorProduct(
+            [
+                'name' => 'New Test MVP',
+                'code' => 'XXX-xxx-XXX',
+                'supplierReference' => 'AZAZPMPKKD23',
+                'productTemplateType' => 'product',
+                'slug' => 'new-test-mvp',
+                'shortDescription' => 'Nihil est qui quibusdam exercitationem',
+                'description' => 'Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi',
+                'seoTitle' => 'New Test MVP',
+                'seoDescription' => 'New Test MVP Nihil est qui quibusdam exercitationem',
+                'seoKeywords' => 'MVP, PRODUCT, TEST',
+                'status' => 'A',
+                'categoryId' => 3,
+                'freeAttributes' => [
+                    'Free attribute multiple' => [
+                        'Num 1',
+                        'Num 2',
+                        51,
+                    ],
+                    'Free attribute simple' => [
+                        'Bla',
+                    ],
+                ],
+                'attributes' => [],
+            ]
+        );
+
+        $uuid = $service->createMultiVendorProduct($newMvp);
+
+        $image = $this->mockUploadedFile("favicon.png");
+
+        $files = [
+            new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),
+        ];
+
+        $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files, 'alternative text mvp');
+
+        static::assertInstanceOf(MultiVendorProduct::class, $multiVendorProduct);
+        static::assertInstanceOf(Image::class, $multiVendorProduct->getImagesData()[0]);
+        static::assertSame('alternative text mvp', $multiVendorProduct->getImagesData()[0]->getAlt());
     }
 
     public function testAddVideoToMultiVendorProductWithHostedFile()

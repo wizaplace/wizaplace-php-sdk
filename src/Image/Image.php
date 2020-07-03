@@ -18,6 +18,9 @@ final class Image
     /** @var int */
     private $id;
 
+    /** @var string */
+    private $alt;
+
     /**
      * @internal
      *
@@ -26,6 +29,7 @@ final class Image
     public function __construct(array $data)
     {
         $this->id = $data['id'];
+        $this->alt = $data['alt'];
     }
 
     /**
@@ -34,5 +38,11 @@ final class Image
     public function getId(): int
     {
         return $this->id;
+    }
+
+    /** @return string|null */
+    public function getAlt(): ?string
+    {
+        return $this->alt;
     }
 }
