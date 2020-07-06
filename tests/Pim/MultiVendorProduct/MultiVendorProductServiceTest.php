@@ -409,6 +409,53 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         static::assertSame('alternative text mvp', $multiVendorProduct->getImagesData()[0]->getAlt());
     }
 
+    public function testGetMultiVendorProductByIdWithImagesAlt()
+    {
+        $service = $this->buildMultiVendorProductService();
+
+        $newMvp = new MultiVendorProduct(
+            [
+                'name' => 'New Test MVP',
+                'code' => 'XXX-xxx-XXX',
+                'supplierReference' => 'AZAZPMPKKD23',
+                'productTemplateType' => 'product',
+                'slug' => 'new-test-mvp',
+                'shortDescription' => 'Nihil est qui quibusdam exercitationem',
+                'description' => 'Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi',
+                'seoTitle' => 'New Test MVP',
+                'seoDescription' => 'New Test MVP Nihil est qui quibusdam exercitationem',
+                'seoKeywords' => 'MVP, PRODUCT, TEST',
+                'status' => 'A',
+                'categoryId' => 3,
+                'freeAttributes' => [
+                    'Free attribute multiple' => [
+                        'Num 1',
+                        'Num 2',
+                        51,
+                    ],
+                    'Free attribute simple' => [
+                        'Bla',
+                    ],
+                ],
+                'attributes' => [],
+            ]
+        );
+
+        $uuid = $service->createMultiVendorProduct($newMvp);
+
+        $image = $this->mockUploadedFile("favicon.png");
+
+        $files = [
+            new MultiVendorProductFile('file', $image->getStream(), $image->getClientFilename()),
+        ];
+
+        $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files, 'alternative text mvp');
+
+        $mvp = $service->getMultiVendorProductById($multiVendorProduct->getId());
+
+        static::assertSame('alternative text mvp', $mvp->getImagesData()[0]->getAlt());
+    }
+
     public function testAddVideoToMultiVendorProductWithHostedFile()
     {
         $service = $this->buildMultiVendorProductService();

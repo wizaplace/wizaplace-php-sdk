@@ -29,6 +29,9 @@ final class ProductImageUpload
     /** @var string */
     private $data;
 
+    /** @var string */
+    private $altText;
+
     /**
      * @param string $name
      *
@@ -66,6 +69,17 @@ final class ProductImageUpload
     }
 
     /**
+     * @param string|null $altText
+     * @return $this
+     */
+    public function setAltText(?string $altText): self
+    {
+        $this->data = $altText;
+
+        return $this;
+    }
+
+    /**
      * @internal
      *
      * @param ClassMetadata $metadata
@@ -87,6 +101,7 @@ final class ProductImageUpload
             'image_name' => $this->name,
             'image_type' => $this->mimeType,
             'image_data' => $this->data,
+            'altText' => $this->altText
         ];
     }
 
