@@ -613,16 +613,25 @@ abstract class ProductUpsertData
             $data['avail_since'] = $this->availabilityDate->getTimestamp();
         }
 
-        if (isset($this->productTemplateType)) {
-            $data['product_template_type'] = to_string($this->productTemplateType);
-        }
-
         if (\is_bool($this->isSubscription)) {
             $data['is_subscription'] = $this->isSubscription;
         }
 
         if (\is_bool($this->isRenewable)) {
             $data['is_renewable'] = $this->isRenewable;
+        }
+
+        if (\is_string($this->productTemplateType) === true) {
+            $data['product_template_type'] = $this->productTemplateType;
+
+            if ($data['product_template_type'] === 'service') {
+                unset($data['green_tax']);
+                unset($data['w_condition']);
+                unset($data['amount']);
+                unset($data['infinite_stock']);
+                unset($data['is_edp']);
+                unset($data['is_returnable']);
+            }
         }
 
         return $data;

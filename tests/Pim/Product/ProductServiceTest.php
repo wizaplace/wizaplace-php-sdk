@@ -1453,6 +1453,43 @@ final class ProductServiceTest extends ApiTestCase
         static::assertFalse($product->isRenewable());
     }
 
+    public function testCreateProductServiceTemplate(): void
+    {
+        $service = $this->buildProductService('vendor@wizaplace.com');
+
+        $productId = $service->createProduct(
+            (new CreateProductCommand())
+                ->setName("Service 1")
+                ->setCode("REFSUP32202")
+                ->setFullDescription("en ligne service ")
+                ->setShortDescription("en ligne service")
+                ->setGreenTax(0)
+                ->setStatus(ProductStatus::ENABLED())
+                ->setMainCategoryId(4)
+                ->setIsBrandNew(true)
+                ->setTaxIds([1])
+                ->setWeight(1.0)
+                ->setInfiniteStock(true)
+                ->setSupplierReference("REFSEPTMA3222")
+                ->setProductTemplateType('service')
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                            ->setCode('code_full_declD')
+                            ->setPrice(3.5)
+                            ->setInfiniteStock(true),
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                            ->setPrice(100.0)
+                            ->setCrossedOutPrice(1000.0)
+                            ->setQuantity(1)
+                    ]
+                )
+        );
+
+        static::assertInternalType('int', $productId);
+        static::assertGreaterThan(0, $productId);
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();

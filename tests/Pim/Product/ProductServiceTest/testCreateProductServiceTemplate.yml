@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Jun 2020 13:24:15 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4ba366
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4ba366'
+            X-Request-Id: 7a6decf9ba4d52d126669291547c2e22
+        body: '{"id":4,"apiKey":"fUJVX3Z7BjGmpp5id4pcMWX8eRAMJJ3WZhEfvI1Q"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token fUJVX3Z7BjGmpp5id4pcMWX8eRAMJJ3WZhEfvI1Q'
+            VCR-index: '1'
+            Accept: null
+        body: '{"product_code":"REFSUP32202","supplier_ref":"REFSEPTMA3222","product":"Service 1","status":"A","main_category":4,"condition":"N","weight":1,"full_description":"en ligne service ","short_description":"en ligne service","tax_ids":[1],"inventory":[{"amount":0,"price":3.5,"combination":{"1":1,"2":5,"3":7},"priceTiers":null,"combination_code":"code_full_declD","infinite_stock":true},{"amount":1,"price":100,"combination":{"1":1,"2":6,"3":9},"priceTiers":null,"crossed_out_price":1000}],"allowed_options_variants":[{"option_id":1,"variants":[1]},{"option_id":2,"variants":[5,6]},{"option_id":3,"variants":[7,9]}],"product_template_type":"service"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 09 Jun 2020 13:24:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '570031'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/570031'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22570031%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 42839a8124c4d58b2c09543f7e3c46d3
+        body: '{"product_id":41}'
