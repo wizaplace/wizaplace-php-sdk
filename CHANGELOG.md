@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.108.32
+
+### Bugfixes
+
+- `Wizaplace\SDK\Pim\Product\ProductUpsertData`: fixes the creation of product with type "service" when using product template.
+
+
 ## 1.108.26
 
 ### New features
