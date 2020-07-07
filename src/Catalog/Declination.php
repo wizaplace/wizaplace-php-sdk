@@ -58,6 +58,9 @@ final class Declination
     /** @var Image[] */
     private $images;
 
+    /** @var Image[] */
+    private $imagesData;
+
     /** @var bool */
     private $isBrandNew;
 
@@ -114,6 +117,17 @@ final class Declination
             },
             $data['images']
         );
+        if (\array_key_exists('imagesData', $data)) {
+            $this->imagesData = array_map(
+                static function (array $imageData): Image {
+                    return new Image($imageData);
+                },
+                $data['imagesData']
+            );
+        } else {
+            $this->imagesData = [];
+        }
+
         $this->isBrandNew = $data['isBrandNew'] ?? true;
         $this->options = array_map(
             static function (array $optionData): DeclinationOption {
@@ -260,6 +274,12 @@ final class Declination
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /** @return Image[] */
+    public function getImagesData(): array
+    {
+        return $this->imagesData;
     }
 
     /**

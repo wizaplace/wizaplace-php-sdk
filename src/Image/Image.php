@@ -18,7 +18,7 @@ final class Image
     /** @var int */
     private $id;
 
-    /** @var string */
+    /** @var string|null */
     private $alt;
 
     /**

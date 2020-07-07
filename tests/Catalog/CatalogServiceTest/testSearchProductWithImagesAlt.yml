@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query='
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 07 Jul 2020 10:07:30 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1a7261
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a7261'
+            X-Request-Id: f131f8d228822a24f29f3c373bcac699
+        body: '{"results":[{"productId":1,"name":"testGetId","productTemplateType":"product","slug":"testgetid","minimumPrice":20,"maxPriceAdjustment":20,"crossedOutPrice":null,"isAvailable":true,"createdAt":1594115274,"updatedAt":1594115274,"transactionMode":"T","conditions":["U"],"declinationCount":1,"affiliateLink":null,"mainImage":{"id":1},"imagesData":{"id":1,"alt":"logo alt Text main"},"url":"\/test-category\/testgetid.html","subtitle":"","shortDescription":"","averageRating":0,"averageRatingFloat":0,"attributes":[],"categoryPath":[{"id":1,"name":"Test category","slug":"test-category"}],"companies":[{"id":1,"name":"Test company","slug":"test-company","isProfessional":true,"image":null,"averageRating":null}],"geolocation":{"latitude":45.75845,"longitude":4.799044,"label":"Lyon 5e","zipcode":"69005"},"geolocations":[{}],"mainDeclination":{"id":"1_0"},"offers":[{"productId":1,"companyId":1,"price":20,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":20,"excludingTaxes":19.59,"taxes":0.41}]}],"isSubscription":false,"isRenewable":false}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gorie","values":{"1":{"label":"Test category","count":"1","position":"0"}},"isNumeric":false}]}'

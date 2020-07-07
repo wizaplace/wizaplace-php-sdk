@@ -3113,19 +3113,21 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $result = $catalogService->search('iPhone 7');
+        $result = $catalogService->search();
         $products = $result->getProducts();
+        static::assertCount(1, $products);
+        $product = $products[0];
 
-        static::assertSame('', $products[0]->getImagesData()->getAlt());
+        static::assertObjectHasAttribute('alt', $product->getMainImage());
     }
 
     public function testGetDeclinationByIDWithImagesAlt(): void
     {
         $catalogService = $this->buildCatalogService();
 
-        $declination = $catalogService->getDeclinationById('3_5_40');
+        $declination = $catalogService->getDeclinationById('3_3_8');
 
-        static::assertSame([], $declination->getImagesData());
+        $this->assertSame('', $declination->getImagesData()[0]->getAlt());
     }
 
     public function testGetAllProductsWithImagesAlt(): void
