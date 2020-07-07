@@ -246,7 +246,8 @@ final class Product
             $this->imagesData = array_map(
                 static function (array $imageData): Image {
                     return new Image($imageData);
-                }, $data['imagesData']
+                },
+                $data['imagesData']
             );
         } else {
             $this->imagesData = [];

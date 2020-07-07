@@ -101,7 +101,7 @@ final class ProductImageUpload
             'image_name' => $this->name,
             'image_type' => $this->mimeType,
             'image_data' => $this->data,
-            'altText' => $this->altText
+            'altText'    => $this->altText
         ];
     }
 
