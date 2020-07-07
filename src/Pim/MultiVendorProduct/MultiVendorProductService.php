@@ -152,7 +152,8 @@ class MultiVendorProductService extends AbstractService
                         [
                             'alt' => $alt
                         ],
-                        $files),
+                        $files
+                    ),
                 ]
             );
 

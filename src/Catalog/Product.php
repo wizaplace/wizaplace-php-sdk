@@ -242,11 +242,12 @@ final class Product
             );
         }
 
-        if ((\array_key_exists('imagesData', $data) === true)) {
+        if (\array_key_exists('imagesData', $data) === true) {
             $this->imagesData = array_map(
                 static function (array $imageData): Image {
                     return new Image($imageData);
-                }, $data['imagesData']);
+                }, $data['imagesData']
+            );
         } else {
             $this->imagesData = [];
         }

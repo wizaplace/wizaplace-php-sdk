@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
+
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
 
@@ -107,7 +108,8 @@ final class MultiVendorProduct
             $this->imagesData = array_map(
                 static function (array $imageData): Image {
                     return new Image($imageData);
-                    }, $data['imagesData']);
+                    }, $data['imagesData']
+            );
         } else {
             $this->imagesData = [];
         }
