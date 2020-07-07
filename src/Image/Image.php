@@ -29,7 +29,7 @@ final class Image
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->alt = $data['alt'];
+        $this->alt = $data['alt'] ?? null;
     }
 
     /**

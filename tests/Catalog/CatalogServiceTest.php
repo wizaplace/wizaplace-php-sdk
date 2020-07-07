@@ -3090,4 +3090,52 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertInternalType('array', $companies);
         static::assertCount($numberOfCompanyHasExtraKeyAndValue, $companies);
     }
+
+    public function testGetProductByCodesWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductsByCode('6403500679952');
+
+        static::assertSame('', $product[0]->getImagesData()[0]->getAlt());
+    }
+
+    public function testGetProductWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('38');
+
+        static::assertSame('', $product->getImagesData()[0]->getAlt());
+    }
+
+    public function testSearchProductWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search('iPhone 7');
+        $products = $result->getProducts();
+
+        static::assertSame('', $products[0]->getImagesData()->getAlt());
+    }
+
+    public function testGetDeclinationByIDWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $declination = $catalogService->getDeclinationById('3_5_40');
+
+        static::assertSame([], $declination->getImagesData());
+    }
+
+    public function testGetAllProductsWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $products = iterator_to_array($catalogService->getAllProducts());
+
+        $product = $products[0];
+        static::assertInstanceOf(Product::class, $product);
+        static::assertSame('', $product->getImages()[0]->getAlt());
+    }
 }

@@ -113,6 +113,9 @@ final class Product
      */
     private $images;
 
+    /** @var Image[] */
+    private $imagesData;
+
     /** @var bool */
     private $infiniteStock;
 
@@ -237,6 +240,15 @@ final class Product
                 },
                 $data['images']
             );
+        }
+
+        if ((\array_key_exists('imagesData', $data) === true)) {
+            $this->imagesData = array_map(
+                static function (array $imageData): Image {
+                    return new Image($imageData);
+                }, $data['imagesData']);
+        } else {
+            $this->imagesData = [];
         }
 
         if (isset($data['offers'])) {
@@ -563,6 +575,12 @@ final class Product
     public function getImages(): array
     {
         return $this->images;
+    }
+
+    /** @return Image[] */
+    public function getImagesData(): array
+    {
+        return $this->imagesData;
     }
 
     /**
