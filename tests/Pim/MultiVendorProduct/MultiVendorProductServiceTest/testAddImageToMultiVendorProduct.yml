@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@79ac499
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Wed, 03 Oct 2018 10:44:43 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 4f7552
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f7552'
-            Content-Length: '60'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":2,"apiKey":"iY40SCdF0oeN60XQXg06v4D0ec+f6RBqE9lck76u"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 07 Jul 2020 13:58:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8a2571
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a2571'
+            X-Request-Id: a86473ffc2ec137ea9b16904e743fc7c
+        body: '{"id":2,"apiKey":"qQherpKVykfCMQg6TSUCR7uZzflxSa+Xmd0UvKzE"}'
 -
     request:
         method: POST
@@ -33,24 +37,27 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=91eb969a94ed6676b37c180a490ee2d428b069e1'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-75-ajout-SDK-add-image-to-mvp@79ac499
-            Authorization: 'token iY40SCdF0oeN60XQXg06v4D0ec+f6RBqE9lck76u'
+            Content-Type: 'multipart/form-data; boundary=6b5ec40e0fd9123792bcdf2c7b406ee8f40c97e0'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token qQherpKVykfCMQg6TSUCR7uZzflxSa+Xmd0UvKzE'
             VCR-index: '1'
             Accept: null
-        body: !!binary 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
+        body: !!binary LS02YjVlYzQwZTBmZDkxMjM3OTJiY2RmMmM3YjQwNmVlOGY0MGM5N2UwDQpDb250ZW50LURpc3Bvc2l0aW9uOiBmb3JtLWRhdGE7IG5hbWU9ImFsdCINCg0KDQotLTZiNWVjNDBlMGZkOTEyMzc5MmJjZGYyYzdiNDA2ZWU4ZjQwYzk3ZTANCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZmlsZSI7IGZpbGVuYW1lPSJmYXZpY29uLnBuZyINCkNvbnRlbnQtTGVuZ3RoOiAxNDgxDQpDb250ZW50LVR5cGU6IGltYWdlL3BuZw0KDQqJUE5HDQoaCgAAAA1JSERSAAAAIAAAACAIBgAAAHN6evQAAAWQSURBVFjDvZdLbBtVFIa/OzO2E8dxZibNg4S8mjQhSVuapm9aQOIhKhUJVRRVqlQhVmxYICGBhARCrGAFqoTEghUVC0CoILFBgraopC1JSVO1JQ1unaQ0iZ3Eses4ccaPYeFr107cNn1xJGvkuWfuOfe//z33P4JVWFNLG4AObAK2yGcbsEa6zAA+4DzQDwwB4TG/765zi7sEFkA9sA94TQbW7/CdDYRlIt8CPwGTY36ffc8JNLW0uYH9wNvARkDj3iwJDAKfAcfG/L6FVSUg4a4HPgQOAW4ezGLAN8BHwI3l26IWCd4KfCEhd/Lg5gR6gE7gtG6Y4Ug4lBtUljk/DhwB9hYZexBT5JxHJLorEWhqaSsDPgFefcjB87e7DfDohnk8Eg4lcglIth8E3ntIsN8piS7gmm6YFyLhUG6lDZLtbh69uWWsBgBVrv6w/Cn8P1YFjOqG2a/qhmkCHwPNLqGwx6nT66hgNp0gZqduT+1yLw3PvIjR0c1CcIrUUvy2vmW19TS/8DKllVUsBCexU0kF8AA/akAv8CTALofOB561lAiVTq2MT2OjWHa66Ea2PreP5lcOghA43B5GfjgK9sqCpzqddBw4TO3Wp0glLFJLcaYG+pAxexVgK1AOUCoUnEJByGSa1dKiKzIVB7vcVQhVRSgKNVt2UqKbRX099Y2YnRtACBRNQ3E4skPlwFZFFgkBcD4RZSK1BIChONjuqCg6aY/m5fnhcUpjizmIzY7uor7VPdtxerwALAQDzPmG84HsUYD27JuptMXZRCQ3+rTTwCsKrwANwW6nTsNEkEb/eKbKaBo1vTvzVweAo8zDmvU9IDIVf3qon/jsdL5LuwKUZf+lsTluhZiX5FunuunWPAWT1qkuNjnK0RJJnrgwjJrK+JqdG/DUNRT4Vqxtx9vYkrmZ4osEB//EThdwqmzFsbucjHEpOQ9AiVDY7dRR8+6sHQ6daiVTq8y/r8DUJAAur55ZbRZfoVCzeQeqqwSAiP8fwtdGitboWP6LRTvFSWuOFHYuYK3qyiW0y6mjyIT+nBnn6vmz2YjU9O7EUZZBzGWYVHZtzIgEO01goI/k4oobOaYAK9I6bYW5IclYqzrp1TIkalPddGllMtE0vy+FmOg/hRW9CYC3sQW9tQOAyq6NuGseAyAemmXm4mAxjo4oUjQUHOBAHhlVBM86DUqFyh6nQbkk5ZVkjMvJGDfHR5kbuZTxdZVQ3bMN1emipmc7iprxnbk4SCwwWUw9DSpSw0XzR9LY/GbNEpVkXO/wsMXhZZujAiG/PGmFiNpJ0gmLqf4+0slkpsZu6GXN+k3o7V0ApKwlAgN92KkVVTUK9CvAOSkiC2w4j4xeofF6aR1rZWGaTluckQgBzFwaZH7iOgClVdWs238IV4WRiXJ9lLDvSjH4h4BzCjAnBWSqkIxpTlihHBm7NQ8ukTk0/YkI11O3av9SJMz0UD/YNkJR8Ta1IoQA2yYwcBprPro8eErGnFOkYj1WDIVT1hwjyULmztspflmaJZlPG9tmou8EizPBAt+F4CSBv84sp1h29cfG/D5bBdANMyqP40tArpwt2GmCaYs2zU2pUJmzExyNT/JrHjJZS0SjWPM38dQ1oKgascAEI99/nSNofl7A+8AfkXDoVoWRMvxz4I18XSCAKsVJreIiYie5kYoXrj7/lhQCl1FJiWESD80SD4eW35Bp4EvgnaxMF8tUcb102PsIxEka+Bl4c8zvmygqyyPhUFQ3zD5gnRSQ4iEHf2vM7/v3tn2BTCKsG+ZJqd26HoJIjQFfAe8uD140gTwkTsiGsxGovo8tSQIDknBHxvy+0P02p3WyOT0AbF5Fczony/t3sjmduq/mtEjLViF1XLY9b5XIAASAq/J8D8hnZDXt+X8sVwEkBAyZhwAAAABJRU5ErkJggg0KLS02YjVlYzQwZTBmZDkxMjM3OTJiY2RmMmM3YjQwNmVlOGY0MGM5N2UwLS0NCg==
     response:
         status:
             http_version: '1.1'
-            code: '200'
-            message: OK
+            code: '404'
+            message: 'Not Found'
         headers:
-            Date: 'Wed, 03 Oct 2018 10:44:43 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: f6cdb2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f6cdb2'
-            Content-Length: '1508'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":"0adaf6bc-d362-34be-b72f-42d5aa3b4a4e","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"ipsum-omnis-non-asperiores-hic-veritatis","shortDescription":"Consectetur est cumque reiciendis aspernatur incidunt voluptatem. Odio nobis aut est et.","description":"Sunt sunt et atque quae aperiam voluptas. Iure aliquam enim blanditiis dolorem. Ex eaque minima in blanditiis quisquam. Impedit et dolorem non perferendis. Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Enim suscipit cum nam qui velit. Ad rerum natus cupiditate laborum officiis. Pariatur ut ad dignissimos omnis. Maxime quas a cupiditate impedit.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[11],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 07 Jul 2020 13:58:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4bf8b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bf8b6'
+        body: '{"message":"MultiVendorProduct \u00220adaf6bc-d362-34be-b72f-42d5aa3b4a4e\u0022 not found"}'

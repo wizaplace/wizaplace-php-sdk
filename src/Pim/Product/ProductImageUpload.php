@@ -29,7 +29,7 @@ final class ProductImageUpload
     /** @var string */
     private $data;
 
-    /** @var string */
+    /** @var string|null */
     private $altText;
 
     /**
@@ -70,11 +70,11 @@ final class ProductImageUpload
 
     /**
      * @param string|null $altText
-     * @return $this
+     * @return ProductImageUpload
      */
     public function setAltText(?string $altText): self
     {
-        $this->data = $altText;
+        $this->altText = ($altText !== null) ? $altText : '';
 
         return $this;
     }
@@ -97,12 +97,17 @@ final class ProductImageUpload
      */
     public function toArray(): array
     {
-        return [
+        $image = [
             'image_name' => $this->name,
             'image_type' => $this->mimeType,
-            'image_data' => $this->data,
-            'altText'    => $this->altText
+            'image_data' => $this->data
         ];
+
+        if ($this->altText !== null) {
+            $image['altText'] = $this->altText;
+        }
+
+        return $image;
     }
 
     /**

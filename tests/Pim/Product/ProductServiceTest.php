@@ -13,9 +13,11 @@ use Composer\Autoload\ClassLoader;
 use Doctrine\Common\Annotations\AnnotationRegistry;
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use Wizaplace\SDK\Catalog\CatalogService;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Pagination;
+use Wizaplace\SDK\Pim\Moderation\ModerationService;
 use Wizaplace\SDK\Pim\Product\CreateProductCommand;
 use Wizaplace\SDK\Pim\Product\Product;
 use Wizaplace\SDK\Pim\Product\ProductApprovalStatus;
@@ -1588,30 +1590,33 @@ final class ProductServiceTest extends ApiTestCase
     {
         $service = $this->buildProductService("vendor@wizaplace.com", "password");
 
-        $id = $service->createProduct(
+        $productId = $service->createProduct(
             (new CreateProductCommand())
-                ->setCode("product_with_sub_update")
-                ->setSupplierReference('product_with_sub_ref')
-                ->setName("Product with subscription")
-                ->setMainCategoryId(1)
-                ->setGreenTax(0.)
+                ->setName("Service 1")
+                ->setCode("REFSUP3vv2202")
+                ->setFullDescription("en ligne service ")
+                ->setShortDescription("en ligne service")
+                ->setGreenTax(0)
+                ->setStatus(ProductStatus::ENABLED())
+                ->setMainCategoryId(4)
+                ->setIsBrandNew(true)
                 ->setTaxIds([1])
+                ->setWeight(1.0)
+                ->setInfiniteStock(true)
+                ->setSupplierReference("REFSEPTMA3222")
+                ->setProductTemplateType('service')
                 ->setDeclinations(
                     [
-                        (new ProductDeclinationUpsertData([]))
-                            ->setCode('product_with_sub')
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                            ->setCode('code_full_declD')
                             ->setPrice(3.5)
-                            ->setQuantity(12)
-                            ->setInfiniteStock(false),
+                            ->setInfiniteStock(true),
+                        (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                            ->setPrice(100.0)
+                            ->setCrossedOutPrice(1000.0)
+                            ->setQuantity(1)
                     ]
                 )
-                ->setStatus(ProductStatus::ENABLED())
-                ->setIsBrandNew(true)
-                ->setWeight(0.)
-                ->setFullDescription("Product with subscription full description")
-                ->setShortDescription("Product with subscription short description")
-                ->setIsSubscription(true)
-                ->setIsRenewable(true)
                 ->setMainImage(
                     (new ProductImageUpload())->setName('image3.png')
                         ->setMimeType('image/png')
@@ -1629,10 +1634,10 @@ final class ProductServiceTest extends ApiTestCase
                 )
         );
 
-        $product = $service->getProductById($id);
+        $product = $service->getProductById($productId);
 
-        static::assertNotNull($product->getMainImage());
-        static::assertNotNull($product->getAdditionalImages());
+        static::assertEquals('alt text main image', $product->getImagesData()[0]->getAlt());
+        static::assertEquals('alt text additional image', $product->getImagesData()[1]->getAlt());
     }
 
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
