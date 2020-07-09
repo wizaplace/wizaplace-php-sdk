@@ -80,7 +80,8 @@ final class Product extends ProductSummary
                 return $a['detailed']['position'] <=> $b['detailed']['position'];
             }
         );
-        if (\array_key_exists('altText', $data['main_pair']['detailed'])) {
+        if (\array_key_exists('detailed', $data['main_pair']) === true
+            && \array_key_exists('altText', $data['main_pair']['detailed']) === true) {
             $this->mainImagesData = [
                 'image_path' => $data['main_pair']['detailed']['image_path'],
                 'altText' => $data['main_pair']['detailed']['altText']
@@ -93,9 +94,9 @@ final class Product extends ProductSummary
             $this->additionalImagesData = array_map(
                 static function (array $imageData): array {
                     return [
-                    'image_path' => $imageData['detailed']['image_path'],
-                    'altText' => $imageData['detailed']['altText']
-            ];
+                        'image_path' => $imageData['detailed']['image_path'],
+                        'altText' => $imageData['detailed']['altText']
+                    ];
                 },
                 $data['image_pairs']
             );

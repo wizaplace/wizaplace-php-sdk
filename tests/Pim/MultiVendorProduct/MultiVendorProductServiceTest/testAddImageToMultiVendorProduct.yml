@@ -22,32 +22,32 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Jul 2020 13:58:48 GMT'
+            Date: 'Thu, 09 Jul 2020 12:30:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 8a2571
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a2571'
-            X-Request-Id: a86473ffc2ec137ea9b16904e743fc7c
-        body: '{"id":2,"apiKey":"qQherpKVykfCMQg6TSUCR7uZzflxSa+Xmd0UvKzE"}'
+            X-Debug-Token: 18db84
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/18db84'
+            X-Request-Id: 98ae2202ca6cc602d6dfd7176dab6456
+        body: '{"id":2,"apiKey":"svdNFtpPVKRN3nQz+m+BCU7bzyxZ0vmx0keyl\/Zl"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/0adaf6bc-d362-34be-b72f-42d5aa3b4a4e/images'
+        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/8f95c0ad-e1e2-4587-9f24-ba504d5b45f3/images'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=6b5ec40e0fd9123792bcdf2c7b406ee8f40c97e0'
+            Content-Type: 'multipart/form-data; boundary=c816089dc2d650e3b766ff3ac262b220943d80bd'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token qQherpKVykfCMQg6TSUCR7uZzflxSa+Xmd0UvKzE'
+            Authorization: 'token svdNFtpPVKRN3nQz+m+BCU7bzyxZ0vmx0keyl/Zl'
             VCR-index: '1'
             Accept: null
-        body: !!binary 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
+        body: !!binary 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
     response:
         status:
             http_version: '1.1'
-            code: '404'
-            message: 'Not Found'
+            code: '200'
+            message: OK
         headers:
             Server: nginx
             Content-Type: application/json
@@ -55,9 +55,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Jul 2020 13:58:48 GMT'
+            Date: 'Thu, 09 Jul 2020 12:30:40 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4bf8b6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4bf8b6'
-        body: '{"message":"MultiVendorProduct \u00220adaf6bc-d362-34be-b72f-42d5aa3b4a4e\u0022 not found"}'
+            X-Debug-Token: b90b0f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b90b0f'
+            X-Request-Id: 3a5a8c5577ef5d8ba7aa6f1343b4af8a
+        body: '{"id":"8f95c0ad-e1e2-4587-9f24-ba504d5b45f3","name":"Test MVP","code":"20230495447","productTemplateType":"product","supplierReference":"TEST-MVP","slug":"quae-eos-est-ipsam-ipsum-omnis","shortDescription":"Omnis itaque est odit molestiae. Ut et cum sunt sunt et atque. Aperiam voluptas voluptatem iure. Enim blanditiis dolorem voluptate ex.","description":"Doloribus sit velit impedit. Ut temporibus est qui et molestiae facilis nisi. Repudiandae eos pariatur vel omnis sit ut recusandae. Suscipit cum nam qui velit consequatur. Rerum natus cupiditate laborum officiis. Veniam pariatur ut ad. Ut maxime quas a cupiditate impedit in aut. Odio saepe et doloremque. Quidem non ipsam et corrupti. Eos magnam id velit ut. Et tempora earum beatae animi nihil optio voluptas. Non vel consequatur exercitationem harum eveniet magni blanditiis. Repellendus illum culpa odit aut blanditiis quia amet.","seoTitle":"","seoDescription":"","seoKeywords":"","status":"A","category":{"id":6,"name":"Special category dedicated to specific tests"},"categoryId":6,"imageIds":[13],"imagesData":[{"id":13,"alt":""}],"attributes":{"3":"Commentaire #12M%M_\u00b009\u00a3*\/.?","1":[2,3],"7":"Compl\u00e9ment d\u0027adresse pour la stepo","5":[9],"6":17,"9":20,"2":5},"freeAttributes":{"Free attribute multiple":["r\u00e9ponse - 1 #","r\u00e9ponse - 2 @",4985],"Free attribute simple":["valeur simple du free attribute #12M%M_\u00b009\u00a3*\/.?"],"Free attribute simple mais en tableau":["une bien belle valeur d\u00e9j\u00e0 encapsul\u00e9e"],"Free attribute integer ?":[92254094],"Free attribute integer mais en tableau":["la m\u00eame histoire par ici"]},"video":{"id":null,"thumb":null,"path":null}}'

@@ -348,7 +348,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
     public function testAddImageToMultiVendorProduct()
     {
         $service = $this->buildMultiVendorProductService();
-        $uuid = '0adaf6bc-d362-34be-b72f-42d5aa3b4a4e';
+        $uuid = '8f95c0ad-e1e2-4587-9f24-ba504d5b45f3';
 
         $image = $this->mockUploadedFile("favicon.png");
 
