@@ -2,7 +2,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/catalog/declinations/3_3_8'
+        url: 'http://wizaplace.loc/api/v1/catalog/declinations/3_5_40'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -12,8 +12,8 @@
     response:
         status:
             http_version: '1.1'
-            code: '404'
-            message: 'Not Found'
+            code: '200'
+            message: OK
         headers:
             Server: nginx
             Content-Type: application/json
@@ -21,9 +21,10 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 07 Jul 2020 12:07:26 GMT'
+            Date: 'Thu, 09 Jul 2020 10:20:52 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b7389c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b7389c'
-        body: '{"message":"Product \u00223\u0022 not found"}'
+            X-Debug-Token: b773cf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b773cf'
+            X-Request-Id: 43613738a0bc89c1ffe591d1256b7c0f
+        body: '{"id":"3_5_40","code":"size_13","isAvailable":true,"supplierReference":"INFO-ECRAN-001","price":15.5,"maxPriceAdjustment":null,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"imagesData":[],"options":[{"id":5,"name":"size","code":null,"variantId":40,"variantName":"13","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}],"shippings":{"38":{"shipping_id":38,"name":"Lettre prioritaire","image":{"id":0,"path":null},"delivery_time":"","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"position":0,"delivery_type":"S","carriagePaidThreshold":null},"39":{"shipping_id":39,"name":"Colissmo","image":{"id":0,"path":null},"delivery_time":"","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"position":0,"delivery_type":"S","carriagePaidThreshold":null},"1":{"shipping_id":1,"name":"TNT Express","image":{"id":0,"path":null},"delivery_time":"24h","first_rate":0,"next_rate":0,"location":"","latitude":null,"longitude":null,"position":40,"delivery_type":"S","carriagePaidThreshold":null}},"isSubscription":false,"isRenewable":false}'
