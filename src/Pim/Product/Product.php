@@ -81,7 +81,8 @@ final class Product extends ProductSummary
             }
         );
         if (\array_key_exists('detailed', $data['main_pair']) === true
-            && \array_key_exists('altText', $data['main_pair']['detailed']) === true) {
+            && \array_key_exists('altText', $data['main_pair']['detailed']) === true
+        ) {
             $this->mainImagesData = [
                 'image_path' => $data['main_pair']['detailed']['image_path'],
                 'altText' => $data['main_pair']['detailed']['altText']
