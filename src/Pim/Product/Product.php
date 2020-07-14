@@ -91,7 +91,7 @@ final class Product extends ProductSummary
             $this->mainImagesData = [];
         }
         $this->additionalImages = array_map([self::class, 'unserializeImage'], $data['image_pairs'] ?? []);
-        if (\array_key_exists('image_pairs',  $data) === true) {
+        if (\array_key_exists('image_pairs', $data) === true) {
             $this->additionalImagesData = array_map(
                 static function (array $imageData): array {
                     return [
