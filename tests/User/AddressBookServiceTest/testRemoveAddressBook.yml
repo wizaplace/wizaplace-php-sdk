@@ -1,0 +1,197 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            VCR-index: '0'
+            Accept: null
+        body: 'email=AddressBookTest7%40wizaplace.com&password=password&firstName=&lastName='
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Mon, 11 May 2020 11:07:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3d4084
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3d4084'
+            Expires: 'Mon, 11 May 2020 11:07:05 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%223d4084%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: e366295f33bafcb3aebd5adca2a80ce2
+        body: '{"id":8320}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic QWRkcmVzc0Jvb2tUZXN0N0B3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 May 2020 11:07:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5568ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5568ff'
+            X-Request-Id: 5e0cfc86c50d9d4f878f52372bfd75e4
+        body: '{"id":8320,"apiKey":"dxfXtY4rVvNjRsd98YmKEuXZTiKaQmH7Fj77x1gs"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/8320/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            Authorization: 'token dxfXtY4rVvNjRsd98YmKEuXZTiKaQmH7Fj77x1gs'
+            VCR-index: '2'
+            Accept: null
+        body: '{"fromUserProfile":"billing"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 May 2020 11:07:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '176572'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/176572'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22176572%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: ea383508d20100c661b815870d0e85b0
+        body: '"ac7d4efb-c8b1-44c4-833f-f16698aedddd"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/8320/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            Authorization: 'token dxfXtY4rVvNjRsd98YmKEuXZTiKaQmH7Fj77x1gs'
+            VCR-index: '3'
+            Accept: null
+        body: '{"fromUserProfile":"shipping"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 May 2020 11:07:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0cd610
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0cd610'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220cd610%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 691961810b2d0473da16e7b6696c177c
+        body: '"f9fcdf63-4a1c-40d0-bbc4-2b85a6f38083"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/8320/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            Authorization: 'token dxfXtY4rVvNjRsd98YmKEuXZTiKaQmH7Fj77x1gs'
+            VCR-index: '4'
+            Accept: null
+        body: '{"label":"Domicile","firstname":"firstname","lastname":"lastname","title":"mr","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","division_code":"FR-03"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 May 2020 11:07:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 745a45
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/745a45'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22745a45%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 4f5b0fa8e569bf9b25a151b4bd575626
+        body: '"62d054e4-30a4-4a23-8d41-74419706856b"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/8320/address-book/addresses?offset=0&limit=20'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-261-add-max-price-adjustment-api-catalog@284fe4a
+            Authorization: 'token dxfXtY4rVvNjRsd98YmKEuXZTiKaQmH7Fj77x1gs'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 May 2020 11:07:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 574ae1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/574ae1'
+            X-Request-Id: ccb1be1ec494d9b1dad1024da8d8bd8d
+        body: '{"limit":20,"offset":0,"total":3,"items":[{"id":"62d054e4-30a4-4a23-8d41-74419706856b","label":"Domicile","firstname":"firstname","lastname":"lastname","title":"mr","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","division_code":"FR-03","comment":null},{"id":"ac7d4efb-c8b1-44c4-833f-f16698aedddd","label":null,"firstname":"","lastname":"","title":"","company":"","phone":"","address":"","address_2":"","city":"","zipcode":"","country":"","division_code":null,"comment":null},{"id":"f9fcdf63-4a1c-40d0-bbc4-2b85a6f38083","label":null,"firstname":"","lastname":"","title":"","company":"","phone":"","address":"","address_2":"","city":"","zipcode":"","country":"","division_code":null,"comment":null}]}'

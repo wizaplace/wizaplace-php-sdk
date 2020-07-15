@@ -16,6 +16,7 @@ use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\User\AddressBookService;
 use Wizaplace\SDK\User\RegisterUserCommand;
 use Wizaplace\SDK\User\UpdateUserAddressCommand;
 use Wizaplace\SDK\User\UpdateUserAddressesCommand;
@@ -465,9 +466,9 @@ final class UserServiceTest extends ApiTestCase
         $userService = new UserService($client);
 
         // create new user
-        $userId = $userService->register('user12@example.com', 'password', 'Jean', 'Paul');
+        $userId = $userService->register('u123@example.com', 'password', 'Jean', 'Paul');
 
-        $client->authenticate('user12@example.com', 'password');
+        $client->authenticate('u123@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         static::assertNull($user->getShippingAddress()->getTitle());
         static::assertSame('Jean', $user->getShippingAddress()->getFirstName());
@@ -542,9 +543,9 @@ final class UserServiceTest extends ApiTestCase
         $userService = new UserService($client);
 
         // create new user
-        $userId = $userService->register('user13@example.com', 'password', 'Jean', 'Paul');
+        $userId = $userService->register('u1234@example.com', 'password', 'Jean', 'Paul');
 
-        $client->authenticate('user13@example.com', 'password');
+        $client->authenticate('u1234@example.com', 'password');
         $user = $userService->getProfileFromId($userId);
         static::assertNull($user->getShippingAddress()->getTitle());
         static::assertSame('Jean', $user->getShippingAddress()->getFirstName());
@@ -595,15 +596,164 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('', $user->getBillingAddress()->getZipCode());
     }
 
+    public function testUpdateUserAddressesWithLabelAndComment(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+        $userId = $userService->register('Paul2@example.com', 'password', 'Jean', 'Paul');
+        $client->authenticate('Paul2@example.com', 'password');
+
+        $userService->updateUserAdresses(
+            (new UpdateUserAddressesCommand())
+                ->setUserId($userId)
+                ->setShippingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setTitle(UserTitle::MR())
+                        ->setFirstName('Pierre')
+                        ->setLastName('Jacques')
+                        ->setCountry('FR')
+                        ->setCity('Lyon')
+                        ->setAddress('24 rue de la gare')
+                        ->setAddressSecondLine('1er étage')
+                        ->setCompany('Wizaplace')
+                        ->setPhone('0123456798')
+                        ->setZipCode('69009')
+                        ->setDivisionCode('FR-69')
+                        ->setLabel('Domicile')
+                        ->setComment('Près de la garre')
+                )
+                ->setBillingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setTitle(UserTitle::MRS())
+                        ->setFirstName('Jeanne')
+                        ->setLastName('Paulette')
+                        ->setCountry('GB')
+                        ->setCity('Lyon')
+                        ->setAddress('24 rue de la gare')
+                        ->setAddressSecondLine('1er étage')
+                        ->setCompany('Wizaplace')
+                        ->setPhone('0123456798')
+                        ->setZipCode('69009')
+                        ->setLabel('Bureau')
+                        ->setComment('Près de la poste')
+                )
+        );
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame('Domicile', $user->getShippingAddress()->getLabel());
+        static::assertSame('Près de la garre', $user->getShippingAddress()->getComment());
+        static::assertSame('Bureau', $user->getBillingAddress()->getLabel());
+        static::assertSame('Près de la poste', $user->getBillingAddress()->getComment());
+    }
+
+    public function testUpdateUserAddressesWithAllFields(): void
+    {
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+        $addressBookService = new AddressBookService($client);
+        // create new user
+        $userId = $userService->register('Jean123@example.com', 'password', 'Jean', 'Paul');
+
+        $client->authenticate('Jean123@example.com', 'password');
+
+        // create new address
+        $adddressdata = [
+            'label' => 'Domicile',
+            'firstname' => 'firstname',
+            'lastname' => 'lastname',
+            'title' => UserTitle::MR(),
+            'company' => 'ACME',
+            'phone' => '20000',
+            'address' => '40 rue Laure Diebold',
+            'address_2' => '3ème étage',
+            'city' => 'Lyon',
+            'zipcode' => '69009',
+            'country' => 'FR',
+            'division_code' => 'FR-03',
+            'comment' => 'Près de la poste'
+        ];
+
+        $addressId = $addressBookService->createAddressInAddressBook($userId, $adddressdata);
+
+        $userService->updateUserAdresses(
+            (new UpdateUserAddressesCommand())
+                ->setUserId($userId)
+                ->setShippingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setTitle(UserTitle::MR())
+                        ->setFirstName('Pierre')
+                        ->setLastName('Jacques')
+                        ->setCountry('FR')
+                        ->setCity('Lyon')
+                        ->setAddress('24 rue de la gare')
+                        ->setAddressSecondLine('1er étage')
+                        ->setCompany('Wizaplace')
+                        ->setPhone('0123456798')
+                        ->setZipCode('69009')
+                        ->setDivisionCode('FR-69')
+                        ->setLabel('Domicile')
+                        ->setComment('Près de la garre')
+                        ->setId($addressId)
+                )
+                ->setBillingAddress(
+                    (new UpdateUserAddressCommand())
+                        ->setTitle(UserTitle::MRS())
+                        ->setFirstName('Jeanne')
+                        ->setLastName('Paulette')
+                        ->setCountry('GB')
+                        ->setCity('Lyon')
+                        ->setAddress('24 rue de la gare')
+                        ->setAddressSecondLine('1er étage')
+                        ->setCompany('Wizaplace')
+                        ->setPhone('0123456798')
+                        ->setZipCode('69009')
+                        ->setLabel('Bureau')
+                        ->setComment('Près de la poste')
+                        ->setId($addressId)
+                )
+        );
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame($addressId, $user->getShippingAddress()->getId());
+        static::assertSame('Domicile', $user->getShippingAddress()->getLabel());
+        static::assertSame('firstname', $user->getShippingAddress()->getFirstName());
+        static::assertSame('lastname', $user->getShippingAddress()->getLastName());
+        static::assertSame('mr', $user->getShippingAddress()->getTitle()->getValue());
+        static::assertSame('ACME', $user->getShippingAddress()->getCompany());
+        static::assertSame('20000', $user->getShippingAddress()->getPhone());
+        static::assertSame('40 rue Laure Diebold', $user->getShippingAddress()->getAddress());
+        static::assertSame('3ème étage', $user->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('Lyon', $user->getShippingAddress()->getCity());
+        static::assertSame('69009', $user->getShippingAddress()->getZipCode());
+        static::assertSame('FR', $user->getShippingAddress()->getCountry());
+        static::assertSame('FR-03', $user->getShippingAddress()->getDivisionCode());
+        static::assertSame('Près de la poste', $user->getShippingAddress()->getComment());
+
+        static::assertSame($addressId, $user->getBillingAddress()->getId());
+        static::assertSame('Domicile', $user->getBillingAddress()->getLabel());
+        static::assertSame('firstname', $user->getBillingAddress()->getFirstName());
+        static::assertSame('lastname', $user->getBillingAddress()->getLastName());
+        static::assertSame('mr', $user->getBillingAddress()->getTitle()->getValue());
+        static::assertSame('ACME', $user->getBillingAddress()->getCompany());
+        static::assertSame('20000', $user->getBillingAddress()->getPhone());
+        static::assertSame('40 rue Laure Diebold', $user->getBillingAddress()->getAddress());
+        static::assertSame('3ème étage', $user->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('Lyon', $user->getBillingAddress()->getCity());
+        static::assertSame('69009', $user->getBillingAddress()->getZipCode());
+        static::assertSame('FR', $user->getBillingAddress()->getCountry());
+        static::assertSame('FR-03', $user->getBillingAddress()->getDivisionCode());
+        static::assertSame('Près de la poste', $user->getBillingAddress()->getComment());
+    }
+
     public function testUpdateUserAddressesWithMissingFieldsWhenFullFieldsBefore(): void
     {
         $client = $this->buildApiClient();
         $userService = new UserService($client);
 
         // create new user
-        $userId = $userService->register('user123@example.com', 'password', 'Paul', 'Jacques');
+        $userId = $userService->register('u12345@example.com', 'password', 'Paul', 'Jacques');
 
-        $client->authenticate('user123@example.com', 'password');
+        $client->authenticate('u12345@example.com', 'password');
 
         //test juste après création du compte
         $user = $userService->getProfileFromId($userId);
@@ -1687,5 +1837,149 @@ final class UserServiceTest extends ApiTestCase
                 ],
             ],
         ];
+    }
+
+    public function testRegisterWithAddressesHavingLabelAndComment(): void
+    {
+        $userEmail = 'user@example.com';
+        $userPassword = 'password';
+        $userFirstname = 'John';
+        $userLastname = 'Doe';
+        $userBilling = new UserAddress(
+            [
+                'label'     => 'Label_b',
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFirstname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+                'comment'   => "Comment_b",
+            ]
+        );
+        $userShipping = new UserAddress(
+            [
+                'label'     => 'Label_s',
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFirstname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+                'comment'   => "Comment_s",
+            ]
+        );
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFirstname, $userLastname, $userBilling, $userShipping);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        // fetch user
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame($userBilling->getLabel(), $user->getBillingAddress()->getLabel());
+        static::assertSame($userBilling->getComment(), $user->getBillingAddress()->getComment());
+        static::assertSame($userShipping->getLabel(), $user->getShippingAddress()->getLabel());
+        static::assertSame($userShipping->getComment(), $user->getShippingAddress()->getComment());
+    }
+
+    public function testGetProfileWithAddressesHavingLabelAndComment(): void
+    {
+        $userEmail = 'example1@example.com';
+        $userPassword = 'password';
+        $userFirstname = 'John';
+        $userLastname = 'Doe';
+        $userBilling = new UserAddress(
+            [
+                'label'     => 'Label_b',
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFirstname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+                'comment'   => "Comment_b",
+            ]
+        );
+        $userShipping = new UserAddress(
+            [
+                'label'     => 'Label_s',
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFirstname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_s",
+                'phone'     => "Phone_s",
+                'address'   => "Address_s",
+                'address_2' => "Address 2_s",
+                'zipcode'   => "Zipcode_s",
+                'city'      => "City_s",
+                'country'   => "FR",
+                'comment'   => "Comment_s",
+            ]
+        );
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFirstname, $userLastname, $userBilling, $userShipping);
+
+        $client->authenticate($userEmail, $userPassword);
+
+        // get user
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame($userBilling->getLabel(), $user->getBillingAddress()->getLabel());
+        static::assertSame($userBilling->getComment(), $user->getBillingAddress()->getComment());
+        static::assertSame($userShipping->getLabel(), $user->getShippingAddress()->getLabel());
+        static::assertSame($userShipping->getComment(), $user->getShippingAddress()->getComment());
+    }
+
+    public function testUpdateProfileDisplayingAddressesHavingAllFields(): void
+    {
+        $userEmail = 'user103@example.com';
+        $userPassword = 'password';
+        $userFirstName = 'John';
+        $userLastName = 'Doe';
+        $userPhone = '0100000000';
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userId = $userService->register($userEmail, $userPassword, $userFirstName, $userLastName);
+
+        $client->authenticate($userEmail, $userPassword);
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setPhone($userPhone)
+        );
+
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertArrayHasKey('id', $user->getBillingAddress()->toArray());
+        static::assertArrayHasKey('label', $user->getBillingAddress()->toArray());
+        static::assertArrayHasKey('comment', $user->getBillingAddress()->toArray());
+        static::assertArrayHasKey('id', $user->getBillingAddress()->toArray());
+        static::assertArrayHasKey('label', $user->getBillingAddress()->toArray());
+        static::assertArrayHasKey('comment', $user->getBillingAddress()->toArray());
     }
 }

@@ -23,6 +23,9 @@ use Wizaplace\SDK\Exception\CouponCodeAlreadyApplied;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Order\OrderStatus;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\User\AddressBookService;
+use Wizaplace\SDK\User\UserService;
+use Wizaplace\SDK\User\UserTitle;
 
 /**
  * @see BasketService
@@ -790,6 +793,145 @@ final class BasketServiceTest extends ApiTestCase
                 static::assertSame(50., $availableShippings[0]->getCarriagePaidThreshold());
             }
         }
+    }
+
+    public function testChooseShippingAddress(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+
+        $basketService = new BasketService($apiClient);
+        $userService = new UserService($apiClient);
+        $addressBookService = new AddressBookService($apiClient);
+
+        $basket = $basketService->createEmptyBasket();
+
+        $userId = $userService->register('user_shipping_basket1@example.com', 'password', 'Jean', 'Paul');
+        $apiClient->authenticate('user_shipping_basket1@example.com', 'password');
+        $basketService->setUserBasketId($basket->getId());
+
+        $address = [
+            'label' => 'Domicile',
+            'firstname' => 'firstName',
+            'lastname' => 'lastName',
+            'title' => UserTitle::MR(),
+            'company' => 'ACME',
+            'phone' => '20000',
+            'address' => '40 rue Laure Diebold',
+            'address_2' => '3ème étage',
+            'city' => 'Lyon',
+            'zipcode' => '69009',
+            'country' => 'FR',
+            'division_code' => 'FR-03',
+            'comment' => 'Près de la poste'
+        ];
+
+        $addressId = $addressBookService->createAddressInAddressBook($userId, $address);
+        $basketService->chooseShippingAddressAction($basket->getId(), $addressId);
+        $basket = $basketService->getBasket($basket->getId());
+
+        static::assertSame(UserTitle::MR()->getValue(), $basket->getShippingAddress()->getTitle()->getValue());
+        static::assertSame('firstName', $basket->getShippingAddress()->getFirstName());
+        static::assertSame('lastName', $basket->getShippingAddress()->getLastName());
+        static::assertSame('ACME', $basket->getShippingAddress()->getCompany());
+        static::assertSame('20000', $basket->getShippingAddress()->getPhone());
+        static::assertSame('40 rue Laure Diebold', $basket->getShippingAddress()->getAddress());
+        static::assertSame('3ème étage', $basket->getShippingAddress()->getAddressSecondLine());
+        static::assertSame('69009', $basket->getShippingAddress()->getZipCode());
+        static::assertSame('Lyon', $basket->getShippingAddress()->getCity());
+        static::assertSame('FR', $basket->getShippingAddress()->getCountry());
+        static::assertSame('FR-03', $basket->getShippingAddress()->getDivision());
+        static::assertSame('Domicile', $basket->getShippingAddress()->getLabel());
+        static::assertSame('Près de la poste', $basket->getShippingAddress()->getComment());
+    }
+
+    public function testChooseBillingAddress(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+
+        $basketService = new BasketService($apiClient);
+        $userService = new UserService($apiClient);
+        $addressBookService = new AddressBookService($apiClient);
+
+        $basket = $basketService->createEmptyBasket();
+
+        $userId = $userService->register('user_billing_basket@example.com', 'password', 'Jean', 'Paul');
+        $apiClient->authenticate('user_billing_basket@example.com', 'password');
+        $basketService->setUserBasketId($basket->getId());
+
+        $address = [
+            'label' => 'Domicile',
+            'firstname' => 'firstName',
+            'lastname' => 'lastName',
+            'title' => UserTitle::MR(),
+            'company' => 'ACME',
+            'phone' => '20000',
+            'address' => '40 rue Laure Diebold',
+            'address_2' => '3ème étage',
+            'city' => 'Lyon',
+            'zipcode' => '69009',
+            'country' => 'FR',
+            'division_code' => 'FR-03',
+            'comment' => 'Près de la poste'
+        ];
+
+        $addressId = $addressBookService->createAddressInAddressBook($userId, $address);
+        $basketService->chooseBillingAddressAction($basket->getId(), $addressId);
+        $basket = $basketService->getBasket($basket->getId());
+
+        static::assertSame(UserTitle::MR()->getValue(), $basket->getBillingAddress()->getTitle()->getValue());
+        static::assertSame('firstName', $basket->getBillingAddress()->getFirstName());
+        static::assertSame('lastName', $basket->getBillingAddress()->getLastName());
+        static::assertSame('ACME', $basket->getBillingAddress()->getCompany());
+        static::assertSame('20000', $basket->getBillingAddress()->getPhone());
+        static::assertSame('40 rue Laure Diebold', $basket->getBillingAddress()->getAddress());
+        static::assertSame('3ème étage', $basket->getBillingAddress()->getAddressSecondLine());
+        static::assertSame('69009', $basket->getBillingAddress()->getZipCode());
+        static::assertSame('Lyon', $basket->getBillingAddress()->getCity());
+        static::assertSame('FR', $basket->getBillingAddress()->getCountry());
+        static::assertSame('FR-03', $basket->getBillingAddress()->getDivision());
+        static::assertSame('Domicile', $basket->getBillingAddress()->getLabel());
+        static::assertSame('Près de la poste', $basket->getBillingAddress()->getComment());
+    }
+
+    public function testGetBasketWithAddressesHavingLabelAndComment(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+
+        $basketService = new BasketService($apiClient);
+        $userService = new UserService($apiClient);
+        $addressBookService = new AddressBookService($apiClient);
+
+        $basket = $basketService->createEmptyBasket();
+
+        $userId = $userService->register('user_shipping_basket@example.com', 'password', 'Jean', 'Paul');
+        $apiClient->authenticate('user_shipping_basket@example.com', 'password');
+        $basketService->setUserBasketId($basket->getId());
+
+        $address = [
+            'label' => 'Domicile',
+            'firstname' => 'firstName',
+            'lastname' => 'lastName',
+            'title' => UserTitle::MR(),
+            'company' => 'ACME',
+            'phone' => '20000',
+            'address' => '40 rue Laure Diebold',
+            'address_2' => '3ème étage',
+            'city' => 'Lyon',
+            'zipcode' => '69009',
+            'country' => 'FR',
+            'division_code' => 'FR-03',
+            'comment' => 'Près de la poste'
+        ];
+
+        $addressId = $addressBookService->createAddressInAddressBook($userId, $address);
+        $basketService->chooseShippingAddressAction($basket->getId(), $addressId);
+        $basket = $basketService->getBasket($basket->getId());
+
+        static::assertSame('Domicile', $basket->getShippingAddress()->getLabel());
+        static::assertSame('Près de la poste', $basket->getShippingAddress()->getComment());
     }
 
     public function basketProvider(): array

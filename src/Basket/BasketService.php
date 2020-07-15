@@ -13,6 +13,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Basket\Exception\BadQuantity;
 use Wizaplace\SDK\Basket\Exception\CouponNotInTheBasket;
 use Wizaplace\SDK\Catalog\DeclinationId;
@@ -665,5 +666,77 @@ final class BasketService extends AbstractService
     private static function serializeComment(Comment $comment): array
     {
         return $comment->toArray();
+    }
+
+    /**
+     * set basket shippingAddress from AddressBook
+     *
+     * @param string $basketId
+     * @param string $addressId
+     * @throws BadCredentials
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function chooseShippingAddressAction(string $basketId, string $addressId): void
+    {
+        try {
+            $this->client->post(
+                "basket/{$basketId}/choose-shipping-address",
+                [
+                    RequestOptions::JSON => [
+                        'addressId' => $addressId,
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage(), 400);
+                case 403:
+                    throw new BadCredentials($exception);
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
+    /**
+     * set basket billingAddress from AddressBook
+     *
+     * @param string $basketId
+     * @param string $addressId
+     * @throws BadCredentials
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function chooseBillingAddressAction(string $basketId, string $addressId): void
+    {
+        try {
+            $this->client->post(
+                "basket/{$basketId}/choose-billing-address",
+                [
+                    RequestOptions::JSON => [
+                        'addressId' => $addressId,
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage(), 400);
+                case 403:
+                    throw new BadCredentials($exception);
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+                default:
+                    throw $exception;
+            }
+        }
     }
 }

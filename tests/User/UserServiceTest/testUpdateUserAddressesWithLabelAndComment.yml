@@ -1,0 +1,128 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+        body: 'email=Paul2%40example.com&password=password&firstName=Jean&lastName=Paul'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 17 Apr 2020 11:41:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2dc322
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2dc322'
+            Expires: 'Fri, 17 Apr 2020 11:41:06 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%222dc322%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 5bc05a1ad193d18898a7cee4d433be54
+        body: '{"id":38}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic UGF1bDJAZXhhbXBsZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 11:41:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7c4b18
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7c4b18'
+            X-Request-Id: 8d6df8ea4c4e7f7a0209cad3277d210d
+        body: '{"id":38,"apiKey":"07FzxkqcLBAPHpKlJG1d1rx5WRfMfRABivMMGUSp"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/users/38/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 07FzxkqcLBAPHpKlJG1d1rx5WRfMfRABivMMGUSp'
+            VCR-index: '2'
+            Accept: null
+        body: '{"billing":{"label":"Bureau","title":"mrs","firstname":"Jeanne","lastname":"Paulette","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"GB","division_code":null,"comment":"Pr\u00e8s de la poste"},"shipping":{"label":"Domicile","title":"mr","firstname":"Pierre","lastname":"Jacques","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-69","comment":"Pr\u00e8s de la garre"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 11:41:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6b0d17
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6b0d17'
+            X-Request-Id: 31e7d08a86fdc8c42da7a5ba4effe983
+        body: '""'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/38'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 07FzxkqcLBAPHpKlJG1d1rx5WRfMfRABivMMGUSp'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 11:41:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ec2c89
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ec2c89'
+            X-Request-Id: 7449ab854de2c1597a39ee19139f08f9
+        body: '{"id":38,"title":null,"email":"Paul2@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"Bureau","address_id":"","title":"mrs","firstname":"Jeanne","lastname":"Paulette","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"GB","state":"","division_code":"","comment":"Pr\u00e8s de la poste","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"Domicile","address_id":"","title":"mr","firstname":"Pierre","lastname":"Jacques","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","division_code":"FR-69","comment":"Pr\u00e8s de la garre","37":4,"38":4,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

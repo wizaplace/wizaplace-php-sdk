@@ -144,8 +144,8 @@ final class UserService extends AbstractService
      * Update the user's addresses.
      *
      * @param UpdateUserAddressesCommand $command
-     *
      * @throws AuthenticationRequired
+     * @throws NotFound
      * @throws SomeParametersAreInvalid
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
@@ -154,15 +154,27 @@ final class UserService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
         $command->validate();
-        $this->client->put(
-            "users/{$command->getUserId()}/addresses",
-            [
-                RequestOptions::JSON => [
-                    'billing' => self::serializeUserAddressUpdate($command->getBillingAddress()),
-                    'shipping' => self::serializeUserAddressUpdate($command->getShippingAddress()),
-                ],
-            ]
-        );
+
+        try {
+            $this->client->put(
+                "users/{$command->getUserId()}/addresses",
+                [
+                    RequestOptions::JSON => [
+                        'billing' => self::serializeUserAddressUpdate($command->getBillingAddress()),
+                        'shipping' => self::serializeUserAddressUpdate($command->getShippingAddress()),
+                    ],
+                ]
+            );
+        } catch (ClientException $ex) {
+            switch ($ex->getResponse()->getStatusCode()) {
+                case 404:
+                    throw new NotFound($ex->getMessage(), $ex);
+                case 400:
+                    throw new SomeParametersAreInvalid($ex->getMessage(), 400);
+                default:
+                    throw $ex;
+            }
+        }
     }
 
     /**
@@ -458,7 +470,8 @@ final class UserService extends AbstractService
      */
     private static function serializeUserAddressUpdate(UpdateUserAddressCommand $command): array
     {
-        return [
+        $userAddress = [
+            'label' => $command->getLabel(),
             'title' => \is_null($command->getTitle()) ? null : $command->getTitle()->getValue(),
             'firstname' => $command->getFirstName(),
             'lastname' => $command->getLastName(),
@@ -470,7 +483,14 @@ final class UserService extends AbstractService
             'city' => $command->getCity(),
             'country' => $command->getCountry(),
             'division_code' => $command->getDivisionCode(),
+            'comment' => $command->getComment(),
         ];
+
+        if ($command->getId() !== null) {
+            $userAddress['address_id'] = $command->getId();
+        }
+
+        return $userAddress;
     }
 
     /**

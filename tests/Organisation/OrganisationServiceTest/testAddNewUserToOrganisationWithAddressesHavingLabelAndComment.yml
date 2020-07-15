@@ -1,0 +1,186 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 15:30:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6ec6bf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6ec6bf'
+            X-Request-Id: 27dfa463fece187467b460b3bcfcb0fe
+        body: '{"id":2,"apiKey":"6YZW4oKLeYOOuMpsx9EnLQ\/ZAOavwXsz9FkOoqr3"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 15:30:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5984fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5984fd'
+            X-Request-Id: 6eed6c2fc72ba5e5c04f0a4a0811536f
+        body: '{"id":2,"apiKey":"6YZW4oKLeYOOuMpsx9EnLQ\/ZAOavwXsz9FkOoqr3"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 6YZW4oKLeYOOuMpsx9EnLQ/ZAOavwXsz9FkOoqr3'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 15:30:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3249ce
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3249ce'
+            X-Request-Id: 5fa9a6a6b10ecc4fd7ac48ceae1f1baa
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"f09d0eca-8a2d-11ea-8cff-0242ac140008","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"f0b3fe5c-8a2d-11ea-8cff-0242ac140008","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/f09d0eca-8a2d-11ea-8cff-0242ac140008/groups'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 6YZW4oKLeYOOuMpsx9EnLQ/ZAOavwXsz9FkOoqr3'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 15:30:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e36da6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e36da6'
+            X-Request-Id: f6a8589753e98b816470b68cea3e519e
+        body: '{"total":1,"count":1,"_embedded":{"groups":[{"id":"f09e846f-8a2d-11ea-8cff-0242ac140008","name":"organisation_group_admin_label","type":"admin"}]}}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/organisations/f09d0eca-8a2d-11ea-8cff-0242ac140008/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=ae83a8d92a65595ee8c2e1f097c411204640e651'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 6YZW4oKLeYOOuMpsx9EnLQ/ZAOavwXsz9FkOoqr3'
+            VCR-index: '4'
+            Accept: null
+        body: "--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"groupId\"\r\nContent-Length: 36\r\n\r\nf09e846f-8a2d-11ea-8cff-0242ac140008\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"email\"\r\nContent-Length: 17\r\n\r\nuser@motohead.com\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"firstName\"\r\nContent-Length: 5\r\n\r\nLemmy\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"lastName\"\r\nContent-Length: 9\r\n\r\nKilmister\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"password\"\r\nContent-Length: 10\r\n\r\nborn2loose\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"status\"\r\nContent-Length: 1\r\n\r\nA\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"title\"\r\nContent-Length: 2\r\n\r\nmr\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"occupation\"\r\nContent-Length: 6\r\n\r\nsinger\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[title]\"\r\nContent-Length: 2\r\n\r\nmr\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[firstname]\"\r\nContent-Length: 4\r\n\r\nJean\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[lastname]\"\r\nContent-Length: 3\r\n\r\nJoe\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[address]\"\r\nContent-Length: 13\r\n\r\nRue de madrid\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[address_2]\"\r\nContent-Length: 12\r\n\r\n3ème étage\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[city]\"\r\nContent-Length: 4\r\n\r\nLyon\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[country]\"\r\nContent-Length: 2\r\n\r\nFR\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[label]\"\r\nContent-Length: 8\r\n\r\nDomicile\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"shippingAddress[comment]\"\r\nContent-Length: 17\r\n\r\nPrès de la poste\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"identityCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651\r\nContent-Disposition: form-data; name=\"proofOfAppointment\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--ae83a8d92a65595ee8c2e1f097c411204640e651--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Wed, 29 Apr 2020 15:30:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 573a72
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/573a72'
+            Expires: 'Wed, 29 Apr 2020 15:30:54 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22573a72%22%2C%22route%22%3A%22api_organisation_add_new_user%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationController%22%2C%22method%22%3A%22addNewUserAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationController.php%22%2C%22line%22%3A221%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: d8bc141d7118bc8277a312f0d7a4a85d
+        body: '{"id":15,"email":"user@motohead.com","firstName":"Lemmy","lastName":"Kilmister","status":"A"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/15'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token 6YZW4oKLeYOOuMpsx9EnLQ/ZAOavwXsz9FkOoqr3'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 29 Apr 2020 15:30:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 138d7f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/138d7f'
+            X-Request-Id: 1ded488d5a097cc34e9591b511454c39
+        body: '{"id":15,"title":"mr","email":"user@motohead.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Lemmy","lastName":"Kilmister","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Lemmy","lastname":"Kilmister","company":"University of New York","phone":"","address":"194 Lindale Avenue","address_2":"","zipcode":"94801","city":"Richmond","country":"US","state":"","division_code":"","comment":"","37":4,"38":4,"40":"University of New York","39":"University of New York"},"shipping":{"label":"Domicile","address_id":"","title":"mr","firstname":"Jean","lastname":"Joe","company":"University of New York","phone":"","address":"Rue de madrid","address_2":"3\u00e8me \u00e9tage","zipcode":"28209","city":"Lyon","country":"FR","state":"","address_type":"","division_code":"","comment":"Pr\u00e8s de la poste","37":4,"38":4,"40":"University of New York","39":"University of New York"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

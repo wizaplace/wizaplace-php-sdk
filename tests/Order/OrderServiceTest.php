@@ -606,6 +606,14 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertStringStartsWith($pdfHeader, $pdfContent);
         $this->assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
+    public function testGetOrderWithBillingShippingAddressLabelAndComment(): void
+    {
+        $order = $this->buildOrderService()->getOrder(10);
+        $this->assertSame("bComment", $order->getBillingAddress()->getComment());
+        $this->assertSame("sComment", $order->getShippingAddress()->getComment());
+        $this->assertSame("bLabel", $order->getBillingAddress()->getLabel());
+        $this->assertSame("sLabel", $order->getShippingAddress()->getLabel());
+    }
 
     public function testGetUserOrdersWithRefundedData(): void
     {
@@ -623,6 +631,26 @@ final class OrderServiceTest extends ApiTestCase
         $order = $this->buildOrderService()->getOrder(2);
 
         static::assertFalse($order->isRefunded());
+    }
+
+    public function testGetOrdersWithBillingShippingAddressWhichReturnsLabelAndComment(): array
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+        $orders = $orderService->getOrders();
+
+        $this->assertSame("billing comment", $orders[0]->getBillingAddress()->getComment());
+        $this->assertSame("shipping Comment", $orders[0]->getShippingAddress()->getComment());
+        $this->assertSame("home", $orders[0]->getBillingAddress()->getLabel());
+        $this->assertSame("work", $orders[0]->getShippingAddress()->getLabel());
+
+        $this->assertSame("bComment", $orders[4]->getBillingAddress()->getComment());
+        $this->assertSame("sComment", $orders[4]->getShippingAddress()->getComment());
+        $this->assertSame("bLabel", $orders[4]->getBillingAddress()->getLabel());
+        $this->assertSame("sLabel", $orders[4]->getShippingAddress()->getLabel());
+
+        return $orders;
     }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService

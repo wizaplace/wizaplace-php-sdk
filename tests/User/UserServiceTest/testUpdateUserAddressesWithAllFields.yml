@@ -1,0 +1,162 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+        body: 'email=Jean123%40example.com&password=password&firstName=Jean&lastName=Paul'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 17 Apr 2020 13:10:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 458a52
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/458a52'
+            Expires: 'Fri, 17 Apr 2020 13:10:09 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22458a52%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 6c5ab96c055e4a49b7df35e1eb3a10a7
+        body: '{"id":45}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic SmVhbjEyM0BleGFtcGxlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 13:10:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5e1b08
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5e1b08'
+            X-Request-Id: 5a66f4b1f16a70d3b11e78cf855428b0
+        body: '{"id":45,"apiKey":"fyRKqfinVBDOpsFrYoOie44EX0x4mAHSn9nwVASO"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/45/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token fyRKqfinVBDOpsFrYoOie44EX0x4mAHSn9nwVASO'
+            VCR-index: '2'
+            Accept: null
+        body: '{"label":"Domicile","firstname":"firstname","lastname":"lastname","title":"mr","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","division_code":"FR-03","comment":"Pr\u00e8s de la poste"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 13:10:10 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cef1d0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cef1d0'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22cef1d0%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: c23674a1aa9e7bc577c780caa92bb9fd
+        body: '"69769720-8a85-4aef-b269-ca5fd29317bf"'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/users/45/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token fyRKqfinVBDOpsFrYoOie44EX0x4mAHSn9nwVASO'
+            VCR-index: '3'
+            Accept: null
+        body: '{"billing":{"label":"Bureau","title":"mrs","firstname":"Jeanne","lastname":"Paulette","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"GB","division_code":null,"comment":"Pr\u00e8s de la poste","address_id":"69769720-8a85-4aef-b269-ca5fd29317bf"},"shipping":{"label":"Domicile","title":"mr","firstname":"Pierre","lastname":"Jacques","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-69","comment":"Pr\u00e8s de la garre","address_id":"69769720-8a85-4aef-b269-ca5fd29317bf"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 13:10:10 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f71597
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f71597'
+            X-Request-Id: 9506691050f07420247f643555704017
+        body: '""'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/45'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token fyRKqfinVBDOpsFrYoOie44EX0x4mAHSn9nwVASO'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 17 Apr 2020 13:10:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e4e449
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4e449'
+            X-Request-Id: 4117b5f75d7190454c2fea03da642dfc
+        body: '{"id":45,"title":null,"email":"Jean123@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"Domicile","address_id":"69769720-8a85-4aef-b269-ca5fd29317bf","title":"mr","firstname":"firstname","lastname":"lastname","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","division_code":"FR-03","comment":"Pr\u00e8s de la poste","37":4,"38":4,"40":"ACME","39":"ACME"},"shipping":{"label":"Domicile","address_id":"69769720-8a85-4aef-b269-ca5fd29317bf","title":"mr","firstname":"firstname","lastname":"lastname","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","division_code":"FR-03","comment":"Pr\u00e8s de la poste","37":4,"38":4,"40":"ACME","39":"ACME"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

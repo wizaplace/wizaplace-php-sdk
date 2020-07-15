@@ -1,5 +1,47 @@
 # Changelog
 
+## Project Address Book
+
+### New features
+
+- Added `Wizaplace\SDK\User\UserAddress::getId`
+- Added `Wizaplace\SDK\User\UserAddress::getLabel`
+- Added `Wizaplace\SDK\User\UserAddress::getComment`
+- Added `Wizaplace\SDK\User\AddressBook::getTitle`
+- Added `Wizaplace\SDK\User\AddressBook::getFirstName`
+- Added `Wizaplace\SDK\User\AddressBook::getLastName`
+- Added `Wizaplace\SDK\User\AddressBook::getCompany`
+- Added `Wizaplace\SDK\User\AddressBook::getPhone`
+- Added `Wizaplace\SDK\User\AddressBook::getAddress`
+- Added `Wizaplace\SDK\User\AddressBook::getAddressSecondLine`
+- Added `Wizaplace\SDK\User\AddressBook::getZipCode`
+- Added `Wizaplace\SDK\User\AddressBook::getCity`
+- Added `Wizaplace\SDK\User\AddressBook::getCountry`
+- Added `Wizaplace\SDK\User\AddressBook::getDivisionCode`
+- Added `Wizaplace\SDK\User\AddressBook::getId`
+- Added `Wizaplace\SDK\User\AddressBook::setId`
+- Added `Wizaplace\SDK\User\AddressBook::getComment`
+- Added `Wizaplace\SDK\User\AddressBook::setComment`
+- Added `Wizaplace\SDK\User\AddressBook::getLabel`
+- Added `Wizaplace\SDK\User\AddressBook::setLabel`
+- Added `Wizaplace\SDK\User\AddressBook::toArray`
+- Added `Wizaplace\SDK\User\AddressBookService::createAddressInAddressBook`
+- Added `Wizaplace\SDK\User\AddressBookService::listAddressBook`
+- Added `Wizaplace\SDK\User\AddressBookService::delete`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::setId`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::getId`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::setLabel`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::getLabel`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::setComment`
+- Added `Wizaplace\SDK\User\UpdateUserAddressCommand::getComment`
+- Added `Wizaplace\SDK\Basket\BasketService::chooseShippingAddressAction`
+- Added `Wizaplace\SDK\Basket\Address::getLabel`
+- Added `Wizaplace\SDK\Basket\Address::getComment`
+- Added `Wizaplace\SDK\Basket\BasketService::chooseBillingAddressAction`
+- Added `Wizaplace\SDK\Order\Address::getLabel`
+- Added `Wizaplace\SDK\Order\Address::getComment`
+- Added `Wizaplace\SDK\User\AddressBookService::copyAddressInAddressBook`
+
 ## 1.108.32
 
 ### Bugfixes

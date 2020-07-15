@@ -12,16 +12,13 @@ namespace Wizaplace\SDK\User;
 use Wizaplace\SDK\ArrayableInterface;
 
 /**
- * Class UserAddress
+ * Class AddressBook
  * @package Wizaplace\SDK\User
  */
-final class UserAddress implements ArrayableInterface
+class AddressBook implements ArrayableInterface
 {
-    /** @var string|null */
+    /** @var string */
     private $id;
-
-    /** @var string|null */
-    private $label;
 
     /** @var null|UserTitle */
     private $title;
@@ -56,8 +53,11 @@ final class UserAddress implements ArrayableInterface
     /** @var string */
     private $divisionCode;
 
-    /** @var string|null */
+    /** @var null|string */
     private $comment;
+
+    /** @var null|string */
+    private $label;
 
     /**
      * UserAddress constructor.
@@ -66,8 +66,8 @@ final class UserAddress implements ArrayableInterface
      */
     public function __construct(array $data)
     {
-        $this->id = $data['address_id'] ?? null;
-        $this->label = $data['label'] ?? null;
+        $this->id = $data['id'];
+        $this->label = $data['label'] ?? "";
         $this->title = empty($data['title']) ? null : new UserTitle($data['title']);
         $this->firstName = $data['firstname'];
         $this->lastName = $data['lastname'];
@@ -79,19 +79,7 @@ final class UserAddress implements ArrayableInterface
         $this->city = $data['city'];
         $this->country = $data['country'];
         $this->divisionCode = $data['division_code'] ?? "";
-        $this->comment = $data['comment'] ?? null;
-    }
-
-    /** @return string|null */
-    public function getId(): ?string
-    {
-        return $this->id;
-    }
-
-    /** @return string|null */
-    public function getLabel(): ?string
-    {
-        return $this->label;
+        $this->comment = $data['comment'] ?? "";
     }
 
     /**
@@ -174,12 +162,6 @@ final class UserAddress implements ArrayableInterface
         return $this->country;
     }
 
-    /** @return string */
-    public function getComment(): ?string
-    {
-        return $this->comment;
-    }
-
     /**
      * @return string
      */
@@ -189,13 +171,60 @@ final class UserAddress implements ArrayableInterface
     }
 
     /**
+     * @return string
+     */
+    public function getId(): string
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param string $id
+     */
+    public function setId(string $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string|null $comment
+     */
+    public function setComment(?string $comment): void
+    {
+        $this->comment = $comment;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    /**
+     * @param string|null $label
+     */
+    public function setLabel(?string $label): void
+    {
+        $this->label = $label;
+    }
+
+    /**
      * @return array
      */
     public function toArray(): array
     {
         return [
-            'id'            => $this->getId(),
-            'label'         => $this->getLabel(),
+            'id'         => $this->getId(),
             'title'         => \is_null($this->getTitle()) ? null : $this->getTitle()->getValue(),
             'firstname'     => $this->getFirstName(),
             'lastname'      => $this->getLastName(),
@@ -207,7 +236,8 @@ final class UserAddress implements ArrayableInterface
             'city'          => $this->getCity(),
             'country'       => $this->getCountry(),
             'division_code' => $this->getDivisionCode(),
-            'comment'       => $this->getComment(),
+            'comment' => $this->getComment(),
+            'label' => $this->getLabel(),
         ];
     }
 }

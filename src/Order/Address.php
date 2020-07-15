@@ -15,6 +15,8 @@ namespace Wizaplace\SDK\Order;
  */
 abstract class Address
 {
+    /** @var string|null */
+    private $label;
     /** @var string */
     private $firstname;
     /** @var string */
@@ -31,6 +33,9 @@ abstract class Address
     private $country;
     /** @var ?string */
     private $phone;
+    /** @var string|null */
+    private $comment;
+
 
     /**
      * @internal
@@ -39,6 +44,7 @@ abstract class Address
      */
     public function __construct(array $data)
     {
+        $this->label = $data['label'] ?? null;
         $this->firstname = $data['firstname'];
         $this->lastname = $data['lastname'];
         $this->address = $data['address'];
@@ -47,6 +53,13 @@ abstract class Address
         $this->zipcode = $data['zipcode'];
         $this->country = $data['country'];
         $this->phone = $data['phone'] ?? null;
+        $this->comment = $data['comment'] ?? null;
+    }
+
+    /** @return string|null */
+    public function getLabel(): ?string
+    {
+        return $this->label;
     }
 
     /**
@@ -109,5 +122,11 @@ abstract class Address
     public function getPhone(): ?string
     {
         return $this->phone;
+    }
+
+    /** @return string|null */
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 }

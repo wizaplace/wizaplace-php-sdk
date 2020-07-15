@@ -10,12 +10,12 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\User;
 
 /**
- * Class UpdateUserAddressCommand
+ * Class UpdateAddressBookCommand
  * @package Wizaplace\SDK\User
  */
-final class UpdateUserAddressCommand
+final class UpdateAddressBookCommand
 {
-    /** @var string|null */
+    /** @var string */
     private $id;
 
     /** @var string|null */
@@ -57,25 +57,32 @@ final class UpdateUserAddressCommand
     /** @var string|null */
     private $comment;
 
-    /** @return string|null */
-    public function getId(): ?string
+    /** @var string|null */
+    private $fromUserAddress;
+
+    /**
+     * @return string
+     */
+    public function getId(): string
     {
         return $this->id;
     }
 
     /**
-     * @param string|null $id
+     * @param string $id
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
-    public function setId(?string $id): self
+    public function setId(string $id): self
     {
         $this->id = $id;
 
         return $this;
     }
 
-    /** @return string|null */
+    /**
+     * @return string|null
+     */
     public function getLabel(): ?string
     {
         return $this->label;
@@ -84,7 +91,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $label
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setLabel(?string $label): self
     {
@@ -104,7 +111,7 @@ final class UpdateUserAddressCommand
     /**
      * @param UserTitle|null $title
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setTitle(?UserTitle $title): self
     {
@@ -124,7 +131,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $firstName
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setFirstName(?string $firstName): self
     {
@@ -144,7 +151,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $lastName
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setLastName(?string $lastName): self
     {
@@ -164,7 +171,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $company
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setCompany(?string $company): self
     {
@@ -184,7 +191,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $phone
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setPhone(?string $phone): self
     {
@@ -204,7 +211,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $address
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setAddress(?string $address): self
     {
@@ -224,7 +231,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $addressSecondLine
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setAddressSecondLine(?string $addressSecondLine): self
     {
@@ -244,7 +251,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $zipCode
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setZipCode(?string $zipCode): self
     {
@@ -264,7 +271,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $city
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setCity(?string $city): self
     {
@@ -303,7 +310,7 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $divisionCode
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setDivisionCode(?string $divisionCode): self
     {
@@ -312,7 +319,9 @@ final class UpdateUserAddressCommand
         return $this;
     }
 
-    /** @return string|null */
+    /**
+     * @return string|null
+     */
     public function getComment(): ?string
     {
         return $this->comment;
@@ -321,11 +330,31 @@ final class UpdateUserAddressCommand
     /**
      * @param string|null $comment
      *
-     * @return UpdateUserAddressCommand
+     * @return UpdateAddressBookCommand
      */
     public function setComment(?string $comment): self
     {
         $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getFromUserAddress(): ?string
+    {
+        return $this->fromUserAddress;
+    }
+
+    /**
+     * @param string|null $fromUserAddress
+     *
+     * @return UpdateAddressBookCommand
+     */
+    public function setFromUserAddress(?string $fromUserAddress): self
+    {
+        $this->fromUserAddress = $fromUserAddress;
 
         return $this;
     }

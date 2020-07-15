@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4051-add-extrenal-identifier@1fb6f0d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 27 Apr 2020 15:03:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d25812
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d25812'
+            X-Request-Id: e7ee702bf4513308c08a2da9fc07cf22
+        body: '{"id":7,"apiKey":"M3O+93+HFHya42hyTx9g\/9mVHTMbJBQiv5C9K8Q4"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4051-add-extrenal-identifier@1fb6f0d
+            Authorization: 'token M3O+93+HFHya42hyTx9g/9mVHTMbJBQiv5C9K8Q4'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 27 Apr 2020 15:03:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a7b641
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a7b641'
+            X-Request-Id: 65fd04db6e3bd2f3eaa2e074c92a6a40
+        body: '{"id":10,"basketId":"a7c55819-d818-4bcb-bb51-fdc838b0ea1d","companyId":3,"companyName":"The World Company Inc.","total":14.3,"taxTotal":0.32,"subtotal":14.3,"customerTotal":14.3,"marketplaceDiscountTotal":0,"timestamp":1587057145,"status":"STANDBY_VENDOR","workflow":"workflow_order_validation_pending_vendor_validation_processing","shippingName":"","customerComment":"","declineReason":null,"shippingAddress":{"label":"sLabel","title":"mr","firstname":"mondial","lastname":"relay","address":"25 rue de la gare","address2":"","city":"Lyon","zipcode":"69009","country":"FR","company":"wiz","phone":"","comment":"sComment","pickupPointId":"00393"},"billingAddress":{"label":"bLabel","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"bComment","pickupPointId":null},"items":[{"itemId":"3230927120","declinationId":"2_1_1_2_5","productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productImageId":null,"price":15.5,"maxPriceAdjustment":50,"amount":1,"options":[{"optionId":1,"optionName":"color","variantId":1,"variantName":"white","code":null},{"optionId":2,"optionName":"connectivity","variantId":5,"variantName":"wireless","code":null}],"customerComment":"","greenTax":0,"supplierRef":"INFO-002","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":1.2,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false}'

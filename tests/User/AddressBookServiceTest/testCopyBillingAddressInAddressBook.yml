@@ -1,0 +1,129 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            VCR-index: '0'
+            Accept: null
+        body: 'email=userCopyBillingAddress3%40example.com&password=password&firstName=John&lastName=Doe&billing%5Blabel%5D=Domicile_b&billing%5Btitle%5D=mr&billing%5Bfirstname%5D=John&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Company_b&billing%5Bphone%5D=Phone_b&billing%5Baddress%5D=Address_b&billing%5Baddress_2%5D=Address+2_b&billing%5Bzipcode%5D=Zipcode_b&billing%5Bcity%5D=City_b&billing%5Bcountry%5D=FR&billing%5Bdivision_code%5D=FR-69&billing%5Bcomment%5D=comment_b&shipping%5Blabel%5D=Domicile_s&shipping%5Btitle%5D=mr&shipping%5Bfirstname%5D=John&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Company_s&shipping%5Bphone%5D=Phone_s&shipping%5Baddress%5D=Address_s&shipping%5Baddress_2%5D=Address+2_s&shipping%5Bzipcode%5D=Zipcode_s&shipping%5Bcity%5D=City_s&shipping%5Bcountry%5D=FR&shipping%5Bdivision_code%5D=FR-69&shipping%5Bcomment%5D=comment_s'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Sun, 24 May 2020 14:35:17 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '160909'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/160909'
+            Expires: 'Sun, 24 May 2020 14:35:17 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22160909%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 80398847232d47bb414a56f4aa8dbb29
+        body: '{"id":16}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckNvcHlCaWxsaW5nQWRkcmVzczNAZXhhbXBsZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Sun, 24 May 2020 14:35:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c9a296
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c9a296'
+            X-Request-Id: 3eceecbe72cce438482d2674260b8c0d
+        body: '{"id":16,"apiKey":"meDFM59XQIzGhh1rktzqf2jpR8tuVLwFOTLk3pTP"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/16/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token meDFM59XQIzGhh1rktzqf2jpR8tuVLwFOTLk3pTP'
+            VCR-index: '2'
+            Accept: null
+        body: '{"fromUserAddress":"billing"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Sun, 24 May 2020 14:35:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 80a6b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/80a6b6'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2280a6b6%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: ef780a0e17c3f88ee54ad2fed046c122
+        body: '"f848ef36-4709-460d-a35a-a4c56b1fad8a"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/16/address-book/addresses?offset=0&limit=20'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Authorization: 'token meDFM59XQIzGhh1rktzqf2jpR8tuVLwFOTLk3pTP'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Sun, 24 May 2020 14:35:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5d0268
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d0268'
+            X-Request-Id: 6f7cf68c51e7eccc0b2b5c3ba048b140
+        body: '{"limit":20,"offset":0,"total":1,"items":[{"id":"f848ef36-4709-460d-a35a-a4c56b1fad8a","label":"Domicile_b","firstname":"John","lastname":"Doe","title":"mr","company":"Company_b","phone":"Phone_b","address":"Address_b","address_2":"Address 2_b","city":"City_b","zipcode":"Zipcode_b","country":"FR","division_code":"FR-69","comment":"comment_b"}]}'

@@ -56,6 +56,12 @@ final class Address
     /** @var null|string */
     private $division;
 
+    /** @var null|string */
+    private $label;
+
+    /** @var null|string */
+    private $comment;
+
     /**
      * @internal
      */
@@ -74,6 +80,8 @@ final class Address
         $this->email = $data['email'] ?? null;
         $this->state = $data['state'] ?? null;
         $this->division = $data['division'] ?? null;
+        $this->label = $data['label'] ?? null;
+        $this->comment = $data['comment'] ?? null;
     }
 
     /**
@@ -172,5 +180,17 @@ final class Address
     public function getDivision(): ?string
     {
         return $this->division;
+    }
+
+    /** @return null|string */
+    public function getLabel(): ?string
+    {
+        return $this->label;
+    }
+
+    /** @return null|string */
+    public function getComment(): ?string
+    {
+        return $this->comment;
     }
 }

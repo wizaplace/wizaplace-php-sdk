@@ -1,0 +1,256 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '0292e5'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0292e5'
+            X-Request-Id: 0f0f2435380c1c2d8bd03a7092e1f4d9
+        body: '{"id":2,"apiKey":"sm2Zw0cUJDtHR\/aZaQkWXuwbAciDNuhlT2xxOWei"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token sm2Zw0cUJDtHR/aZaQkWXuwbAciDNuhlT2xxOWei'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 884d44
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/884d44'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22884d44%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A96%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 7dec0af4346824cf3292198434942824
+        body: '"3c4ed6b4-39c5-4478-ac62-477abce8696a"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token sm2Zw0cUJDtHR/aZaQkWXuwbAciDNuhlT2xxOWei'
+            VCR-index: '2'
+            Accept: null
+        body: 'email=user_shipping_basket%40example.com&password=password&firstName=Jean&lastName=Paul'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Mon, 20 Apr 2020 17:04:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '233951'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/233951'
+            Expires: 'Mon, 20 Apr 2020 17:04:02 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22233951%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 319764b0f89cbb31ee39ba54da57a69d
+        body: '{"id":15}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcl9zaGlwcGluZ19iYXNrZXRAZXhhbXBsZS5jb206cGFzc3dvcmQ='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1bda8c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bda8c'
+            X-Request-Id: 7a156e82e8e5e742154a2bf6b73c5ad4
+        body: '{"id":15,"apiKey":"OfflPVJNd+1cqhVxLDqaN51Of0iIWS33mieOzs\/7"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/15/basket'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token OfflPVJNd+1cqhVxLDqaN51Of0iIWS33mieOzs/7'
+            VCR-index: '4'
+            Accept: null
+        body: '{"id":"3c4ed6b4-39c5-4478-ac62-477abce8696a"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2ecc83
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2ecc83'
+            X-Request-Id: d573bc21fa5aa34a7587391caf1be4ae
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/15/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token OfflPVJNd+1cqhVxLDqaN51Of0iIWS33mieOzs/7'
+            VCR-index: '5'
+            Accept: null
+        body: '{"label":"Domicile","firstname":"firstName","lastname":"lastName","title":"mr","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","division_code":"FR-03","comment":"Pr\u00e8s de la poste"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3922bc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3922bc'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%223922bc%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 615195663662faac6f5b5a85a31ae71e
+        body: '"3f2c8ce0-a853-44fc-907f-53ac7294bfc0"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/3c4ed6b4-39c5-4478-ac62-477abce8696a/choose-shipping-address'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token OfflPVJNd+1cqhVxLDqaN51Of0iIWS33mieOzs/7'
+            VCR-index: '6'
+            Accept: null
+        body: '{"addressId":"3f2c8ce0-a853-44fc-907f-53ac7294bfc0"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d5980b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5980b'
+            X-Request-Id: 30ec3e47f8cc8ef145800702cc359805
+        body: '""'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/3c4ed6b4-39c5-4478-ac62-477abce8696a'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token OfflPVJNd+1cqhVxLDqaN51Of0iIWS33mieOzs/7'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Apr 2020 17:04:06 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 06870e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/06870e'
+            X-Request-Id: 5652ff63271c056c2621d9a47a2246f3
+        body: '{"id":"3c4ed6b4-39c5-4478-ac62-477abce8696a","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"mr","firstname":"firstName","lastname":"lastName","company":"ACME","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","state":"","country":"FR","phone":"20000","email":"","division":"FR-03","pickupPointId":"","label":"Domicile","comment":"Pr\u00e8s de la poste"},"companyGroups":[],"subtotal":0,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":0,"total":0,"totalMarketplaceDiscount":0,"totalQuantity":0,"totalItemsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'

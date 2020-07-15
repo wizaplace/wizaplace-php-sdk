@@ -27,6 +27,8 @@ use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\User;
+use Wizaplace\SDK\User\UserService;
+use Wizaplace\SDK\User\UserTitle;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 final class OrganisationServiceTest extends ApiTestCase
@@ -598,6 +600,63 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertInstanceOf(User::class, $user);
     }
 
+    public function testAddNewUserToOrganisationWithAddressesHavingLabelAndComment(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+        $userService = new UserService($apiClient);
+        $organisationService = new OrganisationService($apiClient);
+
+        $organisationId = $this->getOrganisationId();
+
+        $groupId = "";
+        foreach ($organisationService->getOrganisationGroups((string) $organisationId) as $group) {
+            if ($group->getType() === "admin") {
+                $groupId = $group->getId();
+                break;
+            }
+        }
+
+        $shippingAddress = [
+            'title' => UserTitle::MR(),
+            'firstname' => 'Jean',
+            'lastname' => 'Joe',
+            'address' => 'Rue de madrid',
+            'address_2' => '3ème étage',
+            'city' => 'Lyon',
+            'country' => 'FR',
+            'label' => 'Domicile',
+            'comment' => 'Près de la poste',
+        ];
+
+        $data = [
+            "groupId"    => $groupId,
+            "email"      => "user@motohead.com",
+            "firstName"  => "Lemmy",
+            "lastName"   => "Kilmister",
+            "password"   => "born2loose",
+            "status"     => "A",
+            "title"      => "mr",
+            "occupation" => "singer",
+            "shippingAddress" => $shippingAddress,
+        ];
+
+        $idCard = $this->mockUploadedFile('minimal.pdf');
+        $proof  = $this->mockUploadedFile('minimal.pdf');
+
+        $files = [
+            new OrganisationFile("identityCard", $idCard->getStream(), $idCard->getClientFilename()),
+            new OrganisationFile("proofOfAppointment", $proof->getStream(), $proof->getClientFilename()),
+        ];
+
+        $createdUser = $organisationService->addNewUser((string) $organisationId, $data, $files);
+
+        $user = $userService->getProfileFromId($createdUser->getId());
+
+        static::assertSame('Domicile', $user->getShippingAddress()->getLabel());
+        static::assertSame('Près de la poste', $user->getShippingAddress()->getComment());
+    }
+
     public function testCanCreateAnOrganisationGroup()
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
@@ -663,6 +722,25 @@ final class OrganisationServiceTest extends ApiTestCase
                     $this->assertInstanceOf(Order::class, $orderDetails);
                 }
             }
+        }
+    }
+
+    public function testGetOrderWithAddressesHavingLabelAndComment(): void
+    {
+        // Organisation admin user
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+
+        $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
+
+        foreach ($organisationOrders['orders'] as $order) {
+            // Get the order details
+            $orderId = $order->getOrderId();
+            $orderDetails = $organisationService->getOrder($orderId);
+            static::assertSame('', $orderDetails->getShippingAddress()->getLabel());
+            static::assertSame('', $orderDetails->getShippingAddress()->getComment());
+            static::assertSame('', $orderDetails->getBillingAddress()->getLabel());
+            static::assertSame('', $orderDetails->getBillingAddress()->getComment());
         }
     }
 
