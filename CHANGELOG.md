@@ -1,6 +1,19 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Catalog\Declination::getImagesData`
+- Added `Wizaplace\SDK\Catalog\Product::getImagesData`
+- Added `Wizaplace\SDK\Catalog\ProductSummary::getImagesData`
+- Added `Wizaplace\SDK\Image\Image::getAlt`
+- Added `Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
+- Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
+
 ## 1.133.0
 
 ### New features
