@@ -96,7 +96,7 @@ final class Product extends ProductSummary
                 static function (array $imageData): array {
                     return [
                         'image_path' => $imageData['detailed']['image_path'],
-                        'altText' => $imageData['detailed']['altText']
+                        'altText' => $imageData['detailed']['altText'] ?? ''
                     ];
                 },
                 $data['image_pairs']
