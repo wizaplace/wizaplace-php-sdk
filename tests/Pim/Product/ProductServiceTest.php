@@ -1016,7 +1016,7 @@ final class ProductServiceTest extends ApiTestCase
         // Checking declinations
         $declinations = $product->getDeclinations();
         static::assertContainsOnly(ProductDeclination::class, $declinations);
-        static::assertCount(2, $declinations);
+        static::assertCount(4, $declinations);
 
         static::assertSame([ 2 => 5], $declinations[0]->getOptionsVariants());
         static::assertSame('code_full_declA', $declinations[0]->getCode());
