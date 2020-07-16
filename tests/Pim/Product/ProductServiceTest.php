@@ -644,7 +644,7 @@ final class ProductServiceTest extends ApiTestCase
         // Checking declinations
         $declinations = $product->getDeclinations();
         static::assertContainsOnly(ProductDeclination::class, $declinations);
-        static::assertCount(2, $declinations);
+        static::assertCount(4, $declinations);
 
         static::assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
         static::assertSame('code_full_declA', $declinations[0]->getCode());
@@ -658,7 +658,7 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame(15.99, $declinations[0]->getPriceTiers()[1]->getPrice());
 
         // empty declination generated automatically to complete the matrix
-        static::assertSame([2 => 5], $declinations[1]->getOptionsVariants());
+        static::assertSame([1 => 1, 2 => 5, 3 => 9], $declinations[1]->getOptionsVariants());
         static::assertSame(0.0, $declinations[1]->getPrice());
         static::assertSame(0, $declinations[1]->getQuantity());
         static::assertSame(0, $declinations[1]->getPriceTiers()[0]->getLowerLimit());
