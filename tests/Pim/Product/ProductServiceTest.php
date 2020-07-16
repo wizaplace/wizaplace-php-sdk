@@ -1018,7 +1018,7 @@ final class ProductServiceTest extends ApiTestCase
         static::assertContainsOnly(ProductDeclination::class, $declinations);
         static::assertCount(4, $declinations);
 
-        static::assertSame([ 2 => 5], $declinations[0]->getOptionsVariants());
+        static::assertSame([1 => 1, 2 => 5, 3 => 7], $declinations[0]->getOptionsVariants());
         static::assertSame('code_full_declA', $declinations[0]->getCode());
         static::assertNull($declinations[0]->getAffiliateLink());
         static::assertNull($declinations[0]->getCrossedOutPrice());
