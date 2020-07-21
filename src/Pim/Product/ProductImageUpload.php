@@ -30,7 +30,7 @@ final class ProductImageUpload
     private $data;
 
     /** @var string|null */
-    private $alt = '';
+    private $altText = '';
 
     /**
      * @param string $name
@@ -69,13 +69,13 @@ final class ProductImageUpload
     }
 
     /**
-     * @param string|null $alt
+     * @param string|null $altText
      *
      * @return ProductImageUpload
      */
-    public function setAltText(?string $alt): self
+    public function setaltTextText(?string $altText): self
     {
-        $this->alt = ($alt !== null) ? $alt : '';
+        $this->altText = ($altText !== null) ? $altText : '';
 
         return $this;
     }
@@ -104,8 +104,8 @@ final class ProductImageUpload
             'image_data' => $this->data
         ];
 
-        if ($this->alt !== null) {
-            $image['alt'] = $this->alt;
+        if ($this->altText !== null) {
+            $image['altText'] = $this->altText;
         }
 
         return $image;
