@@ -73,7 +73,7 @@ final class ProductImageUpload
      *
      * @return ProductImageUpload
      */
-    public function setaltTextText(?string $altText): self
+    public function setAltText(?string $altText): self
     {
         $this->altText = ($altText !== null) ? $altText : '';
 
