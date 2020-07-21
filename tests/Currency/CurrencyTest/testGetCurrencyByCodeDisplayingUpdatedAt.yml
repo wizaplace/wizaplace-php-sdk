@@ -1,0 +1,124 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jul 2020 15:04:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 634ed4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/634ed4'
+            X-Request-Id: 32d832844ecebf57358661b1fc13f959
+        body: '{"id":2,"apiKey":"4EbeFegB+x7aIIVU09TM4qrg\/SXEsH+B67EnkKEp"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/EUR'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 4EbeFegB+x7aIIVU09TM4qrg/SXEsH+B67EnkKEp'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jul 2020 15:04:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7dc3d6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7dc3d6'
+            X-Request-Id: e07f9eb6afb68a69174082a79c079331
+        body: '{"code":"EUR","symbol":"\u20ac","enabled":false,"exchangeRate":null,"updatedAt":null,"countries":[{"code":"AD"},{"code":"AT"},{"code":"AX"},{"code":"BE"},{"code":"BL"},{"code":"CY"},{"code":"DE"},{"code":"EE"},{"code":"ES"},{"code":"FI"},{"code":"FR"},{"code":"GF"},{"code":"GP"},{"code":"GR"},{"code":"IE"},{"code":"IT"},{"code":"LT"},{"code":"LU"},{"code":"LV"},{"code":"MC"},{"code":"ME"},{"code":"MF"},{"code":"MQ"},{"code":"MT"},{"code":"NL"},{"code":"PM"},{"code":"PT"},{"code":"RE"},{"code":"SI"},{"code":"SK"},{"code":"SM"},{"code":"TF"},{"code":"VA"},{"code":"WS"},{"code":"YT"}]}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/currencies/EUR'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 4EbeFegB+x7aIIVU09TM4qrg/SXEsH+B67EnkKEp'
+            VCR-index: '2'
+            Accept: null
+        body: '{"enabled":true,"exchangeRate":14.02}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jul 2020 15:04:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d3da59
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3da59'
+            X-Request-Id: f375cd764d27036d4c680fd8657a64b0
+        body: '{"code":"EUR","symbol":"\u20ac","enabled":true,"exchangeRate":14.02,"updatedAt":"21 Jul 2020 17:04","countries":[{"code":"AD"},{"code":"AT"},{"code":"AX"},{"code":"BE"},{"code":"BL"},{"code":"CY"},{"code":"DE"},{"code":"EE"},{"code":"ES"},{"code":"FI"},{"code":"FR"},{"code":"GF"},{"code":"GP"},{"code":"GR"},{"code":"IE"},{"code":"IT"},{"code":"LT"},{"code":"LU"},{"code":"LV"},{"code":"MC"},{"code":"ME"},{"code":"MF"},{"code":"MQ"},{"code":"MT"},{"code":"NL"},{"code":"PM"},{"code":"PT"},{"code":"RE"},{"code":"SI"},{"code":"SK"},{"code":"SM"},{"code":"TF"},{"code":"VA"},{"code":"WS"},{"code":"YT"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies/EUR'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 4EbeFegB+x7aIIVU09TM4qrg/SXEsH+B67EnkKEp'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Jul 2020 15:04:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '957e76'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/957e76'
+            X-Request-Id: 0d40cc947266f87bb5f5455572f6e7cc
+        body: '{"code":"EUR","symbol":"\u20ac","enabled":true,"exchangeRate":14.02,"updatedAt":"21 Jul 2020 17:04","countries":[{"code":"AD"},{"code":"AT"},{"code":"AX"},{"code":"BE"},{"code":"BL"},{"code":"CY"},{"code":"DE"},{"code":"EE"},{"code":"ES"},{"code":"FI"},{"code":"FR"},{"code":"GF"},{"code":"GP"},{"code":"GR"},{"code":"IE"},{"code":"IT"},{"code":"LT"},{"code":"LU"},{"code":"LV"},{"code":"MC"},{"code":"ME"},{"code":"MF"},{"code":"MQ"},{"code":"MT"},{"code":"NL"},{"code":"PM"},{"code":"PT"},{"code":"RE"},{"code":"SI"},{"code":"SK"},{"code":"SM"},{"code":"TF"},{"code":"VA"},{"code":"WS"},{"code":"YT"}]}'

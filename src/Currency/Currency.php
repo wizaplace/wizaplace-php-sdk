@@ -56,6 +56,7 @@ final class Currency
             },
             $data['countries']
         );
+        if (\array_key_exists('updatedAt', $data) === true) $this->updatedAt = $data['updatedAt'];
     }
 
     public function setExchangeRate(?float $exchangeRate): self
