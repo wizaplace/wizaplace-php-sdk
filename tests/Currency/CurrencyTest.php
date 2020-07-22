@@ -147,23 +147,6 @@ class CurrencyTest extends ApiTestCase
         static::assertNotNull($currency['updatedAt']);
     }
 
-    public function testUpdateCurrencyExchangeRateAndUpdatingDate(): void
-    {
-        // Get a currency
-        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
-        $currencies = $currencyService->getAll();
-        $currency = array_shift($currencies);
-        static::assertInstanceOf(Currency::class, $currency);
-
-        // Update
-        $currency->setEnabled(true);
-        $currency->setExchangeRate(8.7);
-        $currency = $currencyService->updateCurrency($currency);
-
-        date_default_timezone_set('europe/paris');
-        static::assertSame((new \DateTime())->format('d M Y H:i'), $currency['updatedAt']);
-    }
-
     public function testGetCurrencyByCodeDisplayingUpdatedAt(): void
     {
         $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
