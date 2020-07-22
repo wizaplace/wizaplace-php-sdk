@@ -165,6 +165,24 @@ class CurrencyTest extends ApiTestCase
         static::assertNotNull($currency->getUpdatedAt());
     }
 
+    public function testGetCurrenciesDisplayingUpdatedAt(): void
+    {
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+
+        // Get all currencies
+        $currencies = $currencyService->getAll();
+
+        // Update
+        $currencies[0]->setEnabled(true);
+        $currencies[0]->setExchangeRate(14.02);
+        $currencyService->updateCurrency($currencies[0]);
+
+        // Get updated currency
+        $currencies = $currencyService->getAll();
+
+        static::assertNotNull($currencies[0]->getUpdatedAt());
+    }
+
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
     {
         $apiClient = $this->buildApiClient();

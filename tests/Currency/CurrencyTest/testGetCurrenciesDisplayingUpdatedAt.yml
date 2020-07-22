@@ -1,0 +1,124 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 Jul 2020 12:45:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 15ed28
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/15ed28'
+            X-Request-Id: e320eca90efea171dfefd5396da38c44
+        body: '{"id":1,"apiKey":"osCXfDFQSuDctLOZOANGu6gYPUFw9qK4N3oE4nhc"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token osCXfDFQSuDctLOZOANGu6gYPUFw9qK4N3oE4nhc'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 Jul 2020 12:45:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5ee0cf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5ee0cf'
+            X-Request-Id: 90591198f730fa57f937347ea95621da
+        body: '[{"code":"AUD","symbol":"\u00a3","enabled":true,"exchangeRate":14.02,"updatedAt":"22 Jul 2020 14:42","countries":[{"code":"AU"}]},{"code":"EUR","symbol":"\u20ac","enabled":false,"exchangeRate":null,"updatedAt":null,"countries":[{"code":"FR"},{"code":"IT"},{"code":"BE"}]},{"code":"GBP","symbol":"\u00a3","enabled":true,"exchangeRate":null,"updatedAt":null,"countries":[{"code":"GB"},{"code":"GS"},{"code":"IM"}]}]'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/currencies/AUD'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token osCXfDFQSuDctLOZOANGu6gYPUFw9qK4N3oE4nhc'
+            VCR-index: '2'
+            Accept: null
+        body: '{"enabled":true,"exchangeRate":14.02}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 Jul 2020 12:45:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1e044e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1e044e'
+            X-Request-Id: d94b441251fbcfd6f7d717380427b83c
+        body: '{"code":"AUD","symbol":"\u00a3","enabled":true,"exchangeRate":14.02,"updatedAt":"22 Jul 2020 14:45","countries":[{"code":"AU"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/currencies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token osCXfDFQSuDctLOZOANGu6gYPUFw9qK4N3oE4nhc'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 Jul 2020 12:45:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 585f83
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/585f83'
+            X-Request-Id: d02445865f22f0add7eb8c759ce1e8a4
+        body: '[{"code":"AUD","symbol":"\u00a3","enabled":true,"exchangeRate":14.02,"updatedAt":"22 Jul 2020 14:45","countries":[{"code":"AU"}]},{"code":"EUR","symbol":"\u20ac","enabled":false,"exchangeRate":null,"updatedAt":null,"countries":[{"code":"FR"},{"code":"IT"},{"code":"BE"}]},{"code":"GBP","symbol":"\u00a3","enabled":true,"exchangeRate":null,"updatedAt":null,"countries":[{"code":"GB"},{"code":"GS"},{"code":"IM"}]}]'
