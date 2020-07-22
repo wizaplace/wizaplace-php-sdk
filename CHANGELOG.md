@@ -1,5 +1,11 @@
 # Changelog
 
+## Projet gestion des devises
+
+### New features
+
+- Added `Wizaplace\SDK\Currency\Currency::getUpdatedAt`
+
 ## 1.110.19
 
 ### New features

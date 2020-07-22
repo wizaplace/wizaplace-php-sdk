@@ -41,6 +41,8 @@ final class Currency
      */
     private $countryCodes;
 
+    /** @var string|null */
+    private $updatedAt;
 
     public function __construct(array $data)
     {
@@ -93,6 +95,12 @@ final class Currency
     public function getCountryCodes(): array
     {
         return $this->countryCodes;
+    }
+
+    /** @return string|null */
+    public function getUpdatedAt(): ?string
+    {
+        return $this->updatedAt;
     }
 
     protected function setCode(string $code): self

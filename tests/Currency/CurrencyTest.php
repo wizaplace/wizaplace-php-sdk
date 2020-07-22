@@ -131,6 +131,22 @@ class CurrencyTest extends ApiTestCase
         static::assertSame(12.8, $currency['exchangeRate']);
     }
 
+    public function testUpdateCurrencyExchangeRateAndUpdatingDate(): void
+    {
+        // Get a currency
+        $currencyService = $this->buildCurrencyService('admin@wizaplace.com', 'password');
+        $currencies = $currencyService->getAll();
+        $currency = array_shift($currencies);
+        static::assertInstanceOf(Currency::class, $currency);
+
+        // Update
+        $currency->setEnabled(true);
+        $currency->setExchangeRate(14.02);
+        $currency = $currencyService->updateCurrency($currency);
+
+        static::assertNotNull($currency['updatedAt']);
+    }
+
     private function buildCurrencyService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): CurrencyService
     {
         $apiClient = $this->buildApiClient();
