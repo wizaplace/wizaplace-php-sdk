@@ -31,6 +31,20 @@ final class ApiClientTest extends ApiTestCase
         $orderService->getOrders();
     }
 
+    public function testAuthenticationInvalidApiToken()
+    {
+        $apiClient = $this->buildApiClient();
+        $orderService = new OrderService($apiClient);
+
+        //user with empty api_key
+        $apiKey = $apiClient->authenticate('test-client@wiza.com', 'password');
+        static::assertNotNull($apiKey);
+
+        // Test an authenticated call.
+        // If the authentication did not "register" properly, we will get an exception and the test will fail.
+        $orderService->getOrders();
+    }
+
     public function testBadCredentialsAuthentication()
     {
         $apiClient = $this->buildApiClient();
