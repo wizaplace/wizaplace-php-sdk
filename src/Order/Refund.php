@@ -24,6 +24,9 @@ final class Refund
     /** @var int */
     private $orderId;
 
+    /** @var int|null */
+    private $userId;
+
     /** @var bool */
     private $isPartial;
 
@@ -72,6 +75,7 @@ final class Refund
     {
         $this->refundId = $data['refundId'];
         $this->orderId = $data['orderId'];
+        $this->userId = (\array_key_exists('userId', $data) === true) ? $data['userId'] : null;
         $this->isPartial = $data['isPartial'] === true;
         $this->hasShipping = $data['hasShipping'] === true;
         $this->amount = $data['amount'];
@@ -100,6 +104,11 @@ final class Refund
     public function getOrderId(): int
     {
         return $this->orderId;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->userId;
     }
 
     public function isPartial(): bool

@@ -1,6 +1,14 @@
 # Changelog
 
+## NEW VERSION
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Refund::getUserId`
+
 ## 1.109.0
+
+## Project Address Book
 
 ### New features
 
@@ -73,6 +81,10 @@
 - Added `Wizaplace\SDK\Vendor\Order\Order::isRefunded`
 - Added `Wizaplace\SDK\Vendor\Order\OrderSummary::isRefunded`
 - Added `Wizaplace\SDK\Order\Order::isRefunded`
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Refund::getUserId`
 
 ## 1.108.1
 
