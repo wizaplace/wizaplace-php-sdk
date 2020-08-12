@@ -26,6 +26,9 @@ abstract class AbstractAttribute
     /** @var string */
     private $name;
 
+    /** @var string|null */
+    private $code;
+
     /** @var AttributeType */
     private $type;
 
@@ -42,6 +45,7 @@ abstract class AbstractAttribute
         $this->id = $data['feature_id'];
         $this->parentId = (\array_key_exists('parent_id', $data)) ? $data['parent_id'] : 0;
         $this->name = $data['description'];
+        $this->code = $this->code = (\array_key_exists('code', $data) === true) ? $data['code'] : null;
         $this->type = new AttributeType($data['feature_type']);
         $this->categoriesPath = $data['categories_path'];
     }
@@ -66,6 +70,12 @@ abstract class AbstractAttribute
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /** @return string|null */
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 
     /**

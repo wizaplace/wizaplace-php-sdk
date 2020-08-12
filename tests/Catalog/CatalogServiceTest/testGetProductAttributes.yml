@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 13 Jul 2020 15:25:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: db64ac
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/db64ac'
+            X-Request-Id: 2b54ab3787b39533598f037113babb5f
+        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":10,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":3,"averageRatingFloat":2.5,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2020-07-13T12:03:13+00:00","updatedAt":"2020-07-13T12:23:13+00:00","availableSince":"2013-12-06T00:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"1_3_36","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":10,"maxPriceAdjustment":null,"originalPrice":10,"crossedOutPrice":null,"prices":{"priceWithTaxes":10,"priceWithoutVat":9.79,"vat":0.21},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":36,"variantName":"blue","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":10,"excludingTaxes":9.79,"taxes":0.21}]},{"id":"1_3_37","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":10,"maxPriceAdjustment":null,"originalPrice":10,"crossedOutPrice":null,"prices":{"priceWithTaxes":10,"priceWithoutVat":9.79,"vat":0.21},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":37,"variantName":"red","image":null,"position":0}],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":10,"excludingTaxes":9.79,"taxes":0.21}]}],"offers":[{"productId":1,"companyId":3,"price":10,"status":"A","divisions":["FR","FR-01","FR-03","FR-69","FR-ARA"],"priceTiers":[{"lowerLimit":0,"includingTaxes":10,"excludingTaxes":9.79,"taxes":0.21}]}],"attributes":[{"id":1,"name":"Couleur 2","code":"azerty 6","values":[{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc-2","image":null},{"id":1,"attributeId":1,"name":"Bleu","slug":"bleu-2","image":{"id":4}}],"value":["Blanc","Bleu"],"valueIds":[2,1],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE","isUsedForRecommendations":false}],"options":[{"id":3,"name":"color","position":0,"code":null,"variants":[{"id":36,"name":"blue","image":null,"position":0},{"id":37,"name":"red","image":null,"position":0}]}],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false}'

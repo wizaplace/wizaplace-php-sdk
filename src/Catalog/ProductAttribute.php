@@ -23,6 +23,9 @@ final class ProductAttribute
     /** @var string */
     private $name;
 
+    /** @var string|null */
+    private $code;
+
     /**
      * @deprecated
      * @var null|string|array
@@ -59,6 +62,7 @@ final class ProductAttribute
     {
         $this->id = $data['id'];
         $this->name = to_string($data['name']);
+        $this->code = (\array_key_exists('code', $data) === true) ? to_string($data['code']) : null;
         $this->value = $data['value'];
         $this->valueIds = $data['valueIds'];
         $this->imageUrls = $data['imageUrls'] ?? [];
@@ -101,6 +105,12 @@ final class ProductAttribute
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /** @return string|null */
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 
     /**
