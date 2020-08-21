@@ -56,7 +56,7 @@ final class Currency
             },
             $data['countries']
         );
-        $this->updatedAt = \array_key_exists('updatedAt', $data) === true ? \DateTime::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
+        $this->updatedAt = \array_key_exists('updatedAt', $data) === true ? new \DateTime($data['updatedAt']) : null;
     }
 
     public function setExchangeRate(?float $exchangeRate): self
