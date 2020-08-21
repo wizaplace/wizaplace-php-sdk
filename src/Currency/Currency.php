@@ -41,7 +41,7 @@ final class Currency
      */
     private $countryCodes;
 
-    /** @var string|null */
+    /** @var \DateTime|null */
     private $updatedAt;
 
     public function __construct(array $data)
@@ -56,7 +56,7 @@ final class Currency
             },
             $data['countries']
         );
-        $this->updatedAt = \array_key_exists('updatedAt', $data) === true ? $data['updatedAt'] : null;
+        $this->updatedAt = \array_key_exists('updatedAt', $data) === true ? \DateTime::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
     }
 
     public function setExchangeRate(?float $exchangeRate): self
@@ -98,8 +98,8 @@ final class Currency
         return $this->countryCodes;
     }
 
-    /** @return string|null */
-    public function getUpdatedAt(): ?string
+    /** @return \DateTime|null */
+    public function getUpdatedAt(): ?\DateTime
     {
         return $this->updatedAt;
     }
