@@ -58,7 +58,7 @@ final class Currency
         );
         $this->updatedAt = \array_key_exists('updatedAt', $data) === true
         && $data['updatedAt'] !== null
-            ? \DateTime::createFromFormat(\DateTime::RFC3339, $data['updatedAt'])
+            ? new \DateTime($data['updatedAt'])
             : null;
     }
 
