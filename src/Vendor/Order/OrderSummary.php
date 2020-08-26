@@ -65,6 +65,9 @@ final class OrderSummary
     /** @var null|bool */
     private $refunded;
 
+    /** @var float */
+    private $balance;
+
     /**
      * @internal
      *
@@ -90,6 +93,7 @@ final class OrderSummary
         $this->subscriptionId = $data['subscription_id'] ?? null;
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
+        $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
     }
 
     /**
@@ -225,5 +229,11 @@ final class OrderSummary
     public function isRefunded(): ?bool
     {
         return $this->refunded;
+    }
+
+    /** @return float */
+    public function getBalance(): float
+    {
+        return $this->balance;
     }
 }

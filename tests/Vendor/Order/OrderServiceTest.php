@@ -1052,4 +1052,23 @@ class OrderServiceTest extends ApiTestCase
 
         return new OrderService($apiClient);
     }
+
+    public function testGetOrdersWithBalance(): void
+    {
+        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+
+        static::assertGreaterThan(0, \count($orders));
+        foreach ($orders as $order) {
+            static::assertSame(0.0, $order->getBalance());
+        }
+    }
+
+    public function testGetOrderByIdWithBalance(): void
+    {
+        $orderService = $this->buildVendorOrderService("admin@wizaplace.com", "password");
+
+        $order = $orderService->getOrderById(1);
+
+        static::assertSame(0.0, $order->getBalance());
+    }
 }

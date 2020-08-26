@@ -118,6 +118,9 @@ final class Order
     /** @var null|bool */
     private $refunded;
 
+    /** @var float */
+    private $balance;
+
     /**
      * @internal
      *
@@ -181,6 +184,7 @@ final class Order
         ) : null;
         $this->carriagePaid = $data['carriage_paid'] ?? false;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
+        $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
     }
 
     /**
@@ -485,5 +489,11 @@ final class Order
     public function isRefunded(): ?bool
     {
         return $this->refunded;
+    }
+
+    /** @return float */
+    public function getBalance(): float
+    {
+        return $this->balance;
     }
 }

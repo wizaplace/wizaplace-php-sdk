@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 07:45:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '881643'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/881643'
+            X-Request-Id: 05f6a43238ec62860787a8e6e0c65480
+        body: '{"id":3,"apiKey":"pcc+jD\/7cqLOHh1qXKf6aDAjoKfeL6WDKdxCRhHA"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token pcc+jD/7cqLOHh1qXKf6aDAjoKfeL6WDKdxCRhHA'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 07:45:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5148ea
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5148ea'
+            X-Request-Id: 33c6a01d2b41a895d416fdf8aee6d6b3
+        body: '{"order_id":1,"company_id":1,"user_id":2,"basket_id":"38375fab-aabd-45ff-bfe1-04327f18c71e","total":100.0,"discount":0.0,"shipping_cost":0.0,"timestamp":1592465849,"status":"O","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"user@wizaplace.com","decline_reason":null,"is_paid":false,"invoice_date":"","subscription_id":null,"carriage_paid":false,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":100.0,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"6307100377969","supplier_ref":"","product_name":"Product","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":2.0568,"description":null,"applies":{"P_2085640488":2.0568}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"carriage_paid_threshold":null,"description":"<p>Code : TNT01<\/p>\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\n<p>Tel : 08 25 03 30 33<\/p>\n<p>Email :<\/p>\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-06-18T07:37:30+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_manual_payment_pending_manual_payment_processing","customer_total":100.0,"marketplace_discount_total":0.0,"company_name":"Test company","is_subscription_initiator":false,"totals":{"excluding_taxes":97.9432,"taxes":2.0568,"including_taxes":100.0},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"vendor_share":{"excluding_taxes":83.3333,"taxes":16.6667,"including_taxes":100.0},"balance":0.0}'

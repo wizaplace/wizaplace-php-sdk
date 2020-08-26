@@ -1,5 +1,13 @@
 # Changelog
 
+## NEW VERSION
+
+### New features
+
+- Added `Wizaplace\SDK\Order\Order::getBalance`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getBalance`
+- Added `Wizaplace\SDK\Vendor\Order\OrderSummary::getBalance`
+
 ## 1.110.1
 
 ### New features

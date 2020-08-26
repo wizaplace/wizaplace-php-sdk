@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 08:55:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c51edf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c51edf'
+            X-Request-Id: 2d4d1bb22338d7cd1a37925ce3acbbd1
+        body: '{"id":3,"apiKey":"k8W\/6bOBMeSJHAB1LYaBLhcqJObm2Rs0jcY3boxT"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'token k8W/6bOBMeSJHAB1LYaBLhcqJObm2Rs0jcY3boxT'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 18 Jun 2020 08:55:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a605dc
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/a605dc'
+            X-Request-Id: f9cb7285c08d7c241ffd3f0c4ab476ff
+        body: '[{"order_id":1,"user_id":2,"basket_id":"b8f46bd3-4a3b-4deb-b69f-82cd7e7d6e84","company_id":1,"timestamp":1592470405,"email":"user@wizaplace.com","status":"O","total":110.0,"subscription_id":null,"is_paid":false,"carriage_paid":false,"last_status_change":"2020-06-18T08:53:26+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_manual_payment_pending_manual_payment_processing","customer_total":110.0,"marketplace_discount_total":0.0,"company_name":"Test company","is_subscription_initiator":false,"totals":{"excluding_taxes":107.7375,"taxes":2.2625,"including_taxes":110.0},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"vendor_share":{"excluding_taxes":91.6667,"taxes":18.3333,"including_taxes":110.0},"balance":0.0}]'

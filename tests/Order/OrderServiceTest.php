@@ -675,4 +675,26 @@ final class OrderServiceTest extends ApiTestCase
     {
         return new OrderService($this->buildApiClient());
     }
+
+    public function testGetUserOrdersDisplayingBalanceTotal(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+
+        $orders = $orderService->getOrders();
+        static::assertSame(0.0, $orders[0]->getBalance());
+        static::assertSame(0.0, $orders[1]->getBalance());
+        static::assertSame(0.0, $orders[2]->getBalance());
+    }
+
+    public function testGetUserOrderByIdDisplayingBalanceTotal(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+
+        $order = $orderService->getOrder(1);
+        static::assertSame(0.0, $order->getBalance());
+    }
 }
