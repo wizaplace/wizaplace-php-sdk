@@ -653,6 +653,14 @@ final class OrderServiceTest extends ApiTestCase
         return $orders;
     }
 
+    public function testIsPaidCamelCase(): void
+    {
+        $order = $this->buildOrderService()->getOrder(2);
+
+        static::assertNotNull($order->isPaid());
+    }
+
+
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
         $apiClient = $this->buildApiClient();

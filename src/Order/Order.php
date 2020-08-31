@@ -99,7 +99,7 @@ final class Order
         $this->customerTotal = $data['customerTotal'] ?? $data['total'];
         $this->subscriptionId = $data['subscriptionId'] ?? null;
         $this->isSubscriptionInitiator = $data['isSubscriptionInitiator'] ?? false;
-        $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
+        $this->isPaid = \array_key_exists('isPaid', $data) ? (bool) $data['isPaid'] : null;
         $this->carriagePaid = $data['carriagePaid'] ?? false;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
