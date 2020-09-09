@@ -1,6 +1,6 @@
 # Changelog
 
-## Projet gestion des devises
+## 1.111.0
 
 ### New features
 
