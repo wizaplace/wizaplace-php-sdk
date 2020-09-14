@@ -187,6 +187,31 @@ class OrderServiceTest extends ApiTestCase
         static::assertCount(2, $orders);
     }
 
+    public function testFilterByItemsPerPageAndPage(): void
+    {
+        $orders = $this->buildVendorOrderService()
+            ->listOrders(
+                OrderStatus::COMPLETED(),
+                (new OrderListFilter())
+                    ->byItemPerPage(2)
+                    ->byPage(1)
+            );
+
+        $secendOrderId = $orders[1]->getOrderId();
+        static::assertCount(2, $orders);
+
+        $orders = $this->buildVendorOrderService()
+            ->listOrders(
+                OrderStatus::COMPLETED(),
+                (new OrderListFilter())
+                    ->byItemPerPage(1)
+                    ->byPage(2)
+            );
+
+        static::assertCount(1, $orders);
+        static::assertSame($secendOrderId, $orders[0]->getOrderId());
+    }
+
     public function testGetOrderById(): void
     {
         $order = $this->buildVendorOrderService()->getOrderById(5);

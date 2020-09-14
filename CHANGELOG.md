@@ -1,5 +1,10 @@
 # Changelog
 
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderListFilter::byItemPerPage`
+- Added `wizaplace\SDK\Vendor\Order\OrderListFilter::byPage`
+
 ## 1.111.0
 
 ### New features
