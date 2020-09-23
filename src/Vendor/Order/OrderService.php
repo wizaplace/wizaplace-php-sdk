@@ -229,14 +229,27 @@ class OrderService extends AbstractService
     public function setInvoiceNumber(int $orderId, string $invoiceNumber): void
     {
         $this->client->mustBeAuthenticated();
-        $this->client->put(
-            "orders/${orderId}",
-            [
-                RequestOptions::JSON => [
-                    'invoice_number' => $invoiceNumber,
-                ],
-            ]
-        );
+        try {
+            $this->client->put(
+                sprintf("orders/%d/set-invoice-number", $orderId),
+                [
+                    RequestOptions::JSON => [
+                        'invoice_number' => $invoiceNumber,
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage());
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                default:
+                    throw $exception;
+            }
+        }
     }
 
     /**
