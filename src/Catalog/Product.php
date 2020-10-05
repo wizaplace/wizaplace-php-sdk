@@ -12,6 +12,7 @@ namespace Wizaplace\SDK\Catalog;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
 use Wizaplace\SDK\Pim\Product\PriceTier;
 
@@ -24,6 +25,7 @@ use function theodorejb\polycast\to_string;
  */
 final class Product
 {
+    use ImagesDataTrait;
     /** @var string */
     private $id;
 
@@ -242,16 +244,7 @@ final class Product
             );
         }
 
-        if (\array_key_exists('imagesData', $data) === true) {
-            $this->imagesData = array_map(
-                static function (array $imageData): Image {
-                    return new Image($imageData);
-                },
-                $data['imagesData']
-            );
-        } else {
-            $this->imagesData = [];
-        }
+        $this->imagesData = $this->getImagesDataWithAltText($data);
 
         if (isset($data['offers'])) {
             $this->offers = array_map(

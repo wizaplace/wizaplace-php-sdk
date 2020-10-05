@@ -15,6 +15,7 @@ use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
@@ -25,6 +26,8 @@ use function theodorejb\polycast\to_string;
  */
 final class MultiVendorProduct
 {
+    use ImagesDataTrait;
+
     public const CONTEXT_CREATE = 'create';
     public const CONTEXT_UPDATE = 'update';
 
@@ -104,16 +107,7 @@ final class MultiVendorProduct
         $this->status = isset($data['status']) ? new MultiVendorProductStatus($data['status']) : null;
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
-        if (\array_key_exists('imagesData', $data) === true) {
-            $this->imagesData = array_map(
-                static function (array $imageData): Image {
-                    return new Image($imageData);
-                },
-                $data['imagesData']
-            );
-        } else {
-            $this->imagesData = [];
-        }
+        $this->imagesData = $this->getImagesDataWithAltText($data);
         $this->attributes = $data['attributes'] ?? null;
         $this->video = isset($data['video']) ? new MultiVendorProductVideo($data['video']) : null;
     }

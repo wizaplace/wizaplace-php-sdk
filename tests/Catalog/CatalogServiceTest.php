@@ -3125,7 +3125,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $declination = $catalogService->getDeclinationById('3_5_40');
 
-        $this->assertSame([], $declination->getImagesData());
+        static::assertSame([], $declination->getImagesData());
     }
 
     public function testGetAllProductsWithImagesAlt(): void
