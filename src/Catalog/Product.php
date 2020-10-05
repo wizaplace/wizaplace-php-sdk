@@ -26,6 +26,7 @@ use function theodorejb\polycast\to_string;
 final class Product
 {
     use ImagesDataTrait;
+
     /** @var string */
     private $id;
 
