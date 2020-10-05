@@ -22,8 +22,8 @@ trait ImagesDataTrait
                 },
                 $data['imagesData']
             );
-        } else {
-            return [];
         }
+
+        return [];
     }
 }
