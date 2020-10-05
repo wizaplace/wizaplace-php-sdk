@@ -12,7 +12,7 @@ namespace Wizaplace\SDK\Image;
 
 trait ImagesDataTrait
 {
-    /** @return Image[] */
+    /** @return Image[]|array */
     public function getImagesDataWithAltText(array $data): array
     {
         if (\array_key_exists('imagesData', $data) === true) {
