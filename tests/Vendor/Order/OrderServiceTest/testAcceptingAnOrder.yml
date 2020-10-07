@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             VCR-index: '0'
             Accept: null
     response:
@@ -16,17 +16,19 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 26 Dec 2018 14:56:16 GMT'
+            Date: 'Mon, 05 Oct 2020 13:30:23 GMT'
             Content-Language: fr
-            X-Debug-Token: '834e63'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/834e63'
-        body: '{"id":6,"apiKey":"6N3nUQrwPSEZqz7vX\/bAYUbfbbDkOXOwfNOQPDbG"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '127e43'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/127e43'
+            X-Request-Id: e17b8613645840c3acb233ac4bbd3838
+        body: '{"id":6,"apiKey":"2mYE21MR\/ZOzZ\/v5qyJVybkbZqRIrLlHA693Wjop"}'
 -
     request:
         method: PUT
@@ -36,27 +38,29 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
-            Authorization: 'token 6N3nUQrwPSEZqz7vX/bAYUbfbbDkOXOwfNOQPDbG'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 2mYE21MR/ZOzZ/v5qyJVybkbZqRIrLlHA693Wjop'
             VCR-index: '1'
             Accept: null
-        body: '{"approved":true,"do_not_create_invoice":false}'
+        body: '{"approved":true,"do_not_create_invoice":true}'
     response:
         status:
             http_version: '1.1'
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 26 Dec 2018 14:56:17 GMT'
+            Date: 'Mon, 05 Oct 2020 13:30:24 GMT'
             Content-Language: fr
-            X-Debug-Token: f77c88
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f77c88'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 06e8ba
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/06e8ba'
+            X-Request-Id: a6e157fec2d76000ea1574cc0ea47721
         body: '{"order_id":"5"}'
 -
     request:
@@ -65,8 +69,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-451@52c16e6
-            Authorization: 'token 6N3nUQrwPSEZqz7vX/bAYUbfbbDkOXOwfNOQPDbG'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Authorization: 'token 2mYE21MR/ZOzZ/v5qyJVybkbZqRIrLlHA693Wjop'
             VCR-index: '2'
             Accept: null
     response:
@@ -75,14 +79,16 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.2
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.13
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 26 Dec 2018 14:56:17 GMT'
+            Date: 'Mon, 05 Oct 2020 13:30:24 GMT'
             Content-Language: fr
-            X-Debug-Token: 4f6343
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/4f6343'
-        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"c3818958-2089-3549-b4ab-66a5c07b77dc","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1545406764,"status":"E","notes":"","promotions":{"1471e50c-bd0f-3ff8-aad5-7220da2bc77d":{"id":"1471e50c-bd0f-3ff8-aad5-7220da2bc77d","name":""}},"b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001"}},"taxes":{"2":{"rate_type":"P","rate_value":"2.100","price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null},"workflow":"workflow_order_preparation_pending_vendor_preparation_end_processing"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 06fe00
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/06fe00'
+            X-Request-Id: bc39301bb7ba0331943f94d68be7a9cd
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"f437432a-858d-4030-8d2b-eb937a7e7fcf","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1601904445,"status":"E","notes":"","details":"","promotions":{"723df67f-79a3-4ecf-99e7-4446ff106082":{"id":"723df67f-79a3-4ecf-99e7-4446ff106082","name":""}},"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"is_paid":true,"invoice_date":"2020-10-05 15:30:23","subscription_id":null,"carriage_paid":false,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","product_name":"Z11 Plus Bo\u00eetier PC en Acier ATX","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"carriage_paid_threshold":null,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-10-05T13:30:23+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_preparation_pending_vendor_preparation_end_processing","customer_total":66.7,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'

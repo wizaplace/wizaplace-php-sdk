@@ -58,7 +58,7 @@ class OrderService extends AbstractService
         if ($createBillingNumber) {
             $options['create_automatic_billing_number'] = true;
         } else {
-            $options['do_not_create_invoice'] = $createInvoice;
+            $options['do_not_create_invoice'] = !$createInvoice;
             if ($createInvoice) {
                 $options['invoice_number'] = $invoiceNumber;
             }

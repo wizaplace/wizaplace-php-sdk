@@ -362,29 +362,6 @@ class OrderServiceTest extends ApiTestCase
         }
     }
 
-    public function testGenerateMondialRelayLabel(): void
-    {
-        $orderService = $this->buildVendorOrderService();
-
-        $orderId = 10;
-        $orderService->acceptOrder($orderId);
-
-        $order = $orderService->getOrderById($orderId);
-
-        $itemsShipped = [];
-        foreach ($order->getItems() as $item) {
-            $itemsShipped[$item->getItemId()] = $item->getQuantityToShip();
-        }
-
-        $result = $orderService->generateMondialRelayLabel(
-            $orderId,
-            (new CreateLabelCommand())
-                ->setShippedQuantityByItemId($itemsShipped)
-        );
-
-        static::assertInstanceOf(MondialRelayLabel::class, $result);
-    }
-
     /**
      * @dataProvider lastStatusChangeProvider
      * @param mixed $lastStatusChange The lastStatusChange variable to test
