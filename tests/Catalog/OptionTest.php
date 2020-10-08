@@ -57,24 +57,28 @@ final class OptionTest extends TestCase
         {
             "id": 1,
             "name": "13",
-            "image": null
+            "image": null,
+            "position": 0
         },
         {
             "id": 2,
             "name": "15",
-            "image": null
+            "image": null,
+            "position": 0
         },
         {
             "id": 3,
             "name": "17",
-            "image": null
+            "image": null,
+            "position": 0
         },
         {
             "id": 4,
             "name": "21",
             "image": {
                 "id": 1234
-            }
+            },
+            "position": 0
         }
     ],
     "code": null
