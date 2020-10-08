@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '302'
+            message: Found
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 08 Oct 2020 12:41:53 GMT'
+            Location: /api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fbb3d7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fbb3d7'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fbb3d7%22%2C%22route%22%3A%22api_catalog_products_id%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCatalog%5C%5CProductController%22%2C%22method%22%3A%22getIdAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCatalog%5C%2FProductController.php%22%2C%22line%22%3A35%7D%2C%22status_code%22%3A302%2C%22status_text%22%3A%22Found%22%7D; path=/; httponly'
+            X-Request-Id: 38e7ea76bff7c9b7fc3ce7aa2c187e57
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='/api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9'\" />\n\n        <title>Redirecting to /api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"/api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9\">/api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/ae9e8295-88c7-4ade-943f-3c81a74b26b9'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 08 Oct 2020 12:41:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 12c9fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/12c9fd'
+            X-Request-Id: 79fe2255807f34fa77e82843356a3f7b
+        body: '{"id":"ae9e8295-88c7-4ade-943f-3c81a74b26b9","code":"90204479D2","supplierReference":"INFO-002","name":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","url":"http:\/\/wizaplace.loc\/it\/souris-sans-fil-avec-recepteur-nano-6-boutons-2.html","shortDescription":"","description":"","slug":"souris-sans-fil-avec-recepteur-nano-6-boutons-2","minPrice":15.5,"maxPriceAdjustment":50,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":0,"averageRatingFloat":0,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2020-10-08T12:39:51+00:00","updatedAt":"2020-10-08T12:39:53+00:00","availableSince":"2013-12-06T09:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"2_3_34_4_38","code":"color_white_connectivity_wireles","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":5,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":34,"variantName":"white","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":38,"variantName":"wireless","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_34_4_39","code":"color_white_connectivity_wired","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":34,"variantName":"white","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":39,"variantName":"wired","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_35_4_38","code":"color_black_connectivity_wireles","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":35,"variantName":"black","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":38,"variantName":"wireless","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_35_4_39","code":"color_black_connectivity_wired","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":35,"variantName":"black","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":39,"variantName":"wired","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_36_4_38","code":"color_blue_connectivity_wireless","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":36,"variantName":"blue","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":38,"variantName":"wireless","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_36_4_39","code":"color_blue_connectivity_wired","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":36,"variantName":"blue","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":39,"variantName":"wired","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_37_4_38","code":"color_red_connectivity_wireless","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":37,"variantName":"red","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":38,"variantName":"wireless","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]},{"id":"2_3_37_4_39","code":"color_red_connectivity_wired","isAvailable":true,"supplierReference":"INFO-002","price":15.5,"maxPriceAdjustment":50,"originalPrice":15.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":15.5,"priceWithoutVat":15.18,"vat":0.32},"greenTax":0,"amount":10,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[{"id":3,"name":"color","code":null,"variantId":37,"variantName":"red","image":null,"position":0},{"id":4,"name":"connectivity","code":null,"variantId":39,"variantName":"wired","image":null,"position":0}],"isBrandNew":false,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]}],"offers":[{"productId":2,"companyId":3,"price":15.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":15.5,"excludingTaxes":15.18,"taxes":0.32}]}],"attributes":[],"options":[{"id":3,"name":"color","position":0,"code":null,"variants":[{"id":34,"name":"white","image":null,"position":0},{"id":35,"name":"black","image":null,"position":0},{"id":36,"name":"blue","image":null,"position":0},{"id":37,"name":"red","image":null,"position":0}]},{"id":4,"name":"connectivity","position":0,"code":null,"variants":[{"id":38,"name":"wireless","image":null,"position":0},{"id":39,"name":"wired","image":null,"position":0}]}],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false}'

@@ -2877,4 +2877,11 @@ final class CatalogServiceTest extends ApiTestCase
 
         static::assertCount(13, $attributes);
     }
+
+    public function testGetProductWithOptionsVariantsDisplayingPositionField(): void
+    {
+        $product = $this->buildCatalogService()->getProductById('2');
+
+        static::assertSame(0, $product->getOptions()[0]->getVariants()[0]->getPosition());
+    }
 }

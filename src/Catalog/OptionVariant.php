@@ -26,6 +26,9 @@ final class OptionVariant implements \JsonSerializable
     /** @var null|Image */
     private $image;
 
+    /** @var int */
+    private $position;
+
     /**
      * @internal
      *
@@ -36,6 +39,7 @@ final class OptionVariant implements \JsonSerializable
         $this->id = $data['id'];
         $this->name = $data['name'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->position = \array_key_exists('position', $data) === true ? $data['position'] : 0;
     }
 
     /**
@@ -62,6 +66,12 @@ final class OptionVariant implements \JsonSerializable
         return $this->image;
     }
 
+    /** @return int */
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
     /**
      * @return array
      */
@@ -71,6 +81,7 @@ final class OptionVariant implements \JsonSerializable
             'id' => $this->getId(),
             'name' => $this->getName(),
             'image' => $this->getImage() ? ['id' => $this->getImage()->getId()] : null,
+            'position' => $this->getPosition(),
         ];
     }
 }
