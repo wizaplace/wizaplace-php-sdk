@@ -1,0 +1,30 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=Z11%20Plus%20Bo%C3%AEtier%20PC%20en%20Acier%20ATX'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Sun, 20 Sep 2020 17:09:46 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e890dc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e890dc'
+            X-Request-Id: 1f6d1573f4617c6c29cccc334db22251
+        body: '{"results":[{"productId":"d03f7fa1-ff6d-4dda-b7ef-3681820fe942","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","code":"978020137962","productTemplateType":"product","slug":"z11-plus-boitier-pc-en-acier-atx","minimumPrice":67.9,"maxPriceAdjustment":null,"crossedOutPrice":null,"isAvailable":true,"createdAt":1600618764,"updatedAt":1600620965,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"url":"\/it\/z11-plus-boitier-pc-en-acier-atx.html","subtitle":"","shortDescription":"","averageRating":0,"averageRatingFloat":0,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"geolocation":null,"geolocations":null,"mainDeclination":{"id":"1_0"},"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"isSubscription":false,"isRenewable":false}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gories","values":{"3":{"label":"Informatique","count":1,"position":0}},"isNumeric":false},{"name":"1","label":"Couleur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"2","label":"Taille","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"3","label":"Commentaire","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"5","label":"Couleur secondaire","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"6","label":"Pointure","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"7","label":"Compl\u00e9ment adresse","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"9","label":"Marque","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"10","label":"color","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"11","label":"Couleur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"13","label":"Hauteur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false}]}'

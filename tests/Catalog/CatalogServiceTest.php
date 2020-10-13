@@ -2878,6 +2878,16 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertCount(13, $attributes);
     }
 
+    public function testSearchReturnCode(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $result = $catalogService->search('Z11 Plus Boîtier PC en Acier ATX');
+        $products = $result->getProducts();
+        static::assertCount(1, $products);
+        $product = $products[0];
+        static::assertSame($product->getCode(), '978020137962');
+    }
+
     public function testGetProductWithOptionsVariantsDisplayingPositionField(): void
     {
         $product = $this->buildCatalogService()->getProductById('2');

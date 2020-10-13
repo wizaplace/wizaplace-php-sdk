@@ -69,6 +69,8 @@ final class ProductSummary
     private $isRenewable;
     /** @var null|int */
     private $maxPriceAdjustment;
+    /** @var null|string */
+    private $code;
 
     /**
      * @internal
@@ -81,6 +83,7 @@ final class ProductSummary
     {
         $this->productId = to_string($data['productId']);
         $this->name = to_string($data['name']);
+        $this->code = $data['code'] ?? null;
         $this->subtitle = to_string($data['subtitle']);
         $this->shortDescription = to_string($data['shortDescription']);
         $this->minimumPrice = $data['minimumPrice'];
@@ -149,6 +152,12 @@ final class ProductSummary
     public function getName(): string
     {
         return $this->name;
+    }
+
+    /** @retrun string|null */
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 
     /**
