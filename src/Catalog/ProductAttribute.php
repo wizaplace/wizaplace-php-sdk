@@ -62,7 +62,7 @@ final class ProductAttribute
     {
         $this->id = $data['id'];
         $this->name = to_string($data['name']);
-        $this->code = (\array_key_exists('code', $data) === true) ? to_string($data['code']) : null;
+        $this->code = isset($data['code']) ? to_string($data['code']) : null;
         $this->value = $data['value'];
         $this->valueIds = $data['valueIds'];
         $this->imageUrls = $data['imageUrls'] ?? [];
