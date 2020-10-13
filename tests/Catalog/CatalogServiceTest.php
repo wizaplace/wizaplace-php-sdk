@@ -3113,10 +3113,10 @@ final class CatalogServiceTest extends ApiTestCase
     {
         $catalogService = $this->buildCatalogService();
 
-        $result = $catalogService->search('iPhone 7');
+        $result = $catalogService->search();
         $products = $result->getProducts();
 
-        static::assertSame('', $products[0]->getImagesData()->getAlt());
+        static::assertSame('alt text', $products[0]->getMainImageData()->getAlt());
     }
 
     public function testGetDeclinationByIDWithImagesAlt(): void

@@ -50,7 +50,7 @@ final class ProductSummary
     /** @var DeclinationImages[] */
     private $declinationsImages;
     /** @var Image|null */
-    private $imagesData;
+    private $mainImageData;
     /** @var float */
     private $averageRating;
     /** @var Condition[] */
@@ -110,10 +110,7 @@ final class ProductSummary
             $data['images'] ?? []
         );
         $this->declinationsImages = $this->denormalizeDeclinationImages($data['declinationsImages'] ?? []);
-        $this->imagesData =
-            (\array_key_exists('imagesData', $data) === true
-                && $data['imagesData'] !== [])
-                ? new Image($data['imagesData']) : null;
+        $this->mainImageData = (\array_key_exists('mainImageData', $data) === true && $data['mainImageData'] !== null) ? new Image($data['mainImageData']) : null;
         $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->conditions = array_map(
             function (string $condition): Condition {
@@ -278,9 +275,9 @@ final class ProductSummary
     }
 
     /** @return Image|null */
-    public function getImagesData(): ?Image
+    public function getMainImageData(): ?Image
     {
-        return $this->imagesData;
+        return $this->mainImageData;
     }
 
     /**
