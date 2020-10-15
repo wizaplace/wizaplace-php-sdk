@@ -116,9 +116,6 @@ final class Product
      */
     private $images;
 
-    /** @var Image[] */
-    private $imagesData;
-
     /** @var bool */
     private $infiniteStock;
 
@@ -234,18 +231,19 @@ final class Product
         $this->availableSince = isset($data['availableSince']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['availableSince']) : null;
         $this->infiniteStock = $data['infiniteStock'];
 
-        if (!isset($data['images'])) {
-            $this->images = [];
-        } else {
+        if (\array_key_exists('imagesData', $data) === true) {
+            $this->images = $this->getImagesDataWithAltText($data);
+        }
+        elseif (\array_key_exists('images', $data) === true) {
             $this->images = array_map(
                 static function (array $imageData): Image {
                     return new Image($imageData);
                 },
                 $data['images']
             );
+        } else {
+            $this->images = [];
         }
-
-        $this->imagesData = $this->getImagesDataWithAltText($data);
 
         if (isset($data['offers'])) {
             $this->offers = array_map(
@@ -571,12 +569,6 @@ final class Product
     public function getImages(): array
     {
         return $this->images;
-    }
-
-    /** @return Image[] */
-    public function getImagesData(): array
-    {
-        return $this->imagesData;
     }
 
     /**

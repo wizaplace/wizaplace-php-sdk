@@ -61,9 +61,6 @@ final class Declination
     /** @var Image[] */
     private $images;
 
-    /** @var Image[] */
-    private $imagesData;
-
     /** @var bool */
     private $isBrandNew;
 
@@ -114,14 +111,19 @@ final class Declination
         $this->greenTax = $data['greenTax'] ?? 0;
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
-        $this->images = array_map(
-            static function (array $imageData): Image {
-                return new Image($imageData);
-            },
-            $data['images']
-        );
-        $this->imagesData = $this->getImagesDataWithAltText($data);
-
+        if (\array_key_exists('imagesData', $data) === true) {
+            $this->images = $this->getImagesDataWithAltText($data);
+        }
+        elseif (\array_key_exists('images', $data) === true) {
+            $this->images = array_map(
+                static function (array $imageData): Image {
+                    return new Image($imageData);
+                },
+                $data['images']
+            );
+        } else {
+            $this->images = [];
+        }
         $this->isBrandNew = $data['isBrandNew'] ?? true;
         $this->options = array_map(
             static function (array $optionData): DeclinationOption {
@@ -268,12 +270,6 @@ final class Declination
     public function getImages(): array
     {
         return $this->images;
-    }
-
-    /** @return Image[] */
-    public function getImagesData(): array
-    {
-        return $this->imagesData;
     }
 
     /**

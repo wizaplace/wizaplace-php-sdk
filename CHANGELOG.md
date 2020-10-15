@@ -5,9 +5,6 @@
 
 ### New features
 
-- Added `Wizaplace\SDK\Catalog\Declination::getImagesData`
-- Added `Wizaplace\SDK\Catalog\Product::getImagesData`
-- Added `Wizaplace\SDK\Catalog\ProductSummary::getImagesData`
 - Added `Wizaplace\SDK\Image\Image::getAlt`
 - Added `Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getImagesData`
 - Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
@@ -483,6 +480,7 @@
 ## 1.111.0
 
 ### New features
+
 
 - Added `Wizaplace\SDK\Currency\Currency::getUpdatedAt`
 
