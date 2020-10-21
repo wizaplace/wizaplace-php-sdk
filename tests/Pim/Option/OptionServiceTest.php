@@ -38,6 +38,20 @@ class OptionServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetOptionWithDisplayOnFacetingTrue(): void
+    {
+        $option = $this->buildOptionService()->getOption(1);
+        static::assertGreaterThan(0, $option->getId());
+        static::assertTrue($option->getDisplayOnFaceting());
+    }
+
+    public function testGetOptionWithDisplayOnFacetingFalse(): void
+    {
+        $option = $this->buildOptionService()->getOption(2);
+        static::assertGreaterThan(0, $option->getId());
+        static::assertFalse($option->getDisplayOnFaceting());
+    }
+
     private function buildOptionService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): OptionService
     {
         $apiClient = $this->buildApiClient();
