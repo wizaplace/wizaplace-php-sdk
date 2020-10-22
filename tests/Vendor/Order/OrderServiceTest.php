@@ -1071,4 +1071,15 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertSame(0.0, $order->getBalance());
     }
+
+    public function testSetInvoiceNumberAfterOnlyAccept(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        $orderService->approveOrder(5);
+        // set invoice number
+        $orderService->setInvoiceNumber(5, "00072");
+        $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
+        static::assertSame("00072", $invoiceNumber);
+    }
 }

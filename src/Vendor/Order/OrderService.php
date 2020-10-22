@@ -74,6 +74,44 @@ class OrderService extends AbstractService
     }
 
     /**
+     * @param int $orderId
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function approveOrder(int $orderId): void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'approved' => true,
+                ],
+            ]
+        );
+    }
+
+    /**
+     * @param int $orderId
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function enabledDoNotCreateInvoiceNumber(int $orderId): void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->put(
+            "orders/${orderId}",
+            [
+                RequestOptions::JSON => [
+                    'do_not_create_invoice' => true,
+                ]
+            ]
+        );
+    }
+
+    /**
      * @param int    $orderId
      * @param string $declineReason
      *
