@@ -30,7 +30,7 @@ final class ProductImageUpload
     private $data;
 
     /** @var string|null */
-    private $altText = '';
+    private $altText;
 
     /**
      * @param string $name

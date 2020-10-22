@@ -481,7 +481,6 @@
 
 ### New features
 
-
 - Added `Wizaplace\SDK\Currency\Currency::getUpdatedAt`
 
 ## 1.110.19
