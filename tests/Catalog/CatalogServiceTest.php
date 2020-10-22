@@ -3097,7 +3097,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $product = $catalogService->getProductsByCode('6403500679952');
 
-        static::assertSame('', $product[0]->getImagesData()[0]->getAlt());
+        static::assertSame('', $product[0]->getImages()[0]->getAlt());
     }
 
     public function testGetProductWithImagesAlt(): void
@@ -3106,7 +3106,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $product = $catalogService->getProductById('38');
 
-        static::assertSame('', $product->getImagesData()[0]->getAlt());
+        static::assertSame('', $product->getImages()[0]->getAlt());
     }
 
     public function testSearchProductWithImagesAlt(): void
@@ -3116,7 +3116,7 @@ final class CatalogServiceTest extends ApiTestCase
         $result = $catalogService->search();
         $products = $result->getProducts();
 
-        static::assertSame('alt text', $products[0]->getMainImageData()->getAlt());
+        static::assertSame('alt text', $products[0]->getMainImage()->getAlt());
     }
 
     public function testGetDeclinationByIDWithImagesAlt(): void
@@ -3125,7 +3125,7 @@ final class CatalogServiceTest extends ApiTestCase
 
         $declination = $catalogService->getDeclinationById('3_5_40');
 
-        static::assertSame([], $declination->getImagesData());
+        static::assertSame([], $declination->getImages());
     }
 
     public function testGetAllProductsWithImagesAlt(): void

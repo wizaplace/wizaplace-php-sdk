@@ -68,11 +68,7 @@ final class ProductImageUpload
         return $this;
     }
 
-    /**
-     * @param string|null $altText
-     *
-     * @return ProductImageUpload
-     */
+    /** @return ProductImageUpload */
     public function setAltText(?string $altText): self
     {
         $this->altText = ($altText !== null) ? $altText : '';
