@@ -3133,8 +3133,8 @@ final class CatalogServiceTest extends ApiTestCase
         $catalogService = $this->buildCatalogService();
 
         $products = iterator_to_array($catalogService->getAllProducts());
+        $product = $products[24];
 
-        $product = $products[0];
         static::assertInstanceOf(Product::class, $product);
         static::assertSame('', $product->getImages()[0]->getAlt());
     }
