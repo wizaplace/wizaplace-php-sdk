@@ -1,5 +1,11 @@
 # Changelog
 
+## New Version
+
+### New features
+
+- Added `Wizaplace\SDK\Exim\EximService::importProductsPrices`
+
 ## 1.113.7
 
 - Added `Wizaplace\SDK\Pim\Product\ProductUpsertData::setCrossedOutPrice`
