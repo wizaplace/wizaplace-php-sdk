@@ -5,6 +5,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\Exim\EximService::importProductsPrices`
+- Added `Wizaplace\SDK\Exim\EximService::importProductsQuantities`
 
 ## 1.113.7
 

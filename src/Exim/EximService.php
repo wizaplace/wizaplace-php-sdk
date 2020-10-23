@@ -93,4 +93,40 @@ final class EximService extends AbstractService
 
         return $data['jobId'];
     }
+
+    /**
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\FileNotFound
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function importProductsQuantities(string $filePath): string
+    {
+        $this->client->mustBeAuthenticated();
+
+        // Open CSV file
+        // We need the @ the catch the exception ourself in dev mode
+        $file = @fopen($filePath, 'r+');
+        if (false === $file) {
+            throw new FileNotFound('File not found ' . $filePath, ['file' => $filePath]);
+        }
+
+        // Add stream to HTTP body
+        $stream = new Stream($file);
+        $data[] = [
+            'name'     => 'file',
+            'contents' => $stream,
+            'filename' => 'productQuantities.csv',
+        ];
+
+        // Send CSV file to API
+        $data = $this->client->post(
+            'import/product-price',
+            [
+                RequestOptions::MULTIPART => $data,
+            ]
+        );
+
+        return $data['jobId'];
+    }
 }
