@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Added `Wizaplace\SDK\PIM\Product\ProductListFilter::byCompanyIds`
+
 ## 1.111.31
 
 ### New features
