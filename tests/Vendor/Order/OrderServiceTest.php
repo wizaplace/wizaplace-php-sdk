@@ -11,8 +11,6 @@ namespace Wizaplace\SDK\Tests\Vendor\Order;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Exception\GuzzleException;
-use Nette\Utils\DateTime;
-use Rhumsaa\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Basket\BasketService;
@@ -21,7 +19,6 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\RefundStatus;
 use Wizaplace\SDK\PaginatedData;
-use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Shipping\Shipping;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -29,7 +26,6 @@ use Wizaplace\SDK\Transaction\Transaction;
 use Wizaplace\SDK\Transaction\TransactionStatus;
 use Wizaplace\SDK\Transaction\TransactionType;
 use Wizaplace\SDK\Vendor\Order\AmountTaxesDetail;
-use Wizaplace\SDK\Vendor\Order\CreateLabelCommand;
 use Wizaplace\SDK\Vendor\Order\CreateShipmentCommand;
 use Wizaplace\SDK\Vendor\Order\Order;
 use Wizaplace\SDK\Vendor\Order\OrderAddress;
@@ -1081,5 +1077,15 @@ class OrderServiceTest extends ApiTestCase
         $orderService->setInvoiceNumber(5, "00072");
         $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
         static::assertSame("00072", $invoiceNumber);
+    }
+
+    public function testDoNotCreateInvoiceNumber(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        // Call the endpoint [PUT] /order/{orderId}
+        $orderService->acceptOrder(5, false, '', false);
+        $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
+        static::assertEmpty($invoiceNumber);
     }
 }

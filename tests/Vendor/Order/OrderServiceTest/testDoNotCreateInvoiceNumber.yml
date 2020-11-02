@@ -1,0 +1,94 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 15 Oct 2020 22:50:26 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c3a942
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c3a942'
+            X-Request-Id: 8fe350fbf76c0432b79b591e1fbb115b
+        body: '{"id":6,"apiKey":"8w7yGZ0TuIIYirOSM+S81yuUp0A8aqeBFuVmGKcJ"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token 8w7yGZ0TuIIYirOSM+S81yuUp0A8aqeBFuVmGKcJ'
+            VCR-index: '1'
+            Accept: null
+        body: '{"approved":true,"do_not_create_invoice":true}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 15 Oct 2020 22:50:27 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '541373'
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/541373'
+            X-Request-Id: 6f3230254c7e768b381e77c8975a7e3a
+        body: '{"order_id":"5"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token 8w7yGZ0TuIIYirOSM+S81yuUp0A8aqeBFuVmGKcJ'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.17
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 15 Oct 2020 22:50:28 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5a7d81
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/5a7d81'
+            X-Request-Id: 2a9f4e0bf84b041c899bb07c53102c75
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"7e71ecc3-ea17-43ad-af1b-4e2470a0283d","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1602802070,"status":"E","notes":"","details":"","promotions":{"697ed42a-c5fd-4db7-b368-56fe406fc3bb":{"id":"697ed42a-c5fd-4db7-b368-56fe406fc3bb","name":"","target":"basket","promotion_type":"basket","bonus":{"type":"fixed","reduction":1.2}}},"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","decline_reason":null,"is_paid":true,"invoice_date":"2020-10-16 00:50:27","subscription_id":null,"carriage_paid":false,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","product_name":"Z11 Plus Bo\u00eetier PC en Acier ATX","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"carriage_paid_threshold":null,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-10-15T22:50:27+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_preparation_pending_vendor_preparation_end_processing","customer_total":66.7,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'
