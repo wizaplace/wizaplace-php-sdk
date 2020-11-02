@@ -21,6 +21,12 @@ class ProductAttachment
     /** @var string */
     private $label;
 
+    /** @var null|string */
+    private $originalUrl;
+
+    /** @var null|string */
+    private $publicUrl;
+
     /**
      * @internal
      *
@@ -30,6 +36,8 @@ class ProductAttachment
     {
         $this->id = $data['id'];
         $this->label = $data['label'];
+        $this->originalUrl = \array_key_exists('originalUrl', $data) === true ? $data['originalUrl'] : null;
+        $this->publicUrl = \array_key_exists('publicUrl', $data) === true ? $data['publicUrl'] : null;
     }
 
     /**
@@ -46,5 +54,21 @@ class ProductAttachment
     public function getLabel(): string
     {
         return $this->label;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPublicUrl(): ?string
+    {
+        return $this->publicUrl;
+    }
+
+    /**
+     * @retrun string|null
+     */
+    public function getOriginalUrl(): ?string
+    {
+        return $this->originalUrl;
     }
 }

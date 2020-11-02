@@ -1,5 +1,12 @@
 # Changelog
 
+## NEW Version
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Product\ProductAttachment::getPublicUrl`
+- Added `Wizaplace\SDK\Pim\Product\ProductAttachment::getOriginalUrl`
+
 ## 1.111.2
 
 ### New features
