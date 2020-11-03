@@ -15,9 +15,11 @@ use GuzzleHttp\Psr7\Response;
 use Symfony\Component\HttpFoundation\File\File;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\OrderNotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
 use Wizaplace\SDK\Order\AttachmentsOrder;
 use Wizaplace\SDK\Order\CreateOrderReturn;
@@ -776,6 +778,79 @@ final class OrderServiceTest extends ApiTestCase
         $vendorOrderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
         $refund = $vendorOrderService->getOrderRefund(9, $refund->getRefundId());
         static::assertTrue($refund->isRefundedAfterWithdrawalPeriod());
+    }
+
+    public function testDispatchFundsOrderNotFound(): void
+    {
+        $apiAdmin = $this->buildAdminApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'password');
+
+        $orderService = new OrderService($apiAdmin);
+        static::expectException(NotFound::class);
+        $orderService->dispatchFunds(404);
+    }
+
+    public function testDispatchFundsOrderInsufficientPermission(): void
+    {
+        $apiCustomer = $this->buildAdminApiClient();
+        $apiCustomer->authenticate('user@wizaplace.com', 'password');
+        $orderService = new OrderService($apiCustomer);
+
+        static::expectException(AccessDenied::class);
+        $orderService->dispatchFunds(1);
+    }
+
+    public function testDispatchFundsOrderAlreadyDispatched(): void
+    {
+        $apiAdmin = $this->buildAdminApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'password');
+        $orderService = new OrderService($apiAdmin);
+
+        $order = $orderService->getOrder(190054);
+        static::assertSame('COMPLETED', $order->getStatus()->getValue());
+        static::expectException(SomeParametersAreInvalid::class);
+        $orderService->dispatchFunds(190054);
+    }
+
+    public function testDispatchFundsOrder(): void
+    {
+        $apiAdmin = $this->buildAdminApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'password');
+        $orderService = new OrderService($apiAdmin);
+
+        $order = $orderService->getOrder(190057);
+        static::assertSame('PROCESSED', $order->getStatus()->getValue());
+
+        $response = $orderService->dispatchFunds(190057);
+        static::assertSame('OK', $response['message']);
+    }
+
+    public function testReDispatchFundsOrderAfterFailed(): void
+    {
+        $apiAdmin = $this->buildAdminApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'password');
+        $orderService = new OrderService($apiAdmin);
+
+        $order = $orderService->getOrder(190067);
+        static::assertSame('PROCESSED', $order->getStatus()->getValue());
+
+        $response = $orderService->dispatchFunds(190067);
+        static::assertSame('OK', $response['message']);
+        //DispatchFundsFailed
+        $order = $orderService->getOrder(190067);
+        static::assertSame('PROCESSED', $order->getStatus()->getValue());
+
+        $response = $orderService->dispatchFunds(190067);
+        static::assertSame('OK', $response['message']);
+        //DispatchFundsFailed
+        $order = $orderService->getOrder(190067);
+        static::assertSame('PROCESSED', $order->getStatus()->getValue());
+
+        $response = $orderService->dispatchFunds(190067);
+        static::assertSame('OK', $response['message']);
+        //DispatchFundsFailed
+        $order = $orderService->getOrder(190067);
+        static::assertSame('PROCESSED', $order->getStatus()->getValue());
     }
 
     public function testGetOrderExtra(): void

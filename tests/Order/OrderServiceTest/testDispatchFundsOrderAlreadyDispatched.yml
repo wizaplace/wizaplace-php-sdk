@@ -1,0 +1,121 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 05 Nov 2020 14:20:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 64c15a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/64c15a'
+            X-Request-Id: f6d9c32b742a1f3666a012ae6ad8d1f7
+        body: '{"id":2,"apiKey":"PJLDWWcWDs8KUrYcf5w877LRO6eWQi2CuKf9EdtV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 05 Nov 2020 14:20:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '543082'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/543082'
+            X-Request-Id: 79cbf809d5341f4ba581a6259fc75d22
+        body: '{"id":2,"apiKey":"PJLDWWcWDs8KUrYcf5w877LRO6eWQi2CuKf9EdtV"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/190054'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token PJLDWWcWDs8KUrYcf5w877LRO6eWQi2CuKf9EdtV'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 05 Nov 2020 14:20:45 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '184792'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/184792'
+            X-Request-Id: e404b3e9d9fcd3f062bae0a4ac9e1f04
+        body: '{"id":190054,"basketId":"09a16d8b-8a46-47d3-afc0-c3ffee294ba1","companyId":9,"companyName":"MangoPay","total":67.9,"taxTotal":1.4,"subtotal":67.9,"customerTotal":67.9,"marketplaceDiscountTotal":0,"timestamp":1604397177,"status":"COMPLETED","workflow":"workflow_funds_dispatch_pending_funds_dispatch_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Med","lastname":"Lai","address":"Lyoon","address2":"","city":"Lyon","zipcode":"69001","country":"FR","company":"","phone":"","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Med","lastname":"Lai","address":"Lyoon","address2":"","city":"Lyon","zipcode":"69001","country":"FR","company":"","phone":"","comment":"","pickupPointId":null},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"INFO-001","isSubscription":false,"isRenewable":false}],"payment":{"type":"credit-card","processorName":"mangopay","commitmentDate":null,"processorInformation":{"mangopay_transaction_id":"91524433","mangopay_transfer_done":true},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":135.8}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/190054/dispatch'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token PJLDWWcWDs8KUrYcf5w877LRO6eWQi2CuKf9EdtV'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 05 Nov 2020 14:20:45 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '66e036'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/66e036'
+        body: '{"message":"The Dispatch could not be processed. Check out the response payload to identify the issue"}'

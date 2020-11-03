@@ -1,5 +1,10 @@
-
 # Changelog
+
+## New Release
+
+### New features
+
+- Added `Wizaplace\SDK\Order\OrderService::dispatchFunds`
 
 ## 1.116.5
 
@@ -115,6 +120,12 @@
 
 - Added `Wizaplace\SDK\Pim\Product\ProductAttachment::getPublicUrl`
 - Added `Wizaplace\SDK\Pim\Product\ProductAttachment::getOriginalUrl`
+
+## New Release
+
+### New features
+
+- Added `Wizaplace\SDK\Order\OrderService::dispatchFunds`
 
 ## 1.111.2
 
