@@ -24,6 +24,9 @@ final class Message
     /** @var bool */
     private $isAuthor;
 
+    /** @var int */
+    private $authorId;
+
     /**
      * @internal
      *
@@ -36,6 +39,7 @@ final class Message
         $this->content = $data['content'];
         $this->date = new \DateTimeImmutable($data['date']);
         $this->isAuthor = $data['isAuthor'];
+        $this->authorId = $data['authorId'];
     }
 
     /**
@@ -60,5 +64,13 @@ final class Message
     public function isAuthor(): bool
     {
         return $this->isAuthor;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAuthorId(): int
+    {
+        return $this->authorId;
     }
 }

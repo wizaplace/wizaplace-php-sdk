@@ -214,6 +214,7 @@ final class DiscussionServiceTest extends ApiTestCase
                 'isAuthor' => true,
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
+                'authorId' => 7,
             ]
         );
 
@@ -239,11 +240,13 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[0]->getDate());
         $this->assertGreaterThan(1500000000, $messages[0]->getDate()->getTimestamp());
         $this->assertTrue($messages[0]->isAuthor());
+        $this->assertSame(7, $messages[1]->getAuthorId());
 
         $this->assertSame('This is an other test message', $messages[1]->getContent());
         $this->assertInstanceOf(\DateTimeImmutable::class, $messages[1]->getDate());
         $this->assertGreaterThan(1500000000, $messages[1]->getDate()->getTimestamp());
         $this->assertTrue($messages[1]->isAuthor());
+        $this->assertSame(7, $messages[1]->getAuthorId());
     }
 
     public function testSubmitContactRequest()
