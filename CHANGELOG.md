@@ -1,5 +1,11 @@
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\ApiClient::logout`
+
 ## 1.111.28
 
 ### New features

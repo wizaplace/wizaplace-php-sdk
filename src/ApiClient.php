@@ -33,6 +33,7 @@ use Wizaplace\SDK\Exception\DomainError;
 use Wizaplace\SDK\Exception\ErrorCode;
 use Wizaplace\SDK\Exception\InvalidPromotionRule;
 use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\ProductAttachmentNotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
@@ -151,6 +152,24 @@ final class ApiClient
         $this->setApiKey($apiKey);
 
         return $apiKey;
+    }
+
+    /**
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function logout(): void
+    {
+        $this->mustBeAuthenticated();
+        try {
+            $this->get("user/oauth/logout");
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("User not found", $e);
+            }
+            throw $e;
+        }
     }
 
     /**
