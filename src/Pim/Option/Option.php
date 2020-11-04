@@ -33,6 +33,9 @@ final class Option
     /** @var null|string */
     private $code;
 
+    /** @var bool */
+    private $displayOnFaceting;
+
     /**
      * @internal
      *
@@ -51,6 +54,7 @@ final class Option
         );
         $this->isSystem = $data['is_system'] ?? false;
         $this->code = $data['code'] ?? null;
+        $this->displayOnFaceting = $data['display_on_faceting'] ?? false;
     }
 
     /**
@@ -115,5 +119,11 @@ final class Option
     public function getCode(): ?string
     {
         return $this->code;
+    }
+
+    /** @return bool */
+    public function getDisplayOnFaceting(): bool
+    {
+        return $this->displayOnFaceting;
     }
 }
