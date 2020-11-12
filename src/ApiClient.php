@@ -159,11 +159,11 @@ final class ApiClient
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function logout(): void
+    public function logout(): string
     {
         $this->mustBeAuthenticated();
         try {
-            $this->get("user/oauth/logout");
+            return $this->get('user/oauth/logout')['logout_redirect_uri'];
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("User not found", $e);
