@@ -7,22 +7,60 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '0'
             Accept: null
-        body: 'email=user%40wizaplace.com&password=whatever&firstName=&lastName='
+        body: 'email=user389%40example.com&password=Windows.98&firstName=&lastName='
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 19 Jun 2020 15:03:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d3694a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3694a'
+            Expires: 'Fri, 19 Jun 2020 15:03:08 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d3694a%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 2a43a8fc6f78d4a0a9003a3273931c57
+        body: '{"id":10}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            VCR-index: '1'
+            Accept: null
+        body: 'email=user389%40example.com&password=Windows.98&firstName=&lastName='
     response:
         status:
             http_version: '1.1'
             code: '409'
             message: Conflict
         headers:
-            Date: 'Tue, 12 Sep 2017 15:07:26 GMT'
-            Server: 'Apache/2.4.10 (Debian)'
-            Cache-Control: 'no-cache, private'
-            X-Debug-Token: 56987d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56987d'
-            Content-Length: '26'
+            Server: nginx
             Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 19 Jun 2020 15:03:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8a8db4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8a8db4'
         body: '"The user already exists."'

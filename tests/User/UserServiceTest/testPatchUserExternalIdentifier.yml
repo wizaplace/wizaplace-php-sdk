@@ -8,10 +8,10 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '0'
             Accept: null
-        body: 'email=user42114%40example.com&password=password&firstName=Jean&lastName=Paul'
+        body: 'email=user945%40example.com&password=Windows.98&firstName=Jean&lastName=Paul'
     response:
         status:
             http_version: '1.1'
@@ -22,16 +22,17 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Fri, 22 Nov 2019 14:43:24 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:21 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b3685f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b3685f'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22b3685f%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 717c57154efbd493e4fddefac0049876
-        body: '{"id":17}'
+            X-Debug-Token: 9fbb82
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9fbb82'
+            Expires: 'Fri, 19 Jun 2020 15:03:21 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229fbb82%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 6ee9c0ec0e503c14b615f34e4e1127ce
+        body: '{"id":24}'
 -
     request:
         method: GET
@@ -39,8 +40,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dXNlcjQyMTE0QGV4YW1wbGUuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'Basic dXNlcjk0NUBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '1'
             Accept: null
     response:
@@ -53,24 +54,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Nov 2019 14:43:25 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:21 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 9fffb6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9fffb6'
-            X-Request-Id: 18ad026cd1402fb6c56eba3e8a73f180
-        body: '{"id":17,"apiKey":"1r6tXdxkRwl0g7FtyssbwwyOdPMVzhjKUUOnSEY3"}'
+            X-Debug-Token: c4bdb8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c4bdb8'
+            X-Request-Id: 04c15845099e805463ae6292bfc4fb27
+        body: '{"id":24,"apiKey":"uZo\/RIYTP6QxZpGvSq+ltjAHsx8iBg6vbnvNdhO0"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/17'
+        url: 'http://wizaplace.loc/api/v1/users/24'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
-            Authorization: 'token 1r6tXdxkRwl0g7FtyssbwwyOdPMVzhjKUUOnSEY3'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Authorization: 'token uZo/RIYTP6QxZpGvSq+ltjAHsx8iBg6vbnvNdhO0'
             VCR-index: '2'
             Accept: null
     response:
@@ -83,26 +84,26 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Nov 2019 14:43:26 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:21 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 048a52
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/048a52'
-            X-Request-Id: 401aec514cef776fa3e7c7dbf5b633c6
-        body: '{"id":17,"title":null,"email":"user42114@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","function":""}'
+            X-Debug-Token: 2a4bb7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2a4bb7'
+            X-Request-Id: 54ace5a2a45db5b60a2cf50a9ce2104d
+        body: '{"id":24,"title":null,"email":"user945@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: PATCH
-        url: 'http://wizaplace.loc/api/v1/users/17'
+        url: 'http://wizaplace.loc/api/v1/users/24'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
-            Authorization: 'token 1r6tXdxkRwl0g7FtyssbwwyOdPMVzhjKUUOnSEY3'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Authorization: 'token uZo/RIYTP6QxZpGvSq+ltjAHsx8iBg6vbnvNdhO0'
             VCR-index: '3'
             Accept: null
         body: 'currencyCode=EUR&phone=0102030405&externalIdentifier=externalIdentified0012'
@@ -116,15 +117,15 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Nov 2019 14:43:27 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:21 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: b575a6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b575a6'
-            X-Request-Id: b9fe6772846ba21eeee13e80e0e4b5bb
-        body: '{"id":17,"title":null,"email":"user42114@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"externalIdentified0012","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","function":""}'
+            X-Debug-Token: d0938d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d0938d'
+            X-Request-Id: 3560adab7c1d5bbb6ca377a96c06a9a8
+        body: '{"id":24,"title":null,"email":"user945@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"externalIdentified0012","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
 -
     request:
         method: GET
@@ -132,8 +133,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dXNlcjQyMTE0QGV4YW1wbGUuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Authorization: 'Basic dXNlcjk0NUBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '4'
             Accept: null
     response:
@@ -146,24 +147,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Nov 2019 14:43:27 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:21 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: aca8ea
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aca8ea'
-            X-Request-Id: e2443a5256dd7a040478439c1d7025a7
-        body: '{"id":17,"apiKey":"1r6tXdxkRwl0g7FtyssbwwyOdPMVzhjKUUOnSEY3"}'
+            X-Debug-Token: f18779
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f18779'
+            X-Request-Id: 22f486d68e6f8bfc930feb3903112062
+        body: '{"id":24,"apiKey":"uZo\/RIYTP6QxZpGvSq+ltjAHsx8iBg6vbnvNdhO0"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/17'
+        url: 'http://wizaplace.loc/api/v1/users/24'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
-            Authorization: 'token 1r6tXdxkRwl0g7FtyssbwwyOdPMVzhjKUUOnSEY3'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Authorization: 'token uZo/RIYTP6QxZpGvSq+ltjAHsx8iBg6vbnvNdhO0'
             VCR-index: '5'
             Accept: null
     response:
@@ -176,12 +177,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Nov 2019 14:43:28 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:22 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fd72a7
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fd72a7'
-            X-Request-Id: 26fc104cdfdfc021741ed3a5d2635b76
-        body: '{"id":17,"title":null,"email":"user42114@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"externalIdentified0012","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","function":""}'
+            X-Debug-Token: 1c24f6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c24f6'
+            X-Request-Id: fde60db5015715766f6c609d6cc2929b
+        body: '{"id":24,"title":null,"email":"user945@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"0102030405","birthday":null,"currencyCode":"EUR","loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"externalIdentified0012","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

@@ -8,10 +8,10 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-5975-sdk-symfo-5@063d115
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '0'
             Accept: null
-        body: 'email=testMinimalUser%40test.com&password=password'
+        body: 'email=user1417%40test.com&password=Windows.98'
     response:
         status:
             http_version: '1.1'
@@ -22,17 +22,17 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Tue, 04 Feb 2020 13:17:41 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f63df2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f63df2'
-            Expires: 'Tue, 04 Feb 2020 13:17:41 GMT'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22f63df2%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 747b9f214d3f9bfc303b55892e94b249
-        body: '{"id":18}'
+            X-Debug-Token: 3ca864
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ca864'
+            Expires: 'Fri, 19 Jun 2020 15:03:39 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%223ca864%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 884d14d9b62a9d1796e55764c5ba664e
+        body: '{"id":43}'
 -
     request:
         method: GET
@@ -40,8 +40,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dGVzdE1pbmltYWxVc2VyQHRlc3QuY29tOnBhc3N3b3Jk'
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-5975-sdk-symfo-5@063d115
+            Authorization: 'Basic dXNlcjE0MTdAdGVzdC5jb206V2luZG93cy45OA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '1'
             Accept: null
     response:
@@ -54,24 +54,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 04 Feb 2020 13:17:41 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '3427e7'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3427e7'
-            X-Request-Id: b0698f44cef7a91290799843e7df95dd
-        body: '{"id":18,"apiKey":"UmiAg1dhIKkj8fqtYj17MoV8O1xFf6pk5Nt7bgU9"}'
+            X-Debug-Token: 84cea5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/84cea5'
+            X-Request-Id: 76fbf470c11bb0d23246512d011e0fc3
+        body: '{"id":43,"apiKey":"1X5ay0juVwvkkTLNi4RwWtSy6QXAiVTx2qFCJnAn"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/18'
+        url: 'http://wizaplace.loc/api/v1/users/43'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-5975-sdk-symfo-5@063d115
-            Authorization: 'token UmiAg1dhIKkj8fqtYj17MoV8O1xFf6pk5Nt7bgU9'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Authorization: 'token 1X5ay0juVwvkkTLNi4RwWtSy6QXAiVTx2qFCJnAn'
             VCR-index: '2'
             Accept: null
     response:
@@ -84,12 +84,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 04 Feb 2020 13:17:41 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '144229'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/144229'
-            X-Request-Id: a0c6e098d343c35b8f309084fdc1142b
-        body: '{"id":18,"title":null,"email":"testMinimalUser@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'
+            X-Debug-Token: f0f6e2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0f6e2'
+            X-Request-Id: 215cd83785a59190dbf58dce7787477b
+        body: '{"id":43,"title":null,"email":"user1417@test.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"","lastName":"","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""},"shipping":{"title":"","firstname":"","lastname":"","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","division_code":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

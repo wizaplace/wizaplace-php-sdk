@@ -8,10 +8,10 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '0'
             Accept: null
-        body: 'email=user%40example.com&password=password&firstName=Jane&lastName=Doe&title=mrs&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France'
+        body: 'email=user331%40example.com&password=Windows.98&firstName=Jane&lastName=Doe&title=mrs&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France'
     response:
         status:
             http_version: '1.1'
@@ -22,16 +22,17 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'max-age=0, must-revalidate, private'
-            Date: 'Thu, 26 Sep 2019 08:57:05 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:07 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 13702f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/13702f'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2213702f%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 1f2f6506271362fd66b00b14fbe21473
-        body: '{"id":23}'
+            X-Debug-Token: 0a4b51
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0a4b51'
+            Expires: 'Fri, 19 Jun 2020 15:03:07 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220a4b51%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 95ad08b182081e07a3bd86b11edbc219
+        body: '{"id":9}'
 -
     request:
         method: GET
@@ -39,8 +40,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dXNlckBleGFtcGxlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
+            Authorization: 'Basic dXNlcjMzMUBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             VCR-index: '1'
             Accept: null
     response:
@@ -53,24 +54,24 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 26 Sep 2019 08:57:06 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:07 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 591ac2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/591ac2'
-            X-Request-Id: 049675d9f30abf42005b8db7ffbbb693
-        body: '{"id":23,"apiKey":"t3honfsjQGjP8DKJN5rjxIp0RG3p6F2hRRqLSt32"}'
+            X-Debug-Token: 68e0fa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/68e0fa'
+            X-Request-Id: 9d89b529ecdcb51a6383e15104a5e113
+        body: '{"id":9,"apiKey":"urzzV92HTUqXRAzbvuTeo28E6hiFnVeshuUmiAoJ"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/users/23'
+        url: 'http://wizaplace.loc/api/v1/users/9'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
-            Authorization: 'token t3honfsjQGjP8DKJN5rjxIp0RG3p6F2hRRqLSt32'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Authorization: 'token urzzV92HTUqXRAzbvuTeo28E6hiFnVeshuUmiAoJ'
             VCR-index: '2'
             Accept: null
     response:
@@ -83,12 +84,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.2.29
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 26 Sep 2019 08:57:06 GMT'
+            Date: 'Fri, 19 Jun 2020 15:03:07 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c78028
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c78028'
-            X-Request-Id: 1cd48e1bac946c1d7b4525860175d551
-        body: '{"id":23,"title":"mrs","email":"user@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}}}'
+            X-Debug-Token: 7f2f56
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7f2f56'
+            X-Request-Id: 9782e6ed964a990be4e0d7f94dd32e3c
+        body: '{"id":9,"title":"mrs","email":"user331@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"Fr","division_code":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":""}'

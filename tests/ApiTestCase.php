@@ -22,6 +22,9 @@ use function GuzzleHttp\Psr7\stream_for;
 
 abstract class ApiTestCase extends TestCase
 {
+    public const VALID_PASSWORD = 'Windows.98';
+    public const INVALID_PASSWORD = 'password';
+
     /**
      * @var array[]
      */
