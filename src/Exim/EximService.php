@@ -30,6 +30,34 @@ final class EximService extends AbstractService
      */
     public function importProducts(string $filePath): string
     {
+        return $this->import($filePath, 'import/products');
+    }
+
+    /**
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\FileNotFound
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function importProductsPrices(string $filePath): string
+    {
+        return $this->import($filePath, 'import/product-price');
+    }
+
+    /**
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\FileNotFound
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function importProductsQuantities(string $filePath): string
+    {
+        return $this->import($filePath, 'import/product-quantity');
+    }
+
+    private function import(string $filePath, string $apiPath): string
+    {
+
         $this->client->mustBeAuthenticated();
 
         // Open CSV file
@@ -49,79 +77,7 @@ final class EximService extends AbstractService
 
         // Send CSV file to API
         $data = $this->client->post(
-            'import/products',
-            [
-                RequestOptions::MULTIPART => $data,
-            ]
-        );
-
-        return $data['jobId'];
-    }
-
-    /**
-     * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\FileNotFound
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
-     */
-    public function importProductsPrices(string $filePath): string
-    {
-        $this->client->mustBeAuthenticated();
-
-        // Open CSV file
-        // We need the @ the catch the exception ourself in dev mode
-        $file = @fopen($filePath, 'r+');
-        if (false === $file) {
-            throw new FileNotFound('File not found ' . $filePath, ['file' => $filePath]);
-        }
-
-        // Add stream to HTTP body
-        $stream = new Stream($file);
-        $data[] = [
-            'name'     => 'file',
-            'contents' => $stream,
-            'filename' => 'productPrice.csv',
-        ];
-
-        // Send CSV file to API
-        $data = $this->client->post(
-            'import/product-price',
-            [
-                RequestOptions::MULTIPART => $data,
-            ]
-        );
-
-        return $data['jobId'];
-    }
-
-    /**
-     * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\FileNotFound
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
-     */
-    public function importProductsQuantities(string $filePath): string
-    {
-        $this->client->mustBeAuthenticated();
-
-        // Open CSV file
-        // We need the @ the catch the exception ourself in dev mode
-        $file = @fopen($filePath, 'r+');
-        if (false === $file) {
-            throw new FileNotFound('File not found ' . $filePath, ['file' => $filePath]);
-        }
-
-        // Add stream to HTTP body
-        $stream = new Stream($file);
-        $data[] = [
-            'name'     => 'file',
-            'contents' => $stream,
-            'filename' => 'productQuantities.csv',
-        ];
-
-        // Send CSV file to API
-        $data = $this->client->post(
-            'import/product-price',
+            $apiPath,
             [
                 RequestOptions::MULTIPART => $data,
             ]
