@@ -41,7 +41,7 @@ final class EximService extends AbstractService
      */
     public function importProductsPrices(string $filePath): string
     {
-        return $this->import($filePath, 'import/product-price');
+        return $this->import($filePath, 'import/product-prices');
     }
 
     /**
@@ -52,7 +52,7 @@ final class EximService extends AbstractService
      */
     public function importProductsQuantities(string $filePath): string
     {
-        return $this->import($filePath, 'import/product-quantity');
+        return $this->import($filePath, 'import/product-quantities');
     }
 
     private function import(string $filePath, string $apiPath): string
