@@ -51,6 +51,9 @@ final class Product extends ProductSummary
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|string */
+    private $video;
+
     /**
      * @internal
      *
@@ -86,6 +89,7 @@ final class Product extends ProductSummary
         $this->productTemplateType = $data['product_template_type'] ?? null;
         $this->isSubscription = $data['is_subscription'] ?? null;
         $this->isRenewable = $data['is_renewable'] ?? null;
+        $this->video = $data['video'] ?? null;
     }
 
     /**
@@ -174,6 +178,14 @@ final class Product extends ProductSummary
     public function isRenewable(): ?bool
     {
         return $this->isRenewable;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVideo() : ?string
+    {
+        return $this->video;
     }
 
     /**

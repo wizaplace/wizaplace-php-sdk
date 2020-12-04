@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Added `video` in PIM Product
+
 ## 1.111.31
 
 ### New features
