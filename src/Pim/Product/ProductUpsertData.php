@@ -104,6 +104,9 @@ abstract class ProductUpsertData
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|int */
+    private $companyId;
+
     /**
      * @param string $code
      * @return $this
@@ -399,6 +402,25 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @return int
+     */
+    public function getCompanyId(): int
+    {
+        return $this->companyId;
+    }
+
+    /**
+     * @param int $companyId
+     *
+     * @return ProductUpsertData
+     */
+    public function setCompanyId(int $companyId): ProductUpsertData
+    {
+        $this->companyId = $companyId;
+        return $this;
+    }
+
+    /**
      * @internal
      * @throws SomeParametersAreInvalid
      */
@@ -458,6 +480,7 @@ abstract class ProductUpsertData
             'maxPriceAdjustment',
             'isSubscription',
             'isRenewable',
+            'companyId',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -632,6 +655,10 @@ abstract class ProductUpsertData
                 unset($data['is_edp']);
                 unset($data['is_returnable']);
             }
+        }
+
+        if (isset($this->companyId)) {
+            $data['company_id'] = $this->companyId;
         }
 
         return $data;

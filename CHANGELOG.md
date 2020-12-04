@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Added `companyId` in PIM Product creation
+
 ## 1.111.31
 
 ### New features
