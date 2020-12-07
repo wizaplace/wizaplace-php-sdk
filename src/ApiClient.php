@@ -304,7 +304,11 @@ final class ApiClient
     {
         $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/' . $this->version;
         if ($this->language !== null) {
-            $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+            if ($method === 'GET') {
+                $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+            } else {
+                $options[RequestOptions::HEADERS]['Content-Language'] = $this->language;
+            }
         }
 
         if ($this->requestLogger !== null) {
