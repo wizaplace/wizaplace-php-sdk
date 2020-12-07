@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Set Content-Language on non GET requests
+
 ## 1.111.31
 
 ### New features
