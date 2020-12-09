@@ -1,5 +1,11 @@
 # Changelog
 
+## new version
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Order::isDoNotCreateInvoice`
+
 ## 1.111.31
 
 ### New features

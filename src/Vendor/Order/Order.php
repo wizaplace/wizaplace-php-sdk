@@ -121,6 +121,9 @@ final class Order
     /** @var float */
     private $balance;
 
+    /** @var bool */
+    private $doNotCreateInvoice;
+
     /**
      * @internal
      *
@@ -185,6 +188,7 @@ final class Order
         $this->carriagePaid = $data['carriage_paid'] ?? false;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
+        $this->doNotCreateInvoice = \array_key_exists('do_not_create_invoice', $data) === true ? (bool) $data['do_not_create_invoice'] : false;
     }
 
     /**
@@ -495,5 +499,11 @@ final class Order
     public function getBalance(): float
     {
         return $this->balance;
+    }
+
+    /** @return bool  */
+    public function isDoNotCreateInvoice(): bool
+    {
+        return $this->doNotCreateInvoice;
     }
 }

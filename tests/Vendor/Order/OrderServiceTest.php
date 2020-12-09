@@ -1088,4 +1088,14 @@ class OrderServiceTest extends ApiTestCase
         $invoiceNumber = $orderService->getOrderById(5)->getInvoiceNumber();
         static::assertEmpty($invoiceNumber);
     }
+
+    public function testDoNotCreateInvoice(): void
+    {
+        $orderService = $this->buildVendorOrderService();
+
+        // Call the endpoint [PUT] /order/{orderId}
+        $orderService->acceptOrder(5, false, '', false);
+        $doNotCreateInvoice = $orderService->getOrderById(5)->isDoNotCreateInvoice();
+        static::assertTrue($doNotCreateInvoice);
+    }
 }
