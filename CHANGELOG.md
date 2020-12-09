@@ -1,6 +1,6 @@
 # Changelog
 
-## new version
+## 1.112.0
 
 ### New features
 
