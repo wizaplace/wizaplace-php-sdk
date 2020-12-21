@@ -287,6 +287,18 @@ final class ProductServiceTest extends ApiTestCase
         );
     }
 
+    public function testListProductsWithCompanyFilter(): void
+    {
+        $filter = (new ProductListFilter())->byCompanyIds([3]);
+        $products = $this->buildProductService()->listProducts($filter)->getProducts();
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertGreaterThanOrEqual(2, \count($products));
+
+        foreach ($products as $product) {
+            static::assertSame(3, $product->getCompanyId());
+        }
+    }
+
     public function testDeleteProduct(): void
     {
         $service = $this->buildProductService();

@@ -49,6 +49,9 @@ final class ProductListFilter implements ArrayableInterface
     /** @var null|string */
     private $updatedAfter;
 
+    /** @var int[] */
+    private $companyIds = [];
+
     /**
      * @param string $productCode
      *
@@ -140,6 +143,14 @@ final class ProductListFilter implements ArrayableInterface
         return $this;
     }
 
+    /** @param int[] $companyIds */
+    public function byCompanyIds(array $companyIds): self
+    {
+        $this->companyIds = $companyIds;
+
+        return $this;
+    }
+
     /**
      * @internal
      */
@@ -184,6 +195,10 @@ final class ProductListFilter implements ArrayableInterface
 
         if (\count($this->supplierReferences) > 0) {
             $filters['supplier_ref'] = $this->supplierReferences;
+        }
+
+        if (\count($this->companyIds) > 0) {
+            $filters['company_ids'] = $this->companyIds;
         }
 
         return $filters;
