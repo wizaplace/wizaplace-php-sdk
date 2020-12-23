@@ -57,7 +57,6 @@ final class EximService extends AbstractService
 
     private function import(string $filePath, string $apiPath): string
     {
-
         $this->client->mustBeAuthenticated();
 
         // Open CSV file
