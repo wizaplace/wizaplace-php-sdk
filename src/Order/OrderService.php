@@ -475,24 +475,20 @@ final class OrderService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $response = $this->client->post('orders/' . $orderId . '/dispatch');
+            return $this->client->post('orders/' . $orderId . '/dispatch');
         } catch (ClientException $e) {
-            if ($e->getResponse()->getStatusCode() === 400) {
-                throw new SomeParametersAreInvalid("The Dispatch could not be processed. Check out the response payload to identify the issue.", 400, $e);
+            switch ($e->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid("The Dispatch could not be processed. Check out the response payload to identify the issue.", 400, $e);
+                case 401:
+                    throw new UnauthorizedModerationAction("Unauthorized access.");
+                case 403:
+                    throw new AccessDenied("Insufficient permission.");
+                case 404:
+                    throw new NotFound("Order #{$orderId} not found", $e);
+                default:
+                    throw $e;
             }
-            if ($e->getResponse()->getStatusCode() === 401) {
-                throw new UnauthorizedModerationAction("Unauthorized access.");
-            }
-            if ($e->getResponse()->getStatusCode() === 403) {
-                throw new AccessDenied("Insufficient permission.");
-            }
-            if ($e->getResponse()->getStatusCode() === 404) {
-                throw new NotFound("Order #{$orderId} not found", $e);
-            }
-
-            throw $e;
         }
-
-        return $response;
     }
 }
