@@ -1,6 +1,6 @@
 # Changelog
 
-### New features
+## 1.113.5
 
 - Added `\Wizaplace\SDK\Order\Order::getBasketId`
 
