@@ -61,9 +61,10 @@ final class Order
     private $carriagePaid;
     /** @var null|bool */
     private $refunded;
-
     /** @var float */
     private $balance;
+    /** @var string|null */
+    private $basketId;
 
     /**
      * @internal
@@ -103,6 +104,7 @@ final class Order
         $this->carriagePaid = $data['carriagePaid'] ?? false;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
+        $this->basketId = (\array_key_exists('basketId', $data) === true) ? $data['basketId'] : null;
     }
 
     /**
@@ -279,5 +281,10 @@ final class Order
     public function getBalance(): float
     {
         return $this->balance;
+    }
+
+    public function getBasketId(): ?string
+    {
+        return $this->basketId;
     }
 }
