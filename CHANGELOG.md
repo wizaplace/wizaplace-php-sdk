@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.113.6
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::shipmentMarkAsDelivered`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::orderMarkAsDelivered`
+- Added `Wizaplace\SDK\Vendor\Order\Shipment::getDeliveredDate`
+
 ## 1.113.5
 
 - Added `\Wizaplace\SDK\Order\Order::getBasketId`

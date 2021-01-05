@@ -257,6 +257,62 @@ class OrderService extends AbstractService
     }
 
     /**
+     * @param int $shipmentId
+     *
+     * @throws AccessDenied
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws NotFound
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function shipmentMarkAsDelivered(int $shipmentId): void
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $this->client->put(
+                sprintf('shipments/%d/mark-as-delivered', $shipmentId)
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
+    /**
+     * @param int $orderId
+     *
+     * @throws AccessDenied
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws NotFound
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function orderMarkAsDelivered(int $orderId): void
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $this->client->put(
+                sprintf('orders/%d/mark-as-delivered', $orderId)
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
+    /**
      * @param int    $orderId
      * @param string $invoiceNumber
      *

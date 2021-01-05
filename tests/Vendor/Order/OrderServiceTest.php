@@ -1079,6 +1079,111 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame("00072", $invoiceNumber);
     }
 
+    public function testMarkAsDeliveredShipment(): void
+    {
+        $orderService = $this->buildVendorOrderService("admin@wizaplace.com", "password");
+        $orderId = 31;
+        $order = $orderService->getOrderById($orderId);
+        $items = $order->getItems();
+        static::assertCount(1, $items);
+
+        /** @var OrderItem $item */
+        $item = reset($items);
+        $itemId = $item->getItemId();
+        static::assertSame(10, $item->getQuantity());
+        static::assertSame(0, $item->getQuantityShipped());
+        static::assertSame(10, $item->getQuantityToShip());
+
+        $itemsShipped[$itemId] = 4;
+        $firstShipmentId = $orderService->createShipment(
+            (new CreateShipmentCommand($orderId, '0ABC0123456798'))
+                ->setComment('great shipment')
+                ->setLabelUrl('http://mondialrelay.com/shipment-created')
+                ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        static::assertGreaterThan(0, $firstShipmentId);
+        $shipment = $orderService->getShipmentById($firstShipmentId);
+        static::assertInstanceOf(Shipment::class, $shipment);
+        static::assertNull($shipment->getDeliveredDate());
+
+        $itemsShipped[$itemId] = 6;
+        $secondShipmentId = $orderService->createShipment(
+            (new CreateShipmentCommand($orderId, '0ABC0123456798'))
+                ->setComment('great shipment')
+                ->setLabelUrl('http://mondialrelay.com/shipment-created')
+                ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        static::assertGreaterThan(0, $secondShipmentId);
+        $shipment = $orderService->getShipmentById($secondShipmentId);
+        static::assertInstanceOf(Shipment::class, $shipment);
+        static::assertNull($shipment->getDeliveredDate());
+
+        $shipments = $orderService->listShipments($orderId);
+        static::assertCount(2, $shipments);
+
+        $orderService->shipmentMarkAsDelivered($firstShipmentId);
+        $shipment = $orderService->getShipmentById($firstShipmentId);
+        static::assertNotNull($shipment->getDeliveredDate());
+
+        $orderService->shipmentMarkAsDelivered($secondShipmentId);
+        $shipment = $orderService->getShipmentById($secondShipmentId);
+        static::assertNotNull($shipment->getDeliveredDate());
+    }
+
+    public function testMarkOrderAsDelivered(): void
+    {
+        $orderService = $this->buildVendorOrderService("admin@wizaplace.com", "password");
+        $orderId = 33;
+        $order = $orderService->getOrderById($orderId);
+        $items = $order->getItems();
+        static::assertCount(1, $items);
+
+        /** @var OrderItem $item */
+        $item = reset($items);
+        $itemId = $item->getItemId();
+        static::assertSame(10, $item->getQuantity());
+        static::assertSame(0, $item->getQuantityShipped());
+        static::assertSame(10, $item->getQuantityToShip());
+
+        $itemsShipped[$itemId] = 4;
+        $firstShipmentId = $orderService->createShipment(
+            (new CreateShipmentCommand($orderId, '0ABC0123456798'))
+                ->setComment('great shipment')
+                ->setLabelUrl('http://mondialrelay.com/shipment-created')
+                ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        static::assertGreaterThan(0, $firstShipmentId);
+        $shipment = $orderService->getShipmentById($firstShipmentId);
+        static::assertInstanceOf(Shipment::class, $shipment);
+        static::assertNull($shipment->getDeliveredDate());
+
+        $itemsShipped[$itemId] = 6;
+        $secondShipmentId = $orderService->createShipment(
+            (new CreateShipmentCommand($orderId, '0ABC0123456798'))
+                ->setComment('great shipment')
+                ->setLabelUrl('http://mondialrelay.com/shipment-created')
+                ->setShippedQuantityByItemId($itemsShipped)
+        );
+
+        static::assertGreaterThan(0, $secondShipmentId);
+        $shipment = $orderService->getShipmentById($secondShipmentId);
+        static::assertInstanceOf(Shipment::class, $shipment);
+        static::assertNull($shipment->getDeliveredDate());
+
+        $shipments = $orderService->listShipments($orderId);
+        static::assertCount(2, $shipments);
+
+        $orderService->orderMarkAsDelivered($orderId);
+
+        $shipments = $orderService->listShipments($orderId);
+        foreach ($shipments as $shipment) {
+            static::assertNotNull($shipment->getDeliveredDate());
+        }
+    }
+
     public function testDoNotCreateInvoiceNumber(): void
     {
         $orderService = $this->buildVendorOrderService();

@@ -42,6 +42,9 @@ final class Shipment
     /** @var int[] map of (int) itemId to (int) quantity shipped */
     private $shippedQuantityByItemId;
 
+    /** @var \DateTime|null */
+    private $shippingDate;
+
     /**
      * @internal
      *
@@ -60,6 +63,10 @@ final class Shipment
         $this->comment = $data['comments'];
         $this->createdAt = new \DateTimeImmutable('@' . $data['shipment_timestamp']);
         $this->shippedQuantityByItemId = $data['products'];
+        $this->shippingDate = \array_key_exists('delivery_date', $data) === true
+        && $data['delivery_date'] !== null
+            ? new \DateTime($data['delivery_date'])
+            : null;
     }
 
     /**
@@ -132,5 +139,11 @@ final class Shipment
     public function getShippedQuantityByItemId(): array
     {
         return $this->shippedQuantityByItemId;
+    }
+
+    /** @return \DateTime|null */
+    public function getDeliveredDate(): ?\DateTime
+    {
+        return $this->shippingDate;
     }
 }
