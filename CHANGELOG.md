@@ -1,6 +1,7 @@
 # Changelog
 
-# New features
+## 1.113.7
+
 - Added `Wizaplace\SDK\Pim\Product\ProductUpsertData::setCrossedOutPrice`
 
 ## 1.113.6
