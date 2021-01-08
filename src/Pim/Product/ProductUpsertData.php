@@ -98,6 +98,9 @@ abstract class ProductUpsertData
     /** @var int */
     private $maxPriceAdjustment;
 
+    /** @var int */
+    private $crossedOutPrice;
+
     /** @var null|bool */
     private $isSubscription;
 
@@ -364,6 +367,17 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param int $crossedOutPrice
+     * @return $this
+     */
+    public function setCrossedOutPrice(int $crossedOutPrice): self
+    {
+        $this->crossedOutPrice = $crossedOutPrice;
+
+        return $this;
+    }
+
+    /**
      * @param null|string $productTemplateType
      * @return $this
      */
@@ -456,6 +470,7 @@ abstract class ProductUpsertData
             'infiniteStock',
             'productTemplateType',
             'maxPriceAdjustment',
+            'crossedOutPrice',
             'isSubscription',
             'isRenewable',
         ];
@@ -559,6 +574,10 @@ abstract class ProductUpsertData
 
         if (isset($this->maxPriceAdjustment)) {
             $data['max_price_adjustment'] = $this->maxPriceAdjustment;
+        }
+
+        if (isset($this->crossedOutPrice)) {
+            $data['crossed_out_price'] = $this->crossedOutPrice;
         }
 
         if (isset($this->declinations)) {
