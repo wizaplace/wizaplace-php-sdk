@@ -1,6 +1,6 @@
 # Changelog
 
-## New Version
+## 1.114.0
 
 ### New features
 
@@ -9,15 +9,21 @@
 
 ## 1.113.7
 
+### New features
+
 - Added `Wizaplace\SDK\Pim\Product\ProductUpsertData::setCrossedOutPrice`
 
 ## 1.113.6
+
+### New features
 
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::shipmentMarkAsDelivered`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::orderMarkAsDelivered`
 - Added `Wizaplace\SDK\Vendor\Order\Shipment::getDeliveredDate`
 
 ## 1.113.5
+
+### New features
 
 - Added `Wizaplace\SDK\Order\Order::getBasketId`
 
