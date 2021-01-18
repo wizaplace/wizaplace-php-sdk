@@ -1,0 +1,100 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 01 Oct 2020 15:48:36 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6dea5a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6dea5a'
+            X-Request-Id: 891d9a91012bf8e27f6ab81c57911f0b
+        body: '{"id":7,"apiKey":"pTKBekHj4SpTE6xHaLCgmQnGZIy+5+9nCO8GUkne"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token pTKBekHj4SpTE6xHaLCgmQnGZIy+5+9nCO8GUkne'
+            VCR-index: '1'
+            Accept: null
+        body: '{"companyId":2}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 01 Oct 2020 15:48:37 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 27a81a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/27a81a'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2227a81a%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A56%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: f5a789375bf7811cb6986606ea148a6f
+        body: '{"id":3,"recipient":"ACME","recipientId":4,"productId":null,"companyId":2,"title":"Contact ACME","unreadCount":0}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions/3/messages'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=fad4bdd265fa55640575f040a77c6c766dd44444'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token pTKBekHj4SpTE6xHaLCgmQnGZIy+5+9nCO8GUkne'
+            VCR-index: '2'
+            Accept: null
+        body: "--fad4bdd265fa55640575f040a77c6c766dd44444\r\nContent-Disposition: form-data; name=\"attachments[]\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--fad4bdd265fa55640575f040a77c6c766dd44444\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 22\r\n\r\nThis is a test message\r\n--fad4bdd265fa55640575f040a77c6c766dd44444--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Thu, 01 Oct 2020 15:48:40 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e55516
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e55516'
+            Expires: 'Thu, 01 Oct 2020 15:48:40 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e55516%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A120%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 14e1b517e3069c9008e0f4208ca73af9
+        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2020-10-01T17:48:37+02:00","attachments":[{"id":"92406347-03fd-11eb-a30f-0242ac120008","name":"minimal.pdf","messageId":2,"publicUrl":null}]}'

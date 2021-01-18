@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
             VCR-index: '0'
             Accept: null
     response:
@@ -16,41 +16,48 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:52:04 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: fc7046
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc7046'
-            Content-Length: '62'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"oobAoWs+XkhK3TBEs+U\/o83HPtefbjD+\/JS7Pzie"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Oct 2020 09:24:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 797d93
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/797d93'
+            X-Request-Id: f03d253871a8af9abbd023571cbb4708
+        body: '{"id":7,"apiKey":"aTnd1V3K2kIeADxxAg\/HENdD8ISETGC+UYU3CN5X"}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/discussions/2/messages'
+        url: 'http://wizaplace.loc/api/v1/discussions/8/messages'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token oobAoWs+XkhK3TBEs+U/o83HPtefbjD+/JS7Pzie'
+            Content-Type: 'multipart/form-data; boundary=e9d48cefde51e85be4c463e71b73e9d877459cdb'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token aTnd1V3K2kIeADxxAg/HENdD8ISETGC+UYU3CN5X'
             VCR-index: '1'
             Accept: null
-        body: '{"content":"This is a test message"}'
+        body: "--e9d48cefde51e85be4c463e71b73e9d877459cdb\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 22\r\n\r\nThis is a test message\r\n--e9d48cefde51e85be4c463e71b73e9d877459cdb--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '404'
             message: 'Not Found'
         headers:
-            Date: 'Fri, 16 Mar 2018 15:52:04 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 0badd8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0badd8'
-            Content-Length: '83'
+            Server: nginx
             Content-Type: application/json
-        body: '{"error":{"code":13,"message":"discussion not found","context":{"discussionId":2}}}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Oct 2020 09:24:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1c6e6a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c6e6a'
+        body: '{"error":{"code":13,"message":"discussion not found","context":{"discussionId":8}}}'

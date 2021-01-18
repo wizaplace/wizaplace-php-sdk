@@ -179,6 +179,7 @@ final class DiscussionService extends AbstractService
      *
      * @param int    $discussionId
      * @param string $content
+     * @param array|null $files
      *
      * @return Message
      * @throws AuthenticationRequired
@@ -186,12 +187,33 @@ final class DiscussionService extends AbstractService
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function postMessage(int $discussionId, string $content): Message
+    public function postMessage(int $discussionId, string $content, array $files = null): Message
     {
         $this->client->mustBeAuthenticated();
 
+        if (\is_array($files) === true && \count($files) > 0) {
+            /** @var UploadedFileInterface $file */
+            foreach ($files as $file) {
+                if (false === $file instanceof UploadedFileInterface) {
+                    throw new \InvalidArgumentException('The $files parameter must be an array of ' . UploadedFileInterface::class . '.');
+                }
+
+                $data[] = [
+                    'name'     => 'attachments[]',
+                    'contents' => $file->getStream(),
+                    'filename' => $file->getClientFilename(),
+                ];
+            }
+        }
+
+        $data[] = [
+            'name' => 'content',
+            'contents' => $content,
+        ];
+
         try {
-            $messageData = $this->client->post('discussions/' . $discussionId . '/messages', [RequestOptions::JSON => ['content' => $content]]);
+            $messageData = $this->client->post('discussions/' . $discussionId . '/messages', [RequestOptions::MULTIPART => $data]);
+
             $messageData['isAuthor'] = ($messageData['authorId'] === $this->client->getApiKey()->getId());
 
             return new Message($messageData);

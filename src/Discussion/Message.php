@@ -27,6 +27,9 @@ final class Message
     /** @var int */
     private $authorId;
 
+    /** @var MessageAttachment[] */
+    private $attachments;
+
     /**
      * @internal
      *
@@ -40,6 +43,7 @@ final class Message
         $this->date = new \DateTimeImmutable($data['date']);
         $this->isAuthor = $data['isAuthor'];
         $this->authorId = $data['authorId'];
+        $this->attachments = $data['attachments'];
     }
 
     /**
@@ -72,5 +76,11 @@ final class Message
     public function getAuthorId(): int
     {
         return $this->authorId;
+    }
+
+    /** @return MessageAttachment[] */
+    public function getAttachments(): array
+    {
+        return $this->attachments;
     }
 }

@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             VCR-index: '0'
             Accept: null
     response:
@@ -16,15 +16,19 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:05 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: b09910
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b09910'
-            Content-Length: '62'
+            Server: nginx
             Content-Type: application/json
-        body: '{"id":7,"apiKey":"vkYXC2GAuyCWrl\/f6ALEXj7QAr16hal7QfJJGqp\/"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 09 Nov 2020 11:12:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 96cbe2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/96cbe2'
+            X-Request-Id: 7bbd10ce5351f139088042ac8b78414d
+        body: '{"id":7,"apiKey":"I3sgX40QFxSJ8DealEbTCYS1V2YJU\/x5zx5dR20X"}'
 -
     request:
         method: POST
@@ -33,28 +37,33 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token vkYXC2GAuyCWrl/f6ALEXj7QAr16hal7QfJJGqp/'
+            Content-Type: 'multipart/form-data; boundary=c26b41bd5ecc2bfcd6248caac5aff069a34e9ae3'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token I3sgX40QFxSJ8DealEbTCYS1V2YJU/x5zx5dR20X'
             VCR-index: '1'
             Accept: null
-        body: '{"content":"This is a test message"}'
+        body: "--c26b41bd5ecc2bfcd6248caac5aff069a34e9ae3\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 22\r\n\r\nThis is a test message\r\n--c26b41bd5ecc2bfcd6248caac5aff069a34e9ae3--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:05 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 19112c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/19112c'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2219112c%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A113%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; HttpOnly'
-            Content-Length: '110'
+            Server: nginx
             Content-Type: application/json
-        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2018-03-16T16:42:06+01:00"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Mon, 09 Nov 2020 11:12:01 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2af185
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2af185'
+            Expires: 'Mon, 09 Nov 2020 11:12:01 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%222af185%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A129%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 078a77da1d7c8705beb8710fcfea6e2c
+        body: '{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2020-11-09T12:12:01+01:00","attachments":[]}'
 -
     request:
         method: POST
@@ -63,28 +72,33 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token vkYXC2GAuyCWrl/f6ALEXj7QAr16hal7QfJJGqp/'
+            Content-Type: 'multipart/form-data; boundary=5aafa2a0e439cb49a5c802c061632a04cd8c2e0d'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token I3sgX40QFxSJ8DealEbTCYS1V2YJU/x5zx5dR20X'
             VCR-index: '2'
             Accept: null
-        body: '{"content":"This is an other test message"}'
+        body: "--5aafa2a0e439cb49a5c802c061632a04cd8c2e0d\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 29\r\n\r\nThis is an other test message\r\n--5aafa2a0e439cb49a5c802c061632a04cd8c2e0d--\r\n"
     response:
         status:
             http_version: '1.1'
             code: '201'
             message: Created
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:06 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: e4f152
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4f152'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e4f152%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvagrant%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A113%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; HttpOnly'
-            Content-Length: '117'
+            Server: nginx
             Content-Type: application/json
-        body: '{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2018-03-16T16:42:06+01:00"}'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Mon, 09 Nov 2020 11:12:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5f357c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5f357c'
+            Expires: 'Mon, 09 Nov 2020 11:12:02 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%225f357c%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A129%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: 096f6fa354fd636e0aa0951c7db3eef0
+        body: '{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2020-11-09T12:12:02+01:00","attachments":[]}'
 -
     request:
         method: GET
@@ -92,8 +106,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Authorization: 'token vkYXC2GAuyCWrl/f6ALEXj7QAr16hal7QfJJGqp/'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
+            Authorization: 'token I3sgX40QFxSJ8DealEbTCYS1V2YJU/x5zx5dR20X'
             VCR-index: '3'
             Accept: null
     response:
@@ -102,12 +116,16 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Fri, 16 Mar 2018 15:42:06 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 74013c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/74013c'
-            Content-Length: '230'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2018-03-16T16:42:06+01:00"},{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2018-03-16T16:42:06+01:00"}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 09 Nov 2020 11:12:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0786a5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0786a5'
+            X-Request-Id: 4a6b03452d293cc1e9c5706c6e2bf018
+        body: '[{"content":"This is a test message","author":"Michael Jordan","authorId":7,"date":"2020-11-09T12:12:01+01:00","attachments":[]},{"content":"This is an other test message","author":"Michael Jordan","authorId":7,"date":"2020-11-09T12:12:02+01:00","attachments":[]}]'

@@ -205,7 +205,9 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testPostMessage()
     {
-        $message = $this->discussionService->postMessage(1, 'This is a test message');
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
+
+        $message = $this->discussionService->postMessage($discussion->getId(), 'This is a test message');
 
         $date = new \DateTimeImmutable();
 
@@ -215,6 +217,7 @@ final class DiscussionServiceTest extends ApiTestCase
                 'content' => 'This is a test message',
                 'date' => $date->format(DATE_RFC3339),
                 'authorId' => 7,
+                'attachments' => []
             ]
         );
 
@@ -222,11 +225,105 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
     }
 
+    public function testPostMessageWithAttachment()
+    {
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
+
+        $attachments = [];
+
+        $attachments[] = $this->mockUploadedFile("minimal.pdf");
+
+        $message = $this->discussionService->postMessage($discussion->getId(), 'This is a test message', $attachments);
+
+        static::assertCount(1, $message->getAttachments());
+
+        $date = new \DateTimeImmutable();
+
+        $expectedMessage = new Message(
+            [
+                'isAuthor' => true,
+                'content' => 'This is a test message',
+                'date' => $date->format(DATE_RFC3339),
+                'authorId' => $message->getAuthorId(),
+                'attachments' => $message->getAttachments()
+            ]
+        );
+
+        static::assertSame($expectedMessage->getContent(), $message->getContent());
+        static::assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
+    }
+
+    public function testPostMessageWithMoreThanOneAttachment()
+    {
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
+
+        $attachments = [];
+
+        $attachments[] = $this->mockUploadedFile("minimal.pdf");
+        $attachments[] = $this->mockUploadedFile("favicon.png");
+
+        $message = $this->discussionService->postMessage($discussion->getId(), 'This is a test message', $attachments);
+
+        static::assertCount(2, $message->getAttachments());
+
+        $date = new \DateTimeImmutable();
+
+        $expectedMessage = new Message(
+            [
+                'isAuthor' => true,
+                'content' => 'This is a test message',
+                'date' => $date->format(DATE_RFC3339),
+                'authorId' => $message->getAuthorId(),
+                'attachments' => $message->getAttachments()
+            ]
+        );
+
+        static::assertSame($expectedMessage->getContent(), $message->getContent());
+        static::assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
+    }
+
+    public function testPostMessageWithWrongAttachmentExtension()
+    {
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
+
+        $attachments = [];
+
+        $attachments[] = $this->mockUploadedFile("video.avi");
+
+        static::expectExceptionMessage('Some parameters are invalid');
+        static::expectExceptionCode(400);
+        $this->discussionService->postMessage($discussion->getId(), 'This is a test message', $attachments);
+    }
+
+    public function testPostMessageWithoutAttachments()
+    {
+        $discussion = $this->discussionService->startDiscussionWithVendor(2);
+
+        $message = $this->discussionService->postMessage($discussion->getId(), 'This is a test message');
+
+        static::assertCount(0, $message->getAttachments());
+
+        $date = new \DateTimeImmutable();
+
+        $expectedMessage = new Message(
+            [
+                'isAuthor' => true,
+                'content' => 'This is a test message',
+                'date' => $date->format(DATE_RFC3339),
+                'authorId' => $message->getAuthorId(),
+                'attachments' => []
+            ]
+        );
+
+        static::assertSame($expectedMessage->getContent(), $message->getContent());
+        static::assertInstanceOf(\DateTimeImmutable::class, $message->getDate());
+    }
+
     public function testPostMessageOnInexistantDiscussion()
     {
         $this->expectException(DiscussionNotFound::class);
 
-        $this->discussionService->postMessage(2, 'This is a test message');
+        $this->discussionService->postMessage(8, 'This is a test message');
     }
 
     public function testGetMessages()
