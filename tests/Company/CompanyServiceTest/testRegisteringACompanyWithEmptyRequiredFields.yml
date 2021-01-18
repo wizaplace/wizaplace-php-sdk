@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4c00da7
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 12:21:31 GMT'
+            Date: 'Thu, 07 Jan 2021 15:54:30 GMT'
             Content-Language: fr
-            X-Debug-Token: d6a562
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d6a562'
-            X-Request-Id: 19bab38979118c9769cd044154605fde
-        body: '{"id":9,"apiKey":"ygG2O3T7qdYojMd28gR\/jf2A09TnkTxIdVezZhAn"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 92838d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92838d'
+            X-Robots-Tag: noindex
+            X-Request-Id: 6a7af4a4442272344786b865ac647a2c
+        body: '{"id":9,"apiKey":"jOZHBW24YEe+SZSIz2Oc\/GE7rM6qIN\/AngwTQ+GM"}'
 -
     request:
         method: POST
@@ -37,11 +39,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
-            Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4c00da7
+            Authorization: 'token jOZHBW24YEe+SZSIz2Oc/GE7rM6qIN/AngwTQ+GM'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"","email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
+        body: '{"name":"","corporateName":null,"email":"","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
     response:
         status:
             http_version: '1.1'
@@ -52,10 +54,12 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 12:21:34 GMT'
+            Date: 'Thu, 07 Jan 2021 15:54:30 GMT'
             Content-Language: fr
-            X-Debug-Token: bdef30
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bdef30'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b1b253
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b1b253'
+            X-Robots-Tag: noindex
         body: '{"message":"Failed to create company: Le nom de la soci\u00e9t\u00e9 ne peut pas \u00eatre vide."}'

@@ -1,0 +1,31 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Jan 2021 15:33:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 67d4f4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/67d4f4'
+            X-Robots-Tag: noindex
+            X-Request-Id: c71ecd2529703ac44408ab9860c34b79
+        body: '[{"id":1,"name":"Marchand de test","corporateName":"Marchand de test","description":"Marchand de test","address":"Rue des marketplaces","phoneNumber":"0123456789","professional":false,"slug":"marchand-de-test","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"Rue des marketplaces","zipCode":"69000","city":"Lyon","country":"FR"},"extra":[],"capital":null,"legalStatus":"Entreprise","siretNumber":"12345678901234","vatNumber":null},{"id":2,"name":"ACME","corporateName":"ACME","description":"ACME","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"acme","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":3,"name":"The World Company Inc.","corporateName":"The World Company Inc.","description":"The World Company Inc.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"the-world-company-inc","image":null,"location":{"latitude":45.778847,"longitude":4.800039},"averageRating":5,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":"40483304800023","vatNumber":"FR83404833049"},{"id":4,"name":"C2C company","corporateName":"C2C company","description":"C2C company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"c2c-company","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":"40483304800024","vatNumber":"FR83404833050"},{"id":5,"name":"Chrono company","corporateName":"Chrono company","description":"Chrono company","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":false,"slug":"chrono-company","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":"40483304800025","vatNumber":"FR83404833051"},{"id":6,"name":"ACME","corporateName":"ACME","description":"Repellat eum atque provident culpa molestias modi. Debitis enim laboriosam et veritatis fugiat. Omnis deleniti odio nihil animi rerum non.","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"acme-2","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":[],"capital":null,"legalStatus":null,"siretNumber":"40483304800022","vatNumber":"FR83404833048"}]'

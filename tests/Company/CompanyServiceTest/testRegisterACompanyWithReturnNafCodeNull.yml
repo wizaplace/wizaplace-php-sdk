@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItNEB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci00'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
+            Authorization: 'Basic Y3VzdG9tZXItNEB3b3JsZC1jb21wYW55LmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4c00da7
             VCR-index: '0'
             Accept: null
     response:
@@ -20,14 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 12:30:36 GMT'
+            Date: 'Thu, 07 Jan 2021 15:25:50 GMT'
             Content-Language: fr
-            X-Debug-Token: 9c4cc3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9c4cc3'
-            X-Request-Id: 78851a57856c94cbced753aca2068b79
-        body: '{"id":10,"apiKey":"3Aawfa+vmMQSVHcdsxwfgBja1hFYoSVmxRAsFiq6"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 76b2ee
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/76b2ee'
+            X-Robots-Tag: noindex
+            X-Request-Id: 642548876fd58ca1cb3bf92e7c0c1d49
+        body: '{"id":10,"apiKey":"6VEFT4ZqqDEOZWCp7Mp2t1mfv73DpMPX+2Fg\/b44"}'
 -
     request:
         method: POST
@@ -37,11 +39,11 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
-            Authorization: 'token 3Aawfa+vmMQSVHcdsxwfgBja1hFYoSVmxRAsFiq6'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4c00da7
+            Authorization: 'token 6VEFT4ZqqDEOZWCp7Mp2t1mfv73DpMPX+2Fg/b44'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME-2019 Test Inc","email":"acme-2019@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":"AD1200012030200359100100","bic":"AGFBFRCC","extra":{"driving_license_number":"654987321"},"nafCode":null}'
+        body: '{"name":"ACME-2019 Test Inc","corporateName":null,"email":"acme-2019@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":"AD1200012030200359100100","bic":"AGFBFRCC","extra":{"driving_license_number":"654987321"},"nafCode":null}'
     response:
         status:
             http_version: '1.1'
@@ -52,12 +54,14 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 09 Apr 2019 12:30:39 GMT'
+            Date: 'Thu, 07 Jan 2021 15:25:50 GMT'
             Content-Language: fr
-            X-Debug-Token: 61acf5
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/61acf5'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2261acf5%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A53%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 484a9240684411ad149476d5e9f7afbd
-        body: '{"id":7,"name":"ACME-2019 Test Inc","slug":"acme-inc","email":"acme-2019@example.com","description":"Super ACME company","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":"AD1200012030200359100100","bic":"AGFBFRCC","legalRepresentativeFirstName":"Abby","legalRepresentativeLastName":"Wambach","extra":{"driving_license_number":"654987321"},"nafCode":null}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b9887e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b9887e'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22b9887e%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A87%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: a63f5da038a16549d12345ccce556ab8
+        body: '{"id":8,"name":"ACME-2019 Test Inc","corporateName":"ACME-2019 Test Inc","slug":"acme-inc","email":"acme-2019@example.com","description":"Super ACME company","status":"NEW","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":"AD1200012030200359100100","bic":"AGFBFRCC","legalRepresentativeFirstName":"Abby","legalRepresentativeLastName":"Wambach","extra":{"driving_license_number":"654987321"},"nafCode":null,"meta":{"title":"ACME-2019 Test Inc","keywords":"ACME-2019 Test Inc, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand ACME-2019 Test Inc au meilleur prix."}}'

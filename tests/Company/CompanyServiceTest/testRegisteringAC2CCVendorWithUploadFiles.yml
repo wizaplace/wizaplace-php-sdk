@@ -41,7 +41,7 @@
             Authorization: 'token Jrt9ekOoLDqH/TXFJ+owEvZ0ObsHhhSckIkm7twY'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"C2C Vendor","iban":"","bic":""}'
+        body: '{"name":"C2C Vendor","corporateName":"","iban":"","bic":""}'
     response:
         status:
             http_version: '1.1'

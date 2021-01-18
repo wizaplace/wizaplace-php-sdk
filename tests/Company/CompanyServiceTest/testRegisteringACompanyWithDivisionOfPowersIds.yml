@@ -42,7 +42,7 @@
             Authorization: 'token JbcyWO0o0vl3F3Z2G/3E2nq4zyEyicjC4oguJUlk'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"ACME2 Test Inc","email":"acme9@example.com","description":"Super ACME company","slug":"acme-inc-9","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
+        body: '{"name":"ACME2 Test Inc","corporateName":null,"email":"acme9@example.com","description":"Super ACME company","slug":"acme-inc-9","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
     response:
         status:
             http_version: '1.1'

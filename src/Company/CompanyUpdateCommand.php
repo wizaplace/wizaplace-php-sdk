@@ -19,6 +19,9 @@ class CompanyUpdateCommand
     private $name;
 
     /** @var null|string */
+    private $corporateName;
+
+    /** @var null|string */
     private $email;
 
     /** @var null|string */
@@ -96,6 +99,18 @@ class CompanyUpdateCommand
     public function getName(): ?string
     {
         return $this->name;
+    }
+
+    public function setCorporateName(?string $corporateName): self
+    {
+        $this->corporateName = $corporateName;
+
+        return $this;
+    }
+
+    public function getCorporateName(): ?string
+    {
+        return $this->corporateName;
     }
 
     public function setEmail(?string $email): self

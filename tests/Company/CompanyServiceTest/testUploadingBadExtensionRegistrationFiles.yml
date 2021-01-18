@@ -41,7 +41,7 @@
             Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"4CME Test Inc","email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
+        body: '{"name":"4CME Test Inc","corporateName":null,"email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
     response:
         status:
             http_version: '1.1'

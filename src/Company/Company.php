@@ -29,6 +29,9 @@ final class Company
     private $name;
 
     /** @var string */
+    private $corporateName;
+
+    /** @var string */
     private $email;
 
     /** @var string */
@@ -103,6 +106,7 @@ final class Company
     {
         $this->id = to_int($data['id']);
         $this->name = to_string($data['name']);
+        $this->corporateName = (\array_key_exists('corporateName', $data) === true) ? $data['corporateName'] : $data['name'];
         $this->email = to_string($data['email']);
         $this->description = to_string($data['description']);
         $this->status = isset($data['status']) ? new CompanyStatus(to_string($data['status'])) : null;
@@ -137,6 +141,11 @@ final class Company
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getCorporateName(): string
+    {
+        return $this->corporateName;
     }
 
     public function getEmail(): string

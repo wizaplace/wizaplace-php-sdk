@@ -1,5 +1,15 @@
 # Changelog
 
+## New version
+
+### New features
+
+- Added `\Wizaplace\SDK\Company::getCorporateName`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getCorporateName`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setCorporateName`
+- Added `\Wizaplace\SDK\Catalog\CompanyDetail::getCorporateName`
+- Added `\Wizaplace\SDK\Catalog\CompanyListItem::getCorporateName`
+
 ## 1.115.6
 
 ### New features

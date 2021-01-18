@@ -27,6 +27,9 @@ final class CompanyDetail
     /** @var string */
     private $name;
 
+    /** @var null|string */
+    private $corporateName;
+
     /** @var string */
     private $description;
 
@@ -79,6 +82,7 @@ final class CompanyDetail
     {
         $this->id = to_int($data['id']);
         $this->name = to_string($data['name']);
+        $this->corporateName = (\array_key_exists('corporateName', $data) === true) ? $data['corporateName'] : null;
         $this->description = to_string($data['description']);
         $this->address = to_string($data['address']);
         $this->phoneNumber = to_string($data['phoneNumber']);
@@ -114,6 +118,11 @@ final class CompanyDetail
     public function getName(): string
     {
         return $this->name;
+    }
+
+    public function getCorporateName(): ?string
+    {
+        return $this->corporateName;
     }
 
     public function getDescription(): string

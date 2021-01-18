@@ -1039,6 +1039,21 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame([], $company->getExtra());
     }
 
+    public function testGetCompanyByIdWithCorporateName(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $company = $catalogService->getCompanyById(1);
+        static::assertSame(1, $company->getId());
+        static::assertSame('Marchand de test', $company->getName());
+        static::assertSame('Marchand de test', $company->getCorporateName());
+
+        $company = $catalogService->getCompanyById(8);
+        static::assertSame(8, $company->getId());
+        static::assertSame('Super C2C Company', $company->getName());
+        static::assertSame('Corporate name C2C', $company->getCorporateName());
+    }
+
     public function testGetCompanies(): void
     {
         $catalogService = $this->buildCatalogService();
@@ -1055,6 +1070,19 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Rue des marketplaces', $companies[0]->getFullAddress()->getAddress());
         $this->assertSame('Lyon', $companies[0]->getFullAddress()->getCity());
         $this->assertSame('69000', $companies[0]->getFullAddress()->getZipCode());
+    }
+
+    public function testGetCompaniesWithCorporateName(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $companies = $catalogService->getCompanies();
+
+        static::assertInternalType('array', $companies);
+        static::assertContainsOnly(CompanyListItem::class, $companies);
+        static::assertSame('Marchand de test', $companies[0]->getCorporateName());
+        static::assertSame('ACME', $companies[1]->getCorporateName());
+        static::assertSame('The World Company Inc.', $companies[2]->getCorporateName());
     }
 
     public function testGetC2cCompanyById(): void

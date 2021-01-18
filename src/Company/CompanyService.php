@@ -51,6 +51,7 @@ final class CompanyService extends AbstractService
             [
                 RequestOptions::JSON => [
                     'name' => $companyRegistration->getName(),
+                    'corporateName' => $companyRegistration->getCorporateName(),
                     'email' => $companyRegistration->getEmail(),
                     'description' => $companyRegistration->getDescription(),
                     'slug' => $companyRegistration->getSlug(),
@@ -89,7 +90,7 @@ final class CompanyService extends AbstractService
      *
      * @deprecated
      */
-    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = []): CompanyRegistrationResult
+    public function registerC2CCompany($companyName = '', ?string $iban = null, ?string $bic = null, array $files = [], $corporateName = ''): CompanyRegistrationResult
     {
         @trigger_error('The method "registerC2CCompany" is deprecated, use "register" with CompanyC2CRegistration::class instead.', E_USER_DEPRECATED);
 
@@ -100,6 +101,7 @@ final class CompanyService extends AbstractService
             [
                 RequestOptions::JSON => [
                     'name' => $companyName,
+                    'corporateName' => $corporateName,
                     'iban' => $iban ?? "",
                     'bic'  => $bic ?? "",
                 ],
@@ -143,6 +145,7 @@ final class CompanyService extends AbstractService
                 RequestOptions::JSON => array_filter(
                     [
                         'name' => $command->getName(),
+                        'corporateName' => $command->getCorporateName(),
                         'email' => $command->getEmail(),
                         'description' => $command->getDescription(),
                         'slug' => $command->getSlug(),
@@ -210,6 +213,7 @@ final class CompanyService extends AbstractService
             [
                 RequestOptions::JSON => [
                     'name' => $companyRegistration->getName(),
+                    'corporateName' => $companyRegistration->getCorporateName(),
                     'email' => $companyRegistration->getEmail(),
                     'description' => $companyRegistration->getDescription(),
                     'slug' => $companyRegistration->getSlug(),

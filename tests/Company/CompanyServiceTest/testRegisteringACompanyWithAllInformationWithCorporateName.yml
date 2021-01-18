@@ -1,0 +1,68 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 15 Jan 2021 09:34:27 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 687fc9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/687fc9'
+            X-Robots-Tag: noindex
+            X-Request-Id: 0a24e6550c0f824c797eba5b7d2d8238
+        body: '{"id":3,"apiKey":"DcN\/oNf5tJP9FF0Y5jjinnTEzP2pg1OVKnAv8xut"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token DcN/oNf5tJP9FF0Y5jjinnTEzP2pg1OVKnAv8xut'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"ACME3","corporateName":"ACME3 CorporateName","email":"user-2@wizaplace.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 15 Jan 2021 09:34:27 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fb3454
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb3454'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 15 Jan 2021 09:34:27 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fb3454%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A87%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 3ded270d66c0f886e987d161323039ec
+        body: '{"id":7,"name":"ACME3","corporateName":"ACME3 CorporateName","slug":"acme-inc","email":"user-2@wizaplace.com","description":"Super ACME company","status":"NEW","zipcode":"69009","address":"24 rue de la gare","city":"Lyon","state":"","country":"FR","phoneNumber":"01 02 03 04 05 06","legalStatus":"SARL","siretNumber":"732 829 320 00074","vatNumber":"12345678901","capital":"1 000 000 000 $","rcs":"RCS VANNES B 514 919 844","fax":"01 02 03 04 05","url":"https:\/\/acme.example.com\/","iban":null,"bic":null,"legalRepresentativeFirstName":"Paul","legalRepresentativeLastName":"Martin","extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF","meta":{"title":"ACME3","keywords":"ACME3, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand ACME3 au meilleur prix."}}'

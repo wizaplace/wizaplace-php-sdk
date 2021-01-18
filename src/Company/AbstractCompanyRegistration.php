@@ -22,6 +22,9 @@ class AbstractCompanyRegistration
     /** @var string */
     protected $name;
 
+    /** @var null|string */
+    protected $corporateName;
+
     /** @var string */
     protected $email;
 
@@ -115,6 +118,24 @@ class AbstractCompanyRegistration
     final public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    /** @return null|string */
+    final public function getCorporateName(): ?string
+    {
+        return $this->corporateName;
+    }
+
+    /**
+     * @param string $corporateName
+     *
+     * @return AbstractCompanyRegistration
+     */
+    final public function setCorporateName(string $corporateName): self
+    {
+        $this->corporateName = $corporateName;
 
         return $this;
     }

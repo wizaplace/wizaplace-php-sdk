@@ -1,0 +1,99 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4298bb3
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:56:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 612ae9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/612ae9'
+            X-Robots-Tag: noindex
+            X-Request-Id: 839a1bac33934f8ca67b6f3488d80876
+        body: '{"id":3,"apiKey":"cRN73q+FbyHhY+aelja4kpIxKUnID6aOKD2XZlOB"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/c2c'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4298bb3
+            Authorization: 'token cRN73q+FbyHhY+aelja4kpIxKUnID6aOKD2XZlOB'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Super C2C Company","corporateName":"Corporate name C2C","iban":"","bic":""}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Mon, 11 Jan 2021 13:56:14 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 92b418
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92b418'
+            X-Robots-Tag: noindex
+            Expires: 'Mon, 11 Jan 2021 13:56:14 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2292b418%22%2C%22route%22%3A%22api_register_c2c_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerC2CAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A105%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 2702b5fbe5f28e9949fccc6fcfe286e3
+        body: '{"id":8,"name":"Super C2C Company","corporateName":"Corporate name C2C","slug":"super-c2c-company-2","email":"user@wizaplace.com","description":"","status":"ENABLED","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":"","bic":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[],"nafCode":null,"meta":{"title":"Super C2C Company","keywords":"Super C2C Company, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand Super C2C Company au meilleur prix."}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/8'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4298bb3
+            Authorization: 'token cRN73q+FbyHhY+aelja4kpIxKUnID6aOKD2XZlOB'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:56:14 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0b2398
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0b2398'
+            X-Robots-Tag: noindex
+            X-Request-Id: 74ff138791ba16245b6ce6b802545b88
+        body: '{"id":8,"name":"Super C2C Company","corporateName":"Corporate name C2C","slug":"super-c2c-company-2","email":"user@wizaplace.com","description":"","status":"ENABLED","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"Vendeur particulier","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":"","bic":"","legalRepresentativeFirstName":"","legalRepresentativeLastName":"","extra":[],"nafCode":null,"meta":{"title":"Super C2C Company","keywords":"Super C2C Company, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand Super C2C Company au meilleur prix."}}'
