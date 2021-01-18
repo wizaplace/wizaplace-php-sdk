@@ -1,0 +1,155 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Sep 2020 15:31:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 16f150
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/16f150'
+            X-Request-Id: 846fcf136ca6ccc53e8ccbe37e19fd9b
+        body: '{"id":2,"apiKey":"23KAP\/q\/HCpOIFwhZLJ4Z4x+GoCe1NEVncqMxxy9"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/orders/9/refunds'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 23KAP/q/HCpOIFwhZLJ4Z4x+GoCe1NEVncqMxxy9'
+            VCR-index: '1'
+            Accept: null
+        body: '{"isPartial":false,"items":[],"shipping":{"hasShipping":false},"message":null,"creditNoteReference":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Sep 2020 15:31:17 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7003d9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7003d9'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%227003d9%22%2C%22route%22%3A%22api_post_refunds%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CRefundController%22%2C%22method%22%3A%22postOrderRefundAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FRefundController.php%22%2C%22line%22%3A106%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: acede9fb407fa2b1485d1df9273a420e
+        body: '{"refundId":1,"orderId":9,"userId":2,"isPartial":false,"hasShipping":true,"amount":54.2,"shippingAmount":0,"message":null,"status":"failed","createdAt":"2020-09-14T17:31:17+02:00","updatedAt":"2020-09-14T17:31:17+02:00","items":[{"itemId":19377517,"unitPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"quantity":1,"totalPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2}}],"totalItemsPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"totalShippingPrice":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"totalGlobalPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0},{"taxId":2,"taxRate":2.1,"amount":1.11}],"refundedAfterWithdrawalPeriod":true}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Sep 2020 15:31:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a2e488
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a2e488'
+            X-Request-Id: d54b0434c3c0a2401bac2778df436f33
+        body: '{"id":2,"apiKey":"23KAP\/q\/HCpOIFwhZLJ4Z4x+GoCe1NEVncqMxxy9"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Sep 2020 15:31:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d02c97
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d02c97'
+            X-Request-Id: 6e6164e86cb81b4cc4ab0c5e66a2fd3e
+        body: '{"id":2,"apiKey":"23KAP\/q\/HCpOIFwhZLJ4Z4x+GoCe1NEVncqMxxy9"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/9/refunds/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 23KAP/q/HCpOIFwhZLJ4Z4x+GoCe1NEVncqMxxy9'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 14 Sep 2020 15:31:19 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a0ff37
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a0ff37'
+            X-Request-Id: dcd220abc2ccb2ea684d4b21ac91ec8b
+        body: '{"refundId":1,"orderId":9,"userId":2,"isPartial":false,"hasShipping":true,"amount":54.2,"shippingAmount":0,"message":null,"status":"failed","createdAt":"2020-09-14T17:31:17+02:00","updatedAt":"2020-09-14T17:31:17+02:00","items":[{"itemId":19377517,"unitPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"quantity":1,"totalPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2}}],"totalItemsPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"totalShippingPrice":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"totalGlobalPrice":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"totalTaxes":[{"taxId":5,"taxRate":20,"amount":0},{"taxId":2,"taxRate":2.1,"amount":1.11}],"refundedAfterWithdrawalPeriod":true}'

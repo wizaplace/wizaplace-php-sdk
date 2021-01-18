@@ -1,5 +1,11 @@
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Order\Refund::isRefundedAfterWithdrawalPeriod`
+
 ## 1.114.0
 
 ### New features

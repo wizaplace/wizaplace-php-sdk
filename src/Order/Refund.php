@@ -66,6 +66,9 @@ final class Refund
     /** @var mixed[] */
     private $totalTaxes;
 
+    /** @var bool */
+    private $refundedAfterWithdrawalPeriod;
+
     /**
      * @internal
      *
@@ -94,6 +97,10 @@ final class Refund
         $this->totalShippingPrice = new Price($data['totalShippingPrice']);
         $this->totalGlobalPrice = new Price($data['totalGlobalPrice']);
         $this->totalTaxes = $data['totalTaxes'];
+        $this->refundedAfterWithdrawalPeriod = \array_key_exists('refundedAfterWithdrawalPeriod', $data) === true
+            ? (bool) $data['refundedAfterWithdrawalPeriod']
+            : false
+        ;
     }
 
     public function getRefundId(): int
@@ -176,5 +183,10 @@ final class Refund
     public function getTotalTaxes(): array
     {
         return $this->totalTaxes;
+    }
+
+    public function isRefundedAfterWithdrawalPeriod(): bool
+    {
+        return $this->refundedAfterWithdrawalPeriod;
     }
 }

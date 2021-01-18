@@ -705,4 +705,37 @@ final class OrderServiceTest extends ApiTestCase
         $order = $orderService->getOrder(1);
         static::assertSame(0.0, $order->getBalance());
     }
+
+    public function testPostOrderRefundAfterDrawalPeriod(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $request = new RefundRequest(
+            false,
+            null,
+            new RefundRequestShipping(false)
+        );
+
+        $refund = $orderService->postRefundOrder(12, $request);
+        static::assertTrue($refund->isRefundedAfterWithdrawalPeriod());
+    }
+
+    public function testGetOrderRefundAfterDrawalPeriod(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
+        $request = new RefundRequest(
+            false,
+            null,
+            new RefundRequestShipping(false)
+        );
+
+        $refund = $orderService->postRefundOrder(9, $request);
+        static::assertTrue($refund->isRefundedAfterWithdrawalPeriod());
+
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('admin@wizaplace.com', 'password');
+
+        $vendorOrderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+        $refund = $vendorOrderService->getOrderRefund(9, $refund->getRefundId());
+        static::assertTrue($refund->isRefundedAfterWithdrawalPeriod());
+    }
 }
