@@ -124,6 +124,9 @@ final class Order
     /** @var bool */
     private $doNotCreateInvoice;
 
+    /** @var string[] */
+    protected $extra;
+
     /**
      * @internal
      *
@@ -189,6 +192,7 @@ final class Order
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
         $this->doNotCreateInvoice = \array_key_exists('do_not_create_invoice', $data) === true ? (bool) $data['do_not_create_invoice'] : false;
+        $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
     }
 
     /**
@@ -499,6 +503,12 @@ final class Order
     public function getBalance(): float
     {
         return $this->balance;
+    }
+
+    /** @return string[] */
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 
     /** @return bool  */

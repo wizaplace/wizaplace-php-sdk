@@ -1,0 +1,97 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Dec 2020 10:03:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b713c2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b713c2'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9475a30a557be514a898b01e797a48ea
+        body: '{"id":2,"apiKey":"N9AWIxgSnFYq+UwCdgb0ZT8JAF0k\/CJ\/0rrLm1Dx"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/orders/5/extra'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token N9AWIxgSnFYq+UwCdgb0ZT8JAF0k/CJ/0rrLm1Dx'
+            VCR-index: '1'
+            Accept: null
+        body: '{"extra":{"field":"value1","field2":"value2"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Dec 2020 10:03:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '1385e8'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1385e8'
+            X-Robots-Tag: noindex
+            X-Request-Id: 1e3556d253c3691e2ee7f4a6a83e56f1
+        body: '""'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token N9AWIxgSnFYq+UwCdgb0ZT8JAF0k/CJ/0rrLm1Dx'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 22 Dec 2020 10:03:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4d016b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d016b'
+            X-Robots-Tag: noindex
+            X-Request-Id: f3448ee8d5abd9e498d5c707c72f40c7
+        body: '{"order_id":5,"company_id":3,"user_id":7,"basket_id":"45d55b68-19b7-4c6e-9376-a2daf633ad5f","total":66.7,"discount":1.2,"shipping_cost":0.0,"timestamp":1608623190,"status":"P","notes":"","details":"","promotions":{"d9c7d8f0-3676-4e70-bfe4-15cc38c98a10":{"id":"d9c7d8f0-3676-4e70-bfe4-15cc38c98a10","name":"","target":"basket","promotion_type":"basket","bonus":{"type":"fixed","reduction":1.2}}},"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"customer-1@world-company.com","do_not_create_invoice":false,"decline_reason":null,"is_paid":true,"invoice_date":"","subscription_id":null,"carriage_paid":false,"extra":{"field":"value1","field2":"value2"},"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","product_name":"Z11 Plus Bo\u00eetier PC en Acier ATX","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"carriage_paid_threshold":null,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2020-12-22T07:49:01+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":66.7,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.6642,"taxes":0.1328,"including_taxes":0.797},"vendor_share":{"excluding_taxes":55.9192,"taxes":11.1838,"including_taxes":67.103}}'

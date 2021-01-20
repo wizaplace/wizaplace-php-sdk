@@ -1,5 +1,13 @@
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Order\Order::getExtra`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getExtra`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::patchExtra`
+
 ## 1.114.2
 
 ### New features

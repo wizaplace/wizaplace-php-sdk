@@ -826,4 +826,31 @@ class OrderService extends AbstractService
             throw $exception;
         }
     }
+
+    /** @param string[] $extra */
+    public function patchExtra(int $orderId, array $extra): void
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $this->client->patch(
+                sprintf("orders/%d/extra", $orderId),
+                [
+                    RequestOptions::JSON => [
+                        'extra' => $extra,
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage());
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                default:
+                    throw $exception;
+            }
+        }
+    }
 }

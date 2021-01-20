@@ -1203,4 +1203,15 @@ class OrderServiceTest extends ApiTestCase
         $doNotCreateInvoice = $orderService->getOrderById(5)->isDoNotCreateInvoice();
         static::assertTrue($doNotCreateInvoice);
     }
+
+    public function testPatchExtra(): void
+    {
+        $orderService = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98");
+
+        $extra = ['field' => 'value1', 'field2' => 'value2'];
+        $orderService->patchExtra(5, $extra);
+
+        $order = $orderService->getOrderById(5);
+        static::assertSame($extra, $order->getExtra());
+    }
 }

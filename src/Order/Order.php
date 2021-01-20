@@ -65,6 +65,8 @@ final class Order
     private $balance;
     /** @var string|null */
     private $basketId;
+    /** @var string[] */
+    protected $extra;
 
     /**
      * @internal
@@ -105,6 +107,7 @@ final class Order
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
         $this->basketId = (\array_key_exists('basketId', $data) === true) ? $data['basketId'] : null;
+        $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
     }
 
     /**
@@ -286,5 +289,11 @@ final class Order
     public function getBasketId(): ?string
     {
         return $this->basketId;
+    }
+
+    /** @return string[] */
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 }

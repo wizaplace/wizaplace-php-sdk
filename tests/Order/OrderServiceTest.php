@@ -738,4 +738,18 @@ final class OrderServiceTest extends ApiTestCase
         $refund = $vendorOrderService->getOrderRefund(9, $refund->getRefundId());
         static::assertTrue($refund->isRefundedAfterWithdrawalPeriod());
     }
+
+    public function testGetOrderExtra(): void
+    {
+        $extra = ['field' => 'value1', 'field2' => 'value2'];
+        $vendorOrderService = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98");
+        $vendorOrderService->patchExtra(5, $extra);
+
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'Windows.98');
+        $orderService = new OrderService($apiClient);
+        $order = $orderService->getOrder(5);
+
+        static::assertSame($extra, $order->getExtra());
+    }
 }
