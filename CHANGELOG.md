@@ -13,6 +13,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\Order\Refund::isRefundedAfterWithdrawalPeriod`
+- Added parameter `nextPaymentAt` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
 
 ## 1.114.0
 

@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8295-subscription-nextpaymentat@f682480
             VCR-index: '0'
             Accept: null
     response:
@@ -20,29 +20,30 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 18 Sep 2019 09:52:33 GMT'
+            Date: 'Mon, 18 Jan 2021 09:30:34 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 87c4ac
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/87c4ac'
-            X-Request-Id: f6e89a7759f7567f8a96a147ba3a8a9d
-        body: '{"id":2,"apiKey":"JCDBtlVr\/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF"}'
+            X-Debug-Token: e6cd3e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e6cd3e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 5169c87031d3da735cff5337b8f46a04
+        body: '{"id":2,"apiKey":"8hqykyCj7BFTlANbPQMMxI9Al74NkEKo6cRH2OAs"}'
 -
     request:
         method: PATCH
-        url: 'http://wizaplace.loc/api/v1/subscriptions/2fe16ba9-42b7-4028-908f-677dce2f2b2d'
+        url: 'http://wizaplace.loc/api/v1/subscriptions/0f380a36-0188-4133-89b9-40fe36e7d47b'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token JCDBtlVr/oaQVRMn94rcx0Q6XtPpuMPEqTvJprsF'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8295-subscription-nextpaymentat@f682480
+            Authorization: 'token 8hqykyCj7BFTlANbPQMMxI9Al74NkEKo6cRH2OAs'
             VCR-index: '1'
             Accept: null
-        body: 'status=DISABLED&isAutorenew=1'
+        body: 'status=ACTIVE&isAutorenew=1&nextPaymentAt=2021-01-19'
     response:
         status:
             http_version: '1.1'
@@ -53,12 +54,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 18 Sep 2019 09:52:33 GMT'
+            Date: 'Mon, 18 Jan 2021 09:30:34 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4df990
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4df990'
-            X-Request-Id: 0de630c4f6c49019c03f134c317f95b5
-        body: '{"id":"2fe16ba9-42b7-4028-908f-677dce2f2b2d","userId":3,"companyId":3,"cardId":"f9fb753d-38d0-47b5-8e6c-9ff9df1e6288","firstOrderId":150001,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","status":"DISABLED","price":{"excludingTaxes":"979.43","taxes":"20.57","includingTaxes":"1000"},"isAutorenew":true,"commitmentPeriod":3,"paymentFrequency":3,"nextPaymentAt":"2019-12-18","commitmentEndAt":"2019-12-18","createdAt":"2019-09-18T08:16:39+02:00","items":[{"categoryId":3,"productId":1,"productCode":"978020137962","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productIsRenewable":true,"declinationId":"1_2_2_7","unitPrice":{"excludingTaxes":"979.43","taxes":"20.57","includingTaxes":"1000"},"quantity":1,"totalPrice":{"excludingTaxes":"979.43","taxes":"20.57","includingTaxes":"1000"}}],"taxes":[{"taxId":2,"taxName":2,"amount":"20.57"}]}'
+            X-Debug-Token: 83e1f9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83e1f9'
+            X-Robots-Tag: noindex
+            X-Request-Id: f613d4b0edda5acb5278fda8d8d43f26
+        body: '{"id":"0f380a36-0188-4133-89b9-40fe36e7d47b","userId":15,"companyId":1,"cardId":"405a718f-05ce-4dfe-87d3-34b7f8f88099","firstOrderId":123652,"name":"Abonnement","status":"ACTIVE","price":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"},"isAutorenew":true,"commitmentPeriod":12,"paymentFrequency":1,"nextPaymentAt":"2021-01-19","commitmentEndAt":"2022-01-11","createdAt":"2021-01-11T14:55:38+01:00","items":[{"categoryId":5,"productId":40,"productCode":"5ffc578a19ff5","productName":"Abonnement","productIsRenewable":false,"declinationId":"1_1_2_16","unitPrice":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"},"quantity":1,"totalPrice":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"}}],"taxes":[{"taxId":5,"taxName":5,"amount":"1.67"}]}'
