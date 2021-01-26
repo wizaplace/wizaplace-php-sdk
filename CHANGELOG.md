@@ -4,7 +4,7 @@
 
 ### New features
 
-- Added `Wizaplace\SDK\Image\Image::getAlt`
+- Added `Wizaplace\SDK\Image\Image::getAltText`
 - Added `Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getImagesData`
 - Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`

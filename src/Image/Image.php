@@ -19,7 +19,7 @@ final class Image
     private $id;
 
     /** @var string|null */
-    private $alt;
+    private $altText;
 
     /**
      * @internal
@@ -29,22 +29,18 @@ final class Image
     public function __construct(array $data)
     {
         $this->id = $data['id'];
-        $this->alt = \array_key_exists('alt', $data) === true
-            && $data['alt'] !== null
-            ? $data['alt'] : '';
+        $this->altText = \array_key_exists('altText', $data) === true
+            && $data['altText'] !== null
+            ? $data['altText'] : '';
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /** @return string|null */
-    public function getAlt(): ?string
+    public function getAltText(): ?string
     {
-        return $this->alt;
+        return $this->altText;
     }
 }

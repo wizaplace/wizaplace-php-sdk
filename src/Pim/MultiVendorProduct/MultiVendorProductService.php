@@ -132,7 +132,7 @@ class MultiVendorProductService extends AbstractService
      * @param string $mvpId
      * @param array $files
      *
-     * @param string $alt
+     * @param string $altText
      * @return MultiVendorProduct
      * @throws NotFound
      * @throws SomeParametersAreInvalid
@@ -140,7 +140,7 @@ class MultiVendorProductService extends AbstractService
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function addImageToMultiVendorProduct(string $mvpId, array $files, string $alt = ''): MultiVendorProduct
+    public function addImageToMultiVendorProduct(string $mvpId, array $files, string $altText = ''): MultiVendorProduct
     {
         $this->client->mustBeAuthenticated();
 
@@ -150,7 +150,7 @@ class MultiVendorProductService extends AbstractService
                 [
                     RequestOptions::MULTIPART => Multipart::createMultipartArray(
                         [
-                            'alt' => $alt
+                            'altText' => $altText
                         ],
                         $files
                     ),

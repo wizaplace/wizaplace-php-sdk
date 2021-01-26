@@ -362,7 +362,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $this->assertEquals($uuid, $multiVendorProduct->getId());
     }
 
-    public function testAddImageToMultiVendorProductWithAlt()
+    public function testAddImageToMultiVendorProductWithAlt(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -406,10 +406,10 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         static::assertInstanceOf(MultiVendorProduct::class, $multiVendorProduct);
         static::assertInstanceOf(Image::class, $multiVendorProduct->getImagesData()[0]);
-        static::assertSame('alternative text mvp', $multiVendorProduct->getImagesData()[0]->getAlt());
+        static::assertSame('alternative text mvp', $multiVendorProduct->getImagesData()[0]->getAltText());
     }
 
-    public function testGetMultiVendorProductByIdWithImagesAlt()
+    public function testGetMultiVendorProductByIdWithImagesAlt(): void
     {
         $service = $this->buildMultiVendorProductService();
 
@@ -453,7 +453,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
         $mvp = $service->getMultiVendorProductById($multiVendorProduct->getId());
 
-        static::assertSame('alternative text mvp', $mvp->getImagesData()[0]->getAlt());
+        static::assertSame('alternative text mvp', $mvp->getImagesData()[0]->getAltText());
     }
 
     public function testAddVideoToMultiVendorProductWithHostedFile()
