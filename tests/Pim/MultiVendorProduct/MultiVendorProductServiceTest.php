@@ -364,7 +364,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
     public function testAddImageToMultiVendorProductWithAlt(): void
     {
-        $service = $this->buildMultiVendorProductService();
+        $service = $this->buildMultiVendorProductService('admin@wizaplace.com', static::VALID_PASSWORD);
 
         $newMvp = new MultiVendorProduct(
             [
@@ -411,7 +411,7 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
     public function testGetMultiVendorProductByIdWithImagesAlt(): void
     {
-        $service = $this->buildMultiVendorProductService();
+        $service = $this->buildMultiVendorProductService('admin@wizaplace.com', static::VALID_PASSWORD);
 
         $newMvp = new MultiVendorProduct(
             [

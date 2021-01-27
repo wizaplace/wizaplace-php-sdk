@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@3d539f5
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Sat, 04 Jul 2020 11:43:46 GMT'
+            Date: 'Wed, 27 Jan 2021 09:19:01 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 302d93
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/302d93'
-            X-Request-Id: 28641599160c9a3d21ae2ff068522b06
-        body: '{"id":1,"apiKey":"gkraZTAwerxLBKzVikiuN+i3oypgjiCynN3OwLsy"}'
+            X-Debug-Token: 20af76
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/20af76'
+            X-Robots-Tag: noindex
+            X-Request-Id: f285231658d7a5955cc95812c63595cd
+        body: '{"id":2,"apiKey":"q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp"}'
 -
     request:
         method: POST
@@ -38,8 +39,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token gkraZTAwerxLBKzVikiuN+i3oypgjiCynN3OwLsy'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@3d539f5
+            Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
             VCR-index: '1'
             Accept: null
         body: '{"code":"XXX-xxx-XXX","name":"New Test MVP","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","categoryId":3,"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]}}'
@@ -53,76 +54,14 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Sat, 04 Jul 2020 11:43:46 GMT'
+            Date: 'Wed, 27 Jan 2021 09:19:03 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: e7bed4
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e7bed4'
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e7bed4%22%2C%22route%22%3A%22api_multi_vendor_product_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.multi_vendor_product.api.controller%3AcreateAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
-            X-Request-Id: 74aae213120717b0cb8c0dda584d71b4
-        body: '{"id":"7b63adf6-6c8d-49a7-bfa7-c2d9a3d56e5f","name":"New Test MVP","code":"XXX-xxx-XXX","productTemplateType":"product","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","category":{"id":3,"name":"Test category"},"categoryId":3,"imagesData":[],"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]},"video":{"id":null,"thumb":null,"path":null}}'
--
-    request:
-        method: POST
-        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/7b63adf6-6c8d-49a7-bfa7-c2d9a3d56e5f/images'
-        headers:
-            Host: wizaplace.loc
-            Expect: null
-            Accept-Encoding: null
-            Content-Type: 'multipart/form-data; boundary=e90d99639b375cb42251ccfcf9e961f4cc344f28'
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token gkraZTAwerxLBKzVikiuN+i3oypgjiCynN3OwLsy'
-            VCR-index: '2'
-            Accept: null
-        body: !!binary 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
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Server: nginx
-            Content-Type: application/json
-            Transfer-Encoding: chunked
-            Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
-            Cache-Control: 'no-cache, private'
-            Date: 'Sat, 04 Jul 2020 11:43:47 GMT'
-            Content-Language: fr
-            Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '774940'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/774940'
-            X-Request-Id: c459c21979df07d60b951aaa16b3aaf5
-        body: '{"id":"7b63adf6-6c8d-49a7-bfa7-c2d9a3d56e5f","name":"New Test MVP","code":"XXX-xxx-XXX","productTemplateType":"product","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","category":{"id":3,"name":"Test category"},"categoryId":3,"imagesData":[{"id":2,"altText":"alternative text mvp"}],"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]},"video":{"id":null,"thumb":null,"path":null}}'
--
-    request:
-        method: GET
-        url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/7b63adf6-6c8d-49a7-bfa7-c2d9a3d56e5f'
-        headers:
-            Host: wizaplace.loc
-            Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token gkraZTAwerxLBKzVikiuN+i3oypgjiCynN3OwLsy'
-            VCR-index: '3'
-            Accept: null
-    response:
-        status:
-            http_version: '1.1'
-            code: '200'
-            message: OK
-        headers:
-            Server: nginx
-            Content-Type: application/json
-            Transfer-Encoding: chunked
-            Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
-            Cache-Control: 'no-cache, private'
-            Date: 'Sat, 04 Jul 2020 11:43:48 GMT'
-            Content-Language: fr
-            Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f09b7d
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f09b7d'
-            X-Request-Id: a3e50afe0c6ac50a90a2b054951a6507
-        body: '{"id":"7b63adf6-6c8d-49a7-bfa7-c2d9a3d56e5f","name":"New Test MVP","code":"XXX-xxx-XXX","productTemplateType":"product","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","category":{"id":3,"name":"Test category"},"categoryId":3,"imagesData":[{"id":2,"altText":"alternative text mvp"}],"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]},"video":{"id":null,"thumb":null,"path":null}}'
+            X-Debug-Token: 21c22f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/21c22f'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2221c22f%22%2C%22route%22%3A%22api_multi_vendor_product_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.multi_vendor_product.api.controller%3AcreateAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 84723467f01c550a6b0e5a31436963f1
+        body: '{"id":"bd8e7915-4bbe-4eac-8153-4464a49bf6aa","name":"New Test MVP","code":"XXX-xxx-XXX","productTemplateType":"product","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp-2","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","category":{"id":3,"name":"Informatique"},"categoryId":3,"imageIds":[],"imagesData":[],"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]},"video":{"id":null,"thumb":null,"path":null}}'
