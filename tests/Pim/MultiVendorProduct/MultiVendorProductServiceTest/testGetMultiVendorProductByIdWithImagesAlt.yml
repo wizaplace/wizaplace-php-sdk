@@ -74,8 +74,8 @@
         url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@7b6c9c0
             Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
@@ -147,13 +147,13 @@
         url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/3e60d98b-060f-44c2-b7f9-ab8a2b1f741d/images'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: 'multipart/form-data; boundary=c05df0f257785c68cdf59d18354c94747018eef1'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@7b6c9c0
             Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
             VCR-index: '2'
-            Accept: ''
+            Accept: null
         body: !!binary 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
     response:
         status:
@@ -219,11 +219,11 @@
         url: 'http://wizaplace.loc/api/v1/pim/multi-vendor-products/3e60d98b-060f-44c2-b7f9-ab8a2b1f741d'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@7b6c9c0
             Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
             VCR-index: '3'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
