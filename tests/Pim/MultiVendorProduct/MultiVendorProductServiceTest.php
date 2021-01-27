@@ -347,8 +347,36 @@ final class MultiVendorProductServiceTest extends ApiTestCase
 
     public function testAddImageToMultiVendorProduct()
     {
-        $service = $this->buildMultiVendorProductService();
-        $uuid = '8f95c0ad-e1e2-4587-9f24-ba504d5b45f3';
+        $service = $this->buildMultiVendorProductService('admin@wizaplace.com', static::VALID_PASSWORD);
+        $newMvp = new MultiVendorProduct(
+            [
+                'name' => 'New Test MVP T',
+                'code' => 'XXX-xxx-XXY',
+                'supplierReference' => 'AZAZPMPKKD24',
+                'productTemplateType' => 'product',
+                'slug' => 'new-test-mvp-y',
+                'shortDescription' => 'Nihil est qui quibusdam exercitationem',
+                'description' => 'Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi',
+                'seoTitle' => 'New Test MVP',
+                'seoDescription' => 'New Test MVP Nihil est qui quibusdam exercitationem',
+                'seoKeywords' => 'MVP, PRODUCT, TEST',
+                'status' => 'A',
+                'categoryId' => 3,
+                'freeAttributes' => [
+                    'Free attribute multiple' => [
+                        'Num 1',
+                        'Num 2',
+                        51,
+                    ],
+                    'Free attribute simple' => [
+                        'Bla',
+                    ],
+                ],
+                'attributes' => [],
+            ]
+        );
+
+        $uuid = $service->createMultiVendorProduct($newMvp);
 
         $image = $this->mockUploadedFile("favicon.png");
 
