@@ -10,6 +10,7 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Subscription;
 
+use Symfony\Component\Validator\Constraints\DateTime;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
@@ -176,23 +177,25 @@ class SubscriptionServiceTest extends ApiTestCase
         }
     }
 
-    public function testPatchSubscription(): void
+    public function testPatchASubscription(): void
     {
-        $service = $this->buildSubscriptionService('admin@wizaplace.com', 'password');
+        $service = $this->buildSubscriptionService('admin@wizaplace.com', 'Windows.98');
 
-        $updateSubscriptionCommand = (new UpdateSubscriptionCommand("2fe16ba9-42b7-4028-908f-677dce2f2b2d"))
-            ->setStatus(SubscriptionStatus::DISABLED())
+        $updateSubscriptionCommand = (new UpdateSubscriptionCommand('0f380a36-0188-4133-89b9-40fe36e7d47b'))
+            ->setStatus(SubscriptionStatus::ACTIVE())
             ->setIsAutorenew(true)
+            ->setNextPaymentAt($date = (new \DateTime('2153-01-01'))->format('Y-m-d'))
         ;
 
         $subscription = $service->patchSubscription($updateSubscriptionCommand);
 
         static::assertInstanceOf(Subscription::class, $subscription);
         static::assertUuid($subscription->getId());
-        static::assertSame("2fe16ba9-42b7-4028-908f-677dce2f2b2d", $subscription->getId());
+        static::assertSame('0f380a36-0188-4133-89b9-40fe36e7d47b', $subscription->getId());
         static::assertInstanceOf(SubscriptionStatus::class, $subscription->getStatus());
-        static::assertSame(SubscriptionStatus::DISABLED()->getValue(), $subscription->getStatus()->getValue());
+        static::assertSame(SubscriptionStatus::ACTIVE()->getValue(), $subscription->getStatus()->getValue());
         static::assertTrue($subscription->isAutorenew());
+        static::assertEquals(new \DateTime($date), $subscription->getNextPaymentAt());
     }
 
     private function buildSubscriptionService(string $email = 'user@wizaplace.com', string $password = 'password'): SubscriptionService

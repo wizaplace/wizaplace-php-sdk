@@ -1,5 +1,9 @@
 # Changelog
 
+### New features
+
+- Added parameter `nextPaymentAt` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
+
 ## 1.115.1
 
 ### New features
