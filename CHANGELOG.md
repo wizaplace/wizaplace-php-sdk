@@ -1,5 +1,8 @@
 # Changelog
 
+# New features
+- Added `Wizaplace\SDK\Catalog\ProductOffer::getPriceTiers`
+
 ## 1.115.5
 
 ### New features

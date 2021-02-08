@@ -75,6 +75,11 @@ class ProductOffer
         return $this->status;
     }
 
+    public function getPriceTiers(): array
+    {
+        return $this->priceTiers;
+    }
+
     public function addPriceTier(array $priceTier): void
     {
         $this->priceTiers[] = new ExtendedPriceTier($priceTier);
