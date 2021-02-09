@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 03 Sep 2020 13:49:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fa64e3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fa64e3'
+            X-Request-Id: 438816aa3805bde30241642e59c2ad11
+        body: '{"id":2,"apiKey":"RCA329o1Algsdvj9GQPWaulkyIkZFHTZ35gLkx9P"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/options/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-191-sort-categorytree-with-different-options@3611415
+            Authorization: 'token RCA329o1Algsdvj9GQPWaulkyIkZFHTZ35gLkx9P'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 03 Sep 2020 13:49:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f256af
+            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/f256af'
+            X-Request-Id: 4eb595266c036e9e2c91e1a4c3f225ed
+        body: '{"option_id":2,"option_name":"connectivity","status":"A","code":null,"variants":{"5":{"variant_id":5,"variant_name":"wireless"},"6":{"variant_id":6,"variant_name":"wired"}},"is_system":false,"pending":false,"display_on_faceting":false}'
