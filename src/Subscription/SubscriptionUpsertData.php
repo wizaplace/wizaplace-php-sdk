@@ -25,8 +25,11 @@ abstract class SubscriptionUpsertData
     /** @var null|bool */
     private $isAutorenew;
 
-    /** @var string */
+    /** @var null|string */
     private $nextPaymentAt;
+
+    /** @var null|int */
+    private $quantity;
 
     public function setStatus(SubscriptionStatus $status): self
     {
@@ -45,6 +48,13 @@ abstract class SubscriptionUpsertData
     public function setNextPaymentAt(string $nextPaymentAt): self
     {
         $this->nextPaymentAt = $nextPaymentAt;
+
+        return $this;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }
@@ -120,16 +130,20 @@ abstract class SubscriptionUpsertData
     {
         $data = [];
 
-        if ($this->status instanceof SubscriptionStatus) {
+        if ($this->status instanceof SubscriptionStatus === true) {
             $data['status'] = $this->status->getValue();
         }
 
-        if (\is_bool($this->isAutorenew)) {
+        if (\is_bool($this->isAutorenew) === true) {
             $data['isAutorenew'] = $this->isAutorenew;
         }
 
-        if (\is_string($this->nextPaymentAt)) {
+        if (\is_string($this->nextPaymentAt) === true) {
             $data['nextPaymentAt'] = $this->nextPaymentAt;
+        }
+
+        if (\is_int($this->quantity) === true) {
+            $data['quantity'] = $this->quantity;
         }
 
         return $data;

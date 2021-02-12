@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8295-subscription-nextpaymentat@b7bde0c
+            User-Agent: Wizaplace-PHP-SDK/dev-epic-WIZ-8584-subscription-update-quantity@0a1ca26
             VCR-index: '0'
             Accept: null
     response:
@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 26 Jan 2021 09:05:32 GMT'
+            Date: 'Fri, 12 Feb 2021 09:04:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f04f00
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f04f00'
+            X-Debug-Token: e8dc19
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e8dc19'
             X-Robots-Tag: noindex
-            X-Request-Id: 727cb741fc6d6f710fc06a70033790c0
+            X-Request-Id: 41efa7f2c4d100a6ff1f03c88f0368be
         body: '{"id":2,"apiKey":"8hqykyCj7BFTlANbPQMMxI9Al74NkEKo6cRH2OAs"}'
 -
     request:
@@ -38,12 +38,12 @@
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
-            Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8295-subscription-nextpaymentat@b7bde0c
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-epic-WIZ-8584-subscription-update-quantity@0a1ca26
             Authorization: 'token 8hqykyCj7BFTlANbPQMMxI9Al74NkEKo6cRH2OAs'
             VCR-index: '1'
             Accept: null
-        body: 'status=ACTIVE&isAutorenew=1&nextPaymentAt=2153-01-01'
+        body: '{"status":"ACTIVE","isAutorenew":true,"nextPaymentAt":"2153-01-01","quantity":12}'
     response:
         status:
             http_version: '1.1'
@@ -56,11 +56,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 26 Jan 2021 09:05:32 GMT'
+            Date: 'Fri, 12 Feb 2021 09:04:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4d3b9a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d3b9a'
+            X-Debug-Token: '754538'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/754538'
             X-Robots-Tag: noindex
-            X-Request-Id: a1f878e85a5d3339c32973bab3b8310e
-        body: '{"id":"0f380a36-0188-4133-89b9-40fe36e7d47b","userId":15,"companyId":1,"cardId":"405a718f-05ce-4dfe-87d3-34b7f8f88099","firstOrderId":123652,"name":"Abonnement","status":"ACTIVE","price":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"},"isAutorenew":true,"commitmentPeriod":12,"paymentFrequency":1,"nextPaymentAt":"2153-01-01","commitmentEndAt":"2022-01-11","createdAt":"2021-01-11T14:55:38+01:00","items":[{"categoryId":5,"productId":40,"productCode":"5ffc578a19ff5","productName":"Abonnement","productIsRenewable":false,"declinationId":"1_1_2_16","unitPrice":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"},"quantity":1,"totalPrice":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"}}],"taxes":[{"taxId":5,"taxName":5,"amount":"1.67"}]}'
+            X-Request-Id: 896d0b9ff9bf589139e34ecba1094046
+        body: '{"id":"0f380a36-0188-4133-89b9-40fe36e7d47b","userId":15,"companyId":1,"cardId":"405a718f-05ce-4dfe-87d3-34b7f8f88099","firstOrderId":123652,"name":"Abonnement","status":"ACTIVE","price":{"excludingTaxes":"99.96","taxes":"20.04","includingTaxes":"120"},"isAutorenew":true,"commitmentPeriod":12,"paymentFrequency":1,"nextPaymentAt":"2153-01-01","commitmentEndAt":"2022-01-11","createdAt":"2021-01-11T14:55:38+01:00","items":[{"categoryId":5,"productId":40,"productCode":"5ffc578a19ff5","productName":"Abonnement","productIsRenewable":false,"declinationId":"1_1_2_16","unitPrice":{"excludingTaxes":"8.33","taxes":"1.67","includingTaxes":"10"},"quantity":12,"totalPrice":{"excludingTaxes":"99.96","taxes":"20.04","includingTaxes":"120"}}],"taxes":[{"taxId":5,"taxName":5,"amount":"20.04"}]}'

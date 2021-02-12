@@ -185,6 +185,7 @@ class SubscriptionServiceTest extends ApiTestCase
             ->setStatus(SubscriptionStatus::ACTIVE())
             ->setIsAutorenew(true)
             ->setNextPaymentAt($date = (new \DateTime('2153-01-01'))->format('Y-m-d'))
+            ->setQuantity(12)
         ;
 
         $subscription = $service->patchSubscription($updateSubscriptionCommand);
@@ -195,6 +196,7 @@ class SubscriptionServiceTest extends ApiTestCase
         static::assertInstanceOf(SubscriptionStatus::class, $subscription->getStatus());
         static::assertSame(SubscriptionStatus::ACTIVE()->getValue(), $subscription->getStatus()->getValue());
         static::assertTrue($subscription->isAutorenew());
+        static::assertSame(12, $subscription->getItems()[0]->getQuantity());
         static::assertEquals(new \DateTime($date), $subscription->getNextPaymentAt());
     }
 

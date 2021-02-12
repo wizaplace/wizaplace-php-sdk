@@ -1,6 +1,9 @@
 
 # Changelog
 
+### New features
+- Added parameter `quantity` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
+
 ## 1.117.2
 
 ### New features

@@ -226,7 +226,7 @@ final class SubscriptionService extends AbstractService
                     $this->client->patch(
                         "subscriptions/{$command->getSubscriptionId()}",
                         [
-                            RequestOptions::FORM_PARAMS => $command->toArray(),
+                            RequestOptions::JSON => $command->toArray(),
                         ]
                     )
                 );
