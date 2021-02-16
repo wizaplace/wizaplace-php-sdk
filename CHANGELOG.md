@@ -1,5 +1,11 @@
 # Changelog
 
+# 1.116.0
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Option\Option::getDisplayOnFaceting()`
+
 ## 1.115.7
 
 ### New features
