@@ -3,6 +3,8 @@
 
 ### New features
 - Added parameter `quantity` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
+- Added `\Wizaplace\SDK\Subscription\SubscriptionPriceTier`
+- Added `\Wizaplace\SDK\Subscription\SubscriptionItem::getPriceTiers`
 
 ## 1.117.2
 

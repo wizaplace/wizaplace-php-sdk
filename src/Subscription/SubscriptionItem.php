@@ -41,6 +41,9 @@ final class SubscriptionItem
     /** @var Price */
     private $totalPrice;
 
+    /** @var SubscriptionPriceTier[] */
+    private $priceTiers;
+
     public function __construct(array $data)
     {
         $this->categoryId = $data["categoryId"];
@@ -52,6 +55,14 @@ final class SubscriptionItem
         $this->unitPrice = new Price($data["unitPrice"]);
         $this->quantity = $data["quantity"];
         $this->totalPrice = new Price($data["totalPrice"]);
+        if (true === isset($data['priceTiers'])) {
+            $this->priceTiers = array_map(
+                static function (array $priceTiersData): SubscriptionPriceTier {
+                    return new SubscriptionPriceTier($priceTiersData);
+                },
+                $data['priceTiers']
+            );
+        }
     }
 
     public function getCategoryId(): int
@@ -97,5 +108,11 @@ final class SubscriptionItem
     public function getTotalPrice(): Price
     {
         return $this->totalPrice;
+    }
+
+    /** @return SubscriptionPriceTier[] */
+    public function getPriceTiers(): array
+    {
+        return $this->priceTiers;
     }
 }
