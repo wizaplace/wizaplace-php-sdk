@@ -19,19 +19,10 @@ use function theodorejb\polycast\to_string;
  * Class ImageService
  * @package Wizaplace\SDK\Image
  */
-final class ImageService extends AbstractService
+final class ImageService extends AbstractService implements ImageServiceInterface
 {
     /**
-     * Return the public URL of an image.
-     *
-     * The URL returned can be used to display the image, for example by using an
-     * <img src="..."> tag in HTML code.
-     *
-     * @param int $imageId
-     * @param int|null $width You can optionally constraint the max width of the image.
-     * @param int|null $height You can optionally constraint the max height of the image.
-     *
-     * @return UriInterface Image URL
+     * @inheritdoc
      */
     public function getImageLink(int $imageId, int $width = null, int $height = null): UriInterface
     {
