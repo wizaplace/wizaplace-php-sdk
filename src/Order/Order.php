@@ -68,6 +68,9 @@ final class Order
     /** @var string[] */
     protected $extra;
 
+    /** @var AttachmentsOrder[] */
+    private $orderAttachments;
+
     /**
      * @internal
      *
@@ -108,6 +111,12 @@ final class Order
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
         $this->basketId = (\array_key_exists('basketId', $data) === true) ? $data['basketId'] : null;
         $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
+        $this->orderAttachments = \array_map(
+            static function (array $orderAttachment): AttachmentsOrder {
+                return new AttachmentsOrder($orderAttachment);
+            },
+            $data['attachments'] ?? []
+        );
     }
 
     /**
@@ -295,5 +304,11 @@ final class Order
     public function getExtra(): array
     {
         return $this->extra;
+    }
+
+    /** @return AttachmentsOrder[] */
+    public function getOrderAttachments(): array
+    {
+        return $this->orderAttachments;
     }
 }

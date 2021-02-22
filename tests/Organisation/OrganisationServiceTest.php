@@ -9,20 +9,20 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
-use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\File\File;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
-use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\Order\Order;
+use Wizaplace\SDK\Order\OrderAttachmentType;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\Organisation\Organisation;
 use Wizaplace\SDK\Organisation\OrganisationAddress;
 use Wizaplace\SDK\Organisation\OrganisationBasket;
 use Wizaplace\SDK\Organisation\OrganisationFile;
 use Wizaplace\SDK\Organisation\OrganisationGroup;
-use Wizaplace\SDK\Organisation\OrganisationOrder;
+use Wizaplace\SDK\Organisation\OrganisationOrderAttachmentService;
 use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
@@ -802,6 +802,66 @@ final class OrganisationServiceTest extends ApiTestCase
         static::assertSame(0.0, $organisationOrder->getBalance());
     }
 
+    public function testGetOrganisationsOrderAttachments(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationOrder = $organisationService->getOrder(9);
+        $orderAttachments = $organisationOrder->getOrderAttachments();
+
+        static::assertCount(2, $orderAttachments);
+
+        $firstAttachments = $orderAttachments[0];
+
+        static::assertSame('9ef4895b-a9a4-41ef-a909-b57ed306e68b', $firstAttachments->getId());
+        static::assertSame('P1', $firstAttachments->getName());
+        static::assertSame('pp.png', $firstAttachments->getFilename());
+        static::assertSame(OrderAttachmentType::CUSTOMER_INVOICE()->getValue(), $firstAttachments->getType()->getValue());
+    }
+
+    public function testGetOrganisationsOrderAttachmentById(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'Windows.98');
+        $orderId = 9;
+        $organisationOrder = $organisationService->getOrder($orderId);
+        $orderAttachments = $organisationOrder->getOrderAttachments();
+
+        static::assertCount(1, $orderAttachments);
+
+        $firstAttachments = $orderAttachments[0];
+        $orderAttachmentId = $firstAttachments->getId();
+        $organisationAttachmentService = $this->buildOrganisationAttachmentService('user+orga@usc.com', 'Windows.98');
+        $response = $organisationAttachmentService->getOrganisationOrderAttachment($orderId, $orderAttachmentId);
+
+        static::assertSame($response->getId(), $orderAttachmentId);
+    }
+
+    public function testGetOrganisationsHasNotAttachments(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationOrder = $organisationService->getOrder(15);
+        $orderAttachments = $organisationOrder->getOrderAttachments();
+        static::assertCount(0, $orderAttachments);
+    }
+
+    public function testUserCanDownloadOrganisationsOrderAttachments(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'Windows.98');
+        $organisationOrder = $organisationService->getOrder(9);
+        $orderAttachments = $organisationOrder->getOrderAttachments();
+
+        static::assertCount(1, $orderAttachments);
+
+        $firstAttachments = $orderAttachments[0];
+        $orderAttachmentId = $firstAttachments->getId();
+        $organisationAttachmentService = $this->buildOrganisationAttachmentService('user+orga@usc.com', 'Windows.98');
+        $file = $organisationAttachmentService->downloadOrganisationOrderAttachment(9, $orderAttachmentId);
+
+        $fileHeader = '%PDF-1.4';
+        $fileContents = $file->getContents();
+        $this->assertStringStartsWith($fileHeader, $fileContents);
+        $this->assertGreaterThan(\strlen($fileHeader), \strlen($fileContents));
+    }
+
     /**
      * Return and Order service, depending of a logged user, or not
      * @param string $email
@@ -863,6 +923,26 @@ final class OrganisationServiceTest extends ApiTestCase
         }
 
         return new OrganisationService($apiClient);
+    }
+
+    /**
+     * Return an Organisation attachment service, depending of a logged user, or not
+     * @param string $email
+     * @param string $password
+     * @param bool $authenticate
+     *
+     * @return OrganisationOrderAttachmentService
+     * @throws BadCredentials
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    private function buildOrganisationAttachmentService(string $email = 'customer-3@world-company.com', string $password = 'password-customer-3', bool $authenticate = true): OrganisationOrderAttachmentService
+    {
+        $apiClient = $this->buildApiClient();
+        if ($authenticate) {
+            $apiClient->authenticate($email, $password);
+        }
+
+        return new OrganisationOrderAttachmentService($apiClient);
     }
 
     /**

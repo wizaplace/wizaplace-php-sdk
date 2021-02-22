@@ -12,14 +12,17 @@ namespace Wizaplace\SDK\Tests\Order;
 use DateTimeImmutable;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
+use Symfony\Component\HttpFoundation\File\File;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Order\AfterSalesServiceRequest;
+use Wizaplace\SDK\Order\AttachmentsOrder;
 use Wizaplace\SDK\Order\CreateOrderReturn;
 use Wizaplace\SDK\Order\OrderAdjustment;
+use Wizaplace\SDK\Order\OrderAttachmentService;
 use Wizaplace\SDK\Order\OrderCommitmentCommand;
 use Wizaplace\SDK\Order\OrderReturnStatus;
 use Wizaplace\SDK\Order\OrderService;
@@ -33,6 +36,8 @@ use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Pim\Option\SystemOption;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
+use Wizaplace\SDK\Vendor\Order\OrderAttachment;
+use Wizaplace\SDK\Vendor\Order\OrderAttachmentType;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus as VendorOrderStatus;
 
@@ -751,5 +756,41 @@ final class OrderServiceTest extends ApiTestCase
         $order = $orderService->getOrder(5);
 
         static::assertSame($extra, $order->getExtra());
+    }
+
+    public function testUserCanGetOrderAttachments(): void
+    {
+        $orderAttachmentService = $this->buildOrderAttachmentService('user2@usc.com', 'Windows.98');
+        $orderService = $this->buildOrderService('user2@usc.com', 'Windows.98');
+
+        $orderAttachments = $orderService->getOrder(9)->getOrderAttachments();
+
+        $orderAttachment = $orderAttachmentService->getOrderAttachment(9, $orderAttachments[0]->getId());
+
+        static::assertInstanceOf(AttachmentsOrder::class, $orderAttachment);
+        static::assertSame('32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f', $orderAttachment->getId());
+        static::assertSame('images.jpeg', $orderAttachment->getFilename());
+    }
+
+    public function testUserCanDownloadOrderAttachments(): void
+    {
+        $orderAttachmentService = $this->buildOrderAttachmentService('user@wizaplace.com', 'Windows.98');
+        $orderService = $this->buildOrderService('user@wizaplace.com', 'Windows.98');
+        $orderAttachment = $orderService->getOrder(14)->getOrderAttachments()[0];
+
+        $file = $orderAttachmentService->downloadOrderAttachment(14, $orderAttachment->getId());
+
+        $fileHeader = '%PDF-1.4';
+        $fileContents = $file->getContents();
+        $this->assertStringStartsWith($fileHeader, $fileContents);
+        $this->assertGreaterThan(\strlen($fileHeader), \strlen($fileContents));
+    }
+
+    private function buildOrderAttachmentService(string $email = 'user2@usc.com', $password = 'Windows.98'): OrderAttachmentService
+    {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate($email, $password);
+
+        return new OrderAttachmentService($apiClient);
     }
 }

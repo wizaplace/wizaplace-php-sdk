@@ -1,0 +1,125 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcjJAdXNjLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Jan 2021 17:26:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8293a7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8293a7'
+            X-Robots-Tag: noindex
+            X-Request-Id: 901f586f06b58877e90a4380532bff3e
+        body: '{"id":14,"apiKey":"8S08J5ZKpxp1SbDL2NTmBfgn11PnEKCDo0v3PhCP"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcjJAdXNjLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Jan 2021 17:26:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a93465
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a93465'
+            X-Robots-Tag: noindex
+            X-Request-Id: 21347ddd8174592887218a106f25ac99
+        body: '{"id":14,"apiKey":"8S08J5ZKpxp1SbDL2NTmBfgn11PnEKCDo0v3PhCP"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/9'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token 8S08J5ZKpxp1SbDL2NTmBfgn11PnEKCDo0v3PhCP'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Jan 2021 17:26:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ecef36
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ecef36'
+            X-Robots-Tag: noindex
+            X-Request-Id: 62de0a107f201244481ebe5a1d8ab06d
+        body: '{"id":9,"basketId":"738447a6-f0b0-4c52-beb7-d91c59d748af","companyId":3,"companyName":"The World Company Inc.","total":54.2,"taxTotal":1.11,"subtotal":54.2,"customerTotal":54.2,"marketplaceDiscountTotal":0,"timestamp":1610026290,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":0,"attachments":[{"id":"32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f","name":"2323233","filename":"images.jpeg","url":"http:\/\/wizaplace.loc\/api\/v1\/user\/orders\/9\/attachments\/32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f\/download","type":"CUSTOMER_INVOICE"},{"id":"2d68390f-549f-47fe-81de-e770a66dd49e","name":"23322","filename":"pexels-photo-1054289.jpeg","url":"http:\/\/wizaplace.loc\/api\/v1\/user\/orders\/9\/attachments\/2d68390f-549f-47fe-81de-e770a66dd49e\/download","type":"DELIVERY_BILL"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/9/attachments/32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token 8S08J5ZKpxp1SbDL2NTmBfgn11PnEKCDo0v3PhCP'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 07 Jan 2021 17:26:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d21381
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d21381'
+            X-Robots-Tag: noindex
+            X-Request-Id: 93190cb63086ad2fa5902a58c17f113e
+        body: '{"id":"32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f","name":"2323233","filename":"images.jpeg","url":"http:\/\/wizaplace.loc\/api\/v1\/user\/orders\/9\/attachments\/32bba8f6-e7b5-44ec-9b0c-ed5f6a293f3f\/download","type":"CUSTOMER_INVOICE"}'

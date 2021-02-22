@@ -1,0 +1,155 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206V2luZG93cy45OA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:16:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1a581c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a581c'
+            X-Robots-Tag: noindex
+            X-Request-Id: 205baf333fb1ff8af8bcf570f38c3f60
+        body: '{"id":12,"apiKey":"zpKez0NGuB5f5pnAdBu+jbNzWaCrbrxAusAmvOGi"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/order/9'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token zpKez0NGuB5f5pnAdBu+jbNzWaCrbrxAusAmvOGi'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:16:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '143780'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/143780'
+            X-Robots-Tag: noindex
+            X-Request-Id: 73fc584dd37e0b848ce6f2718aa4c04e
+        body: '{"id":9,"basketId":"cd3c4fa9-6c8e-4021-b6f3-b3cc8b8f67c2","companyId":3,"companyName":"The World Company Inc.","total":54.2,"taxTotal":1.11,"subtotal":54.2,"customerTotal":54.2,"marketplaceDiscountTotal":0,"timestamp":1610364517,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":0,"attachments":[{"id":"71ab5c9e-05c1-4678-813d-173faaab0b6b","name":"989","filename":"test.pdf","url":"http:\/\/wizaplace.loc\/api\/v1\/organisations\/orders\/9\/attachments\/71ab5c9e-05c1-4678-813d-173faaab0b6b","type":"CUSTOMER_INVOICE"}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206V2luZG93cy45OA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:16:08 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2e5a98
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2e5a98'
+            X-Robots-Tag: noindex
+            X-Request-Id: 7be82b1e2c5be29952ab24ad84d0b754
+        body: '{"id":12,"apiKey":"zpKez0NGuB5f5pnAdBu+jbNzWaCrbrxAusAmvOGi"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/orders/9/attachments/71ab5c9e-05c1-4678-813d-173faaab0b6b/download'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token zpKez0NGuB5f5pnAdBu+jbNzWaCrbrxAusAmvOGi'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '302'
+            message: Found
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 11 Jan 2021 13:16:09 GMT'
+            Location: 'https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210111T131609Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4c3780
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4c3780'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224c3780%22%2C%22route%22%3A%22api_organisations_order_attachment_download_by_user%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5COrganisation%5C%5COrganisationOrderController%22%2C%22method%22%3A%22downloadOrderAttachmentByUserAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FOrganisation%5C%2FOrganisationOrderController.php%22%2C%22line%22%3A123%7D%2C%22status_code%22%3A302%2C%22status_text%22%3A%22Found%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 762337019d8607e5459f359e0d43c9e1
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210111T131609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e'\" />\n\n        <title>Redirecting to https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210111T131609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210111T131609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e\">https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20210111T131609Z&amp;X-Amz-SignedHeaders=host&amp;X-Amz-Expires=3600&amp;X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'https://wizaplace-demo.s3.eu-west-1.amazonaws.com/order_attachments/9/71ab5c9e-05c1-4678-813d-173faaab0b6b/test.pdf?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJLZHJZGZZXHWHGXQ%2F20210111%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210111T131609Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=82600bcb3a5b37d064ad1a9d806fb05dba242b36cde32ce287871f5675a74e7e'
+        headers:
+            Host: wizaplace-demo.s3.eu-west-1.amazonaws.com
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            x-amz-id-2: 7qu1TmYsLn1oPvcQEQFnNswqk+Rpc9gdbFe6qYQc8nunj6jVTFlAOmrZr+cslfjsj31nbGw/WDs=
+            x-amz-request-id: 4B0868FC32F6D8B5
+            Date: 'Mon, 11 Jan 2021 13:16:11 GMT'
+            Last-Modified: 'Mon, 11 Jan 2021 13:10:12 GMT'
+            ETag: '"460b3c94c8c1fb2be2908eafb74c7154"'
+            Content-Disposition: 'attachment; filename="test.pdf"'
+            x-amz-version-id: 54PNf6ZVhKlJmYDfDYRsc3TM7rILUruz
+            Accept-Ranges: bytes
+            Content-Type: application/pdf
+            Content-Length: '7820'
+            Server: AmazonS3
+        body: !!binary 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NzQwMDY1MDA3Mj4KL1Byb2R1Y2VyPEZFRkYwMDRDMDA2OTAwNjIwMDcyMDA2NTAwNEYwMDY2MDA2NjAwNjkwMDYzMDA2NTAwMjAwMDM2MDAyRTAwMzA+Ci9DcmVhdGlvbkRhdGUoRDoyMDIxMDExMTEzNDkyMiswMScwMCcpPj4KZW5kb2JqCgp4cmVmCjAgMTQKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDA2Nzk3IDAwMDAwIG4gCjAwMDAwMDAwMTkgMDAwMDAgbiAKMDAwMDAwMDIxMyAwMDAwMCBuIAowMDAwMDA2OTY2IDAwMDAwIG4gCjAwMDAwMDAyMzMgMDAwMDAgbiAKMDAwMDAwNTk1NyAwMDAwMCBuIAowMDAwMDA1OTc4IDAwMDAwIG4gCjAwMDAwMDYxNzMgMDAwMDAgbiAKMDAwMDAwNjUxMCAwMDAwMCBuIAowMDAwMDA2NzEwIDAwMDAwIG4gCjAwMDAwMDY3NDIgMDAwMDAgbiAKMDAwMDAwNzA2NSAwMDAwMCBuIAowMDAwMDA3MTYyIDAwMDAwIG4gCnRyYWlsZXIKPDwvU2l6ZSAxNC9Sb290IDEyIDAgUgovSW5mbyAxMyAwIFIKL0lEIFsgPDQyQTQ2M0U5REI1QTc4NTU0MzcwMTBGQjU2RkQzNzM2Pgo8NDJBNDYzRTlEQjVBNzg1NTQzNzAxMEZCNTZGRDM3MzY+IF0KL0RvY0NoZWNrc3VtIC9FRjRBNTEyMEJFQkU4NzE1NUUwNDYyRTQxQTNCRUQ2OAo+PgpzdGFydHhyZWYKNzMzNwolJUVPRgo=

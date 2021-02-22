@@ -1,5 +1,20 @@
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Order\Order::getOrderAttachments`
+- Added `Wizaplace\SDK\Order\AttachmentsOrder::getId`
+- Added `Wizaplace\SDK\Order\AttachmentsOrder::getName`
+- Added `Wizaplace\SDK\Order\AttachmentsOrder::getType`
+- Added `Wizaplace\SDK\Order\AttachmentsOrder::getFilename`
+- Added `Wizaplace\SDK\Order\AttachmentsOrder::getUrl`
+- Added `Wizaplace\SDK\Order\OrderAttachmentService::getOrderAttachment`
+- Added `Wizaplace\SDK\Order\OrderAttachmentService::downloadOrderAttachment`
+- Added `Wizaplace\SDK\Organisation\OrganisationOrderAttachmentService::getOrganisationOrderAttachment`
+- Added `Wizaplace\SDK\Organisation\OrganisationOrderAttachmentService::downloadOrganisationOrderAttachment`
+
 # 1.116.0
 
 ### New features
@@ -29,6 +44,7 @@
 ## 1.115.1
 
 ### New features
+
 - Added `Wizaplace\SDK\Order\Order::getExtra`
 - Added `Wizaplace\SDK\Vendor\Order\Order::getExtra`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::patchExtra`
