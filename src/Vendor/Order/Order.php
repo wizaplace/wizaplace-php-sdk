@@ -127,6 +127,9 @@ final class Order
     /** @var string[] */
     protected $extra;
 
+    /** @var null|string */
+    private $bankWireTransactionReference;
+
     /**
      * @internal
      *
@@ -193,6 +196,7 @@ final class Order
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
         $this->doNotCreateInvoice = \array_key_exists('do_not_create_invoice', $data) === true ? (bool) $data['do_not_create_invoice'] : false;
         $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
+        $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
     }
 
     /**
@@ -515,5 +519,11 @@ final class Order
     public function isDoNotCreateInvoice(): bool
     {
         return $this->doNotCreateInvoice;
+    }
+
+    /** @return null|string */
+    public function getBankWireTransactionReference(): ?string
+    {
+        return $this->bankWireTransactionReference;
     }
 }

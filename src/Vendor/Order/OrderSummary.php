@@ -68,6 +68,9 @@ final class OrderSummary
     /** @var float */
     private $balance;
 
+    /** @var null|string */
+    private $bankWireTransactionReference;
+
     /**
      * @internal
      *
@@ -94,6 +97,7 @@ final class OrderSummary
         $this->isPaid = \array_key_exists('is_paid', $data) ? (bool) $data['is_paid'] : null;
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
+        $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
     }
 
     /**
@@ -235,5 +239,11 @@ final class OrderSummary
     public function getBalance(): float
     {
         return $this->balance;
+    }
+
+    /** @return null|string */
+    public function getBankWireTransactionReference(): ?string
+    {
+        return $this->bankWireTransactionReference;
     }
 }

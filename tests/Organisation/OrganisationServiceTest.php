@@ -33,7 +33,7 @@ use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
 final class OrganisationServiceTest extends ApiTestCase
 {
-    public function testRegisterWithUnauthenticatedUser()
+    public function testRegisterWithUnauthenticatedUser(): void
     {
         $organisationService = $this->buildOrganisationService('', '', false);
 
@@ -61,7 +61,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame("pending", $organisation->getStatus());
     }
 
-    public function testRegisterWithAdminUser()
+    public function testRegisterWithAdminUser(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -89,7 +89,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame("pending", $organisation->getStatus());
     }
 
-    public function testCannotRegisterIfAlreadyLogged()
+    public function testCannotRegisterIfAlreadyLogged(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -104,7 +104,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService->register($organisation);
     }
 
-    public function testGetOrganisation()
+    public function testGetOrganisation(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -136,7 +136,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotGetOrganisationIfNotOwned()
+    public function testCannotGetOrganisationIfNotOwned(): void
     {
         $organisationId = $this->getOrganisationId();
 
@@ -148,7 +148,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetList()
+    public function testGetList(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -167,7 +167,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame('University of Southern California', $listOrga['_embedded']['organisations'][1]['name']);
     }
 
-    public function testCannotGetListIfNotOwned()
+    public function testCannotGetListIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService();
 
@@ -175,7 +175,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService->getList();
     }
 
-    public function testGetListUsers()
+    public function testGetListUsers(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -194,7 +194,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotGetListUsersIfNotOwned()
+    public function testCannotGetListUsersIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService();
 
@@ -206,7 +206,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testOrganisationAddressesUpdate()
+    public function testOrganisationAddressesUpdate(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -255,7 +255,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotUpdateOrganisationAddresses()
+    public function testCannotUpdateOrganisationAddresses(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -291,7 +291,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testOrganisationUpdate()
+    public function testOrganisationUpdate(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -320,7 +320,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotUpdateOrganisationIfNotOwned()
+    public function testCannotUpdateOrganisationIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -343,7 +343,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testAddBasket()
+    public function testAddBasket(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -358,7 +358,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotAddBasketIfNotOwned()
+    public function testCannotAddBasketIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -370,7 +370,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testLockBasket()
+    public function testLockBasket(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -389,7 +389,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotLockBasketIfNotOwned()
+    public function testCannotLockBasketIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -407,7 +407,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testBasketValidation()
+    public function testBasketValidation(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -426,7 +426,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testHideBasket()
+    public function testHideBasket(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -444,7 +444,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testCannotValidateBasketIfNotOwned()
+    public function testCannotValidateBasketIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -462,7 +462,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testBasketCheckout()
+    public function testBasketCheckout(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
@@ -482,7 +482,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testBasketCheckoutIfNotOwned()
+    public function testBasketCheckoutIfNotOwned(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
@@ -503,7 +503,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationFromUser()
+    public function testGetOrganisationFromUser(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -511,7 +511,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertInstanceOf(Organisation::class, $response);
     }
 
-    public function testRemoveAndAddUserToGroup()
+    public function testRemoveAndAddUserToGroup(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -526,7 +526,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationBaskets()
+    public function testGetOrganisationBaskets(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -540,7 +540,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationOrders()
+    public function testGetOrganisationOrders(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId(1);
@@ -561,7 +561,7 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame(1, $response['total']);
     }
 
-    public function testAddUserAdminToOrganisation()
+    public function testAddUserAdminToOrganisation(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -657,7 +657,7 @@ final class OrganisationServiceTest extends ApiTestCase
         static::assertSame('Près de la poste', $user->getShippingAddress()->getComment());
     }
 
-    public function testCanCreateAnOrganisationGroup()
+    public function testCanCreateAnOrganisationGroup(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -673,7 +673,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetListGroupUser()
+    public function testGetListGroupUser(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
 
@@ -702,7 +702,7 @@ final class OrganisationServiceTest extends ApiTestCase
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\NotFound
      */
-    public function testGetOrder()
+    public function testGetOrder(): void
     {
         // Organisation admin user
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
@@ -758,7 +758,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationOrdersByOrganisationIdWithRefundedData()
+    public function testGetOrganisationOrdersByOrganisationIdWithRefundedData(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId(1);
@@ -771,7 +771,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationsOrderWithRefundedData()
+    public function testGetOrganisationsOrderWithRefundedData(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -780,7 +780,7 @@ final class OrganisationServiceTest extends ApiTestCase
         static::assertFalse($organisationOrder->isRefunded());
     }
 
-    public function testGetOrganisationOrdersByOrganisationIdWithBalance()
+    public function testGetOrganisationOrdersByOrganisationIdWithBalance(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId(1);
@@ -793,7 +793,7 @@ final class OrganisationServiceTest extends ApiTestCase
         }
     }
 
-    public function testGetOrganisationsOrderWithBalance()
+    public function testGetOrganisationsOrderWithBalance(): void
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
 
@@ -860,6 +860,45 @@ final class OrganisationServiceTest extends ApiTestCase
         $fileContents = $file->getContents();
         $this->assertStringStartsWith($fileHeader, $fileContents);
         $this->assertGreaterThan(\strlen($fileHeader), \strlen($fileContents));
+    }
+
+    public function testGetOrganisationOrdersByOrganisationIdWithBankWireTransactionReference(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+        $organisationOrders = $organisationService->getOrganisationOrders($organisationId)['orders'];
+
+        static::assertGreaterThan(0, \count($organisationOrders));
+        foreach ($organisationOrders as $order) {
+            $orderDetails = $organisationService->getOrder($order->getOrderId());
+
+            if (($orderDetails->getPayment()->getType() === 'bank-transfer')
+                && ($orderDetails->getPayment()->getProcessorName() === 'mangopay' || ($orderDetails->getPayment()->getProcessorName() === 'lemonway'))
+            ) {
+                static::assertNotNull($order->getBankWireTransactionReference());
+            } else {
+                static::assertNull($order->getBankWireTransactionReference());
+            }
+        }
+    }
+
+    public function testGetOrganisationsOrderWithoutBankWireTransactionReference(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationOrder = $organisationService->getOrder(8);
+
+        static::assertSame($organisationOrder->getPayment()->getType(), 'manual');
+        static::assertNull($organisationOrder->getBankWireTransactionReference());
+    }
+
+    public function testGetOrganisationsOrderWithBankWireTransactionReference(): void
+    {
+        $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
+        $organisationOrder = $organisationService->getOrder(17);
+
+        static::assertSame($organisationOrder->getPayment()->getProcessorName(), 'mangopay');
+        static::assertSame($organisationOrder->getPayment()->getType(), 'bank-transfer');
+        static::assertNotNull($organisationOrder->getBankWireTransactionReference());
     }
 
     /**

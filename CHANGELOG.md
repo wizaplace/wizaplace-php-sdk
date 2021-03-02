@@ -1,4 +1,13 @@
+
 # Changelog
+
+## NEW VERSION
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\Order::getBankWireTransactionReference`
+- Added `Wizaplace\SDK\Vendor\Order\OrderSummary::getBankWireTransactionReference`
+- Added `Wizaplace\SDK\Order\Order::getBankWireTransactionReference`
 
 ## 1.116.2
 

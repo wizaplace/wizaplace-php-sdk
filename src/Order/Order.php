@@ -71,6 +71,8 @@ final class Order
     /** @var AttachmentsOrder[] */
     private $orderAttachments;
 
+    /** @var null|string */
+    private $bankWireTransactionReference;
     /**
      * @internal
      *
@@ -117,6 +119,7 @@ final class Order
             },
             $data['attachments'] ?? []
         );
+        $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
     }
 
     /**
@@ -310,5 +313,11 @@ final class Order
     public function getOrderAttachments(): array
     {
         return $this->orderAttachments;
+    }
+
+    /** @return null|string */
+    public function getBankWireTransactionReference(): ?string
+    {
+        return $this->bankWireTransactionReference;
     }
 }

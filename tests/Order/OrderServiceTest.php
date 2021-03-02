@@ -665,6 +665,40 @@ final class OrderServiceTest extends ApiTestCase
         static::assertNotNull($order->isPaid());
     }
 
+    public function testGetUserOrdersWithBankWireTransactionReference(): void
+    {
+        $orderService = $this->buildOrderService();
+        $orders = $orderService->getOrders();
+
+        static::assertGreaterThanOrEqual(0, \count($orders));
+
+        foreach ($orders as $order) {
+            if ($order->getPayment()->getType() === 'bank-transfer'
+                && ($order->getPayment()->getProcessorName() === 'mangopay' || ($order->getPayment()->getProcessorName() === 'lemonway'))
+            ) {
+                static::assertNotNull($order->getBankWireTransactionReference());
+            } else {
+                static::assertNull($order->getBankWireTransactionReference());
+            }
+        }
+    }
+
+    public function testGetUserOrderByIdWithBankWireTransactionReference(): void
+    {
+        $order = $this->buildOrderService()->getOrder(2);
+
+        static::assertSame($order->getPayment()->getType(), 'manual');
+        static::assertNull($order->getBankWireTransactionReference());
+    }
+
+    public function testGetUserOrderByIdWithNotNullBankWireTransactionReference(): void
+    {
+        $order = $this->buildOrderService()->getOrder(16);
+
+        static::assertSame($order->getPayment()->getProcessorName(), 'mangopay');
+        static::assertSame($order->getPayment()->getType(), 'bank-transfer');
+        static::assertSame($order->getBankWireTransactionReference(), 'MGp15daklc-87457219');
+    }
 
     private function buildOrderService(string $email = 'customer-1@world-company.com', $password = 'password-customer-1'): OrderService
     {
