@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Company\CompanyService::getBalance`
+- Added `Wizaplace\SDK\Company\CompanyService::doPayout`
+
 ## 1.129.1
 
 ### Miscellaneous
