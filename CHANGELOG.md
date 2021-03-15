@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order::getParentOrderId`
+- Added `Wizaplace\SDK\Vendor\OrderSummary::getParentOrderId`
+
 ## 1.117.0
 
 ### New features

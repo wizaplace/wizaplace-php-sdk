@@ -71,6 +71,9 @@ final class OrderSummary
     /** @var null|string */
     private $bankWireTransactionReference;
 
+    /** @var int|null */
+    protected $parentOrderId;
+
     /**
      * @internal
      *
@@ -98,6 +101,7 @@ final class OrderSummary
         $this->refunded = \array_key_exists('refunded', $data) ? (bool) $data['refunded'] : null;
         $this->balance = (\array_key_exists('balance', $data) === true) ? $data['balance'] : 0;
         $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
+        $this->parentOrderId = \array_key_exists('parent_order_id', $data) ? \intval($data['parent_order_id']) : null;
     }
 
     /**
@@ -245,5 +249,11 @@ final class OrderSummary
     public function getBankWireTransactionReference(): ?string
     {
         return $this->bankWireTransactionReference;
+    }
+
+    /** @return int|null */
+    public function getParentOrderId(): ?int
+    {
+        return $this->parentOrderId;
     }
 }

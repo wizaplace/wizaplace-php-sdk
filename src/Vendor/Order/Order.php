@@ -130,6 +130,9 @@ final class Order
     /** @var null|string */
     private $bankWireTransactionReference;
 
+    /** @var int|null */
+    protected $parentOrderId;
+
     /**
      * @internal
      *
@@ -197,6 +200,7 @@ final class Order
         $this->doNotCreateInvoice = \array_key_exists('do_not_create_invoice', $data) === true ? (bool) $data['do_not_create_invoice'] : false;
         $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
         $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
+        $this->parentOrderId = \array_key_exists('parent_order_id', $data) ? \intval($data['parent_order_id']) : null;
     }
 
     /**
@@ -525,5 +529,11 @@ final class Order
     public function getBankWireTransactionReference(): ?string
     {
         return $this->bankWireTransactionReference;
+    }
+
+    /** @return int|null */
+    public function getParentOrderId(): ?int
+    {
+        return $this->parentOrderId;
     }
 }

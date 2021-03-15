@@ -1214,4 +1214,21 @@ class OrderServiceTest extends ApiTestCase
         $order = $orderService->getOrderById(5);
         static::assertSame($extra, $order->getExtra());
     }
+
+    public function testGetOrdersDisplayingParentOrderId(): void
+    {
+        $listOrders = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98")->listOrders();
+
+        static::assertSame(14, $listOrders[0]->getParentOrderId());
+        static::assertSame(14, $listOrders[1]->getParentOrderId());
+    }
+
+    public function testGetOrderByIdDisplayingParentOrderId(): void
+    {
+        $orderChild1 = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98")->getOrderById(15);
+        $orderChild2 = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98")->getOrderById(16);
+
+        static::assertSame(14, $orderChild1->getParentOrderId());
+        static::assertSame(14, $orderChild2->getParentOrderId());
+    }
 }

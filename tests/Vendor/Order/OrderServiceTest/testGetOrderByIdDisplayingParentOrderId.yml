@@ -1,0 +1,125 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 08 Feb 2021 09:55:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ae7296
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ae7296'
+            X-Robots-Tag: noindex
+            X-Request-Id: 80a1bf680458af68034208b235938d53
+        body: '{"id":2,"apiKey":"aelsqEK56XfuoOQIENyYi454NdH50Vq2Q7sQDuQg"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/15'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token aelsqEK56XfuoOQIENyYi454NdH50Vq2Q7sQDuQg'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 08 Feb 2021 09:55:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 71eb49
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/71eb49'
+            X-Robots-Tag: noindex
+            X-Request-Id: 7bb8be4ba2e6c85f9443a2c545582237
+        body: '{"order_id":15,"parent_order_id":14,"company_id":3,"user_id":3,"basket_id":"2819d7ef-55ed-46e8-8b30-19547d208cb9","total":0.5,"discount":0.0,"shipping_cost":0.0,"timestamp":1612773721,"status":"O","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"user@wizaplace.com","do_not_create_invoice":false,"decline_reason":null,"is_paid":false,"invoice_date":"","subscription_id":null,"carriage_paid":false,"extra":null,"products":{"3028931360":{"item_id":"3028931360","product_id":9,"price":0.5,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"20230495445","supplier_ref":"TEST-GEOLOC","product_name":"Product with valid geoloc","declination_id":"9_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":0.0103,"description":"TVA 2.1%","applies":{"P_3028931360":0.0103}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":null,"description":null}],"shipment_ids":[],"invoice_number":"","last_status_change":"2021-02-08T08:42:01+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_manual_payment_pending_manual_payment_processing","customer_total":0.5,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":0.4897,"taxes":0.0103,"including_taxes":0.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0042,"taxes":0.0008,"including_taxes":0.005},"vendor_share":{"excluding_taxes":0.4125,"taxes":0.0825,"including_taxes":0.495}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 08 Feb 2021 09:55:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 726d79
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/726d79'
+            X-Robots-Tag: noindex
+            X-Request-Id: a1abbcf27e3b54c24553f3b77e8bf8b5
+        body: '{"id":2,"apiKey":"aelsqEK56XfuoOQIENyYi454NdH50Vq2Q7sQDuQg"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/16'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token aelsqEK56XfuoOQIENyYi454NdH50Vq2Q7sQDuQg'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 08 Feb 2021 09:55:09 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4d8e36
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4d8e36'
+            X-Robots-Tag: noindex
+            X-Request-Id: 3deba6321068aa150b43177b2025420d
+        body: '{"order_id":16,"parent_order_id":14,"company_id":1,"user_id":3,"basket_id":"2819d7ef-55ed-46e8-8b30-19547d208cb9","total":197.0,"discount":0.0,"shipping_cost":0.0,"timestamp":1612773721,"status":"O","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","email":"user@wizaplace.com","do_not_create_invoice":false,"decline_reason":null,"is_paid":false,"invoice_date":"","subscription_id":null,"carriage_paid":false,"extra":null,"products":{"916694571":{"item_id":"916694571","product_id":18,"price":197.0,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0.00","shipped_amount":0,"shipment_amount":"1","selected_code":"8095010512263","supplier_ref":"","product_name":"omnis reiciendis veniam excepturi","declination_id":"18_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":4.0519,"description":"TVA 2.1%","applies":{"P_916694571":4.0519}}},"tax_subtotal":0.0,"need_shipping":true,"shipping":[{"shipping_id":1,"position":40,"status":"A","shipping":"TNT Express","delivery_time":"24h","rates":[{"amount":0,"value":null},{"amount":1,"value":null}],"specific_rate":false,"carriage_paid_threshold":null,"description":"<p>Code : TNT01<\/p>\r\n<p>Type : Livraison &agrave; domicile <br \/> Mode : EXP<\/p>\r\n<p>Tel : 08 25 03 30 33<\/p>\r\n<p>Email :<\/p>\r\n<p>Adresse : 58 Avenue Leclerc <br \/> 69007Lyon<br \/>France<\/p>\r\n<p>URL tracking : http:\/\/www.tnt.fr\/suivi<\/p>\r\n<p>Service : Transport express au domicile, au travail ou en relais colis.<\/p>"}],"shipment_ids":[],"invoice_number":"","last_status_change":"2021-02-08T08:42:01+01:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_manual_payment_pending_manual_payment_processing","customer_total":197.0,"marketplace_discount_total":0.0,"company_name":"Marchand de test","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":192.9481,"taxes":4.0519,"including_taxes":197.0},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":1.75,"taxes":0.35,"including_taxes":2.1},"vendor_share":{"excluding_taxes":162.4167,"taxes":32.4833,"including_taxes":194.9}}'
