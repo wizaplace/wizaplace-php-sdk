@@ -25,6 +25,8 @@ final class SearchProductAttribute
     private $values;
     /** @var AttributeType */
     private $type;
+    /** @var string|null */
+    private $code;
 
     /**
      * @internal
@@ -43,6 +45,7 @@ final class SearchProductAttribute
             $data['values'] ?? []
         );
         $this->type = AttributeType::createFromLegacyMapping($data['attribute']['type']);
+        $this->code = $data['attribute']['code'] ?? null;
     }
 
     /**
@@ -83,5 +86,10 @@ final class SearchProductAttribute
     public function getType(): AttributeType
     {
         return $this->type;
+    }
+
+    public function getCode(): ?string
+    {
+        return $this->code;
     }
 }

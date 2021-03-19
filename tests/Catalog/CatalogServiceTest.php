@@ -2922,4 +2922,19 @@ final class CatalogServiceTest extends ApiTestCase
 
         static::assertSame(0, $product->getOptions()[0]->getVariants()[0]->getPosition());
     }
+
+    public function testGetAndSearchProductDisplayingAttributesCode(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        //get product from catalog
+        $catalogProduct = $catalogService->getProductById('1');
+        static::assertSame('code color', $catalogProduct->getAttributes()[0]->getCode());
+
+        //get product from search
+        $result = $catalogService->search('Z11 Plus Boîtier PC en Acier ATX');
+        $searchProduct = $result->getProducts()[0];
+        static::assertSame('1', $searchProduct->getId());
+        static::assertSame('code color', $searchProduct->getAttributes()[0]->getCode());
+    }
 }

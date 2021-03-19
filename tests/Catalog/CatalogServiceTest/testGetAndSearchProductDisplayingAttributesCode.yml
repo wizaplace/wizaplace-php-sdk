@@ -1,0 +1,61 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 10 Mar 2021 11:05:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a561a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a561a3'
+            X-Robots-Tag: noindex
+            X-Request-Id: c6d62fe62e9b305f07a5cebe23c314aa
+        body: '{"id":1,"code":"978020137962","supplierReference":"INFO-001","name":"Z11 Plus Bo\u00eetier PC en Acier ATX","url":"http:\/\/wizaplace.loc\/it\/test-product-slug.html","shortDescription":"","description":"","slug":"test-product-slug","minPrice":67.9,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":1.23,"averageRating":3,"averageRatingFloat":2.5,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"geolocation":null,"createdAt":"2021-03-08T12:34:12+00:00","updatedAt":"2021-03-09T12:36:53+00:00","availableSince":"2013-12-06T00:00:00+01:00","infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"1_0","code":"978020137962","isAvailable":true,"supplierReference":"INFO-001","price":67.9,"maxPriceAdjustment":null,"originalPrice":67.9,"crossedOutPrice":null,"prices":{"priceWithTaxes":67.9,"priceWithoutVat":66.5,"vat":1.4},"greenTax":0,"amount":11,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5},"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"attributes":[{"id":10,"name":"color","code":"code color","values":[{"id":null,"attributeId":10,"name":"red","slug":"","image":null}],"value":"red","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT","isUsedForRecommendations":false},{"id":3,"name":"Commentaire","code":"code commentaire 222","values":[{"id":null,"attributeId":3,"name":"commentaire :p","slug":"","image":null}],"value":"commentaire :p","valueIds":[],"children":[],"subfeatures":[],"imageUrls":[],"type":"FREE_TEXT","isUsedForRecommendations":false},{"id":1,"name":"Couleur","code":"code couleur 1","values":[{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc-2","image":null}],"value":["Blanc"],"valueIds":[2],"children":[],"subfeatures":[],"imageUrls":[],"type":"CHECKBOX_MULTIPLE","isUsedForRecommendations":false}],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[{"feature_id":"10","value":"red","value_int":null,"variant_id":"0","feature_type":"T","description":"color","variant":null,"parent_id":"0"},{"feature_id":"3","value":"commentaire :p","value_int":null,"variant_id":"0","feature_type":"T","description":"Commentaire","variant":null,"parent_id":"0"},{"feature_id":"1","value":"","value_int":null,"variant_id":"2","feature_type":"M","description":"Couleur","variant":"Blanc","parent_id":"0","variants":{"2":{"value":"","value_int":null,"variant_id":"2","variant":"Blanc"}}}],"isSubscription":false,"isRenewable":false}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=Z11%20Plus%20Bo%C3%AEtier%20PC%20en%20Acier%20ATX'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 10 Mar 2021 11:05:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: eb1b06
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eb1b06'
+            X-Robots-Tag: noindex
+            X-Request-Id: ce2d37cb9628893849d4e5dc0216902f
+        body: '{"results":[{"productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","code":"978020137962","productTemplateType":"product","slug":"test-product-slug","minimumPrice":67.9,"maxPriceAdjustment":null,"crossedOutPrice":null,"isAvailable":true,"createdAt":1615206852,"updatedAt":1615293413,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"url":"\/it\/test-product-slug.html","subtitle":"","shortDescription":"","averageRating":3,"averageRatingFloat":2.5,"attributes":[{"attribute":{"id":10,"name":"color","type":"T","position":0,"parentId":null,"code":"code color","isUsedForRecommendations":false},"values":[{"id":null,"attributeId":10,"name":"red","slug":"","image":null}]},{"attribute":{"id":3,"name":"Commentaire","type":"T","position":0,"parentId":null,"code":"code commentaire 222","isUsedForRecommendations":false},"values":[{"id":null,"attributeId":3,"name":"commentaire :p","slug":"","image":null}]},{"attribute":{"id":1,"name":"Couleur","type":"M","position":0,"parentId":null,"code":"code couleur 1","isUsedForRecommendations":false},"values":[{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc-2","image":null}]}],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"geolocation":null,"geolocations":null,"mainDeclination":{"id":"1_0"},"offers":[{"productId":1,"companyId":3,"price":67.9,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":67.9,"excludingTaxes":66.5,"taxes":1.4}]}],"isSubscription":false,"isRenewable":false}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gories","values":{"3":{"label":"Informatique","count":1,"position":0}},"isNumeric":false},{"name":"1","label":"Couleur","values":{"2":{"label":"Blanc","count":1,"position":0}},"isNumeric":false},{"name":"2","label":"Taille","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"3","label":"Commentaire","values":{"commentaire :p":{"label":"commentaire :p","count":1,"position":0}},"isNumeric":false},{"name":"5","label":"Couleur secondaire","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"6","label":"Pointure","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"7","label":"Compl\u00e9ment adresse","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"9","label":"Marque","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"10","label":"color","values":{"red":{"label":"red","count":1,"position":0}},"isNumeric":false},{"name":"11","label":"Couleur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"13","label":"Hauteur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false}]}'
