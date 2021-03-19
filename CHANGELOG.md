@@ -1,7 +1,14 @@
 
 # Changelog
 
+## 1.118.2
+
+### Bugfixes
+- Attribute code is now displayed in product search in `Catalog\SearchProductAttribute.php `
+
 ## 1.118.1
+
+### New features
 
 - Added parameter `quantity` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
 - Added `\Wizaplace\SDK\Subscription\SubscriptionPriceTier`
