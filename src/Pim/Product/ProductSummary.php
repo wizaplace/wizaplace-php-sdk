@@ -86,6 +86,18 @@ class ProductSummary
     /** @var ProductInventory[] */
     private $inventory;
 
+    /** @var null|string */
+    private $slug;
+
+    /** @var null|string */
+    private $seoTitle;
+
+    /** @var null|string */
+    private $seoDescription;
+
+    /** @var null|string */
+    private $seoKeywords;
+
     /**
      * @internal
      *
@@ -131,6 +143,10 @@ class ProductSummary
             },
             $data['inventory'] ?? []
         );
+        $this->slug = $data['slug'] ?? null;
+        $this->seoTitle = $data['seoTitle'] ?? null;
+        $this->seoDescription = $data['seoDescription'] ?? null;
+        $this->seoKeywords = $data['seoKeywords'] ?? null;
     }
 
     /**
@@ -304,5 +320,29 @@ class ProductSummary
     public function getInventory(): array
     {
         return $this->inventory;
+    }
+
+    /** @return null|string */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /** @return null|string */
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle;
+    }
+
+    /** @return null|string */
+    public function getSeoDescription(): ?string
+    {
+        return $this->seoDescription;
+    }
+
+    /** @return null|string */
+    public function getSeoKeywords(): ?string
+    {
+        return $this->seoKeywords;
     }
 }

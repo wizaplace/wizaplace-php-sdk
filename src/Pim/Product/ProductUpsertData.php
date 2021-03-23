@@ -107,6 +107,18 @@ abstract class ProductUpsertData
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|string */
+    private $slug;
+
+    /** @var null|string */
+    private $seoTitle;
+
+    /** @var null|string */
+    private $seoDescription;
+
+    /** @var null|string */
+    private $seoKeywords;
+
     /**
      * @param string $code
      * @return $this
@@ -412,6 +424,78 @@ abstract class ProductUpsertData
         return $this;
     }
 
+    /** @return null|string */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string|null $slug
+     *
+     * @return ProductUpsertData
+     */
+    public function setSlug(?string $slug): self
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /** @return null|string */
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle;
+    }
+
+    /**
+     * @param string|null $seoTitle
+     *
+     * @return ProductUpsertData
+     */
+    public function setSeoTitle(?string $seoTitle): self
+    {
+        $this->seoTitle = $seoTitle;
+
+        return $this;
+    }
+
+    /** @return null|string */
+    public function getSeoDescription(): ?string
+    {
+        return $this->seoDescription;
+    }
+
+    /**
+     * @param string|null $seoDescription
+     *
+     * @return ProductUpsertData
+     */
+    public function setSeoDescription(?string $seoDescription): self
+    {
+        $this->seoDescription = $seoDescription;
+
+        return $this;
+    }
+
+    /** @return null|string */
+    public function getSeoKeywords(): ?string
+    {
+        return $this->seoKeywords;
+    }
+
+    /**
+     * @param string|null $seoKeywords
+     *
+     * @return ProductUpsertData
+     */
+    public function setSeoKeywords(?string $seoKeywords): self
+    {
+        $this->seoKeywords = $seoKeywords;
+
+        return $this;
+    }
+
     /**
      * @internal
      * @throws SomeParametersAreInvalid
@@ -473,6 +557,10 @@ abstract class ProductUpsertData
             'crossedOutPrice',
             'isSubscription',
             'isRenewable',
+            'slug',
+            'seoTitle',
+            'seoDescription',
+            'seoKeywords',
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -638,6 +726,22 @@ abstract class ProductUpsertData
 
         if (\is_bool($this->isRenewable)) {
             $data['is_renewable'] = $this->isRenewable;
+        }
+
+        if (\is_string($this->slug) === true) {
+            $data['slug'] = $this->slug;
+        }
+
+        if (\is_string($this->seoTitle) === true) {
+            $data['seoTitle'] = $this->seoTitle;
+        }
+
+        if (\is_string($this->seoDescription) === true) {
+            $data['seoDescription'] = $this->seoDescription;
+        }
+
+        if (\is_string($this->seoKeywords) === true) {
+            $data['seoKeywords'] = $this->seoKeywords;
         }
 
         if (\is_string($this->productTemplateType) === true) {

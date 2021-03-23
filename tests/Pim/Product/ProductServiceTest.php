@@ -1385,11 +1385,11 @@ final class ProductServiceTest extends ApiTestCase
     // Subscription Feature flag is supposed to be activated
     public function testCreateAndUpdateProductWithSubscription(): void
     {
-        $service = $this->buildProductService("vendor@wizaplace.com", "password");
+        $service = $this->buildProductService("vendor@wizaplace.com", "Windows.98");
 
         $id = $service->createProduct(
             (new CreateProductCommand())
-                ->setCode("product_with_sub_update")
+                ->setCode("product_with_sub_update1")
                 ->setSupplierReference('product_with_sub_ref')
                 ->setName("Product with subscription")
                 ->setMainCategoryId(1)
@@ -1540,6 +1540,31 @@ final class ProductServiceTest extends ApiTestCase
         static::assertNotEmpty($attachments[0]->getId());
     }
 
+    public function testGetSeoInformation(): void
+    {
+        $data = $this->postProductData();
+
+        $productService = $this->buildProductService('vendor@wizaplace.com', 'Windows.98');
+        $productId = $productService->createProduct($data);
+
+        $dataUpdate = (new UpdateProductCommand($productId))
+            ->setSlug('slug')
+            ->setSeoTitle('Seo Title')
+            ->setSeoDescription('Seo Description')
+            ->setSeoKeywords('Seo Keywords');
+
+        $productService = $this->buildProductService('admin@wizaplace.com', 'Windows.98');
+
+        $newProductId = $productService->updateProduct($dataUpdate);
+        static::assertSame($productId, $newProductId);
+
+        $product = $productService->getProductById($productId);
+        static::assertSame('slug', $product->getSlug());
+        static::assertSame('Seo Title', $product->getSeoTitle());
+        static::assertSame('Seo Description', $product->getSeoDescription());
+        static::assertSame('Seo Keywords', $product->getSeoKeywords());
+    }
+
     private function buildProductService($userEmail = 'admin@wizaplace.com', $userPassword = 'password'): ProductService
     {
         $apiClient = $this->buildApiClient();
@@ -1553,5 +1578,47 @@ final class ProductServiceTest extends ApiTestCase
         /** @var ClassLoader $loader */
         $loader = require __DIR__ . '/../../../vendor/autoload.php';
         AnnotationRegistry::registerLoader([$loader, 'loadClass']);
+    }
+
+    private function postProductData(): CreateProductCommand
+    {
+        return (new CreateProductCommand())
+            ->setCode("code_full_A_111")
+            ->setGreenTax(0.1)
+            ->setIsBrandNew(true)
+            ->setName("Full product")
+            ->setSupplierReference('supplierref_full')
+            ->setStatus(ProductStatus::ENABLED())
+            ->setMainCategoryId(4)
+            ->setFullDescription("super full description")
+            ->setShortDescription("super short description")
+            ->setTaxIds([1, 2])
+            ->setProductTemplateType('product')
+            ->setWeight(0.2)
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([2 => 5, 3 => 7]))
+                        ->setCode('code_full_declA_1')
+                        ->setPrice(3.5)
+                        ->setQuantity(12)
+                        ->setSupplierReference('SUPP_REF_02')
+                        ->setPriceTiers(
+                            [
+                                [
+                                    'lowerLimit' => 0,
+                                    'price' => 2.7,
+                                ],
+                                [
+                                    'lowerLimit' => 50,
+                                    'price' => 2.5,
+                                ],
+                            ]
+                        ),
+                    (new ProductDeclinationUpsertData([2 => 6, 3 => 9]))
+                        ->setPrice(100.0)
+                        ->setCrossedOutPrice(1000.0)
+                        ->setQuantity(3),
+                ]
+            );
     }
 }

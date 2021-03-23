@@ -1,6 +1,27 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getSlug`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getSeoTitle`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getSeoDescription`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getSeoKeywords`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getSlug`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getSeoTitle`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getSeoDescription`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getSeoKeywords`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::getSlug`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::getSeoTitle`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::getSeoDescription`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::getSeoKeywords`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setSlug`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setSeoTitle`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setSeoDescription`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setSeoKeywords`
+
 ## 1.119.3
 
 ### New features

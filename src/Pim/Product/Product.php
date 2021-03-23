@@ -51,6 +51,18 @@ final class Product extends ProductSummary
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|string */
+    private $slug;
+
+    /** @var null|string */
+    private $seoTitle;
+
+    /** @var null|string */
+    private $seoDescription;
+
+    /** @var null|string */
+    private $seoKeywords;
+
     /**
      * @internal
      *
@@ -86,6 +98,10 @@ final class Product extends ProductSummary
         $this->productTemplateType = $data['product_template_type'] ?? null;
         $this->isSubscription = $data['is_subscription'] ?? null;
         $this->isRenewable = $data['is_renewable'] ?? null;
+        $this->slug = $data['slug'] ?? null;
+        $this->seoTitle = $data['seoTitle'] ?? null;
+        $this->seoDescription = $data['seoDescription'] ?? null;
+        $this->seoKeywords = $data['seoKeywords'] ?? null;
     }
 
     /**
@@ -184,5 +200,29 @@ final class Product extends ProductSummary
     private static function unserializeImage(array $imageData): UriInterface
     {
         return new Uri($imageData['detailed']['image_path']);
+    }
+
+    /** @return null|string */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /** @return null|string */
+    public function getSeoTitle(): ?string
+    {
+        return $this->seoTitle;
+    }
+
+    /** @return null|string */
+    public function getSeoDescription(): ?string
+    {
+        return $this->seoDescription;
+    }
+
+    /** @return null|string */
+    public function getSeoKeywords(): ?string
+    {
+        return $this->seoKeywords;
     }
 }
