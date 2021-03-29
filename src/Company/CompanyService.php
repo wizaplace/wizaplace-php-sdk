@@ -25,7 +25,7 @@ use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
  * Class CompanyService
  * @package Wizaplace\SDK\Company
  */
-final class CompanyService extends AbstractService
+class CompanyService extends AbstractService
 {
     use AssertRessourceNotFoundTrait;
 

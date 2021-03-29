@@ -11,7 +11,7 @@ namespace Wizaplace\SDK\AuthLog;
 
 use Wizaplace\SDK\AbstractService;
 
-final class AuthLogService extends AbstractService
+class AuthLogService extends AbstractService
 {
     /**
      * Get AuhtLog

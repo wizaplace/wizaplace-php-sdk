@@ -19,7 +19,7 @@ use function theodorejb\polycast\to_string;
  * Class ImageService
  * @package Wizaplace\SDK\Image
  */
-final class ImageService extends AbstractService implements ImageServiceInterface
+class ImageService extends AbstractService implements ImageServiceInterface
 {
     /**
      * @inheritdoc

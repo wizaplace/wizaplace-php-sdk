@@ -55,7 +55,7 @@ use function theodorejb\polycast\to_string;
  *     // The order is now created, it needs to be paid
  *     // Redirect the user to the payment provider's form : $paymentInfo->getRedirectUrl();
  */
-final class BasketService extends AbstractService
+class BasketService extends AbstractService
 {
     private const QUANTITY = 'quantity';
 

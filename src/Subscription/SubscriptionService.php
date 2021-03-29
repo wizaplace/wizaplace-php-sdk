@@ -19,7 +19,7 @@ use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Traits\AssertRessourceForbiddenOrNotFoundTrait;
 use Wizaplace\SDK\Vendor\Order\Order as VendorOrder;
 
-final class SubscriptionService extends AbstractService
+class SubscriptionService extends AbstractService
 {
     use AssertRessourceForbiddenOrNotFoundTrait;
 

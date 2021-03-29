@@ -24,7 +24,7 @@ use function theodorejb\polycast\to_string;
  *
  * This service helps managing the favorite products of a user.
  */
-final class FavoriteService extends AbstractService
+class FavoriteService extends AbstractService
 {
     /**
      * Return all the products saved as favorites

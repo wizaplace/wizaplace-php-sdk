@@ -15,7 +15,7 @@ use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Traits\AssertRessourceNotFoundTrait;
 
-final class CreditCardService extends AbstractService
+class CreditCardService extends AbstractService
 {
     use AssertRessourceNotFoundTrait;
 

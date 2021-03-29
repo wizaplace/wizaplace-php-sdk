@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\NotFound;
 
-final class OrderAttachmentService extends AbstractService
+class OrderAttachmentService extends AbstractService
 {
     public function getOrderAttachment(int $orderId, string $attachmentId): AttachmentsOrder
     {

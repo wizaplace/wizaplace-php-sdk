@@ -25,7 +25,7 @@ use function theodorejb\polycast\to_string;
  * Class CatalogService
  * @package Wizaplace\SDK\Catalog
  */
-final class CatalogService extends AbstractService implements CatalogServiceInterface
+class CatalogService extends AbstractService implements CatalogServiceInterface
 {
     use AssertRessourceNotFoundTrait;
 

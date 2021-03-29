@@ -18,7 +18,7 @@ use function theodorejb\polycast\to_string;
  * Class SeoService
  * @package Wizaplace\SDK\Seo
  */
-final class SeoService extends AbstractService
+class SeoService extends AbstractService
 {
     private const OFFSET = 0;
     private const LIMIT = 100;

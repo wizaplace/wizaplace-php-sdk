@@ -20,7 +20,7 @@ use Wizaplace\SDK\Exception\FileNotFound;
  * Class EximService
  * @package Wizaplace\SDK\Exim
  */
-final class EximService extends AbstractService
+class EximService extends AbstractService
 {
     /**
      * @throws AuthenticationRequired

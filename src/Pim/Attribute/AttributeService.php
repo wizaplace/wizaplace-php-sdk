@@ -16,7 +16,7 @@ use Wizaplace\SDK\AbstractService;
  * Class AttributeService
  * @package Wizaplace\SDK\Pim\Attribute
  */
-final class AttributeService extends AbstractService
+class AttributeService extends AbstractService
 {
     /**
      * @param int $productId

@@ -17,7 +17,7 @@ use Wizaplace\SDK\Exception\NotFound;
  * Class OptionService
  * @package Wizaplace\SDK\Pim\Option
  */
-final class OptionService extends AbstractService
+class OptionService extends AbstractService
 {
     /**
      * @param int $categoryId

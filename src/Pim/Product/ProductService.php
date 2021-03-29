@@ -23,7 +23,7 @@ use function theodorejb\polycast\to_int;
  * Class ProductService
  * @package Wizaplace\SDK\Pim\Product
  */
-final class ProductService extends AbstractService
+class ProductService extends AbstractService
 {
     /**
      * @param int $productId

@@ -11,7 +11,7 @@ namespace Wizaplace\SDK\Language;
 
 use Wizaplace\SDK\AbstractService;
 
-final class LanguageService extends AbstractService
+class LanguageService extends AbstractService
 {
     /**
      * @return Language[]

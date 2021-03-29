@@ -29,7 +29,7 @@ use Wizaplace\SDK\Subscription\SubscriptionSummary;
  *
  * If you want to *create* an order, you need to use the BasketService.
  */
-final class OrderService extends AbstractService
+class OrderService extends AbstractService
 {
     /**
      * List the orders of the current user.

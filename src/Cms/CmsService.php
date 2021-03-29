@@ -19,7 +19,7 @@ use function theodorejb\polycast\to_string;
  * Class CmsService
  * @package Wizaplace\SDK\Cms
  */
-final class CmsService extends AbstractService
+class CmsService extends AbstractService
 {
     /**
      * @return Menu[]

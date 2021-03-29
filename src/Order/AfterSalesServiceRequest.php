@@ -15,7 +15,7 @@ use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
  * Class AfterSalesServiceRequest
  * @package Wizaplace\SDK\Order
  */
-final class AfterSalesServiceRequest
+class AfterSalesServiceRequest
 {
     /** @var int */
     private $orderId;

@@ -17,7 +17,7 @@ use Wizaplace\SDK\AbstractService;
  * Class TranslationService
  * @package Wizaplace\SDK\Translation
  */
-final class TranslationService extends AbstractService
+class TranslationService extends AbstractService
 {
     /**
      * @param string|StreamInterface $xliffCatalog

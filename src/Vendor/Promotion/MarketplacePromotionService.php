@@ -13,7 +13,7 @@ namespace Wizaplace\SDK\Vendor\Promotion;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 
-final class MarketplacePromotionService extends AbstractService
+class MarketplacePromotionService extends AbstractService
 {
     public function getMarketplacePromotionsList(
         int $offset = 0,

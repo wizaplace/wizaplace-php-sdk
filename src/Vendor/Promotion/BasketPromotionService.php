@@ -16,7 +16,7 @@ use Wizaplace\SDK\AbstractService;
  * Class BasketPromotionService
  * @package Wizaplace\SDK\Vendor\Promotion
  */
-final class BasketPromotionService extends AbstractService
+class BasketPromotionService extends AbstractService
 {
     /**
      * @param string $promotionId

@@ -16,7 +16,7 @@ use Wizaplace\SDK\AbstractService;
  * Class CatalogPromotionService
  * @package Wizaplace\SDK\Vendor\Promotion
  */
-final class CatalogPromotionService extends AbstractService
+class CatalogPromotionService extends AbstractService
 {
     /**
      * @param string $promotionId

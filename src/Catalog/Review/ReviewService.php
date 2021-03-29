@@ -40,7 +40,7 @@ use Wizaplace\SDK\Exception\ReviewsAreDisabled;
  *      able to post a review.
  *      $reviewService->reviewCompany($companyId, $formData['message'], $formData['rating']);
  */
-final class ReviewService extends AbstractService
+class ReviewService extends AbstractService
 {
     private const COMPANY_ENDPOINT = "catalog/companies/%s/reviews";
     private const PRODUCT_ENDPOINT = "catalog/products/%s/reviews";

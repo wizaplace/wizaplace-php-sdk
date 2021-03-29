@@ -18,7 +18,7 @@ use Wizaplace\SDK\Exception\Conflict;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
-final class CommissionService extends AbstractService
+class CommissionService extends AbstractService
 {
     public function addMarketplaceCommission(Commission $commission): string
     {

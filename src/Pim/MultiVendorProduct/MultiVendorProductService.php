@@ -24,7 +24,7 @@ use function theodorejb\polycast\to_string;
  * Class MultiVendorProductService
  * @package Wizaplace\SDK\Pim\MultiVendorProduct
  */
-final class MultiVendorProductService extends AbstractService
+class MultiVendorProductService extends AbstractService
 {
     /**
      * @param string $id

@@ -18,7 +18,7 @@ use function theodorejb\polycast\to_string;
  * Class BannerService
  * @package Wizaplace\SDK\Cms
  */
-final class BannerService extends AbstractService
+class BannerService extends AbstractService
 {
     /**
      * Get the banners that should display on the home page.

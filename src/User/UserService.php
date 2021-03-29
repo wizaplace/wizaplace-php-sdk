@@ -28,7 +28,7 @@ use function theodorejb\polycast\to_string;
  * Class UserService
  * @package Wizaplace\SDK\User
  */
-final class UserService extends AbstractService
+class UserService extends AbstractService
 {
     use AssertRessourceNotFoundTrait;
 

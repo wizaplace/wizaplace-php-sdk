@@ -16,7 +16,7 @@ use Wizaplace\SDK\AbstractService;
  * Class MondialRelayService
  * @package Wizaplace\SDK\Shipping
  */
-final class MondialRelayService extends AbstractService
+class MondialRelayService extends AbstractService
 {
     /**
      * @param string $zipCode

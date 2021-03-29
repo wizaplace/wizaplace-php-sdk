@@ -13,7 +13,7 @@ namespace Wizaplace\SDK\Payment;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Basket\Payment;
 
-final class PaymentService extends AbstractService
+class PaymentService extends AbstractService
 {
     /** @return Payment[] */
     public function getPaymentMethods(): array
