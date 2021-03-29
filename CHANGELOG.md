@@ -1,6 +1,42 @@
 
 # Changelog
 
+## 1.118.4
+
+### Changed
+- The following services are no longer final to allow to mock them in unit tests.
+  * AuthLog/AuthLogService.php
+  * Basket/BasketService.php
+  * Catalog/CatalogService.php
+  * Catalog/Review/ReviewService.php
+  * Cms/BannerService.php
+  * Cms/CmsService.php
+  * Commission/CommissionService.php
+  * Company/CompanyService.php
+  * CreditCard/CreditCardService.php
+  * Discussion/DiscussionService.php
+  * Exim/EximService.php
+  * Favorite/FavoriteService.php
+  * Image/ImageService.php
+  * Language/LanguageService.php
+  * MailingList/MailingListService.php
+  * Order/AfterSalesServiceRequest.php
+  * Order/OrderAttachmentService.php
+  * Order/OrderService.php
+  * Payment/PaymentService.php
+  * Pim/Attribute/AttributeService.php
+  * Pim/MultiVendorProduct/MultiVendorProductService.php
+  * Pim/Option/OptionService.php
+  * Pim/Product/ProductService.php
+  * Seo/SeoService.php
+  * Shipping/MondialRelayService.php
+  * Subscription/SubscriptionService.php
+  * Translation/TranslationService.php
+  * User/UserService.php
+  * Vendor/Promotion/BasketPromotionService.php
+  * Vendor/Promotion/CatalogPromotionService.php
+  * Vendor/Promotion/MarketplacePromotionService.php
+
 ## 1.118.2
 
 ### Bugfixes
