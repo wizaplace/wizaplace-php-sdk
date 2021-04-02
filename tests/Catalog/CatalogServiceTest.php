@@ -151,6 +151,16 @@ final class CatalogServiceTest extends ApiTestCase
         }
     }
 
+    public function testGetProductByIdWithIsUpToDate(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $product = $catalogService->getProductById('1');
+        static::assertSame(true, $product->isUpToDate());
+
+        $product = $catalogService->getProductById('2');
+        static::assertSame(false, $product->isUpToDate());
+    }
+
     public function testGetDeclinationByID(): void
     {
         $catalogService = $this->buildCatalogService();

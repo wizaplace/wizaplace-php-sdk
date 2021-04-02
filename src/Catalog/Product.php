@@ -137,6 +137,9 @@ final class Product
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var bool */
+    private $isUpToDate;
+
     /**
      * @internal
      *
@@ -253,6 +256,7 @@ final class Product
         }
 
         $this->productTemplateType = $data['productTemplateType'] ?? null;
+        $this->isUpToDate = $data['isUpToDate'] ?? true;
     }
 
     /**
@@ -627,5 +631,11 @@ final class Product
     public function isRenewable(): ?bool
     {
         return $this->isRenewable;
+    }
+
+    /** @return bool */
+    public function isUpToDate(): bool
+    {
+        return $this->isUpToDate;
     }
 }

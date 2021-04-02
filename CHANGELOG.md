@@ -1,6 +1,13 @@
 
 # Changelog
 
+
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Pim\Product\Product::isUpToDate`
+
 ## 1.118.4
 
 ### Changed
