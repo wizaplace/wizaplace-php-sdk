@@ -2238,4 +2238,27 @@ final class UserServiceTest extends ApiTestCase
         $user = $this->userService->getProfileFromId($userId);
         static::assertSame(["fields3" => "value3"], $user->getExtra());
     }
+
+    public function testUserRegisterWithLangEn(): void
+    {
+        $userEmail = 'user740@example.com';
+        $userPassword = static::VALID_PASSWORD;
+        $userLang = 'en';
+
+        $userId = $this->userService->register(
+            $userEmail,
+            $userPassword,
+            '',
+            '',
+            null,
+            null,
+            $userLang
+        );
+
+        $this->client->authenticate($userEmail, $userPassword);
+        $user = $this->userService->getProfileFromId($userId);
+
+        static::assertSame($userEmail, $user->getEmail());
+        static::assertSame($userLang, $user->getLanguage());
+    }
 }
