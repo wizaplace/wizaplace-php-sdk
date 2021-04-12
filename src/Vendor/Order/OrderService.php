@@ -853,4 +853,23 @@ class OrderService extends AbstractService
             }
         }
     }
+
+    /** return OrderAction[] */
+    public function getOrderActions(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+        $data = $this->client->get(
+            \sprintf(
+                'orders/%d/actions',
+                $orderId
+            )
+        );
+
+        return \array_map(
+            static function (array $orderData): OrderAction {
+                return new OrderAction($orderData);
+            },
+            $data
+        );
+    }
 }

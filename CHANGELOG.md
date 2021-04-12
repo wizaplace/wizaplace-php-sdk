@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderAction`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderActions`
 
 ## 1.118.7
 

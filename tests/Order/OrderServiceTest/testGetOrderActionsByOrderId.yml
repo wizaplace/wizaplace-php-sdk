@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 10 Mar 2021 09:49:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5acd10
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5acd10'
+            X-Robots-Tag: noindex
+            X-Request-Id: b2fe1208d46909c36b2035b70c9c0199
+        body: '{"id":2,"apiKey":"0tmIjDDSGvjwHDakhQQx9RELP9WBteHEhZa19I3Q"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/1/actions'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token 0tmIjDDSGvjwHDakhQQx9RELP9WBteHEhZa19I3Q'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 10 Mar 2021 09:49:11 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 363ee5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/363ee5'
+            X-Robots-Tag: noindex
+            X-Request-Id: cd3076d2842b5991c97394598b1951d2
+        body: '[{"id":1,"orderId":1,"status":"O","description":"Paiement en cours","userId":null,"userName":"Auto","date":"2021-03-10T09:56:00+01:00"},{"id":2,"orderId":1,"status":"I","description":"Annul\u00e9e","userId":2,"userName":"Bender Rodriguez","date":"2021-03-10T09:56:00+01:00"}]'

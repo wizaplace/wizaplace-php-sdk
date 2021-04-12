@@ -12,7 +12,6 @@ namespace Wizaplace\SDK\Tests\Order;
 use DateTimeImmutable;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Response;
-use Symfony\Component\HttpFoundation\File\File;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Exception\AccessDenied;
@@ -38,8 +37,6 @@ use Wizaplace\SDK\Order\ReturnItem;
 use Wizaplace\SDK\Pim\Option\SystemOption;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
-use Wizaplace\SDK\Vendor\Order\OrderAttachment;
-use Wizaplace\SDK\Vendor\Order\OrderAttachmentType;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus as VendorOrderStatus;
 
@@ -901,5 +898,28 @@ final class OrderServiceTest extends ApiTestCase
         $apiClient->authenticate($email, $password);
 
         return new OrderAttachmentService($apiClient);
+    }
+
+    public function testGetOrderActionsByOrderId(): void
+    {
+        $apiAdmin = $this->buildApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        $orderService = new VendorOrderService($apiAdmin);
+        $orderActions = $orderService->getOrderActions(1);
+
+        static::assertCount(2, $orderActions);
+        $firstOrderAction = \reset($orderActions);
+
+        static::assertSame(1, $firstOrderAction->getOrderId());
+        static::assertSame(
+            VendorOrderStatus::STANDBY_BILLING()->getValue(),
+            $firstOrderAction->getStatus()->getValue()
+        );
+
+        static::assertSame('Paiement en cours', $firstOrderAction->getDescription());
+        static::assertNull($firstOrderAction->getUserId());
+        static::assertSame('Auto', $firstOrderAction->getUserName());
+        static::assertInstanceOf(\DateTimeImmutable::class, $firstOrderAction->getDate());
     }
 }
