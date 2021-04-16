@@ -106,7 +106,7 @@
             Authorization: 'token wzk+FxT2psIrrjm2JfuWpArcPOdla4utiYNpqCAq'
             VCR-index: '3'
             Accept: null
-        body: '{"email":"user1079@example.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"intraEuropeanCommunityVAT":"X1234567890"}'
+        body: '{"email":"user1079@example.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"intraEuropeanCommunityVAT":"X1234567890","nationalities":[]}'
     response:
         status:
             http_version: '1.1'

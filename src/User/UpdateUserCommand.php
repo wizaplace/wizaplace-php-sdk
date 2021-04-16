@@ -68,6 +68,9 @@ final class UpdateUserCommand
     /** @var string|null */
     private $lang;
 
+    /** @var Nationality[]|null */
+    private $nationalities;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -386,6 +389,57 @@ final class UpdateUserCommand
     public function getLanguage(): ?string
     {
         return $this->lang;
+    }
+
+    /** @return Nationality[] */
+    public function getNationalities(): ?array
+    {
+        return $this->nationalities;
+    }
+
+    /** @params Nationality[] $nationalities */
+    public function setNationalities(array $nationalities): self
+    {
+        $this->nationalities = $nationalities;
+
+        return $this;
+    }
+
+    public function addNationality(Nationality $nationality): self
+    {
+        if (\in_array($nationality->getCountryCodeA3(), $this->getCodesA3FromNationalities()) === false) {
+            $this->nationalities[] = $nationality;
+        }
+
+        return $this;
+    }
+
+    /** @return string[] */
+    public function getCodesA3FromNationalities(): array
+    {
+        if ($this->getNationalities() === null) {
+            return [];
+        }
+
+        return  \array_map(
+            function ($nationality) {
+                return $nationality->getCountryCodeA3();
+            },
+            $this->getNationalities()
+        );
+    }
+
+    /** @params string[] $codesA3 */
+    public function setNationalitiesFromCodesA3(array $codesA3): self
+    {
+        $this->nationalities = \array_map(
+            function ($codeA3) {
+                return new Nationality($codeA3);
+            },
+            $codesA3
+        );
+
+        return $this;
     }
 
     /**

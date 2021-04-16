@@ -1,6 +1,25 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\User\Nationality`
+- Added `Wizaplace\SDK\User\Nationality::setCountryCodeA3`
+- Added `Wizaplace\SDK\User\Nationality::getCountryCodeA3`
+
+- Added `Wizaplace\SDK\User\RegisterUserCommand::getNationalities`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::setNationalities`
+- Added `Wizaplace\SDK\User\RegisterUserCommand::addNationality`
+
+- Added `Wizaplace\SDK\User\UpdateUserCommand::getNationalities`
+- Added `Wizaplace\SDK\User\UpdateUserCommand::setNationalities`
+
+- Added `Wizaplace\SDK\User\User::getNationalities`
+- Added `Wizaplace\SDK\User\User::setNationalities`
+- Added `Wizaplace\SDK\User\User::addNationality`
+
 ## 1.118.9
 
 ### New features

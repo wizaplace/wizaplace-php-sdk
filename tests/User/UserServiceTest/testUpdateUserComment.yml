@@ -106,7 +106,7 @@
             Authorization: 'token 2WHueEFxFai5k9mxeCjZlZgAfLFu8UjKkExODATa'
             VCR-index: '3'
             Accept: null
-        body: '{"email":"user1295@test.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"comment":"confirmed client"}'
+        body: '{"email":"user1295@test.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"comment":"confirmed client","nationalities":[]}'
     response:
         status:
             http_version: '1.1'

@@ -1,0 +1,164 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 07 Apr 2021 14:29:28 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 70ea88
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/70ea88'
+            X-Robots-Tag: noindex
+            X-Request-Id: bae3ab46b417f6fffe26650805b47745
+        body: '{"id":2,"apiKey":"peXdlGqiMUWOE6OScLVP8WjkPbfK4S+6HB5IRnCD"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
+            Authorization: 'token peXdlGqiMUWOE6OScLVP8WjkPbfK4S+6HB5IRnCD'
+            VCR-index: '1'
+            Accept: null
+        body: 'email=user562%40example.com&password=password&firstName=Jean&lastName=Paul'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Wed, 07 Apr 2021 14:29:29 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 635b07
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/635b07'
+            X-Robots-Tag: noindex
+            Expires: 'Wed, 07 Apr 2021 14:29:29 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22635b07%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 89ff19a7b8d2a2f5ad1e3778992ee2df
+        body: '{"id":210413}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/210413'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
+            Authorization: 'token peXdlGqiMUWOE6OScLVP8WjkPbfK4S+6HB5IRnCD'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 07 Apr 2021 14:29:29 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f89164
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f89164'
+            X-Robots-Tag: noindex
+            X-Request-Id: 28cf3a388721b1b208d4e0c9e2d20d6b
+        body: '{"id":210413,"title":null,"email":"user562@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[]}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/users/210413'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
+            Authorization: 'token peXdlGqiMUWOE6OScLVP8WjkPbfK4S+6HB5IRnCD'
+            VCR-index: '3'
+            Accept: null
+        body: nationalities%5B0%5D=FRA
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 07 Apr 2021 14:29:29 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 96d488
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/96d488'
+            X-Robots-Tag: noindex
+            X-Request-Id: a4797e305a7dd600c3ce03be66045835
+        body: '{"id":210413,"title":null,"email":"user562@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":["FRA"]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/210413'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
+            Authorization: 'token peXdlGqiMUWOE6OScLVP8WjkPbfK4S+6HB5IRnCD'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 07 Apr 2021 14:29:30 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3eeea0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3eeea0'
+            X-Robots-Tag: noindex
+            X-Request-Id: 8edb948303de88a8618054a3aa14942c
+        body: '{"id":210413,"title":null,"email":"user562@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jean","lastName":"Paul","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"","firstname":"Jean","lastname":"Paul","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":["FRA"]}'

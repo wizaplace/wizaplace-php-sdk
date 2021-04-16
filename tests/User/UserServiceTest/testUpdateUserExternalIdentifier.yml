@@ -106,7 +106,7 @@
             Authorization: 'token k+x5xy8XapYB1JnA3fliqYKg95RpnqvoA+tKsGIX'
             VCR-index: '3'
             Accept: null
-        body: '{"email":"user918@example.com","firstName":"Paul","lastName":"Emploi","externalIdentifier":"externalIdentified0012"}'
+        body: '{"email":"user918@example.com","firstName":"Paul","lastName":"Emploi","externalIdentifier":"externalIdentified0012","nationalities":[]}'
     response:
         status:
             http_version: '1.1'

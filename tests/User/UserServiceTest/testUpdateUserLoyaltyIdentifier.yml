@@ -106,7 +106,7 @@
             Authorization: 'token INhH1qVMBdY3ZYneFlG5OYZAbvnNBdozSpkSHr4N'
             VCR-index: '3'
             Accept: null
-        body: '{"email":"user1457@test.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"loyaltyIdentifier":"wizaplace"}'
+        body: '{"email":"user1457@test.com","firstName":"Paul","lastName":"Emploi","isProfessional":true,"loyaltyIdentifier":"wizaplace","nationalities":[]}'
     response:
         status:
             http_version: '1.1'

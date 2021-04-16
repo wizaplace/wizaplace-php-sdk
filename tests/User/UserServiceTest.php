@@ -32,6 +32,7 @@ use Wizaplace\SDK\User\UserAlreadyExists;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
 use Wizaplace\SDK\User\UserType;
+use Wizaplace\SDK\User\Nationality;
 
 /**
  * @see UserService
@@ -1908,5 +1909,102 @@ final class UserServiceTest extends ApiTestCase
         static::assertArrayHasKey('id', $user->getBillingAddress()->toArray());
         static::assertArrayHasKey('label', $user->getBillingAddress()->toArray());
         static::assertArrayHasKey('comment', $user->getBillingAddress()->toArray());
+    }
+
+    public function testCreateUserWithNationalities(): void
+    {
+        $userEmail = 'usertest1129@example.com';
+        $userPassword = 'password';
+        $userFistname = 'John';
+        $userLastname = 'Doe';
+        $userBilling = new UserAddress(
+            [
+                'title'     => UserTitle::MR()->getValue(),
+                'firstname' => $userFistname,
+                'lastname'  => $userLastname,
+                'company'   => "Company_b",
+                'phone'     => "Phone_b",
+                'address'   => "Address_b",
+                'address_2' => "Address 2_b",
+                'zipcode'   => "Zipcode_b",
+                'city'      => "City_b",
+                'country'   => "FR",
+            ]
+        );
+
+        $nationality = new Nationality("FRA");
+        $nationalities = [$nationality];
+
+        $client = $this->buildApiClient();
+        $client->authenticate('admin@wizaplace.com', 'Windows.98');
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register($userEmail, $userPassword, $userFistname, $userLastname, $userBilling, $userBilling, $nationalities);
+
+        // authenticate with newly created user
+        $client->authenticate($userEmail, $userPassword);
+
+        // fetch user
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame(["FRA"], $user->getCodesA3FromNationalities());
+    }
+
+    public function testUpdateUserNationalities(): void
+    {
+        $client = $this->buildApiClient();
+        $client->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user552@example.com', 'password', 'Jean', 'Paul');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame([], $user->getNationalities());
+
+        $nationality = new Nationality("FRA");
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail('user552@example.com')
+                ->setFirstName('Jacques')
+                ->setLastName('Jules')
+                ->setTitle(UserTitle::MR())
+                ->setPhone('0102030405')
+                ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1963-02-17'))
+                ->setLanguage('en')
+                ->setCurrencyCode('EUR')
+                ->addNationality($nationality)
+        );
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame(['FRA'], $user->getCodesA3FromNationalities());
+    }
+
+    public function testPatchUserNationalities(): void
+    {
+        $client = $this->buildApiClient();
+        $client->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        $userService = new UserService($client);
+
+        // create new user
+        $userId = $userService->register('user562@example.com', 'password', 'Jean', 'Paul');
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame([], $user->getNationalities());
+
+        $nationality = new Nationality("FRA");
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->addNationality($nationality)
+        );
+
+        $user = $userService->getProfileFromId($userId);
+        static::assertSame(["FRA"], $user->getCodesA3FromNationalities());
     }
 }

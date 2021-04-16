@@ -96,6 +96,7 @@ class UserService extends AbstractService
                         'comment' => $command->getComment(),
                         'legalIdentifier' => $command->getLegalIdentifier(),
                         'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                        'nationalities' => $command->getCodesA3FromNationalities(),
                     ]
                 ),
             ]
@@ -122,6 +123,7 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                            'nationalities' => $command->getCodesA3FromNationalities()
                         ]
                     ),
                 ]
@@ -180,14 +182,14 @@ class UserService extends AbstractService
     /**
      * Register to create a user account.
      *
-     * @param string           $email
-     * @param string           $password
-     * @param string           $firstName
-     * @param string           $lastName
+     * @param string $email
+     * @param string $password
+     * @param string $firstName
+     * @param string $lastName
      *
      * @param UserAddress|null $billing
      * @param UserAddress|null $shipping
-     *
+     * @param Nationality[]|null $nationalities
      * @return int ID of the created user.
      *
      * @throws UserAlreadyExists The email address is already used by a user account.
@@ -200,7 +202,8 @@ class UserService extends AbstractService
         string $firstName = '',
         string $lastName = '',
         UserAddress $billing = null,
-        UserAddress $shipping = null
+        UserAddress $shipping = null,
+        array $nationalities = null
     ): int {
         try {
             $data = [
@@ -215,6 +218,15 @@ class UserService extends AbstractService
                 $data['shipping'] = $shipping->toArray();
             } elseif ($billing instanceof UserAddress xor $shipping instanceof UserAddress) {
                 throw new \Exception("Both addresses are required if you set an address.");
+            }
+
+            if ($nationalities !== null) {
+                $data['nationalities'] = \array_map(
+                    function ($nationality) {
+                        return $nationality->getCountryCodeA3();
+                    },
+                    $nationalities
+                );
             }
 
             $userData = $this->client->post(
@@ -272,6 +284,7 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                            'nationalities' => $command->getCodesA3FromNationalities()
                         ]
                     ),
                 ]
@@ -312,6 +325,7 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
+                            'nationalities' => $command->getCodesA3FromNationalities()
                         ]
                     ),
                 ]

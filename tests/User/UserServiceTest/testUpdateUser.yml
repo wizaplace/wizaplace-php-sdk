@@ -106,7 +106,7 @@
             Authorization: 'token VWDi79pVDWglwEYMrMqDvFLS8G39MyblRf0sxsD6'
             VCR-index: '3'
             Accept: null
-        body: '{"email":"user423@example.com","title":"mr","firstName":"Jacques","lastName":"Jules","phone":"0102030405","lang":"en","birthday":"1963-02-17","currencyCode":"EUR"}'
+        body: '{"email":"user423@example.com","title":"mr","firstName":"Jacques","lastName":"Jules","phone":"0102030405","lang":"en","birthday":"1963-02-17","currencyCode":"EUR","nationalities":[]}'
     response:
         status:
             http_version: '1.1'

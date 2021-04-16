@@ -66,6 +66,8 @@ final class User
     private $loyaltyIdentifier;
     /** @var string|null */
     private $lang;
+    /** @var Nationality[] */
+    private $nationalities;
 
     /**
      * @internal
@@ -97,6 +99,11 @@ final class User
         $this->comment = $data['comment'] ?? null;
         $this->legalIdentifier = $data['legalIdentifier'] ?? null;
         $this->loyaltyIdentifier = $data['loyaltyIdentifier'] ?? null;
+        if (\array_key_exists('nationalities', $data) === true && \is_array($data['nationalities']) === true) {
+            $this->setNationalitiesFromCodesA3($data['nationalities']);
+        } else {
+            $this->setNationalities([]);
+        }
     }
 
     /**
@@ -263,5 +270,52 @@ final class User
     public function getLanguage(): ?string
     {
         return $this->lang;
+    }
+
+    /** @return Nationality[] */
+    public function getNationalities(): array
+    {
+        return $this->nationalities;
+    }
+
+    /** @params Nationality[] $nationalities */
+    public function setNationalities(array $nationalities): self
+    {
+        $this->nationalities = $nationalities;
+
+        return $this;
+    }
+
+    public function addNationality(Nationality $nationality): self
+    {
+        if (\in_array($nationality->getCountryCodeA3(), $this->getCodesA3FromNationalities()) === false) {
+            $this->nationalities[] = $nationality;
+        }
+
+        return $this;
+    }
+
+    /** @return string[] */
+    public function getCodesA3FromNationalities(): array
+    {
+        return  \array_map(
+            function ($nationality) {
+                return $nationality->getCountryCodeA3();
+            },
+            $this->getNationalities()
+        );
+    }
+
+    /** @params string[] $codesA3 */
+    public function setNationalitiesFromCodesA3(array $codesA3): self
+    {
+        $this->nationalities = \array_map(
+            function ($codeA3) {
+                return new Nationality($codeA3);
+            },
+            $codesA3
+        );
+
+        return $this;
     }
 }
