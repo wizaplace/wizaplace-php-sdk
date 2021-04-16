@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New version
+## 1.119.0
 
 ### New features
 
