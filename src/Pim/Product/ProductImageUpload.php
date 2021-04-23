@@ -119,14 +119,8 @@ final class ProductImageUpload
     public static function createFromSymfonyUploadedFile(UploadedFile $uploadedFile): self
     {
         $object = new self();
-        if ($uploadedFile->getClientOriginalName() !== null) {
-            $object->setName($uploadedFile->getClientOriginalName());
-        }
-
-        if ($uploadedFile->getClientMimeType() !== null) {
-            $object->setMimeType($uploadedFile->getClientMimeType());
-        }
-
+        $object->setName($uploadedFile->getClientOriginalName());
+        $object->setMimeType($uploadedFile->getClientMimeType());
         $object->setBase64Data(base64_encode(file_get_contents($uploadedFile->getRealPath())));
 
         return $object;
