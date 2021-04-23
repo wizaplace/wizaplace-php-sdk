@@ -1,6 +1,13 @@
 
 # Changelog
 
+## new version
+
+### New features
+
+- Added `Wizaplace\SDK\Basket\SetPickupPointCommand::setShippingGroupsIds`
+- Added `Wizaplace\SDK\Basket\SetPickupPointCommand::getShippingGroupsIds`
+
 ## 1.119.0
 
 ### New features

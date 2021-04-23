@@ -624,6 +624,7 @@ class BasketService extends AbstractService
                     'title' => $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
+                    'shippingGroupsIds' => $command->getShippingGroupsIds(),
                 ],
             ]
         );
@@ -653,6 +654,7 @@ class BasketService extends AbstractService
                     'title' => $command->getTitle()->getValue(),
                     'firstName' => $command->getFirstName(),
                     'lastName' => $command->getLastName(),
+                    'shippingGroupsIds' => $command->getShippingGroupsIds(),
                 ],
             ]
         );

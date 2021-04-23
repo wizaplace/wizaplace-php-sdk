@@ -33,6 +33,9 @@ final class SetPickupPointCommand
     /** @var string */
     private $lastName;
 
+    /** @var array|null */
+    private $shippingGroupsIds;
+
     /**
      * @param string $basketId the targeted basket's ID
      * @return $this
@@ -126,6 +129,25 @@ final class SetPickupPointCommand
     public function getLastName(): string
     {
         return $this->lastName;
+    }
+
+    /**
+     * @param array $shippingGroupsIds
+     * @return $this
+     */
+    public function setShippingGroupsIds(array $shippingGroupsIds): self
+    {
+        $this->shippingGroupsIds = $shippingGroupsIds;
+
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getShippingGroupsIds(): ?array
+    {
+        return $this->shippingGroupsIds;
     }
 
     /**
