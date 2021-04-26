@@ -188,11 +188,9 @@ class UserService extends AbstractService
      * @param string $password
      * @param string $firstName
      * @param string $lastName
-     *
+     * @param string|null $lang
      * @param UserAddress|null $billing
      * @param UserAddress|null $shipping
-     * @param string|null $lang
-     *
      * @param Nationality[]|null $nationalities
      * @return int ID of the created user.
      *

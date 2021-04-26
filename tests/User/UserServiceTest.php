@@ -2252,6 +2252,7 @@ final class UserServiceTest extends ApiTestCase
             '',
             null,
             null,
+            null,
             $userLang
         );
 
