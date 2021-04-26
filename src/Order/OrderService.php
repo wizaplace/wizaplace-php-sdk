@@ -15,6 +15,7 @@ use Psr\Http\Message\StreamInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\AccessDenied;
+use Wizaplace\SDK\Exception\Conflict;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
@@ -488,6 +489,34 @@ class OrderService extends AbstractService
                     throw new NotFound("Order #{$orderId} not found", $e);
                 default:
                     throw $e;
+            }
+        }
+    }
+
+    public function addExtra(int $orderId, array $extra): void
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            $this->client->post(
+                sprintf('user/orders/%d/extra', $orderId),
+                [
+                    RequestOptions::JSON => [
+                        'extra' => $extra,
+                    ],
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage());
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                case 409:
+                    throw new Conflict($exception->getMessage());
+                default:
+                    throw $exception;
             }
         }
     }

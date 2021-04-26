@@ -864,6 +864,21 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame($extra, $order->getExtra());
     }
 
+    public function testPostOrderExtra(): void
+    {
+        $orderService = $this->buildOrderService('user2@usc.com', 'Windows.98');
+        $orderId = 14;
+        $order = $orderExtra = $orderService->getOrder($orderId);
+        $orderExtra = $order->getExtra();
+        static::assertCount(0, $orderExtra);
+
+        $extra = ['field' => 'value1', 'field2' => 'value2'];
+        $orderService->addExtra($orderId, $extra);
+
+        $order = $orderExtra = $orderService->getOrder($orderId);
+        static::assertSame($extra, $order->getExtra());
+    }
+
     public function testUserCanGetOrderAttachments(): void
     {
         $orderAttachmentService = $this->buildOrderAttachmentService('user2@usc.com', 'Windows.98');
