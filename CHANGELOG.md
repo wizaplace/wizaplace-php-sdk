@@ -1,6 +1,13 @@
 
 # Changelog
 
+## 1.119.3
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::addExtra`
+- Added `Wizaplace\SDK\User\User::getRegisteredAt`
+
 ## 1.119.2
 
 ### New features
