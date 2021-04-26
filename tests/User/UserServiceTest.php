@@ -11,14 +11,10 @@ namespace Wizaplace\SDK\Tests\User;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Uri;
-use phpDocumentor\Reflection\Types\This;
-use theodorejb\polycast\CastException;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
-use Wizaplace\SDK\Organisation\Organisation;
-use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -79,6 +75,7 @@ final class UserServiceTest extends ApiTestCase
         static::assertNull($user->getCompanyId());
         static::assertFalse($user->isVendor());
         static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertInstanceOf(\DateTimeImmutable::class, $user->getRegisteredAt());
 
         // shipping address
         static::assertNull($user->getShippingAddress()->getTitle());
