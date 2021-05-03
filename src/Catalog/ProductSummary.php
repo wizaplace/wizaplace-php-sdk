@@ -49,8 +49,6 @@ final class ProductSummary
     private $images;
     /** @var DeclinationImages[] */
     private $declinationsImages;
-    /** @var Image|null */
-    private $mainImageData;
     /** @var float */
     private $averageRating;
     /** @var Condition[] */
@@ -102,7 +100,6 @@ final class ProductSummary
         $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
-        $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->images = array_map(
             function (array $image): Image {
                 return new Image($image);
@@ -272,12 +269,6 @@ final class ProductSummary
     public function getDeclinationsImages(): ?array
     {
         return $this->declinationsImages;
-    }
-
-    /** @return Image|null */
-    public function getMainImageData(): ?Image
-    {
-        return $this->mainImageData;
     }
 
     /**
