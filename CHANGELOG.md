@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added images and declinationsImages properties in `Wizaplace\SDK\Catalog\ProductSummary`
+- Added `Wizaplace\SDK\Catalog\Image\DeclinationImages`
+
 ## 1.119.4
 
 ### New features

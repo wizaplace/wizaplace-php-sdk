@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Catalog;
 
 use GuzzleHttp\Psr7\Response;
+use Wizaplace\SDK\Catalog\DeclinationImages;
 use Wizaplace\SDK\SortDirection;
 use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
@@ -2946,5 +2947,35 @@ final class CatalogServiceTest extends ApiTestCase
         $searchProduct = $result->getProducts()[0];
         static::assertSame('1', $searchProduct->getId());
         static::assertSame('code color', $searchProduct->getAttributes()[0]->getCode());
+    }
+
+    public function testSearchReturnsProductExpectedImages(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $result = $catalogService->search('Z11 Plus Boîtier PC en Acier ATX');
+        $products = $result->getProducts();
+        static::assertCount(1, $products);
+        $product = $products[0];
+        $this->assertEquals(
+            [
+                new Image(['id' => 13]),
+                new Image(['id' => 14]),
+                new Image(['id' => 15]),
+            ],
+            $product->getImages()
+        );
+        $this->assertEquals(
+            [
+                new DeclinationImages([
+                    'declinationId' => '1_2_5',
+                    'images' => [new Image(['id' => 16])]
+                ]),
+                new DeclinationImages([
+                    'declinationId' => '1_2_6',
+                    'images' => [new Image(['id' => 17])]
+                ]),
+            ],
+            $product->getDeclinationsImages()
+        );
     }
 }

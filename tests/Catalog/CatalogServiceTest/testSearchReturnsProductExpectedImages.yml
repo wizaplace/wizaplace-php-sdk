@@ -1,0 +1,31 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=Z11%20Plus%20Bo%C3%AEtier%20PC%20en%20Acier%20ATX'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8989-multiple-images-in-search-result@e634c8a
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.16
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 14 Apr 2021 12:46:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d3f0eb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3f0eb'
+            X-Robots-Tag: noindex
+            X-Request-Id: dbdbbd7f08487a78d4c57ece29dd2603
+        body: '{"results":[{"productId":1,"name":"Z11 Plus Bo\u00eetier PC en Acier ATX","code":"978020137962","productTemplateType":"product","slug":"test-product-slug","minimumPrice":11,"maxPriceAdjustment":null,"crossedOutPrice":null,"isAvailable":true,"createdAt":1618403950,"updatedAt":1618404361,"transactionMode":"T","conditions":["N"],"declinationCount":2,"affiliateLink":null,"mainImage":{"id":13},"images":[{"id":13},{"id":14},{"id":15}],"declinationsImages":[{"declinationId":"1_2_5","images":[{"id":16}]},{"declinationId":"1_2_6","images":[{"id":17}]}],"url":"\/it\/test-product-slug.html","subtitle":"","shortDescription":"","averageRating":3,"averageRatingFloat":2.5,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"it"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":5}],"geolocation":null,"geolocations":null,"mainDeclination":{"id":"1_2_5"},"offers":[{"productId":1,"companyId":3,"price":11,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":11,"excludingTaxes":10.77,"taxes":0.23}]}],"isSubscription":false,"isRenewable":false}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[]}'

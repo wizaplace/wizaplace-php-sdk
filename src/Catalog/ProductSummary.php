@@ -45,6 +45,10 @@ final class ProductSummary
     private $affiliateLink;
     /** @var Image|null */
     private $mainImage;
+    /** @var Image[] */
+    private $images;
+    /** @var DeclinationImages[] */
+    private $declinationsImages;
     /** @var float */
     private $averageRating;
     /** @var Condition[] */
@@ -95,6 +99,13 @@ final class ProductSummary
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
         $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
+        $this->images = array_map(
+            function (array $image): Image {
+                return new Image($image);
+            },
+            $data['images'] ?? []
+        );
+        $this->declinationsImages = $this->denormalizeDeclinationImages($data['declinationsImages'] ?? []);
         $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->conditions = array_map(
             function (string $condition): Condition {
@@ -241,6 +252,22 @@ final class ProductSummary
     }
 
     /**
+     * @return Image[]
+     */
+    public function getImages(): ?array
+    {
+        return $this->images;
+    }
+
+    /**
+     * @return DeclinationImages[]
+     */
+    public function getDeclinationsImages(): ?array
+    {
+        return $this->declinationsImages;
+    }
+
+    /**
      * @return float
      */
     public function getAverageRating()
@@ -332,5 +359,27 @@ final class ProductSummary
     public function getMaxPriceAdjustment(): ?int
     {
         return $this->maxPriceAdjustment;
+    }
+
+    /**
+     * @param array $data
+     * @return DeclinationImages[]
+     */
+    private function denormalizeDeclinationImages(array $data): array
+    {
+        return array_map(
+            function (array $declinationImage): DeclinationImages {
+                return new DeclinationImages([
+                    'declinationId' => $declinationImage['declinationId'],
+                    'images' => array_map(
+                        function (array $image): Image {
+                            return new Image($image);
+                        },
+                        $declinationImage['images'] ?? []
+                    )
+                ]);
+            },
+            $data
+        );
     }
 }
