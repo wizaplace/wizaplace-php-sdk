@@ -24,8 +24,8 @@ use function theodorejb\polycast\to_string;
  */
 final class MultiVendorProduct
 {
-    const CONTEXT_CREATE = 'create';
-    const CONTEXT_UPDATE = 'update';
+    public const CONTEXT_CREATE = 'create';
+    public const CONTEXT_UPDATE = 'update';
 
     /** @var string */
     private $id;

@@ -443,36 +443,36 @@ final class ProductTest extends TestCase
                     'originalPrice' => 15.5,
                     'crossedOutPrice' => null,
                     'prices' =>
-                array(
-                    'priceWithTaxes' => 15.5,
-                    'priceWithoutVat' => 15.18,
-                    'vat' => 0.32,
-                ),
+                    array(
+                        'priceWithTaxes' => 15.5,
+                        'priceWithoutVat' => 15.18,
+                        'vat' => 0.32,
+                    ),
                     'greenTax' => 0,
                     'amount' => 10,
                     'affiliateLink' => null,
                     'images' =>
                 array(),
                     'options' =>
-                array(
-                    0 =>
+                    array(
+                        0 =>
                         array(
                             'id' => 8,
                             'name' => 'size',
                             'variantId' => 9,
                             'variantName' => '17',
                         ),
-                ),
+                    ),
                     'isBrandNew' => true,
                     'company' =>
-                array(
-                    'id' => 3,
-                    'name' => 'The World Company Inc.',
-                    'slug' => 'the-world-company-inc.',
-                    'isProfessional' => true,
-                    'image' => null,
-                    'averageRating' => null,
-                ),
+                    array(
+                        'id' => 3,
+                        'name' => 'The World Company Inc.',
+                        'slug' => 'the-world-company-inc.',
+                        'isProfessional' => true,
+                        'image' => null,
+                        'averageRating' => null,
+                    ),
                     'isAvailable' => true,
                     'infiniteStock' => false,
                 )

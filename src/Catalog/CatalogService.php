@@ -303,22 +303,45 @@ class CatalogService extends AbstractService implements CatalogServiceInterface
     }
 
     /**
+     * @param CompanyFilter|null $companyFilter
      * @return CompanyDetail[]
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function getCompanies(): array
+    public function getCompanies(?CompanyFilter $companyFilter = null): array
     {
-        $response = $this->client->get("catalog/companies");
+        $query = [];
+        if (\is_null($companyFilter) === false) {
+            $query = $companyFilter->getFilters();
+        }
 
-        $companies = array_map(
+        try {
+            $response = $this->client->get(
+                'catalog/companies',
+                [
+                    RequestOptions::QUERY => $query,
+                ]
+            );
+        } catch (ClientException $exception) {
+            if ($exception->getResponse()->getStatusCode() === 404) {
+                throw new SomeParametersAreInvalid(
+                    to_string(
+                        $exception->getResponse()->getBody()
+                    ),
+                    400,
+                    $exception
+                );
+            }
+
+            throw $exception;
+        }
+
+        return \array_map(
             function ($companyData) {
                 return new CompanyListItem($companyData);
             },
             $response
         );
-
-        return $companies;
     }
 
     /**

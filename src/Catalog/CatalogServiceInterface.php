@@ -115,9 +115,10 @@ interface CatalogServiceInterface
     public function getCompanyById(int $id): CompanyDetail;
 
     /**
+     * @param CompanyFilter|null $companyFilter
      * @return CompanyDetail[]
      */
-    public function getCompanies(): array;
+    public function getCompanies(CompanyFilter $companyFilter = null): array;
 
     /**
      * @param null|AttributeFilter $attributeFilter

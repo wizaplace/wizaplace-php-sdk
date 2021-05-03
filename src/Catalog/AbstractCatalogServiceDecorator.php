@@ -160,11 +160,12 @@ abstract class AbstractCatalogServiceDecorator implements CatalogServiceInterfac
     }
 
     /**
+     * @param CompanyFilter|null $companyFilter
      * @return CompanyDetail[]
      */
-    public function getCompanies(): array
+    public function getCompanies(?CompanyFilter $companyFilter = null): array
     {
-        return $this->decorated->getCompanies();
+        return $this->decorated->getCompanies($companyFilter);
     }
 
     /**

@@ -1,6 +1,16 @@
 
 # Changelog
 
+## New Version
+
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\CompanyFilter::getExtra`
+- Added `\Wizaplace\SDK\Catalog\CompanyFilter::setExtra`
+- Added `\Wizaplace\SDK\Catalog\CompanyFilter::getFilters`
+
+- Added an optional `CompanyFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
+
 ## New version
 
 ### New features

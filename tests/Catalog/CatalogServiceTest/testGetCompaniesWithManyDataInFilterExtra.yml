@@ -1,0 +1,121 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 02:31:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '049523'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/049523'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9cfbf94c331ef721991b751ab372f24a
+        body: '[{"id":1,"name":"voluptatem","corporateName":"voluptatem","description":"voluptatem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"voluptatem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"Matchmaker","field":"value","field 2":"value 2"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":2,"name":"necessitatibus","corporateName":"necessitatibus","description":"necessitatibus","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"necessitatibus","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"field":"value"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":3,"name":"minus","corporateName":"minus","description":"minus","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"minus","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"Recruteur"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 02:31:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 07d385
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/07d385'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4685d2e3563541d850a16e7a7e304a1b
+        body: '{"id":1,"name":"voluptatem","corporateName":"voluptatem","description":"voluptatem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"voluptatem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"Matchmaker","field":"value","field 2":"value 2"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies?extra%5Btype%5D=Matchmaker&extra%5Bfield%202%5D=value%202'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 02:31:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 56bcb4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56bcb4'
+            X-Robots-Tag: noindex
+            X-Request-Id: 817c177864221dbf35b3d7bd402491fb
+        body: '[{"id":1,"name":"voluptatem","corporateName":"voluptatem","description":"voluptatem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"voluptatem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"Matchmaker","field":"value","field 2":"value 2"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 02:31:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: bbf384
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bbf384'
+            X-Robots-Tag: noindex
+            X-Request-Id: 704ddd92ed2a21a63118b784870a665a
+        body: '{"id":1,"name":"voluptatem","corporateName":"voluptatem","description":"voluptatem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"voluptatem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"Matchmaker","field":"value","field 2":"value 2"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'

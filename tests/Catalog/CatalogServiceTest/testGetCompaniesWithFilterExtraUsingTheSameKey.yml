@@ -1,0 +1,181 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 62ba3c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/62ba3c'
+            X-Robots-Tag: noindex
+            X-Request-Id: 2f49f3f67c98fb86146380dc27aa6190
+        body: '[{"id":1,"name":"quas","corporateName":"quas","description":"quas","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"quas","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"true"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":2,"name":"rem","corporateName":"rem","description":"rem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"rem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"false"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":3,"name":"consectetur","corporateName":"consectetur","description":"consectetur","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"consectetur","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"highlight":"true"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":4,"name":"laboriosam","corporateName":"laboriosam","description":"laboriosam","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"laboriosam","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"recruiter"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 73a8ca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/73a8ca'
+            X-Robots-Tag: noindex
+            X-Request-Id: c68a7bc724d0a91c6676c670916a03f4
+        body: '{"id":1,"name":"quas","corporateName":"quas","description":"quas","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"quas","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"true"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d5ef88
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5ef88'
+            X-Robots-Tag: noindex
+            X-Request-Id: e4f9d87119f2020a972c5ed0af31ce1c
+        body: '{"id":2,"name":"rem","corporateName":"rem","description":"rem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"rem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"false"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d318ea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d318ea'
+            X-Robots-Tag: noindex
+            X-Request-Id: cf5d00036a91cc5dc157bea6dcec2fb5
+        body: '{"id":3,"name":"consectetur","corporateName":"consectetur","description":"consectetur","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"consectetur","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"highlight":"true"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f6a10a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f6a10a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 09b10215be4ad54f218f9522171ff9d7
+        body: '{"id":4,"name":"laboriosam","corporateName":"laboriosam","description":"laboriosam","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"laboriosam","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"recruiter"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null,"terms":"Lorem Ipsum","meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/companies?extra%5Btype%5D%5B0%5D=matchmaker&extra%5Btype%5D%5B1%5D=recruiter'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 18:17:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e6620d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e6620d'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4989c0ac73c98cf9e74292389fa94444
+        body: '[{"id":1,"name":"quas","corporateName":"quas","description":"quas","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"quas","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"true"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":2,"name":"rem","corporateName":"rem","description":"rem","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"rem","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"matchmaker","highlight":"false"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null},{"id":4,"name":"laboriosam","corporateName":"laboriosam","description":"laboriosam","address":"40 rue Laure Diebold","phoneNumber":"01 02 03 04 05","professional":true,"slug":"laboriosam","image":null,"location":null,"averageRating":null,"fullAddress":{"address":"40 rue Laure Diebold","zipCode":"75001","city":"Paris","country":"FR"},"extra":{"type":"recruiter"},"capital":null,"legalStatus":null,"siretNumber":null,"vatNumber":null}]'

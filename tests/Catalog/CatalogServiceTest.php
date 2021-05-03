@@ -11,6 +11,7 @@ namespace Wizaplace\SDK\Tests\Catalog;
 
 use GuzzleHttp\Psr7\Response;
 use Wizaplace\SDK\Catalog\DeclinationImages;
+use Wizaplace\SDK\Catalog\CompanyFilter;
 use Wizaplace\SDK\SortDirection;
 use Wizaplace\SDK\Catalog\Attribute;
 use Wizaplace\SDK\Catalog\AttributeType;
@@ -2977,5 +2978,105 @@ final class CatalogServiceTest extends ApiTestCase
             ],
             $product->getDeclinationsImages()
         );
+    }
+
+    public function testGetCompaniesWithFilterExtra(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $allCompanies = $catalogService->getCompanies();
+        $company = $catalogService->getCompanyById(\reset($allCompanies)->getId());
+
+        static::assertSame(
+            [
+                'type' => 'matchmaker',
+                'highlight' => 'true',
+            ],
+            $company->getExtra()
+        );
+
+        static::assertInternalType('array', $allCompanies);
+        static::assertCount(4, $allCompanies);
+
+        $companyFilter = new CompanyFilter();
+        $companyFilter->setExtra(
+            [
+                'type' => 'matchmaker',
+                'highlight' => 'true',
+            ]
+        );
+
+        $companies = $catalogService->getCompanies($companyFilter);
+
+        static::assertInternalType('array', $companies);
+        static::assertCount(1, $companies);
+
+        $companyFound = $catalogService->getCompanyById(\reset($companies)->getId());
+
+        static::assertSame($companyFound->getExtra(), $company->getExtra());
+    }
+
+    public function testGetCompaniesWithFilterExtraUsingOnlyKey(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $allCompanies = $catalogService->getCompanies();
+
+        static::assertInternalType('array', $allCompanies);
+        static::assertCount(4, $allCompanies);
+
+        $numberOfCompanyHasExtraKey = 0;
+        foreach ($allCompanies as $company) {
+            $company = $catalogService->getCompanyById($company->getId());
+
+            if (\array_key_exists('highlight', $company->getExtra()) === true) {
+                $numberOfCompanyHasExtraKey++;
+            }
+        }
+
+        $companyFilter = new CompanyFilter();
+        $companyFilter->setExtra(
+            [
+                'highlight' => ''
+            ]
+        );
+
+        $companies = $catalogService->getCompanies($companyFilter);
+
+        static::assertInternalType('array', $companies);
+        static::assertCount($numberOfCompanyHasExtraKey, $companies);
+    }
+
+    public function testGetCompaniesWithFilterExtraUsingTheSameKey(): void
+    {
+        $catalogService = $this->buildCatalogService();
+        $allCompanies = $catalogService->getCompanies();
+
+        static::assertInternalType('array', $allCompanies);
+        static::assertCount(4, $allCompanies);
+
+        $numberOfCompanyHasExtraKeyAndValue = 0;
+        foreach ($allCompanies as $company) {
+            $company = $catalogService->getCompanyById($company->getId());
+
+            if (\array_key_exists('type', $company->getExtra()) === true
+                && \in_array($company->getExtra()['type'], ['matchmaker', 'recruiter']) === true
+            ) {
+                $numberOfCompanyHasExtraKeyAndValue++;
+            }
+        }
+
+        $companyFilter = new CompanyFilter();
+        $companyFilter->setExtra(
+            [
+                'type' => [
+                    'matchmaker',
+                    'recruiter'
+                ]
+            ]
+        );
+
+        $companies = $catalogService->getCompanies($companyFilter);
+
+        static::assertInternalType('array', $companies);
+        static::assertCount($numberOfCompanyHasExtraKeyAndValue, $companies);
     }
 }

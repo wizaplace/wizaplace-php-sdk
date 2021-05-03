@@ -22,8 +22,8 @@ use MyCLabs\Enum\Enum;
  */
 class TransactionStatus extends Enum
 {
-    const READY = 'READY';
-    const PENDING = 'PENDING';
-    const SUCCESS = 'SUCCESS';
-    const FAILED = 'FAILED';
+    public const READY = 'READY';
+    public const PENDING = 'PENDING';
+    public const SUCCESS = 'SUCCESS';
+    public const FAILED = 'FAILED';
 }

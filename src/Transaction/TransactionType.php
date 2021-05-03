@@ -21,7 +21,7 @@ use MyCLabs\Enum\Enum;
  */
 class TransactionType extends Enum
 {
-    const CREDITCARD = 'CREDITCARD';
-    const TRANSFER = 'TRANSFER';
-    const REFUND = 'REFUND';
+    public const CREDITCARD = 'CREDITCARD';
+    public const TRANSFER = 'TRANSFER';
+    public const REFUND = 'REFUND';
 }
