@@ -1,27 +1,16 @@
 
 # Changelog
 
-## New Version
+## 1.119.6
 
 ### New features
 
 - Added `\Wizaplace\SDK\Catalog\CompanyFilter::getExtra`
 - Added `\Wizaplace\SDK\Catalog\CompanyFilter::setExtra`
 - Added `\Wizaplace\SDK\Catalog\CompanyFilter::getFilters`
-
 - Added an optional `CompanyFilter` parameter to `\Wizaplace\SDK\Catalog\CatalogService::getCompanies`
-
-## New version
-
-### New features
-
 - Added `Wizaplace\SDK\User\UserService::affiliateUser`
 - Added `Wizaplace\SDK\User\UserService::disaffiliateUser`
-
-## New version
-
-### New features
-
 - Added images and declinationsImages properties in `Wizaplace\SDK\Catalog\ProductSummary`
 - Added `Wizaplace\SDK\Catalog\Image\DeclinationImages`
 
