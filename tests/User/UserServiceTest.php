@@ -15,6 +15,10 @@ use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Company\CompanyRegistration;
+use Wizaplace\SDK\Company\CompanyService;
+use Wizaplace\SDK\Organisation\Organisation;
+use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -2003,5 +2007,70 @@ final class UserServiceTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($userId);
         static::assertSame(["FRA"], $user->getCodesA3FromNationalities());
+    }
+
+    public function testAffiliateUserToACompany(): void
+    {
+        // create a user
+        $userEmail = 'affiliatedUser@example.com';
+
+        $userId = $this->userService->register($userEmail, 'password', 'John', 'Doe');
+
+        // create a company
+        $companyRegistration = new CompanyRegistration('company', 'companyToAffiliated@example.com');
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'Windows.98');
+        $company = $companyService->register($companyRegistration)->getCompany();
+
+        // authenticate as admin
+        $this->client->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        $this->userService->affiliateUser($userEmail, $company->getId());
+
+        //get User
+        $user = $this->userService->getProfileFromId($userId);
+
+        static::assertSame($company->getId(), $user->getCompanyId());
+        static::assertSame(UserType::VENDOR()->getValue(), $user->getType()->getValue());
+    }
+
+    public function testDisaffiliateUserFromCompany(): void
+    {
+        // create a users
+        $userEmail1 = 'DisafUser1@example.com';
+        $userEmail2 = 'DisafUser2@example.com';
+
+        $userId1 = $this->userService->register($userEmail1, 'password', 'John', 'Doe');
+        $userId2 = $this->userService->register($userEmail2, 'password', 'Sara', 'Apl');
+
+        // create a company
+        $companyRegistration = new CompanyRegistration('ACME10', 'companyToDisaff1@example.com');
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', 'Windows.98');
+        $company = $companyService->register($companyRegistration)->getCompany();
+
+        // authenticate as admin
+        $this->client->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        // affiliate users to company
+        $this->userService->affiliateUser($userEmail1, $company->getId());
+        $this->userService->affiliateUser($userEmail2, $company->getId());
+
+        //disaffiliate user
+        $this->userService->disaffiliateUser($userEmail1);
+
+        //get User
+        $user = $this->userService->getProfileFromId($userId1);
+
+        static::assertNull($user->getCompanyId());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+    }
+
+    private function buildUserCompanyService(
+        string $email = 'customer-3@world-company.com',
+        string $password = 'password-customer-3'
+    ): CompanyService {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate($email, $password);
+
+        return new CompanyService($apiClient);
     }
 }

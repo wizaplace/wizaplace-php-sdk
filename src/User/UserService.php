@@ -477,6 +477,56 @@ class UserService extends AbstractService
         );
     }
 
+    public function affiliateUser(string $email, int $companyId): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return $this->client->post(
+                "users/set-vendor",
+                [
+                    RequestOptions::JSON => [
+                        'email' => $email,
+                        'companyId' => $companyId
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied($e->getMessage());
+                case 404:
+                    throw new NotFound($e->getMessage());
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    public function disaffiliateUser(string $email): array
+    {
+        $this->client->mustBeAuthenticated();
+        try {
+            return $this->client->post(
+                "users/set-vendor",
+                [
+                    RequestOptions::JSON => [
+                        'email' => $email,
+                        'companyId' => null
+                    ],
+                ]
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case 403:
+                    throw new AccessDenied($e->getMessage());
+                case 404:
+                    throw new NotFound($e->getMessage());
+                default:
+                    throw $e;
+            }
+        }
+    }
+
     /**
      * @param UpdateUserAddressCommand $command
      *

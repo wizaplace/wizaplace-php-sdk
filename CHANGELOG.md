@@ -5,6 +5,13 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\User\UserService::affiliateUser`
+- Added `Wizaplace\SDK\User\UserService::disaffiliateUser`
+
+## New version
+
+### New features
+
 - Added images and declinationsImages properties in `Wizaplace\SDK\Catalog\ProductSummary`
 - Added `Wizaplace\SDK\Catalog\Image\DeclinationImages`
 

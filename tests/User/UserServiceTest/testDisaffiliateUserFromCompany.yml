@@ -1,0 +1,301 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '0'
+            Accept: null
+        body: 'email=DisafUser1%40example.com&password=password&firstName=John&lastName=Doe'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e4d2bb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e4d2bb'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22e4d2bb%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 3c3b2257c2fc748478998669686b53da
+        body: '{"id":18}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '1'
+            Accept: null
+        body: 'email=DisafUser2%40example.com&password=password&firstName=Sara&lastName=Apl'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 02f7bd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/02f7bd'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2202f7bd%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: f21a62b96fff4419202942c97063325c
+        body: '{"id":19}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '994669'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/994669'
+            X-Robots-Tag: noindex
+            X-Request-Id: bbdf5e2100c93430dd7f5593cd7b9fc6
+        body: '{"id":3,"apiKey":"HO71oLUn8\/Uk9ytr5ijk2Gf0HYNxO9yKFcDb8adG"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token HO71oLUn8/Uk9ytr5ijk2Gf0HYNxO9yKFcDb8adG'
+            VCR-index: '3'
+            Accept: null
+        body: '{"name":"ACME10","corporateName":null,"email":"companyToDisaff1@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 77f645
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77f645'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2277f645%22%2C%22route%22%3A%22api_register_company%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyController%22%2C%22method%22%3A%22registerAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyController.php%22%2C%22line%22%3A94%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 4c2b93cebcf519c36e4f07c42fea7790
+        body: '{"id":8,"name":"ACME10","corporateName":"ACME10","slug":"acme10-2","email":"companyToDisaff1@example.com","description":"","status":"NEW","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"Paul","legalRepresentativeLastName":"Martin","extra":[],"nafCode":null,"meta":{"title":"ACME10","keywords":"ACME10, Marchand, Produit, Recherche","description":"Trouvez les produits du marchand ACME10 au meilleur prix."}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e414d3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e414d3'
+            X-Robots-Tag: noindex
+            X-Request-Id: 67466bbf3a0e24ed24acd88c35781b8e
+        body: '{"id":2,"apiKey":"IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/set-vendor'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
+            VCR-index: '5'
+            Accept: null
+        body: '{"email":"DisafUser1@example.com","companyId":8}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 93c716
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/93c716'
+            X-Robots-Tag: noindex
+            X-Request-Id: 2cb19bf87a8cd33ebab6073fdc429db3
+        body: '{"companyId":8,"email":"DisafUser1@example.com"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/set-vendor'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
+            VCR-index: '6'
+            Accept: null
+        body: '{"email":"DisafUser2@example.com","companyId":8}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '457657'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/457657'
+            X-Robots-Tag: noindex
+            X-Request-Id: f19effdf16b962bccd8513ec20d04aba
+        body: '{"companyId":8,"email":"DisafUser2@example.com"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/set-vendor'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
+            VCR-index: '7'
+            Accept: null
+        body: '{"email":"DisafUser1@example.com","companyId":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 768ac4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/768ac4'
+            X-Robots-Tag: noindex
+            X-Request-Id: df3e5234577948a5fc94b252de12fbbb
+        body: '{"companyId":null,"email":"DisafUser1@example.com"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/18'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
+            Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 23 Apr 2021 12:01:57 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6af336
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6af336'
+            X-Robots-Tag: noindex
+            X-Request-Id: 8e78606fadcc89e9ea531f2def13a03a
+        body: '{"id":18,"title":null,"email":"DisafUser1@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"John","lastName":"Doe","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"","firstname":"John","lastname":"Doe","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"","firstname":"John","lastname":"Doe","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","division_code":"","comment":"","37":3,"38":3,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[]}'
