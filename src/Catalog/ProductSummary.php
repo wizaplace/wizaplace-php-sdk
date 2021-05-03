@@ -100,7 +100,6 @@ final class ProductSummary
         $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
-        $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->images = array_map(
             function (array $image): Image {
                 return new Image($image);
