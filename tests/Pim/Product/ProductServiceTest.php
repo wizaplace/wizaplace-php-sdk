@@ -1629,7 +1629,7 @@ final class ProductServiceTest extends ApiTestCase
                         new Uri('https://www.google.com/favicon.ico'),
                         (new ProductImageUpload())->setName('image2.png')
                             ->setMimeType('image/png')
-                            ->setBase64Data(SELF::ADDITIONAL_IMAGE_BASE_DATA)
+                            ->setBase64Data(self::ADDITIONAL_IMAGE_BASE_DATA)
                             ->setAltText('alt text additional image'),
                     ]
                 )
