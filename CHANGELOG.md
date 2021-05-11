@@ -1,6 +1,15 @@
 
 # Changelog
 
+## 1.119.9
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorToRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorOrEqualToRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorToRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorOrEqualToRule`
+
 ## 1.119.6
 
 ### New features
