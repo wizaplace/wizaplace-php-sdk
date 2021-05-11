@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-655-Missing-target-property-in-BasketPromotion@488ed49
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             VCR-index: '0'
             Accept: null
     response:
@@ -16,17 +16,20 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.0
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.15
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Feb 2019 16:04:48 GMT'
+            Date: 'Wed, 14 Apr 2021 15:39:23 GMT'
             Content-Language: fr
-            X-Debug-Token: f0827b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0827b'
-        body: '{"id":6,"apiKey":"ZU3lY6dlG8pE3fisqry8eFdwsHwvDYKrj\/FUgG1Z"}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7e612f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7e612f'
+            X-Robots-Tag: noindex
+            X-Request-Id: dc621edaf73ef137f8e4d6955a96a946
+        body: '{"id":6,"apiKey":"XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8"}'
 -
     request:
         method: POST
@@ -36,8 +39,8 @@
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-655-Missing-target-property-in-BasketPromotion@488ed49
-            Authorization: 'token ZU3lY6dlG8pE3fisqry8eFdwsHwvDYKrj/FUgG1Z'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
+            Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
             VCR-index: '1'
             Accept: null
         body: '{"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"products_ids":[1,2,3],"type":"basket_has_product_in_list"},{"products_ids":[4,5,7],"type":"basket_has_product_in_list"}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"target":{"type":"basket"}}'
@@ -47,14 +50,17 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx/1.14.0
+            Server: nginx
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.15
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Fri, 22 Feb 2019 16:04:48 GMT'
+            Date: 'Wed, 14 Apr 2021 15:39:23 GMT'
             Content-Language: fr
-            X-Debug-Token: 3a485c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3a485c'
-        body: '{"promotion_id":"06b8483c-331e-4c40-9a34-e75f5d121c0f","company_id":3,"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"basket"},"coupon":null}'
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 479fec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/479fec'
+            X-Robots-Tag: noindex
+            X-Request-Id: 988f64f143a3e490889dc82b3647d186
+        body: '{"promotion_id":"ae08f0a9-7dd2-424b-8194-0438f1248198","name":"test promotion","active":true,"isValid":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"type":"basket_has_product_in_list","products_ids":[1,2,3]},{"type":"basket_has_product_in_list","products_ids":[4,5,7]}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"ruleString":"((totalAmount \u003E 3.13) and (totalAmount \u003C 3.15) and ((products intersects [1,2,3]) or (products intersects [4,5,7])) and (usageCount \u003C 100) and (userUsageCount \u003C 1))","period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"discounts":[{"type":"percentage","percentage":2},{"type":"fixed","value":3.5}],"target":{"type":"basket"},"coupon":null,"company_id":3}'

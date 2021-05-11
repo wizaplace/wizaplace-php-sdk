@@ -21,6 +21,10 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorOrEqualToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorOrEqualToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
@@ -163,6 +167,85 @@ final class BasketPromotionServiceTest extends ApiTestCase
         $service->getPromotion($savedPromotion->getPromotionId());
     }
 
+    public function testPromotionOnQuantity(): void
+    {
+        $service = $this->buildBasketPromotionService();
+
+        $promotions = $service->listPromotions();
+        $this->assertCount(0, $promotions);
+
+        // Save a promotion with two rules on basket quantity
+        $from = new \DateTimeImmutable('1992-09-07T00:00:00+0000');
+        $to = new \DateTime('@1546300800');
+        $savedPromotion = $service->savePromotion(
+            SaveBasketPromotionCommand::createNew()
+                ->setName('test promotion')
+                ->setActive(true)
+                ->setDiscounts(
+                    [
+                        new PercentageDiscount(2),
+                        new FixedDiscount(3.5),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketQuantitySuperiorToRule(5),
+                        new BasketQuantityInferiorToRule(7)
+                    )
+                )
+                ->setTarget(new ProductsTarget(1, 4, 7))
+        );
+
+        /** @var AndBasketRule $rootRule */
+        $rootRule = $savedPromotion->getRule();
+        $this->assertCount(2, $rootRule->getItems());
+
+        // Test the two 'strictly inferior/superior to' rules
+        /** @var BasketQuantitySuperiorToRule $productQuantitySuperior */
+        $productQuantitySuperior = $rootRule->getItems()[0];
+        $this->assertInstanceOf(BasketQuantitySuperiorToRule::class, $productQuantitySuperior);
+        $this->assertSame(5, $productQuantitySuperior->getValue());
+        /** @var BasketQuantityInferiorToRule $productQuantityInferior */
+        $productQuantityInferior = $rootRule->getItems()[1];
+        $this->assertInstanceOf(BasketQuantityInferiorToRule::class, $productQuantityInferior);
+        $this->assertSame(7, $productQuantityInferior->getValue());
+
+        // Replace old rules by two new rules
+        $updatedPromotion = $service->savePromotion(
+            SaveBasketPromotionCommand::updateExisting($savedPromotion->getPromotionId())
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketQuantitySuperiorOrEqualToRule(10),
+                        new BasketQuantityInferiorOrEqualToRule(12)
+                    )
+                )
+        );
+
+        /** @var AndBasketRule $rootRule */
+        $rootRule = $updatedPromotion->getRule();
+        $this->assertCount(2, $rootRule->getItems());
+
+        // Test the two 'inferior/superior or equal to' rules
+        /** @var BasketQuantitySuperiorOrEqualToRule $productQuantitySuperiorOrEqual */
+        $productQuantitySuperiorOrEqual = $rootRule->getItems()[0];
+        $this->assertInstanceOf(BasketQuantitySuperiorOrEqualToRule::class, $productQuantitySuperiorOrEqual);
+        $this->assertSame(10, $productQuantitySuperiorOrEqual->getValue());
+        /** @var BasketQuantityInferiorOrEqualToRule $productQuantityInferiorOrEqual */
+        $productQuantityInferiorOrEqual = $rootRule->getItems()[1];
+        $this->assertInstanceOf(BasketQuantityInferiorOrEqualToRule::class, $productQuantityInferiorOrEqual);
+        $this->assertSame(12, $productQuantityInferiorOrEqual->getValue());
+
+        // Test the get promotion
+        $actualPromotion = $service->getPromotion($savedPromotion->getPromotionId());
+        $this->assertEquals($updatedPromotion, $actualPromotion);
+
+        // Remove promotion
+        $service->deletePromotion($actualPromotion->getPromotionId());
+        $promotions = $service->listPromotions();
+        $this->assertCount(0, $promotions);
+    }
+
     /**
      * Test if BasketPromotionTarget is well setted
      *
@@ -273,10 +356,10 @@ final class BasketPromotionServiceTest extends ApiTestCase
             ->setTarget($target ?? new ProductsTarget(1, 4, 7));
     }
 
-    private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService
+    private function buildBasketPromotionService(string $email = 'vendor@world-company.com'): BasketPromotionService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate($email, $password);
+        $apiClient->authenticate($email, static::VALID_PASSWORD);
 
         return new BasketPromotionService($apiClient);
     }

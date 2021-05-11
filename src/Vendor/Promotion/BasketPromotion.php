@@ -21,6 +21,10 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorOrEqualToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantityInferiorToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorOrEqualToRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketQuantitySuperiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
@@ -241,6 +245,14 @@ final class BasketPromotion implements \JsonSerializable
                 return new BasketPriceInferiorToRule(to_float($ruleData['value']));
             case BasketRuleType::BASKET_PRICE_SUPERIOR_TO()->equals($type):
                 return new BasketPriceSuperiorToRule(to_float($ruleData['value']));
+            case BasketRuleType::BASKET_QUANTITY_SUPERIOR_TO()->equals($type):
+                return new BasketQuantitySuperiorToRule((int) $ruleData['value']);
+            case BasketRuleType::BASKET_QUANTITY_SUPERIOR_OR_EQUAL_TO()->equals($type):
+                return new BasketQuantitySuperiorOrEqualToRule((int) $ruleData['value']);
+            case BasketRuleType::BASKET_QUANTITY_INFERIOR_TO()->equals($type):
+                return new BasketQuantityInferiorToRule((int) $ruleData['value']);
+            case BasketRuleType::BASKET_QUANTITY_INFERIOR_OR_EQUAL_TO()->equals($type):
+                return new BasketQuantityInferiorOrEqualToRule((int) $ruleData['value']);
             default:
                 throw new \Exception('unexpected rule type');
         }
