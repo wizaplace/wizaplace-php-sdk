@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New version
+## 1.120.0
 
 ### New features
 - Added `Wizaplace\SDK\Company\CompanyPerson::getId`
