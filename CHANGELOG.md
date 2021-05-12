@@ -1,6 +1,34 @@
 
 # Changelog
 
+## New version
+
+### New features
+- Added `Wizaplace\SDK\Company\CompanyPerson::getId`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getFirstname`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getLastname`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getTitle`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getAddress`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getAddress2`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getCity`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getState`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getZipCode`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getCountry`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getBirthdate`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getBirthplaceCity`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getBirthplaceCountry`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getOwnershipPercentage`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getType`
+- Added `Wizaplace\SDK\Company\CompanyPerson::getNationalities`
+- Added `Wizaplace\SDK\Company\Company::addCompanyPerson`
+- Added `Wizaplace\SDK\Company\Company::setCompanyPersonList`
+- Added `Wizaplace\SDK\Company\Company::getCompanyPersonList`
+- Added `Wizaplace\SDK\Company\CompanyPersonService::addCompanyPerson`
+- Added `Wizaplace\SDK\Company\CompanyPersonService::getCompanyPersonList`
+- Added `Wizaplace\SDK\Company\CompanyPersonService::deleteCompanyPerson`
+- Added `Wizaplace\SDK\Company\CompanyPersonService::updateCompanyPerson`
+- Added `Wizaplace\SDK\Company\CompanyPersonService::submitCompanyUBO`
+
 ## 1.119.9
 
 ### New features

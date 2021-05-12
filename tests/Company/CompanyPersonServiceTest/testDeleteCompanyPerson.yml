@@ -1,0 +1,183 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a1e6f3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a1e6f3'
+            X-Request-Id: 3d697b98dc9e7297a2610bbe57e54232
+        body: '{"id":6,"apiKey":"0uXiBH6juubKoIgh7CpetX\/jIozjm8ndZFuvXTB8"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 018bee
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/018bee'
+            X-Request-Id: e10574ab01ab8daa6cd455d596f0e3e0
+        body: '{"id":6,"apiKey":"0uXiBH6juubKoIgh7CpetX\/jIozjm8ndZFuvXTB8"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 0uXiBH6juubKoIgh7CpetX/jIozjm8ndZFuvXTB8'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:53 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d831a8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d831a8'
+            X-Request-Id: 09706df863769c6c6be7c6ac9b008f4e
+        body: '{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","email":"coucou@world-company.com","description":"The World Company Inc.","status":"ENABLED","zipcode":"75001","address":"40 rue Laure Diebold","city":"Paris","state":"","country":"FR","phoneNumber":"01 02 03 04 05","legalStatus":"","siretNumber":"40483304800023","vatNumber":"FR83404833049","capital":"","rcs":"","fax":"","url":"https:\/\/The World Company Inc..com","iban":"AL47212110090000000235698741","bic":"ABNAFRPP","legalRepresentativeFirstName":"Mister","legalRepresentativeLastName":"Bean","extra":[],"nafCode":null,"meta":{"title":"Title","keywords":"Keyword, Keyword2","description":"Description"}}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/3/persons'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 0uXiBH6juubKoIgh7CpetX/jIozjm8ndZFuvXTB8'
+            VCR-index: '3'
+            Accept: null
+        body: '{"firstname":"Joe","lastname":"David","title":"mr","address":"Rue de madrid","address2":"A cot\u00e9 de poste","city":"lyon","state":"FR","zipcode":"69001","country":"FR","nationalities":["FR"],"birthdate":"1988-07-01","birthplaceCity":"lyon","birthplaceCountry":"FR","type":"owner","ownershipPercentage":25}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 11d9f4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/11d9f4'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2211d9f4%22%2C%22route%22%3A%22api_company_add_company_person%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CCompanyPerson%5C%5CCompanyPersonController%22%2C%22method%22%3A%22addCompanyPersonAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FCompanyPerson%5C%2FCompanyPersonController.php%22%2C%22line%22%3A52%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly'
+            X-Request-Id: f1fa5900a20ee9d0d75621242f196542
+        body: '{"id":1,"firstname":"Joe","lastname":"David","title":"mr","address":"Rue de madrid","address2":"A cot\u00e9 de poste","city":"lyon","state":"FR","zipcode":"69001","country":"FR","nationalities":["FR"],"birthdate":"1988-07-01T00:00:00+02:00","birthplaceCity":"lyon","birthplaceCountry":"FR","type":"owner","ownershipPercentage":25}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/companies/3/persons/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 0uXiBH6juubKoIgh7CpetX/jIozjm8ndZFuvXTB8'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0f6b98
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0f6b98'
+            X-Request-Id: 316396b7abfb09ff11a342ad9e804254
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/companies/3/persons'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Authorization: 'token 0uXiBH6juubKoIgh7CpetX/jIozjm8ndZFuvXTB8'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.2.29
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 23 Nov 2020 16:24:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a256e9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a256e9'
+            X-Request-Id: d78a1d139e99317f3f97cc9352279ee2
+        body: '[]'

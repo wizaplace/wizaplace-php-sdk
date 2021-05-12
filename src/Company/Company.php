@@ -102,6 +102,9 @@ final class Company
     /** @var null|Metadata  */
     private $metadata;
 
+    /** @var CompanyPerson[] */
+    private $companyPersonList;
+
     public function __construct(array $data)
     {
         $this->id = to_int($data['id']);
@@ -131,6 +134,14 @@ final class Company
         $this->nafCode = (\array_key_exists('nafCode', $data) && \is_string($data['nafCode'])) ? $data['nafCode'] : null;
         $this->metadata = (\array_key_exists('meta', $data) && \count($data['meta']) > 0)
             ? new Metadata($data['meta']) : null;
+        $this->companyPersonList = [];
+        if (\array_key_exists('companyPersonList', $data) === true
+            && \is_array($data['companyPersonList']) === true
+        ) {
+            foreach ($data['companyPersonList'] as $companyPerson) {
+                $this->addCompanyPerson($companyPerson);
+            }
+        }
     }
 
     public function getId(): int
@@ -261,5 +272,26 @@ final class Company
     public function getMetadata(): ?Metadata
     {
         return $this->metadata;
+    }
+
+    public function addCompanyPerson(CompanyPerson $companyPerson): self
+    {
+        $this->companyPersonList[] = $companyPerson;
+
+        return $this;
+    }
+
+    public function setCompanyPersonList(array $companyPersonList): self
+    {
+        foreach ($companyPersonList as $companyPerson) {
+            $this->addCompanyPerson($companyPerson);
+        }
+
+        return $this;
+    }
+
+    public function getCompanyPersonList(): array
+    {
+        return $this->companyPersonList;
     }
 }
