@@ -55,6 +55,9 @@ final class CompanyListItem
 
     /** @var CompanyAddress */
     private $fullAddress;
+    
+    /** @var array */
+    private $extra = [];
 
     /**
      * @internal
@@ -79,6 +82,7 @@ final class CompanyListItem
         }
         $this->averageRating = $data['averageRating'];
         $this->fullAddress = new CompanyAddress($data['fullAddress']);
+        $this->extra = (array) $data['extra'];
     }
 
     /**
@@ -173,5 +177,13 @@ final class CompanyListItem
     public function getAverageRating(): ?int
     {
         return $this->averageRating;
+    }
+
+    /**
+     * @return array
+     */
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 }
