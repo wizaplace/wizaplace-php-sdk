@@ -43,6 +43,7 @@ class ProductOffer
             $this->status = new ProductStatus($data['status']);
         }
 
+        $this->priceTiers = [];
         if (\array_key_exists('priceTiers', $data) && \is_array($data['priceTiers'])) {
             foreach ($data['priceTiers'] as $priceTier) {
                 $this->addPriceTier($priceTier);
