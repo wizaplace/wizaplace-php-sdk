@@ -55,6 +55,7 @@ final class SubscriptionItem
         $this->unitPrice = new Price($data["unitPrice"]);
         $this->quantity = $data["quantity"];
         $this->totalPrice = new Price($data["totalPrice"]);
+        $this->priceTiers = [];
         if (true === isset($data['priceTiers'])) {
             $this->priceTiers = array_map(
                 static function (array $priceTiersData): SubscriptionPriceTier {
