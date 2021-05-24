@@ -47,7 +47,9 @@ final class OrderServiceTest extends ApiTestCase
 {
     public function testGetOrder()
     {
-        $order = $this->buildOrderService()->getOrder(2);
+        $order = $this
+            ->buildOrderService('customer-1@world-company.com', static::VALID_PASSWORD)
+            ->getOrder(2);
 
         $this->assertSame(2, $order->getId());
         $this->assertSame(3, $order->getCompanyId());
@@ -64,6 +66,15 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertNotNull($order->getPayment());
         $this->assertSame('manual', $order->getPayment()->getType());
         $this->assertNull($order->getPayment()->getProcessorName());
+
+        // Vendor info
+        $this->assertSame(true, $order->isCustomerProfessional());
+        $this->assertSame('User company', $order->getCustomerCompany());
+        $this->assertSame('100200300', $order->getCustomerLegalIdentifier());
+        $this->assertSame('FR416871594', $order->getCustomerIntraEuropeanCommunityVat());
+        $this->assertSame('Title', $order->getCustomerJobTitle());
+        $this->assertSame('This is a comment', $order->getCustomerAccountComment());
+        $this->assertSame('EXT001', $order->getCustomerExternalIdentifier());
 
         // Premier orderItem
         $firstItem = $order->getOrderItems()[0];

@@ -133,6 +133,27 @@ final class Order
     /** @var int|null */
     protected $parentOrderId;
 
+    /** @var bool */
+    private $isCustomerProfessional;
+
+    /** @var string */
+    private $customerCompany;
+
+    /** @var string */
+    private $customerLegalIdentifier;
+
+    /** @var string */
+    private $customerIntraEuropeanCommunityVat;
+
+    /** @var string */
+    private $customerJobTitle;
+
+    /** @var string */
+    private $customerAccountComment;
+
+    /** @var string */
+    private $customerExternalIdentifier;
+
     /**
      * @internal
      *
@@ -201,6 +222,13 @@ final class Order
         $this->extra = (\array_key_exists('extra', $data) === true) ? $data['extra'] : [];
         $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
         $this->parentOrderId = \array_key_exists('parent_order_id', $data) ? \intval($data['parent_order_id']) : null;
+        $this->isCustomerProfessional = $data['is_customer_professional'] ?? false;
+        $this->customerCompany = $data['customer_company'] ?? '';
+        $this->customerLegalIdentifier = $data['customer_legal_identifier'] ?? '';
+        $this->customerIntraEuropeanCommunityVat = $data['customer_intra_european_community_vat'] ?? '';
+        $this->customerJobTitle = $data['customer_job_title'] ?? '';
+        $this->customerAccountComment = $data['customer_account_comment'] ?? '';
+        $this->customerExternalIdentifier = $data['customer_external_identifier'] ?? '';
     }
 
     /**
@@ -535,5 +563,40 @@ final class Order
     public function getParentOrderId(): ?int
     {
         return $this->parentOrderId;
+    }
+
+    public function isCustomerProfessional(): bool
+    {
+        return $this->isCustomerProfessional;
+    }
+
+    public function getCustomerCompany(): string
+    {
+        return $this->customerCompany;
+    }
+
+    public function getCustomerLegalIdentifier(): string
+    {
+        return $this->customerLegalIdentifier;
+    }
+
+    public function getCustomerIntraEuropeanCommunityVat(): string
+    {
+        return $this->customerIntraEuropeanCommunityVat;
+    }
+
+    public function getCustomerJobTitle(): string
+    {
+        return $this->customerJobTitle;
+    }
+
+    public function getCustomerAccountComment(): string
+    {
+        return $this->customerAccountComment;
+    }
+
+    public function getCustomerExternalIdentifier(): string
+    {
+        return $this->customerExternalIdentifier;
     }
 }

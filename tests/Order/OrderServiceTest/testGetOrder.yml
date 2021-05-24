@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Sep 2019 13:42:02 GMT'
+            Date: 'Thu, 22 Apr 2021 11:58:16 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: bd61c6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bd61c6'
-            X-Request-Id: ae37f283a43262292af16cf347fa4d1a
-        body: '{"id":7,"apiKey":"+FpLfA3LR5\/5ABEoP8U45xWTG7KWBo7fCjX42ofi"}'
+            X-Debug-Token: 148f74
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/148f74'
+            X-Robots-Tag: noindex
+            X-Request-Id: 75b82f6c0b5935b4f91a5512e00e0524
+        body: '{"id":7,"apiKey":"nlnFzZMsfZoMlqGM4a3Z8C37QxUm1YsQ2egXRJ62"}'
 -
     request:
         method: GET
@@ -36,8 +37,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3794-marketplace-promotion-crud-sdk@7a3c975
-            Authorization: 'token +FpLfA3LR5/5ABEoP8U45xWTG7KWBo7fCjX42ofi'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
+            Authorization: 'token nlnFzZMsfZoMlqGM4a3Z8C37QxUm1YsQ2egXRJ62'
             VCR-index: '1'
             Accept: null
     response:
@@ -50,12 +51,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.16
+            X-Powered-By: PHP/7.4.13
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 23 Sep 2019 13:42:02 GMT'
+            Date: 'Thu, 22 Apr 2021 11:58:16 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 38bf7f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/38bf7f'
-            X-Request-Id: 6150031a2311db6a3473977ba855bb89
-        body: '{"id":2,"basketId":"59f4cbaa-f678-4d4b-86f9-0cf5043b512e","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"customerTotal":108.4,"marketplaceDiscountTotal":0,"timestamp":1569245665,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"billingAddress":{"title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING"}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0}'
+            X-Debug-Token: 93df2f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/93df2f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 760468a8d6772d6331c524dc959ed960
+        body: '{"id":2,"basketId":"e3896ae5-0942-4d51-a08a-18945d0b0ce2","companyId":3,"companyName":"The World Company Inc.","total":108.4,"taxTotal":2.23,"subtotal":108.4,"customerTotal":108.4,"marketplaceDiscountTotal":0,"timestamp":1618925971,"status":"STANDBY_BILLING","workflow":"workflow_manual_payment_pending_manual_payment_processing","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"maxPriceAdjustment":null,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":false,"carriagePaid":false,"refunded":false,"balance":0,"isCustomerProfessional":true,"customerLegalIdentifier":"100200300","customerIntraEuropeanCommunityVat":"FR416871594","customerCompany":"User company","customerJobTitle":"Title","customerAccountComment":"This is a comment","customerExternalIdentifier":"EXT001","extra":[],"transaction_reference":null,"attachments":[]}'

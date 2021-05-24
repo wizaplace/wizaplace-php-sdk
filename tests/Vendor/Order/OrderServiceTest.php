@@ -208,7 +208,9 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrderById(): void
     {
-        $order = $this->buildVendorOrderService()->getOrderById(5);
+        $order = $this
+            ->buildVendorOrderService('vendor@world-company.com', static::VALID_PASSWORD)
+            ->getOrderById(5);
 
         static::assertInstanceOf(Order::class, $order);
         static::assertSame(5, $order->getOrderId());
@@ -230,6 +232,15 @@ class OrderServiceTest extends ApiTestCase
         static::assertInstanceOf(\DateTimeImmutable::class, $order->getLastStatusChange());
         static::assertSame(0.0, $order->getMarketplaceDiscountTotal());
         static::assertSame(66.7, $order->getCustomerTotal());
+
+        // Vendor info
+        $this->assertSame(true, $order->isCustomerProfessional());
+        $this->assertSame('User company', $order->getCustomerCompany());
+        $this->assertSame('100200300', $order->getCustomerLegalIdentifier());
+        $this->assertSame('FR416871594', $order->getCustomerIntraEuropeanCommunityVat());
+        $this->assertSame('Title', $order->getCustomerJobTitle());
+        $this->assertSame('This is a comment', $order->getCustomerAccountComment());
+        $this->assertSame('EXT001', $order->getCustomerExternalIdentifier());
 
         $shippingAddress = $order->getShippingAddress();
         static::assertInstanceOf(OrderAddress::class, $shippingAddress);

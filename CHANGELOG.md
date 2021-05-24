@@ -1,6 +1,25 @@
 
 # Changelog
 
+## Unreleased
+
+### New features
+
+- Added `Wizaplace\SDK\Order\Order::isCustomerProfessional`
+- Added `Wizaplace\SDK\Order\Order::getCustomerCompany`
+- Added `Wizaplace\SDK\Order\Order::getCustomerLegalIdentifier`
+- Added `Wizaplace\SDK\Order\Order::getCustomerIntraEuropeanCommunityVat`
+- Added `Wizaplace\SDK\Order\Order::getCustomerJobTitle`
+- Added `Wizaplace\SDK\Order\Order::getCustomerAccountComment`
+- Added `Wizaplace\SDK\Order\Order::getCustomerExternalIdentifier`
+- Added `Wizaplace\SDK\Vendor\Order\Order::isCustomerProfessional`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerCompany`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerLegalIdentifier`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerIntraEuropeanCommunityVat`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerJobTitle`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerAccountComment`
+- Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerExternalIdentifier`
+
 ## 1.120.1
 
 ### Bugfixes

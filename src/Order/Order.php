@@ -73,6 +73,28 @@ final class Order
 
     /** @var null|string */
     private $bankWireTransactionReference;
+
+    /** @var bool */
+    private $isCustomerProfessional;
+
+    /** @var string */
+    private $customerCompany;
+
+    /** @var string */
+    private $customerLegalIdentifier;
+
+    /** @var string */
+    private $customerIntraEuropeanCommunityVat;
+
+    /** @var string */
+    private $customerJobTitle;
+
+    /** @var string */
+    private $customerAccountComment;
+
+    /** @var string */
+    private $customerExternalIdentifier;
+
     /**
      * @internal
      *
@@ -120,6 +142,13 @@ final class Order
             $data['attachments'] ?? []
         );
         $this->bankWireTransactionReference = $data['transaction_reference'] ?? null;
+        $this->isCustomerProfessional = $data['isCustomerProfessional'] ?? false;
+        $this->customerCompany = $data['customerCompany'] ?? '';
+        $this->customerLegalIdentifier = $data['customerLegalIdentifier'] ?? '';
+        $this->customerIntraEuropeanCommunityVat = $data['customerIntraEuropeanCommunityVat'] ?? '';
+        $this->customerJobTitle = $data['customerJobTitle'] ?? '';
+        $this->customerAccountComment = $data['customerAccountComment'] ?? '';
+        $this->customerExternalIdentifier = $data['customerExternalIdentifier'] ?? '';
     }
 
     /**
@@ -319,5 +348,40 @@ final class Order
     public function getBankWireTransactionReference(): ?string
     {
         return $this->bankWireTransactionReference;
+    }
+
+    public function isCustomerProfessional(): bool
+    {
+        return $this->isCustomerProfessional;
+    }
+
+    public function getCustomerCompany(): string
+    {
+        return $this->customerCompany;
+    }
+
+    public function getCustomerLegalIdentifier(): string
+    {
+        return $this->customerLegalIdentifier;
+    }
+
+    public function getCustomerIntraEuropeanCommunityVat(): string
+    {
+        return $this->customerIntraEuropeanCommunityVat;
+    }
+
+    public function getCustomerJobTitle(): string
+    {
+        return $this->customerJobTitle;
+    }
+
+    public function getCustomerAccountComment(): string
+    {
+        return $this->customerAccountComment;
+    }
+
+    public function getCustomerExternalIdentifier(): string
+    {
+        return $this->customerExternalIdentifier;
     }
 }
