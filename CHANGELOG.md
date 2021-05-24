@@ -1,6 +1,12 @@
 
 # Changelog
 
+## 1.120.1
+
+### Bugfixes
+
+- Fixed a case where `priceTiers` would not be an array in `\Wizaplace\SDK\Catalog\ProductOffer` and `\Wizaplace\SDK\Subscription\SubscriptionItem`
+
 ## 1.120.0
 
 ### New features
