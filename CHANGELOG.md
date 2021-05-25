@@ -1,7 +1,7 @@
 
 # Changelog
 
-## Unreleased
+## 1.120.3
 
 ### New features
 
@@ -20,7 +20,7 @@
 - Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerAccountComment`
 - Added `Wizaplace\SDK\Vendor\Order\Order::getCustomerExternalIdentifier`
 
-## 1.120.1
+## 1.120.2
 
 ### Bugfixes
 
