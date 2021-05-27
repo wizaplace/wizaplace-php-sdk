@@ -1,0 +1,94 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 11 May 2021 14:49:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ce11c1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ce11c1'
+            X-Robots-Tag: noindex
+            X-Request-Id: c08771252cd3f15fdbdee8d64d8a80f5
+        body: '{"id":3,"apiKey":"L0RlaPYTSLw59craPtv68+j0gAGwVxVnwOCRQEIk"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/report/transactions?page=1&resultPerPage=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token L0RlaPYTSLw59craPtv68+j0gAGwVxVnwOCRQEIk'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 11 May 2021 14:49:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 78b5b4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/78b5b4'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9c83d141953fbae21c58b87829e9db6a
+        body: '[{"results":[{"transactionId":"a29a3e73-b265-11eb-a7ac-0242ac120007","amount":41.5,"type":"CREDITCARD","label":"R\u00e8glement CB","status":"READY","transactionDate":"2021-05-11T16:31:55+02:00","processorName":"mangopay","transactionReference":"1","processorInformation":{"credited_wallet":"1"},"origin":"2 Bender Rodriguez","destination":"1","currency":"EUR","order_id":1},{"transactionId":"a2a1a1b4-b265-11eb-a7ac-0242ac120007","amount":41.5,"type":"CREDITCARD","label":"R\u00e8glement CB","status":"SUCCESS","transactionDate":"2021-05-11T16:31:55+02:00","processorName":"lemonway","transactionReference":"609a955b76f0d","processorInformation":null,"origin":null,"destination":null,"currency":null,"order_id":1},{"transactionId":"a2a52930-b265-11eb-a7ac-0242ac120007","amount":37.3,"type":"DISPATCH_FUNDS_TRANSFER_VENDOR","label":"Transfert marchand","status":"SUCCESS","transactionDate":"2021-05-11T16:31:55+02:00","processorName":"mangopay","transactionReference":"1","processorInformation":{"additional_info":""},"origin":"","destination":"1","currency":"EUR","order_id":1},{"transactionId":"a2a67f08-b265-11eb-a7ac-0242ac120007","amount":4.2,"type":"DISPATCH_FUNDS_TRANSFER_COMMISSION","label":"Transfert commission","status":"SUCCESS","transactionDate":"2021-05-11T16:31:55+02:00","processorName":"mangopay","transactionReference":"1","processorInformation":{"additional_info":""},"origin":"","destination":"FEES","currency":"EUR","order_id":1}]},{"page":1,"nbResults":4,"nbPages":1,"resultsPerPage":10}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/report/transactions?type%5B%5D=DISPATCH_FUNDS_TRANSFER_COMMISSION'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token L0RlaPYTSLw59craPtv68+j0gAGwVxVnwOCRQEIk'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 11 May 2021 14:49:02 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0101fe
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0101fe'
+            X-Robots-Tag: noindex
+            X-Request-Id: 579148e72b401ed65326e1678363a870
+        body: '[{"results":[{"transactionId":"a2a67f08-b265-11eb-a7ac-0242ac120007","amount":4.2,"type":"DISPATCH_FUNDS_TRANSFER_COMMISSION","label":"Transfert commission","status":"SUCCESS","transactionDate":"2021-05-11T16:31:55+02:00","processorName":"mangopay","transactionReference":"1","processorInformation":{"additional_info":""},"origin":"","destination":"FEES","currency":"EUR","order_id":1}]},{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":10}]'

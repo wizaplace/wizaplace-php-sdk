@@ -24,4 +24,7 @@ class TransactionType extends Enum
     public const CREDITCARD = 'CREDITCARD';
     public const TRANSFER = 'TRANSFER';
     public const REFUND = 'REFUND';
+    public const DISPATCH_FUNDS_TRANSFER_VENDOR = 'DISPATCH_FUNDS_TRANSFER_VENDOR';
+    public const DISPATCH_FUNDS_TRANSFER_COMMISSION = 'DISPATCH_FUNDS_TRANSFER_COMMISSION';
+    public const VENDOR_WITHDRAWAL = 'VENDOR_WITHDRAWAL';
 }

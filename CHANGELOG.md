@@ -5,6 +5,20 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Transaction\Transaction::getCreatedAt`
+- Added `Wizaplace\SDK\Transaction\Transaction::getOrigin`
+- Added `Wizaplace\SDK\Transaction\Transaction::getDestination`
+- Added `Wizaplace\SDK\Transaction\Transaction::getCurrency`
+- Added `Wizaplace\SDK\Transaction\Transaction::getOrderId`
+- Added `Wizaplace\SDK\Transaction\TransactionFilter`
+- Added `Wizaplace\SDK\Transaction\TransactionList`
+- Added `Wizaplace\SDK\Transaction\TransactionPeriod`
+- Added `Wizaplace\SDK\Transaction\TransactionService`
+
+## New version
+
+### New features
+
 - Added `Wizaplace\SDK\Company\CompanyService::getBalance`
 - Added `Wizaplace\SDK\Company\CompanyService::doPayout`
 
