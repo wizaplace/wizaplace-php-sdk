@@ -14,11 +14,6 @@
 - Added `Wizaplace\SDK\Transaction\TransactionList`
 - Added `Wizaplace\SDK\Transaction\TransactionPeriod`
 - Added `Wizaplace\SDK\Transaction\TransactionService`
-
-## New version
-
-### New features
-
 - Added `Wizaplace\SDK\Company\CompanyService::getBalance`
 - Added `Wizaplace\SDK\Company\CompanyService::doPayout`
 
