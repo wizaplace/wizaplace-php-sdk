@@ -64,6 +64,20 @@ final class ProductUpsertDataTest extends TestCase
             ->validate();
     }
 
+    public function testCrossedOutPrice(): void
+    {
+        $crossedOutPrice = 7.77;
+
+        $productUpsertData = $this->minimumValidData();
+        $productUpsertData->setCrossedOutPrice($crossedOutPrice);
+        $productUpsertData->validate();
+
+        static::assertEquals(
+            7.77,
+            $productUpsertData->toArray()['crossed_out_price']
+        );
+    }
+
     private function minimumValidData(): ProductUpsertData
     {
         return (new CreateProductCommand())

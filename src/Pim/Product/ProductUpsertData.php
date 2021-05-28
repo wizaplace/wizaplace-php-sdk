@@ -98,7 +98,7 @@ abstract class ProductUpsertData
     /** @var int */
     private $maxPriceAdjustment;
 
-    /** @var int */
+    /** @var float */
     private $crossedOutPrice;
 
     /** @var null|bool */
@@ -379,10 +379,10 @@ abstract class ProductUpsertData
     }
 
     /**
-     * @param int $crossedOutPrice
+     * @param float $crossedOutPrice
      * @return $this
      */
-    public function setCrossedOutPrice(int $crossedOutPrice): self
+    public function setCrossedOutPrice(float $crossedOutPrice): self
     {
         $this->crossedOutPrice = $crossedOutPrice;
 
