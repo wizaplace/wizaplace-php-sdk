@@ -1,0 +1,94 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 12:36:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 883b5e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/883b5e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 6631f51973baeac1c1d8d218d3dfab95
+        body: '{"id":3,"apiKey":"uzM7Ahl7Tl2WLzRcXs26bzhj4p0nDDGKrYbIdihw"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/subscriptions/85e8f81f-3f14-4036-a9fd-dd65e52174af/logs?limit=10&offset=0'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token uzM7Ahl7Tl2WLzRcXs26bzhj4p0nDDGKrYbIdihw'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 12:36:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 172d79
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/172d79'
+            X-Robots-Tag: noindex
+            X-Request-Id: fadf23dd17273db796eccd2000071e83
+        body: '{"limit":10,"offset":0,"total":3,"items":[{"id":"5","subscription_id":"85e8f81f-3f14-4036-a9fd-dd65e52174af","action":"status_updated","date":"2021-03-31T14:27:15+02:00","userId":2,"valueBefore":"ACTIVE","valueAfter":"DEFAULTED"},{"id":"4","subscription_id":"85e8f81f-3f14-4036-a9fd-dd65e52174af","action":"status_updated","date":"2021-03-31T14:23:31+02:00","userId":2,"valueBefore":"DISABLED","valueAfter":"ACTIVE"},{"id":"3","subscription_id":"85e8f81f-3f14-4036-a9fd-dd65e52174af","action":"subscription_created","date":"2021-03-31T14:23:07+02:00","userId":0,"valueBefore":null,"valueAfter":null}]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/subscriptions/85e8f81f-3f14-4036-a9fd-dd65e52174af/logs?limit=1&offset=2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token uzM7Ahl7Tl2WLzRcXs26bzhj4p0nDDGKrYbIdihw'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 31 Mar 2021 12:36:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ea45dc
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ea45dc'
+            X-Robots-Tag: noindex
+            X-Request-Id: fb431947fb8cd2bc2a91d4aaccfe307e
+        body: '{"limit":1,"offset":2,"total":3,"items":[{"id":"3","subscription_id":"85e8f81f-3f14-4036-a9fd-dd65e52174af","action":"subscription_created","date":"2021-03-31T14:23:07+02:00","userId":0,"valueBefore":null,"valueAfter":null}]}'

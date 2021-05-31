@@ -10,12 +10,14 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Subscription;
 
-use Symfony\Component\Validator\Constraints\DateTime;
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Price;
 use Wizaplace\SDK\Subscription\Subscription;
+use Wizaplace\SDK\Subscription\SubscriptionActionTrace;
+use Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter;
+use Wizaplace\SDK\Subscription\SubscriptionEventType;
 use Wizaplace\SDK\Subscription\SubscriptionItem;
 use Wizaplace\SDK\Subscription\SubscriptionService;
 use Wizaplace\SDK\Subscription\SubscriptionStatus;
@@ -198,6 +200,90 @@ class SubscriptionServiceTest extends ApiTestCase
         static::assertTrue($subscription->isAutorenew());
         static::assertSame(12, $subscription->getItems()[0]->getQuantity());
         static::assertEquals(new \DateTime($date), $subscription->getNextPaymentAt());
+    }
+
+    public function testGetLogsSubscriptionOnSubscriptionCreated(): void
+    {
+        $service = $this->buildSubscriptionService('admin@wizaplace.com', 'Windows.98');
+        $subscriptionId = '85e8f81f-3f14-4036-a9fd-dd65e52174af';
+        $paginatedData = $service->getSubscriptionActionTrace($subscriptionId);
+
+        static::assertInstanceOf(PaginatedData::class, $paginatedData);
+        static::assertSame(10, $paginatedData->getLimit());
+        static::assertSame(0, $paginatedData->getOffset());
+        static::assertSame(2, $paginatedData->getTotal());
+        static::assertCount($paginatedData->getTotal(), $paginatedData->getItems());
+
+        /** @var SubscriptionActionTrace[] $items */
+        $items = $paginatedData->getItems();
+
+        foreach ($items as $key => $subscriptionLog) {
+            static::assertInstanceOf(SubscriptionActionTrace::class, $subscriptionLog);
+            static::assertUuid($subscriptionLog->getSubscriptionId());
+            static::assertSame($subscriptionId, $subscriptionLog->getSubscriptionId());
+            static::assertNotNull($subscriptionId, $subscriptionLog->getSubscriptionId());
+            static::assertInstanceOf(\DateTime::class, $subscriptionLog->getDate());
+            static::assertNotNull($subscriptionLog->getDate());
+        }
+
+        $secondRowOfSubscriptionLog = \reset($items);
+        static::assertSame(SubscriptionEventType::STATUS_UPDATED()->getValue(), $secondRowOfSubscriptionLog->getAction()->getValue());
+        static::assertSame(2, $secondRowOfSubscriptionLog->getUserId());
+        static::assertSame('DISABLED', $secondRowOfSubscriptionLog->getValueBefore());
+        static::assertSame('ACTIVE', $secondRowOfSubscriptionLog->getValueAfter());
+
+        $firstRowSubscriptionLog = \end($items);
+        static::assertSame(SubscriptionEventType::SUBSCRIPTION_CREATED()->getValue(), $firstRowSubscriptionLog->getAction()->getValue());
+        static::assertSame(0, $firstRowSubscriptionLog->getUserId());
+        static::assertNull($firstRowSubscriptionLog->getValueBefore());
+        static::assertNull($firstRowSubscriptionLog->getValueAfter());
+    }
+
+    public function testGetSubscriptionLogsWithFilterLimit(): void
+    {
+        $service = $this->buildSubscriptionService('admin@wizaplace.com', 'Windows.98');
+        $subscriptionId = '85e8f81f-3f14-4036-a9fd-dd65e52174af';
+        $paginatedData = $service->getSubscriptionActionTrace($subscriptionId);
+
+        static::assertInstanceOf(PaginatedData::class, $paginatedData);
+        static::assertSame(10, $paginatedData->getLimit());
+        static::assertSame(0, $paginatedData->getOffset());
+        static::assertSame(3, $paginatedData->getTotal());
+        static::assertCount($paginatedData->getTotal(), $paginatedData->getItems());
+
+        /** @var SubscriptionActionTrace[] $items */
+        $items = $paginatedData->getItems();
+
+        // Le résultat est affiché dans l'ordre décroissant
+        $lastSubscriptionLog = \reset($items);
+
+        static::assertSame(SubscriptionEventType::STATUS_UPDATED()->getValue(), $lastSubscriptionLog->getAction()->getValue());
+        static::assertSame(2, $lastSubscriptionLog->getUserId());
+        static::assertSame('ACTIVE', $lastSubscriptionLog->getValueBefore());
+        static::assertSame('DEFAULTED', $lastSubscriptionLog->getValueAfter());
+        static::assertInstanceOf(\DateTime::class, $lastSubscriptionLog->getDate());
+
+        $filter = (new SubscriptionActionTraceFilter())
+            ->setLimit(1)
+            ->setOffset(2);
+
+        $paginatedDataWithLimitAndOffset = $service->getSubscriptionActionTrace($subscriptionId, $filter);
+
+        static::assertInstanceOf(PaginatedData::class, $paginatedData);
+        static::assertSame($filter->getLimit(), $paginatedDataWithLimitAndOffset->getLimit());
+        static::assertSame($filter->getOffset(), $paginatedDataWithLimitAndOffset->getOffset());
+        static::assertSame(3, $paginatedDataWithLimitAndOffset->getTotal());
+
+        /** @var SubscriptionActionTrace[] $items */
+        $items = $paginatedDataWithLimitAndOffset->getItems();
+
+        $subscriptionLogWithFilter = \reset($items);
+
+        static::assertSame(SubscriptionEventType::SUBSCRIPTION_CREATED()->getValue(), $subscriptionLogWithFilter->getAction()->getValue());
+        static::assertSame(0, $subscriptionLogWithFilter->getUserId());
+        static::assertNull($subscriptionLogWithFilter->getValueBefore());
+        static::assertNull($subscriptionLogWithFilter->getValueAfter());
+        static::assertInstanceOf(\DateTime::class, $subscriptionLogWithFilter->getDate());
     }
 
     private function buildSubscriptionService(string $email = 'user@wizaplace.com', string $password = 'password'): SubscriptionService

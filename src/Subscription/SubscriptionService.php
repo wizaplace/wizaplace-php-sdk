@@ -235,4 +235,47 @@ class SubscriptionService extends AbstractService
             "Subscription '{$command->getSubscriptionId()}' not found."
         );
     }
+
+    /**
+     * @param string $subscriptionId
+     * @param SubscriptionActionTraceFilter|null $filter
+     *
+     * @return PaginatedData
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\NotFound
+     */
+    public function getSubscriptionActionTrace(string $subscriptionId, SubscriptionActionTraceFilter $filter = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+        if ($filter instanceof SubscriptionActionTraceFilter === false) {
+            $filter = (new SubscriptionActionTraceFilter())
+                ->setLimit(10)
+                ->setOffset(0);
+        }
+
+        return $this->assertRessourceForbiddenOrNotFound(
+            function () use ($subscriptionId, $filter): PaginatedData {
+                $response = $this->client->get(
+                    "subscriptions/{$subscriptionId}/logs",
+                    [
+                        RequestOptions::QUERY => $filter->getFilters(),
+                    ]
+                );
+
+                return new PaginatedData(
+                    $response['limit'],
+                    $response['offset'],
+                    $response['total'],
+                    array_map(
+                        static function (array $item): SubscriptionActionTrace {
+                            return new SubscriptionActionTrace($item);
+                        },
+                        $response['items']
+                    )
+                );
+            },
+            "You're not allowed to access to this subscription.",
+            "Subscription '{$subscriptionId}' not found."
+        );
+    }
 }

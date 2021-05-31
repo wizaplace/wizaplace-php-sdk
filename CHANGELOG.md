@@ -1,6 +1,26 @@
 
 # Changelog
 
+## New Version
+
+### New features
+
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getSubscriptionId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getAction`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getDate`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getUserId`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getValueBefore`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTrace::getValueAfter`
+
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter::getFilters`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter::getLimit`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter::setLimit`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter::getOffset`
+- Added `Wizaplace\SDK\Subscription\SubscriptionActionTraceFilter::setOffset`
+
+- Added `Wizaplace\SDK\Subscription\SubscriptionService::getSubscriptionActionTrace`
+
 ## 1.120.3
 
 ### New features
