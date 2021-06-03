@@ -165,7 +165,7 @@ final class ProductSummary
         return $this->name;
     }
 
-    /** @retrun string|null */
+    /** @return string|null */
     public function getCode(): ?string
     {
         return $this->code;
