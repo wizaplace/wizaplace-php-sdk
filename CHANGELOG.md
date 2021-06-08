@@ -1,6 +1,12 @@
 
 # Changelog
 
+## 1.121.0
+
+### New features
+- Added `Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount::getMaxAmount`
+- Added `Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount::getMaxAmount`
+
 ## 1.120.5
 
 ### New features
@@ -281,8 +287,6 @@
 - Added `Wizaplace\SDK\Order\Order::getExtra`
 - Added `Wizaplace\SDK\Vendor\Order\Order::getExtra`
 - Added `Wizaplace\SDK\Vendor\Order\OrderService::patchExtra`
-- Added `Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount::getMaxAmount`
-- Added `Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount::getMaxAmount`
 
 ## 1.114.2
 
