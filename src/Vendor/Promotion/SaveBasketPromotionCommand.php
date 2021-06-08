@@ -216,7 +216,7 @@ final class SaveBasketPromotionCommand
             ]
         );
 
-        return array_filter(
+        $array = array_filter(
             $serializer->normalize(
                 [
                     'promotion_id' => $this->promotionId,
@@ -233,6 +233,31 @@ final class SaveBasketPromotionCommand
                 return $value !== null;
             }
         );
+
+        //normalise discounts
+        if (\array_key_exists('discounts', $array) === true) {
+            $serializerDiscount = new Serializer(
+                [
+                    new DateTimeNormalizer(),
+                    new CustomNormalizer(),
+                    new GetSetMethodNormalizer(null),
+                ]
+            );
+
+            $discounts = array_filter(
+                $serializerDiscount->normalize(
+                    [
+                        'discounts' => $this->discounts,
+                    ]
+                ),
+                function ($value): bool {
+                    return $value !== null;
+                }
+            );
+            $array['discounts'] = $discounts['discounts'];
+        }
+
+        return $array;
     }
 
     /**

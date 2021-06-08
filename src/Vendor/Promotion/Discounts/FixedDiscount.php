@@ -22,14 +22,19 @@ final class FixedDiscount implements Discount
      */
     private $value;
 
+    /** @var null|float */
+    private $maxAmount;
+
     /**
      * FixedDiscount constructor.
      *
      * @param float $value
+     * @param null|float $maxAmount
      */
-    public function __construct(float $value)
+    public function __construct(float $value, ?float $maxAmount = null)
     {
         $this->value = $value;
+        $this->maxAmount = $maxAmount;
     }
 
     /**
@@ -46,5 +51,11 @@ final class FixedDiscount implements Discount
     public function getValue(): float
     {
         return $this->value;
+    }
+
+    /** @return null|float */
+    public function getMaxAmount(): ?float
+    {
+        return $this->maxAmount;
     }
 }

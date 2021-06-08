@@ -93,6 +93,45 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame(1, $maxUsageCountPerUser->getValue());
     }
 
+    public function testCreateMarketplacePromotionWithMaxAmount(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $from = new \DateTimeImmutable((new \DateTimeImmutable('2021-01-28'))->format(\DateTime::RFC3339));
+        $to = new \DateTime((new \DateTime('2021-02-02 23:59'))->format(\DateTime::RFC3339));
+        $savedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::createNew()
+                ->setName('Promotion')
+                ->setActive(true)
+                ->setCoupon('Coupon WITH MAX AMOUNT')
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(40, 20),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new MaxUsageCountRule(100),
+                        new MaxUsageCountPerUserRule(1)
+                    )
+                )
+                ->setTarget(new BasketTarget())
+        );
+
+        static::assertInstanceOf(MarketplacePromotion::class, $savedPromotion);
+        static::assertInternalType('string', $savedPromotion->getPromotionId());
+        static::assertSame('Promotion', $savedPromotion->getName());
+
+        static::assertContainsOnly(Discount::class, $savedPromotion->getDiscounts());
+        static::assertCount(1, $savedPromotion->getDiscounts());
+        $fixedDiscount = $savedPromotion->getDiscounts()[0];
+        static::assertInstanceOf(FixedDiscount::class, $fixedDiscount);
+        static::assertSame(40.0, $fixedDiscount->getValue());
+        static::assertSame(20.0, $fixedDiscount->getMaxAmount());
+    }
+
     public function testUpdateMarketplacePromotion(): void
     {
         $service = $this->buildMarketplacePromotionService();
@@ -107,6 +146,44 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame(static::PROMOTION_ID, $updatedPromotion->getPromotionId());
         static::assertSame('summer promotion updated', $updatedPromotion->getName());
         static::assertSame(false, $updatedPromotion->isActive());
+    }
+
+    public function testUpdateMarketplacePromotionWithMaxAmount(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $from = new \DateTimeImmutable((new \DateTimeImmutable('2021-01-29'))->format(\DateTime::RFC3339));
+        $to = new \DateTime((new \DateTime('2021-02-03 23:59'))->format(\DateTime::RFC3339));
+        $savedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::createNew()
+                ->setName('Promotion with max Amount')
+                ->setActive(true)
+                ->setCoupon('Coupon With max Amount')
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(40, 20),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new MaxUsageCountRule(100),
+                        new MaxUsageCountPerUserRule(1)
+                    )
+                )
+                ->setTarget(new BasketTarget())
+        );
+        $promotionId = $savedPromotion->getPromotionId();
+
+        $updatedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::updateExisting($promotionId)
+                ->setName('summer promotion updated')
+                ->setActive(false)
+        );
+
+        static::assertInstanceOf(MarketplacePromotion::class, $updatedPromotion);
+        static::assertSame(20.0, $updatedPromotion->getDiscounts()[0]->getMaxAmount());
     }
 
     public function testGetMarketplacePromotions(): void
@@ -144,6 +221,22 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame('THIRD', $list->getItems()[0]->getCoupon());
         static::assertSame(false, $list->getItems()[0]->isActive());
         static::assertSame(false, $list->getItems()[0]->isValid());
+    }
+
+    public function testGetMarketplacePromotionsWithMaxAmount(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $promotionList = $service->getMarketplacePromotionsList();
+        foreach ($promotionList->getItems() as $promotion) {
+            static::ArrayHasKey('maxAmount', $promotion->getDiscounts()[0]);
+        }
+        //maxAmount = 30
+        static::assertSame(50.0, $promotionList->getItems()[0]->getDiscounts()[0]->getValue());
+        static::assertSame(30.0, $promotionList->getItems()[0]->getDiscounts()[0]->getMaxAmount());
+        //maxAmount = null
+        static::assertSame(50.0, $promotionList->getItems()[1]->getDiscounts()[0]->getValue());
+        static::assertNull($promotionList->getItems()[1]->getDiscounts()[0]->getMaxAmount());
     }
 
     private function createSimpleMarketplacePromotion(

@@ -1,0 +1,100 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Jan 2021 08:45:15 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 01e1a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/01e1a2'
+            X-Robots-Tag: noindex
+            X-Request-Id: b84cf22f0b45538e01780dda3613c702
+        body: '{"id":2,"apiKey":"Tpyj91Wli+waKnLD9JqcQmjQsEbDaC1qMACi06CP"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Tpyj91Wli+waKnLD9JqcQmjQsEbDaC1qMACi06CP'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Promotion with max Amount","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"discounts":[{"type":"fixed","value":40,"maxAmount":20}],"period":{"from":"2021-01-29T00:00:00+00:00","to":"2021-02-03T23:59:00+00:00"},"coupon":"Coupon With max Amount","target":{"type":"basket"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Jan 2021 08:45:15 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d46449
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d46449'
+            X-Robots-Tag: noindex
+            X-Request-Id: fdffb5fc672e3c504ce605fcba4cc2c3
+        body: '{"promotion_id":"e0b64327-30a3-4c77-8b77-80e4b1e6edd1","name":"Promotion with max Amount","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"ruleString":"((totalAmount \u003E 100) and (usageCount \u003C 100) and (userUsageCount \u003C 1))","period":{"from":"2021-01-29T00:00:00+00:00","to":"2021-02-03T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40,"maxAmount":20}],"target":{"type":"basket"},"coupon":"Coupon With max Amount"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace/e0b64327-30a3-4c77-8b77-80e4b1e6edd1'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Tpyj91Wli+waKnLD9JqcQmjQsEbDaC1qMACi06CP'
+            VCR-index: '2'
+            Accept: null
+        body: '{"name":"summer promotion updated","active":false}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 28 Jan 2021 08:45:15 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7d60b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7d60b6'
+            X-Robots-Tag: noindex
+            X-Request-Id: beaf4e6ed215b3e37a7b923466fab305
+        body: '{"promotion_id":"e0b64327-30a3-4c77-8b77-80e4b1e6edd1","name":"summer promotion updated","active":false,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"ruleString":"((totalAmount \u003E 100) and (usageCount \u003C 100) and (userUsageCount \u003C 1))","period":{"from":"2021-01-29T00:00:00+00:00","to":"2021-02-03T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40,"maxAmount":20}],"target":{"type":"basket"},"coupon":"Coupon With max Amount"}'

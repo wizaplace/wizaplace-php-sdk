@@ -74,7 +74,7 @@
             Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
             VCR-index: '2'
             Accept: null
-        body: '{"name":"test promotion without rules","active":true,"discounts":[{"type":"fixed","value":3.5}],"period":{"from":"2010-01-01T00:00:00+00:00","to":"2025-01-01T00:00:00+00:00"},"target":{"type":"basket"}}'
+        body: '{"name":"test promotion without rules","active":true,"discounts":[{"type":"fixed","value":3.5,"maxAmount":null}],"period":{"from":"2010-01-01T00:00:00+00:00","to":"2025-01-01T00:00:00+00:00"},"target":{"type":"basket"}}'
     response:
         status:
             http_version: '1.1'

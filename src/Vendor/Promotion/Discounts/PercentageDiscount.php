@@ -22,14 +22,19 @@ final class PercentageDiscount implements Discount
      */
     private $percentage;
 
+    /** @var null|float */
+    private $maxAmount;
+
     /**
      * PercentageDiscount constructor.
      *
      * @param float $percentage
+     * @param null|float $maxAmount
      */
-    public function __construct(float $percentage)
+    public function __construct(float $percentage, ?float $maxAmount = null)
     {
         $this->percentage = $percentage;
+        $this->maxAmount = $maxAmount;
     }
 
     /**
@@ -46,5 +51,11 @@ final class PercentageDiscount implements Discount
     public function getPercentage(): float
     {
         return $this->percentage;
+    }
+
+    /** @return null|float */
+    public function getMaxAmount(): ?float
+    {
+        return $this->maxAmount;
     }
 }

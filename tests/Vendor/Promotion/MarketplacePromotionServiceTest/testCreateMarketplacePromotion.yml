@@ -42,7 +42,7 @@
             Authorization: 'token Fzto2FqPOr8dGy/nxsQJZGYsHr0j+4LBOqbLQ3Qu'
             VCR-index: '1'
             Accept: null
-        body: '{"name":"summer promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"discounts":[{"type":"fixed","value":40}],"period":{"from":"2019-09-07T00:00:00+00:00","to":"2019-09-27T23:59:00+00:00"},"coupon":"SUMMER","target":{"type":"basket"}}'
+        body: '{"name":"summer promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"discounts":[{"type":"fixed","value":40,"maxAmount":null}],"period":{"from":"2019-09-07T00:00:00+00:00","to":"2019-09-27T23:59:00+00:00"},"coupon":"SUMMER","target":{"type":"basket"}}'
     response:
         status:
             http_version: '1.1'

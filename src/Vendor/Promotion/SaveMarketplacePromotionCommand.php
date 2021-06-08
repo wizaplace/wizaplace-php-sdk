@@ -10,7 +10,6 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Promotion;
 
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\Normalizer\CustomNormalizer;
 use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer;
@@ -141,11 +140,11 @@ final class SaveMarketplacePromotionCommand
             [
                 new DateTimeNormalizer(),
                 new CustomNormalizer(),
-                new GetSetMethodNormalizer(null, new CamelCaseToSnakeCaseNameConverter()),
+                new GetSetMethodNormalizer(null),
             ]
         );
 
-        return array_filter(
+        $array = array_filter(
             $serializer->normalize(
                 [
                     'name' => $this->name,
@@ -161,6 +160,31 @@ final class SaveMarketplacePromotionCommand
                 return $value !== null;
             }
         );
+
+        //normalise discounts
+        if (\array_key_exists('discounts', $array) === true) {
+            $serializerDiscount = new Serializer(
+                [
+                    new DateTimeNormalizer(),
+                    new CustomNormalizer(),
+                    new GetSetMethodNormalizer(null),
+                ]
+            );
+
+            $discounts = array_filter(
+                $serializerDiscount->normalize(
+                    [
+                        'discounts' => $this->discounts,
+                    ]
+                ),
+                function ($value): bool {
+                    return $value !== null;
+                }
+            );
+            $array['discounts'] = $discounts['discounts'];
+        }
+
+        return $array;
     }
 
     private function setNotNullDiscounts(Discount ...$discounts): void

@@ -155,12 +155,15 @@ final class MarketplacePromotion implements \JsonSerializable
     private static function denormalizeDiscount(array $discountData): Discount
     {
         $type = new DiscountType($discountData['type']);
-
+        $maxAmount = null;
+        if (\array_key_exists('maxAmount', $discountData) && $discountData['maxAmount'] !== null) {
+            $maxAmount = to_float($discountData['maxAmount']);
+        }
         switch (true) {
             case DiscountType::PERCENTAGE()->equals($type):
-                return new PercentageDiscount(to_float($discountData['percentage']));
+                return new PercentageDiscount(to_float($discountData['percentage']), $maxAmount);
             case DiscountType::FIXED()->equals($type):
-                return new FixedDiscount(to_float($discountData['value']));
+                return new FixedDiscount(to_float($discountData['value']), $maxAmount);
             default:
                 throw new \Exception('unexpected discount type');
         }
