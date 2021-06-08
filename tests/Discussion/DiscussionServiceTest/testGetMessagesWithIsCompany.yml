@@ -1,0 +1,166 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 19 May 2021 09:33:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1817ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1817ed'
+            X-Robots-Tag: noindex
+            X-Request-Id: 32c6e6d0e73e9f079b2b36f074dec912
+        body: '{"id":7,"apiKey":"emv7b05WN7CuRFxy1DGhM93YxG7xwshvnZ+UvzpV"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions/5/messages'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=2673cf95e1ce2c0e53e09617bda7b0809fd56f41'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token emv7b05WN7CuRFxy1DGhM93YxG7xwshvnZ+UvzpV'
+            VCR-index: '1'
+            Accept: null
+        body: "--2673cf95e1ce2c0e53e09617bda7b0809fd56f41\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 36\r\n\r\nThis is a test message from Customer\r\n--2673cf95e1ce2c0e53e09617bda7b0809fd56f41--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Wed, 19 May 2021 09:33:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9b3fb9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9b3fb9'
+            X-Robots-Tag: noindex
+            Expires: 'Wed, 19 May 2021 09:33:12 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229b3fb9%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A145%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: f6f9f079f79d50947e979e2f9846aee4
+        body: '{"content":"This is a test message from Customer","author":"Michael Jordan","authorId":7,"date":"2021-05-19T11:33:12+02:00","attachments":[],"isCompany":false}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206dmVuZG9yLXBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 19 May 2021 09:33:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 70c9d8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/70c9d8'
+            X-Robots-Tag: noindex
+            X-Request-Id: 68205d4bf23ca27b0b8ebd768097a82a
+        body: '{"id":4,"apiKey":"gv4VsbleaB\/tsPPm+54OUCpqCsBUig66JCj94\/6H"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/discussions/5/messages'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: 'multipart/form-data; boundary=ebabe3a2c147d5ff07b063e667b5380a5b7df551'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token gv4VsbleaB/tsPPm+54OUCpqCsBUig66JCj94/6H'
+            VCR-index: '3'
+            Accept: null
+        body: "--ebabe3a2c147d5ff07b063e667b5380a5b7df551\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 34\r\n\r\nThis is a test message from Vendor\r\n--ebabe3a2c147d5ff07b063e667b5380a5b7df551--\r\n"
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Wed, 19 May 2021 09:33:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fc0cfa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc0cfa'
+            X-Robots-Tag: noindex
+            Expires: 'Wed, 19 May 2021 09:33:12 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fc0cfa%22%2C%22route%22%3A%22api_discussion_post_message%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22postMessageAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A145%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: b42ced6c4ff87aa4adf5cb82c8e6a654
+        body: '{"content":"This is a test message from Vendor","author":"ACME","authorId":4,"date":"2021-05-19T11:33:12+02:00","attachments":[],"isCompany":true}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/5/messages'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token emv7b05WN7CuRFxy1DGhM93YxG7xwshvnZ+UvzpV'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 19 May 2021 09:33:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4812fb
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4812fb'
+            X-Robots-Tag: noindex
+            X-Request-Id: b6ae951db40d3b8c16cab76b911b72e7
+        body: '[{"content":"This is a test message from Customer","author":"Michael Jordan","authorId":7,"date":"2021-05-19T11:33:12+02:00","attachments":[],"isCompany":false},{"content":"This is a test message from Vendor","author":"ACME","authorId":4,"date":"2021-05-19T11:33:12+02:00","attachments":[],"isCompany":true}]'

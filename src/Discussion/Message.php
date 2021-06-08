@@ -24,6 +24,9 @@ final class Message
     /** @var bool */
     private $isAuthor;
 
+    /** @var bool */
+    private $isCompany;
+
     /** @var int */
     private $authorId;
 
@@ -42,6 +45,7 @@ final class Message
         $this->content = $data['content'];
         $this->date = new \DateTimeImmutable($data['date']);
         $this->isAuthor = $data['isAuthor'];
+        $this->isCompany = $data['isCompany'] ?? false;
         $this->authorId = $data['authorId'];
         $this->attachments = $data['attachments'];
     }
@@ -68,6 +72,14 @@ final class Message
     public function isAuthor(): bool
     {
         return $this->isAuthor;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCompany(): bool
+    {
+        return $this->isCompany;
     }
 
     /**

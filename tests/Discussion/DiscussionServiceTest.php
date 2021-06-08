@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Tests\Discussion;
 
 use GuzzleHttp\Psr7\Response;
+use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Catalog\DeclinationId;
 use Wizaplace\SDK\Discussion\Discussion;
 use Wizaplace\SDK\Discussion\DiscussionService;
@@ -344,6 +345,24 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertGreaterThan(1500000000, $messages[1]->getDate()->getTimestamp());
         $this->assertTrue($messages[1]->isAuthor());
         $this->assertSame(7, $messages[1]->getAuthorId());
+    }
+
+    public function testGetMessagesWithIsCompany(): void
+    {
+        //Send message with customer
+        $this->discussionService->postMessage(5, 'This is a test message from Customer');
+
+        //Send message with vendor
+        $service = $this->buildDiscussionService('vendor@wizaplace.com', 'vendor-password');
+        $service->postMessage(5, 'This is a test message from Vendor');
+
+        $messages = $this->discussionService->getMessages(5);
+
+        static::assertSame('This is a test message from Customer', $messages[0]->getContent());
+        static::assertSame(false, $messages[0]->isCompany());
+
+        static::assertSame('This is a test message from Vendor', $messages[1]->getContent());
+        static::assertSame(true, $messages[1]->isCompany());
     }
 
     public function testSubmitContactRequest()
