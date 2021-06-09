@@ -31,11 +31,12 @@ final class TransactionFilter
     private $status;
 
     /** @var null|TransactionType */
-    protected $type;
+    private $type;
 
     /** @var null|int */
-    protected $companyId;
+    private $companyId;
 
+    /** @return mixed[] */
     public function getFilters(): array
     {
         $filters = [

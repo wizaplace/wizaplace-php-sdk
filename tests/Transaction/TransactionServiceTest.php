@@ -10,18 +10,12 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Subscription;
 
- use Wizacha\Marketplace\Payment\PaymentProcessorName;
- use Wizaplace\SDK\Exception\AccessDenied;
-use Wizaplace\SDK\PaginatedData;
-use Wizaplace\SDK\Pagination;
-use Wizaplace\SDK\Price;
-use Wizaplace\SDK\Subscription\SubscriptionStatus;
-use Wizaplace\SDK\Subscription\SubscriptionSummary;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Transaction\Transaction;
 use Wizaplace\SDK\Transaction\TransactionFilter;
- use Wizaplace\SDK\Transaction\TransactionPeriod;
- use Wizaplace\SDK\Transaction\TransactionService;
+use Wizaplace\SDK\Transaction\TransactionPeriod;
+use Wizaplace\SDK\Transaction\TransactionService;
 use Wizaplace\SDK\Transaction\TransactionStatus;
 use Wizaplace\SDK\Transaction\TransactionType;
 
