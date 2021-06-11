@@ -10,7 +10,7 @@
         "doctrine/cache": "^1.8",
         "guzzlehttp/guzzle": "^6.3.0",
         "guzzlehttp/psr7": "^1.4",
-        "jean85/pretty-package-versions": "^1.0",
+        "jean85/pretty-package-versions": "^1.5 || ^2.0",
         "myclabs/php-enum": "^1.5",
         "psr/log": "^1.0",
         "symfony/serializer": "^5.0|^4.0|^3.0",
