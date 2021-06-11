@@ -65,7 +65,7 @@ class ProductAttachment
     }
 
     /**
-     * @retrun string|null
+     * @return string|null
      */
     public function getOriginalUrl(): ?string
     {
