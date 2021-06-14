@@ -1,6 +1,8 @@
 
 # Changelog
 
+## 1.121.2
+
 ### New features
 
 - Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getRenewAttemptsCount`
