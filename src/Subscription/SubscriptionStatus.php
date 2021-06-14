@@ -18,6 +18,7 @@ use MyCLabs\Enum\Enum;
  * @method static SubscriptionStatus DISABLED()
  * @method static SubscriptionStatus FINISHED()
  * @method static SubscriptionStatus SUSPENDED()
+ * @method static SubscriptionStatus WAITING_RENEW()
  */
 final class SubscriptionStatus extends Enum
 {
@@ -26,4 +27,5 @@ final class SubscriptionStatus extends Enum
     private const DISABLED = "DISABLED";
     private const FINISHED = "FINISHED";
     private const SUSPENDED = "SUSPENDED";
+    private const WAITING_RENEW = "WAITING_RENEW";
 }

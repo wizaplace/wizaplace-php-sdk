@@ -56,6 +56,9 @@ class SubscriptionSummary
     /** @var \DateTime */
     private $commitmentEndAt;
 
+    /** @var int */
+    private $renewAttemptsCount;
+
     public function __construct(array $data)
     {
         $this->id = $data['id'];
@@ -72,6 +75,7 @@ class SubscriptionSummary
         $this->createdAt = new \DateTime($data['createdAt']);
         $this->nextPaymentAt = new \DateTime($data['nextPaymentAt']);
         $this->commitmentEndAt = new \DateTime($data['commitmentEndAt']);
+        $this->renewAttemptsCount = $data['renewAttemptsCount'];
     }
 
     public function getId(): string
@@ -142,5 +146,10 @@ class SubscriptionSummary
     public function getCommitmentEndAt(): \DateTime
     {
         return $this->commitmentEndAt;
+    }
+
+    public function getRenewAttemptsCount(): int
+    {
+        return $this->renewAttemptsCount;
     }
 }

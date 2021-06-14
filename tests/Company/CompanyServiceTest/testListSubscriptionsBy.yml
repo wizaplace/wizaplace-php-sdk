@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9030-refacto-subscription-command-and-retry-count@62490bf
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 26 Sep 2019 09:52:56 GMT'
+            Date: 'Thu, 22 Apr 2021 14:59:58 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 0054ac
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0054ac'
-            X-Request-Id: 1104fa2c1a8c578ba0fc70406bf8f0a6
-        body: '{"id":2,"apiKey":"jeQUUfOrDtLw9V9BFzSMqJ0VPPABbLXpAMmnpT9A"}'
+            X-Debug-Token: 1c3560
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1c3560'
+            X-Robots-Tag: noindex
+            X-Request-Id: 249847b3d4c4df7a902e6b941651be06
+        body: '{"id":2,"apiKey":"W03E8ZUPWmfeHUp135lkzEWMhaBWEGDNcDg6v8BW"}'
 -
     request:
         method: GET
@@ -36,8 +37,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-bugfix-WIZ-3593-unable-send-attachment@81a623c
-            Authorization: 'token jeQUUfOrDtLw9V9BFzSMqJ0VPPABbLXpAMmnpT9A'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9030-refacto-subscription-command-and-retry-count@62490bf
+            Authorization: 'token W03E8ZUPWmfeHUp135lkzEWMhaBWEGDNcDg6v8BW'
             VCR-index: '1'
             Accept: null
     response:
@@ -50,12 +51,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.14
+            X-Powered-By: PHP/7.4.14
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 26 Sep 2019 09:52:57 GMT'
+            Date: 'Thu, 22 Apr 2021 14:59:58 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 6bbba3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6bbba3'
-            X-Request-Id: d64693c6aca6996d5cbcd1c43e979c04
-        body: '{"limit":10,"offset":0,"total":1,"items":[{"id":"07d9bcbc-73d1-4c06-916b-1507920e025b","userId":1,"companyId":1,"cardId":"9e1f2319-618b-47f7-80bd-7445cd0169ea","firstOrderId":1,"name":"Sub 1","status":"ACTIVE","price":{"excludingTaxes":"16.42","taxes":"5.08","includingTaxes":"21.5"},"isAutorenew":true,"commitmentPeriod":12,"paymentFrequency":1,"nextPaymentAt":"2019-10-25","commitmentEndAt":"2020-09-25","createdAt":"2019-09-25T15:32:54+02:00"}]}'
+            X-Debug-Token: '991361'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/991361'
+            X-Robots-Tag: noindex
+            X-Request-Id: 8358ce396294ddd7e32d002a5dffb05f
+        body: '{"limit":10,"offset":0,"total":1,"items":[{"id":"4895bcaf-f3ad-4f8a-8c60-2420ac5a2257","userId":4,"companyId":1,"cardId":"9e1f2319-618b-47f7-80bd-7445cd0169ea","firstOrderId":123808,"name":"test tel","status":"DISABLED","price":{"excludingTaxes":"4.08","taxes":"0.82","includingTaxes":"4.9"},"isAutorenew":false,"commitmentPeriod":24,"paymentFrequency":12,"nextPaymentAt":"2022-04-22","commitmentEndAt":"2045-04-22","createdAt":"2021-04-22T16:56:33+02:00","renewAttemptsCount":0}]}'

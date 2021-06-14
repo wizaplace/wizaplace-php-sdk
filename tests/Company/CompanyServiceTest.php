@@ -27,7 +27,6 @@ use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Tests\File\Mock;
 use Wizaplace\SDK\User\UserService;
-use Wizaplace\SDK\User\UserType;
 
 /**
  * @see CompanyService
@@ -596,7 +595,7 @@ final class CompanyServiceTest extends ApiTestCase
 
     public function testListSubscriptionsBy(): void
     {
-        $companyService = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
+        $companyService = $this->buildUserCompanyService('admin@wizaplace.com', 'Windows.98');
         $subscriptions = $companyService->listSubscriptionsBy(1);
 
         static::assertInstanceOf(PaginatedData::class, $subscriptions);
@@ -610,7 +609,7 @@ final class CompanyServiceTest extends ApiTestCase
 
         static::assertInstanceOf(SubscriptionSummary::class, $subscription);
         static::assertUuid($subscription->getId());
-        static::assertEquals(1, $subscription->getUserId());
+        static::assertEquals(4, $subscription->getUserId());
         static::assertEquals(1, $subscription->getCompanyId());
         static::assertUuid($subscription->getCardId());
     }
