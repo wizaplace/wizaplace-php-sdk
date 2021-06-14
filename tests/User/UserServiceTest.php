@@ -2073,4 +2073,169 @@ final class UserServiceTest extends ApiTestCase
 
         return new CompanyService($apiClient);
     }
+
+    public function testCreateUserWithExtraFields(): void
+    {
+        $addressCommand = (new UpdateUserAddressCommand())
+            ->setTitle(UserTitle::MRS())
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0123456789')
+            ->setAddress('24 rue de la gare')
+            ->setCompany('Wizaplace')
+            ->setZipCode('69009')
+            ->setCity('Lyon')
+            ->setCountry('France');
+
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('user332@example.com')
+            ->setPassword(static::VALID_PASSWORD)
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MRS())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand)
+            ->setExtra([
+                "fields" => "value",
+                "fields2" => "value2",
+                "fields3" => "value3",
+            ]);
+
+        // create new user
+        $userId = $this->userService->registerWithFullInfos($userCommand);
+
+        // authenticate with newly created user
+        $this->client->authenticate($userCommand->getEmail(), $userCommand->getPassword());
+
+        // fetch user
+        $user = $this->userService->getProfileFromId($userId);
+
+        static::assertNotNull($user, 'User exists');
+        static::assertSame($userCommand->getEmail(), $user->getEmail());
+        static::assertSame($userId, $user->getId());
+        static::assertTrue($userCommand->getTitle()->equals($user->getTitle()));
+        static::assertSame($userCommand->getFirstName(), $user->getFirstname());
+        static::assertSame($userCommand->getLastName(), $user->getLastname());
+        static::assertSame('1998-07-12', $user->getBirthday()->format('Y-m-d'));
+        static::assertSame('0102030405', $user->getPhone());
+        static::assertNull($user->getCompanyId());
+        static::assertFalse($user->isVendor());
+        static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
+        static::assertSame($userCommand->getExtra(), $user->getExtra());
+    }
+
+    public function testUpdateProfilWithExtraFields(): void
+    {
+        $userEmail = 'user1010@example.com';
+        $userPassword = 'password';
+        $userFirstName = 'John';
+        $userLastName = 'Doe';
+        $userPhone = '0100000000';
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userId = $userService->register($userEmail, $userPassword, $userFirstName, $userLastName);
+
+        $client->authenticate($userEmail, $userPassword);
+
+        $extra = [
+            "fields" => "value",
+            "fields2" => "value2",
+        ];
+
+        $userService->updateUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setEmail($userEmail)
+                ->setFirstName($userFirstName)
+                ->setLastName($userLastName)
+                ->setExtra($extra)
+        );
+
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame($extra, $user->getExtra());
+    }
+
+    public function testPatchProfilWithExtraFields(): void
+    {
+        $userEmail = 'user104@example.com';
+        $userPassword = 'password';
+        $userFirstName = 'John';
+        $userLastName = 'Doe';
+        $userPhone = '0100000000';
+
+        $client = $this->buildApiClient();
+        $userService = new UserService($client);
+
+        $userId = $userService->register($userEmail, $userPassword, $userFirstName, $userLastName);
+
+        $client->authenticate($userEmail, $userPassword);
+
+        $extra = [
+            "fields" => "value",
+            "fields2" => "value2",
+        ];
+
+        $userService->patchUser(
+            (new UpdateUserCommand())
+                ->setUserId($userId)
+                ->setExtra($extra)
+        );
+
+        $user = $userService->getProfileFromId($userId);
+
+        static::assertSame($extra, $user->getExtra());
+    }
+
+    public function testRemoveExtraFields(): void
+    {
+        $addressCommand = (new UpdateUserAddressCommand())
+            ->setTitle(UserTitle::MRS())
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0123456789')
+            ->setAddress('24 rue de la gare')
+            ->setCompany('Wizaplace')
+            ->setZipCode('69009')
+            ->setCity('Lyon')
+            ->setCountry('France');
+
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('userExtraFields22@example.com')
+            ->setPassword(static::VALID_PASSWORD)
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MRS())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand)
+            ->setExtra([
+                "fields" => "value",
+                "fields2" => "value2",
+                "fields3" => "value3",
+            ]);
+
+        // create new user
+        $userId = $this->userService->registerWithFullInfos($userCommand);
+
+        // authenticate with newly created user
+        $this->client->authenticate($userCommand->getEmail(), $userCommand->getPassword());
+
+        $user = $this->userService->getProfileFromId($userId);
+        static::assertSame($userCommand->getExtra(), $user->getExtra());
+
+        //removeExtraFields
+        $this->userService->deleteExtraFields(
+            $userId,
+            ["fields2", "fields"]
+        );
+
+        $user = $this->userService->getProfileFromId($userId);
+        static::assertSame(["fields3" => "value3"], $user->getExtra());
+    }
 }

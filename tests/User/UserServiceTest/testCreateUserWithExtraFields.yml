@@ -1,0 +1,98 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-996-add-SEO-informations-to-API-product@088250f
+            VCR-index: '0'
+            Accept: null
+        body: 'email=user332%40example.com&password=Windows.98&firstName=Jane&lastName=Doe&title=mrs&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France&extra%5Bfields%5D=value&extra%5Bfields2%5D=value2&extra%5Bfields3%5D=value3'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 09 Apr 2021 13:39:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 247ec0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/247ec0'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 09 Apr 2021 13:39:59 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22247ec0%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 23fcd0c03bb592e8eb64c5ba38c019d6
+        body: '{"id":11}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlcjMzMkBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-996-add-SEO-informations-to-API-product@088250f
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 09 Apr 2021 13:40:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 950a11
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/950a11'
+            X-Robots-Tag: noindex
+            X-Request-Id: 98837606aef3a9ca9acd08ff8ded9d66
+        body: '{"id":11,"apiKey":"3i9hNuVi\/huaoN5NLaWq36JNnVGy\/D3hIeOLTduw"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/11'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-996-add-SEO-informations-to-API-product@088250f
+            Authorization: 'token 3i9hNuVi/huaoN5NLaWq36JNnVGy/D3hIeOLTduw'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 09 Apr 2021 13:40:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 14e6b0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/14e6b0'
+            X-Robots-Tag: noindex
+            X-Request-Id: a1d468c4fdfe79d1452f432708cfb0d8
+        body: '{"id":11,"title":"mrs","email":"user332@example.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","division_code":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","division_code":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","extra":{"fields":"value","fields2":"value2","fields3":"value3"}}'

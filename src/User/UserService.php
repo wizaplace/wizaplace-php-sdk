@@ -97,6 +97,7 @@ class UserService extends AbstractService
                         'legalIdentifier' => $command->getLegalIdentifier(),
                         'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
                         'nationalities' => $command->getCodesA3FromNationalities(),
+                        'extra' => $command->getExtra(),
                     ]
                 ),
             ]
@@ -123,7 +124,8 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
-                            'nationalities' => $command->getCodesA3FromNationalities()
+                            'nationalities' => $command->getCodesA3FromNationalities(),
+                            'extra' => $command->getExtra(),
                         ]
                     ),
                 ]
@@ -284,7 +286,8 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
-                            'nationalities' => $command->getCodesA3FromNationalities()
+                            'nationalities' => $command->getCodesA3FromNationalities(),
+                            'extra' => $command->getExtra(),
                         ]
                     ),
                 ]
@@ -325,7 +328,8 @@ class UserService extends AbstractService
                             'comment' => $command->getComment(),
                             'legalIdentifier' => $command->getLegalIdentifier(),
                             'loyaltyIdentifier' => $command->getLoyaltyIdentifier(),
-                            'nationalities' => $command->getCodesA3FromNationalities()
+                            'nationalities' => $command->getCodesA3FromNationalities(),
+                            'extra' => $command->getExtra(),
                         ]
                     ),
                 ]
@@ -525,6 +529,28 @@ class UserService extends AbstractService
                     throw $e;
             }
         }
+    }
+
+     /**
+      * @param int $userId
+      * @param string[]|int[] $extra
+      *
+      * @throws NotFound
+      * @throws SomeParametersAreInvalid
+      * @throws \GuzzleHttp\Exception\GuzzleException
+      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+      */
+    public function deleteExtraFields(int $userId, array $extra): void
+    {
+        $this->client->mustBeAuthenticated();
+        $this->client->delete(
+            "users/$userId/extra",
+            [
+                RequestOptions::JSON => [
+                    'extra' => $extra,
+                ],
+            ]
+        );
     }
 
     /**

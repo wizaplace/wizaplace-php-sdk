@@ -71,6 +71,9 @@ final class UpdateUserCommand
     /** @var Nationality[]|null */
     private $nationalities;
 
+    /** @var string[]|int[]|null */
+    private $extra;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -438,6 +441,20 @@ final class UpdateUserCommand
             },
             $codesA3
         );
+
+        return $this;
+    }
+
+    /** @return string[]|int[]|null ["key1" => "value1", "key2" => "value2" */
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
+
+    /** @params string[]|int[]|null $extra ["key1" => "value1", "key2" => "value2" */
+    public function setExtra(array $extra): self
+    {
+        $this->extra = $extra;
 
         return $this;
     }

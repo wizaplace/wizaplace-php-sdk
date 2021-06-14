@@ -72,6 +72,9 @@ final class RegisterUserCommand
     /** @var Nationality[]|null */
     private $nationalities;
 
+    /** @var string[]|int[]|null */
+    private $extra;
+
     /** @return string|null */
     public function getPhone(): ?string
     {
@@ -455,6 +458,20 @@ final class RegisterUserCommand
             },
             $codesA3
         );
+
+        return $this;
+    }
+
+    /** @return string[]|int[]|null */
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
+
+    /** @params string[]|int[]|null $extra */
+    public function setExtra(array $extra): self
+    {
+        $this->extra = $extra;
 
         return $this;
     }

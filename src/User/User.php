@@ -70,6 +70,8 @@ final class User
     private $nationalities;
     /** @var \DateTimeImmutable RFC3339 datetime */
     private $registeredAt;
+    /** @var string[]|int[] */
+    private $extra;
 
     /**
      * @internal
@@ -107,6 +109,7 @@ final class User
             $this->setNationalities([]);
         }
         $this->registeredAt = empty($data['registeredAt']) ? null : \DateTimeImmutable::createFromFormat(DATE_RFC3339, $data['registeredAt']);
+        $this->extra = $data['extra'] ?? [];
     }
 
     /**
@@ -325,5 +328,11 @@ final class User
     public function getRegisteredAt(): ?\DateTimeImmutable
     {
         return $this->registeredAt;
+    }
+
+    /** @return string[]|int[] */
+    public function getExtra(): array
+    {
+        return $this->extra;
     }
 }
