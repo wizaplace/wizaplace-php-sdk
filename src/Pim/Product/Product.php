@@ -195,7 +195,7 @@ final class Product extends ProductSummary
     }
 
     /** @return null|string */
-    public function getVideo() : ?string
+    public function getVideo(): ?string
     {
         return $this->video;
     }
