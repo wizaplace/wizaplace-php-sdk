@@ -1,6 +1,12 @@
 
 # Changelog
 
+## [Unreleased]
+
+### Added
+- Added `Wizaplace\SDK\Vendor\Order\OrderListFilter::byCreatedAfter`
+- Added `Wizaplace\SDK\Vendor\Order\OrderListFilter::byCreatedBefore`
+
 ## 1.129.1
 
 ### Miscellaneous

@@ -265,6 +265,32 @@ class OrderServiceTest extends ApiTestCase
         static::assertSame($secendOrderId, $orders->getItems()[0]->getOrderId());
     }
 
+    public function testFilterByItemsPerCreatedAfter(): void
+    {
+        static::assertCount(
+            2,
+            $this->buildVendorOrderService()
+                ->listOrders(
+                    OrderStatus::COMPLETED(),
+                    (new OrderListFilter())
+                        ->byCreatedAfter(new \DateTime('2021-06-16T16:00:00+02:00'))
+                )
+        );
+    }
+
+    public function testFilterByItemsPerCreatedBefore(): void
+    {
+        static::assertCount(
+            3,
+            $this->buildVendorOrderService()
+                ->listOrders(
+                    OrderStatus::COMPLETED(),
+                    (new OrderListFilter())
+                        ->byCreatedBefore(new \DateTime('2021-06-16T16:00:00+02:00'))
+                )
+        );
+    }
+
     public function testGetOrderById(): void
     {
         $order = $this
