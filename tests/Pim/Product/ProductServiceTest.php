@@ -1208,6 +1208,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertEquals(204, $video->getStatusCode());
     }
 
+    public function testGetVideo(): void
+    {
+        static::assertEquals(
+            '//s3-eu-west-1.amazonaws.com/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4',
+            $this->buildProductService()->getProductById(3)->getVideo()
+        );
+    }
+
     public function testUpdateProductFromEan(): void
     {
         $ean = "My_EAN";

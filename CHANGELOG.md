@@ -1,6 +1,11 @@
 
 # Changelog
 
+## [Unreleased]
+
+### Added
+- Added `Wizaplace\SDK\Pim\Product\Product::getVideo`
+
 ## 1.129.1
 
 ### Miscellaneous
