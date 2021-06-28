@@ -203,6 +203,77 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertEmpty($company->getFax());
     }
 
+    public function testRegisterCompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setInvoicingDisabled(true);
+
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setInvoicingDisabled(false);
+
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithoutInvoicingDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithoutInvoicingDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setInvoicingDisabled(true);
+        $result = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertGreaterThan(0, $company->getId());
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setInvoicingDisabled(false);
+        static::expectExceptionCode(400);
+        $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
+    }
+
     public function testRegisteringACompanyWithInvalidEmail(): void
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
@@ -278,6 +349,64 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertSame('Corporate name C2C', $company->getCorporateName());
     }
 
+    public function testRegisteringAC2CCompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $service = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName('C2C Company');
+        $companyRegistration->setInvoicingDisabled(true);
+
+        $result = $service->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisteringAC2CCompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $service = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName('C2C Company');
+        $companyRegistration->setInvoicingDisabled(false);
+
+        $result = $service->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisteringAC2CCompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $service = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName('C2C Company');
+        $companyRegistration->setInvoicingDisabled(true);
+
+        $result = $service->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisteringAC2CCompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $service = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $companyRegistration = new CompanyC2CRegistration();
+        $companyRegistration->setName('C2C Company');
+        $companyRegistration->setInvoicingDisabled(false);
+
+        static::expectExceptionCode(400);
+        $service->register($companyRegistration);
+    }
+
     public function testRegisteringAC2CCompanyWithoutCorporateName(): void
     {
         $service = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
@@ -308,6 +437,41 @@ final class CompanyServiceTest extends ApiTestCase
         $company = $service->update((new CompanyUpdateCommand(3))->setCorporateName('new corporate name'));
 
         static::assertSame('new corporate name', $company->getCorporateName());
+    }
+
+    public function testUpdatingACompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = $service->update((new CompanyUpdateCommand(22))->setInvoicingDisabled(true));
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testUpdatingACompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsNotDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = false;
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = $service->update((new CompanyUpdateCommand(22))->setInvoicingDisabled(false));
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
+    public function testUpdatingACompanyWithInvoicingDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = $service->update((new CompanyUpdateCommand(22))->setInvoicingDisabled(true));
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
+    public function testUpdatingACompanyWithInvoicingNotDisabledWhenMarketplaceInvoicingIsDisplayed(): void
+    {
+        //MarketplaceInvoicingDisplayed = true;
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+        static::expectExceptionCode(400);
+        $service->update((new CompanyUpdateCommand(22))->setInvoicingDisabled(false));
     }
 
     public function testUpdatingACompanyWhichDoesNotExistYieldsAnError(): void
