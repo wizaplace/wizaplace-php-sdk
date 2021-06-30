@@ -6,6 +6,7 @@
 ### New features
 
 - Added `Wizaplace\SDK\Subscription\SubscriptionSummary::getRenewAttemptsCount`
+- Added parameter `commitmentEndAt` to `Wizaplace\SDK\Subscription\SubscriptionUpsertData`
 
 ## 1.121.0
 

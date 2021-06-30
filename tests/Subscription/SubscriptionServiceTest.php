@@ -181,12 +181,13 @@ class SubscriptionServiceTest extends ApiTestCase
 
     public function testPatchASubscription(): void
     {
-        $service = $this->buildSubscriptionService('admin@wizaplace.com', 'Windows.98');
+        $service = $this->buildSubscriptionService('admin@wizaplace.com', static::VALID_PASSWORD);
 
         $updateSubscriptionCommand = (new UpdateSubscriptionCommand('0f380a36-0188-4133-89b9-40fe36e7d47b'))
             ->setStatus(SubscriptionStatus::ACTIVE())
             ->setIsAutorenew(true)
-            ->setNextPaymentAt($date = (new \DateTime('2153-01-01'))->format('Y-m-d'))
+            ->setNextPaymentAt($nextPaymentAt = (new \DateTime('2153-01-01'))->format('Y-m-d'))
+            ->setCommitmentEndAt($commitmentEndAt = (new \DateTime('2153-02-01'))->format('Y-m-d'))
             ->setQuantity(12)
         ;
 
@@ -199,7 +200,8 @@ class SubscriptionServiceTest extends ApiTestCase
         static::assertSame(SubscriptionStatus::ACTIVE()->getValue(), $subscription->getStatus()->getValue());
         static::assertTrue($subscription->isAutorenew());
         static::assertSame(12, $subscription->getItems()[0]->getQuantity());
-        static::assertEquals(new \DateTime($date), $subscription->getNextPaymentAt());
+        static::assertEquals(new \DateTime($nextPaymentAt), $subscription->getNextPaymentAt());
+        static::assertEquals(new \DateTime($commitmentEndAt), $subscription->getCommitmentEndAt());
     }
 
     public function testGetLogsSubscriptionOnSubscriptionCreated(): void

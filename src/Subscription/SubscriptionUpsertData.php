@@ -28,6 +28,9 @@ abstract class SubscriptionUpsertData
     /** @var null|string */
     private $nextPaymentAt;
 
+    /** @var null|string */
+    private $commitmentEndAt;
+
     /** @var null|int */
     private $quantity;
 
@@ -48,6 +51,13 @@ abstract class SubscriptionUpsertData
     public function setNextPaymentAt(string $nextPaymentAt): self
     {
         $this->nextPaymentAt = $nextPaymentAt;
+
+        return $this;
+    }
+
+    public function setCommitmentEndAt(string $commitmentEndAt): self
+    {
+        $this->commitmentEndAt = $commitmentEndAt;
 
         return $this;
     }
@@ -140,6 +150,10 @@ abstract class SubscriptionUpsertData
 
         if (\is_string($this->nextPaymentAt) === true) {
             $data['nextPaymentAt'] = $this->nextPaymentAt;
+        }
+
+        if (\is_string($this->commitmentEndAt) === true) {
+            $data['commitmentEndAt'] = $this->commitmentEndAt;
         }
 
         if (\is_int($this->quantity) === true) {
