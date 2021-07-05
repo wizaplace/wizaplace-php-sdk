@@ -188,7 +188,7 @@ class UserService extends AbstractService
      * @param string $password
      * @param string $firstName
      * @param string $lastName
-     *
+     * @param string|null $lang
      * @param UserAddress|null $billing
      * @param UserAddress|null $shipping
      * @param Nationality[]|null $nationalities
@@ -205,7 +205,8 @@ class UserService extends AbstractService
         string $lastName = '',
         UserAddress $billing = null,
         UserAddress $shipping = null,
-        array $nationalities = null
+        array $nationalities = null,
+        ?string $lang = null
     ): int {
         try {
             $data = [
@@ -214,6 +215,10 @@ class UserService extends AbstractService
                 'firstName' => $firstName,
                 'lastName'  => $lastName,
             ];
+
+            if (\is_null($lang) === false) {
+                $data['lang'] = $lang;
+            }
 
             if ($billing instanceof UserAddress && $shipping instanceof UserAddress) {
                 $data['billing']  = $billing->toArray();
