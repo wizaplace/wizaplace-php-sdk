@@ -274,6 +274,29 @@ final class CompanyServiceTest extends ApiTestCase
         $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD)->register($companyRegistration);
     }
 
+    public function testRegisterCompanyWithDefaultInvoicingDisabledInResponse(): void
+    {
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+
+        $result = $companyService->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
+    public function testRegisterCompanyWithInvoicingDisabledInResponse(): void
+    {
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+        $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@example.com');
+        $companyRegistration->setInvoicingDisabled(true);
+
+        $result = $companyService->register($companyRegistration);
+
+        $company = $result->getCompany();
+        static::assertSame(true, $company->getInvoicingDisabled());
+    }
+
     public function testRegisteringACompanyWithInvalidEmail(): void
     {
         $companyRegistration = new CompanyRegistration('ACME Test Inc', 'acme@@example.com');
@@ -421,6 +444,15 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertSame('Super C2C Company', $company->getCorporateName());
     }
 
+    public function testRegisteringAC2CCompanyWithDefaultInvoicingDisabledInResponse(): void
+    {
+        $companyService = $this->buildUserCompanyService('user@wizaplace.com', static::VALID_PASSWORD);
+        $result = $companyService->registerC2CCompany('Super C2C Company');
+
+        $company = $result->getCompany();
+        static::assertSame(false, $company->getInvoicingDisabled());
+    }
+
     public function testUpdatingACompany(): void
     {
         $service = $this->buildUserCompanyService('vendor@world-company.com', static::VALID_PASSWORD);
@@ -512,6 +544,14 @@ final class CompanyServiceTest extends ApiTestCase
         $this->assertSame('FR', $company->getCountry());
         $this->assertSame('0987654321', $company->getPhoneNumber());
         $this->assertSame('the-world-company-inc', $company->getSlug());
+    }
+
+    public function testGetCompanyResponseWithDefaultInvoicingDisabledInResponse(): void
+    {
+        $companyService = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = $companyService->getCompany(13);
+        static::assertSame(false, $company->getInvoicingDisabled());
     }
 
     public function testGettingVendorCompanyInfoWithVendorAccountHasCorporateName(): void
@@ -750,6 +790,36 @@ final class CompanyServiceTest extends ApiTestCase
         $service->update($company);
     }
 
+    public function testUpdateCompanyWithDefaultInvoicingDisabledInResult(): void
+    {
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = $this->setCompanyMetadata(
+            13,
+            [
+                'title' => 'Mon titre',
+                'description' => 'Ma description',
+                'keywords' => 'Mes mots-clés',
+            ]
+        );
+
+        $newCompany = $service->update($company);
+
+        static::assertSame(false, $newCompany->getInvoicingDisabled());
+    }
+
+    public function testUpdateCompanyInvoicingDisabledWithInvoicingDisabledInResult(): void
+    {
+        $service = $this->buildUserCompanyService('customer-3@world-company.com', static::VALID_PASSWORD);
+
+        $company = (new CompanyUpdateCommand(13))
+            ->setInvoicingDisabled(true);
+
+        $newCompany = $service->update($company);
+
+        static::assertSame(true, $newCompany->getInvoicingDisabled());
+    }
+
     public function testGetCompanyMetadataWithBadVendorAccount(): void
     {
         $service = $this->buildUserCompanyService('vendor@wizaplace.com', 'password');
@@ -847,6 +917,15 @@ final class CompanyServiceTest extends ApiTestCase
         $newCompany = $service->patch($company);
         static::assertSame(2, $newCompany->getId());
         static::assertSame('ACME', $newCompany->getCorporateName());
+    }
+
+    public function testPatchCompanyWithInvoicingDisabledInResult(): void
+    {
+        $service = $this->buildUserCompanyService('admin@wizaplace.com', static::VALID_PASSWORD);
+        $company = new CompanyPatchCommand(13, new CompanyStatus('ENABLED'));
+
+        $newCompany = $service->patch($company);
+        static::assertSame(false, $newCompany->getInvoicingDisabled());
     }
 
     public function testPatchEnableCompanyAndCheckCompanyID(): void
