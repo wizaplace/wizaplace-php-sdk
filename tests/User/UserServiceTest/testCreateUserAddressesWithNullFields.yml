@@ -1,0 +1,98 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 01 Jul 2021 09:08:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: fe57c4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fe57c4'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9a0f0a4cf5fd4e739f6d2bae950d89b6
+        body: '{"id":3,"apiKey":"NWp\/yP4SlOfH6aDF9lul\/LWV7kgNZCEeikgbMgRE"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users/3/address-book/addresses'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token NWp/yP4SlOfH6aDF9lul/LWV7kgNZCEeikgbMgRE'
+            VCR-index: '1'
+            Accept: null
+        body: '{"firstname":null}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 01 Jul 2021 09:08:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 08530e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/08530e'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2208530e%22%2C%22route%22%3A%22api_add_address_to_address_book%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3ApostAddressInAddressBookAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: e22f8ce343223c7858d599c02eed5ad4
+        body: '"25109868-5c35-4aed-a657-e85c86dc8e8d"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3/address-book/addresses?offset=0&limit=20'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token NWp/yP4SlOfH6aDF9lul/LWV7kgNZCEeikgbMgRE'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 01 Jul 2021 09:08:56 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '607953'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/607953'
+            X-Robots-Tag: noindex
+            X-Request-Id: b3d5a8759e3cfe2eebd9dffc716f0010
+        body: '{"limit":20,"offset":0,"total":1,"items":[{"id":"25109868-5c35-4aed-a657-e85c86dc8e8d","label":null,"firstname":"","lastname":"","title":"","company":"","phone":"","address":"","address_2":"","city":"","zipcode":"","country":"","division_code":"","comment":null}]}'
