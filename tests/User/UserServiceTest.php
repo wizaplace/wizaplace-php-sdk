@@ -11,6 +11,7 @@ namespace Wizaplace\SDK\Tests\User;
 
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Psr7\Uri;
+use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\ApiKey;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
@@ -652,6 +653,21 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame('Près de la garre', $user->getShippingAddress()->getComment());
         static::assertSame('Bureau', $user->getBillingAddress()->getLabel());
         static::assertSame('Près de la poste', $user->getBillingAddress()->getComment());
+    }
+
+    public function testCreateUserAddressesWithNullFields(): void
+    {
+        $client = $this->buildApiClient();
+        $addressBookService = new AddressBookService($client);
+
+        $client->authenticate('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $adddressdata = ['firstname' => null];
+        $addressId = $addressBookService->createAddressInAddressBook(3, $adddressdata);
+        static::assertUuid($addressId);
+
+        $listAddressBook = $addressBookService->listAddressBook(3);
+        static::assertSame('', $listAddressBook->getItems()[0]->getFirstName());
     }
 
     public function testUpdateUserAddressesWithAllFields(): void
