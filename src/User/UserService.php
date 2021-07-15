@@ -45,8 +45,8 @@ class UserService extends AbstractService
      */
     public function getProfileFromId(int $id): User
     {
-        // Je ne me base pas sur l'id de l'api key parce qu'un admin
-        // pourrait consulter le profile de quelqu'un d'autre.
+        // Don't use id of ApiKey because an admin could
+        // view the profile of someone else.
         $this->client->mustBeAuthenticated();
         try {
             $user = new User($this->client->get("users/{$id}", []));
