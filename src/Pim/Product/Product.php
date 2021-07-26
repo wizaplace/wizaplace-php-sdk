@@ -24,15 +24,6 @@ final class Product extends ProductSummary
     /** @var UriInterface[] */
     private $additionalImages;
 
-    /** @var string */
-    private $fullDescription;
-
-    /** @var string */
-    private $shortDescription;
-
-    /** @var int[] */
-    private $taxIds;
-
     /** @var ProductDeclination[] */
     private $declinations;
 
@@ -74,9 +65,6 @@ final class Product extends ProductSummary
     {
         parent::__construct($data);
 
-        $this->fullDescription = $data['full_description'];
-        $this->shortDescription = $data['short_description'];
-        $this->taxIds = $data['tax_ids'];
         if (isset($data['main_pair']['detailed']['image_path'])) {
             $this->mainImage = self::unserializeImage($data['main_pair']);
         }
@@ -102,30 +90,6 @@ final class Product extends ProductSummary
         $this->seoTitle = $data['seoTitle'] ?? null;
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
-    }
-
-    /**
-     * @return string
-     */
-    public function getFullDescription(): string
-    {
-        return $this->fullDescription;
-    }
-
-    /**
-     * @return string
-     */
-    public function getShortDescription(): string
-    {
-        return $this->shortDescription;
-    }
-
-    /**
-     * @return int[]
-     */
-    public function getTaxIds(): array
-    {
-        return $this->taxIds;
     }
 
     /**

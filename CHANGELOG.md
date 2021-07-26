@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Moved properties `shortDescription`, `fullDescription` and `taxIds` from `Wizaplace\SDK\Pim\Product\Product` to its parent `Wizaplace\SDK\Pim\Product\ProductSummary`
+- Added property `video` to `Wizaplace\SDK\Pim\Product\ProductSummary`
+
 ## 1.121.2
 
 ### New features
