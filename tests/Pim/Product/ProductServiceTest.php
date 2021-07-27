@@ -157,7 +157,7 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testListProductsWithDefaultArgs(): void
     {
-        $result = $this->buildProductService()->listProducts();
+        $result = $this->buildProductService('admin@wizaplace.com', 'Windows.98')->listProducts();
         $products = $result->getProducts();
         static::assertContainsOnly(ProductSummary::class, $products);
         static::assertLessThanOrEqual(100, \count($products));
@@ -167,7 +167,7 @@ final class ProductServiceTest extends ApiTestCase
         static::assertInstanceOf(Pagination::class, $pagination);
         static::assertSame(1, $pagination->getPage());
         static::assertSame(100, $pagination->getResultsPerPage());
-        static::assertSame(9, $pagination->getNbResults());
+        static::assertSame(39, $pagination->getNbResults());
         static::assertSame(1, $pagination->getNbPages());
 
         foreach ($products as $product) {
@@ -179,6 +179,24 @@ final class ProductServiceTest extends ApiTestCase
             static::assertGreaterThanOrEqual($product->getCreatedAt()->getTimestamp(), $product->getLastUpdateAt()->getTimestamp());
             static::assertGreaterThan(0, $product->getCompanyId());
             static::assertTrue(\is_array($product->getDivisions()));
+
+            static::assertTrue(\is_array($product->getTaxIds()));
+
+            if ($product->getId() === 1) {
+                static::assertEquals(1, \count($product->getTaxIds()));
+                static::assertEquals(3, $product->getTaxIds()[0]);
+                static::assertNotEmpty($product->getShortDescription());
+                static::assertNotEmpty($product->getFullDescription());
+                static::assertNull($product->getVideo());
+            }
+
+            if ($product->getId() === 3) {
+                static::assertEquals(1, \count($product->getTaxIds()));
+                static::assertEquals(2, $product->getTaxIds()[0]);
+                static::assertEmpty($product->getShortDescription());
+                static::assertEmpty($product->getFullDescription());
+                static::assertRegExp('/\/\/.*amazonaws\.com\/wizachatest\/videos\/.*\/.*\.mp4/', $product->getVideo());
+            }
         }
     }
 

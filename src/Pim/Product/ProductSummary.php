@@ -98,6 +98,18 @@ class ProductSummary
     /** @var null|string */
     private $seoKeywords;
 
+    /** @var string */
+    private $fullDescription;
+
+    /** @var string */
+    private $shortDescription;
+
+    /** @var int[] */
+    private $taxIds;
+
+    /** @var ?string */
+    private $video;
+
     /**
      * @internal
      *
@@ -147,6 +159,11 @@ class ProductSummary
         $this->seoTitle = $data['seoTitle'] ?? null;
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
+
+        $this->fullDescription = $data['full_description'] ?? '';
+        $this->shortDescription = $data['short_description'] ?? '';
+        $this->taxIds = $data['tax_ids'] ?? [];
+        $this->video = $data['video'] ?? null;
     }
 
     /**
@@ -344,5 +361,37 @@ class ProductSummary
     public function getSeoKeywords(): ?string
     {
         return $this->seoKeywords;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFullDescription(): string
+    {
+        return $this->fullDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @return int[]
+     */
+    public function getTaxIds(): array
+    {
+        return $this->taxIds;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getVideo(): ?string
+    {
+        return $this->video;
     }
 }
