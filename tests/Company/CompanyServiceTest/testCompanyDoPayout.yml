@@ -1,0 +1,95 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 24 Feb 2021 10:23:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4297c9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4297c9'
+            X-Robots-Tag: noindex
+            X-Request-Id: 13eb42b601a191415d775fa0a381f616
+        body: '{"id":2,"apiKey":"jYqcGSR8dT9uTKW6aGqS1xc+\/tmUB2Y+S\/Dao3Z3"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/10/payout'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token jYqcGSR8dT9uTKW6aGqS1xc+/tmUB2Y+S/Dao3Z3'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 24 Feb 2021 10:23:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c0444c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c0444c'
+            X-Robots-Tag: noindex
+            X-Request-Id: 33741966fa6a6efd1c35b465328334a1
+        body: '{"message":"Virement bancaire effectu\u00e9"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/8/payout'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token jYqcGSR8dT9uTKW6aGqS1xc+/tmUB2Y+S/Dao3Z3'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 24 Feb 2021 10:23:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cc4291
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc4291'
+            X-Robots-Tag: noindex
+        body: '{"message":"Une erreur est survenue. Les fonds n\u2019ont pas \u00e9t\u00e9 vir\u00e9s au marchand."}'

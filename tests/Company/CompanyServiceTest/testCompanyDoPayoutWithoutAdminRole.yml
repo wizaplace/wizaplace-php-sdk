@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOldpbmRvd3MuOTg='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 24 Feb 2021 10:23:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1b64ae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1b64ae'
+            X-Robots-Tag: noindex
+            X-Request-Id: 57e72586e383e519e6a32a999049de31
+        body: '{"id":6,"apiKey":"yNgVuZ7oXbonrGIg54adfqGVWhlRTuJIuzoOJWDT"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/companies/10/payout'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token yNgVuZ7oXbonrGIg54adfqGVWhlRTuJIuzoOJWDT'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '401'
+            message: Unauthorized
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 24 Feb 2021 10:23:05 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 0504bd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0504bd'
+            X-Robots-Tag: noindex
+        body: '{"message":"Cette API est accessible que par les administrateurs"}'

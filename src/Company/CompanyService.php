@@ -440,6 +440,20 @@ class CompanyService extends AbstractService
         );
     }
 
+    public function getBalance(int $companyId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->get('companies/' . $companyId . '/balance');
+    }
+
+    public function doPayout(int $companyId)
+    {
+        $this->client->mustBeAuthenticated();
+
+        return $this->client->post('companies/' . $companyId . '/payout');
+    }
+
     /**
      * @param int   $companyId
      * @param array $files {@see \Wizaplace\SDK\Company\CompanyRegistration::addFile}

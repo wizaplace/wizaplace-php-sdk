@@ -1,6 +1,13 @@
 
 # Changelog
 
+## 1.122.14
+
+### New features
+
+- Added `Wizaplace\SDK\Company\CompanyService::getBalance`
+- Added `Wizaplace\SDK\Company\CompanyService::doPayout`
+
 ## 1.122.13
 
 ### New features
@@ -18,6 +25,7 @@
 ## 1.121.0
 
 ### New features
+
 - Added `Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount::getMaxAmount`
 - Added `Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount::getMaxAmount`
 

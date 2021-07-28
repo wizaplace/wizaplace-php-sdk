@@ -22,6 +22,7 @@ use Wizaplace\SDK\Company\CompanyStatus;
 use Wizaplace\SDK\Company\CompanyUpdateCommand;
 use Wizaplace\SDK\Company\UnauthenticatedCompanyRegistration;
 use Wizaplace\SDK\Exception\CompanyNotFound;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -612,6 +613,55 @@ final class CompanyServiceTest extends ApiTestCase
         static::assertEquals(4, $subscription->getUserId());
         static::assertEquals(1, $subscription->getCompanyId());
         static::assertUuid($subscription->getCardId());
+    }
+
+    public function testGetCompanyBalance(): void
+    {
+        $companyService = $this->buildUserCompanyService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $balanceCompany10 = $companyService->getBalance(10);
+        static::assertArrayHasKey('message', $balanceCompany10);
+        static::assertSame('Le solde du wallet est 0 €', $balanceCompany10['message']);
+
+        $balanceCompany8 = $companyService->getBalance(8);
+        static::assertArrayHasKey('message', $balanceCompany8);
+        static::assertSame('Le solde du wallet est 3646 €', $balanceCompany8['message']);
+
+        static::expectExceptionCode(404);
+        $companyService->getBalance(404);
+    }
+
+    public function testGetCompanyBalanceWithoutAdminRole(): void
+    {
+        $companyService = $this->buildUserCompanyService('vendor@world-company.com', static::VALID_PASSWORD);
+        static::expectExceptionCode(401);
+        $companyService->getBalance(10);
+    }
+
+    public function testCompanyDoPayout(): void
+    {
+        $companyService = $this->buildUserCompanyService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $balanceCompany10 = $companyService->doPayout(10);
+        static::assertArrayHasKey('message', $balanceCompany10);
+        static::assertSame('Virement bancaire effectué', $balanceCompany10['message']);
+
+        static::expectExceptionCode(400);
+        $companyService->doPayout(8);
+    }
+
+    public function testCompanyDoPayoutWithoutAdminRole(): void
+    {
+        $companyService = $this->buildUserCompanyService('vendor@world-company.com', static::VALID_PASSWORD);
+        static::expectExceptionCode(401);
+        $companyService->doPayout(10);
+    }
+
+    public function testCompanyDoPayoutCompanyNotFound(): void
+    {
+        $companyService = $this->buildUserCompanyService('admin@wizaplace.com', static::VALID_PASSWORD);
+        static::expectExceptionCode(404);
+        $companyService->doPayout(404);
     }
 
     public function testPatchEnableCompany(): void
