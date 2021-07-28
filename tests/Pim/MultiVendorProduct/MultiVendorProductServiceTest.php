@@ -480,6 +480,8 @@ final class MultiVendorProductServiceTest extends ApiTestCase
         $multiVendorProduct = $service->addImageToMultiVendorProduct($uuid, $files, 'alternative text mvp');
 
         $mvp = $service->getMultiVendorProductById($multiVendorProduct->getId());
+        var_dump($mvp->getImageIds());
+        var_dump($mvp->getImages());
 
         static::assertSame('alternative text mvp', $mvp->getImages()[0]->getAltText());
     }
