@@ -231,15 +231,8 @@ final class Product
         $this->availableSince = isset($data['availableSince']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['availableSince']) : null;
         $this->infiniteStock = $data['infiniteStock'];
 
-        if (\array_key_exists('imagesData', $data) === true) {
-            $this->images = $this->getImagesDataWithAltText($data);
-        } elseif (\array_key_exists('images', $data) === true) {
-            $this->images = array_map(
-                static function (array $imageData): Image {
-                    return new Image($imageData);
-                },
-                $data['images']
-            );
+        if (\array_key_exists('images', $data) === true) {
+            $this->images = $this->getImagesWithAltText($data);
         } else {
             $this->images = [];
         }

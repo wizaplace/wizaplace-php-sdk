@@ -13,14 +13,14 @@ namespace Wizaplace\SDK\Image;
 trait ImagesDataTrait
 {
     /** @return Image[]|array */
-    public function getImagesDataWithAltText(array $data): array
+    public function getImagesWithAltText(array $data): array
     {
-        if (\array_key_exists('imagesData', $data) === true) {
+        if (\array_key_exists('images', $data) === true) {
             return array_map(
-                static function (array $imageData): Image {
-                    return new Image($imageData);
+                static function (array $image): Image {
+                    return new Image($image);
                 },
-                $data['imagesData']
+                $data['images']
             );
         }
 

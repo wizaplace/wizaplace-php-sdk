@@ -80,7 +80,7 @@ final class MultiVendorProduct
     private $imageIds;
 
     /** @var Image[]|array */
-    private $imagesData;
+    private $images;
 
     /** @var null|MultiVendorProductVideo */
     private $video;
@@ -107,7 +107,7 @@ final class MultiVendorProduct
         $this->status = isset($data['status']) ? new MultiVendorProductStatus($data['status']) : null;
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
-        $this->imagesData = $this->getImagesDataWithAltText($data);
+        $this->images = $this->getImagesWithAltText($data);
         $this->attributes = $data['attributes'] ?? null;
         $this->video = isset($data['video']) ? new MultiVendorProductVideo($data['video']) : null;
     }
@@ -409,9 +409,9 @@ final class MultiVendorProduct
     }
 
     /** @return Image[]|array */
-    public function getImagesData(): array
+    public function getImages(): array
     {
-        return $this->imagesData;
+        return $this->images;
     }
 
     /**
