@@ -112,7 +112,7 @@ final class Declination
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
         if (\array_key_exists('imagesData', $data) === true) {
-            $this->images = $this->getImagesDataWithAltText($data);
+            $this->images = $this->getImagesWithAltText($data);
         } elseif (\array_key_exists('images', $data) === true) {
             $this->images = array_map(
                 static function (array $imageData): Image {
