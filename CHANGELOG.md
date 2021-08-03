@@ -1,6 +1,18 @@
 
 # Changelog
 
+## New Release
+
+### New features
+
+- Added `Wizaplace\Group\Group`
+- Added `Wizaplace\Group\GroupService`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rule\BasketHasGroupInListRule`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rule\BasketHasGroupInListRule::getGroupsIds`
+- Added `Wizaplace\SDK\Vendor\Promotion\Rule\BasketHasGroupInListRule::setGroupsIds`
+  Added `Wizaplace\SDK\Vendor\Promotion\Discounts\Targets\CategoriesTarget::getCategoriesIds`
+- Added `Wizaplace\SDK\Vendor\Promotion\Discounts\Targets\CategoriesTarget::getType`
+
 ## 1.122.14
 
 ### New features

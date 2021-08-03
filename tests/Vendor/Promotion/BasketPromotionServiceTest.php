@@ -18,6 +18,7 @@ use Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount;
 use Wizaplace\SDK\Vendor\Promotion\PromotionPeriod;
 use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasGroupInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
@@ -356,7 +357,68 @@ final class BasketPromotionServiceTest extends ApiTestCase
             ->setTarget($target ?? new ProductsTarget(1, 4, 7));
     }
 
-    private function buildBasketPromotionService(string $email = 'vendor@world-company.com'): BasketPromotionService
+    public function testPromotionWithGroups(): void
+    {
+        $basketPromotionsService = $this->buildBasketPromotionService('vendor@wizaplace.com', static::VALID_PASSWORD);
+
+        $savedPromotion = $basketPromotionsService->savePromotion(
+            SaveBasketPromotionCommand::createNew()
+                ->setName('test promotion without rules')
+                ->setActive(true)
+                ->setDiscounts([new FixedDiscount(3.5)])
+                ->setPeriod(new PromotionPeriod(new \DateTime('2010-01-01'), new \DateTime('2025-01-01')))
+                ->setTarget(new BasketTarget())
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new BasketHasGroupInListRule(['0c43c4e7-9c54-11eb-a9e9-0242ac120007'])
+                    )
+                )
+        );
+
+        $rootRule = $savedPromotion->getRule();
+        static::assertInstanceOf(BasketRule::class, $rootRule);
+        static::assertContainsOnly(BasketRule::class, $rootRule->getItems());
+        static::assertCount(2, $rootRule->getItems());
+        $rule = $rootRule->getItems()[0];
+        static::assertInstanceOf(BasketPriceSuperiorToRule::class, $rule);
+        static::assertSame(100.0, $rule->getValue());
+        $rule = $rootRule->getItems()[1];
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rule);
+        static::assertSame(['0c43c4e7-9c54-11eb-a9e9-0242ac120007'], $rule->getGroupsIds());
+    }
+
+    public function testUpdateBasketPromotionWithGroups(): void
+    {
+        $service = $this->buildBasketPromotionService('vendor@wizaplace.com', static::VALID_PASSWORD);
+
+        $updatedPromotion = $service->savePromotion(
+            SaveBasketPromotionCommand::updateExisting('93b6f076-3bc1-4c77-a2d0-350bdead9290')
+                ->setRule(new BasketHasGroupInListRule(['0c43c4e7-9c54-11eb-a9e9-0242ac120008']))
+        );
+
+        static::assertInstanceOf(BasketPromotion::class, $updatedPromotion);
+        $rootRule = $updatedPromotion->getRule();
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rootRule);
+        static::assertSame(['0c43c4e7-9c54-11eb-a9e9-0242ac120008'], $rootRule->getGroupsIds());
+    }
+
+    public function testGetBasketPromotionsWithGroups(): void
+    {
+        $service = $this->buildBasketPromotionService('vendor@wizaplace.com', static::VALID_PASSWORD);
+
+        $promotionList = $service->listPromotions();
+
+        $rootRule = $promotionList[0]->getRule();
+        static::assertInstanceOf(BasketRule::class, $rootRule);
+        static::assertContainsOnly(BasketRule::class, $rootRule->getItems());
+        static::assertCount(2, $rootRule->getItems());
+        $rule = $rootRule->getItems()[1];
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rule);
+        static::assertSame(['0c43c4e7-9c54-11eb-a9e9-0242ac120007'], $rule->getGroupsIds());
+    }
+
+    private function buildBasketPromotionService(string $email = 'vendor@world-company.com', string $password = 'password-vendor'): BasketPromotionService
     {
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate($email, static::VALID_PASSWORD);

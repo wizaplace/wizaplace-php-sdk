@@ -20,12 +20,15 @@ use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionService;
 use Wizaplace\SDK\Vendor\Promotion\MarketplacePromotionsListFilter;
 use Wizaplace\SDK\Vendor\Promotion\PromotionPeriod;
 use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasGroupInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountPerUserRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
 use Wizaplace\SDK\Vendor\Promotion\SaveMarketplacePromotionCommand;
 use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\CategoriesTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
 
 class MarketplacePromotionServiceTest extends ApiTestCase
 {
@@ -132,6 +135,114 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame(20.0, $fixedDiscount->getMaxAmount());
     }
 
+    public function testCreateMarketplacePromotionWithGroups(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $from = new \DateTimeImmutable((new \DateTimeImmutable('2021-04-28'))->format(\DateTime::RFC3339));
+        $to = new \DateTime((new \DateTime('2021-04-30 23:59'))->format(\DateTime::RFC3339));
+        $savedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::createNew()
+                ->setName('summer promotion')
+                ->setActive(true)
+                ->setCoupon('SUMMER 0')
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(40),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new BasketHasGroupInListRule(['1c18aafa-9b81-11eb-8d94-0242ac120005'])
+                    )
+                )
+                ->setTarget(new BasketTarget())
+        );
+
+        $rootRule = $savedPromotion->getRule();
+        static::assertInstanceOf(BasketRule::class, $rootRule);
+        static::assertContainsOnly(BasketRule::class, $rootRule->getItems());
+        static::assertCount(2, $rootRule->getItems());
+        $rule = $rootRule->getItems()[0];
+        static::assertInstanceOf(BasketPriceSuperiorToRule::class, $rule);
+        static::assertSame(100.0, $rule->getValue());
+        $rule = $rootRule->getItems()[1];
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rule);
+        static::assertSame(['1c18aafa-9b81-11eb-8d94-0242ac120005'], $rule->getGroupsIds());
+    }
+
+    public function testCreateMarketplacePromotionWithTargetProductInBasket(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', 'Windows.98');
+
+        $from = new \DateTimeImmutable((new \DateTimeImmutable('2021-06-04'))->format(\DateTime::RFC3339));
+        $to = new \DateTime((new \DateTime('2021-06-27 23:59'))->format(\DateTime::RFC3339));
+        $savedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::createNew()
+                ->setName('Promotion With Target Product In Basket')
+                ->setActive(true)
+                ->setCoupon('Promotion 1')
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(40),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new MaxUsageCountRule(100),
+                        new MaxUsageCountPerUserRule(1)
+                    )
+                )
+                ->setTarget(new ProductsTarget(1, 2))
+        );
+
+        static::assertSame('product_in_basket', $savedPromotion->getTarget()->getType()->getValue());
+        static::assertArrayHasKey('target', $savedPromotion->jsonSerialize());
+        static::assertArrayHasKey('products_ids', $savedPromotion->jsonSerialize()['target']);
+        static::assertSame([1, 2], $savedPromotion->jsonSerialize()['target']['products_ids']);
+        static::assertArrayHasKey('type', $savedPromotion->jsonSerialize()['target']);
+        static::assertSame('product_in_basket', $savedPromotion->jsonSerialize()['target']['type']);
+    }
+
+    public function testCreateMarketplacePromotionWithTargetProductCategoryInBasket(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', 'Windows.98');
+
+        $from = new \DateTimeImmutable((new \DateTimeImmutable('2021-06-04'))->format(\DateTime::RFC3339));
+        $to = new \DateTime((new \DateTime('2021-06-27 23:59'))->format(\DateTime::RFC3339));
+        $savedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::createNew()
+                ->setName('Promotion With Target Product Category In Basket')
+                ->setActive(true)
+                ->setCoupon('Promotion 2')
+                ->setDiscounts(
+                    [
+                        new FixedDiscount(50),
+                    ]
+                )
+                ->setPeriod(new PromotionPeriod($from, $to))
+                ->setRule(
+                    new AndBasketRule(
+                        new BasketPriceSuperiorToRule(100),
+                        new MaxUsageCountRule(100),
+                        new MaxUsageCountPerUserRule(1)
+                    )
+                )
+                ->setTarget(new CategoriesTarget(3, 7))
+        );
+
+        static::assertSame('product_category_in_basket', $savedPromotion->getTarget()->getType()->getValue());
+        static::assertArrayHasKey('target', $savedPromotion->jsonSerialize());
+        static::assertArrayHasKey('categories_ids', $savedPromotion->jsonSerialize()['target']);
+        static::assertSame([3, 7], $savedPromotion->jsonSerialize()['target']['categories_ids']);
+        static::assertArrayHasKey('type', $savedPromotion->jsonSerialize()['target']);
+        static::assertSame('product_category_in_basket', $savedPromotion->jsonSerialize()['target']['type']);
+    }
+
     public function testUpdateMarketplacePromotion(): void
     {
         $service = $this->buildMarketplacePromotionService();
@@ -186,6 +297,21 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame(20.0, $updatedPromotion->getDiscounts()[0]->getMaxAmount());
     }
 
+    public function testUpdateMarketplacePromotionWithGroups(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $updatedPromotion = $service->saveMarketplacePromotion(
+            SaveMarketplacePromotionCommand::updateExisting('f6a441d8-95fa-44ac-9bc7-ca7f0fc980d9')
+                ->setRule(new BasketHasGroupInListRule(['1c18aafa-9b81-11eb-8d94-0242ac120005']))
+        );
+
+        static::assertInstanceOf(MarketplacePromotion::class, $updatedPromotion);
+        $rootRule = $updatedPromotion->getRule();
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rootRule);
+        static::assertSame(['1c18aafa-9b81-11eb-8d94-0242ac120005'], $rootRule->getGroupsIds());
+    }
+
     public function testGetMarketplacePromotions(): void
     {
         $service = $this->buildMarketplacePromotionService();
@@ -198,6 +324,51 @@ class MarketplacePromotionServiceTest extends ApiTestCase
         static::assertSame(1, $promotionList->getTotal());
         static::assertCount(1, $promotionList->getItems());
         static::assertContainsOnly(MarketplacePromotion::class, $promotionList->getItems());
+    }
+
+    public function testGetMarketplacePromotionsWithGroups(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', static::VALID_PASSWORD);
+
+        $promotionList = $service->getMarketplacePromotionsList();
+
+        static::assertInstanceOf(MarketplacePromotionsList::class, $promotionList);
+        static::assertContainsOnly(MarketplacePromotion::class, $promotionList->getItems());
+        $rootRule = $promotionList->getItems()[0]->getRule();
+        static::assertInstanceOf(BasketRule::class, $rootRule);
+        static::assertContainsOnly(BasketRule::class, $rootRule->getItems());
+        static::assertCount(2, $rootRule->getItems());
+        $rule = $rootRule->getItems()[1];
+        static::assertInstanceOf(BasketHasGroupInListRule::class, $rule);
+        static::assertSame(['1c18aafa-9b81-11eb-8d94-0242ac120005'], $rule->getGroupsIds());
+    }
+
+    public function testGetMarketplacePromotionsWithTargetProductInBasket(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', 'Windows.98');
+
+        $promotionList = $service->getMarketplacePromotionsList();
+
+        static::assertSame('product_in_basket', $promotionList->getItems()[2]->getTarget()->getType()->getValue());
+        static::assertArrayHasKey('target', $promotionList->getItems()[2]->jsonSerialize());
+        static::assertArrayHasKey('products_ids', $promotionList->getItems()[2]->jsonSerialize()['target']);
+        static::assertSame([1, 2], $promotionList->getItems()[2]->jsonSerialize()['target']['products_ids']);
+        static::assertArrayHasKey('type', $promotionList->getItems()[2]->jsonSerialize()['target']);
+        static::assertSame('product_in_basket', $promotionList->getItems()[2]->jsonSerialize()['target']['type']);
+    }
+
+    public function testGetMarketplacePromotionsWithTargetProductCategoryInBasket(): void
+    {
+        $service = $this->buildMarketplacePromotionService('admin@wizaplace.com', 'Windows.98');
+
+        $promotionList = $service->getMarketplacePromotionsList();
+
+        static::assertSame('product_category_in_basket', $promotionList->getItems()[1]->getTarget()->getType()->getValue());
+        static::assertArrayHasKey('target', $promotionList->getItems()[1]->jsonSerialize());
+        static::assertArrayHasKey('categories_ids', $promotionList->getItems()[1]->jsonSerialize()['target']);
+        static::assertSame([3, 7], $promotionList->getItems()[1]->jsonSerialize()['target']['categories_ids']);
+        static::assertArrayHasKey('type', $promotionList->getItems()[1]->jsonSerialize()['target']);
+        static::assertSame('product_category_in_basket', $promotionList->getItems()[1]->jsonSerialize()['target']['type']);
     }
 
     public function testGetListMarketplacePromotionsFiltered(): void

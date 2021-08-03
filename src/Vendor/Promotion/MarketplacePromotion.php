@@ -19,6 +19,7 @@ use Wizaplace\SDK\Vendor\Promotion\Discounts\Discount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasGroupInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorOrEqualToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
@@ -30,6 +31,7 @@ use Wizaplace\SDK\Vendor\Promotion\Rules\MaxUsageCountRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\OrBasketRule;
 use Wizaplace\SDK\Vendor\Promotion\Targets\BasketPromotionTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\BasketTarget;
+use Wizaplace\SDK\Vendor\Promotion\Targets\CategoriesTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ProductsTarget;
 use Wizaplace\SDK\Vendor\Promotion\Targets\ShippingTarget;
 
@@ -211,6 +213,26 @@ final class MarketplacePromotion implements \JsonSerializable
 
                 return new ProductsTarget(...$targetData['products_ids']);
 
+            case BasketPromotionTargetType::PRODUCT_CATEGORY()->equals($type):
+                // We have to format categories_ids data for ProductCategoryTarget constructor
+                if (\array_key_exists(1, $target) === true && \is_string($target[1]) === true && \mb_strlen($target[1]) > 0) {
+                    $targetData['categories_ids'] = \array_map(
+                        function (string $id): int {
+                            return (int) $id;
+                        },
+                        \explode(',', $target[1])
+                    );
+                }
+
+                if (\array_key_exists('categories_ids', $targetData) === false
+                    || \is_array($targetData['categories_ids']) === false
+                    || \count($targetData['categories_ids']) === 0
+                ) {
+                    throw new \Exception('Empty target products categories ids');
+                }
+
+                return new CategoriesTarget(...$targetData['categories_ids']);
+
             case BasketPromotionTargetType::SHIPPING()->equals($type):
                 return new ShippingTarget();
 
@@ -234,6 +256,8 @@ final class MarketplacePromotion implements \JsonSerializable
                 return new AndBasketRule(...array_map([self::class, 'denormalizeRule'], $ruleData['items']));
             case BasketRuleType::BASKET_HAS_PRODUCT_IN_LIST()->equals($type):
                 return new BasketHasProductInListRule(...$ruleData['products_ids']);
+            case BasketRuleType::BASKET_HAS_GROUP_IN_LIST()->equals($type):
+                return new BasketHasGroupInListRule($ruleData['groups_ids']);
             case BasketRuleType::MAX_USAGE_COUNT()->equals($type):
                 return new MaxUsageCountRule($ruleData['value']);
             case BasketRuleType::MAX_USAGE_COUNT_PER_USER()->equals($type):

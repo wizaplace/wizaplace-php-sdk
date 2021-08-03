@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 13:39:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a7150f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a7150f'
+            X-Robots-Tag: noindex
+            X-Request-Id: b678fbaaeb495d5e4f8a1edfc74c842d
+        body: '{"id":2,"apiKey":"IcJjugjL4KWC1uJcrvveujzkaXiuJDNlANlnenER"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token IcJjugjL4KWC1uJcrvveujzkaXiuJDNlANlnenER'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Test Group"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '409'
+            message: Conflict
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 13:39:55 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: edfc2a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/edfc2a'
+            X-Robots-Tag: noindex
+        body: '{"message":"The group name is already used"}'

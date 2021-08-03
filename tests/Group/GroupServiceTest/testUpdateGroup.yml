@@ -1,0 +1,129 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 27 Apr 2021 13:36:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4de5ae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4de5ae'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9db471510606df39be626d75e3902be7
+        body: '{"id":2,"apiKey":"Ed8uBTAlhe7UypqVoVv\/wPj76mxzyQNFZXiCg4d2"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Ed8uBTAlhe7UypqVoVv/wPj76mxzyQNFZXiCg4d2'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '301'
+            message: 'Moved Permanently'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Date: 'Tue, 27 Apr 2021 13:36:58 GMT'
+            Location: 'http://wizaplace.loc/api/v1/groups?offset=0&limit=10'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1a3a99
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1a3a99'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%221a3a99%22%2C%22route%22%3A%22api_user_groups_list%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: b569d10a8d1e6d6c2ed66b1876a4040f
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/groups?offset=0&amp;limit=10'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/groups?offset=0&amp;limit=10</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/groups?offset=0&amp;limit=10\">http://wizaplace.loc/api/v1/groups?offset=0&amp;limit=10</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Ed8uBTAlhe7UypqVoVv/wPj76mxzyQNFZXiCg4d2'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 27 Apr 2021 13:36:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f30e3c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f30e3c'
+            X-Robots-Tag: noindex
+            X-Request-Id: 38d3f1962e6ba05375ce4bd62402bff1
+        body: '{"offset":0,"limit":10,"total":1,"items":[{"groupId":"9ad8e659-a75d-11eb-a843-0242ac12000a","name":"Test Group"}]}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/groups/9ad8e659-a75d-11eb-a843-0242ac12000a'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Ed8uBTAlhe7UypqVoVv/wPj76mxzyQNFZXiCg4d2'
+            VCR-index: '3'
+            Accept: null
+        body: '{"name":"updated Name"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 27 Apr 2021 13:36:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b59076
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b59076'
+            X-Robots-Tag: noindex
+            X-Request-Id: ca7982112b2eb918df366cfc47e4582c
+        body: '{"groupId":"9ad8e659-a75d-11eb-a843-0242ac12000a","name":"updated Name"}'

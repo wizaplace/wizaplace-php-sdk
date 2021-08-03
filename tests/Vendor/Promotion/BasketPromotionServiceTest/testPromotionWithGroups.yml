@@ -1,0 +1,66 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206V2luZG93cy45OA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 14 Apr 2021 08:11:30 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 90fd9a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90fd9a'
+            X-Robots-Tag: noindex
+            X-Request-Id: c6779d186d7d63a6788984e76955acbf
+        body: '{"id":4,"apiKey":"60FLCd\/UGis6OTdnrw+Gu9sEi6CSZXh3QJlSA5Nl"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/promotions/basket'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token 60FLCd/UGis6OTdnrw+Gu9sEi6CSZXh3QJlSA5Nl'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"test promotion without rules","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"groups_ids":["0c43c4e7-9c54-11eb-a9e9-0242ac120007"],"type":"basket_has_users_groups"}]},"discounts":[{"type":"fixed","value":3.5,"maxAmount":null}],"period":{"from":"2010-01-01T00:00:00+00:00","to":"2025-01-01T00:00:00+00:00"},"target":{"type":"basket"}}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 14 Apr 2021 08:11:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 24c1da
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/24c1da'
+            X-Robots-Tag: noindex
+            X-Request-Id: 133075c3923e6a15d6fd843996a1e1fc
+        body: '{"promotion_id":"55bc9d8b-849b-49aa-8626-daa868c403ea","name":"test promotion without rules","active":true,"isValid":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["0c43c4e7-9c54-11eb-a9e9-0242ac120007"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00270c43c4e7-9c54-11eb-a9e9-0242ac120007\u0027]))","period":{"from":"2010-01-01T00:00:00+00:00","to":"2025-01-01T00:00:00+00:00"},"discounts":[{"type":"fixed","value":3.5,"maxAmount":null}],"target":{"type":"basket"},"coupon":null,"company_id":2}'

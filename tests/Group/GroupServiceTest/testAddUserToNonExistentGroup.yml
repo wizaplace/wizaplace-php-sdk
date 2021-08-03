@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Apr 2021 09:16:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 59bce2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/59bce2'
+            X-Robots-Tag: noindex
+            X-Request-Id: 15aa072320d740576ed2a70ba8073929
+        body: '{"id":2,"apiKey":"6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups/404/users/1'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token 6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Apr 2021 09:16:58 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: afac06
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/afac06'
+            X-Robots-Tag: noindex
+        body: '{"message":"Group \u0022404\u0022 not found"}'

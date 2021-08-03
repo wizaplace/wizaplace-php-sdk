@@ -18,6 +18,7 @@ use Wizaplace\SDK\Vendor\Promotion\Discounts\Discount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\FixedDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Discounts\PercentageDiscount;
 use Wizaplace\SDK\Vendor\Promotion\Rules\AndBasketRule;
+use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasGroupInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketHasProductInListRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceInferiorToRule;
 use Wizaplace\SDK\Vendor\Promotion\Rules\BasketPriceSuperiorToRule;
@@ -237,6 +238,8 @@ final class BasketPromotion implements \JsonSerializable
                 return new AndBasketRule(...array_map([self::class, 'denormalizeRule'], $ruleData['items']));
             case BasketRuleType::BASKET_HAS_PRODUCT_IN_LIST()->equals($type):
                 return new BasketHasProductInListRule(...$ruleData['products_ids']);
+            case BasketRuleType::BASKET_HAS_GROUP_IN_LIST()->equals($type):
+                return new BasketHasGroupInListRule($ruleData['groups_ids']);
             case BasketRuleType::MAX_USAGE_COUNT()->equals($type):
                 return new MaxUsageCountRule($ruleData['value']);
             case BasketRuleType::MAX_USAGE_COUNT_PER_USER()->equals($type):

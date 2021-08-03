@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 13:41:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 72cac5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/72cac5'
+            X-Robots-Tag: noindex
+            X-Request-Id: 67e98f742318ac783a03cc75600d4f5a
+        body: '{"id":2,"apiKey":"IcJjugjL4KWC1uJcrvveujzkaXiuJDNlANlnenER"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token IcJjugjL4KWC1uJcrvveujzkaXiuJDNlANlnenER'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":""}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 30 Mar 2021 13:41:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: da8923
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/da8923'
+            X-Robots-Tag: noindex
+        body: '{"message":"Invalid value in field name","errors":[{"field":"name","message":"name must be string and not empty"}]}'

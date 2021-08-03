@@ -1,0 +1,255 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1b5e8e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1b5e8e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 784c63bfd856bb8f592b2ac4b69ec7fa
+        body: '{"id":1,"apiKey":"eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '1'
+            Accept: null
+        body: '{"usersIds":[1,2,3]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4b09da
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4b09da'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%224b09da%22%2C%22route%22%3A%22api_add_users_group%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CGroupController%22%2C%22method%22%3A%22addUsersAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FGroupController.php%22%2C%22line%22%3A125%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: c47424f4ab871cc166b1769374e8bfb5
+        body: '[1,2,3]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users/?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '301'
+            message: 'Moved Permanently'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Location: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&limit=10'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f50a0a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f50a0a'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22f50a0a%22%2C%22route%22%3A%22api_list_users_group%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: fc7b482f1c0984234b99c90fe2ce839d
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&amp;limit=10'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&amp;limit=10</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&amp;limit=10\">http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&amp;limit=10</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f30bf0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f30bf0'
+            X-Robots-Tag: noindex
+            X-Request-Id: 61faebe9585200bac00606ec9286190a
+        body: '{"offset":0,"limit":10,"total":3,"items":[1,2,3]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users/?offset=1&limit=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '301'
+            message: 'Moved Permanently'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Location: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&limit=1'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '413340'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/413340'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22413340%22%2C%22route%22%3A%22api_list_users_group%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 9d3aa4eea1a94c6890df34d0235037f0
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&amp;limit=1'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&amp;limit=1</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&amp;limit=1\">http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&amp;limit=1</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=1&limit=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 66779b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/66779b'
+            X-Robots-Tag: noindex
+            X-Request-Id: 671cbf814fafca7c2378ed554be69266
+        body: '{"offset":1,"limit":1,"total":3,"items":[2]}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users/?offset=-15&limit=5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '301'
+            message: 'Moved Permanently'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Location: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&limit=5'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a8373a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a8373a'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a8373a%22%2C%22route%22%3A%22api_list_users_group%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: fd22d7c7ffb1ae9050cb413ae0318684
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&amp;limit=5'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&amp;limit=5</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&amp;limit=5\">http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&amp;limit=5</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/groups/4745118a-a762-11eb-a843-0242ac12000a/users?offset=-15&limit=5'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 28 Apr 2021 10:14:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 97db04
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97db04'
+            X-Robots-Tag: noindex
+        body: '{"message":"Offset must be a positive integer or zero, -15 given"}'

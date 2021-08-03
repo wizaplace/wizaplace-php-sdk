@@ -1,0 +1,102 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Apr 2021 08:53:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2bb8c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2bb8c8'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9b1995692be34019e0276aebd5eba10d
+        body: '{"id":2,"apiKey":"6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token 6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt'
+            VCR-index: '1'
+            Accept: null
+        body: '{"name":"Test Group 1"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Apr 2021 08:53:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b91137
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b91137'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22b91137%22%2C%22route%22%3A%22api_group_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CGroupController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FGroupController.php%22%2C%22line%22%3A82%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 7e3fd8f7b8ff5649a94d50cd503b7237
+        body: '{"groupId":"6192db86-95ec-11eb-9c2c-0242ac120009","name":"Test Group 1"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/groups/6192db86-95ec-11eb-9c2c-0242ac120009/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token 6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt'
+            VCR-index: '2'
+            Accept: null
+        body: '{"usersIds":[1,2]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 05 Apr 2021 08:53:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5d4f8e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5d4f8e'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%225d4f8e%22%2C%22route%22%3A%22api_add_users_group%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CGroupController%22%2C%22method%22%3A%22addUsersAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FGroupController.php%22%2C%22line%22%3A140%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 328100caa1716d17dee6c8a41109a570
+        body: '[1,2]'

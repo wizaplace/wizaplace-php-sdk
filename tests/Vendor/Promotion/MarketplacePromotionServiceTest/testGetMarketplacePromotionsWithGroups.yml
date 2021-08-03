@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Apr 2021 14:45:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: afefd8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/afefd8'
+            X-Robots-Tag: noindex
+            X-Request-Id: a3ec5cfd7617126803bc5ee03b7b06a6
+        body: '{"id":2,"apiKey":"Jb5Fti8OVSAqzK0m55lUtr0qNkMsoZdhMkUXRs+R"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/promotions/marketplace?offset=0&limit=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token Jb5Fti8OVSAqzK0m55lUtr0qNkMsoZdhMkUXRs+R'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 12 Apr 2021 14:45:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cb02a0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cb02a0'
+            X-Robots-Tag: noindex
+            X-Request-Id: 905cbe14ae2aadf6950c7a2c0e15965a
+        body: '{"offset":0,"limit":10,"total":13,"items":[{"promotion_id":"47335f0f-4b0f-4f45-9685-75bee184dba8","name":"ggg","active":true,"isValid":true,"rule":{"type":"and","items":[{"type":"basket_has_product_in_list","products_ids":[1]},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"products intersects [1] and groups intersects [\u00221c18aafa-9b81-11eb-8d94-0242ac120005\u0022]","period":{"from":"2021-04-11T22:00:00+00:00","to":"2021-04-14T21:59:59+00:00"},"discounts":[],"target":{"type":"basket"},"coupon":"faez"},{"promotion_id":"1d00ac9b-9db6-4e83-9786-03dc2f292513","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 2"},{"promotion_id":"259d12df-00f3-45a2-a67b-4d6ba8fe89d9","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 1"},{"promotion_id":"3aa21dd0-f40b-45f5-9fa4-dbb2362b1f69","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 16"},{"promotion_id":"5ed1fc53-2455-487e-829b-7dc81332a4d6","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 0"},{"promotion_id":"ae44e334-b52a-45d0-b355-bfe837d2a4d4","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 21"},{"promotion_id":"fa880084-0c76-4053-ac34-3d32e743bffb","name":"summer promotion","active":true,"isValid":false,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":100},{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005"]}]},"ruleString":"((totalAmount \u003E 100) and (groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027]))","period":{"from":"2021-04-28T00:00:00+00:00","to":"2021-04-30T23:59:00+00:00"},"discounts":[{"type":"fixed","value":40}],"target":{"type":"basket"},"coupon":"SUMMER 15"},{"promotion_id":"0344b379-6a73-4970-af1a-480f4ce9a646","name":"Summer promotion 4","active":true,"isValid":false,"rule":null,"ruleString":"","period":{"from":"2021-04-25T00:00:00+00:00","to":"2021-04-30T00:00:00+00:00"},"discounts":[{"type":"fixed","value":50}],"target":{"type":"basket"},"coupon":"COUPON 9"},{"promotion_id":"74da9af3-fca6-4619-95c6-e52cf9bb57f0","name":"Summer promotion 4","active":true,"isValid":false,"rule":null,"ruleString":"","period":{"from":"2021-04-25T00:00:00+00:00","to":"2021-04-30T00:00:00+00:00"},"discounts":[{"type":"fixed","value":50}],"target":{"type":"basket"},"coupon":"COUPON 10"},{"promotion_id":"ee1ad0af-005b-47fc-b896-e7a038110905","name":"Summer promotion 4","active":true,"isValid":false,"rule":{"type":"basket_has_users_groups","groups_ids":["1c18aafa-9b81-11eb-8d94-0242ac120005","0eefd89e-96c7-11eb-9c2c-0242ac120008"]},"ruleString":"(groups intersects [\u00271c18aafa-9b81-11eb-8d94-0242ac120005\u0027,\u00270eefd89e-96c7-11eb-9c2c-0242ac120008\u0027])","period":{"from":"2021-04-25T00:00:00+00:00","to":"2021-04-30T00:00:00+00:00"},"discounts":[{"type":"fixed","value":50}],"target":{"type":"basket"},"coupon":"COUPON 18"}]}'

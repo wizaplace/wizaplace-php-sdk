@@ -31,6 +31,7 @@ use Symfony\Component\Serializer\Normalizer\NormalizerInterface;
  * @method static BasketRuleType BASKET_QUANTITY_INFERIOR_TO()
  * @method static BasketRuleType BASKET_QUANTITY_SUPERIOR_OR_EQUAL_TO()
  * @method static BasketRuleType BASKET_QUANTITY_INFERIOR_OR_EQUAL_TO()
+ * @method static BasketRuleType BASKET_HAS_GROUP_IN_LIST()
  */
 final class BasketRuleType extends Enum implements NormalizableInterface
 {
@@ -47,6 +48,7 @@ final class BasketRuleType extends Enum implements NormalizableInterface
     private const BASKET_QUANTITY_INFERIOR_TO = 'basket_quantity_inferior_to';
     private const BASKET_QUANTITY_SUPERIOR_OR_EQUAL_TO = 'basket_quantity_superior_or_equal_to';
     private const BASKET_QUANTITY_INFERIOR_OR_EQUAL_TO = 'basket_quantity_inferior_or_equal_to';
+    private const BASKET_HAS_GROUP_IN_LIST = 'basket_has_users_groups';
 
     /**
      * @inheritdoc
