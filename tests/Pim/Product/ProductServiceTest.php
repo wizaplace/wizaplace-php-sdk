@@ -1639,4 +1639,88 @@ final class ProductServiceTest extends ApiTestCase
                 ]
             );
     }
+
+    public function testCreateComplexProductWithAdmin(): void
+    {
+        $availibilityDate = new \DateTimeImmutable('@1519224245');
+        $data = (new CreateProductCommand())
+            ->setCode("code_full_D")
+            ->setGreenTax(0.1)
+            ->setCompanyId(3)
+            ->setInfiniteStock(true)
+            ->setIsBrandNew(true)
+            ->setName("Full product")
+            ->setSupplierReference('supplierref_full')
+            ->setStatus(ProductStatus::ENABLED())
+            ->setMainCategoryId(4)
+            ->setFreeAttributes(
+                [
+                    'freeAttr1' => 'freeAttr1Value',
+                    'freeAttr2' => 42,
+                    'freeAttr3' => ['freeAttr3Value', 42],
+                ]
+            )
+            ->setHasFreeShipping(true)
+            ->setWeight(0.2)
+            ->setIsDownloadable(true)
+            ->setMainImage(new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'))
+            ->setAdditionalImages(
+                [
+                    (new ProductImageUpload())->setName('image1.png')
+                        ->setMimeType('image/png')
+                        ->setBase64Data('iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFkElEQVRYw72XS2wbVRSGvzszthPHcWYmzYOEvJo0IUlbmqZvWkDiISoVCVUUVapUIVZsWCAhgYQEQqxgBaqExIIVFQtAqCCxQYK2qKQtSUlTtSUNbp2kNImdxLHrOHHGj2Hha9dO3DZ9cSRr5Lln7jn3v/899z+CVVhTSxuADmwCtshnG7BGuswAPuA80A8MAeExv++uc4u7BBZAPbAPeE0G1u/wnQ2EZSLfAj8Bk2N+n33PCTS1tLmB/cDbwEZA494sCQwCnwHHxvy+hVUlIOGuBz4EDgFuHsxiwDfAR8CN5duiFgneCnwhIXfy4OYEeoBO4LRumOFIOJQbVJY5Pw4cAfYWGXsQU+ScRyS6KxFoamkrAz4BXn3IwfO3uw3w6IZ5PBIOJXIJSLYfBN57SLDfKYku4JpumBci4VBupQ2S7W4evbllrAYAVa7+sPwp/D9WBYzqhtmv6oZpAh8DzS6hsMep0+uoYDadIGanbk/tci8Nz7yI0dHNQnCK1FL8tr5ltfU0v/AypZVVLAQnsVNJBfAAP2pAL/AkwC6HzgeetZQIlU6tjE9jo1h2uuhGtj63j+ZXDoIQONweRn44CvbKgqc6nXQcOEzt1qdIJSxSS3GmBvqQMXsVYCtQDlAqFJxCQchkmtXSoisyFQe73FUIVUUoCjVbdlKim0V9PfWNmJ0bQAgUTUNxOLJD5cBWRRYJAXA+EWUitQSAoTjY7qgoOmmP5uX54XFKY4s5iM2O7qK+1T3bcXq8ACwEA8z5hvOB7FGA9uybqbTF2UQkN/q008ArCq8ADcFup07DRJBG/3imymgaNb0781cHgKPMw5r1PSAyFX96qJ/47HS+S7sClGX/pbE5boWYl+Rbp7rp1jwFk9apLjY5ytESSZ64MIyayvianRvw1DUU+Fasbcfb2JK5meKLBAf/xE4XcKpsxbG7nIxxKTkPQIlQ2O3UUfPurB0OnWolU6vMv6/A1CQALq+eWW0WX6FQs3kHqqsEgIj/H8LXRorW6Fj+i0U7xUlrjhR2LmCt6soltMupo8iE/pwZ5+r5s9mI1PTuxFGWQcxlmFR2bcyIBDtNYKCP5OKKGzmmACvSOm2FuSHJWKs66dUyJGpT3XRpZTLRNL8vhZjoP4UVvQmAt7EFvbUDgMqujbhrHgMgHppl5uJgMY6OKFI0FBzgQB4ZVQTPOg1Khcoep0G5JOWVZIzLyRg3x0eZG7mU8XWVUN2zDdXpoqZnO4qa8Z25OEgsMFlMPQ0qUsNF80fS2PxmzRKVZFzv8LDF4WWbowIhvzxphYjaSdIJi6n+PtLJZKbGbuhlzfpN6O1dAKSsJQIDfdipFVU1CvQrwDkpIgtsOI+MXqHxemkda2Vhmk5bnJEIAcxcGmR+4joApVXVrNt/CFeFkYlyfZSw70ox+IeAcwowJwVkqpCMaU5YoRwZuzUPLpE5NP2JCNdTt2r/UiTM9FA/2DZCUfE2tSKEANsmMHAaaz66PHhKxpxTpGI9VgyFU9YcI8lC5s7bKX5ZmiWZTxvbZqLvBIszwQLfheAkgb/OLKdYdvXHxvw+WwXQDTMqj+NLQK6cLdhpgmmLNs1NqVCZsxMcjU/yax4yWUtEo1jzN/HUNaCoGrHABCPff50jaH5ewPvAH5Fw6FaFkTL8c+CNfF0ggCrFSa3iImInuZGKF64+/5YUApdRSYlhEg/NEg+Hlt+QaeBL4J2sTBfLVHG9dNj7CMRJGvgZeHPM75soKssj4VBUN8w+YJ0UkOIhB39rzO/797Z9gUwirBvmSanduh6CSI0BXwHvLg9eNIE8JE7IhrMRqL6PLUkCA5JwR8b8vtD9Nqd1sjk9AGxeRXM6J8v7d7I5nbqv5rRIy1YhdVy2PW+VyAAEgKvyfA/IZ2Q17fl/LFcBJAQMmYcAAAAASUVORK5CYII='),
+                    new Uri('https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png'),
+                ]
+            )
+            ->setFullDescription("super full description")
+            ->setShortDescription("super short description")
+            ->setTaxIds([1])
+            ->setDeclinations(
+                [
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 5, 3 => 7]))
+                        ->setCode('code_full_declA')
+                        ->setPrice(3.5)
+                        ->setQuantity(12)
+                        ->setInfiniteStock(true)
+                        ->setPriceTiers(
+                            [
+                                [
+                                    'lowerLimit' => 0,
+                                    'price' => 18.99,
+                                ],
+                                [
+                                    'lowerLimit' => 15,
+                                    'price' => 15.99,
+                                ],
+                            ]
+                        ),
+                    (new ProductDeclinationUpsertData([1 => 1, 2 => 6, 3 => 9]))
+                        ->setPrice(100.0)
+                        ->setCrossedOutPrice(1000.0)
+                        ->setQuantity(3)
+                        ->setInfiniteStock(true),
+                ]
+            )
+            ->setGeolocation(
+                (new ProductGeolocationUpsertData(/* latitude */ 45.778848, /* longitude */ 4.800039))
+                    ->setLabel('Wizacha')
+                    ->setZipcode('69009')
+            )
+            ->setAvailabilityDate($availibilityDate)
+            ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png')])
+            ->setProductTemplateType('product');
+
+        $productService = $this->buildProductService();
+        $productId = $productService->createProduct($data);
+        static::assertInternalType('int', $productId);
+        static::assertGreaterThan(0, $productId);
+
+        $product = $productService->getProductById($productId);
+        static::assertInstanceOf(Product::class, $product);
+
+        static::assertSame($productId, $product->getId());
+        static::assertSame(4, $product->getMainCategoryId());
+        static::assertSame("code_full_D", $product->getCode());
+        static::assertSame(3, $product->getCompanyId());
+    }
 }

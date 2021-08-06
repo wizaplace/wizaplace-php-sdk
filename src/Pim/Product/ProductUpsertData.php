@@ -119,6 +119,9 @@ abstract class ProductUpsertData
     /** @var null|string */
     private $seoKeywords;
 
+    /** @var null|int */
+    private $companyId;
+
     /**
      * @param string $code
      * @return $this
@@ -497,6 +500,18 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param int|null $companyId
+     *
+     * @return ProductUpsertData
+     */
+    public function setCompanyId(?int $companyId): self
+    {
+        $this->companyId = $companyId;
+
+        return $this;
+    }
+
+    /**
      * @internal
      * @throws SomeParametersAreInvalid
      */
@@ -561,6 +576,7 @@ abstract class ProductUpsertData
             'seoTitle',
             'seoDescription',
             'seoKeywords',
+            'companyId'
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -742,6 +758,10 @@ abstract class ProductUpsertData
 
         if (\is_string($this->seoKeywords) === true) {
             $data['seoKeywords'] = $this->seoKeywords;
+        }
+
+        if (\is_integer($this->companyId) === true) {
+            $data['company_id'] = $this->companyId;
         }
 
         if (\is_string($this->productTemplateType) === true) {

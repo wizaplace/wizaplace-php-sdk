@@ -1,6 +1,12 @@
 
 # Changelog
 
+## new version
+
+### New features
+
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setCompanyId`
+
 ## 1.124.0
 
 ### New features
