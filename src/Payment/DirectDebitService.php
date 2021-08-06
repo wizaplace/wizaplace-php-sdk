@@ -24,18 +24,17 @@ class DirectDebitService extends AbstractService
     /**
      * @param string[] $data Data send to the PSP
      *
-     * @return string
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      * @throws SomeParametersAreInvalid
      */
-    public function createMandate(array $data): string
+    public function createMandate(array $data): array
     {
         $this->client->mustBeAuthenticated();
 
         try {
-            return (string) $this->client->post('user/mandates', [RequestOptions::JSON => $data]);
+            return $this->client->post('user/mandates', [RequestOptions::JSON => $data]);
         } catch (ClientException $e) {
             if (400 === $e->getResponse()->getStatusCode() || 404 === $e->getResponse()->getStatusCode()) {
                 throw new SomeParametersAreInvalid($e->getMessage(), $e->getCode(), $e);

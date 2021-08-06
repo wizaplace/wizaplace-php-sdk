@@ -1,11 +1,16 @@
 
 # Changelog
 
-## new version
+## 1.124.3
 
 ### New features
 
 - Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setCompanyId`
+
+### Bugfix
+
+- Fix return type of `Payment\DirectDebitService::createMandate`
+
 
 ## 1.124.0
 
@@ -18,6 +23,7 @@
 - Added `Wizaplace\SDK\Vendor\Promotion\Rule\BasketHasGroupInListRule::setGroupsIds`
 - Added `Wizaplace\SDK\Vendor\Promotion\Discounts\Targets\CategoriesTarget::getCategoriesIds`
 - Added `Wizaplace\SDK\Vendor\Promotion\Discounts\Targets\CategoriesTarget::getType`
+
 
 ## 1.122.14
 

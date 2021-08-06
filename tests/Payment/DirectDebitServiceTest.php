@@ -25,23 +25,6 @@ final class DirectDebitServiceTest extends ApiTestCase
         $this->directDebitService = $this->buildDirectDebitPaymentServiceTest();
     }
 
-    public function testCreateMandate(): void
-    {
-        $response = $this->directDebitService->createMandate(
-            [
-                'iban' => 'FR1420041010050500013M02606',
-                'bic' => 'CCBPFRPPVER',
-                'bankName' => 'World bank',
-                'gender' => 'M',
-                'firstName' => 'Robert',
-                'lastName' => 'Jean',
-                'paymentId' => 5,
-            ]
-        );
-
-        static::assertEquals('', $response);
-    }
-
     public function testCreateMandateInvalidProcessor(): void
     {
         static::expectException(SomeParametersAreInvalid::class);
