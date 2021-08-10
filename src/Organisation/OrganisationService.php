@@ -15,12 +15,15 @@ use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\File\File;
 use Wizaplace\SDK\File\Multipart;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\PaginationHttpHeaders;
 use Wizaplace\SDK\User\User;
 use Wizaplace\SDK\Vendor\Order\OrderSummary;
 
@@ -729,6 +732,8 @@ class OrganisationService extends AbstractService
     /**
      * Allow to list the organisation's orders
      *
+     * @deprecated Using getOrganisationOrders() is deprecated, use getOrganisationPaginatedOrders() instead.
+     *
      * @param string $organisationId
      *
      * @param int    $start Offset
@@ -769,6 +774,68 @@ class OrganisationService extends AbstractService
                 case Response::HTTP_FORBIDDEN:
                     $response = json_decode($e->getResponse());
                     throw new \Exception($response->message, Response::HTTP_FORBIDDEN, $e);
+
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound("The organisation doesn't exist.", $e);
+
+                default:
+                    throw $e;
+            }
+        }
+    }
+
+    /**
+     * Allow to list the organisation's paginated orders
+     *
+     * @param string $organisationId
+     *
+     * @param int|null $start Offset
+     * @param int|null $limit The length (min 1; max 10)
+     *
+     * @return PaginatedData
+     *
+     * @throws AccessDenied
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getOrganisationPaginatedOrders(string $organisationId, int $start = null, int $limit = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            [$result, $paginationHeaders] = $this->client->getWithPaginationHeaders(
+                "organisations/{$organisationId}/orders",
+                [
+                    RequestOptions::QUERY => [
+                        'start' => $start,
+                        'limit' => $limit,
+                    ],
+                ]
+            );
+
+            $data['count'] = $result['count'];
+            $data['orders'] = [];
+
+            foreach ($result['_embedded']['orders'] as $orderData) {
+                $data['orders'][] = new OrderSummary($orderData);
+            }
+
+            return new PaginatedData(
+                (int) $paginationHeaders->getLimit(),
+                (int) $paginationHeaders->getOffset(),
+                (int) $paginationHeaders->getTotal(),
+                $data
+            );
+        } catch (ClientException $e) {
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_FORBIDDEN:
+                    throw new AccessDenied(
+                        "You're neither a marketplace administrator nor an organisation's administrator",
+                        Response::HTTP_FORBIDDEN,
+                        $e
+                    );
 
                 case Response::HTTP_NOT_FOUND:
                     throw new NotFound("The organisation doesn't exist.", $e);

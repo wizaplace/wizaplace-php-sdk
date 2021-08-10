@@ -158,7 +158,7 @@ final class OrderServiceTest extends ApiTestCase
     public function testGetOrdersWithoutAuthentication()
     {
         $this->expectException(AuthenticationRequired::class);
-        $this->buildOrderServiceWithoutAuthentication()->getOrders();
+        $this->buildOrderServiceWithoutAuthentication()->getPaginatedOrders();
     }
 
     public function testGetOrderWithoutAuthentication()
@@ -258,7 +258,9 @@ final class OrderServiceTest extends ApiTestCase
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $orderService = new OrderService($apiClient);
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
 
         $this->assertSame('The World Company Inc.', $orders[0]->getCompanyName());
         $this->assertSame('The World Company Inc.', $orders[1]->getCompanyName());
@@ -359,7 +361,9 @@ final class OrderServiceTest extends ApiTestCase
     public function testGetUserOrdersWithSubscriptionId(): void
     {
         $orderService = $this->buildOrderService('user@wizaplace.com', 'password');
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
 
         static::assertCount(1, $orders);
         static::assertUuid($orders[0]->getSubscriptionId());
@@ -415,6 +419,33 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame(1, $orders[0]->getId());
         static::assertSame(2, $orders[1]->getId());
         static::assertSame(4, $orders[2]->getId());
+    }
+
+    public function dataProviderGetPaginatedOrders(): array
+    {
+        return [
+            'with limit lower than default_limit and start' => [4, 2, [4, 4, 2, 7]],
+            'with limit greater than default_limit and start' => [200, 1, [6, 200, 1, 7]],
+            'with limit equals to 0, no start' => [0, null, [7, 0, 0, 7]],
+            'no limit, no start' => [null, null, [7, 100, 0, 7]],
+        ];
+    }
+
+    /** @dataProvider dataProviderGetPaginatedOrders */
+    public function testGetPaginatedOrders(
+        int $limit = null,
+        int $start = null,
+        array $expected = []
+    ): void {
+        $apiClient = $this->buildApiClient();
+        $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
+        $orderService = new OrderService($apiClient);
+
+        $paginatedData = $orderService->getPaginatedOrders(null, $start, $limit);
+        static::assertEquals($expected[0], \count($paginatedData->getItems()));
+        static::assertEquals($expected[1], $paginatedData->getLimit());
+        static::assertEquals($expected[2], $paginatedData->getOffset());
+        static::assertEquals($expected[3], $paginatedData->getTotal());
     }
 
     public function testGetOrderWithBillingShippingAddress(): void
@@ -633,7 +664,10 @@ final class OrderServiceTest extends ApiTestCase
     public function testGetUserOrdersWithRefundedData(): void
     {
         $orderService = $this->buildOrderService();
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
+
         static::assertGreaterThanOrEqual(0, \count($orders));
 
         foreach ($orders as $order) {
@@ -653,7 +687,9 @@ final class OrderServiceTest extends ApiTestCase
         $apiClient = $this->buildApiClient();
         $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $orderService = new OrderService($apiClient);
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
 
         $this->assertSame("billing comment", $orders[0]->getBillingAddress()->getComment());
         $this->assertSame("shipping Comment", $orders[0]->getShippingAddress()->getComment());
@@ -678,7 +714,9 @@ final class OrderServiceTest extends ApiTestCase
     public function testGetUserOrdersWithBankWireTransactionReference(): void
     {
         $orderService = $this->buildOrderService();
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
 
         static::assertGreaterThanOrEqual(0, \count($orders));
 
@@ -739,7 +777,10 @@ final class OrderServiceTest extends ApiTestCase
         $apiClient->authenticate('customer-1@world-company.com', 'password-customer-1');
         $orderService = new OrderService($apiClient);
 
-        $orders = $orderService->getOrders();
+        $orders = $orderService
+            ->getPaginatedOrders()
+            ->getItems();
+
         static::assertSame(0.0, $orders[0]->getBalance());
         static::assertSame(0.0, $orders[1]->getBalance());
         static::assertSame(0.0, $orders[2]->getBalance());

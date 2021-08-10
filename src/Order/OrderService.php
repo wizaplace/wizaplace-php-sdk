@@ -20,6 +20,8 @@ use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Exception\UnauthorizedModerationAction;
+use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\PaginationHttpHeaders;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 
 /**
@@ -35,6 +37,8 @@ class OrderService extends AbstractService
     /**
      * List the orders of the current user.
      *
+     * @deprecated Using getOrders() is deprecated, use getPaginatedOrders() instead.
+     *
      * @param array $sort
      * @param int  $start
      * @param int  $limit
@@ -49,31 +53,13 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $query = [];
-
-        if (\is_array($sort)) {
-            $stringSort = '';
-            foreach ($sort as $key => $value) {
-                $stringSort .= $key . ':' . $value . ',';
-            }
-
-            $query['sort'] = $stringSort ;
-        }
-
-        if (\is_int($start) === true) {
-            $query['start'] = $start ;
-        }
-
-        if (\is_int($limit) === true) {
-            $query['limit'] = $limit ;
-        }
-
         $datas = $this->client->get(
             'user/orders',
             [
-                RequestOptions::QUERY => $query,
+                RequestOptions::QUERY => $this->prepareQueryParams($sort, $start, $limit),
             ]
         );
+
         $orders = array_map(
             static function (array $orderData): Order {
                 return new Order($orderData);
@@ -82,6 +68,69 @@ class OrderService extends AbstractService
         );
 
         return $orders;
+    }
+
+    protected function prepareQueryParams(array $sort = null, int $start = null, int $limit = null): array
+    {
+        $params = [];
+
+        if (\is_array($sort)) {
+            $stringSort = '';
+            foreach ($sort as $key => $value) {
+                $stringSort .= $key . ':' . $value . ',';
+            }
+
+            $params['sort'] = $stringSort ;
+        }
+
+        if (\is_int($start) === true) {
+            $params['start'] = $start ;
+        }
+
+        if (\is_int($limit) === true) {
+            $params['limit'] = $limit ;
+        }
+
+        return $params;
+    }
+
+    /**
+     * List the paginated orders of the current user.
+     *
+     * @param array $sort
+     * @param int  $start
+     * @param int  $limit
+     *
+     * @return PaginatedData
+     *
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getPaginatedOrders(array $sort = null, int $start = null, int $limit = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        [$data, $paginationHeaders] = $this->client->getWithPaginationHeaders(
+            'user/orders',
+            [
+                RequestOptions::QUERY => $this->prepareQueryParams($sort, $start, $limit),
+            ]
+        );
+
+        $orders = array_map(
+            static function (array $orderData): Order {
+                return new Order($orderData);
+            },
+            $data
+        );
+
+        return new PaginatedData(
+            (int) $paginationHeaders->getLimit(),
+            (int) $paginationHeaders->getOffset(),
+            (int) $paginationHeaders->getTotal(),
+            $orders
+        );
     }
 
     /**

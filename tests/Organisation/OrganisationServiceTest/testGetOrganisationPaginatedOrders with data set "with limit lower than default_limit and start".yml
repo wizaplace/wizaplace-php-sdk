@@ -1,0 +1,128 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 09:44:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c589d9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c589d9'
+            X-Robots-Tag: noindex
+            X-Request-Id: ee9e005837ea0976749b5adfa1e8b37d
+        body: '{"id":2,"apiKey":"hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 09:44:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 36731e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/36731e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 86d062bc1ea39ff34cbbef626bbf8dc5
+        body: '{"id":2,"apiKey":"hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Authorization: 'token hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB'
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 09:44:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: abc5f9
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/abc5f9'
+            X-Robots-Tag: noindex
+            X-Request-Id: a31f75c53f8c528559777395d3252d8d
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"a1e53b0a-ac07-11eb-892e-0242ac19000b","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"a1f2d82d-ac07-11eb-892e-0242ac19000b","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/a1f2d82d-ac07-11eb-892e-0242ac19000b/orders?start=2&limit=4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Authorization: 'token hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            x-pagination-limit: '4'
+            x-pagination-offset: '2'
+            x-pagination-total: '3'
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 09:44:59 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '943080'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/943080'
+            X-Robots-Tag: noindex
+            X-Request-Id: 724f7034b7ceb3b8b21197e5df630222
+        body: '{"total":3,"count":1,"start":"2","limit":"4","_embedded":{"orders":[{"order_id":7,"user_id":12,"basket_id":"aa819625-74e2-40ea-87b9-e9aa7bf60ee5","company_id":3,"timestamp":1620043432,"email":"user+orga@usc.com","status":"H","total":67.9,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-05-03T12:04:34+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]}}'

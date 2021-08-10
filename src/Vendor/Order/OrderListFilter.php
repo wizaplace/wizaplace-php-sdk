@@ -116,8 +116,7 @@ final class OrderListFilter implements ArrayableInterface
         }
 
         if (\is_int($this->itemsPerPage) === true
-            && $this->itemsPerPage > 0
-            && $this->itemsPerPage <= 100
+            && $this->itemsPerPage >= 0
         ) {
             $filters['items_per_page'] = $this->itemsPerPage;
         }

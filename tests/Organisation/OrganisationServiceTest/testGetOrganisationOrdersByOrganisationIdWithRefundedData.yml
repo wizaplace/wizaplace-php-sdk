@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 04 Jun 2020 22:13:38 GMT'
+            Date: 'Fri, 30 Apr 2021 09:52:29 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 011c9b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/011c9b'
-            X-Request-Id: a9f40168680d9cba2401c9a34ec1a2c0
-        body: '{"id":2,"apiKey":"QeTORWUpI\/O+u2ptgnbyjZJRljfk3j+sCdHyEHCj"}'
+            X-Debug-Token: cab961
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cab961'
+            X-Robots-Tag: noindex
+            X-Request-Id: 41cf89bb5df5155d8bbd53627f0c424a
+        body: '{"id":2,"apiKey":"eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9"}'
 -
     request:
         method: GET
@@ -37,7 +38,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
             VCR-index: '1'
             Accept: null
     response:
@@ -50,15 +51,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 04 Jun 2020 22:13:39 GMT'
+            Date: 'Fri, 30 Apr 2021 09:52:29 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c74334
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c74334'
-            X-Request-Id: 25147021701396595e39d5731f6dd581
-        body: '{"id":2,"apiKey":"QeTORWUpI\/O+u2ptgnbyjZJRljfk3j+sCdHyEHCj"}'
+            X-Debug-Token: 17965a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/17965a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 38f0ece46fde128e87f005bd588fbd21
+        body: '{"id":2,"apiKey":"eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9"}'
 -
     request:
         method: GET
@@ -66,8 +68,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
-            Authorization: 'token QeTORWUpI/O+u2ptgnbyjZJRljfk3j+sCdHyEHCj'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9'
             VCR-index: '2'
             Accept: null
     response:
@@ -80,24 +82,25 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 04 Jun 2020 22:13:39 GMT'
+            Date: 'Fri, 30 Apr 2021 09:52:29 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: bfeb0e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bfeb0e'
-            X-Request-Id: 40012c460a582e6a86ff1ee9e9e89e61
-        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"66c6d177-a68d-11ea-9897-0242ac120007","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"66e50439-a68d-11ea-9897-0242ac120007","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+            X-Debug-Token: 8014af
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8014af'
+            X-Robots-Tag: noindex
+            X-Request-Id: ff6c0a341da36a536085ea0430f446fa
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"c35cda5c-a980-11eb-892e-0242ac19000b","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"c36ae741-a980-11eb-892e-0242ac19000b","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/66e50439-a68d-11ea-9897-0242ac120007/orders?start=0&limit=10'
+        url: 'http://wizaplace.loc/api/v1/organisations/c36ae741-a980-11eb-892e-0242ac19000b/orders'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-develop@82e0041
-            Authorization: 'token QeTORWUpI/O+u2ptgnbyjZJRljfk3j+sCdHyEHCj'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9'
             VCR-index: '3'
             Accept: null
     response:
@@ -110,12 +113,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
+            x-pagination-limit: '100'
+            x-pagination-offset: '0'
+            x-pagination-total: '3'
             Cache-Control: 'no-cache, private'
-            Date: 'Thu, 04 Jun 2020 22:13:40 GMT'
+            Date: 'Fri, 30 Apr 2021 09:52:29 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 5f4c8c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5f4c8c'
-            X-Request-Id: ef653c8bac97014c49eec23627c264a4
-        body: '{"total":3,"count":3,"start":"0","limit":"10","_embedded":{"orders":[{"order_id":9,"user_id":14,"basket_id":"84350982-9d2d-44b8-8ea0-514d8d5d9826","company_id":3,"timestamp":1591293680,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-06-04T18:02:17+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}},{"order_id":8,"user_id":13,"basket_id":"0e345d70-975d-45b1-b33c-58a1cf31047a","company_id":3,"timestamp":1591293680,"email":"user@usc.com","status":"H","total":147.4,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-06-04T18:02:16+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":147.4,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"is_subscription_initiator":false,"totals":{"excluding_taxes":144.3682,"taxes":3.0317,"including_taxes":147.3999},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":1.3367,"taxes":0.2673,"including_taxes":1.604},"vendor_share":{"excluding_taxes":121.4966,"taxes":24.2993,"including_taxes":145.7959}},{"order_id":7,"user_id":12,"basket_id":"c6071639-477a-4314-8eb4-a688f149a7e3","company_id":3,"timestamp":1591293680,"email":"user+orga@usc.com","status":"H","total":67.9,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-06-04T18:02:15+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]}}'
+            X-Debug-Token: 002b5d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/002b5d'
+            X-Robots-Tag: noindex
+            X-Request-Id: a92b6b12be42f619d851d96768be319c
+        body: '{"total":3,"count":3,"start":0,"limit":100,"_embedded":{"orders":[{"order_id":9,"user_id":14,"basket_id":"5e226dcb-ddcc-426f-9467-fc5c57cf3944","company_id":3,"timestamp":1619765603,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}},{"order_id":8,"user_id":13,"basket_id":"1f037330-12cf-4ac7-940e-0ab6bfb94ec7","company_id":3,"timestamp":1619765603,"email":"user@usc.com","status":"H","total":147.4,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":147.4,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":144.3682,"taxes":3.0317,"including_taxes":147.3999},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":1.3367,"taxes":0.2673,"including_taxes":1.604},"vendor_share":{"excluding_taxes":121.4966,"taxes":24.2993,"including_taxes":145.7959}},{"order_id":7,"user_id":12,"basket_id":"acf74af1-ab77-4c8f-b5c5-bfac6bbfd302","company_id":3,"timestamp":1619765603,"email":"user+orga@usc.com","status":"H","total":67.9,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]}}'

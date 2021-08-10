@@ -1,0 +1,62 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 10:13:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '750e86'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/750e86'
+            X-Robots-Tag: noindex
+            X-Request-Id: ce2f7ba25bc2909fbc9f751005ef0693
+        body: '{"id":2,"apiKey":"hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/organisations/xxx/orders'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Authorization: 'token hoMfciBg1afboDOliYTqNEgGJcZ5KL+um29ZNMmB'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.18
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 May 2021 10:13:49 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 500a5b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/500a5b'
+            X-Robots-Tag: noindex
+        body: '{"message":"No route found for \u0022GET \/api\/v1\/organisations\/xxx\/orders\u0022"}'

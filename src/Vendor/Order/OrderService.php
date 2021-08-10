@@ -24,6 +24,7 @@ use Wizaplace\SDK\Order\CreditNote;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\Refund;
 use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\PaginationHttpHeaders;
 use Wizaplace\SDK\Shipping\MondialRelayLabel;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Transaction\Transaction;
@@ -134,6 +135,10 @@ class OrderService extends AbstractService
     }
 
     /**
+     * List the orders.
+     *
+     * @deprecated Using listOrders() is deprecated, use getPaginatedOrders() instead.
+     *
      * @param OrderStatus|null $statusFilter
      * @param OrderListFilter|null $additionalFilter
      *
@@ -146,19 +151,10 @@ class OrderService extends AbstractService
     {
         $this->client->mustBeAuthenticated();
 
-        $query = [];
-        if ($statusFilter instanceof OrderStatus) {
-            $query['status'] = $statusFilter->getValue();
-        }
-
-        if ($additionalFilter instanceof OrderListFilter) {
-            $query = array_merge($query, $additionalFilter->toArray());
-        }
-
         $data = $this->client->get(
             'orders',
             [
-                RequestOptions::QUERY => $query,
+                RequestOptions::QUERY => $this->prepareQueryParams($statusFilter, $additionalFilter),
             ]
         );
 
@@ -167,6 +163,58 @@ class OrderService extends AbstractService
                 return new OrderSummary($orderData);
             },
             $data
+        );
+    }
+
+    protected function prepareQueryParams(?OrderStatus $statusFilter = null, ?OrderListFilter $additionalFilter = null): array
+    {
+        $params = [];
+        if ($statusFilter instanceof OrderStatus) {
+            $params['status'] = $statusFilter->getValue();
+        }
+
+        if ($additionalFilter instanceof OrderListFilter) {
+            $params = array_merge($params, $additionalFilter->toArray());
+        }
+
+        return $params;
+    }
+
+    /**
+     * List the paginated orders.
+     *
+     * @param OrderStatus|null $statusFilter
+     * @param OrderListFilter|null $additionalFilter
+     *
+     * @return PaginatedData
+     *
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Authentication\AuthenticationRequired
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getPaginatedOrders(?OrderStatus $statusFilter = null, ?OrderListFilter $additionalFilter = null): PaginatedData
+    {
+        $this->client->mustBeAuthenticated();
+
+        [$data, $paginationHeaders] = $this->client->getWithPaginationHeaders(
+            'orders',
+            [
+                RequestOptions::QUERY => $this->prepareQueryParams($statusFilter, $additionalFilter),
+            ]
+        );
+
+        $orders = array_map(
+            static function (array $orderData): OrderSummary {
+                return new OrderSummary($orderData);
+            },
+            $data
+        );
+
+        return new PaginatedData(
+            (int) $paginationHeaders->getLimit(),
+            (int) $paginationHeaders->getOffset(),
+            (int) $paginationHeaders->getTotal(),
+            $orders
         );
     }
 

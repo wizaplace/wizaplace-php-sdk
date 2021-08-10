@@ -6,8 +6,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.18
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 08 Sep 2020 13:18:52 GMT'
+            Date: 'Mon, 03 May 2021 06:53:26 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 5869d0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5869d0'
-            X-Request-Id: d509a4db72aad50f1ed6e54f1a44ac52
-        body: '{"id":6,"apiKey":"XubnMssEN4zI9dPSefpxpVzDO4hVLhkJBnItfHXI"}'
+            X-Debug-Token: b5866a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b5866a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 058f9137452a6f5fac9f9dfb6d0c16b3
+        body: '{"id":2,"apiKey":"gIZSvvw2qHRlHYuWg4DUEw\/a16JvP+eFpHX+Xi7y"}'
 -
     request:
         method: GET
@@ -36,8 +37,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
-            Authorization: 'token XubnMssEN4zI9dPSefpxpVzDO4hVLhkJBnItfHXI'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Authorization: 'token gIZSvvw2qHRlHYuWg4DUEw/a16JvP+eFpHX+Xi7y'
             VCR-index: '1'
             Accept: null
     response:
@@ -50,15 +51,19 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.18
+            x-pagination-limit: '2'
+            x-pagination-offset: '0'
+            x-pagination-total: '5'
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 08 Sep 2020 13:18:53 GMT'
+            Date: 'Mon, 03 May 2021 06:53:26 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 42968c
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/42968c'
-            X-Request-Id: a5ae00505c865668aa7545a3f9259e2e
-        body: '[{"order_id":12,"user_id":7,"basket_id":"4e2f1f6b-4b5a-4b5d-91f2-5317e29abd31","company_id":3,"timestamp":1598958368,"email":"customer-1@world-company.com","status":"H","total":15.5,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-09-01T11:07:05+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":5.5,"marketplace_discount_total":10.0,"company_name":"The World Company Inc.","refunded":false,"balance":20.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.1542,"taxes":0.0308,"including_taxes":0.185},"vendor_share":{"excluding_taxes":12.7625,"taxes":2.5525,"including_taxes":15.315}},{"order_id":9,"user_id":14,"basket_id":"cfcccdfd-b67b-4d8f-9aea-5b4441db7c72","company_id":3,"timestamp":1598958368,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-09-01T11:07:00+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}}]'
+            X-Debug-Token: 79cb52
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/79cb52'
+            X-Robots-Tag: noindex
+            X-Request-Id: 42455e35b25423be2699ec3cd051900a
+        body: '[{"order_id":12,"user_id":7,"basket_id":"ef7883e0-56d5-4841-80b1-9519f24407ee","parent_order_id":null,"company_id":3,"timestamp":1620023236,"email":"customer-1@world-company.com","status":"H","total":15.5,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-05-03T06:28:09+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":5.5,"marketplace_discount_total":10.0,"company_name":"The World Company Inc.","refunded":false,"balance":20.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":15.1812,"taxes":0.3188,"including_taxes":15.5},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.1542,"taxes":0.0308,"including_taxes":0.185},"vendor_share":{"excluding_taxes":12.7625,"taxes":2.5525,"including_taxes":15.315}},{"order_id":9,"user_id":14,"basket_id":"2d301075-2db4-4384-ad30-e829217f7d94","parent_order_id":null,"company_id":3,"timestamp":1620023236,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-05-03T06:28:07+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}}]'
 -
     request:
         method: GET
@@ -66,8 +71,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             VCR-index: '2'
             Accept: null
     response:
@@ -80,15 +85,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.18
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 08 Sep 2020 13:18:54 GMT'
+            Date: 'Mon, 03 May 2021 06:53:27 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: e1e7b8
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e1e7b8'
-            X-Request-Id: 968c63744495e79ea3d9387eb7e17527
-        body: '{"id":6,"apiKey":"XubnMssEN4zI9dPSefpxpVzDO4hVLhkJBnItfHXI"}'
+            X-Debug-Token: 50d6e8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/50d6e8'
+            X-Robots-Tag: noindex
+            X-Request-Id: 482307c451cb6730cf9b5f65ee83eae0
+        body: '{"id":2,"apiKey":"gIZSvvw2qHRlHYuWg4DUEw\/a16JvP+eFpHX+Xi7y"}'
 -
     request:
         method: GET
@@ -96,8 +102,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
-            Authorization: 'token XubnMssEN4zI9dPSefpxpVzDO4hVLhkJBnItfHXI'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Authorization: 'token gIZSvvw2qHRlHYuWg4DUEw/a16JvP+eFpHX+Xi7y'
             VCR-index: '3'
             Accept: null
     response:
@@ -110,12 +116,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.29
+            X-Powered-By: PHP/7.4.18
+            x-pagination-limit: '1'
+            x-pagination-offset: '1'
+            x-pagination-total: '5'
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 08 Sep 2020 13:18:54 GMT'
+            Date: 'Mon, 03 May 2021 06:53:27 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 69e79d
-            X-Debug-Token-Link: 'https://wizaplace.loc/_profiler/69e79d'
-            X-Request-Id: 4ac99db3c871a93343a1933c7ec0267f
-        body: '[{"order_id":9,"user_id":14,"basket_id":"cfcccdfd-b67b-4d8f-9aea-5b4441db7c72","company_id":3,"timestamp":1598958368,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-09-01T11:07:00+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}}]'
+            X-Debug-Token: 781faa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/781faa'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4d64bdfcf0139986e1ea136717a020be
+        body: '[{"order_id":9,"user_id":14,"basket_id":"2d301075-2db4-4384-ad30-e829217f7d94","parent_order_id":null,"company_id":3,"timestamp":1620023236,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-05-03T06:28:07+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}}]'

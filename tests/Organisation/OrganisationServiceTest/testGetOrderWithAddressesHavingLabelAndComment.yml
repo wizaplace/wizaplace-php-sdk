@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
             VCR-index: '0'
             Accept: null
     response:
@@ -20,15 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:32 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 19ce43
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/19ce43'
-            X-Request-Id: 30f0089b09fd6e2db132771ccf66dfe4
-        body: '{"id":12,"apiKey":"fh9QAHBPdx4nz8KCq1H2FK252w8MBh1u4ANfUjpL"}'
+            X-Debug-Token: bb63fd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb63fd'
+            X-Robots-Tag: noindex
+            X-Request-Id: ede04512f4a7d7ab5f2490ff26170aa4
+        body: '{"id":12,"apiKey":"OykXcsPbEkJLbFRyVvJv6MYrK4BNNi5LIwFl+kld"}'
 -
     request:
         method: GET
@@ -37,7 +38,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
             VCR-index: '1'
             Accept: null
     response:
@@ -50,15 +51,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:33 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 0088c0
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0088c0'
-            X-Request-Id: 909c50589c185450a82ecbbe1afcc7af
-        body: '{"id":2,"apiKey":"xEEOMkE5ouYorEfRhnCML0pANoSE8JbT9DTp52l8"}'
+            X-Debug-Token: '206071'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/206071'
+            X-Robots-Tag: noindex
+            X-Request-Id: 973b6c5c7905ca668e4cb4a9679ba3a0
+        body: '{"id":2,"apiKey":"eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9"}'
 -
     request:
         method: GET
@@ -66,8 +68,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token xEEOMkE5ouYorEfRhnCML0pANoSE8JbT9DTp52l8'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token eC+P8ErOGQ0a9uL1Wzz2u0Ebcy704UOmygsfh4o9'
             VCR-index: '2'
             Accept: null
     response:
@@ -80,24 +82,25 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:34 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: d3f6b2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d3f6b2'
-            X-Request-Id: aa6ab0112f1f41cc3bb2390b33934a94
-        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"55f4f9ea-8df9-11ea-9771-0242ac140007","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"5611bf3f-8df9-11ea-9771-0242ac140007","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
+            X-Debug-Token: d9bc5d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9bc5d'
+            X-Robots-Tag: noindex
+            X-Request-Id: 87c4a39b868f4c49b790755be6b20c74
+        body: '{"total":2,"count":2,"_embedded":{"organisations":[{"id":"c35cda5c-a980-11eb-892e-0242ac19000b","name":"University of New York","businessName":"University of New York","siret":"44229377500031","vatNumber":"FR99999999999","businessUnitCode":"NTW","businessUnitName":"Network Infrastructure","address":{"address":"194 Lindale Avenue","additionalAddress":"","zipCode":"94801","city":"Richmond","state":"","country":"US"},"shippingAddress":{"address":"4917 Snyder Avenue","additionalAddress":"","zipCode":"28209","city":"North Carolina","state":"","country":"US"},"status":"pending"},{"id":"c36ae741-a980-11eb-892e-0242ac19000b","name":"University of Southern California","businessName":"Southern California","siret":"80295478500028","vatNumber":"FR63802954785","businessUnitCode":"IT","businessUnitName":"Information Technology","address":{"address":"42228 Hunter Summit Suite 058","additionalAddress":"","zipCode":"13736-4550","city":"Bettyeburgh","state":"","country":"FR"},"shippingAddress":{"address":"99410 Dach Views Apt. 994","additionalAddress":"","zipCode":"00229","city":"West Geraldport","state":"","country":"FR"},"status":"approved"}]}}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/organisations/5611bf3f-8df9-11ea-9771-0242ac140007/orders?start=0&limit=10'
+        url: 'http://wizaplace.loc/api/v1/organisations/c36ae741-a980-11eb-892e-0242ac19000b/orders'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token fh9QAHBPdx4nz8KCq1H2FK252w8MBh1u4ANfUjpL'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token OykXcsPbEkJLbFRyVvJv6MYrK4BNNi5LIwFl+kld'
             VCR-index: '3'
             Accept: null
     response:
@@ -110,15 +113,19 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
+            x-pagination-limit: '100'
+            x-pagination-offset: '0'
+            x-pagination-total: '3'
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:35 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '34e622'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/34e622'
-            X-Request-Id: 0621df5e3bc0f5abe8f380c3e8528132
-        body: '{"total":3,"count":3,"start":"0","limit":"10","_embedded":{"orders":[{"order_id":9,"user_id":14,"basket_id":"fadd9409-e372-4e95-966b-2725ee173cbd","company_id":3,"timestamp":1588591257,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-05-04T11:22:18+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0,"company_name":"The World Company Inc.","is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}},{"order_id":8,"user_id":13,"basket_id":"f3e2ed50-616c-4b80-9ab9-55465bfd0d59","company_id":3,"timestamp":1588591257,"email":"user@usc.com","status":"H","total":147.4,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-05-04T11:22:14+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":147.4,"marketplace_discount_total":0,"company_name":"The World Company Inc.","is_subscription_initiator":false,"totals":{"excluding_taxes":144.3682,"taxes":3.0317,"including_taxes":147.3999},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":1.3367,"taxes":0.2673,"including_taxes":1.604},"vendor_share":{"excluding_taxes":121.4966,"taxes":24.2993,"including_taxes":145.7959}},{"order_id":7,"user_id":12,"basket_id":"34d7e3c5-aa85-4145-98e7-9a30b8fa5374","company_id":3,"timestamp":1588591257,"email":"user+orga@usc.com","status":"H","total":67.9,"subscription_id":null,"is_paid":true,"carriage_paid":false,"last_status_change":"2020-05-04T11:22:10+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0,"company_name":"The World Company Inc.","is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]}}'
+            X-Debug-Token: a32891
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a32891'
+            X-Robots-Tag: noindex
+            X-Request-Id: 27f5158a07cdd48d3c8a52c6ae32010c
+        body: '{"total":3,"count":3,"start":0,"limit":100,"_embedded":{"orders":[{"order_id":9,"user_id":14,"basket_id":"5e226dcb-ddcc-426f-9467-fc5c57cf3944","company_id":3,"timestamp":1619765603,"email":"user2@usc.com","status":"H","total":54.2,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":54.2,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":53.0852,"taxes":1.1148,"including_taxes":54.2},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.56,"taxes":0.112,"including_taxes":0.672},"vendor_share":{"excluding_taxes":44.6067,"taxes":8.9213,"including_taxes":53.528}},{"order_id":8,"user_id":13,"basket_id":"1f037330-12cf-4ac7-940e-0ab6bfb94ec7","company_id":3,"timestamp":1619765603,"email":"user@usc.com","status":"H","total":147.4,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":147.4,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":144.3682,"taxes":3.0317,"including_taxes":147.3999},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":1.3367,"taxes":0.2673,"including_taxes":1.604},"vendor_share":{"excluding_taxes":121.4966,"taxes":24.2993,"including_taxes":145.7959}},{"order_id":7,"user_id":12,"basket_id":"acf74af1-ab77-4c8f-b5c5-bfac6bbfd302","company_id":3,"timestamp":1619765603,"email":"user+orga@usc.com","status":"H","total":67.9,"subscription_id":null,"is_paid":true,"carriage_paid":false,"extra":null,"transaction_reference":null,"last_status_change":"2021-04-30T06:54:06+02:00","customer_firstname":"Antonio","customer_lastname":"Damasio","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","customer_total":67.9,"marketplace_discount_total":0,"company_name":"The World Company Inc.","refunded":false,"balance":0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0,"taxes":0,"including_taxes":0},"commissions":{"excluding_taxes":0.6742,"taxes":0.1348,"including_taxes":0.809},"vendor_share":{"excluding_taxes":55.9092,"taxes":11.1818,"including_taxes":67.091}}]}}'
 -
     request:
         method: GET
@@ -126,8 +133,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token fh9QAHBPdx4nz8KCq1H2FK252w8MBh1u4ANfUjpL'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token OykXcsPbEkJLbFRyVvJv6MYrK4BNNi5LIwFl+kld'
             VCR-index: '4'
             Accept: null
     response:
@@ -140,15 +147,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:35 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 1bf9cd
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bf9cd'
-            X-Request-Id: 2ac857dabad6243f27c0e54a6e5af808
-        body: '{"id":9,"basketId":"fadd9409-e372-4e95-966b-2725ee173cbd","companyId":3,"companyName":"The World Company Inc.","total":54.2,"taxTotal":1.11,"subtotal":54.2,"customerTotal":54.2,"marketplaceDiscountTotal":0,"timestamp":1588591257,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false}'
+            X-Debug-Token: 79cbca
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/79cbca'
+            X-Robots-Tag: noindex
+            X-Request-Id: f4b0779f402fcd33de6330206bc3d185
+        body: '{"id":9,"basketId":"5e226dcb-ddcc-426f-9467-fc5c57cf3944","companyId":3,"companyName":"The World Company Inc.","total":54.2,"taxTotal":1.11,"subtotal":54.2,"customerTotal":54.2,"marketplaceDiscountTotal":0,"timestamp":1619765603,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"19377517","declinationId":"4_0","productName":"Corsair Gaming VOID Pro RGB Dolby 7.1 Sans fil - Edition Carbon","productCode":"7531596248951","productImageId":null,"price":54.2,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"CORSAIR-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":0,"extra":[],"transaction_reference":null,"attachments":[]}'
 -
     request:
         method: GET
@@ -156,8 +164,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token fh9QAHBPdx4nz8KCq1H2FK252w8MBh1u4ANfUjpL'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token OykXcsPbEkJLbFRyVvJv6MYrK4BNNi5LIwFl+kld'
             VCR-index: '5'
             Accept: null
     response:
@@ -170,15 +178,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:36 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ee34f3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ee34f3'
-            X-Request-Id: 864d206b79119bf0351cd0d8a68cc3fe
-        body: '{"id":8,"basketId":"f3e2ed50-616c-4b80-9ab9-55465bfd0d59","companyId":3,"companyName":"The World Company Inc.","total":147.4,"taxTotal":3.03,"subtotal":147.4,"customerTotal":147.4,"marketplaceDiscountTotal":0,"timestamp":1588591257,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"856805359","declinationId":"6_0","productName":"Casque Gaming Razer ManO\u0027War Sans fil 7.1 Surround (PC\/PS4)","productCode":"7531596248953","productImageId":null,"price":73.7,"maxPriceAdjustment":null,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"RAZER-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false}'
+            X-Debug-Token: f34ce8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f34ce8'
+            X-Robots-Tag: noindex
+            X-Request-Id: ad8e0ca5cd2b1a7cf6d04a9fe65af647
+        body: '{"id":8,"basketId":"1f037330-12cf-4ac7-940e-0ab6bfb94ec7","companyId":3,"companyName":"The World Company Inc.","total":147.4,"taxTotal":3.03,"subtotal":147.4,"customerTotal":147.4,"marketplaceDiscountTotal":0,"timestamp":1619765603,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Paul","lastname":"Martin","address":"40 rue Laure Diebold","address2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","company":"","phone":"01234567890","comment":"","pickupPointId":null},"items":[{"itemId":"856805359","declinationId":"6_0","productName":"Casque Gaming Razer ManO\u0027War Sans fil 7.1 Surround (PC\/PS4)","productCode":"7531596248953","productImageId":null,"price":73.7,"maxPriceAdjustment":null,"amount":2,"options":[],"customerComment":"","greenTax":0,"supplierRef":"RAZER-CASQUE-GAMING","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":0,"extra":[],"transaction_reference":null,"attachments":[]}'
 -
     request:
         method: GET
@@ -186,8 +195,8 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
-            Authorization: 'token fh9QAHBPdx4nz8KCq1H2FK252w8MBh1u4ANfUjpL'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@846c2b5
+            Authorization: 'token OykXcsPbEkJLbFRyVvJv6MYrK4BNNi5LIwFl+kld'
             VCR-index: '6'
             Accept: null
     response:
@@ -200,12 +209,13 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.2.17
+            X-Powered-By: PHP/7.4.16
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 04 May 2020 11:30:37 GMT'
+            Date: 'Fri, 30 Apr 2021 09:51:59 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: ee6550
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ee6550'
-            X-Request-Id: 92ffa63c6510e157ee4962832602adbb
-        body: '{"id":7,"basketId":"34d7e3c5-aa85-4145-98e7-9a30b8fa5374","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"customerTotal":67.9,"marketplaceDiscountTotal":0,"timestamp":1588591257,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Antonio","lastname":"Damasio","address":"99410 Dach Views Apt. 994","address2":"","city":"West Geraldport","zipcode":"00229","country":"FR","company":"University of Southern California","phone":"","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Antonio","lastname":"Damasio","address":"42228 Hunter Summit Suite 058","address2":"","city":"Bettyeburgh","zipcode":"13736-4550","country":"FR","company":"University of Southern California","phone":"","comment":"","pickupPointId":null},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"INFO-001","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false}'
+            X-Debug-Token: '235119'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/235119'
+            X-Robots-Tag: noindex
+            X-Request-Id: 8fd17a69fcb7c8817d351b9d69a7c5a4
+        body: '{"id":7,"basketId":"acf74af1-ab77-4c8f-b5c5-bfac6bbfd302","companyId":3,"companyName":"The World Company Inc.","total":67.9,"taxTotal":1.4,"subtotal":67.9,"customerTotal":67.9,"marketplaceDiscountTotal":0,"timestamp":1619765603,"status":"COMPLETED","workflow":"workflow_withdrawal_period_pending_withdrawal_period_end_completed","shippingName":"TNT Express","customerComment":"","declineReason":null,"shippingAddress":{"label":"","title":"mr","firstname":"Antonio","lastname":"Damasio","address":"99410 Dach Views Apt. 994","address2":"","city":"West Geraldport","zipcode":"00229","country":"FR","company":"University of Southern California","phone":"","comment":"","pickupPointId":null},"billingAddress":{"label":"","title":"mr","firstname":"Antonio","lastname":"Damasio","address":"42228 Hunter Summit Suite 058","address2":"","city":"Bettyeburgh","zipcode":"13736-4550","country":"FR","company":"University of Southern California","phone":"","comment":"","pickupPointId":null},"items":[{"itemId":"2085640488","declinationId":"1_0","productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productImageId":null,"price":67.9,"maxPriceAdjustment":null,"amount":1,"options":[],"customerComment":"","greenTax":0,"supplierRef":"INFO-001","isSubscription":false,"isRenewable":false}],"payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{},"externalReference":null},"shippingCost":0,"discount":0,"subscriptionId":null,"isSubscriptionInitiator":false,"isPaid":true,"carriagePaid":false,"refunded":false,"balance":0,"extra":[],"transaction_reference":null,"attachments":[]}'

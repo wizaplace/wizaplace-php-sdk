@@ -9,10 +9,13 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\Organisation;
 
+use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\HttpFoundation\File\File;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Basket\BasketService;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\AccessDenied;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\UserDoesntBelongToOrganisation;
 use Wizaplace\SDK\Order\Order;
 use Wizaplace\SDK\Order\OrderAttachmentType;
@@ -561,6 +564,74 @@ final class OrganisationServiceTest extends ApiTestCase
         $this->assertSame(1, $response['total']);
     }
 
+    public function dataProviderGetOrganisationPaginatedOrders(): array
+    {
+        return [
+            'with limit lower than default_limit and start' => [4, 2, [1, 4, 2, 3]],
+            'with limit greater than default_limit and start' => [200, 1, [2, 200, 1, 3]],
+            'with limit equals to 0, no start' => [0, null, [3, 0, 0, 3]],
+            'no limit, no start' => [null, null, [3, 100, 0, 3]],
+        ];
+    }
+
+    /** @dataProvider dataProviderGetOrganisationPaginatedOrders */
+    public function testGetOrganisationPaginatedOrders(
+        int $limit = null,
+        int $start = null,
+        array $expected = []
+    ): void {
+        $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
+        $organisationId = $this->getOrganisationId(1);
+
+        $paginatedData = $organisationService->getOrganisationPaginatedOrders((string) $organisationId, $start, $limit);
+
+        foreach ($paginatedData->getItems()['orders'] as $order) {
+            $this->assertInstanceOf(OrderSummary::class, $order);
+        }
+
+        static::assertEquals($expected[0], \count($paginatedData->getItems()['orders']));
+        static::assertEquals($expected[1], $paginatedData->getLimit());
+        static::assertEquals($expected[2], $paginatedData->getOffset());
+        static::assertEquals($expected[3], $paginatedData->getTotal());
+    }
+
+    public function dataProviderGetOrganisationPaginatedOrdersThrowsException(): array
+    {
+        return [
+            'organisation not found' => [
+                'admin@wizaplace.com',
+                'password',
+                NotFound::class,
+                "The organisation doesn't exist.",
+                'xxx',
+            ],
+            'access denied' => [
+                'customer-1@world-company.com',
+                'password-customer-1',
+                AccessDenied::class,
+                "You're neither a marketplace administrator nor an organisation's administrator",
+                null
+            ],
+        ];
+    }
+
+    /** @dataProvider dataProviderGetOrganisationPaginatedOrdersThrowsException */
+    public function testGetOrganisationPaginatedOrdersThrowsException(
+        string $user,
+        string $password,
+        string $exceptionClass,
+        string $exceptionMessage,
+        string $organisationId = null
+    ): void {
+        $this->expectException($exceptionClass);
+        $this->expectExceptionMessage($exceptionMessage);
+
+        $organisationService = $this->buildOrganisationService($user, $password);
+        $organisationId = $organisationId ?? $this->getOrganisationId(1);
+
+        $organisationService->getOrganisationPaginatedOrders($organisationId);
+    }
+
     public function testAddUserAdminToOrganisation(): void
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
@@ -712,10 +783,10 @@ final class OrganisationServiceTest extends ApiTestCase
 
         if (\is_string($organisationId)) {
             // Get all the organisation orders
-            $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
+            $organisationOrders = $organisationService->getOrganisationPaginatedOrders($organisationId);
 
-            if (!empty($organisationOrders['orders'])) {
-                foreach ($organisationOrders['orders'] as $order) {
+            if (!empty($organisationOrders->getItems()['orders'])) {
+                foreach ($organisationOrders->getItems()['orders'] as $order) {
                     // Get the order details
                     $orderId = $order->getOrderId();
                     $orderDetails = $organisationService->getOrder($orderId);
@@ -731,9 +802,9 @@ final class OrganisationServiceTest extends ApiTestCase
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
 
-        $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
+        $organisationOrders = $organisationService->getOrganisationPaginatedOrders($organisationId);
 
-        foreach ($organisationOrders['orders'] as $order) {
+        foreach ($organisationOrders->getItems()['orders'] as $order) {
             // Get the order details
             $orderId = $order->getOrderId();
             $orderDetails = $organisationService->getOrder($orderId);
@@ -751,9 +822,9 @@ final class OrganisationServiceTest extends ApiTestCase
 
         if (\is_string($organisationId) === true) {
             $organisationService->get($organisationId);
-            $organisationGetOrder = $organisationService->getOrganisationOrders($organisationId);
-            $orderService = $this->buildOrderService('admin@wizaplace.com', 'password');
-            $orders = $orderService->getOrder($organisationGetOrder['orders'][0]->getOrderId());
+            $organisationGetOrder = $organisationService->getOrganisationPaginatedOrders($organisationId);
+            $orderService = $this->buildOrderService('customer-1@world-company.com', 'password');
+            $orders = $orderService->getOrder($organisationGetOrder->getItems()['orders'][0]->getOrderId());
             $this->assertSame('The World Company Inc.', $orders->getCompanyName());
         }
     }
@@ -762,8 +833,9 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId(1);
-        $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
-        $orders = $organisationOrders['orders'];
+        $organisationOrders = $organisationService->getOrganisationPaginatedOrders($organisationId);
+
+        $orders = $organisationOrders->getItems()['orders'];
 
         static::assertGreaterThan(0, \count($orders));
         foreach ($orders as $order) {
@@ -784,8 +856,9 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         $organisationService = $this->buildOrganisationService('admin@wizaplace.com', 'password');
         $organisationId = $this->getOrganisationId(1);
-        $organisationOrders = $organisationService->getOrganisationOrders($organisationId);
-        $orders = $organisationOrders['orders'];
+        $organisationOrders = $organisationService->getOrganisationPaginatedOrders($organisationId);
+
+        $orders = $organisationOrders->getItems()['orders'];
 
         static::assertGreaterThan(0, \count($orders));
         foreach ($orders as $order) {
@@ -866,7 +939,8 @@ final class OrganisationServiceTest extends ApiTestCase
     {
         $organisationService = $this->buildOrganisationService('user+orga@usc.com', 'password');
         $organisationId = $this->getOrganisationId(1);
-        $organisationOrders = $organisationService->getOrganisationOrders($organisationId)['orders'];
+        $organisationOrders = $organisationService->getOrganisationPaginatedOrders($organisationId);
+        $organisationOrders = $organisationOrders->getItems()['orders'];
 
         static::assertGreaterThan(0, \count($organisationOrders));
         foreach ($organisationOrders as $order) {

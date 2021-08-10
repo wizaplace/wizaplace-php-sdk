@@ -147,6 +147,15 @@
 - Added `Wizaplace\SDK\User\UserService::disaffiliateUser`
 - Added images and declinationsImages properties in `Wizaplace\SDK\Catalog\ProductSummary`
 - Added `Wizaplace\SDK\Catalog\Image\DeclinationImages`
+- Added `\Wizaplace\SDK\Vendor\Order\OrderService::getPaginatedOrders`
+- Added `\Wizaplace\SDK\Order\OrderService::getPaginatedOrders`
+- Added `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationPaginatedOrders`
+
+### Deprecated features
+
+- Deprecated `\Wizaplace\SDK\Vendor\Order\OrderService::listOrders`
+- Deprecated `\Wizaplace\SDK\Order\OrderService::getOrders`
+- Deprecated `\Wizaplace\SDK\Organisation\OrganisationService::getOrganisationOrders`
 
 ## 1.119.4
 

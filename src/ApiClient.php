@@ -228,6 +228,27 @@ final class ApiClient
      * @param string $endpoint
      * @param array  $options
      *
+     * @return array
+     *
+     * @throws JsonDecodingError
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     */
+    public function getWithPaginationHeaders(string $endpoint, array $options = []): array
+    {
+        $response = $this->rawRequest("GET", $endpoint, $options);
+
+        $data = $this->jsonDecode(
+            $response->getBody()
+                ->getContents()
+        );
+
+        return [$data, new PaginationHttpHeaders($response)];
+    }
+
+    /**
+     * @param string $endpoint
+     * @param array  $options
+     *
      * @return mixed|null
      * @throws JsonDecodingError
      * @throws \GuzzleHttp\Exception\GuzzleException

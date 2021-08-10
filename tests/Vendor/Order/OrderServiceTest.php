@@ -91,7 +91,9 @@ class OrderServiceTest extends ApiTestCase
 
     public function testListOrders(): void
     {
-        $orders = $this->buildVendorOrderService()->listOrders();
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->listOrders();
 
         static::assertContainsOnly(OrderSummary::class, $orders);
         static::assertTrue(\count($orders) >= 2);
@@ -105,37 +107,89 @@ class OrderServiceTest extends ApiTestCase
         );
 
         $order = array_shift($orders);
-        static::assertSame(4, $order->getOrderId());
+        static::assertSame(1, $order->getOrderId());
         static::assertSame(7, $order->getCustomerUserId());
         static::assertSame(3, $order->getCompanyId());
         static::assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         static::assertSame('Paul', $order->getCustomerFirstName());
         static::assertSame('Martin', $order->getCustomerLastName());
         static::assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
-        static::assertTrue(OrderStatus::COMPLETED()->equals($order->getStatus()));
+        static::assertFalse(OrderStatus::COMPLETED()->equals($order->getStatus()));
         static::assertInstanceOf(\DateTimeImmutable::class, $order->getLastStatusChange());
 
         $order = array_shift($orders);
-        static::assertSame(5, $order->getOrderId());
+        static::assertSame(2, $order->getOrderId());
         static::assertSame(7, $order->getCustomerUserId());
         static::assertSame(3, $order->getCompanyId());
         static::assertSame('customer-1@world-company.com', $order->getCustomerEmail());
         static::assertSame('Paul', $order->getCustomerFirstName());
         static::assertSame('Martin', $order->getCustomerLastName());
         static::assertGreaterThan(1500000000, $order->getCreatedAt()->getTimestamp());
-        static::assertTrue(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
+        static::assertFalse(OrderStatus::STANDBY_VENDOR()->equals($order->getStatus()));
         static::assertInstanceOf(\DateTimeImmutable::class, $order->getLastStatusChange());
+    }
+
+    public function testGetVendorPaginatedOrders(): void
+    {
+        $orderService = $this->buildVendorOrderService('admin@wizaplace.com', 'password');
+
+        $paginatedData = $orderService->getPaginatedOrders();
+
+        static::assertContainsOnly(OrderSummary::class, $paginatedData->getItems());
+        static::assertEquals(12, \count($paginatedData->getItems()));
+        static::assertEquals(100, $paginatedData->getLimit());
+        static::assertEquals(0, $paginatedData->getOffset());
+        static::assertEquals(12, $paginatedData->getTotal());
+
+        $paginatedData = $orderService->getPaginatedOrders(
+            null,
+            (new OrderListFilter())
+                ->byItemPerPage(4)
+        );
+
+        static::assertContainsOnly(OrderSummary::class, $paginatedData->getItems());
+        static::assertEquals(4, \count($paginatedData->getItems()));
+        static::assertEquals(4, $paginatedData->getLimit());
+        static::assertEquals(0, $paginatedData->getOffset());
+        static::assertEquals(12, $paginatedData->getTotal());
+
+        $paginatedData = $orderService->getPaginatedOrders(
+            null,
+            (new OrderListFilter())
+                ->byItemPerPage(10)
+                ->byPage(2)
+        );
+
+        static::assertContainsOnly(OrderSummary::class, $paginatedData->getItems());
+        static::assertEquals(2, \count($paginatedData->getItems()));
+        static::assertEquals(10, $paginatedData->getLimit());
+        static::assertEquals(10, $paginatedData->getOffset());
+        static::assertEquals(12, $paginatedData->getTotal());
+
+        $paginatedData = $orderService->getPaginatedOrders(
+            null,
+            (new OrderListFilter())
+                ->byItemPerPage(0)
+        );
+
+        static::assertContainsOnly(OrderSummary::class, $paginatedData->getItems());
+        static::assertEquals(12, \count($paginatedData->getItems()));
+        static::assertEquals(0, $paginatedData->getLimit());
+        static::assertEquals(0, $paginatedData->getOffset());
+        static::assertEquals(12, $paginatedData->getTotal());
     }
 
     public function testListOrdersWithFilter(): void
     {
-        $orders = $this->buildVendorOrderService()->listOrders(OrderStatus::STANDBY_VENDOR());
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->getPaginatedOrders(OrderStatus::STANDBY_VENDOR());
 
-        static::assertContainsOnly(OrderSummary::class, $orders);
-        static::assertCount(1, $orders);
+        static::assertContainsOnly(OrderSummary::class, $orders->getItems());
+        static::assertEquals(2, $orders->getTotal());
 
-        $order = $orders[0];
-        static::assertSame(5, $order->getOrderId());
+        $order = $orders->getItems()[0];
+        static::assertSame(10, $order->getOrderId());
         static::assertSame(7, $order->getCustomerUserId());
         static::assertSame(3, $order->getCompanyId());
         static::assertSame('customer-1@world-company.com', $order->getCustomerEmail());
@@ -145,65 +199,70 @@ class OrderServiceTest extends ApiTestCase
 
     public function testFilterByCompanyIdWithNoResult(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
-            ->listOrders(
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders(
                 OrderStatus::COMPLETED(),
                 (new OrderListFilter())
                     ->byCompanyIds([4])
             );
 
-        static::assertCount(0, $orders);
+        static::assertCount(0, $orders->getItems());
     }
 
     public function testFilterByCompanyIdWithAResult(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")
-            ->listOrders(
-                OrderStatus::COMPLETED(),
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders(
+                OrderStatus::STANDBY_VENDOR(),
                 (new OrderListFilter())
                 ->byCompanyIds([3])
             );
 
-        static::assertContainsOnly(OrderSummary::class, $orders);
-        static::assertCount(4, $orders);
+        static::assertContainsOnly(OrderSummary::class, $orders->getItems());
+        static::assertEquals(2, $orders->getTotal());
     }
 
     public function testFilterByLastStatusChange(): void
     {
-        $orders = $this->buildVendorOrderService()
-            ->listOrders(
-                OrderStatus::COMPLETED(),
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->getPaginatedOrders(
+                OrderStatus::STANDBY_VENDOR(),
                 (new OrderListFilter())
-                    ->byLastStatusChangeIsAfter(new \DateTime("2019-05-16T00:00:00"))
-                    ->byLastStatusChangeIsBefore(new \DateTime("2019-05-16T13:37:36"))
+                    ->byLastStatusChangeIsAfter(new \DateTime("2021-04-16T00:00:00"))
+                    ->byLastStatusChangeIsBefore(new \DateTime("2021-05-16T13:37:36"))
             );
 
-        static::assertCount(2, $orders);
+        static::assertEquals(2, $orders->getTotal());
     }
 
     public function testFilterByItemsPerPageAndPage(): void
     {
-        $orders = $this->buildVendorOrderService()
-            ->listOrders(
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->getPaginatedOrders(
                 OrderStatus::COMPLETED(),
                 (new OrderListFilter())
                     ->byItemPerPage(2)
                     ->byPage(1)
             );
 
-        $secendOrderId = $orders[1]->getOrderId();
-        static::assertCount(2, $orders);
+        $secendOrderId = $orders->getItems()[1]->getOrderId();
+        static::assertEquals(5, $orders->getTotal());
 
-        $orders = $this->buildVendorOrderService()
-            ->listOrders(
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->getPaginatedOrders(
                 OrderStatus::COMPLETED(),
                 (new OrderListFilter())
                     ->byItemPerPage(1)
                     ->byPage(2)
             );
 
-        static::assertCount(1, $orders);
-        static::assertSame($secendOrderId, $orders[0]->getOrderId());
+        static::assertEquals(5, $orders->getTotal());
+        static::assertSame($secendOrderId, $orders->getItems()[0]->getOrderId());
     }
 
     public function testGetOrderById(): void
@@ -442,10 +501,14 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersAmountsTaxesDetails(): void
     {
-        $orders = $this->buildVendorOrderService()->listOrders(OrderStatus::COMPLETED());
+        $orders = $this
+            ->buildVendorOrderService('admin@wizaplace.com', 'password')
+            ->getPaginatedOrders(OrderStatus::COMPLETED())
+            ->getItems();
+
         $expectedOrders = $this->expectedOrdersAmounts();
         static::assertContainsOnly(OrderSummary::class, $orders);
-        static::assertCount(4, $orders);
+        static::assertCount(5, $orders);
 
         foreach ($orders as $order) {
             static::assertTrue(\array_key_exists($order->getOrderId(), $expectedOrders));
@@ -611,6 +674,28 @@ class OrderServiceTest extends ApiTestCase
                     'includingTaxes' => 53.528,
                 ],
             ],
+            12 => [
+                'totals' => [
+                    'excludingTaxes' => 53.0852,
+                    'taxes' => 1.1148,
+                    'includingTaxes' => 54.2,
+                ],
+                'shippingCosts' => [
+                    'excludingTaxes' => 0.0,
+                    'taxes' => 0.0,
+                    'includingTaxes' => 0.0,
+                ],
+                'commissions' => [
+                    'excludingTaxes' => 0.56,
+                    'taxes' => 0.112,
+                    'includingTaxes' => 0.672,
+                ],
+                'vendorShare' => [
+                    'excludingTaxes' => 52.5252,
+                    'taxes' => 1.0028,
+                    'includingTaxes' => 53.528,
+                ],
+            ],
         ];
     }
 
@@ -677,20 +762,24 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersWithSubscription(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders();
 
-        static::assertCount(12, $orders);
-        static::assertUuid($orders[0]->getSubscriptionId());
-        static::assertNull($orders[1]->getSubscriptionId());
+        static::assertEquals(12, $orders->getTotal());
+        static::assertUuid(($orders->getItems()[0])->getSubscriptionId());
+        static::assertNull(($orders->getItems()[1])->getSubscriptionId());
     }
 
     public function testGetOrdersWithIsPaid(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders();
 
-        static::assertGreaterThanOrEqual(2, \count($orders));
-        static::assertTrue($orders[0]->isPaid());
-        static::assertFalse($orders[1]->isPaid());
+        static::assertEquals(12, $orders->getTotal());
+        static::assertFalse($orders->getItems()[0]->isPaid());
+        static::assertTrue($orders->getItems()[1]->isPaid());
     }
 
     public function testGetSubscriptions(): void
@@ -1035,9 +1124,11 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersWithRefundData(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders();
 
-        static::assertGreaterThan(0, \count($orders));
+        static::assertEquals(0, $orders->getTotal());
         foreach ($orders as $order) {
             static::assertInternalType('boolean', $order->isRefunded());
         }
@@ -1062,9 +1153,11 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersWithBalance(): void
     {
-        $orders = $this->buildVendorOrderService("admin@wizaplace.com", "password")->listOrders();
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders();
 
-        static::assertGreaterThan(0, \count($orders));
+        static::assertEquals(0, $orders->getTotal());
         foreach ($orders as $order) {
             static::assertSame(0.0, $order->getBalance());
         }
@@ -1228,10 +1321,12 @@ class OrderServiceTest extends ApiTestCase
 
     public function testGetOrdersDisplayingParentOrderId(): void
     {
-        $listOrders = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98")->listOrders();
+        $orders = $this
+            ->buildVendorOrderService("admin@wizaplace.com", "password")
+            ->getPaginatedOrders();
 
-        static::assertSame(14, $listOrders[0]->getParentOrderId());
-        static::assertSame(14, $listOrders[1]->getParentOrderId());
+        static::assertSame(14, $orders->getItems()[0]->getParentOrderId());
+        static::assertSame(14, $orders->getItems()[1]->getParentOrderId());
     }
 
     public function testGetOrderByIdDisplayingParentOrderId(): void
