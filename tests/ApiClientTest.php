@@ -15,6 +15,7 @@ use Jean85\PrettyVersions;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Order\OrderService;
+use Wizaplace\SDK\User\UserService;
 
 final class ApiClientTest extends ApiTestCase
 {
@@ -114,5 +115,22 @@ final class ApiClientTest extends ApiTestCase
         $url = $this->buildApiClient()->getOAuthAuthorizationUrl();
 
         $this->assertSame('https://accounts.google.com/o/oauth2/auth?response_type=code&access_type=online&client_id=cli3nt_1d&redirect_uri=http%3A%2F%2Fwizaplace.fr%2Foauth&state&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&approval_prompt=auto', $url);
+    }
+
+    public function testAdminCanChangeApiToken(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $userService = new UserService($apiClient);
+
+        $apiKey = $apiClient->authenticate("admin@wizaplace.com", "Windows.98");
+        static::assertNotNull($apiKey);
+
+        $apiClient->revokeUser();
+
+        $newApiKey = $apiClient->authenticate("admin@wizaplace.com", "Windows.98");
+        static::assertNotNull($apiKey);
+
+        $user = $userService->getProfileFromId($newApiKey->getId());
+        $this->assertInstanceOf(\DateTimeImmutable::class, $user->getApiKeyUpdatedAt());
     }
 }

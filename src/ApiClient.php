@@ -378,6 +378,17 @@ final class ApiClient
     }
 
     /**
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws JsonDecodingError
+     */
+    public function revokeUser(): void
+    {
+        $this->mustBeAuthenticated();
+        $this->post('user/revoke');
+    }
+
+    /**
      * @param BadResponseException $e
      *
      * @return DomainError|null

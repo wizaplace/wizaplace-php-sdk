@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New Version
+
+### New features
+
+- Added `Wizaplace\SDK\ApiClient::revokeUser`
+- Added `Wizaplace\SDK\User\User::getApiKeyUpdatedAt`
+
 ## 1.124.3
 
 ### New features

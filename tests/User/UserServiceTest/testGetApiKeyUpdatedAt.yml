@@ -1,0 +1,126 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 15:20:41 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 632ea3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/632ea3'
+            X-Robots-Tag: noindex
+            X-Request-Id: 44a2fe2693dded58ff549b837f5291bd
+        body: '{"id":2,"apiKey":"\/lVfmtk1O2pJCalCGj1qZLRk1a4wZcqHi9z345Ry"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/user/revoke'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            Authorization: 'token /lVfmtk1O2pJCalCGj1qZLRk1a4wZcqHi9z345Ry'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 15:20:41 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a55de8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a55de8'
+            X-Robots-Tag: noindex
+            X-Request-Id: a40edc904a2dbb25a9925990c50392f2
+        body: '"un nouveau API token a \u00e9t\u00e9 g\u00e9n\u00e9r\u00e9."'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            VCR-index: '2'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 15:20:41 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 20e3ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/20e3ff'
+            X-Robots-Tag: noindex
+            X-Request-Id: 5cdd671ec6ef765ff4de3ed17ff2d5dd
+        body: '{"id":2,"apiKey":"d069c41bab28ae1613914697553f37ab6b273ec0"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/2'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            Authorization: 'token d069c41bab28ae1613914697553f37ab6b273ec0'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 15:20:42 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f0beec
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f0beec'
+            X-Robots-Tag: noindex
+            X-Request-Id: 099a6058a9ea36f23f93408cc239374a
+        body: '{"id":2,"title":"mr","email":"admin@wizaplace.com","type":"A","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Administrateur","lastName":"Wizaplace","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-06-30T17:15:11+02:00","extra":[],"apiKeyUpdatedAt":"2021-06-30T17:20:41+02:00"}'

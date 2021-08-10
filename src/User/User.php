@@ -72,6 +72,8 @@ final class User
     private $registeredAt;
     /** @var string[]|int[] */
     private $extra;
+    /** @var \DateTimeImmutable|null */
+    private $apiKeyUpdatedAt;
 
     /**
      * @internal
@@ -110,6 +112,7 @@ final class User
         }
         $this->registeredAt = empty($data['registeredAt']) ? null : \DateTimeImmutable::createFromFormat(DATE_RFC3339, $data['registeredAt']);
         $this->extra = $data['extra'] ?? [];
+        $this->apiKeyUpdatedAt = \array_key_exists('apiKeyUpdatedAt', $data) === true ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt']) : null;
     }
 
     /**
@@ -334,5 +337,10 @@ final class User
     public function getExtra(): array
     {
         return $this->extra;
+    }
+
+    public function getApiKeyUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->apiKeyUpdatedAt;
     }
 }

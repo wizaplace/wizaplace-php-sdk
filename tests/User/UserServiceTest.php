@@ -2080,6 +2080,20 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame(UserType::CLIENT()->getValue(), $user->getType()->getValue());
     }
 
+    public function testGetApiKeyUpdatedAt(): void
+    {
+        $client = $this->buildApiClient();
+        $apiKey = $client->authenticate('admin@wizaplace.com', 'Windows.98');
+        $client->revokeUser();
+        $this->userService = new UserService($client);
+
+        $apiKey = $client->authenticate('admin@wizaplace.com', 'Windows.98');
+        //get User
+        $user = $this->userService->getProfileFromId($apiKey->getId());
+        static::assertNotNull($user->getApiKeyUpdatedAt());
+        static::assertInstanceOf(\DateTimeImmutable::class, $user->getApiKeyUpdatedAt());
+    }
+
     private function buildUserCompanyService(
         string $email = 'customer-3@world-company.com',
         string $password = 'password-customer-3'
