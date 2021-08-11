@@ -16,6 +16,7 @@ use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Exception\NotFound;
+use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
 use function theodorejb\polycast\to_int;
 
@@ -122,12 +123,24 @@ class ProductService extends AbstractService
 
         $id = $command->getId();
 
-        $data = $this->client->put(
-            "products/${id}",
-            [
-                RequestOptions::JSON => $command->toArray(),
-            ]
-        );
+        try {
+            $data = $this->client->put(
+                "products/${id}",
+                [
+                    RequestOptions::JSON => $command->toArray(),
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getCode() === 400) {
+                throw new SomeParametersAreInvalid($e->getMessage());
+            }
+
+            if ($e->getCode() === 404) {
+                throw new NotFound("product #${id} not found", $e);
+            }
+
+            throw $e;
+        }
 
         return to_int($data['product_id']);
     }
