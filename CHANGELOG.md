@@ -1,6 +1,12 @@
 
 # Changelog
 
+## 1.126.0
+
+## Miscellaneous
+
+* Improvement how errors are handled in the ProductService when updating a product.
+
 ## 1.125.0
 
 ### New features
