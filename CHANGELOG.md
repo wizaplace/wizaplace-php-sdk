@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+### Bugfix
+
+- In the `Wizaplace\SDK\Catalog\Facet\NumericFacet` class, added a default value for min and max offsets.
+
 ## 1.126.0
 
 ## Miscellaneous
