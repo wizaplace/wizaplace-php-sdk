@@ -5,7 +5,7 @@
 
 ### New features
 
-- In the `Wizaplace\SDK\Catalog\CompanyListItem` class, added a default value for min and max offsets.
+- In the `Wizaplace\SDK\Catalog\CompanyListItem` class, added the "extra" field which is returned by the API endpoint.
 
 
 ## 1.126.0
