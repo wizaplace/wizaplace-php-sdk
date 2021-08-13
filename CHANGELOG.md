@@ -1,6 +1,13 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- In the `Wizaplace\SDK\Catalog\CompanyListItem` class, added a default value for min and max offsets.
+
+
 ## 1.126.0
 
 ## Miscellaneous

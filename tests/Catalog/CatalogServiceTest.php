@@ -1082,6 +1082,17 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('Rue des marketplaces', $companies[0]->getFullAddress()->getAddress());
         $this->assertSame('Lyon', $companies[0]->getFullAddress()->getCity());
         $this->assertSame('69000', $companies[0]->getFullAddress()->getZipCode());
+
+        //------------------
+        // Test extra data
+        //------------------
+
+        // With returned values
+        $this->assertSame(['field' => 'value', 'field2' => 'value2'], $companies[0]->getExtra());
+        // Without values
+        $this->assertSame([], $companies[1]->getExtra());
+        // With empty values
+        $this->assertSame([], $companies[4]->getExtra());
     }
 
     public function testGetCompaniesWithCorporateName(): void
