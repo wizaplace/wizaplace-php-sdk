@@ -1,12 +1,15 @@
 
 # Changelog
 
-## New version
+## 1.128.0
 
 ### New features
 
 - In the `Wizaplace\SDK\Catalog\CompanyListItem` class, added the "extra" field which is returned by the API endpoint.
 
+### Bugfix
+
+- In the `Wizaplace\SDK\Catalog\Facet\NumericFacet` class, added a default value for min and max offsets.
 
 ## 1.126.0
 
