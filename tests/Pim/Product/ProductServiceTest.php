@@ -1933,7 +1933,7 @@ final class ProductServiceTest extends ApiTestCase
             ->setAttachments([new ProductAttachmentUpload('favicon', 'https://sandbox.wizaplace.com/assets/bundles/app/images/favicon.png')])
             ->setProductTemplateType('product');
 
-        $productService = $this->buildProductService();
+        $productService = $this->buildProductService('admin@wizaplace.com', self::VALID_PASSWORD);
         $productId = $productService->createProduct($data);
         static::assertInternalType('int', $productId);
         static::assertGreaterThan(0, $productId);
