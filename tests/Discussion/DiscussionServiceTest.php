@@ -32,7 +32,7 @@ final class DiscussionServiceTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->discussionService = $this->buildDiscussionService();
+        $this->discussionService = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
     }
 
     public function testStartDiscussion()
