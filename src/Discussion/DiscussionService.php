@@ -323,7 +323,8 @@ class DiscussionService extends AbstractService
 
         try {
             $discussionData = $this->client->post(
-                'discussions', [
+                'discussions',
+                [
                     RequestOptions::JSON => [
                         'userId' => $userId
                     ]
