@@ -322,10 +322,9 @@ class DiscussionService extends AbstractService
         $this->client->mustBeAuthenticated();
 
         try {
-            $discussionData = $this->client->post('discussions',
-                [
-                RequestOptions::JSON =>
-                    [
+            $discussionData = $this->client->post(
+                'discussions', [
+                    RequestOptions::JSON => [
                         'userId' => $userId
                     ]
                 ]
@@ -333,29 +332,17 @@ class DiscussionService extends AbstractService
 
             return new Discussion($discussionData);
         } catch (ClientException $e) {
-            $this->clientException($e);
-        }
-    }
+            switch ($e->getResponse()->getStatusCode()) {
+                case Response::HTTP_BAD_REQUEST:
+                    throw new SomeParametersAreInvalid($e->getMessage());
+                case Response::HTTP_NOT_FOUND:
+                    throw new NotFound($e->getMessage());
+                case Response::HTTP_UNAUTHORIZED:
+                    throw new UnauthorizedModerationAction($e->getMessage());
 
-    /**
-     * @param ClientException $e
-     *
-     * @throws NotFound
-     * @throws SomeParametersAreInvalid
-     * @throws UnauthorizedModerationAction
-     */
-    private function clientException(ClientException $e): void
-    {
-        switch ($e->getResponse()->getStatusCode()) {
-            case Response::HTTP_BAD_REQUEST:
-                throw new SomeParametersAreInvalid($e->getMessage());
-            case Response::HTTP_NOT_FOUND:
-                throw new NotFound($e->getMessage());
-            case Response::HTTP_UNAUTHORIZED:
-                throw new UnauthorizedModerationAction($e->getMessage());
-
-            default:
-                throw $e;
+                default:
+                    throw $e;
+            }
         }
     }
 }
