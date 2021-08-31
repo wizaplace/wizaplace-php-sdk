@@ -32,7 +32,7 @@ final class DiscussionServiceTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->discussionService = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
+        $this->discussionService = $this->buildDiscussionService();
     }
 
     public function testStartDiscussion()
@@ -431,7 +431,39 @@ MSG;
         $this->assertSame(201, $response->getStatusCode());
     }
 
-    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
+    public function testStartDiscussionWithCustomer(): void
+    {
+        $discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
+
+        $discussion = $discussionService->startDiscussionWithCustomer(3);
+
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 2,
+                'recipient' => 'Paul Martin',
+                'productId' => 0,
+                'title' => 'Contact Paul Martin',
+                'unreadCount' => 0,
+            ]
+        );
+
+        static::assertSame($expectedDiscussion->getId(), $discussion->getId());
+        static::assertSame($expectedDiscussion->getRecipient(), $discussion->getRecipient());
+        static::assertSame($expectedDiscussion->getProductId(), $discussion->getProductId());
+        static::assertSame($expectedDiscussion->getTitle(), $discussion->getTitle());
+        static::assertSame($expectedDiscussion->getUnreadCount(), $discussion->getUnreadCount());
+
+        // Check that the user can access the discussion
+        $discussionService = $this->buildDiscussionService('user@wizaplace.com', 'Windows.98');
+        $discussions = $discussionService->getDiscussions();
+
+        static::assertContainsOnly(Discussion::class, $discussions);
+        static::assertCount(1, $discussions);
+        $discussion = \reset($discussions);
+        static::assertSame($expectedDiscussion->getId(), $discussion->getId());
+    }
+
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'Windows.98'): DiscussionService
     {
         $client = $this->buildApiClient();
         $client->authenticate($email, $password);
