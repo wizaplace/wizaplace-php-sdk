@@ -104,7 +104,7 @@ final class DiscussionServiceTest extends ApiTestCase
     {
         $this->expectException(CompanyHasNoAdministrator::class);
 
-        $this->buildDiscussionService()->startDiscussionWithVendor(1);
+        $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1')->startDiscussionWithVendor(1);
     }
 
     public function testStartDiscussionOnInexistentVendor()
@@ -463,7 +463,7 @@ MSG;
         static::assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
-    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'Windows.98'): DiscussionService
     {
         $client = $this->buildApiClient();
         $client->authenticate($email, $password);
