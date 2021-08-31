@@ -463,7 +463,7 @@ MSG;
         static::assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
-    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'Windows.98'): DiscussionService
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
     {
         $client = $this->buildApiClient();
         $client->authenticate($email, $password);
