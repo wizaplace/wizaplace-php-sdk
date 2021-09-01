@@ -302,7 +302,6 @@ class DiscussionService extends AbstractService
         return $this;
     }
 
-
     /**
      * Vendor start a discussion with a Customer.
      *
