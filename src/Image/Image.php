@@ -18,7 +18,7 @@ final class Image
     /** @var int */
     private $id;
 
-    /** @var string|null */
+    /** @var string */
     private $altText;
 
     /**
@@ -39,7 +39,7 @@ final class Image
         return $this->id;
     }
 
-    public function getAltText(): ?string
+    public function getAltText(): string
     {
         return $this->altText;
     }
