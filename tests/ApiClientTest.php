@@ -61,7 +61,7 @@ final class ApiClientTest extends ApiTestCase
 
         $expectedRequestOptions = [
             'headers' => [
-                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version,
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION
             ],
         ];
 

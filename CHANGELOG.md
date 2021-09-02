@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+## Miscellaneous
+
+- Added the PHP version in the user-agent header.
+
 ## 1.128.0
 
 ### New features

@@ -323,7 +323,9 @@ final class ApiClient
      */
     public function rawRequest(string $method, $uri, array $options = []): ResponseInterface
     {
-        $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/' . $this->version;
+        $options[RequestOptions::HEADERS]['User-Agent'] = 'Wizaplace-PHP-SDK/' . $this->version
+         . ' PHP/' . PHP_VERSION;
+
         if ($this->language !== null) {
             $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
         }
