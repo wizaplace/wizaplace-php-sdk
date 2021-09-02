@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
 ## 1.133.0
 
 ### New features
