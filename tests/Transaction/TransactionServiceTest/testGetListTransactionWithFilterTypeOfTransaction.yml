@@ -33,7 +33,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/report/transactions?page=1&resultPerPage=10'
+        url: 'http://wizaplace.loc/api/v1/reports/transactions?page=1&resultPerPage=10'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -64,7 +64,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/report/transactions?type%5B%5D=DISPATCH_FUNDS_TRANSFER_COMMISSION'
+        url: 'http://wizaplace.loc/api/v1/reports/transactions?type%5B%5D=DISPATCH_FUNDS_TRANSFER_COMMISSION'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null

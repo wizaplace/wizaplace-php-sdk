@@ -33,7 +33,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/report/transactions?page=1&resultPerPage=10'
+        url: 'http://wizaplace.loc/api/v1/reports/transactions?page=1&resultPerPage=10'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -64,7 +64,7 @@
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/report/transactions?period%5Bfrom%5D=2021-04-23T11%3A25%3A20%2B02%3A00&period%5Bto%5D=2021-04-25T11%3A26%3A22%2B02%3A00'
+        url: 'http://wizaplace.loc/api/v1/reports/transactions?period%5Bfrom%5D=2021-04-23T11%3A25%3A20%2B02%3A00&period%5Bto%5D=2021-04-25T11%3A26%3A22%2B02%3A00'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null

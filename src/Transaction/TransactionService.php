@@ -39,7 +39,7 @@ class TransactionService extends AbstractService
 
         try {
             $data = $this->client->get(
-                'report/transactions',
+                'reports/transactions',
                 [RequestOptions::QUERY => $transactionFilter->getFilters()]
             );
         } catch (ClientException $exception) {
