@@ -529,7 +529,7 @@ class OrderService extends AbstractService
             $response = $this->client->get("user/orders/{$orderId}/shipments");
             $shipments = [];
 
-            foreach($response as $shipment) {
+            foreach ($response as $shipment) {
                 $shipments[] = new Shipment($shipment);
             };
 
