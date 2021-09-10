@@ -663,25 +663,25 @@ final class OrderServiceTest extends ApiTestCase
                 "shipment_id" => 3,
                 "shipment_timestamp" => 1631275640,
                 "delivery_date" => null,
-                "comments"=> "",
-                "order_id"=> 14,
-                "shipping_id"=> 38,
-                "shipping"=> "Lettre prioritaire",
-                "tracking_number"=> "10",
-                "label_url"=> "",
-                "products"=> ["2085640488" => 1]
+                "comments" => "",
+                "order_id" => 14,
+                "shipping_id" => 38,
+                "shipping" => "Lettre prioritaire",
+                "tracking_number" => "10",
+                "label_url" => "",
+                "products" => ["2085640488" => 1]
             ]),
             new Shipment([
                 "shipment_id" => 2,
                 "shipment_timestamp" => 1631275635,
                 "delivery_date" => null,
-                "comments"=> "",
-                "order_id"=> 14,
-                "shipping_id"=> 38,
-                "shipping"=> "Lettre prioritaire",
-                "tracking_number"=> "100",
-                "label_url"=> "",
-                "products"=> ["3230927120" => 1]
+                "comments" => "",
+                "order_id" => 14,
+                "shipping_id" => 38,
+                "shipping" => "Lettre prioritaire",
+                "tracking_number" => "100",
+                "label_url" => "",
+                "products" => ["3230927120" => 1]
             ])
         ];
 
