@@ -39,6 +39,7 @@ use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
 use Wizaplace\SDK\Vendor\Order\OrderService as VendorOrderService;
 use Wizaplace\SDK\Vendor\Order\OrderStatus as VendorOrderStatus;
+use Wizaplace\SDK\Vendor\Order\Shipment;
 
 /**
  * @see OrderService
@@ -652,6 +653,41 @@ final class OrderServiceTest extends ApiTestCase
         $this->assertStringStartsWith($pdfHeader, $pdfContent);
         $this->assertGreaterThan(\strlen($pdfHeader), \strlen($pdfContent));
     }
+
+    public function testGetOrderShipments(): void
+    {
+        $orderService = $this->buildOrderService('user@wizaplace.com', static::VALID_PASSWORD);
+        $shipments = $orderService->getOrderShipments(14);
+        $expectedShipments = [
+            new Shipment([
+                "shipment_id" => 3,
+                "shipment_timestamp" => 1631275640,
+                "delivery_date" => null,
+                "comments"=> "",
+                "order_id"=> 14,
+                "shipping_id"=> 38,
+                "shipping"=> "Lettre prioritaire",
+                "tracking_number"=> "10",
+                "label_url"=> "",
+                "products"=> ["2085640488" => 1]
+            ]),
+            new Shipment([
+                "shipment_id" => 2,
+                "shipment_timestamp" => 1631275635,
+                "delivery_date" => null,
+                "comments"=> "",
+                "order_id"=> 14,
+                "shipping_id"=> 38,
+                "shipping"=> "Lettre prioritaire",
+                "tracking_number"=> "100",
+                "label_url"=> "",
+                "products"=> ["3230927120" => 1]
+            ])
+        ];
+
+        $this->assertEquals($expectedShipments, $shipments);
+    }
+
     public function testGetOrderWithBillingShippingAddressLabelAndComment(): void
     {
         $order = $this->buildOrderService()->getOrder(10);

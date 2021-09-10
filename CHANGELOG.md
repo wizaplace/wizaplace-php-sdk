@@ -1,6 +1,10 @@
 
 # Changelog
 
+## New version
+
+- Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
+
 ## 1.129.1
 
 ### Miscellaneous
