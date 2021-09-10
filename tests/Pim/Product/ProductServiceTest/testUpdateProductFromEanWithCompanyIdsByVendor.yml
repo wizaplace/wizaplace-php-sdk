@@ -1,0 +1,67 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.13'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 Sep 2021 15:22:51 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 40ab79
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/40ab79'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4aab0215eeaa19537ee80566668ea740
+            X-Frame-Options: deny
+        body: '{"id":4,"apiKey":"K8R0omJZy+SaxjE5xkLVNMX83gC\/e\/HIUEYrc7Sz"}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/pim/products/test/stocks'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.13'
+            Authorization: 'token K8R0omJZy+SaxjE5xkLVNMX83gC/e/HIUEYrc7Sz'
+            VCR-index: '1'
+            Accept: null
+        body: '{"stock":5,"company_ids":[3]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '403'
+            message: Forbidden
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 09 Sep 2021 15:22:52 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 92c355
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92c355'
+            X-Robots-Tag: noindex
+            X-Frame-Options: deny
+        body: '{"message":"You are not allowed to use company_ids key."}'

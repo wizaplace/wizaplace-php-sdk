@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New Release
+
+### New features
+
+- Added optional parameter `$companyIds` to `Wizaplace\SDK\Pim\Product\ProductService::updateStock`
+
 ## 1.133.0
 
 ### New features
