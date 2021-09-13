@@ -25,6 +25,12 @@
 - Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteRelatedProductWithRelatedProductId`
 - Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteRelatedProductWithRelatedProductIdAndType`
 
+## New version
+
+### New features
+
+- In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
+
 ## 1.129.1
 
 ### Miscellaneous
