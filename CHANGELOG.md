@@ -65,6 +65,9 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\User\UsersPaginatedResult`
+- Added `Wizaplace\SDK\User\UserFilters`
+- Added `Wizaplace\SDK\User\UserService::getUsersByFilters`
 - Moved properties `shortDescription`, `fullDescription` and `taxIds` from `Wizaplace\SDK\Pim\Product\Product` to its parent `Wizaplace\SDK\Pim\Product\ProductSummary`
 - Added property `video` to `Wizaplace\SDK\Pim\Product\ProductSummary`
 
