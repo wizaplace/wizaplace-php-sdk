@@ -1400,30 +1400,30 @@ final class ProductServiceTest extends ApiTestCase
                 )
         );
 
-        //update stock for company_ids = [3]
+        //Update stock for company_ids = [3]
         $response = $serviceAdmin->updateStock($ean, 5, [3]);
         static::assertSame("1 entities updated.", $response);
 
-        //price not changed for product with companyId = 2
+        //Amount not changed for product with companyId = 2
         $product1 = $serviceAdmin->getProductById($product1Id);
         static::assertSame(2, $product1->getCompanyId());
         static::assertSame(10, $product1->getDeclinations()[0]->getQuantity());
 
-        //price changed for product with companyId = 3
+        //Amount changed for product with companyId = 3
         $product2 = $serviceAdmin->getProductById($product2Id);
         static::assertSame(3, $product2->getCompanyId());
         static::assertSame(5, $product2->getDeclinations()[0]->getQuantity());
 
-        //update stock for empty company_ids
+        //Update stock with empty company_ids
         $response = $serviceAdmin->updateStock($ean, 15, []);
         static::assertSame("2 entities updated.", $response);
 
-        //price changed for product with companyId = 2
+        //Amount changed for product with companyId = 2
         $product1 = $serviceAdmin->getProductById($product1Id);
         static::assertSame(2, $product1->getCompanyId());
         static::assertSame(15, $product1->getDeclinations()[0]->getQuantity());
 
-        //price changed for product with companyId = 3
+        //Amount changed for product with companyId = 3
         $product2 = $serviceAdmin->getProductById($product2Id);
         static::assertSame(3, $product2->getCompanyId());
         static::assertSame(15, $product2->getDeclinations()[0]->getQuantity());
