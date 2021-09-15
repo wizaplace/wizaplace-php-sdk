@@ -1,0 +1,293 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6cc9e7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6cc9e7'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4cdad8b3e89feabf715261e201da4f30
+        body: '{"id":2,"apiKey":"qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '1'
+            Accept: null
+        body: '{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4db6c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4db6c8'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            X-Request-Id: 0a064670823c732033eaee88511da635
+        body: '{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '2'
+            Accept: null
+        body: '{"productId":7,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e132b6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e132b6'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            X-Request-Id: e77f5eb4f45c4bd2794123775a53ed67
+        body: '{"productId":7,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '3'
+            Accept: null
+        body: '{"productId":7,"type":"shipping","description":"Shipping product.","extra":"123_456"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 97d801
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/97d801'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            X-Request-Id: e4d8b37c18b268e95503909026b70166
+        body: '{"productId":7,"type":"shipping","description":"Shipping product.","extra":"123_456"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '4'
+            Accept: null
+        body: '{"productId":7,"type":"other","description":"Other product.","extra":"123_456"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1bcf5b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1bcf5b'
+            X-Robots-Tag: noindex
+            Expires: 'Fri, 11 Jun 2021 07:54:43 GMT'
+            X-Request-Id: a2602d0d020a7e6f36caf9e6ebf65c4d
+        body: '{"productId":7,"type":"other","description":"Other product.","extra":"123_456"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            VCR-index: '5'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 11 Jun 2021 07:54:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 873b76
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/873b76'
+            X-Robots-Tag: noindex
+            X-Request-Id: 04ce06d7c89726aedfad44ae583b7383
+        body: '{"id":2,"apiKey":"qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 11 Jun 2021 07:54:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 71a034
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/71a034'
+            X-Robots-Tag: noindex
+            X-Request-Id: b4467e2289379cfa234e54d6d66da48f
+        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1623329026,"updated_timestamp":1623329029,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":11,"crossed_out_price":0.0,"price":67.9,"priceTiers":[{"lowerLimit":0,"price":67.9}]}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"slug":"test-product-slug","seoTitle":"","seoDescription":"","seoKeywords":"","related":[{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"},{"productId":7,"type":"recommended","description":"Recommended product.","extra":"123_456"},{"productId":7,"type":"shipping","description":"Shipping product.","extra":"123_456"},{"productId":7,"type":"other","description":"Other product.","extra":"123_456"}]}'
+-
+    request:
+        method: DELETE
+        url: 'http://wizaplace.loc/api/v1/products/1/related?productId=7'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '204'
+            message: 'No Content'
+        headers:
+            Server: nginx
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 11 Jun 2021 07:54:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1db34f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1db34f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 57d34b846419fad1502a1540af5203a3
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token qenKk+kKCfyW5xsXqkOf8peZl8z0teylGwzIP6gq'
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 11 Jun 2021 07:54:44 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3442ff
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3442ff'
+            X-Robots-Tag: noindex
+            X-Request-Id: 203a9af8a37578fd75d647107720b9b7
+        body: '{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1623329026,"updated_timestamp":1623329029,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","short_description":"","full_description":"","category_ids":[3],"main_category":3,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":11,"crossed_out_price":0.0,"price":67.9,"priceTiers":[{"lowerLimit":0,"price":67.9}]}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"slug":"test-product-slug","seoTitle":"","seoDescription":"","seoKeywords":"","related":[{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"}]}'

@@ -75,6 +75,8 @@ final class ProductSummary
     private $maxPriceAdjustment;
     /** @var null|string */
     private $code;
+    /** @var RelatedProduct[] */
+    private $relatedOffers;
 
     /**
      * @internal
@@ -147,6 +149,8 @@ final class ProductSummary
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;
         $this->maxPriceAdjustment = \array_key_exists('maxPriceAdjustment', $data) === true ? $data['maxPriceAdjustment'] : null;
+
+        $this->relatedOffers = $this->denormalizeRelatedOffers($data['relatedOffers'] ?? []);
     }
 
     /**
@@ -361,6 +365,12 @@ final class ProductSummary
         return $this->maxPriceAdjustment;
     }
 
+    /** @return RelatedProduct[] */
+    public function getRelatedOffers(): array
+    {
+        return $this->relatedOffers;
+    }
+
     /**
      * @param array $data
      * @return DeclinationImages[]
@@ -377,6 +387,38 @@ final class ProductSummary
                         },
                         $declinationImage['images'] ?? []
                     )
+                ]);
+            },
+            $data
+        );
+    }
+
+    /**
+     * @param mixed[] $data
+     * @return RelatedProduct[]
+     */
+    private function denormalizeRelatedOffers(array $data): array
+    {
+        return array_map(
+            function (array $relatedProduct): RelatedProduct {
+                return new RelatedProduct([
+                    'type' => $relatedProduct['type'],
+                    'productId' => $relatedProduct['productId'],
+                    'description' => $relatedProduct['description'],
+                    'extra' => $relatedProduct['extra'],
+                    'name' => $relatedProduct['name'],
+                    'status' => $relatedProduct['status'],
+                    'url' => $relatedProduct['url'],
+                    'minPrice' => $relatedProduct['minPrice'],
+                    'code' => $relatedProduct['code'],
+                    'supplierReference' => $relatedProduct['supplierReference'],
+                    'images' => array_map(
+                        function (array $image): Image {
+                            return new Image($image);
+                        },
+                        $relatedProduct['images'] ?? []
+                    ),
+                    'company' => $relatedProduct['company'],
                 ]);
             },
             $data
