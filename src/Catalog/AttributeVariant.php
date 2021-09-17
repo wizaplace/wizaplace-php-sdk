@@ -51,7 +51,7 @@ final class AttributeVariant
         $this->slug = $data['slug'];
         $this->description = $data['description'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
-        $this->position = isset($data['position']) ? (int) $data['position'] : 0;
+        $this->position = \array_key_exists('position', $data) ? (int) $data['position'] : 0;
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
         $this->seoKeywords = $data['seoData']['keywords'] ?? '';
