@@ -1,6 +1,11 @@
 
 # Changelog
 
+## 1.133.0
+
+### New features
+- Added the "Related products" feature.
+
 ## 1.129.1
 
 ### Miscellaneous
