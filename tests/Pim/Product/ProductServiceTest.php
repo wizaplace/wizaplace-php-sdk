@@ -28,6 +28,7 @@ use Wizaplace\SDK\Pim\Product\ProductGeolocationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductImageUpload;
 use Wizaplace\SDK\Pim\Product\ProductInventory;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
+use Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProduct;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Pim\Product\ProductSummary;
@@ -1208,6 +1209,14 @@ final class ProductServiceTest extends ApiTestCase
         static::assertEquals(204, $video->getStatusCode());
     }
 
+    public function testGetVideo(): void
+    {
+        static::assertEquals(
+            '//s3-eu-west-1.amazonaws.com/videos/414375b2-61cb-4260-b82b-4a2636cb5673/480.mp4',
+            $this->buildProductService()->getProductById(3)->getVideo()
+        );
+    }
+
     public function testUpdateProductFromEan(): void
     {
         $ean = "My_EAN";
@@ -1638,6 +1647,25 @@ final class ProductServiceTest extends ApiTestCase
                         ->setQuantity(3),
                 ]
             );
+    }
+
+    public function testListProductWithRelatedProducts(): void
+    {
+        $filter = (new ProductListFilter())->byIds([1]);
+
+        $products = $this->buildProductService()
+            ->listProducts($filter)
+            ->getProducts();
+
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
+
+        $relatedProducts = $products[0]->getRelated();
+        static::assertContainsOnly(RelatedProduct::class, $relatedProducts);
+        static::assertCount(9, $relatedProducts);
+
+        $relatedProduct = $relatedProducts[0];
+        static::assertSame(2, $relatedProduct->getProductId());
     }
 
     public function testCreateComplexProductWithAdmin(): void

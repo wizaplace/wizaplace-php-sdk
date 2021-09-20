@@ -1,0 +1,66 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 08 Jun 2021 06:58:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 912a8e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/912a8e'
+            X-Robots-Tag: noindex
+            X-Request-Id: d4a5d0ebc994f2b038b976b524596b95
+        body: '{"id":2,"apiKey":"OcS3C7E7NTN79Vxk2uDZBmFWm84DR5HYgy6X6zQl"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/1/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token OcS3C7E7NTN79Vxk2uDZBmFWm84DR5HYgy6X6zQl'
+            VCR-index: '1'
+            Accept: null
+        body: '{"productId":1,"type":"recommended","description":"Recommended product","extra":"123_123"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '400'
+            message: 'Bad Request'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 08 Jun 2021 06:58:24 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 7649cf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7649cf'
+            X-Robots-Tag: noindex
+            Expires: 'Tue, 08 Jun 2021 06:58:24 GMT'
+        body: '{"message":"Parent product and related product must be different."}'

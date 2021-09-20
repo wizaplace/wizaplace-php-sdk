@@ -590,6 +590,27 @@ class UserService extends AbstractService
         return $userAddress;
     }
 
+    public function getUsersByFilters(UserFilters $userFilters): UsersPaginatedResult
+    {
+        try {
+            $this->client->mustBeAuthenticated();
+            $response = $this->client->get(
+                'users',
+                [
+                    RequestOptions::QUERY => $userFilters->serialize()
+                ]
+            );
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 400) {
+                throw new SomeParametersAreInvalid($e->getMessage(), $e->getResponse()->getStatusCode(), $e);
+            }
+
+            throw $e;
+        }
+
+        return new UsersPaginatedResult($response);
+    }
+
     /**
      * Remove null values
      *
