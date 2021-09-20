@@ -1,6 +1,12 @@
 
 # Changelog
 
+### New version
+
+### New features
+
+- In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
+
 ## 1.133.0
 
 ### New features
