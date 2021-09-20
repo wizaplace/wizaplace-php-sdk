@@ -1,10 +1,34 @@
 
 # Changelog
 
-## [Unreleased]
+## 1.134.0
 
-### Added
+- Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
 - Added `Wizaplace\SDK\Pim\Product\Product::getVideo`
+
+## 1.133.0
+
+### New features
+- Added support for the "Related products" feature.
+- Added related property in `Wizaplace\SDK\Pim\Product\ProductSummary`
+- Added relatedOffers property in `Wizaplace\SDK\Catalog\Product\ProductSummary`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getType`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getProductId`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getDescription`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getExtra`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getName`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getStatus`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getUrl`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getMinPrice`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getCode`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getSupplierReference`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getImages`
+- Added `Wizaplace\SDK\Catalog\RelatedProduct::getCompany`
+- Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::addRelatedProduct`
+- Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteAllRelatedProduct`
+- Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteRelatedProductWithType`
+- Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteRelatedProductWithRelatedProductId`
+- Added `Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProductService::deleteRelatedProductWithRelatedProductIdAndType`
 
 ## 1.129.1
 
@@ -70,6 +94,9 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\User\UsersPaginatedResult`
+- Added `Wizaplace\SDK\User\UserFilters`
+- Added `Wizaplace\SDK\User\UserService::getUsersByFilters`
 - Moved properties `shortDescription`, `fullDescription` and `taxIds` from `Wizaplace\SDK\Pim\Product\Product` to its parent `Wizaplace\SDK\Pim\Product\ProductSummary`
 - Added property `video` to `Wizaplace\SDK\Pim\Product\ProductSummary`
 

@@ -13,6 +13,7 @@ namespace Wizaplace\SDK\Tests\Catalog;
 use PHPUnit\Framework\TestCase;
 use Wizaplace\SDK\Catalog\DeclinationImages;
 use Wizaplace\SDK\Catalog\ProductSummary;
+use Wizaplace\SDK\Catalog\RelatedProduct;
 use Wizaplace\SDK\Image\Image;
 
 final class ProductSummaryTest extends TestCase
@@ -51,6 +52,22 @@ final class ProductSummaryTest extends TestCase
                 'categoryPath' => [],
                 'slug' => 'product slug',
                 'companies' => [],
+                'relatedOffers' => [
+                    [
+                        'type' => 'recommended',
+                        'productId' => 1,
+                        'description' => 'recommended product',
+                        'extra' => '123_123',
+                        'name' => 'Product child',
+                        'status' => 'A',
+                        'url' => '',
+                        'minPrice' => 34.45,
+                        'code' => '1234567',
+                        'supplierReference' => '',
+                        'images' => [['id' => 8], ['id' => 9]],
+                        'company' => 'company',
+                    ]
+                ],
             ]
         );
 
@@ -88,5 +105,29 @@ final class ProductSummaryTest extends TestCase
         $this->assertSame([], $product->getCategoryPath());
         $this->assertSame('product slug', $product->getSlug());
         $this->assertSame([], $product->getCompanies());
+        $this->assertEquals(
+            [
+                new RelatedProduct(
+                    [
+                        'type' => 'recommended',
+                        'productId' => 1,
+                        'description' => 'recommended product',
+                        'extra' => '123_123',
+                        'name' => 'Product child',
+                        'status' => 'A',
+                        'url' => '',
+                        'minPrice' => 34.45,
+                        'code' => '1234567',
+                        'supplierReference' => '',
+                        'images' => [
+                            new Image(['id' => 8]),
+                            new Image(['id' => 9])
+                        ],
+                        'company' => 'company',
+                    ]
+                )
+            ],
+            $product->getRelatedOffers()
+        );
     }
 }

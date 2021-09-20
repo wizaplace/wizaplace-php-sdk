@@ -11,6 +11,7 @@ namespace Wizaplace\SDK\Pim\Product;
 
 use GuzzleHttp\Psr7\Uri;
 use Psr\Http\Message\UriInterface;
+use Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProduct;
 
 use function theodorejb\polycast\to_float;
 
@@ -110,6 +111,9 @@ class ProductSummary
     /** @var ?string */
     private $video;
 
+    /** @var RelatedProduct[] */
+    private $related;
+
     /**
      * @internal
      *
@@ -164,6 +168,8 @@ class ProductSummary
         $this->shortDescription = $data['short_description'] ?? '';
         $this->taxIds = $data['tax_ids'] ?? [];
         $this->video = $data['video'] ?? null;
+
+        $this->related = $this->denormalizeRelated($data['related'] ?? []);
     }
 
     /**
@@ -393,5 +399,32 @@ class ProductSummary
     public function getVideo(): ?string
     {
         return $this->video;
+    }
+
+    /**
+     * @return RelatedProduct[]
+     */
+    public function getRelated(): array
+    {
+        return $this->related;
+    }
+
+    /**
+     * @param mixed[] $data
+     * @return RelatedProduct[]
+     */
+    private function denormalizeRelated(array $data): array
+    {
+        return array_map(
+            function (array $relatedProduct): RelatedProduct {
+                return new RelatedProduct([
+                    'type' => $relatedProduct['type'],
+                    'productId' => $relatedProduct['productId'],
+                    'description' => $relatedProduct['description'],
+                    'extra' => $relatedProduct['extra'],
+                ]);
+            },
+            $data
+        );
     }
 }

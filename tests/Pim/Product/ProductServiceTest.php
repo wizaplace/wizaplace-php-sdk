@@ -28,6 +28,7 @@ use Wizaplace\SDK\Pim\Product\ProductGeolocationUpsertData;
 use Wizaplace\SDK\Pim\Product\ProductImageUpload;
 use Wizaplace\SDK\Pim\Product\ProductInventory;
 use Wizaplace\SDK\Pim\Product\ProductListFilter;
+use Wizaplace\SDK\Pim\Product\RelatedProduct\RelatedProduct;
 use Wizaplace\SDK\Pim\Product\ProductService;
 use Wizaplace\SDK\Pim\Product\ProductStatus;
 use Wizaplace\SDK\Pim\Product\ProductSummary;
@@ -1646,6 +1647,25 @@ final class ProductServiceTest extends ApiTestCase
                         ->setQuantity(3),
                 ]
             );
+    }
+
+    public function testListProductWithRelatedProducts(): void
+    {
+        $filter = (new ProductListFilter())->byIds([1]);
+
+        $products = $this->buildProductService()
+            ->listProducts($filter)
+            ->getProducts();
+
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
+
+        $relatedProducts = $products[0]->getRelated();
+        static::assertContainsOnly(RelatedProduct::class, $relatedProducts);
+        static::assertCount(9, $relatedProducts);
+
+        $relatedProduct = $relatedProducts[0];
+        static::assertSame(2, $relatedProduct->getProductId());
     }
 
     public function testCreateComplexProductWithAdmin(): void
