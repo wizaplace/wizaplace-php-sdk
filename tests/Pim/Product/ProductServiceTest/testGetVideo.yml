@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-master@3019a38
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 18 Jun 2021 14:58:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 074c84
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/074c84'
+            X-Robots-Tag: noindex
+            X-Request-Id: b225fb94a10639d1c8a7d15568e7c84e
+        body: '{"id":2,"apiKey":"PH2oYyObtYXoIa63wKULlclcW98PXuCCBBQUbRK3"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-master@3019a38
+            Authorization: 'token PH2oYyObtYXoIa63wKULlclcW98PXuCCBBQUbRK3'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 18 Jun 2021 14:58:34 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4951c7
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4951c7'
+            X-Robots-Tag: noindex
+            X-Request-Id: 50f71dbc563c4d53bde4bd46c4176857
+        body: '{"product_id":3,"product_code":"0000001","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1623748855,"updated_timestamp":1623748856,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"tax_ids":[2],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Ecran PC Full HD Noir","short_description":"","full_description":"","category_ids":[4],"main_category":4,"main_pair":[],"image_pairs":[],"video":"\/\/s3-eu-west-1.amazonaws.com\/videos\/414375b2-61cb-4260-b82b-4a2636cb5673\/480.mp4","attachments":[],"inventory":[{"combination":{"3":10},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","supplier_reference":"INFO-ECRAN-001","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"size_21"},{"combination":{"3":7},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","supplier_reference":"INFO-ECRAN-001","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"size_13"},{"combination":{"3":8},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","supplier_reference":"INFO-ECRAN-001","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"size_15"},{"combination":{"3":9},"amount":10,"crossed_out_price":0.0,"affiliate_link":"","supplier_reference":"INFO-ECRAN-001","priceTiers":[{"lowerLimit":0,"price":15.5}],"price":15.5,"combination_code":"size_17"}],"green_tax":0.0,"supplier_ref":"INFO-ECRAN-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"slug":"ecran-pc-full-hd-noir","seoTitle":"","seoDescription":"","seoKeywords":""}'
