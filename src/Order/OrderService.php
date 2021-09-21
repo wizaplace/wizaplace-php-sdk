@@ -21,8 +21,8 @@ use Wizaplace\SDK\Exception\OrderNotCancellable;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\Exception\UnauthorizedModerationAction;
 use Wizaplace\SDK\PaginatedData;
-use Wizaplace\SDK\PaginationHttpHeaders;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
+use Wizaplace\SDK\Vendor\Order\Shipment;
 
 /**
  * Class OrderService
@@ -512,6 +512,28 @@ class OrderService extends AbstractService
             $response = $this->client->rawRequest("GET", "user/orders/{$orderId}/credit-notes/{$refundId}", $options);
 
             return $response->getBody();
+        } catch (ClientException $e) {
+            if ($e->getResponse()->getStatusCode() === 404) {
+                throw new NotFound("Order #{$orderId} not found", $e);
+            }
+            throw $e;
+        }
+    }
+
+    /** @return Shipment[] */
+    public function getOrderShipments(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $response = $this->client->get("user/orders/{$orderId}/shipments");
+            $shipments = [];
+
+            foreach ($response as $shipment) {
+                $shipments[] = new Shipment($shipment);
+            };
+
+            return $shipments;
         } catch (ClientException $e) {
             if ($e->getResponse()->getStatusCode() === 404) {
                 throw new NotFound("Order #{$orderId} not found", $e);
