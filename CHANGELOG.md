@@ -7,12 +7,6 @@
 
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
 
-## New version
-
-### New features
-
-- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
-
 ## 1.134.0
 
 - Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
