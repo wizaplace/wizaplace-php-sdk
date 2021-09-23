@@ -64,4 +64,4 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/92c355'
             X-Robots-Tag: noindex
             X-Frame-Options: deny
-        body: '{"message":"You are not allowed to use company_ids key."}'
+        body: '{"message":"You are not allowed to perfom this action, please check all you fields."}'

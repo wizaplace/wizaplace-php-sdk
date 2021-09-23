@@ -1437,7 +1437,7 @@ final class ProductServiceTest extends ApiTestCase
     {
         $serviceVendor = $this->buildProductService("vendor@wizaplace.com");
 
-        static::expectExceptionMessage('You are not allowed to use company_ids key.');
+        static::expectExceptionMessage('You are not allowed to perfom this action, please check all you fields.');
         static::expectExceptionCode(403);
         $serviceVendor->updateStock('test', 5, [3]);
     }
