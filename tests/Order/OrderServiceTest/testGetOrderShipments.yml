@@ -1,0 +1,65 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a PHP/7.4.13'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 Sep 2021 12:08:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 50f490
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/50f490'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4782093d050a818aa16e25bcc67978cd
+            X-Frame-Options: deny
+        body: '{"id":3,"apiKey":"Ky39SqHdK+YDGwi\/75jY2NynKal\/GV9EfcglygAw"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/user/orders/14/shipments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a PHP/7.4.13'
+            Authorization: 'token Ky39SqHdK+YDGwi/75jY2NynKal/GV9EfcglygAw'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Fri, 10 Sep 2021 12:08:12 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 396b09
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/396b09'
+            X-Robots-Tag: noindex
+            X-Request-Id: 67a5456df8d4be0fddec3b722fb8d2f3
+            X-Frame-Options: deny
+        body: '[{"shipment_id":3,"shipment_timestamp":1631275640,"delivery_date":null,"comments":"","order_id":14,"shipping_id":38,"shipping":"Lettre prioritaire","tracking_number":"10","label_url":"","products":{"2085640488":1}},{"shipment_id":2,"shipment_timestamp":1631275635,"delivery_date":null,"comments":"","order_id":14,"shipping_id":38,"shipping":"Lettre prioritaire","tracking_number":"100","label_url":"","products":{"3230927120":1}}]'
