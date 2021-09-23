@@ -332,7 +332,7 @@ class ProductService extends AbstractService
             );
         } catch (ClientException $e) {
             if ($e->getCode() === 403) {
-                throw new AccessDenied("You are not allowed to use company_ids key.");
+                throw new AccessDenied("You are not allowed to perfom this action, please check all you fields.");
             }
             if ($e->getCode() === 404) {
                 throw new NotFound("Product EAN #{$ean} not found", $e);
