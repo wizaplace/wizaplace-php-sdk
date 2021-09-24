@@ -25,7 +25,7 @@ final class OrderChild
     /**
      * @internal
      *
-     * @param array $data
+     * @param mixed[] $data
      */
     public function __construct(array $data)
     {
@@ -33,17 +33,13 @@ final class OrderChild
         $this->status = new OrderStatus($data['status']);
     }
 
-    /**
-     * @return int
-     */
+    /** @return int */
     public function getId(): int
     {
         return $this->id;
     }
 
-    /**
-     * @return OrderStatus
-     */
+    /** @return OrderStatus */
     public function getStatus(): OrderStatus
     {
         return $this->status;
