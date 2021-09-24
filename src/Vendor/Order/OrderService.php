@@ -920,4 +920,23 @@ class OrderService extends AbstractService
             $data
         );
     }
+
+    /** return OrderChild[] */
+    public function getOrderChildren(int $orderId): array
+    {
+        $this->client->mustBeAuthenticated();
+        $data = $this->client->get(
+            \sprintf(
+                'orders/%d/child',
+                $orderId
+            )
+        );
+
+        return \array_map(
+            static function (array $orderData): OrderChild {
+                return new OrderChild($orderData);
+            },
+            $data
+        );
+    }
 }

@@ -1,6 +1,13 @@
 
 # Changelog
 
+## NEW VERSION
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderChild`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderChildren`
+
 ## 1.134.0
 
 - Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
