@@ -20,6 +20,7 @@ use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\OrderNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Exception\UnauthorizedModerationAction;
 use Wizaplace\SDK\Order\CreditNote;
 use Wizaplace\SDK\Order\OrderAdjustment;
 use Wizaplace\SDK\Order\Refund;
@@ -925,18 +926,34 @@ class OrderService extends AbstractService
     public function getOrderChildren(int $orderId): array
     {
         $this->client->mustBeAuthenticated();
-        $data = $this->client->get(
-            \sprintf(
-                'orders/%d/child',
-                $orderId
-            )
-        );
+
+        $orderChildren = [];
+
+        try {
+            $orderChildren = $this->client->get(
+                \sprintf(
+                    'orders/%d/child',
+                    $orderId
+                )
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 401:
+                    throw new UnauthorizedModerationAction("Unauthorized access.");
+                case 403:
+                    throw new AccessDenied($exception->getMessage());
+                case 404:
+                    throw new NotFound($exception->getMessage());
+                default:
+                    throw $exception;
+            }
+        }
 
         return \array_map(
-            static function (array $orderData): OrderChild {
-                return new OrderChild($orderData);
+            static function (array $orderChild): OrderChild {
+                return new OrderChild($orderChild);
             },
-            $data
+            $orderChildren
         );
     }
 }

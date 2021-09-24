@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author      Wizacha DevTeam <dev@wizacha.com>
  * @copyright   Copyright (c) Wizacha
@@ -8,8 +9,6 @@
 declare(strict_types=1);
 
 namespace Wizaplace\SDK\Vendor\Order;
-
-use Wizaplace\SDK\Vendor\Order\OrderStatus;
 
 /**
  * Class OrderChild
@@ -50,5 +49,3 @@ final class OrderChild
         return $this->status;
     }
 }
-
-
