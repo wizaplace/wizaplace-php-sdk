@@ -12,7 +12,7 @@ namespace Wizaplace\SDK\Vendor\Order;
 
 /**
  * Class OrderChild
- * @package Wizaplace\SDK\Vendor\OrderChild
+ * @package Wizaplace\SDK\Vendor\Order
  */
 final class OrderChild
 {
@@ -23,9 +23,9 @@ final class OrderChild
     private $status;
 
     /**
-     * @param array $data
      * @internal
      *
+     * @param array $data
      */
     public function __construct(array $data)
     {
