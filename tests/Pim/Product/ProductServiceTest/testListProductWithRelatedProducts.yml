@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.19
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 31 May 2021 09:47:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 90be8a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/90be8a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 5d90568ac07c5306ed32106ab2b7b7ca
+        body: '{"id":2,"apiKey":"63etW6Xzg\/BflW8+XmvpT2Ko6AHX6CX4VzWFm2hG"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&pid%5B0%5D=1'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token 63etW6Xzg/BflW8+XmvpT2Ko6AHX6CX4VzWFm2hG'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.19
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 31 May 2021 09:47:07 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f3fd7f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f3fd7f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 1637ee65586d57836d4073be737eaaf5
+        body: '{"products":[{"product_id":1,"product_code":"978020137962","status":"A","company_id":3,"approved":"Y","weight":1.23,"timestamp":1622454200,"updated_timestamp":1622454202,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":1386316800,"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Z11 Plus Bo\u00eetier PC en Acier ATX","category_ids":[3],"main_category":3,"inventory":[{"combination":[],"amount":11,"crossed_out_price":0.0,"price":67.9,"priceTiers":[{"lowerLimit":0,"price":67.9}]}],"green_tax":0.0,"supplier_ref":"INFO-001","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"attachments":[],"slug":"test-product-slug","seoTitle":"","seoDescription":"","seoKeywords":"","related":[{"productId":2,"type":"recommended","description":"12","extra":null},{"productId":3,"type":"recommended","description":"12","extra":null},{"productId":4,"type":"recommended","description":"12","extra":null},{"productId":5,"type":"recommended","description":"12","extra":null},{"productId":6,"type":"recommended","description":"12","extra":null},{"productId":7,"type":"recommended","description":"12","extra":null},{"productId":8,"type":"recommended","description":"12","extra":null},{"productId":9,"type":"recommended","description":"12","extra":null},{"productId":10,"type":"recommended","description":"12","extra":null}]}],"params":{"pname":"","pshort":"","pfull":"","page":"1","match":"","sort_by":"null","items_per_page":"100","pid":["1"],"sort_order":"asc","total_items":"1"}}'
