@@ -112,11 +112,11 @@ final class User
         }
         $this->registeredAt = empty($data['registeredAt']) ? null : \DateTimeImmutable::createFromFormat(DATE_RFC3339, $data['registeredAt']);
         $this->extra = $data['extra'] ?? [];
-        $this->apiKeyUpdatedAt =
-            \array_key_exists('apiKeyUpdatedAt', $data) === true
+        $this->apiKeyUpdatedAt = \array_key_exists('apiKeyUpdatedAt', $data) === true
             && \strtotime($data['apiKeyUpdatedAt']) > 0 // Check if $data['apiKeyUpdatedAt'] is a valid date
-                ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt'])
-                : null;
+            ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt'])
+            : null
+        ;
     }
 
     /**
