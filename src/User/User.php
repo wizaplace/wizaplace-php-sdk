@@ -114,7 +114,7 @@ final class User
         $this->extra = $data['extra'] ?? [];
 
         if (\array_key_exists('apiKeyUpdatedAt', $data) === true
-            && $apiKeyUpdatedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt']) instanceof \DateTimeImmutable === true
+            && ($apiKeyUpdatedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt'])) instanceof \DateTimeImmutable === true
         ) {
             $this->apiKeyUpdatedAt = $apiKeyUpdatedAt;
         } else {
