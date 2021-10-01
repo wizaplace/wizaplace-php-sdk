@@ -14,6 +14,7 @@ use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketItems;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\ExternalShippingPrice;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\Shipping;
 use Wizaplace\SDK\Catalog\DeclinationId;
@@ -932,6 +933,95 @@ final class BasketServiceTest extends ApiTestCase
 
         static::assertSame('Domicile', $basket->getShippingAddress()->getLabel());
         static::assertSame('Près de la poste', $basket->getShippingAddress()->getComment());
+    }
+
+    public function testUpdateShippingPrice(): void
+    {
+        $apiAdmin = $this->buildApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'Q7ctx@XKTfcCCPJKA84f');
+
+        $adminBasketService = new BasketService($apiAdmin);
+
+        // Create basket and add product
+        $basket = $adminBasketService->createEmptyBasket();
+        $price = 10.0;
+        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+
+        $basket = $adminBasketService->getBasket($basket->getId());
+        $shippings = [];
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    $shippings[] = new ExternalShippingPrice(
+                        $shippingGroup->getId(),
+                        $shipping->getId(),
+                        $price
+                    );
+                }
+            }
+        }
+
+        $adminBasketService->updateShippingPrice($basket->getId(), $shippings);
+
+        $basket = $adminBasketService->getBasket($basket->getId());
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    static::assertSame($price, $shipping->getShippingPrice()->getPriceWithTaxes());
+                    static::assertSame($price, $shipping->getPrice());
+                    static::assertTrue($shipping->isExternalPrice());
+                }
+            }
+        }
+    }
+
+
+    public function testResetShippingPrice(): void
+    {
+        $apiAdmin = $this->buildApiClient();
+        $apiAdmin->authenticate('admin@wizaplace.com', 'Q7ctx@XKTfcCCPJKA84f');
+
+        $adminBasketService = new BasketService($apiAdmin);
+
+        // Create basket and add product
+        $basket = $adminBasketService->createEmptyBasket();
+        $price = 10.0;
+        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+
+        $basket = $adminBasketService->getBasket($basket->getId());
+        $shippings = [];
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    $shippings[] = new ExternalShippingPrice(
+                        $shippingGroup->getId(),
+                        $shipping->getId(),
+                        $price
+                    );
+
+                }
+            }
+        }
+
+        $adminBasketService->updateShippingPrice($basket->getId(), $shippings);
+        $adminBasketService->resetShippingPrice($basket->getId());
+
+        $basket = $adminBasketService->getBasket($basket->getId());
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    static::assertNotSame($price, $shipping->getShippingPrice()->getPriceWithTaxes());
+                    static::assertNotSame($price, $shipping->getPrice());
+                    static::assertFalse($shipping->isExternalPrice());
+                }
+            }
+        }
     }
 
     public function basketProvider(): array
