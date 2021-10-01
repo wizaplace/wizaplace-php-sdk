@@ -937,18 +937,15 @@ final class BasketServiceTest extends ApiTestCase
 
     public function testUpdateShippingPrice(): void
     {
-        $apiAdmin = $this->buildApiClient();
-        $apiAdmin->authenticate('admin@wizaplace.com', 'Q7ctx@XKTfcCCPJKA84f');
-
-        $adminBasketService = new BasketService($apiAdmin);
+        $basketService = $this->buildAuthenticatedBasketService();
 
         // Create basket and add product
-        $basket = $adminBasketService->createEmptyBasket();
+        $basket = $basketService->createEmptyBasket();
         $price = 10.0;
-        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
-        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
 
-        $basket = $adminBasketService->getBasket($basket->getId());
+        $basket = $basketService->getBasket($basket->getId());
         $shippings = [];
 
         foreach ($basket->getCompanyGroups() as $companyGroup) {
@@ -963,9 +960,9 @@ final class BasketServiceTest extends ApiTestCase
             }
         }
 
-        $adminBasketService->updateShippingPrice($basket->getId(), $shippings);
+        $basketService->updateShippingPrice($basket->getId(), $shippings);
 
-        $basket = $adminBasketService->getBasket($basket->getId());
+        $basket = $basketService->getBasket($basket->getId());
 
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
@@ -981,18 +978,15 @@ final class BasketServiceTest extends ApiTestCase
 
     public function testResetShippingPrice(): void
     {
-        $apiAdmin = $this->buildApiClient();
-        $apiAdmin->authenticate('admin@wizaplace.com', 'Q7ctx@XKTfcCCPJKA84f');
-
-        $adminBasketService = new BasketService($apiAdmin);
+        $basketService = $this->buildAuthenticatedBasketService();
 
         // Create basket and add product
-        $basket = $adminBasketService->createEmptyBasket();
+        $basket = $basketService->createEmptyBasket();
         $price = 10.0;
-        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
-        $adminBasketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
 
-        $basket = $adminBasketService->getBasket($basket->getId());
+        $basket = $basketService->getBasket($basket->getId());
         $shippings = [];
 
         foreach ($basket->getCompanyGroups() as $companyGroup) {
@@ -1003,15 +997,14 @@ final class BasketServiceTest extends ApiTestCase
                         $shipping->getId(),
                         $price
                     );
-
                 }
             }
         }
 
-        $adminBasketService->updateShippingPrice($basket->getId(), $shippings);
-        $adminBasketService->resetShippingPrice($basket->getId());
+        $basketService->updateShippingPrice($basket->getId(), $shippings);
+        $basketService->resetShippingPrice($basket->getId());
 
-        $basket = $adminBasketService->getBasket($basket->getId());
+        $basket = $basketService->getBasket($basket->getId());
 
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {

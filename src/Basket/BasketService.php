@@ -749,7 +749,8 @@ class BasketService extends AbstractService
         foreach ($shippings as $shipping) {
             $key = \array_search(
                 $shipping->getShippingGroupId(),
-                \array_column($body['shippingGroups'], 'id'), true
+                \array_column($body['shippingGroups'], 'id'),
+                true
             );
             $shippingArray = [
                 'id' => $shipping->getShippingId(),
@@ -799,8 +800,7 @@ class BasketService extends AbstractService
     public function resetShippingPrice(string $basketId): void
     {
         try {
-            $this->client->delete(
-                "basket/{$basketId}/shipping-price");
+            $this->client->delete("basket/{$basketId}/shipping-price");
         } catch (ClientException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 400:
