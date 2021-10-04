@@ -1,3 +1,4 @@
+
 # Changelog
 
 ## New version
@@ -9,6 +10,13 @@
 - Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
+
+## 1.135.3
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderChild`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderChildren`
 
 ## 1.134.0
 
