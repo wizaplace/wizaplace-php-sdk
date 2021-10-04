@@ -7,6 +7,20 @@
 
 - In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
 
+## 1.135.3
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderChild`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderChildren`
+
+## 1.134.0
+
+- Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
+- Added `Wizaplace\SDK\Pim\Product\Product::getVideo`
+- Added `Wizaplace\SDK\Vendor\Order\OrderListFilter::byCreatedAfter`
+- Added `Wizaplace\SDK\Vendor\Order\OrderListFilter::byCreatedBefore`
+
 ## 1.133.0
 
 ### New features

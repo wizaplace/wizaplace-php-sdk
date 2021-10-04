@@ -32,6 +32,7 @@ use Wizaplace\SDK\Vendor\Order\OrderAddress;
 use Wizaplace\SDK\Vendor\Order\OrderAttachment;
 use Wizaplace\SDK\Vendor\Order\OrderAttachmentFilter;
 use Wizaplace\SDK\Vendor\Order\OrderAttachmentType;
+use Wizaplace\SDK\Vendor\Order\OrderChild;
 use Wizaplace\SDK\Vendor\Order\OrderItem;
 use Wizaplace\SDK\Vendor\Order\OrderListFilter;
 use Wizaplace\SDK\Vendor\Order\OrderService;
@@ -263,6 +264,32 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertEquals(5, $orders->getTotal());
         static::assertSame($secendOrderId, $orders->getItems()[0]->getOrderId());
+    }
+
+    public function testFilterByItemsPerCreatedAfter(): void
+    {
+        static::assertCount(
+            2,
+            $this->buildVendorOrderService()
+                ->listOrders(
+                    OrderStatus::COMPLETED(),
+                    (new OrderListFilter())
+                        ->byCreatedAfter(new \DateTime('2021-06-16T16:00:00+02:00'))
+                )
+        );
+    }
+
+    public function testFilterByItemsPerCreatedBefore(): void
+    {
+        static::assertCount(
+            3,
+            $this->buildVendorOrderService()
+                ->listOrders(
+                    OrderStatus::COMPLETED(),
+                    (new OrderListFilter())
+                        ->byCreatedBefore(new \DateTime('2021-06-16T16:00:00+02:00'))
+                )
+        );
     }
 
     public function testGetOrderById(): void
@@ -1336,5 +1363,14 @@ class OrderServiceTest extends ApiTestCase
 
         static::assertSame(14, $orderChild1->getParentOrderId());
         static::assertSame(14, $orderChild2->getParentOrderId());
+    }
+
+    public function testGetOrderChildren(): void
+    {
+        $orderChildren = $this->buildVendorOrderService("admin@wizaplace.com", "Windows.98")->getOrderChildren(1);
+
+        static::assertInstanceOf(OrderChild::class, $orderChildren[0]);
+        static::assertSame(2, $orderChildren[0]->getId());
+        static::assertSame(OrderStatus::STANDBY_BILLING()->getValue(), $orderChildren[0]->getStatus()->getValue());
     }
 }
