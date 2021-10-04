@@ -7,6 +7,12 @@
 
 - In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
 
+## New version
+
+### New features
+
+- In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
+
 ## 1.135.3
 
 ### New features

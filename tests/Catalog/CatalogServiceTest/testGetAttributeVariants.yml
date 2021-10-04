@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-SEO@19bb873
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-9449-add-properties-on-variants-attributes@547f394 PHP/7.4.23'
             VCR-index: '0'
             Accept: null
     response:
@@ -15,12 +15,17 @@
             code: '200'
             message: OK
         headers:
-            Date: 'Thu, 28 Dec 2017 13:12:44 GMT'
-            Server: 'Apache/2.4.25 (Debian)'
-            Cache-Control: 'no-cache, private'
-            Content-Language: fr
-            X-Debug-Token: 891adf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/891adf'
-            Content-Length: '368'
+            Server: nginx
             Content-Type: application/json
-        body: '[{"id":1,"attributeId":1,"name":"Bleu","slug":"","description":"","image":{"id":4},"seoData":{"title":"","description":""}},{"id":2,"attributeId":1,"name":"Blanc","slug":"blanc","description":"","image":null,"seoData":{"title":"","description":""}},{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"seoData":{"title":"","description":""}}]'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 13 Sep 2021 10:04:22 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 653eb5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/653eb5'
+            X-Robots-Tag: noindex
+            X-Request-Id: 47f94a72d4ef1c711d916c1c9299033b
+        body: '[{"id":1,"attributeId":1,"attributeCode":"","name":"Bleu","slug":"bleu-slug","description":"","image":{"id":4},"position":0,"seoData":{"title":"Bleu title","description":"Bleu description","keywords":"Bleu keywords"}},{"id":2,"attributeId":1,"attributeCode":"","name":"Blanc","slug":"blanc","description":"","image":null,"position":1,"seoData":{"title":"Blanc title","description":"Blanc description","keywords":"Blanc keywords"}},{"id":3,"attributeId":1,"attributeCode":"","name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situ\u00e9es sur le cercle chromatique entre l\u0027orange et les pourpres.","image":{"id":5},"position":2,"seoData":{"title":"Rouge title","description":"Rouge description","keywords":"Rouge keywords"}}]'

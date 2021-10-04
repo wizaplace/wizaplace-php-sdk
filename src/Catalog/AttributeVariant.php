@@ -29,10 +29,14 @@ final class AttributeVariant
     private $description;
     /** @var null|Image */
     private $image;
+    /** @var int */
+    private $position;
     /** @var string */
     private $seoTitle;
     /** @var string */
     private $seoDescription;
+    /** @var string */
+    private $seoKeywords;
 
     /**
      * @internal
@@ -47,8 +51,10 @@ final class AttributeVariant
         $this->slug = $data['slug'];
         $this->description = $data['description'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
+        $this->position = \array_key_exists('position', $data) ? (int) $data['position'] : 0;
         $this->seoTitle = $data['seoData']['title'] ?? '';
         $this->seoDescription = $data['seoData']['description'] ?? '';
+        $this->seoKeywords = $data['seoData']['keywords'] ?? '';
     }
 
     /**
@@ -100,6 +106,14 @@ final class AttributeVariant
     }
 
     /**
+     * @return int
+     */
+    public function getPosition(): int
+    {
+        return $this->position;
+    }
+
+    /**
      * @return string
      */
     public function getSeoTitle(): string
@@ -113,5 +127,13 @@ final class AttributeVariant
     public function getSeoDescription(): string
     {
         return $this->seoDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSeoKeywords(): string
+    {
+        return $this->seoKeywords;
     }
 }
