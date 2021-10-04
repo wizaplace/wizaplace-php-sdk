@@ -7,6 +7,13 @@
 
 - In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
 
+## 1.135.3
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderChild`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderChildren`
+
 ## 1.134.0
 
 - Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`
