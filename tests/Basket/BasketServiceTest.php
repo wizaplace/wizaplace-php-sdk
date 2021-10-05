@@ -967,7 +967,7 @@ final class BasketServiceTest extends ApiTestCase
         foreach ($basket->getCompanyGroups() as $companyGroup) {
             foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
                 foreach ($shippingGroup->getShippings() as $shipping) {
-                    static::assertSame($price, $shipping->getShippingPrice()->getPriceWithTaxes());
+                    static::assertSame($price, $shipping->getShippingPrice()->getPriceWithoutVat());
                     static::assertSame($price, $shipping->getPrice());
                     static::assertTrue($shipping->isExternalPrice());
                 }
