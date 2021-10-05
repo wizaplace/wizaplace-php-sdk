@@ -14,6 +14,7 @@ use Wizaplace\SDK\Basket\Basket;
 use Wizaplace\SDK\Basket\BasketComment;
 use Wizaplace\SDK\Basket\BasketItems;
 use Wizaplace\SDK\Basket\BasketService;
+use Wizaplace\SDK\Basket\ExternalShippingPrice;
 use Wizaplace\SDK\Basket\ProductComment;
 use Wizaplace\SDK\Basket\Shipping;
 use Wizaplace\SDK\Catalog\DeclinationId;
@@ -932,6 +933,88 @@ final class BasketServiceTest extends ApiTestCase
 
         static::assertSame('Domicile', $basket->getShippingAddress()->getLabel());
         static::assertSame('Près de la poste', $basket->getShippingAddress()->getComment());
+    }
+
+    public function testUpdateShippingPrice(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        // Create basket and add product
+        $basket = $basketService->createEmptyBasket();
+        $price = 10.0;
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+
+        $basket = $basketService->getBasket($basket->getId());
+        $shippings = [];
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    $shippings[] = new ExternalShippingPrice(
+                        $shippingGroup->getId(),
+                        $shipping->getId(),
+                        $price
+                    );
+                }
+            }
+        }
+
+        $basketService->updateShippingPrice($basket->getId(), $shippings);
+
+        $basket = $basketService->getBasket($basket->getId());
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    static::assertSame($price, $shipping->getShippingPrice()->getPriceWithoutVat());
+                    static::assertSame($price, $shipping->getPrice());
+                    static::assertTrue($shipping->isExternalPrice());
+                }
+            }
+        }
+    }
+
+
+    public function testResetShippingPrice(): void
+    {
+        $basketService = $this->buildAuthenticatedBasketService();
+
+        // Create basket and add product
+        $basket = $basketService->createEmptyBasket();
+        $price = 10.0;
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
+        $basketService->addProductToBasket($basket->getId(), new DeclinationId('2'), 1);
+
+        $basket = $basketService->getBasket($basket->getId());
+        $shippings = [];
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    $shippings[] = new ExternalShippingPrice(
+                        $shippingGroup->getId(),
+                        $shipping->getId(),
+                        $price
+                    );
+                }
+            }
+        }
+
+        $basketService->updateShippingPrice($basket->getId(), $shippings);
+        $basketService->resetShippingPrice($basket->getId());
+
+        $basket = $basketService->getBasket($basket->getId());
+
+        foreach ($basket->getCompanyGroups() as $companyGroup) {
+            foreach ($companyGroup->getShippingGroups() as $shippingGroup) {
+                foreach ($shippingGroup->getShippings() as $shipping) {
+                    static::assertNotSame($price, $shipping->getShippingPrice()->getPriceWithTaxes());
+                    static::assertNotSame($price, $shipping->getPrice());
+                    static::assertFalse($shipping->isExternalPrice());
+                }
+            }
+        }
     }
 
     public function basketProvider(): array

@@ -1,6 +1,14 @@
 
 # Changelog
 
+## [Unreleased]
+
+### New features
+- Added support for the feature "Custom shipping price" price
+- Added new class `Wizaplace\SDK\Basket\ExternalShippingPrice`
+- Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
+- Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
+
 ## New version
 
 ### New features
