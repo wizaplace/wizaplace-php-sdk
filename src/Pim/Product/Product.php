@@ -54,6 +54,9 @@ final class Product extends ProductSummary
     /** @var null|string */
     private $seoKeywords;
 
+    /** @var null|string */
+    private $video;
+
     /**
      * @internal
      *
@@ -90,6 +93,7 @@ final class Product extends ProductSummary
         $this->seoTitle = $data['seoTitle'] ?? null;
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
+        $this->video = $data['video'] ?? null;
     }
 
     /**
@@ -188,5 +192,11 @@ final class Product extends ProductSummary
     public function getSeoKeywords(): ?string
     {
         return $this->seoKeywords;
+    }
+
+    /** @return null|string */
+    public function getVideo(): ?string
+    {
+        return $this->video;
     }
 }
