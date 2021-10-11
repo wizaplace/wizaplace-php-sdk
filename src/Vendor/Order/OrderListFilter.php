@@ -39,6 +39,12 @@ final class OrderListFilter implements ArrayableInterface
      */
     private $page;
 
+    /** @var null|\DateTime */
+    private $createdBefore;
+
+    /** @var null|\DateTime */
+    private $createdAfter;
+
     /**
      * @param int[] $companyIds
      *
@@ -99,6 +105,30 @@ final class OrderListFilter implements ArrayableInterface
         return $this;
     }
 
+    /**
+     * @param \DateTime $createdAfter
+     *
+     * @return OrderListFilter
+     */
+    public function byCreatedAfter(\DateTime $createdAfter): self
+    {
+        $this->createdAfter = $createdAfter;
+
+        return $this;
+    }
+
+    /**
+     * @param \DateTime $createdBefore
+     *
+     * @return OrderListFilter
+     */
+    public function byCreatedBefore(\DateTime $createdBefore): self
+    {
+        $this->createdBefore = $createdBefore;
+
+        return $this;
+    }
+
     public function toArray(): array
     {
         $filters = [];
@@ -113,6 +143,14 @@ final class OrderListFilter implements ArrayableInterface
 
         if ($this->lastStatusChangeIsBefore instanceof \DateTime) {
             $filters['last_status_change_is_before'] = $this->lastStatusChangeIsBefore->format(\DateTime::RFC3339);
+        }
+
+        if ($this->createdAfter instanceof \DateTime) {
+            $filters['created_after'] = $this->createdAfter->format(\DateTime::RFC3339);
+        }
+
+        if ($this->createdBefore instanceof \DateTime) {
+            $filters['created_before'] = $this->createdBefore->format(\DateTime::RFC3339);
         }
 
         if (\is_int($this->itemsPerPage) === true

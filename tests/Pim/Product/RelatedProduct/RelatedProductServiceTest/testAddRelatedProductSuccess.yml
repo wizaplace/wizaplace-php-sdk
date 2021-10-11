@@ -1,0 +1,67 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 08 Jun 2021 06:57:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9fc021
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9fc021'
+            X-Robots-Tag: noindex
+            X-Request-Id: 1581c6b956d73d3e493c89c95c63e910
+        body: '{"id":2,"apiKey":"OcS3C7E7NTN79Vxk2uDZBmFWm84DR5HYgy6X6zQl"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products/8/related'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Authorization: 'token OcS3C7E7NTN79Vxk2uDZBmFWm84DR5HYgy6X6zQl'
+            VCR-index: '1'
+            Accept: null
+        body: '{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.20
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 08 Jun 2021 06:57:54 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8c6494
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8c6494'
+            X-Robots-Tag: noindex
+            Expires: 'Tue, 08 Jun 2021 06:57:54 GMT'
+            X-Request-Id: ea941d014c40de6df134e4819001144b
+        body: '{"productId":6,"type":"recommended","description":"Recommended product.","extra":"123_456"}'
