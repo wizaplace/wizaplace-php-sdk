@@ -18,8 +18,6 @@ use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Authentication\BadCredentials;
 use Wizaplace\SDK\Company\CompanyRegistration;
 use Wizaplace\SDK\Company\CompanyService;
-use Wizaplace\SDK\Organisation\Organisation;
-use Wizaplace\SDK\Organisation\OrganisationService;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Subscription\SubscriptionSummary;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -30,6 +28,7 @@ use Wizaplace\SDK\User\UpdateUserAddressesCommand;
 use Wizaplace\SDK\User\UpdateUserCommand;
 use Wizaplace\SDK\User\UserAddress;
 use Wizaplace\SDK\User\UserAlreadyExists;
+use Wizaplace\SDK\User\UserFilters;
 use Wizaplace\SDK\User\UserService;
 use Wizaplace\SDK\User\UserTitle;
 use Wizaplace\SDK\User\UserType;
@@ -2291,5 +2290,26 @@ final class UserServiceTest extends ApiTestCase
 
         static::assertSame($userEmail, $user->getEmail());
         static::assertSame($userLang, $user->getLanguage());
+    }
+
+    public function testGetUsersPaginatedByFilters(): void
+    {
+        $this->client->authenticate('admin@wizaplace.com', 'Windows.98');
+
+        $productPaginatedFilters = new UserFilters(
+            [
+                'name' => 'a',
+                'type' => [UserType::CLIENT()->getValue(), UserType::VENDOR()->getValue()],
+                'elements' => 5
+            ]
+        );
+
+        $usersPaginatedResult = $this->userService->getUsersByFilters($productPaginatedFilters);
+
+        static::assertCount(5, $usersPaginatedResult->getUsers());
+        static::assertSame(0, $usersPaginatedResult->getPagination()->getPage());
+        static::assertSame(9, $usersPaginatedResult->getPagination()->getNbResults());
+        static::assertSame(2, $usersPaginatedResult->getPagination()->getNbPages());
+        static::assertSame(5, $usersPaginatedResult->getPagination()->getResultsPerPage());
     }
 }

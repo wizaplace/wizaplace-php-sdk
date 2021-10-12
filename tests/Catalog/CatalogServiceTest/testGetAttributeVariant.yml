@@ -23,4 +23,4 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2a67c0'
             Content-Length: '123'
             Content-Type: application/json
-        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"seoData":{"title":"","description":""}}'
+        body: '{"id":3,"attributeId":1,"name":"Rouge","slug":"rouge","description":"Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l''orange et les pourpres.","image":{"id":5},"position":"4","seoData":{"title":"","description":"","keywords":"keywords"}}'
