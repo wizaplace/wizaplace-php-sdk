@@ -11,6 +11,12 @@
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
 
+## 1.136.1
+
+### New features
+
+- In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
+
 ## 1.135.3
 
 ### New features
