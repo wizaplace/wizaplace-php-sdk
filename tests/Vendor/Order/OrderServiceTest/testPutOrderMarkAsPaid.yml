@@ -1,0 +1,320 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:08 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6a9fc2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6a9fc2'
+            X-Robots-Tag: noindex
+            X-Request-Id: a02a5fe0510ef29620ef89b8293ce251
+        body: '{"id":7,"apiKey":"rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV"}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV'
+            VCR-index: '1'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:09 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ca20d4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ca20d4'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22ca20d4%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A129%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 4345644076c44d09d495d38cab88c72e
+        body: '"9ca356b3-a83f-4c56-8a44-18d5743aff90"'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/9ca356b3-a83f-4c56-8a44-18d5743aff90/add'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV'
+            VCR-index: '2'
+            Accept: null
+        body: 'declinationId=1&quantity=1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:09 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4db0c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4db0c8'
+            X-Robots-Tag: noindex
+            X-Request-Id: d03ad91b41d79656e3ceffb191de76e7
+        body: '{"quantity":1,"added":1}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/9ca356b3-a83f-4c56-8a44-18d5743aff90'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV'
+            VCR-index: '3'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:09 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f4d98e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f4d98e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 5d5a422b3110685394c6ee2535e32378
+        body: '{"id":"9ca356b3-a83f-4c56-8a44-18d5743aff90","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":67.9,"productTaxes":1.4,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.4,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 ATX Plus PC Steel case","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":67.9,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false},{"id":42,"name":"MondialRelay","type":"M","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false},{"id":1,"name":"","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"selected":false}],"carriagePaid":false,"productTotalWithTaxes":67.9,"productTaxes":1.4,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.4,"itemsPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]}],"subtotal":67.9,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.4,"total":67.9,"totalMarketplaceDiscount":0,"totalQuantity":1,"totalItemsPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"isEligibleToPickupPointsShipping":true,"isPickupPointsShipping":false}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/9ca356b3-a83f-4c56-8a44-18d5743aff90/payments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV'
+            VCR-index: '4'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:09 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 49f59c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/49f59c'
+            X-Robots-Tag: noindex
+            X-Request-Id: 88f2407594737c04979071dad61542a0
+        body: '[{"id":1,"name":"","description":"","position":0,"image":{"id":3},"type":"manual","externalReference":null}]'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket/9ca356b3-a83f-4c56-8a44-18d5743aff90/order'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token rsYFMnHdc1q7Lx5k0YXdWObi9lKCUjzaL0fe1pGV'
+            VCR-index: '5'
+            Accept: null
+        body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm&css=https%3A%2F%2Fdemo.loc%2Fcustom.css&local=EN'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:10 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9e83b1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e83b1'
+            X-Robots-Tag: noindex
+            X-Request-Id: a1551c6fa4d3b4ed94f079005ce1478f
+        body: '{"parentOrderId":40,"orders":[{"id":40}],"redirectUrl":"https:\/\/demo.loc\/order\/confirm"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            VCR-index: '6'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:10 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 5c9267
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5c9267'
+            X-Robots-Tag: noindex
+            X-Request-Id: 746bbfd44a70ce9efa809dac0706b11a
+        body: '{"id":2,"apiKey":"6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/40'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token 6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5'
+            VCR-index: '7'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:10 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: cc367e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc367e'
+            X-Robots-Tag: noindex
+            X-Request-Id: 5fe0982ba9a21e436ad8453ba296532b
+        body: '{"order_id":40,"parent_order_id":null,"company_id":3,"user_id":7,"basket_id":"9ca356b3-a83f-4c56-8a44-18d5743aff90","total":67.9,"discount":0.0,"shipping_cost":0.0,"timestamp":1634553009,"status":"O","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","is_customer_professional":false,"customer_company":"","customer_legal_identifier":"","customer_intra_european_community_vat":"","customer_job_title":"","customer_account_comment":"","customer_external_identifier":"","email":"customer-1@world-company.com","do_not_create_invoice":false,"decline_reason":null,"is_paid":false,"invoice_date":"","subscription_id":null,"carriage_paid":false,"extra":[],"transaction_reference":null,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","product_name":"Z11 ATX Plus PC Steel case","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966},"display_tax_subtotal":1.4}},"tax_subtotal":1.4,"need_shipping":true,"shipping":[{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":null,"description":null}],"shipment_ids":[],"invoice_number":"","last_status_change":"2021-10-18T10:30:10+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{"local":"EN"},"externalReference":null},"workflow":"workflow_manual_payment_pending_manual_payment_processing","customer_total":67.9,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":0.0,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"vendor_share":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0}}'
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/orders/40/mark-as-paid'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token 6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5'
+            VCR-index: '8'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:11 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 33a9f0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/33a9f0'
+            X-Robots-Tag: noindex
+            X-Request-Id: b3fef17e276a3573a7f6a112b8328e44
+        body: '{"message":"The order has been paid"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/orders/40'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token 6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5'
+            VCR-index: '9'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.23
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 18 Oct 2021 10:30:11 GMT'
+            Content-Language: en
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6d5f48
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6d5f48'
+            X-Robots-Tag: noindex
+            X-Request-Id: e19e2b428dff9af836b5577591d4903f
+        body: '{"order_id":40,"parent_order_id":null,"company_id":3,"user_id":7,"basket_id":"9ca356b3-a83f-4c56-8a44-18d5743aff90","total":67.9,"discount":0.0,"shipping_cost":0.0,"timestamp":1634553009,"status":"P","notes":"","details":"","promotions":[],"b_title":"mr","b_firstname":"Paul","b_lastname":"Martin","b_company":"","b_address":"40 rue Laure Diebold","b_address_2":"3\u00e8me \u00e9tage","b_city":"Lyon","b_country":"FR","b_zipcode":"69009","b_phone":"01234567890","s_title":"mr","s_firstname":"Paul","s_lastname":"Martin","s_company":"","s_address":"40 rue Laure Diebold","s_address_2":"3\u00e8me \u00e9tage","s_city":"Lyon","s_country":"FR","s_zipcode":"69009","s_phone":"01234567890","s_pickup_point_id":"","is_customer_professional":false,"customer_company":"","customer_legal_identifier":"","customer_intra_european_community_vat":"","customer_job_title":"","customer_account_comment":"","customer_external_identifier":"","email":"customer-1@world-company.com","do_not_create_invoice":false,"decline_reason":null,"is_paid":true,"invoice_date":"","subscription_id":null,"carriage_paid":false,"extra":[],"transaction_reference":null,"products":{"2085640488":{"item_id":"2085640488","product_id":1,"price":67.9,"amount":1,"comment":"","extra":{"combinations":null},"max_price_adjustment":null,"discount":0.0,"green_tax":"0","shipped_amount":0,"shipment_amount":"1","selected_code":"978020137962","supplier_ref":"INFO-001","product_name":"Z11 ATX Plus PC Steel case","declination_id":"1_0"}},"taxes":{"2":{"rate_type":"P","rate_value":2.1,"price_includes_tax":"Y","regnumber":"445711","priority":0,"tax_subtotal":1.3966,"description":"TVA 2.1%","applies":{"P_2085640488":1.3966},"display_tax_subtotal":1.4}},"tax_subtotal":1.4,"need_shipping":true,"shipping":[{"shipping_id":38,"position":0,"status":"A","shipping":"Lettre prioritaire","delivery_time":"","rates":[{"amount":0,"value":0.0},{"amount":1,"value":0.0}],"specific_rate":false,"carriage_paid_threshold":null,"description":null}],"shipment_ids":[],"invoice_number":"","last_status_change":"2021-10-18T10:30:11+02:00","customer_firstname":"Paul","customer_lastname":"Martin","payment":{"type":"manual","processorName":null,"commitmentDate":null,"processorInformation":{"local":"EN"},"externalReference":null},"workflow":"workflow_order_validation_pending_vendor_validation_processing","customer_total":67.9,"marketplace_discount_total":0.0,"company_name":"The World Company Inc.","refunded":false,"balance":67.9,"is_subscription_initiator":false,"totals":{"excluding_taxes":66.5034,"taxes":1.3966,"including_taxes":67.9},"shipping_costs":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"commissions":{"excluding_taxes":0.0,"taxes":0.0,"including_taxes":0.0},"vendor_share":{"excluding_taxes":56.5833,"taxes":11.3167,"including_taxes":67.9}}'
