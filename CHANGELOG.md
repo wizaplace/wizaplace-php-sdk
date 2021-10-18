@@ -9,7 +9,7 @@
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
 
-## New version
+## 1.136.1
 
 ### New features
 
