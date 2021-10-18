@@ -488,6 +488,7 @@ class BasketService extends AbstractService
      * @param string $redirectUrl URL to redirect to when the payment is made
      *                            (usually the order confirmation page)
      * @param string $css         URL of the css file to include in the payment page
+     * @param string $local       Lang code for payment page used for some payment method
      *
      * @return PaymentInformation Information to proceed to the payment of the order that was created.
      *
@@ -503,7 +504,8 @@ class BasketService extends AbstractService
         int $paymentId,
         bool $acceptTerms,
         string $redirectUrl,
-        string $css = null
+        string $css = null,
+        string $local = null
     ): PaymentInformation {
         $this->client->mustBeAuthenticated();
         try {
@@ -515,6 +517,7 @@ class BasketService extends AbstractService
                         'acceptTermsAndConditions' => $acceptTerms,
                         'redirectUrl' => $redirectUrl,
                         'css' => $css,
+                        'local' => $local,
                     ],
                 ]
             );

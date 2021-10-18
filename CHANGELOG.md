@@ -1,6 +1,11 @@
 
 # Changelog
 
+## [Unreleased]
+
+### New features
+- Added support for 'local' in checkout basket (BasketService::checkout)
+
 ## 1.136.1
 
 ### New features
