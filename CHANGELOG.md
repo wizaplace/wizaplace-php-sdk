@@ -11,6 +11,9 @@
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
 
+## 1.139.0
+- Added an interface to enable event dispatching before and after each request to the API.
+
 ## 1.136.1
 
 ### New features
