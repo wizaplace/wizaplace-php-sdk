@@ -7,6 +7,9 @@
 
 - In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
 
+## New version
+- Added an interface to enable event dispatching before and after each request to the API.
+
 ## 1.136.1
 
 ### New features
