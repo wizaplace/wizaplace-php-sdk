@@ -9,6 +9,9 @@
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
 
+## 1.139.0
+- Added an interface to enable event dispatching before and after each request to the API.
+
 ## 1.136.1
 
 ### New features
