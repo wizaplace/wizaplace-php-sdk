@@ -14,6 +14,7 @@ use GuzzleHttp\Psr7\Response;
 use Jean85\PrettyVersions;
 use Wizaplace\SDK\ApiClient;
 use Wizaplace\SDK\Authentication\BadCredentials;
+use Wizaplace\SDK\EventDispatcherInterface;
 use Wizaplace\SDK\Order\OrderService;
 use Wizaplace\SDK\User\UserService;
 
@@ -132,5 +133,41 @@ final class ApiClientTest extends ApiTestCase
 
         $user = $userService->getProfileFromId($newApiKey->getId());
         $this->assertInstanceOf(\DateTimeImmutable::class, $user->getApiKeyUpdatedAt());
+    }
+
+    public function testDispatcherIsActive(): void
+    {
+        $version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
+        $this->assertNotEmpty($version);
+
+        $expectedRequestOptions = [
+            'headers' => [
+                'Foo' => 'Bar',
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION
+            ],
+        ];
+
+        $response = new Response();
+        $guzzleMock = $this->createMock(Client::class);
+        $uri = 'test-uri';
+
+        $guzzleMock
+            ->expects($this->exactly(1))
+            ->method('request')
+            ->withConsecutive(
+                ['GET', $uri]
+            )
+            ->willReturn($response)
+        ;
+
+        $uniqueEventId = '12Foo34Bar';
+
+        $dispatcherMock = $this->createMock(EventDispatcherInterface::class);
+        $dispatcherMock->expects(static::once())->method('getUniqueId')->willReturn($uniqueEventId);
+        $dispatcherMock->expects(static::once())->method('dispatchRequestStart')->with($uniqueEventId, 'GET', $uri, $expectedRequestOptions);
+        $dispatcherMock->expects(static::once())->method('dispatchRequestEnd')->with($uniqueEventId, $response);
+
+        $apiClient = new ApiClient($guzzleMock, null, $dispatcherMock);
+        self::assertSame($response, $apiClient->rawRequest('GET', $uri, $expectedRequestOptions));
     }
 }
