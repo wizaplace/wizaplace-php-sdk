@@ -1,11 +1,5 @@
 
 # Changelog
-
-## [Unreleased]
-
-### New features
-- Added support for 'local' in checkout basket (BasketService::checkout)
-
 ## 1.139.0
 - Added an interface to enable event dispatching before and after each request to the API.
 

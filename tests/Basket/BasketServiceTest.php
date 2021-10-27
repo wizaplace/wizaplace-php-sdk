@@ -152,17 +152,16 @@ final class BasketServiceTest extends ApiTestCase
             $selectedPayment,
             true,
             $redirectUrl,
-            $cssUrl,
-            'EN'
+            $cssUrl
         );
 
         // @TODO : check that the two following values are normal
         $this->assertSame('', $paymentInformation->getHtml());
-        $this->assertSame($redirectUrl, (string) $paymentInformation->getRedirectUrl());
+        $this->assertNull($paymentInformation->getRedirectUrl());
 
         $orders = $paymentInformation->getOrders();
         $this->assertCount(1, $orders);
-        $this->assertSame(43, $paymentInformation->getParentOrderId());
+        $this->assertSame(15, $paymentInformation->getParentOrderId());
 
         $order = $orderService->getOrder($orders[0]->getId());
         $this->assertSame($orders[0]->getId(), $order->getId());
@@ -678,14 +677,7 @@ final class BasketServiceTest extends ApiTestCase
         $basket = $service->createEmptyBasket();
 
         $this->expectException(BasketIsEmpty::class);
-        $service->checkout(
-            $basket->getId(),
-            1,
-            true,
-            'https://demo.loc/order/confirm',
-            'https://demo.loc/custom.css',
-            'EN'
-        );
+        $service->checkout($basket->getId(), 1, true, 'https://demo.loc/order/confirm');
     }
 
     public function testGetTotalMarketplaceDiscount(): void

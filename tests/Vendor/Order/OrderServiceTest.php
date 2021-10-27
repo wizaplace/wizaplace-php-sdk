@@ -1128,14 +1128,16 @@ class OrderServiceTest extends ApiTestCase
         $basketService->addProductToBasket($basket->getId(), new DeclinationId('1'), 1);
         $basket = $basketService->getBasket($basket->getId());
         $availablePayments = $basketService->getPayments($basket->getId());
+        $selectedPayment = $availablePayments[0]->getId();
+        $redirectUrl = 'https://demo.loc/order/confirm';
+        $cssUrl = 'https://demo.loc/custom.css';
 
         $paymentInformation = $basketService->checkout(
             $basket->getId(),
-            $availablePayments[0]->getId(),
+            $selectedPayment,
             true,
-            'https://demo.loc/order/confirm',
-            'https://demo.loc/custom.css',
-            'EN'
+            $redirectUrl,
+            $cssUrl
         );
 
         $orders = $paymentInformation->getOrders();
