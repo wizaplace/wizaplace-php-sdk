@@ -66,16 +66,21 @@ final class ApiClient
     /** @var null|LoggerInterface */
     private $requestLogger;
 
+    /** @var \Wizaplace\SDK\EventDispatcherInterface|null */
+    private $eventDispatcher;
+
     /**
      * ApiClient constructor.
      *
      * @param Client               $client
      * @param LoggerInterface|NULL $requestLogger
+     * @param EventDispatcherInterface|NULL $eventDispatcher
      */
-    public function __construct(Client $client, LoggerInterface $requestLogger = null)
+    public function __construct(Client $client, LoggerInterface $requestLogger = null, EventDispatcherInterface $eventDispatcher = null)
     {
         $this->httpClient = $client;
         $this->requestLogger = $requestLogger;
+        $this->eventDispatcher = $eventDispatcher;
 
         try {
             $this->version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
@@ -349,8 +354,10 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
         }
 
+        $eventId = $this->dispatchRequestStart($method, $uri, $options);
+
         try {
-            return $this->httpClient->request($method, $uri, $this->addAuth($options));
+            $result = $this->httpClient->request($method, $uri, $this->addAuth($options));
         } catch (BadResponseException $e) {
             $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
@@ -359,6 +366,10 @@ final class ApiClient
 
             throw $e;
         }
+
+        $this->dispatchRequestEnd($eventId, $result);
+
+        return $result;
     }
 
     /**
@@ -483,5 +494,24 @@ final class ApiClient
         }
 
         return $options;
+    }
+
+    private function dispatchRequestStart(string $method, $uri, array &$params): string
+    {
+        if (null !== $this->eventDispatcher) {
+            $eventId = $this->eventDispatcher->getUniqueId();
+            $this->eventDispatcher->dispatchRequestStart($eventId, $method, $uri, $params);
+
+            return $eventId;
+        }
+
+        return '';
+    }
+
+    private function dispatchRequestEnd(string $eventId, ?ResponseInterface $response = null): void
+    {
+        if (null !== $this->eventDispatcher) {
+            $this->eventDispatcher->dispatchRequestEnd($eventId, $response);
+        }
     }
 }
