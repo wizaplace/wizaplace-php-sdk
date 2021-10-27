@@ -32,7 +32,7 @@ final class DiscussionServiceTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->discussionService = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
+        $this->discussionService = $this->buildDiscussionService();
     }
 
     public function testStartDiscussion()
@@ -433,7 +433,7 @@ MSG;
 
     public function testStartDiscussionWithCustomer(): void
     {
-        $discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
+        $discussionService = $this->buildDiscussionService('vendor@world-company.com');
 
         $discussion = $discussionService->startDiscussionWithCustomer(3);
 
@@ -465,13 +465,13 @@ MSG;
 
     public function testStartDiscussionFromOrderWithCustomer(): void
     {
-        $discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
+        $this->discussionService = $this->buildDiscussionService('vendor@world-company.com');
 
-        $discussion = $discussionService->startDiscussionOnOrderWithCustomer(2, 3);
+        $discussion = $this->discussionService->startDiscussionOnOrderWithCustomer(2, 3);
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 6,
+                'id' => 11,
                 'recipient' => 'Paul Martin',
                 'productId' => 0,
                 'orderId' => 2,
@@ -490,13 +490,13 @@ MSG;
 
     public function testStartDiscussionFromOrderWithCompany(): void
     {
-        $discussionService = $this->buildDiscussionService('user@wizaplace.com', 'Windows.98');
+        $this->discussionService = $this->buildDiscussionService('user@wizaplace.com', 'Windows.98');
 
-        $discussion = $discussionService->startDiscussionOnOrderWithCompany(3, 3);
+        $discussion = $this->discussionService->startDiscussionOnOrderWithCompany(3, 3);
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 9,
+                'id' => 12,
                 'recipient' => 'The World Company Inc.',
                 'productId' => 0,
                 'orderId' => 3,
@@ -513,7 +513,7 @@ MSG;
         static::assertSame($expectedDiscussion->getUnreadCount(), $discussion->getUnreadCount());
     }
 
-    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'Windows.98'): DiscussionService
     {
         $client = $this->buildApiClient();
         $client->authenticate($email, $password);

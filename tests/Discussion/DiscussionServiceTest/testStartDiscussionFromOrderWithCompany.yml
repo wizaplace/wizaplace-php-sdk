@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 13:29:20 GMT'
+            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4caf98
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4caf98'
+            X-Debug-Token: 83a6db
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83a6db'
             X-Robots-Tag: noindex
-            X-Request-Id: 536e4884e10640911eb1cde70b58797b
+            X-Request-Id: c659d2986a7d4f8f04048fe552a72554
         body: '{"id":7,"apiKey":"ugpxZjOPFK5mIKGeHe3+3fzUS1Twcbr7jAfFh+qY"}'
 -
     request:
@@ -53,13 +53,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 13:29:20 GMT'
+            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 4f0b9f
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f0b9f'
+            X-Debug-Token: cf2b66
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf2b66'
             X-Robots-Tag: noindex
-            X-Request-Id: 88ff4593620acdc7f2fe119b5c742c95
+            X-Request-Id: 65597e7381048de847db6383526b5429
         body: '{"id":3,"apiKey":"VOalT0ztTSiTPJPqsVO07\/62nsfdEjlyOkwBRMUv"}'
 -
     request:
@@ -87,12 +87,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 13:29:20 GMT'
+            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 9c6b2e
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9c6b2e'
+            X-Debug-Token: fc9318
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc9318'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%229c6b2e%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: 7b14d724ab52fdb62bc8794af8a07fcc
-        body: '{"id":9,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":3,"title":"A propos de la commande 3","unreadCount":0}'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fc9318%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: bb7e5d40b8830852afad4687a93fda1f
+        body: '{"id":12,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":3,"title":"A propos de la commande 3","unreadCount":0}'
