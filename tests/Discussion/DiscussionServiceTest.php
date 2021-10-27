@@ -463,6 +463,56 @@ MSG;
         static::assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
+    public function testStartDiscussionFromOrderWithCustomer(): void
+    {
+        $discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
+
+        $discussion = $discussionService->startDiscussionOnOrderWithCustomer(2, 3);
+
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 6,
+                'recipient' => 'Paul Martin',
+                'productId' => 0,
+                'orderId' => 2,
+                'title' => 'A propos de la commande 2',
+                'unreadCount' => 0,
+            ]
+        );
+
+        static::assertSame($expectedDiscussion->getId(), $discussion->getId());
+        static::assertSame($expectedDiscussion->getRecipient(), $discussion->getRecipient());
+        static::assertSame($expectedDiscussion->getProductId(), $discussion->getProductId());
+        static::assertSame($expectedDiscussion->getOrderId(), $discussion->getOrderId());
+        static::assertSame($expectedDiscussion->getTitle(), $discussion->getTitle());
+        static::assertSame($expectedDiscussion->getUnreadCount(), $discussion->getUnreadCount());
+    }
+
+    public function testStartDiscussionFromOrderWithCompany(): void
+    {
+        $discussionService = $this->buildDiscussionService('user@wizaplace.com', 'Windows.98');
+
+        $discussion = $discussionService->startDiscussionOnOrderWithCompany(3, 3);
+
+        $expectedDiscussion = new Discussion(
+            [
+                'id' => 9,
+                'recipient' => 'The World Company Inc.',
+                'productId' => 0,
+                'orderId' => 3,
+                'title' => 'A propos de la commande 3',
+                'unreadCount' => 0,
+            ]
+        );
+
+        static::assertSame($expectedDiscussion->getId(), $discussion->getId());
+        static::assertSame($expectedDiscussion->getRecipient(), $discussion->getRecipient());
+        static::assertSame($expectedDiscussion->getProductId(), $discussion->getProductId());
+        static::assertSame($expectedDiscussion->getOrderId(), $discussion->getOrderId());
+        static::assertSame($expectedDiscussion->getTitle(), $discussion->getTitle());
+        static::assertSame($expectedDiscussion->getUnreadCount(), $discussion->getUnreadCount());
+    }
+
     private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
     {
         $client = $this->buildApiClient();
