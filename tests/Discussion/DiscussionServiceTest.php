@@ -32,7 +32,7 @@ final class DiscussionServiceTest extends ApiTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->discussionService = $this->buildDiscussionService();
+        $this->discussionService = $this->buildDiscussionService('customer-1@world-company.com', 'password-customer-1');
     }
 
     public function testStartDiscussion()
@@ -513,7 +513,7 @@ MSG;
         static::assertSame($expectedDiscussion->getUnreadCount(), $discussion->getUnreadCount());
     }
 
-    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'Windows.98'): DiscussionService
+    private function buildDiscussionService($email = 'customer-1@world-company.com', $password = 'password-customer-1'): DiscussionService
     {
         $client = $this->buildApiClient();
         $client->authenticate($email, $password);
