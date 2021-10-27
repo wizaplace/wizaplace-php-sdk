@@ -1,5 +1,6 @@
 
 # Changelog
+
 ## 1.139.0
 - Added an interface to enable event dispatching before and after each request to the API.
 

@@ -7,7 +7,7 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
             VCR-index: '0'
             Accept: null
     response:
@@ -16,20 +16,15 @@
             code: '200'
             message: OK
         headers:
-            Server: nginx
-            Content-Type: application/json
-            Transfer-Encoding: chunked
-            Connection: keep-alive
-            X-Powered-By: PHP/7.4.23
+            Date: 'Mon, 05 Mar 2018 15:13:19 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Oct 2021 10:51:47 GMT'
             Content-Language: fr
-            Access-Control-Allow-Origin: '*'
-            X-Debug-Token: d64f27
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d64f27'
-            X-Robots-Tag: noindex
-            X-Request-Id: a6625e3a9e9921b4a57d3fcd6b0e3135
-        body: '{"id":2,"apiKey":"6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5"}'
+            X-Debug-Token: 44251c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/44251c'
+            Content-Length: '60'
+            Content-Type: application/json
+        body: '{"id":2,"apiKey":"yuJ2uw6ZRDlLRO4TGotSmeDIEGz2GPmaVjn9Qbqr"}'
 -
     request:
         method: POST
@@ -38,8 +33,8 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
-            Authorization: 'token 6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5'
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
+            Authorization: 'token yuJ2uw6ZRDlLRO4TGotSmeDIEGz2GPmaVjn9Qbqr'
             VCR-index: '1'
             Accept: null
     response:
@@ -48,51 +43,42 @@
             code: '201'
             message: Created
         headers:
-            Server: nginx
-            Content-Type: application/json
-            Transfer-Encoding: chunked
-            Connection: keep-alive
-            X-Powered-By: PHP/7.4.23
+            Date: 'Mon, 05 Mar 2018 15:13:20 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Oct 2021 10:51:48 GMT'
             Content-Language: fr
-            Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 8bccb6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8bccb6'
-            X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228bccb6%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A129%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: 50712e392b14c8c3208f13f0a8c5bc30
-        body: '"795e93db-fd6d-41c2-a71a-c0fc56574c7e"'
+            X-Debug-Token: b9e90d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b9e90d'
+            Content-Length: '38'
+            Content-Type: application/json
+        body: '"b40a45c2-c65e-451e-83bd-5940b1d177bf"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/795e93db-fd6d-41c2-a71a-c0fc56574c7e/order'
+        url: 'http://wizaplace.loc/api/v1/basket/b40a45c2-c65e-451e-83bd-5940b1d177bf/order'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@ PHP/7.1.33-41+ubuntu20.04.1+deb.sury.org+1'
-            Authorization: 'token 6miIRhm4VnphnebjkYbz3l93CVvyfp+Gxv7EvDh5'
+            User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
+            Authorization: 'token yuJ2uw6ZRDlLRO4TGotSmeDIEGz2GPmaVjn9Qbqr'
             VCR-index: '2'
             Accept: null
-        body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm&css=https%3A%2F%2Fdemo.loc%2Fcustom.css&local=EN'
+        body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm'
     response:
         status:
             http_version: '1.1'
             code: '400'
             message: 'Bad Request'
         headers:
-            Server: nginx
-            Content-Type: application/json
-            Transfer-Encoding: chunked
-            Connection: keep-alive
-            X-Powered-By: PHP/7.4.23
+            Date: 'Mon, 05 Mar 2018 15:13:20 GMT'
+            Server: 'Apache/2.4.25 (Debian)'
             Cache-Control: 'no-cache, private'
-            Date: 'Mon, 18 Oct 2021 10:51:48 GMT'
             Content-Language: fr
-            Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '855867'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/855867'
-            X-Robots-Tag: noindex
-        body: '{"error":{"code":10,"message":"Cannot checkout empty basket","context":{"basketId":"795e93db-fd6d-41c2-a71a-c0fc56574c7e"}}}'
+            X-Debug-Token: 099e2e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/099e2e'
+            Content-Length: '124'
+            Connection: close
+            Content-Type: application/json
+        body: '{"error":{"code":10,"message":"Cannot checkout empty basket","context":{"basketId":"b40a45c2-c65e-451e-83bd-5940b1d177bf"}}}'
