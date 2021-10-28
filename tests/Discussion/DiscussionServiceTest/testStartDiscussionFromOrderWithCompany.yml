@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpXaW5kb3dzLjk4'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@0e28265 PHP/7.4.24'
             VCR-index: '0'
             Accept: null
@@ -22,14 +22,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
+            Date: 'Thu, 28 Oct 2021 07:58:52 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 83a6db
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/83a6db'
+            X-Debug-Token: cf375b
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf375b'
             X-Robots-Tag: noindex
-            X-Request-Id: c659d2986a7d4f8f04048fe552a72554
-        body: '{"id":7,"apiKey":"ugpxZjOPFK5mIKGeHe3+3fzUS1Twcbr7jAfFh+qY"}'
+            X-Request-Id: f68b324326b0be79d90b400b6162d580
+        body: '{"id":7,"apiKey":"K3X5n7mFjciOztPefEx7t324EQAbKrDGRFckxfYs"}'
 -
     request:
         method: GET
@@ -53,14 +53,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
+            Date: 'Thu, 28 Oct 2021 07:58:52 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: cf2b66
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cf2b66'
+            X-Debug-Token: aca0aa
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/aca0aa'
             X-Robots-Tag: noindex
-            X-Request-Id: 65597e7381048de847db6383526b5429
-        body: '{"id":3,"apiKey":"VOalT0ztTSiTPJPqsVO07\/62nsfdEjlyOkwBRMUv"}'
+            X-Request-Id: e4e81f805e70617ca3bbd23e69bf862a
+        body: '{"id":3,"apiKey":"kOBDCwQhWIYlqG6B03sI9Dz\/HqSz3soz\/5lCLk6f"}'
 -
     request:
         method: POST
@@ -71,10 +71,10 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@0e28265 PHP/7.4.24'
-            Authorization: 'token VOalT0ztTSiTPJPqsVO07/62nsfdEjlyOkwBRMUv'
+            Authorization: 'token kOBDCwQhWIYlqG6B03sI9Dz/HqSz3soz/5lCLk6f'
             VCR-index: '2'
             Accept: null
-        body: '{"companyId":3,"orderId":3}'
+        body: '{"companyId":3,"orderId":1}'
     response:
         status:
             http_version: '1.1'
@@ -87,12 +87,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:19 GMT'
+            Date: 'Thu, 28 Oct 2021 07:58:52 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fc9318
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fc9318'
+            X-Debug-Token: d280d4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d280d4'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22fc9318%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: bb7e5d40b8830852afad4687a93fda1f
-        body: '{"id":12,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":3,"title":"A propos de la commande 3","unreadCount":0}'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d280d4%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 17a710f44af5232201436e54dddcebad
+        body: '{"id":9,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":1,"title":"A propos de la commande 1","unreadCount":0}'

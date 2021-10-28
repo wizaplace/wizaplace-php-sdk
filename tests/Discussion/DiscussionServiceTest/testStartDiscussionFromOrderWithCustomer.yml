@@ -6,7 +6,7 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpXaW5kb3dzLjk4'
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@0e28265 PHP/7.4.24'
             VCR-index: '0'
             Accept: null
@@ -22,14 +22,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:07 GMT'
+            Date: 'Wed, 27 Oct 2021 16:44:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 56bb79
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/56bb79'
+            X-Debug-Token: 17eded
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/17eded'
             X-Robots-Tag: noindex
-            X-Request-Id: f39b74e8485b7823c0b14125ffbd56bf
-        body: '{"id":7,"apiKey":"ugpxZjOPFK5mIKGeHe3+3fzUS1Twcbr7jAfFh+qY"}'
+            X-Request-Id: 2dd93e6e62029e63652716cc1b307dfd
+        body: '{"id":7,"apiKey":"K3X5n7mFjciOztPefEx7t324EQAbKrDGRFckxfYs"}'
 -
     request:
         method: GET
@@ -53,14 +53,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:07 GMT'
+            Date: 'Wed, 27 Oct 2021 16:44:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 872eaf
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/872eaf'
+            X-Debug-Token: 690a60
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/690a60'
             X-Robots-Tag: noindex
-            X-Request-Id: 20246186ead09be27b8260a99f5c89ef
-        body: '{"id":6,"apiKey":"4ctCscyPZwgo41a9Zdc7RceTwLaEKZ\/5WyFJNTXP"}'
+            X-Request-Id: 5554988719666231c2518b395e79c27d
+        body: '{"id":6,"apiKey":"IeLI0w06tMm\/\/cDcX6YPeZ5qnycWDIpoEF8xgoWF"}'
 -
     request:
         method: POST
@@ -71,7 +71,7 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@0e28265 PHP/7.4.24'
-            Authorization: 'token 4ctCscyPZwgo41a9Zdc7RceTwLaEKZ/5WyFJNTXP'
+            Authorization: 'token IeLI0w06tMm//cDcX6YPeZ5qnycWDIpoEF8xgoWF'
             VCR-index: '2'
             Accept: null
         body: '{"userId":3,"orderId":2}'
@@ -87,12 +87,12 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 27 Oct 2021 14:03:07 GMT'
+            Date: 'Wed, 27 Oct 2021 16:44:39 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: cc51b3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cc51b3'
+            X-Debug-Token: efd2ae
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/efd2ae'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22cc51b3%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: 3d721b7d265111e8c9664d7950571445
-        body: '{"id":11,"recipient":"Paul Martin","recipientId":3,"productId":null,"companyId":3,"orderId":2,"title":"A propos de la commande 2","unreadCount":0}'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22efd2ae%22%2C%22route%22%3A%22api_discussion_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CDiscussionController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FDiscussionController.php%22%2C%22line%22%3A93%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: ed9f67fa0e8c36b9cf605138da247b2c
+        body: '{"id":2,"recipient":"Paul Martin","recipientId":3,"productId":null,"companyId":3,"orderId":2,"title":"A propos de la commande 2","unreadCount":0}'

@@ -433,13 +433,13 @@ MSG;
 
     public function testStartDiscussionWithCustomer(): void
     {
-        $discussionService = $this->buildDiscussionService('vendor@world-company.com');
+        $discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
 
         $discussion = $discussionService->startDiscussionWithCustomer(3);
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 2,
+                'id' => 19,
                 'recipient' => 'Paul Martin',
                 'productId' => 0,
                 'title' => 'Contact Paul Martin',
@@ -458,20 +458,19 @@ MSG;
         $discussions = $discussionService->getDiscussions();
 
         static::assertContainsOnly(Discussion::class, $discussions);
-        static::assertCount(1, $discussions);
-        $discussion = \reset($discussions);
+        $discussion = \end($discussions);
         static::assertSame($expectedDiscussion->getId(), $discussion->getId());
     }
 
     public function testStartDiscussionFromOrderWithCustomer(): void
     {
-        $this->discussionService = $this->buildDiscussionService('vendor@world-company.com');
+        $this->discussionService = $this->buildDiscussionService('vendor@world-company.com', 'Windows.98');
 
         $discussion = $this->discussionService->startDiscussionOnOrderWithCustomer(2, 3);
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 11,
+                'id' => 2,
                 'recipient' => 'Paul Martin',
                 'productId' => 0,
                 'orderId' => 2,
@@ -492,15 +491,15 @@ MSG;
     {
         $this->discussionService = $this->buildDiscussionService('user@wizaplace.com', 'Windows.98');
 
-        $discussion = $this->discussionService->startDiscussionOnOrderWithCompany(3, 3);
+        $discussion = $this->discussionService->startDiscussionOnOrderWithCompany(1, 3);
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 12,
+                'id' => 9,
                 'recipient' => 'The World Company Inc.',
                 'productId' => 0,
-                'orderId' => 3,
-                'title' => 'A propos de la commande 3',
+                'orderId' => 1,
+                'title' => 'A propos de la commande 1',
                 'unreadCount' => 0,
             ]
         );
