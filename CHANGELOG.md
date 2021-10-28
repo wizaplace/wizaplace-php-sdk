@@ -1,6 +1,14 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- In the `Wizaplace\SDK\Discussion\Discussion` class, added the "orderId" field which is returned by the API endpoint.
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
+
 ## 1.139.0
 - Added an interface to enable event dispatching before and after each request to the API.
 
