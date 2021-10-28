@@ -1,7 +1,7 @@
 
 # Changelog
 
-### New version
+### 1.142.0
 
 ### New features
 
