@@ -107,7 +107,7 @@ final class ProductSummary
             $data['images'] ?? []
         );
         $this->declinationsImages = $this->denormalizeDeclinationImages($data['declinationsImages'] ?? []);
-        $this->mainImage = \array_key_exists('mainImageData', $data) === true && \is_array($data['mainImageData']) === true ? new Image($data['mainImageData']) : null;
+        $this->mainImage = \array_key_exists('mainImage', $data) === true && \is_array($data['mainImage']) === true ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->conditions = array_map(
             function (string $condition): Condition {
