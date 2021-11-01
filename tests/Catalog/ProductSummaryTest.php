@@ -36,6 +36,7 @@ final class ProductSummaryTest extends TestCase
                 'declinationCount' => 2,
                 'affiliateLink' => 'http://affiliatelink.com',
                 'images' => [['id' => 8], ['id' => 9]],
+                'mainImage' => ['id' => 8],
                 'declinationsImages' => [
                     [
                         'declinationId' => '1_1_1',
