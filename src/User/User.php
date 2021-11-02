@@ -74,6 +74,8 @@ final class User
     private $extra;
     /** @var \DateTimeImmutable|null */
     private $apiKeyUpdatedAt;
+    /** @var int|null */
+    private $passwordExpiryTimeLeft;
 
     /**
      * @internal
@@ -120,6 +122,7 @@ final class User
         } else {
             $this->apiKeyUpdatedAt = null;
         }
+        $this->passwordExpiryTimeLeft = \array_key_exists('passwordExpiryTimeLeft', $data) === true ? \intval($data['passwordExpiryTimeLeft']) : null;
     }
 
     /**
@@ -349,5 +352,10 @@ final class User
     public function getApiKeyUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->apiKeyUpdatedAt;
+    }
+
+    public function getPasswordExpiryTimeLeft(): ?int
+    {
+        return $this->passwordExpiryTimeLeft;
     }
 }

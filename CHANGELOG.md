@@ -11,6 +11,12 @@
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
 
+### 1.142.0
+
+### New features
+
+- In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
+
 ## 1.139.0
 - Added an interface to enable event dispatching before and after each request to the API.
 
