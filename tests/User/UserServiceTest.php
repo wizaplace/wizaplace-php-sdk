@@ -2312,4 +2312,13 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame(2, $usersPaginatedResult->getPagination()->getNbPages());
         static::assertSame(5, $usersPaginatedResult->getPagination()->getResultsPerPage());
     }
+
+    public function testGetUserProfileDisplayingPasswordExpiryTimeLeft(): void
+    {
+        $userId = ($this->client->authenticate('sabrine.naceur-ext+1322@wizacha.com', static::VALID_PASSWORD))->getId();
+
+        $user = $this->userService->getProfileFromId($userId);
+
+        static::assertSame(1, $user->getPasswordExpiryTimeLeft());
+    }
 }
