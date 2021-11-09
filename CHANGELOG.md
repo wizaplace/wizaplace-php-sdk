@@ -9,7 +9,13 @@
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
 
-### 1.142.0
+## 1.143.0
+
+### New features
+
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
+## 1.142.0
 
 ### New features
 
@@ -19,12 +25,6 @@
 - Added an interface to enable event dispatching before and after each request to the API.
 
 ## 1.136.1
-
-### New features
-
-- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
-
-## New version
 
 ### New features
 
