@@ -9,6 +9,12 @@
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
 
+### 1.142.0
+
+### New features
+
+- In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
+
 ## 1.139.0
 - Added an interface to enable event dispatching before and after each request to the API.
 
