@@ -12,6 +12,13 @@
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
 
 ### 1.142.0
+## 1.143.0
+
+### New features
+
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
+## 1.142.0
 
 ### New features
 
