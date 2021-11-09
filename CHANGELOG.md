@@ -14,6 +14,12 @@
 
 ### New features
 
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
+## New version
+
+### New features
+
 - In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
 
 ## 1.135.3
