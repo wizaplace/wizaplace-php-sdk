@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: 'email=user604%40example.com&password=Windows.98&firstName=Paul&lastName=Jacques'
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjYwNEBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-3559-sendAfterSalesServiceRequest-in-SDK@aa0b24e
             Authorization: 'token 5JH/vmDx0R1+ld2P1cC2m2jCYXMbKjX8Cyt9E4ja'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -104,8 +104,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-3559-sendAfterSalesServiceRequest-in-SDK@aa0b24e
             Authorization: 'token 5JH/vmDx0R1+ld2P1cC2m2jCYXMbKjX8Cyt9E4ja'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: '{"billing":{"label":null,"title":null,"firstname":"Paul","lastname":"Jacques","company":"Universite de Cambridge","phone":null,"address":"49 rue des chemins","address_2":"9e \u00e9tage","zipcode":"69009","city":null,"country":null,"division_code":null,"comment":null},"shipping":{"label":null,"title":"mr","firstname":null,"lastname":null,"company":"Universite de Cambridge","phone":null,"address":"49 rue des chemins","address_2":"9e \u00e9tage","zipcode":"69009","city":null,"country":null,"division_code":"FR-69","comment":null}}'
     response:
         status:
@@ -134,8 +134,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-3559-sendAfterSalesServiceRequest-in-SDK@aa0b24e
             Authorization: 'token 5JH/vmDx0R1+ld2P1cC2m2jCYXMbKjX8Cyt9E4ja'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -166,8 +166,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-3559-sendAfterSalesServiceRequest-in-SDK@aa0b24e
             Authorization: 'token 5JH/vmDx0R1+ld2P1cC2m2jCYXMbKjX8Cyt9E4ja'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
         body: '{"billing":{"label":null,"title":null,"firstname":null,"lastname":null,"company":"","phone":null,"address":"","address_2":"","zipcode":"","city":null,"country":null,"division_code":null,"comment":null},"shipping":{"label":null,"title":null,"firstname":null,"lastname":null,"company":"","phone":null,"address":"","address_2":"","zipcode":"","city":null,"country":null,"division_code":null,"comment":null}}'
     response:
         status:
@@ -196,8 +196,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-3559-sendAfterSalesServiceRequest-in-SDK@aa0b24e
             Authorization: 'token 5JH/vmDx0R1+ld2P1cC2m2jCYXMbKjX8Cyt9E4ja'
+            Accept: 'application/json'
             VCR-index: '6'
-            Accept: null
     response:
         status:
             http_version: '1.1'

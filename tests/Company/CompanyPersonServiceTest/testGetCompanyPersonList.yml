@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -68,8 +68,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
             Authorization: 'token lXX0pzkm0fygqTfvlN9UVJxJachCH21e7xqxzPb/'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -100,8 +100,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
             Authorization: 'token lXX0pzkm0fygqTfvlN9UVJxJachCH21e7xqxzPb/'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: '{"firstname":"Joe","lastname":"David","title":"mr","address":"Rue de madrid","address2":"A cot\u00e9 de poste","city":"lyon","state":"FR","zipcode":"69001","country":"FR","nationalities":["FR"],"birthdate":"1988-07-01","birthplaceCity":"lyon","birthplaceCountry":"FR","type":"owner","ownershipPercentage":25}'
     response:
         status:
@@ -132,8 +132,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
             Authorization: 'token lXX0pzkm0fygqTfvlN9UVJxJachCH21e7xqxzPb/'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'

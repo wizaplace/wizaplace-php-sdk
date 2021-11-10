@@ -99,7 +99,7 @@ abstract class ApiTestCase extends TestCase
         } catch (\LogicException $e) {
             if (strpos($e->getMessage(), 'request does not match a previously recorded request') !== false) {
                 /* @see \VCR\Videorecorder::handleRequest */
-                unlink($this->cassettePath . DIRECTORY_SEPARATOR . $this->cassetteName);
+                //unlink($this->cassettePath . DIRECTORY_SEPARATOR . $this->cassetteName);
                 throw new \Exception(
                     "VCR fixtures did not match the requests made during the tests.\nFixtures got deleted, re-run the test to re-populate them.",
                     $e->getCode(),

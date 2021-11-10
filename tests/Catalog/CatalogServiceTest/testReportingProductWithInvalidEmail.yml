@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-version-user-agent@3a151d6
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: '{"productId":"1","name":"User","email":"user@@wizaplace.com","message":"Should get a 400"}'
     response:
         status:

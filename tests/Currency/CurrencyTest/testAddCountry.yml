@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
             Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: countryCode=ZZ
     response:
         status:
@@ -69,8 +69,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-epic/currency-customer@1159e12
             Authorization: 'token P+rZCirVYZqkeoT1h8xMu+aMPTbkTZDtiYsuVym+'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'

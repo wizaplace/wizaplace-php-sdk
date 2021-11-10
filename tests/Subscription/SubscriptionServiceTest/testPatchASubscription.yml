@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-epic-WIZ-8584-subscription-update-quantity@0a1ca26
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-epic-WIZ-8584-subscription-update-quantity@0a1ca26
             Authorization: 'token 8hqykyCj7BFTlANbPQMMxI9Al74NkEKo6cRH2OAs'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"status":"ACTIVE","isAutorenew":true,"nextPaymentAt":"2153-01-01","commitmentEndAt":"2153-02-01","quantity":12}'
     response:
         status:

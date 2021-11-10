@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOldpbmRvd3MuOTg='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_price_superior_to","value":3.13},{"type":"basket_price_inferior_to","value":3.15},{"type":"or","items":[{"products_ids":[1,2,3],"type":"basket_has_product_in_list"},{"products_ids":[4,5,7],"type":"basket_has_product_in_list"}]},{"type":"max_usage_count","value":100},{"type":"max_usage_count_per_user","value":1}]},"discounts":[{"type":"percentage","percentage":2,"maxAmount":null},{"type":"fixed","value":3.5,"maxAmount":null}],"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"target":{"type":"shipping"}}'
     response:
         status:
