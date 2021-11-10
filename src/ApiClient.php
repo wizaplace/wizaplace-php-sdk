@@ -357,7 +357,7 @@ final class ApiClient
         $this->addAuth($options);
 
         // Default accepted content is JSON (most of the endpoints are working with this content type)
-        if (false === array_key_exists('Accept', $options[RequestOptions::HEADERS])) {
+        if (false === \array_key_exists('Accept', $options[RequestOptions::HEADERS])) {
             $options[RequestOptions::HEADERS]['Accept'] = 'application/json';
         }
 
