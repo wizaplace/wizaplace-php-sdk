@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New Release
+
+### New features
+
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::getMessages` add 1 param `$markMessagesAsRead`
+
 ## 1.143.0
 
 ### New features

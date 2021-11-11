@@ -197,6 +197,28 @@ final class DiscussionServiceTest extends ApiTestCase
         $this->assertSame([], $messages);
     }
 
+    public function testGetMessagesWithMarkMessagesAsReadTrue()
+    {
+        $discussion = $this->discussionService->getDiscussion(2);
+        static::assertSame(1, $discussion->getUnreadCount());
+
+        $this->discussionService->getMessages(2, true);
+
+        $discussion = $this->discussionService->getDiscussion(2);
+        static::assertSame(0, $discussion->getUnreadCount());
+    }
+
+    public function testGetMessagesWithMarkMessagesAsReadFalse()
+    {
+        $discussion = $this->discussionService->getDiscussion(4);
+        static::assertSame(1, $discussion->getUnreadCount());
+
+        $this->discussionService->getMessages(4, false);
+
+        $discussion = $this->discussionService->getDiscussion(4);
+        static::assertSame(1, $discussion->getUnreadCount());
+    }
+
     public function testGetMessagesFromInexistantDiscussion()
     {
         $this->expectException(DiscussionNotFound::class);
