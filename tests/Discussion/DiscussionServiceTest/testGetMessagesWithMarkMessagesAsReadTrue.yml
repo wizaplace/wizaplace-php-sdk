@@ -22,18 +22,18 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:34:32 GMT'
+            Date: 'Thu, 11 Nov 2021 16:43:41 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 0a5985
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0a5985'
+            X-Debug-Token: 882a09
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/882a09'
             X-Robots-Tag: noindex
-            X-Request-Id: cf21cbb0c257e09d8bcdd8374109427e
+            X-Request-Id: 104125e2f00ab2f8dac48c0b22ed96f4
         body: '{"id":7,"apiKey":"k3Wz7gCfDvwmKnl0SiQ5PtRNFKv64\/yxZgh1+xNV"}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/discussions/2'
+        url: 'http://wizaplace.loc/api/v1/discussions/5'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -53,18 +53,18 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:34:32 GMT'
+            Date: 'Thu, 11 Nov 2021 16:43:41 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 5b6124
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5b6124'
+            X-Debug-Token: f96906
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f96906'
             X-Robots-Tag: noindex
-            X-Request-Id: 07542f75bba5de6314b1560c02b2743b
-        body: '{"id":2,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":1}'
+            X-Request-Id: 295c3a182709f07a173dd8c6063f95ea
+        body: '{"id":5,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/discussions/2/messages/?markMessagesAsRead=1'
+        url: 'http://wizaplace.loc/api/v1/discussions/5/messages/?markMessagesAsRead=true'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -83,20 +83,20 @@
             Transfer-Encoding: chunked
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
-            Date: 'Wed, 10 Nov 2021 15:34:32 GMT'
-            Location: 'http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1'
+            Date: 'Thu, 11 Nov 2021 16:43:41 GMT'
+            Location: 'http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 0e5f0a
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0e5f0a'
+            X-Debug-Token: 8f73c8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8f73c8'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%220e5f0a%22%2C%22route%22%3A%22api_discussion_get_messages%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: f2033e46523ac53f7595e502c890869c
-        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1\">http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1</a>.\n    </body>\n</html>"
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228f73c8%22%2C%22route%22%3A%22api_discussion_get_messages%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 9e94468d1692f71c355c770ce9127b00
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true\">http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true</a>.\n    </body>\n</html>"
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/discussions/2/messages?markMessagesAsRead=1'
+        url: 'http://wizaplace.loc/api/v1/discussions/5/messages?markMessagesAsRead=true'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -116,18 +116,18 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:34:32 GMT'
+            Date: 'Thu, 11 Nov 2021 16:43:41 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 9031be
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9031be'
+            X-Debug-Token: 4e3a71
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4e3a71'
             X-Robots-Tag: noindex
-            X-Request-Id: 5e1bb5feaf4dcb1dd67084d1680e00eb
-        body: '[{"content":"Aaa","author":"Paul Martin","authorId":3,"date":"2021-11-10T16:31:15+01:00","attachments":[],"isCompany":false}]'
+            X-Request-Id: 6cbc0c854027836b05d5654da5afeb88
+        body: '[{"content":"Aaa","author":"Paul Martin","authorId":3,"date":"2021-11-11T17:42:20+01:00","attachments":[],"isCompany":false}]'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/discussions/2'
+        url: 'http://wizaplace.loc/api/v1/discussions/5'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
@@ -147,11 +147,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:34:32 GMT'
+            Date: 'Thu, 11 Nov 2021 16:43:41 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 244ad2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/244ad2'
+            X-Debug-Token: 5def88
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5def88'
             X-Robots-Tag: noindex
-            X-Request-Id: cc586b012b3a6168fc131173225f70d0
-        body: '{"id":2,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":0}'
+            X-Request-Id: d3a7a0aa2ef7a231be1b39ae520a1697
+        body: '{"id":5,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":0}'

@@ -199,12 +199,12 @@ final class DiscussionServiceTest extends ApiTestCase
 
     public function testGetMessagesWithMarkMessagesAsReadTrue()
     {
-        $discussion = $this->discussionService->getDiscussion(2);
+        $discussion = $this->discussionService->getDiscussion(5);
         static::assertSame(1, $discussion->getUnreadCount());
 
-        $this->discussionService->getMessages(2, true);
+        $this->discussionService->getMessages(5, true);
 
-        $discussion = $this->discussionService->getDiscussion(2);
+        $discussion = $this->discussionService->getDiscussion(5);
         static::assertSame(0, $discussion->getUnreadCount());
     }
 

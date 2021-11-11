@@ -154,7 +154,7 @@ class DiscussionService extends AbstractService
      * Get the discussion's messages list
      *
      * @param int $discussionId
-     * @param bool $markMessagesAsRead
+     * @param null|bool $markMessagesAsRead
      *
      * @return Message[]
      * @throws AuthenticationRequired
@@ -164,11 +164,13 @@ class DiscussionService extends AbstractService
     public function getMessages(int $discussionId, ?bool $markMessagesAsRead = null): array
     {
         $this->client->mustBeAuthenticated();
+
         $endpoint = 'discussions/' . $discussionId . '/messages';
-        if(\is_bool($markMessagesAsRead) === true) {
+        if (\is_bool($markMessagesAsRead) === true) {
             $markMessagesAsRead = $markMessagesAsRead === true ? 'true' : 'false';
             $endpoint .= '/?markMessagesAsRead=' . $markMessagesAsRead;
         }
+
         $messages = $this->client->get($endpoint);
         $userId = $this->client->getApiKey()->getId();
 

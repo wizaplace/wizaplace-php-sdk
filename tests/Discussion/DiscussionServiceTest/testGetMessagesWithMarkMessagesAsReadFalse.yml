@@ -22,13 +22,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:38:25 GMT'
+            Date: 'Thu, 11 Nov 2021 16:44:02 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 23ef2c
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/23ef2c'
+            X-Debug-Token: 2fcc70
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2fcc70'
             X-Robots-Tag: noindex
-            X-Request-Id: c6fd1f4fb2d4aa3558ca60d1cfaf479f
+            X-Request-Id: 78e81b7dd5524192913640a85f23a330
         body: '{"id":7,"apiKey":"k3Wz7gCfDvwmKnl0SiQ5PtRNFKv64\/yxZgh1+xNV"}'
 -
     request:
@@ -53,13 +53,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:38:26 GMT'
+            Date: 'Thu, 11 Nov 2021 16:44:02 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 933b6b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/933b6b'
+            X-Debug-Token: 1527ed
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1527ed'
             X-Robots-Tag: noindex
-            X-Request-Id: cbeacd98cfff9c23332b7621889a12fd
+            X-Request-Id: ea44a40e22f4f587b6c9f0d408d24e0f
         body: '{"id":4,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":1}'
 -
     request:
@@ -83,15 +83,15 @@
             Transfer-Encoding: chunked
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
-            Date: 'Wed, 10 Nov 2021 15:38:26 GMT'
+            Date: 'Thu, 11 Nov 2021 16:44:02 GMT'
             Location: 'http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c6f1fb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c6f1fb'
+            X-Debug-Token: 3792be
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3792be'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22c6f1fb%22%2C%22route%22%3A%22api_discussion_get_messages%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: 3c4524123e4471513c8cccd5866cba39
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%223792be%22%2C%22route%22%3A%22api_discussion_get_messages%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 4319eaf912871e721387947895e02503
         body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false\">http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false</a>.\n    </body>\n</html>"
 -
     request:
@@ -116,13 +116,13 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:38:26 GMT'
+            Date: 'Thu, 11 Nov 2021 16:44:02 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: db81d3
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/db81d3'
+            X-Debug-Token: 686dc3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/686dc3'
             X-Robots-Tag: noindex
-            X-Request-Id: f6dbdc35e45995f6822e651dc610d1cb
+            X-Request-Id: 6f1dac9ddfd7c777cfa2f28513caad09
         body: '[{"content":"Aaa","author":"Paul Martin","authorId":3,"date":"2021-11-10T16:38:11+01:00","attachments":[],"isCompany":false}]'
 -
     request:
@@ -147,11 +147,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.24
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 10 Nov 2021 15:38:26 GMT'
+            Date: 'Thu, 11 Nov 2021 16:44:02 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c5b712
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c5b712'
+            X-Debug-Token: eee3ad
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/eee3ad'
             X-Robots-Tag: noindex
-            X-Request-Id: 6bccf1922df6fd4f60684ebb5c37ed1b
+            X-Request-Id: 1668e15858953b47d12aa7a7b4aef705
         body: '{"id":4,"recipient":"The World Company Inc.","recipientId":7,"productId":null,"companyId":"3","title":"Contact The World Company Inc.","unreadCount":1}'
