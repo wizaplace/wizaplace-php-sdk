@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-WIZ-3896-phone-field-organization-user@aad17a7
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'

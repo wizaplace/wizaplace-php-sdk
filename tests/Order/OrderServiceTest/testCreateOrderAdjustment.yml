@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
             Authorization: 'token MVDZ1piXnbj1kcdjh5NY9HCy5qEaUznhqL6a44vC'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"itemId":3230927120,"newTotalWithoutTaxes":10}'
     response:
         status:
@@ -69,8 +69,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -99,8 +99,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-719-max-price-adjustment-PIM-SDK@940bd10
             Authorization: 'token 6abRmFMWuOkX7ofP2lzvhgvGzmKfi/x4whKW5TRX'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'

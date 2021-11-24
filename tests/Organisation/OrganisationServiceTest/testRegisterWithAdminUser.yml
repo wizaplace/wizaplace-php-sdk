@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: 'multipart/form-data; boundary=c28387a91855bed46686dec28826ecd498edb1f3'
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             Authorization: 'token 5Qc0zT8Uy5gWJQTCcHkIBn4XKd5Jj+yOD6hsYJcx'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: "--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 15\r\n\r\nGalactic Empire\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"businessName\"\r\nContent-Length: 8\r\n\r\nL'Empire\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"businessUnitName\"\r\nContent-Length: 10\r\n\r\nDeath Star\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"businessUnitCode\"\r\nContent-Length: 2\r\n\r\nDS\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"siret\"\r\nContent-Length: 12\r\n\r\nDS9988776655\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"vatNumber\"\r\nContent-Length: 12\r\n\r\nDS1122334455\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[address]\"\r\nContent-Length: 10\r\n\r\nLa Cantina\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[additionalAddress]\"\r\nContent-Length: 14\r\n\r\nHan Shot First\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[zipCode]\"\r\nContent-Length: 5\r\n\r\n69521\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[city]\"\r\nContent-Length: 9\r\n\r\nMos Esley\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[state]\"\r\nContent-Length: 18\r\n\r\nBordure Exterieure\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"address[country]\"\r\nContent-Length: 6\r\n\r\nFrance\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[address]\"\r\nContent-Length: 10\r\n\r\nLa Cantina\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[additionalAddress]\"\r\nContent-Length: 14\r\n\r\nHan Shot First\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[zipCode]\"\r\nContent-Length: 5\r\n\r\n69521\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[city]\"\r\nContent-Length: 9\r\n\r\nMos Esley\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[state]\"\r\nContent-Length: 18\r\n\r\nBordure Exterieure\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"shippingAddress[country]\"\r\nContent-Length: 6\r\n\r\nFrance\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[email]\"\r\nContent-Length: 16\r\n\r\ndarth@empire.com\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[firstName]\"\r\nContent-Length: 6\r\n\r\nAnakin\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[lastName]\"\r\nContent-Length: 9\r\n\r\nSkywalker\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[password]\"\r\nContent-Length: 4\r\n\r\njedi\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[title]\"\r\nContent-Length: 2\r\n\r\nmr\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"administrator[occupation]\"\r\nContent-Length: 16\r\n\r\nkill the emperor\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"identityCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--c28387a91855bed46686dec28826ecd498edb1f3\r\nContent-Disposition: form-data; name=\"proofOfAppointment\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--c28387a91855bed46686dec28826ecd498edb1f3--\r\n"
     response:
         status:
@@ -65,8 +65,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -91,8 +91,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             Authorization: 'token 5Qc0zT8Uy5gWJQTCcHkIBn4XKd5Jj+yOD6hsYJcx'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'

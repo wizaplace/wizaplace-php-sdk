@@ -7,8 +7,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-add-imageAlt-in-Banner@24ef153
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-add-imageAlt-in-Banner@24ef153
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'

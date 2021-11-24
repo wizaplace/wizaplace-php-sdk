@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token 6RgEKznqrHFEGn74OETCK5i7QCccEti2uk7LzZNt'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'

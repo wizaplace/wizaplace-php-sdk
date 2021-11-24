@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
         body: 'email=user451%40example.com&password=Windows.98&firstName=Jean&lastName=Paul'
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjQ1MUBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,8 +74,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token 1GIbYV5Baihq13tvoXIAMfve2vzcd1Gubr44mCqm'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: 'currencyCode=EUR&phone=0102030405'
     response:
         status:
@@ -105,8 +105,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjQ1MUBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -135,8 +135,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token 1GIbYV5Baihq13tvoXIAMfve2vzcd1Gubr44mCqm'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'

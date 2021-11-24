@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3022-update-a-currency@d87e53a
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -37,8 +37,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3022-update-a-currency@d87e53a
             Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -68,8 +68,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3022-update-a-currency@d87e53a
             Authorization: 'token S28JHHw6BPRxndF4MxDAWU5pYtH1Kh6hmHcPwC9k'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: '{"enabled":true,"exchangeRate":12.8}'
     response:
         status:

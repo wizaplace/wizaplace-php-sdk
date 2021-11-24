@@ -8,8 +8,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Content-Type: application/json
             Authorization: 'token 87l1qU2eb5m9ugDHtlU+dYuSQ3O1plVlSt8nsybA'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"author":"fake-author","message":"this is a test review","rating":5}'
     response:
         status:

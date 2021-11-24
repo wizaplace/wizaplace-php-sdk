@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
         body: 'email=DisafUser1%40example.com&password=password&firstName=John&lastName=Doe'
     response:
         status:
@@ -44,8 +44,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: 'email=DisafUser2%40example.com&password=password&firstName=Sara&lastName=Apl'
     response:
         status:
@@ -78,8 +78,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -111,8 +111,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
             Authorization: 'token HO71oLUn8/Uk9ytr5ijk2Gf0HYNxO9yKFcDb8adG'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"name":"ACME10","corporateName":null,"email":"companyToDisaff1@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
     response:
         status:
@@ -144,8 +144,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -177,8 +177,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
             Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
         body: '{"email":"DisafUser1@example.com","companyId":8}'
     response:
         status:
@@ -211,8 +211,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
             Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
         body: '{"email":"DisafUser2@example.com","companyId":8}'
     response:
         status:
@@ -245,8 +245,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
             Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
-            Accept: 'application/json'
             VCR-index: '7'
+            Accept: null
         body: '{"email":"DisafUser1@example.com","companyId":null}'
     response:
         status:
@@ -277,8 +277,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-871-fix-review-mangopay-UBO@364ca1b
             Authorization: 'token IFg2h593JA7AqQhY8GvrlVUPMbo0XIRueZxy5Bf6'
-            Accept: 'application/json'
             VCR-index: '8'
+            Accept: null
     response:
         status:
             http_version: '1.1'

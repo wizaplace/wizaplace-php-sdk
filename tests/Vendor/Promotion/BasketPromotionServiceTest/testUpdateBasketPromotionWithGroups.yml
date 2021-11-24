@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206V2luZG93cy45OA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token 60FLCd/UGis6OTdnrw+Gu9sEi6CSZXh3QJlSA5Nl'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"promotion_id":"93b6f076-3bc1-4c77-a2d0-350bdead9290","rule":{"groups_ids":["0c43c4e7-9c54-11eb-a9e9-0242ac120008"],"type":"basket_has_users_groups"}}'
     response:
         status:

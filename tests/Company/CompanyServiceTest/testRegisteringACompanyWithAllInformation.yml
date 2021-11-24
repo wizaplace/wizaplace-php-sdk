@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"name":"ACME2 Test Inc","corporateName":null,"email":"acme2@example.com","description":"Super ACME company","slug":"acme-inc","address":"24 rue de la gare","country":"FR","zipcode":"69009","city":"Lyon","phoneNumber":"01 02 03 04 05 06","url":"https:\/\/acme.example.com\/","fax":"01 02 03 04 05","vatNumber":"12345678901","siretNumber":"732 829 320 00074","rcs":"RCS VANNES B 514 919 844","legalStatus":"SARL","capital":"1 000 000 000 $","iban":null,"bic":null,"extra":{"driving_license_number":"654987321"},"nafCode":"ABCDEF"}'
     response:
         status:
@@ -72,8 +72,8 @@
             Content-Type: 'multipart/form-data; boundary=2fc913b3fb42bb6fccdcff073a590cfd65f33fd6'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: "--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--2fc913b3fb42bb6fccdcff073a590cfd65f33fd6--\r\n"
     response:
         status:
@@ -102,8 +102,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -131,8 +131,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -163,8 +163,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -197,8 +197,8 @@
             Content-Type: 'multipart/form-data; boundary=f97677b99f85ec572d3abd5117d38dfb618cf15a'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
         body: "--f97677b99f85ec572d3abd5117d38dfb618cf15a\r\nContent-Disposition: form-data; name=\"idCard\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--f97677b99f85ec572d3abd5117d38dfb618cf15a--\r\n"
     response:
         status:
@@ -227,8 +227,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '7'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -256,8 +256,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '8'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -283,8 +283,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token i1KRFweR2+/1YXFE2in5u9VY4xriZCx4/AiHc/Ra'
-            Accept: 'application/json'
             VCR-index: '9'
+            Accept: null
     response:
         status:
             http_version: '1.1'

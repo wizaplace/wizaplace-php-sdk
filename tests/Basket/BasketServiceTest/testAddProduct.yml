@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-bug-TMA-120-correction-return-api-add-product-to-basket@9edcab3
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-bug-TMA-120-correction-return-api-add-product-to-basket@9edcab3
             Authorization: 'token rUsMAM5s7trURA+RwHTWcgIGHjBd5n5h3r9lPrPD'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-bug-TMA-120-correction-return-api-add-product-to-basket@9edcab3
             Authorization: 'token rUsMAM5s7trURA+RwHTWcgIGHjBd5n5h3r9lPrPD'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: 'declinationId=1_0&quantity=10'
     response:
         status:
@@ -104,8 +104,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-bug-TMA-120-correction-return-api-add-product-to-basket@9edcab3
             Authorization: 'token rUsMAM5s7trURA+RwHTWcgIGHjBd5n5h3r9lPrPD'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -137,8 +137,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-bug-TMA-120-correction-return-api-add-product-to-basket@9edcab3
             Authorization: 'token rUsMAM5s7trURA+RwHTWcgIGHjBd5n5h3r9lPrPD'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
         body: 'declinationId=1_0&quantity=3'
     response:
         status:

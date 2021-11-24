@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token m5mIStfojh5togPbTX+W3Z9eNrwXgm52GviJBa6F'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'

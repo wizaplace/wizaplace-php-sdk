@@ -8,8 +8,8 @@
       Accept-Encoding: null
       Authorization: 'Basic bG9yZW5lK2FkbWluQHdpemFwbGFjZS5jb206YXplcnR5'
       User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-662-error-calc-tva-user-orders@5fc7d0d
-      Accept: 'application/json'
       VCR-index: '0'
+      Accept: null
   response:
     status:
       http_version: '1.1'
@@ -36,8 +36,8 @@
       Accept-Encoding: null
       User-Agent: Wizaplace-PHP-SDK/dev-hotfix/wiz-662-error-calc-tva-user-orders@5fc7d0d
       Authorization: 'token 9VIHAgzz441krotfYcPnpP2UeObhELj8tjaRUXb+'
-      Accept: 'application/json'
       VCR-index: '1'
+      Accept: null
   response:
     status:
       http_version: '1.1'

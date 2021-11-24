@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
             Authorization: 'token Kut8pIL65ZPsggxRf2w5dTsHCdOFeIRSewFwgNRE'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"meta":{"title":"Mon titre","description":"Ma description","keywords":"Mes mots-cl\u00e9s"}}'
     response:
         status:

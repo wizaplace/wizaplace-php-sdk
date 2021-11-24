@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"approved":true,"do_not_create_invoice":true}'
     response:
         status:
@@ -71,8 +71,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -103,8 +103,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"order_id":5,"tracking_number":"0ABC0123456798","comments":"great shipment","products":{"2085640488":1},"label_url":"http:\/\/mondialrelay.com\/shipment-created"}'
     response:
         status:
@@ -136,8 +136,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -166,8 +166,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -196,8 +196,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 12tmotvBCcG+pOxnWCYRZel5VR/pDLNSvrYx8vfY'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'

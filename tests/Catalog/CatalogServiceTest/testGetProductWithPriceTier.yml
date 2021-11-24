@@ -7,8 +7,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-tests-WIZ-3945-putProducts-priceTiers-SDK&Tu@069919f'
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'

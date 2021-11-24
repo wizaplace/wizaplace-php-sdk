@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: 'declinationId=3_3_7&quantity=5'
     response:
         status:
@@ -105,8 +105,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: 'declinationId=13_0&quantity=3'
     response:
         status:
@@ -136,8 +136,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -166,8 +166,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -196,8 +196,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-1338-image_apis_optimizations_alternative@f810ec9
             Authorization: 'token s2Zn6tG2bzFb94qTszc1hPR90HFCFM7WyCYUIGEh'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'

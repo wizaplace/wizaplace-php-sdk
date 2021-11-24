@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -34,8 +34,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             Authorization: 'token kREVhVy5X47OMHx2oap/e7kmzMLVefoRkC5Rre3C'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'

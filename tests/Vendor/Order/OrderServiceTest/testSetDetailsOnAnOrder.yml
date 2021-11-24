@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-details-on-order-with-SDK@24ef153
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-details-on-order-with-SDK@24ef153
             Authorization: 'token VZ5tQtETjNB/Imu5HOMLT8T0TAKcMdIEBbDnG/dv'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"details":"Voici un nouveau commentaire de vendeur sur la commande"}'
     response:
         status:
@@ -70,8 +70,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3050-add-vendor-details-on-order-with-SDK@24ef153
             Authorization: 'token VZ5tQtETjNB/Imu5HOMLT8T0TAKcMdIEBbDnG/dv'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'

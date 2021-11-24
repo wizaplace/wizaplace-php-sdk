@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@4c00da7
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
         body: '{"name":"ACME Test Inc","corporateName":null,"email":"acme5@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"legalRepresentativeFirstName":"John","legalRepresentativeLastName":"Doe","extra":[],"nafCode":null}'
     response:
         status:

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-pim-get-attributes@c91ce4b
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -34,8 +34,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-pim-get-attributes@c91ce4b
             Authorization: 'token e1M1dbAebaTsXDDe37vX12lhZo0RD9gO4ui6HZZg'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'

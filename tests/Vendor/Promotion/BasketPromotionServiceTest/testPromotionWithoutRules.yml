@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOldpbmRvd3MuOTg='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: '{"name":"test promotion without rules","active":true,"discounts":[{"type":"fixed","value":3.5,"maxAmount":null}],"period":{"from":"2010-01-01T00:00:00+00:00","to":"2025-01-01T00:00:00+00:00"},"target":{"type":"basket"}}'
     response:
         status:
@@ -104,8 +104,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8293-discount-on-quantity@ee05e7a
             Authorization: 'token XnXweXQxJuJHvdj5wH3IDXzeMcfbWfd8J8UceLX8'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'

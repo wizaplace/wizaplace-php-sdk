@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"usersIds":[1,2,3]}'
     response:
         status:
@@ -74,8 +74,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -106,8 +106,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -137,8 +137,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -169,8 +169,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -200,8 +200,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -232,8 +232,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token eGyoKOmEnRaJwi8MKf7VhJZHaFxHy8U7iKRbteie'
-            Accept: 'application/json'
             VCR-index: '7'
+            Accept: null
     response:
         status:
             http_version: '1.1'

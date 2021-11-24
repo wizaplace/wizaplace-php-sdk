@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOldpbmRvd3MuOTg='
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: '{"name":"test promotion","active":true,"rule":{"type":"and","items":[{"type":"basket_quantity_superior_to","value":5},{"type":"basket_quantity_inferior_to","value":7}]},"discounts":[{"type":"percentage","percentage":2,"maxAmount":null},{"type":"fixed","value":3.5,"maxAmount":null}],"period":{"from":"1992-09-07T00:00:00+00:00","to":"2019-01-01T00:00:00+00:00"},"target":{"products_ids":[1,4,7],"type":"product_in_basket"}}'
     response:
         status:
@@ -106,8 +106,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"promotion_id":"5bc20c7d-c7c5-40e0-80f9-46061b646183","rule":{"type":"and","items":[{"type":"basket_quantity_superior_or_equal_to","value":10},{"type":"basket_quantity_inferior_or_equal_to","value":12}]}}'
     response:
         status:
@@ -138,8 +138,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -169,8 +169,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -197,8 +197,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token ONCMV7HPPGEiVeD2VrQFevFwgZ6uNLFFpM5JNUAi'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'

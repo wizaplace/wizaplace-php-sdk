@@ -8,8 +8,8 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: 'declinationId=1_6_44&quantity=1'
     response:
         status:
@@ -72,8 +72,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: 'declinationId=3_5_40&quantity=1'
     response:
         status:
@@ -103,8 +103,8 @@
             Content-Length: '0'
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -135,8 +135,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
         body: 'declinationId=1_6_44&quantity=2'
     response:
         status:
@@ -167,8 +167,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
         body: 'declinationId=3_5_41&quantity=1'
     response:
         status:
@@ -199,8 +199,8 @@
             Accept-Encoding: null
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
         body: '{"basketId":"12ea9512-8a4f-44c9-92f7-d546ca129c26"}'
     response:
         status:
@@ -227,8 +227,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '7'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -256,8 +256,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6078-expose-system-options-code@66a5fa2
-            Accept: 'application/json'
             VCR-index: '8'
+            Accept: null
     response:
         status:
             http_version: '1.1'
