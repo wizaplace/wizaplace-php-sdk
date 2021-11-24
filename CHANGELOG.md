@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added a default _Accept_ header set to _application/json_.
+
 ## 1.143.0
 
 ### New features

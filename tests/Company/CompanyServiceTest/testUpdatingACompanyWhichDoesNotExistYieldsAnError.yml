@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-3267-seo-data-in-api@4ae313b
             Authorization: 'token 2VZglNkk8sovFein1P+xMxtF3+avo/W4QjmXhB9K'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"phoneNumber":"0123456789"}'
     response:
         status:

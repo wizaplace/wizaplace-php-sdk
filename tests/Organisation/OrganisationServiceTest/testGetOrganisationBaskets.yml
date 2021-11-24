@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcitvcmdhQHVzYy5jb206cGFzc3dvcmQ='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-207-new-organisation-basket-status-hidden@4b13d3e
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -34,8 +34,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-207-new-organisation-basket-status-hidden@4b13d3e
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -60,8 +60,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-207-new-organisation-basket-status-hidden@4b13d3e
             Authorization: 'token VeYKIA7LXossq7kFRmST4qmQJDUf4D9cXuDStb5P'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -88,8 +88,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-207-new-organisation-basket-status-hidden@4b13d3e
             Authorization: 'token m/B3a6rIBTUA5znyczJ+d+3b4C0jLGUQf9FszVmu'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: name=fake_basket
     response:
         status:
@@ -116,8 +116,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-207-new-organisation-basket-status-hidden@4b13d3e
             Authorization: 'token m/B3a6rIBTUA5znyczJ+d+3b4C0jLGUQf9FszVmu'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
