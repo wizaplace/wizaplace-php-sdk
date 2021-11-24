@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-9127-display-related-products-in-pim@2bc2e1b
             Authorization: 'token OcS3C7E7NTN79Vxk2uDZBmFWm84DR5HYgy6X6zQl'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"productId":2,"type":"other","description":"Recommended product","extra":"123_123"}'
     response:
         status:

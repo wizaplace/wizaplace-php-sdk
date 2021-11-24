@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
             Authorization: 'token d069c41bab28ae1613914697553f37ab6b273ec0'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -71,8 +71,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -102,8 +102,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-1216-fix-error-500-on-discussions@613e2e2
             Authorization: 'token 74145faa5bb425792dd17132453994d360ee8795'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'

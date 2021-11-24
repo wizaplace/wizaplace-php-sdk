@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             Authorization: 'token TMo4tw6yMHoH74/oqzFnuG4JfyYF5V9vfZWmp2/d'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -63,8 +63,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             Authorization: 'token TMo4tw6yMHoH74/oqzFnuG4JfyYF5V9vfZWmp2/d'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: 'declinationId=3_8_7&quantity=1'
     response:
         status:

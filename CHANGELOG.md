@@ -11,8 +11,15 @@
 - Added `\Wizaplace\SDK\Company\Company::setInvoicingDisabled`
 - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getInvoicingDisabled`
 - Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setInvoicingDisabled`
+- Added a default _Accept_ header set to _application/json_.
 
-### 1.142.0
+## 1.143.0
+
+### New features
+
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
+## 1.142.0
 
 ### New features
 

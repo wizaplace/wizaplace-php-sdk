@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: 'email=user470%40example.com&password=Windows.98&firstName=Jean&lastName=Paul'
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjQ3MEBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token L/mmIE+wzY/RRifGgzAIA0jDQVu98pRfvvsdQnes'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -104,8 +104,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token L/mmIE+wzY/RRifGgzAIA0jDQVu98pRfvvsdQnes'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: '{"billing":{"label":null,"title":"mrs","firstname":"Jeanne","lastname":"Paulette","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"GB","division_code":null,"comment":null},"shipping":{"label":null,"title":"mr","firstname":"Pierre","lastname":"Jacques","company":"Wizaplace","phone":"0123456798","address":"24 rue de la gare","address_2":"1er \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","division_code":"FR-69","comment":null}}'
     response:
         status:
@@ -134,8 +134,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token L/mmIE+wzY/RRifGgzAIA0jDQVu98pRfvvsdQnes'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'

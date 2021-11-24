@@ -10,8 +10,8 @@
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.47.0 PHP/7.1.9-1+ubuntu16.04.1+deb.sury.org+1'
             Authorization: 'Basic c3lzdGVtOkZha2VTZWNyZXQ='
             Content-Type: application/x-xliff+xml
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<xliff xmlns=\"urn:oasis:names:tc:xliff:document:1.2\" version=\"1.2\">\n  <file source-language=\"fr\" target-language=\"fr\" datatype=\"plaintext\" original=\"file.ext\">\n    <header>\n      <tool tool-id=\"symfony\" tool-name=\"Symfony\"/>\n    </header>\n    <body>\n      <trans-unit id=\"83218ac34c1834c26781fe4bde918ee4\" resname=\"Welcome\">\n        <source>Welcome</source>\n        <target>Bonjour</target>\n      </trans-unit>\n    </body>\n  </file>\n</xliff>\n"
     response:
         status:

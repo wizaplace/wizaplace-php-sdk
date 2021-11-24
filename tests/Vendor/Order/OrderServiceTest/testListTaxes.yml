@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-vendor-get-taxes@1445c25
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -34,8 +34,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-vendor-get-taxes@1445c25
             Authorization: 'token EyV5zCJn0+4oRg78sm2Lgp596sY1i55HUneZSa/7'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'

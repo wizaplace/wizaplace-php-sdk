@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token OC+an6EdD7vyLQC3UjbArsohJVgWzu1TQKFxMe+k'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"approved":true,"do_not_create_invoice":false,"invoice_number":"F12000"}'
     response:
         status:
@@ -71,8 +71,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token OC+an6EdD7vyLQC3UjbArsohJVgWzu1TQKFxMe+k'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -103,8 +103,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token OC+an6EdD7vyLQC3UjbArsohJVgWzu1TQKFxMe+k'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: '{"invoice_number":"00072"}'
     response:
         status:
@@ -134,8 +134,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token OC+an6EdD7vyLQC3UjbArsohJVgWzu1TQKFxMe+k'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
