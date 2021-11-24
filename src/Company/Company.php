@@ -105,6 +105,9 @@ final class Company
     /** @var CompanyPerson[] */
     private $companyPersonList;
 
+    /** @var null|bool */
+    private $invoicingDisabled;
+
     public function __construct(array $data)
     {
         $this->id = to_int($data['id']);
@@ -141,6 +144,9 @@ final class Company
             foreach ($data['companyPersonList'] as $companyPerson) {
                 $this->addCompanyPerson($companyPerson);
             }
+        }
+        if (\array_key_exists('invoicingDisabled', $data) === true) {
+            $this->invoicingDisabled = $data['invoicingDisabled'];
         }
     }
 
@@ -293,5 +299,17 @@ final class Company
     public function getCompanyPersonList(): array
     {
         return $this->companyPersonList;
+    }
+
+    public function getInvoicingDisabled(): ?bool
+    {
+        return $this->invoicingDisabled;
+    }
+
+    public function setInvoicingDisabled(bool $invoicingDisabled): self
+    {
+        $this->invoicingDisabled = $invoicingDisabled;
+
+        return $this;
     }
 }
