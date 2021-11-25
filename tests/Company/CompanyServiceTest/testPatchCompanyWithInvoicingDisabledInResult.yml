@@ -1,0 +1,66 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            VCR-index: '0'
+            Accept: null
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 09:07:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d9182a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d9182a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 0d8e648d5176cac67ac91e25f29f95e6
+        body: '{"id":2,"apiKey":"vOB2GuxVqlN5tC2GW83bvCBiBcXdRADA3o5FGpQR"}'
+-
+    request:
+        method: PATCH
+        url: 'http://wizaplace.loc/api/v1/companies/13'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
+            Authorization: 'token vOB2GuxVqlN5tC2GW83bvCBiBcXdRADA3o5FGpQR'
+            VCR-index: '1'
+            Accept: null
+        body: '{"status":"ENABLED"}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 30 Jun 2021 09:07:43 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '654169'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/654169'
+            X-Robots-Tag: noindex
+            X-Request-Id: 6cd689ab970d4906b47cc0d63edea9c6
+        body: '{"id":13,"name":"ACME Test Inc","corporateName":"","slug":"acme-test-inc-4","email":"acme@example.com","description":"","status":"ENABLED","zipcode":"","address":"","city":"","state":"","country":"","phoneNumber":"","legalStatus":"","siretNumber":"","vatNumber":"","capital":"","rcs":"","fax":"","url":"","iban":null,"bic":null,"legalRepresentativeFirstName":"Jenna","legalRepresentativeLastName":"Jameson","extra":[],"nafCode":null,"meta":{"title":"Mon titre","keywords":"Mes mots-cl\u00e9s","description":"Ma description"},"invoicingDisabled":false}'
