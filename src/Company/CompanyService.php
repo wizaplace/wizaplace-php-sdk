@@ -46,32 +46,38 @@ class CompanyService extends AbstractService
 
         $endpoint = $companyRegistration->isC2C() ? 'companies/c2c' : 'companies';
 
+        $companyData = [
+            'name' => $companyRegistration->getName(),
+            'corporateName' => $companyRegistration->getCorporateName(),
+            'email' => $companyRegistration->getEmail(),
+            'description' => $companyRegistration->getDescription(),
+            'slug' => $companyRegistration->getSlug(),
+            'address' => $companyRegistration->getAddress(),
+            'country' => $companyRegistration->getCountry(),
+            'zipcode' => $companyRegistration->getZipcode(),
+            'city' => $companyRegistration->getCity(),
+            'phoneNumber' => $companyRegistration->getPhoneNumber(),
+            'url' => $companyRegistration->getUrl(),
+            'fax' => $companyRegistration->getFax(),
+            'vatNumber' => $companyRegistration->getVatNumber(),
+            'siretNumber' => $companyRegistration->getSiretNumber(),
+            'rcs' => $companyRegistration->getRcs(),
+            'legalStatus' => $companyRegistration->getLegalStatus(),
+            'capital' => $companyRegistration->getCapital(),
+            'iban' => $companyRegistration->getIban(),
+            'bic' => $companyRegistration->getBic(),
+            'extra' => $companyRegistration->getExtra(),
+            'nafCode' => $companyRegistration->getNafCode(),
+        ];
+
+        if (\is_bool($companyRegistration->getInvoicingDisabled()) === true) {
+            $companyData['invoicingDisabled'] = $companyRegistration->getInvoicingDisabled();
+        }
+
         $responseData = $this->client->post(
             $endpoint,
             [
-                RequestOptions::JSON => [
-                    'name' => $companyRegistration->getName(),
-                    'corporateName' => $companyRegistration->getCorporateName(),
-                    'email' => $companyRegistration->getEmail(),
-                    'description' => $companyRegistration->getDescription(),
-                    'slug' => $companyRegistration->getSlug(),
-                    'address' => $companyRegistration->getAddress(),
-                    'country' => $companyRegistration->getCountry(),
-                    'zipcode' => $companyRegistration->getZipcode(),
-                    'city' => $companyRegistration->getCity(),
-                    'phoneNumber' => $companyRegistration->getPhoneNumber(),
-                    'url' => $companyRegistration->getUrl(),
-                    'fax' => $companyRegistration->getFax(),
-                    'vatNumber' => $companyRegistration->getVatNumber(),
-                    'siretNumber' => $companyRegistration->getSiretNumber(),
-                    'rcs' => $companyRegistration->getRcs(),
-                    'legalStatus' => $companyRegistration->getLegalStatus(),
-                    'capital' => $companyRegistration->getCapital(),
-                    'iban' => $companyRegistration->getIban(),
-                    'bic' => $companyRegistration->getBic(),
-                    'extra' => $companyRegistration->getExtra(),
-                    'nafCode' => $companyRegistration->getNafCode(),
-                ],
+                RequestOptions::JSON => $companyData
             ]
         );
 
@@ -139,39 +145,46 @@ class CompanyService extends AbstractService
             return $value !== null;
         };
 
+        $companyData = [
+            'name' => $command->getName(),
+            'corporateName' => $command->getCorporateName(),
+            'email' => $command->getEmail(),
+            'description' => $command->getDescription(),
+            'slug' => $command->getSlug(),
+            'address' => $command->getAddress(),
+            'country' => $command->getCountry(),
+            'zipcode' => $command->getZipcode(),
+            'city' => $command->getCity(),
+            'phoneNumber' => $command->getPhoneNumber(),
+            'url' => $command->getUrl(),
+            'fax' => $command->getFax(),
+            'vatNumber' => $command->getVatNumber(),
+            'siretNumber' => $command->getSiretNumber(),
+            'rcs' => $command->getRcs(),
+            'legalStatus' => $command->getLegalStatus(),
+            'capital' => $command->getCapital(),
+            'extra' => $command->getExtra(),
+            'nafCode' => $command->getNafCode(),
+            'meta' => array_filter(
+                [
+                    'title' => $command->getMetaTitle(),
+                    'description' => $command->getMetaDescription(),
+                    'keywords' => $command->getMetaKeywords(),
+                ],
+                $isNotNull
+            ),
+            'invoicingDisabled' => $command->getInvoicingDisabled(),
+        ];
+
+        if (\is_bool($command->getInvoicingDisabled()) === true) {
+            $companyData['invoicingDisabled'] = $command->getInvoicingDisabled();
+        }
+
         $responseData = $this->client->put(
             'companies/' . $command->getCompanyId(),
             [
                 RequestOptions::JSON => array_filter(
-                    [
-                        'name' => $command->getName(),
-                        'corporateName' => $command->getCorporateName(),
-                        'email' => $command->getEmail(),
-                        'description' => $command->getDescription(),
-                        'slug' => $command->getSlug(),
-                        'address' => $command->getAddress(),
-                        'country' => $command->getCountry(),
-                        'zipcode' => $command->getZipcode(),
-                        'city' => $command->getCity(),
-                        'phoneNumber' => $command->getPhoneNumber(),
-                        'url' => $command->getUrl(),
-                        'fax' => $command->getFax(),
-                        'vatNumber' => $command->getVatNumber(),
-                        'siretNumber' => $command->getSiretNumber(),
-                        'rcs' => $command->getRcs(),
-                        'legalStatus' => $command->getLegalStatus(),
-                        'capital' => $command->getCapital(),
-                        'extra' => $command->getExtra(),
-                        'nafCode' => $command->getNafCode(),
-                        'meta' => array_filter(
-                            [
-                                'title' => $command->getMetaTitle(),
-                                'description' => $command->getMetaDescription(),
-                                'keywords' => $command->getMetaKeywords(),
-                            ],
-                            $isNotNull
-                        ),
-                    ],
+                    $companyData,
                     $isNotNull
                 ),
             ]

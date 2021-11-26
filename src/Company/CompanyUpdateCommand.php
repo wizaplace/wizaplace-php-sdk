@@ -84,6 +84,9 @@ class CompanyUpdateCommand
     /** @var null|string */
     private $metaKeywords;
 
+    /** @var null|bool */
+    private $invoicingDisabled;
+
     public function __construct(int $companyId)
     {
         $this->companyId = $companyId;
@@ -361,5 +364,17 @@ class CompanyUpdateCommand
     public function getMetaKeywords(): ?string
     {
         return $this->metaKeywords;
+    }
+
+    public function getInvoicingDisabled(): ?bool
+    {
+        return $this->invoicingDisabled;
+    }
+
+    public function setInvoicingDisabled(?bool $invoicingDisabled): self
+    {
+        $this->invoicingDisabled = $invoicingDisabled;
+
+        return $this;
     }
 }
