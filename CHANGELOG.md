@@ -9,6 +9,17 @@
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
 
+## 1.144.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\Company::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\Company::setInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setInvoicingDisabled`
+
 ## 1.143.0
 
 ### New features
