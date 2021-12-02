@@ -7,6 +7,45 @@
 
 - Added optional parameter `$companyIds` to `Wizaplace\SDK\Pim\Product\ProductService::updateStock`
 
+## 1.144.0
+
+### New features
+
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\AbstractCompanyRegistration::setInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\Company::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\Company::setInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::getInvoicingDisabled`
+- Added `\Wizaplace\SDK\Company\CompanyUpdateCommand::setInvoicingDisabled`
+
+## 1.143.0
+
+### New features
+
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionWithCustomer`
+
+## 1.142.0
+
+### New features
+
+- In the `Wizaplace\SDK\User\User` class, added the "passwordExpiryTimeLeft" field which is returned by the API endpoint.
+
+## 1.139.0
+- Added an interface to enable event dispatching before and after each request to the API.
+
+## 1.136.1
+
+### New features
+
+- In the `Wizaplace\Catalog\AttributeVariant` class, added the "position" and "seoKeywords" fields which are returned by the API endpoint.
+
+## 1.135.3
+
+### New features
+
+- Added `Wizaplace\SDK\Vendor\Order\OrderChild`
+- Added `Wizaplace\SDK\Vendor\Order\OrderService::getOrderChildren`
+
 ## 1.134.0
 
 - Added `Wizaplace\SDK\Order\OrderService::getOrderShipments`

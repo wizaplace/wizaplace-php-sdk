@@ -74,6 +74,8 @@ final class User
     private $extra;
     /** @var \DateTimeImmutable|null */
     private $apiKeyUpdatedAt;
+    /** @var int|null */
+    private $passwordExpiryTimeLeft;
 
     /**
      * @internal
@@ -112,7 +114,15 @@ final class User
         }
         $this->registeredAt = empty($data['registeredAt']) ? null : \DateTimeImmutable::createFromFormat(DATE_RFC3339, $data['registeredAt']);
         $this->extra = $data['extra'] ?? [];
-        $this->apiKeyUpdatedAt = \array_key_exists('apiKeyUpdatedAt', $data) === true ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt']) : null;
+
+        if (\array_key_exists('apiKeyUpdatedAt', $data) === true
+            && ($apiKeyUpdatedAt = \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['apiKeyUpdatedAt'])) instanceof \DateTimeImmutable === true
+        ) {
+            $this->apiKeyUpdatedAt = $apiKeyUpdatedAt;
+        } else {
+            $this->apiKeyUpdatedAt = null;
+        }
+        $this->passwordExpiryTimeLeft = \array_key_exists('passwordExpiryTimeLeft', $data) === true ? \intval($data['passwordExpiryTimeLeft']) : null;
     }
 
     /**
@@ -342,5 +352,10 @@ final class User
     public function getApiKeyUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->apiKeyUpdatedAt;
+    }
+
+    public function getPasswordExpiryTimeLeft(): ?int
+    {
+        return $this->passwordExpiryTimeLeft;
     }
 }

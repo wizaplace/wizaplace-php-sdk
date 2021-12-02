@@ -1449,6 +1449,8 @@ final class CatalogServiceTest extends ApiTestCase
         $this->assertSame('', $variant->getSeoTitle());
         $this->assertSame('', $variant->getSeoDescription());
         $this->assertSame(5, $variant->getImage()->getId());
+        $this->assertSame('keywords', $variant->getSeoKeywords());
+        $this->assertSame(4, $variant->getPosition());
     }
 
     public function testGetNonExistingAttributeVariant(): void
@@ -1467,9 +1469,15 @@ final class CatalogServiceTest extends ApiTestCase
                     'id' => 1,
                     'attributeId' => 1,
                     'name' => 'Bleu',
-                    'slug' => '',
+                    'slug' => 'bleu-slug',
                     'image' => ['id' => 4],
                     'description' => '',
+                    'position' => 0,
+                    'seoData' => [
+                        'title' => 'Bleu title',
+                        'description' => 'Bleu description',
+                        'keywords' => 'Bleu keywords',
+                    ],
                 ]
             ),
             new AttributeVariant(
@@ -1480,6 +1488,12 @@ final class CatalogServiceTest extends ApiTestCase
                     'slug' => 'blanc',
                     'image' => null,
                     'description' => '',
+                    'position' => 1,
+                    'seoData' => [
+                        'title' => 'Blanc title',
+                        'description' => 'Blanc description',
+                        'keywords' => 'Blanc keywords',
+                    ],
                 ]
             ),
             new AttributeVariant(
@@ -1490,6 +1504,12 @@ final class CatalogServiceTest extends ApiTestCase
                     'slug' => 'rouge',
                     'image' => ['id' => 5],
                     'description' => 'Le rouge est un champ chromatique regroupant les couleurs vives situées sur le cercle chromatique entre l\'orange et les pourpres.',
+                    'position' => 2,
+                    'seoData' => [
+                        'title' => 'Rouge title',
+                        'description' => 'Rouge description',
+                        'keywords' => 'Rouge keywords',
+                    ],
                 ]
             ),
         ];
