@@ -86,6 +86,9 @@ class AbstractCompanyRegistration
     // phpcs:ignore
     protected $isC2C = false;
 
+    /** @var null|bool */
+    protected $invoicingDisabled;
+
     /**
      * @var array
      * @see \Wizaplace\SDK\Company\CompanyRegistration::addFile
@@ -550,6 +553,19 @@ class AbstractCompanyRegistration
     final public function isC2C(): bool
     {
         return $this->isC2C;
+    }
+
+
+    final public function getInvoicingDisabled(): ?bool
+    {
+        return $this->invoicingDisabled;
+    }
+
+    final public function setInvoicingDisabled(bool $invoicingDisabled): self
+    {
+        $this->invoicingDisabled = $invoicingDisabled;
+
+        return $this;
     }
 
     /**
