@@ -415,7 +415,7 @@ final class RegisterUserCommand
         return $this->nationalities;
     }
 
-    /** @params Nationality[] $nationalities */
+    /** @param Nationality[] $nationalities */
     public function setNationalities(array $nationalities): self
     {
         foreach ($nationalities as $nationality) {
@@ -449,7 +449,7 @@ final class RegisterUserCommand
         );
     }
 
-    /** @params string[] $codesA3 */
+    /** @param string[] $codesA3 */
     public function setNationalitiesFromCodesA3(array $codesA3): self
     {
         $this->nationalities = \array_map(
@@ -468,7 +468,7 @@ final class RegisterUserCommand
         return $this->extra;
     }
 
-    /** @params string[]|int[]|null $extra */
+    /** @param string[]|int[]|null $extra */
     public function setExtra(array $extra): self
     {
         $this->extra = $extra;

@@ -400,7 +400,7 @@ final class UpdateUserCommand
         return $this->nationalities;
     }
 
-    /** @params Nationality[] $nationalities */
+    /** @param Nationality[] $nationalities */
     public function setNationalities(array $nationalities): self
     {
         $this->nationalities = $nationalities;
@@ -432,7 +432,7 @@ final class UpdateUserCommand
         );
     }
 
-    /** @params string[] $codesA3 */
+    /** @param string[] $codesA3 */
     public function setNationalitiesFromCodesA3(array $codesA3): self
     {
         $this->nationalities = \array_map(
@@ -451,7 +451,7 @@ final class UpdateUserCommand
         return $this->extra;
     }
 
-    /** @params string[]|int[]|null $extra ["key1" => "value1", "key2" => "value2" */
+    /** @param string[]|int[]|null $extra ["key1" => "value1", "key2" => "value2" */
     public function setExtra(array $extra): self
     {
         $this->extra = $extra;

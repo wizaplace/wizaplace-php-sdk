@@ -1,6 +1,9 @@
 
 # Changelog
 
+## New version
+- Fixed some @param comments which were plurals
+
 ## 1.144.0
 
 ### New features
