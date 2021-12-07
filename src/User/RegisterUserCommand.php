@@ -468,7 +468,7 @@ final class RegisterUserCommand
         return $this->extra;
     }
 
-    /** @param string[]|int[]|null $extra */
+    /** @param string[]|int[] $extra */
     public function setExtra(array $extra): self
     {
         $this->extra = $extra;

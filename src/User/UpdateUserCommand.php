@@ -451,7 +451,7 @@ final class UpdateUserCommand
         return $this->extra;
     }
 
-    /** @param string[]|int[]|null $extra ["key1" => "value1", "key2" => "value2" */
+    /** @param string[]|int[] $extra ["key1" => "value1", "key2" => "value2" */
     public function setExtra(array $extra): self
     {
         $this->extra = $extra;
