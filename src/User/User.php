@@ -297,7 +297,7 @@ final class User
         return $this->nationalities;
     }
 
-    /** @params Nationality[] $nationalities */
+    /** @param Nationality[] $nationalities */
     public function setNationalities(array $nationalities): self
     {
         $this->nationalities = $nationalities;
@@ -325,7 +325,7 @@ final class User
         );
     }
 
-    /** @params string[] $codesA3 */
+    /** @param string[] $codesA3 */
     public function setNationalitiesFromCodesA3(array $codesA3): self
     {
         $this->nationalities = \array_map(
