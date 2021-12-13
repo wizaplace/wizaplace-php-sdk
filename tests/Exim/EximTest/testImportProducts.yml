@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6086-add-EXIM-object@260c425
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: 'multipart/form-data; boundary=f333bcec75fdc86bf2ac59083da1e06050f63e70'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6086-add-EXIM-object@260c425
             Authorization: 'token IvkVyINE/eq/2eMhKidX2hUkHGuKsj0SgmbF4k4T'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: "--f333bcec75fdc86bf2ac59083da1e06050f63e70\r\nContent-Disposition: form-data; name=\"file\"; filename=\"product.csv\"\r\nContent-Length: 279\r\nContent-Type: text/csv\r\n\r\nProduct code;Language;Category;Price;Status;Quantity;Weight;Product name;Description;Features;Image URL;Supplier reference;Template;Brand\n7d445f-b45c-4fb4-8427-7364de904340;fr;4;20;A;15;10;Nom du produit;Description du produit;;;7d445f-b45c-4fb4-8427-7364de904340;product;Marque\n\r\n--f333bcec75fdc86bf2ac59083da1e06050f63e70--\r\n"
     response:
         status:

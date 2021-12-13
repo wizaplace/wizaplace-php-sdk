@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feat-sdkmvp@e73dace
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feat-sdkmvp@e73dace
             Authorization: 'token /ni4fFBOTiowrVtWaol0xQYjjToeVpsocydlfzD0'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"code":"XXX-xxx-XXX","name":"New Test MVP","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","categoryId":3,"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]}}'
     response:
         status:
@@ -64,8 +64,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feat-sdkmvp@e73dace
             Authorization: 'token /ni4fFBOTiowrVtWaol0xQYjjToeVpsocydlfzD0'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'

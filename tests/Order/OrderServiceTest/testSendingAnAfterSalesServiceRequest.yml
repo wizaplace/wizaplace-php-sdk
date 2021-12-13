@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@bb180db
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-84-add-productimageid-orders-sdk@bb180db
             Authorization: 'token 0NNNzP9HME4q/E5UVCfnLOxbqrxU7ttHsQmaYAEu'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"comments":"Help please :(","items":["1_0"]}'
     response:
         status:

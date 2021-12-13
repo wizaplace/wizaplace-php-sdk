@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-basket-new-fields@e12d2e7
             Authorization: 'token bpevxXE7WEwT0yHMc+dYENEu0MjfwOMT5GXgffJb'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: comments%5B0%5D%5Bcomment%5D=I+am+superman%2C+please+deliver+to+space.
     response:
         status:

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: 'multipart/form-data; boundary=5e3a27c04b0388f6246026405d9c61fb94ae5453'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: "--5e3a27c04b0388f6246026405d9c61fb94ae5453\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--5e3a27c04b0388f6246026405d9c61fb94ae5453\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--5e3a27c04b0388f6246026405d9c61fb94ae5453\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 16\r\n\r\nCUSTOMER_INVOICE\r\n--5e3a27c04b0388f6246026405d9c61fb94ae5453--\r\n"
     response:
         status:
@@ -74,8 +74,8 @@
             Content-Type: 'multipart/form-data; boundary=f70b1c8eed8346618b356eecf16ea92585c5938e'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: "--f70b1c8eed8346618b356eecf16ea92585c5938e\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--f70b1c8eed8346618b356eecf16ea92585c5938e\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--f70b1c8eed8346618b356eecf16ea92585c5938e\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 16\r\n\r\nCUSTOMER_INVOICE\r\n--f70b1c8eed8346618b356eecf16ea92585c5938e--\r\n"
     response:
         status:
@@ -108,8 +108,8 @@
             Content-Type: 'multipart/form-data; boundary=56be1ec1e9d743135aad4d8f5db2f84061482a73'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: "--56be1ec1e9d743135aad4d8f5db2f84061482a73\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--56be1ec1e9d743135aad4d8f5db2f84061482a73\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--56be1ec1e9d743135aad4d8f5db2f84061482a73\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 13\r\n\r\nDELIVERY_BILL\r\n--56be1ec1e9d743135aad4d8f5db2f84061482a73--\r\n"
     response:
         status:
@@ -142,8 +142,8 @@
             Content-Type: 'multipart/form-data; boundary=bccd122eff3d572ae7dccab09bbb6673ca8bb8de'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
         body: "--bccd122eff3d572ae7dccab09bbb6673ca8bb8de\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--bccd122eff3d572ae7dccab09bbb6673ca8bb8de\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--bccd122eff3d572ae7dccab09bbb6673ca8bb8de\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 13\r\n\r\nDELIVERY_BILL\r\n--bccd122eff3d572ae7dccab09bbb6673ca8bb8de--\r\n"
     response:
         status:
@@ -176,8 +176,8 @@
             Content-Type: 'multipart/form-data; boundary=d230bc1e0c7a5b79cb9445e8762230df4845830b'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
         body: "--d230bc1e0c7a5b79cb9445e8762230df4845830b\r\nContent-Disposition: form-data; name=\"name\"\r\nContent-Length: 8\r\n\r\nFaridoux\r\n--d230bc1e0c7a5b79cb9445e8762230df4845830b\r\nContent-Disposition: form-data; name=\"file\"; filename=\"minimal.pdf\"\r\nContent-Length: 739\r\nContent-Type: application/pdf\r\n\r\n%PDF-1.1\n%¥±ë\n\n1 0 obj\n  << /Type /Catalog\n     /Pages 2 0 R\n  >>\nendobj\n\n2 0 obj\n  << /Type /Pages\n     /Kids [3 0 R]\n     /Count 1\n     /MediaBox [0 0 300 144]\n  >>\nendobj\n\n3 0 obj\n  <<  /Type /Page\n      /Parent 2 0 R\n      /Resources\n       << /Font\n           << /F1\n               << /Type /Font\n                  /Subtype /Type1\n                  /BaseFont /Times-Roman\n               >>\n           >>\n       >>\n      /Contents 4 0 R\n  >>\nendobj\n\n4 0 obj\n  << /Length 55 >>\nstream\n  BT\n    /F1 18 Tf\n    0 0 Td\n    (Hello World) Tj\n  ET\nendstream\nendobj\n\nxref\n0 5\n0000000000 65535 f \n0000000018 00000 n \n0000000077 00000 n \n0000000178 00000 n \n0000000457 00000 n \ntrailer\n  <<  /Root 1 0 R\n      /Size 5\n  >>\nstartxref\n565\n%%EOF\n\r\n--d230bc1e0c7a5b79cb9445e8762230df4845830b\r\nContent-Disposition: form-data; name=\"type\"\r\nContent-Length: 13\r\n\r\nDELIVERY_BILL\r\n--d230bc1e0c7a5b79cb9445e8762230df4845830b--\r\n"
     response:
         status:
@@ -208,8 +208,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-5722-api-get-refund-results@3eb543f
             Authorization: 'token 5UPMK+2qJtqe667Xky5nUI3ueSC/p4ySUazRE70v'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'

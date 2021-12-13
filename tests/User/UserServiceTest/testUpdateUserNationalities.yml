@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token uXBhcn1+K5WO7UiCot7rHYUm8ltUcGek9/tRNaL2'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: 'email=user552%40example.com&password=password&firstName=Jean&lastName=Paul'
     response:
         status:
@@ -75,8 +75,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token uXBhcn1+K5WO7UiCot7rHYUm8ltUcGek9/tRNaL2'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -108,8 +108,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token uXBhcn1+K5WO7UiCot7rHYUm8ltUcGek9/tRNaL2'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"email":"user552@example.com","title":"mr","firstName":"Jacques","lastName":"Jules","phone":"0102030405","lang":"en","birthday":"1963-02-17","currencyCode":"EUR","nationalities":["FRA"]}'
     response:
         status:
@@ -140,8 +140,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-wip-epic-TMA-1092-add-nationality-to-user-BO-API@d788c9a
             Authorization: 'token uXBhcn1+K5WO7UiCot7rHYUm8ltUcGek9/tRNaL2'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItM0B3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0z'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"name":"4CME Test Inc","corporateName":null,"email":"acme4@example.com","description":null,"slug":null,"address":null,"country":null,"zipcode":null,"city":null,"phoneNumber":null,"url":null,"fax":null,"vatNumber":null,"siretNumber":null,"rcs":null,"legalStatus":null,"capital":null,"iban":null,"bic":null,"extra":[],"nafCode":null}'
     response:
         status:
@@ -72,8 +72,8 @@
             Content-Type: 'multipart/form-data; boundary=573ed85b338695d6e2c71090063c0ab64fdd0e6f'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-779-add-naf-code-on-company@0462300
             Authorization: 'token ygG2O3T7qdYojMd28gR/jf2A09TnkTxIdVezZhAn'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: "--573ed85b338695d6e2c71090063c0ab64fdd0e6f\r\nContent-Disposition: form-data; name=\"rib\"; filename=\"dummy.txt\"\r\nContent-Length: 35\r\nContent-Type: text/plain\r\n\r\nJust a dummy file for upload tests\n\r\n--573ed85b338695d6e2c71090063c0ab64fdd0e6f--\r\n"
     response:
         status:

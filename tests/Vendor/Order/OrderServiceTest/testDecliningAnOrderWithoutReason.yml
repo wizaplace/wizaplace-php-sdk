@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-275-recommend-attr@6c1cef6
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -37,8 +37,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-275-recommend-attr@6c1cef6
             Authorization: 'token DXJCnRCwH/xKlqpogSKFIZvDHXGFU6+VDUN7D9wT'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: '{"approved":false,"decline_reason":""}'
     response:
         status:
@@ -65,8 +65,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/wiz-275-recommend-attr@6c1cef6
             Authorization: 'token DXJCnRCwH/xKlqpogSKFIZvDHXGFU6+VDUN7D9wT'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'

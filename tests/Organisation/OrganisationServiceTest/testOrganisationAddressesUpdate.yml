@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -34,8 +34,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -60,8 +60,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             Authorization: 'token oQeQBGhrxGcFDyl560lclHeUjo6YFp+XPtrhsYKq'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -88,8 +88,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             Authorization: 'token oQeQBGhrxGcFDyl560lclHeUjo6YFp+XPtrhsYKq'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"address":{"address":"10 rue de la gare","additionalAddress":"Lieu dit: au dessus de LDLC","zipCode":"69009","city":"Lyon","state":"Rhone","country":"France"},"shippingAddress":{"address":"3 rue de la R\u00e9publique","additionalAddress":"","zipCode":"75002","city":"Paris","state":"Paris","country":"France"}}'
     response:
         status:
@@ -113,8 +113,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-5863_gestion_organisations@4b7adb1
             Authorization: 'token oQeQBGhrxGcFDyl560lclHeUjo6YFp+XPtrhsYKq'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'

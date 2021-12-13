@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -41,8 +41,8 @@
             Content-Type: 'multipart/form-data; boundary=2673cf95e1ce2c0e53e09617bda7b0809fd56f41'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token emv7b05WN7CuRFxy1DGhM93YxG7xwshvnZ+UvzpV'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: "--2673cf95e1ce2c0e53e09617bda7b0809fd56f41\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 36\r\n\r\nThis is a test message from Customer\r\n--2673cf95e1ce2c0e53e09617bda7b0809fd56f41--\r\n"
     response:
         status:
@@ -75,8 +75,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206dmVuZG9yLXBhc3N3b3Jk'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -108,8 +108,8 @@
             Content-Type: 'multipart/form-data; boundary=ebabe3a2c147d5ff07b063e667b5380a5b7df551'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token gv4VsbleaB/tsPPm+54OUCpqCsBUig66JCj94/6H'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: "--ebabe3a2c147d5ff07b063e667b5380a5b7df551\r\nContent-Disposition: form-data; name=\"content\"\r\nContent-Length: 34\r\n\r\nThis is a test message from Vendor\r\n--ebabe3a2c147d5ff07b063e667b5380a5b7df551--\r\n"
     response:
         status:
@@ -142,8 +142,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-901-add-corporate-name-api-register-company@39f7e9f
             Authorization: 'token emv7b05WN7CuRFxy1DGhM93YxG7xwshvnZ+UvzpV'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'

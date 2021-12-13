@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -70,8 +70,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
         body: '{"order_id":31,"tracking_number":"0ABC0123456798","comments":"great shipment","products":{"916694571":4},"label_url":"http:\/\/mondialrelay.com\/shipment-created"}'
     response:
         status:
@@ -103,8 +103,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -135,8 +135,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
         body: '{"order_id":31,"tracking_number":"0ABC0123456798","comments":"great shipment","products":{"916694571":6},"label_url":"http:\/\/mondialrelay.com\/shipment-created"}'
     response:
         status:
@@ -168,8 +168,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -198,8 +198,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '6'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -229,8 +229,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '7'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -259,8 +259,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '8'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -290,8 +290,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '9'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -320,8 +320,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-554-referance-transaction@33966ff
             Authorization: 'token Ml13Zo26VYUh7mrKB1obIpvcEx8fdL7hq82tRATY'
-            Accept: 'application/json'
             VCR-index: '10'
+            Accept: null
     response:
         status:
             http_version: '1.1'

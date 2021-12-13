@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
             Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
         body: 'userId=7&comments=Broken+on+arrival&items%5B0%5D%5BdeclinationId%5D=1_0&items%5B0%5D%5Breason%5D=3&items%5B0%5D%5Bamount%5D=1'
     response:
         status:
@@ -73,8 +73,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
             Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -103,8 +103,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-128-add-of-supplier-ref-on-the-variations@bb3fc27
             Authorization: 'token EkSKz1F/thHlnJV8uIvqmz5czTKmc9GU2IqmnRyR'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'

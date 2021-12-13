@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 2ORMoTNz3sdGMHvKA3IMWXHLtoC2KDQxuxo0YzDB'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -62,8 +62,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 2ORMoTNz3sdGMHvKA3IMWXHLtoC2KDQxuxo0YzDB'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -88,8 +88,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 2ORMoTNz3sdGMHvKA3IMWXHLtoC2KDQxuxo0YzDB'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -114,8 +114,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 2ORMoTNz3sdGMHvKA3IMWXHLtoC2KDQxuxo0YzDB'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -138,8 +138,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/No version set (parsed as 1.0.0)@'
             Authorization: 'token 2ORMoTNz3sdGMHvKA3IMWXHLtoC2KDQxuxo0YzDB'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
-            Accept: 'application/json'
             VCR-index: '0'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
-            Accept: 'application/json'
             VCR-index: '1'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -68,8 +68,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
-            Accept: 'application/json'
             VCR-index: '2'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -100,8 +100,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
-            Accept: 'application/json'
             VCR-index: '3'
+            Accept: null
         body: '{"company":0,"percent":2.5,"fixed":0.5,"maximum":10}'
     response:
         status:
@@ -131,8 +131,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
-            Accept: 'application/json'
             VCR-index: '4'
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -161,8 +161,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-503-adding-alt-tag-in-banners@05910d6
             Authorization: 'token X0L3GIbAnsLyf3Vk6soLh8aXM3LyW8p86HwodicJ'
-            Accept: 'application/json'
             VCR-index: '5'
+            Accept: null
     response:
         status:
             http_version: '1.1'
