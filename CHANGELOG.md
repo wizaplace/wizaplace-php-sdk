@@ -6,6 +6,10 @@
 ### New features
 
 - Added optional parameter `$companyIds` to `Wizaplace\SDK\Pim\Product\ProductService::updateStock`
+- In the `Wizaplace\SDK\Discussion\Discussion` class, added the "orderId" field which is returned by the API endpoint.
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
+- Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
+- Fixed some @param comments which were plurals
 
 ## 1.144.0
 
