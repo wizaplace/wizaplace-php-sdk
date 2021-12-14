@@ -26,6 +26,9 @@ final class Discussion
     /** @var int */
     private $productId;
 
+    /** @var int|null */
+    private $orderId;
+
     /** @var string */
     private $title;
 
@@ -42,6 +45,7 @@ final class Discussion
         $this->id = $data['id'];
         $this->recipient = $data['recipient'];
         $this->productId = to_int($data['productId'] ?? 0);
+        $this->orderId = $data['orderId'] ?? null;
         $this->title = $data['title'];
         $this->unreadCount = $data['unreadCount'];
     }
@@ -68,6 +72,12 @@ final class Discussion
     public function getProductId(): int
     {
         return $this->productId;
+    }
+
+    /** @return int|null */
+    public function getOrderId(): ?int
+    {
+        return $this->orderId;
     }
 
     /**
