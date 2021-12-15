@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             Authorization: 'token dWQlY7LDgpH+OiqoNuIZ90q2VYfVSwWsL+01PxB4'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -73,8 +73,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             Authorization: 'token dWQlY7LDgpH+OiqoNuIZ90q2VYfVSwWsL+01PxB4'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -107,8 +107,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             Authorization: 'token dWQlY7LDgpH+OiqoNuIZ90q2VYfVSwWsL+01PxB4'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -141,8 +141,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-8746-number-of-orders@ea6088b
             Authorization: 'token dWQlY7LDgpH+OiqoNuIZ90q2VYfVSwWsL+01PxB4'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'

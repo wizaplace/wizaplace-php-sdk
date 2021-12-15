@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New Release
+## 1.146.0
 
 ### New features
 
@@ -16,6 +16,7 @@
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCustomer`
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
 - Fixed some @param comments which were plurals
+- Added a default _Accept_ header set to _application/json_.
 
 ## 1.144.0
 

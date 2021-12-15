@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token i6T8Ch0TWaTcFtXDdfLQ68NMCWGX4TGpPkphP2Mq'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token i6T8Ch0TWaTcFtXDdfLQ68NMCWGX4TGpPkphP2Mq'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: 'declinationId=1&quantity=1'
     response:
         status:
@@ -103,8 +103,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token i6T8Ch0TWaTcFtXDdfLQ68NMCWGX4TGpPkphP2Mq'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -133,8 +133,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token i6T8Ch0TWaTcFtXDdfLQ68NMCWGX4TGpPkphP2Mq'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -165,8 +165,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token i6T8Ch0TWaTcFtXDdfLQ68NMCWGX4TGpPkphP2Mq'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
         body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm&css=https%3A%2F%2Fdemo.loc%2Fcustom.css'
     response:
         status:
@@ -196,8 +196,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
+            Accept: 'application/json'
             VCR-index: '6'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -226,8 +226,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token /rX7xDLzO/nxtTnKLFNaIsQ45TD8AYvpEafhdMZW'
+            Accept: 'application/json'
             VCR-index: '7'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -257,8 +257,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token /rX7xDLzO/nxtTnKLFNaIsQ45TD8AYvpEafhdMZW'
+            Accept: 'application/json'
             VCR-index: '8'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -287,8 +287,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-84-FR-EN-mail-auto-pour-reset-password@66a5fa2
             Authorization: 'token /rX7xDLzO/nxtTnKLFNaIsQ45TD8AYvpEafhdMZW'
+            Accept: 'application/json'
             VCR-index: '9'
-            Accept: null
     response:
         status:
             http_version: '1.1'

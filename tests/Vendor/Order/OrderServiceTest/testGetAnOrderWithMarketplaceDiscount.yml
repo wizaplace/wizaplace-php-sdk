@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-975-promotion-marketplace@36dee4c
             Authorization: 'token +mp9sB2HqvL/sU4BugB9aYxOqHoCywR1TZXgF6X+'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'

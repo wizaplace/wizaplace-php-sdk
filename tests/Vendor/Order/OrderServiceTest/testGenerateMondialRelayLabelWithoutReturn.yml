@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-615-error-mondialrelay-label@332331f
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-hotfix/WIZ-615-error-mondialrelay-label@332331f
             Authorization: 'token x43d0/8UwJPa9FSu4t7nAOr0egI+etemV9J9hEsl'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"approved":true,"do_not_create_invoice":false}'
     response:
         status:

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-6087-compare-Algolia-config-before-update@0911514
             Authorization: 'token aFDxtGVKDusX/zaC2ZqGf9DpJLOMxwbtFL56K8H2'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
