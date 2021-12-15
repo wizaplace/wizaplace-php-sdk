@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -37,8 +37,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -68,8 +68,8 @@
             Content-Type: 'multipart/form-data; boundary=66a3fa16a96423d7853859d7b042b2be0b6ad96b'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-3092-add-attachment-contact-request@85795f5
             Authorization: 'token ljhh5WUNtNbnHNRP8XWbd7GAPYG/t8OpU73uW9CA'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: "--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"senderEmail\"\r\nContent-Length: 18\r\n\r\nclient@example.com\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"subject\"\r\nContent-Length: 32\r\n\r\nContact form: Great marketplace!\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b\r\nContent-Disposition: form-data; name=\"message\"\r\nContent-Length: 143\r\n\r\nLast Name: Bond\nFirst Name: James\nEmail: client@example.com\nPhone: 0123456798\n\nMessage:\n    I love your marketplace!\n    Keep up the good work!\r\n--66a3fa16a96423d7853859d7b042b2be0b6ad96b--\r\n"
     response:
         status:

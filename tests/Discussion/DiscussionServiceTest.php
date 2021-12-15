@@ -439,7 +439,7 @@ MSG;
 
         $expectedDiscussion = new Discussion(
             [
-                'id' => 19,
+                'id' => 2,
                 'recipient' => 'Paul Martin',
                 'productId' => 0,
                 'title' => 'Contact Paul Martin',

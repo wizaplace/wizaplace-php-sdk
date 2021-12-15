@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: 'email=AddressBookTest51%40wizaplace.com&password=password&firstName=&lastName='
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic QWRkcmVzc0Jvb2tUZXN0NTFAd2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,8 +74,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
             Authorization: 'token H4xJk1+WrU3a65+qn2UxOOwfh5VPmnR1tbKdndve'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: '{"label":"Domicile","firstname":"firstname","lastname":"lastname","title":"mr","company":"ACME","phone":"20000","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","city":"Lyon","zipcode":"69009","country":"FR","division_code":"FR-03"}'
     response:
         status:
@@ -106,8 +106,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-394-processing-internal-recipe-returns-CR-wiza@4a2b734
             Authorization: 'token H4xJk1+WrU3a65+qn2UxOOwfh5VPmnR1tbKdndve'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
