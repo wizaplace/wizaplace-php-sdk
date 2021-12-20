@@ -10,7 +10,9 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Tests\QuoteRequest\QuoteRequestSelection;
 
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\PaginatedData;
+use Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionDeclination;
 use Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter;
 use Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService;
 use Wizaplace\SDK\Tests\ApiTestCase;
@@ -97,6 +99,47 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         static::assertEquals(new \DateTime('2021-12-24T10:22:20+00:00'), $paginatedData->getItems()[0]->getCreatedAt());
         static::assertEquals(new \DateTime('2021-12-25T12:27:06+00:00'), $paginatedData->getItems()[0]->getUpdatedAt());
     }
+
+    public function testAddDeclinationToSelection(): void
+    {
+        $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $declinationToAdd = [
+            new QuoteRequestSelectionDeclination('1_0', 1),
+            new QuoteRequestSelectionDeclination('4_0', 3),
+        ];
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
+            ]
+        ], $service->addDeclinationToSelection(5, $declinationToAdd));
+
+        static::expectException(NotFound::class);
+        $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
+        $service->addDeclinationToSelection(15, $declinationToAdd);
+    }
+
+    public function testUpdateSelectionDeclinations(): void
+    {
+        $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        $declinationToAdd = [
+            new QuoteRequestSelectionDeclination('1_0', 1),
+            new QuoteRequestSelectionDeclination('4_0', 3),
+        ];
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 1],
+                ['declinationId' => '4_0', 'quantity' => 3]
+            ]
+        ], $service->updateSelectionDeclinations(5, $declinationToAdd));
+
+        static::expectException(NotFound::class);
+        $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
+        $service->updateSelectionDeclinations(15, $declinationToAdd);
+    }
+
 
     private function buildQuoteRequestSelectionService(string $email, string $password): QuoteRequestSelectionService
     {

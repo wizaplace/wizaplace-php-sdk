@@ -1,0 +1,213 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: ''
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            VCR-index: '0'
+            Accept: ''
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Dec 2021 16:39:22 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a77600
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a77600'
+            X-Robots-Tag: noindex
+            X-Request-Id: 2a64f6cdccbec45dc14bcff354b7208a
+        body: '{"id":3,"apiKey":"im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr"}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/users/authenticate'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 237
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.180717
+            namelookup_time: 0.000472
+            connect_time: 0.000547
+            pretransfer_time: 0.000578
+            size_upload: !!float 0
+            size_download: !!float 60
+            speed_download: !!float 333
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.180695
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.5
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.3
+            local_port: 55956
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 547
+            namelookup_time_us: 472
+            pretransfer_time_us: 578
+            redirect_time_us: 0
+            starttransfer_time_us: 180695
+            total_time_us: 180717
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/quote-request-selections/5/update'
+        headers:
+            Host: wizaplace.loc
+            Expect: ''
+            Accept-Encoding: ''
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
+            VCR-index: '1'
+            Accept: ''
+        body: '{"declinations":[{"declinationId":"1_0","quantity":1},{"declinationId":"4_0","quantity":3}]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Dec 2021 16:39:22 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 82f8a2
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/82f8a2'
+            X-Robots-Tag: noindex
+            X-Request-Id: 23c649f29f7465c03c5ec58abdf7155d
+        body: '{"declinations":[{"declinationId":"1_0","quantity":1},{"declinationId":"4_0","quantity":3}]}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/quote-request-selections/5/update'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 396
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.131125
+            namelookup_time: 0.00036
+            connect_time: 0.000423
+            pretransfer_time: 0.000458
+            size_upload: !!float 92
+            size_download: !!float 92
+            speed_download: !!float 702
+            speed_upload: !!float 702
+            download_content_length: !!float -1
+            upload_content_length: !!float 92
+            starttransfer_time: 0.131076
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.5
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.3
+            local_port: 55974
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 423
+            namelookup_time_us: 360
+            pretransfer_time_us: 458
+            redirect_time_us: 0
+            starttransfer_time_us: 131076
+            total_time_us: 131125
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/quote-request-selections/15/update'
+        headers:
+            Host: wizaplace.loc
+            Expect: ''
+            Accept-Encoding: ''
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
+            VCR-index: '2'
+            Accept: ''
+        body: '{"declinations":[{"declinationId":"4_0","quantity":1}]}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '404'
+            message: 'Not Found'
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 20 Dec 2021 16:39:23 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: d631bf
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d631bf'
+            X-Robots-Tag: noindex
+        body: '{"message":"Quote request not found"}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/quote-request-selections/15/update'
+            content_type: application/json
+            http_code: 404
+            header_size: 381
+            request_size: 360
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.128181
+            namelookup_time: 0.000325
+            connect_time: 0.000381
+            pretransfer_time: 0.000403
+            size_upload: !!float 55
+            size_download: !!float 37
+            speed_download: !!float 289
+            speed_upload: !!float 429
+            download_content_length: !!float -1
+            upload_content_length: !!float 55
+            starttransfer_time: 0.128149
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.5
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.3
+            local_port: 56112
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 381
+            namelookup_time_us: 325
+            pretransfer_time_us: 403
+            redirect_time_us: 0
+            starttransfer_time_us: 128149
+            total_time_us: 128181

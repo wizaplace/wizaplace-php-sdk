@@ -14,6 +14,7 @@ use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\RequestOptions;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Exception\AccessDenied;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\PaginatedData;
 use Wizaplace\SDK\Traits\AssertRessourceForbiddenOrNotFoundTrait;
@@ -22,15 +23,6 @@ class QuoteRequestSelectionService extends AbstractService
 {
     use AssertRessourceForbiddenOrNotFoundTrait;
 
-    /**
-     * @param QuoteRequestSelectionFilter|null $subscriptionFilter
-     *
-     * @throws AccessDenied
-     * @throws SomeParametersAreInvalid
-     * @throws \GuzzleHttp\Exception\ClientException
-     *
-     * @return PaginatedData
-     */
     public function listBy(QuoteRequestSelectionFilter $selectionFilter = null): PaginatedData
     {
         $this->client->mustBeAuthenticated();
@@ -70,4 +62,81 @@ class QuoteRequestSelectionService extends AbstractService
             )
         );
     }
+
+    /**
+     * @param QuoteRequestSelectionDeclination[] $declinations
+     * @return mixed[]
+     */
+    public function addDeclinationToSelection(int $quoteRequestSelectionId, array $declinations): array
+    {
+        $this->client->mustBeAuthenticated();
+        $payload = \array_map(function($declination) {
+            return [
+                'declinationId' => $declination->getDeclinationId(),
+                'quantity' => $declination->getQuantity()
+            ];
+        }, $declinations);
+
+        try {
+            $response = $this->client->put(
+                "quote-request-selections/{$quoteRequestSelectionId}/add",
+                [RequestOptions::JSON => ['declinations' => $payload]]
+            );
+        } catch (ClientException $exception) {
+            if (400 === $exception->getResponse()->getStatusCode()) {
+                throw new SomeParametersAreInvalid("Declination not available for quotes.", 400, $exception);
+            }
+
+            if (404 === $exception->getResponse()->getStatusCode()) {
+                throw new NotFound("Selection or declination not found.", $exception);
+            }
+
+            if (403 === $exception->getResponse()->getStatusCode()) {
+                throw new AccessDenied("Quote request feature not enabled.", 403, $exception);
+            }
+
+            throw $exception;
+        }
+
+        return $response;
+    }
+
+    /**
+     * @param QuoteRequestSelectionDeclination[] $declinations
+     * @return mixed[]
+     */
+    public function updateSelectionDeclinations(int $quoteRequestSelectionId, array $declinations): array
+    {
+        $this->client->mustBeAuthenticated();
+        $payload = \array_map(function($declination) {
+            return [
+                'declinationId' => $declination->getDeclinationId(),
+                'quantity' => $declination->getQuantity()
+            ];
+        }, $declinations);
+
+        try {
+            $response = $this->client->put(
+                "quote-request-selections/{$quoteRequestSelectionId}/update",
+                [RequestOptions::JSON => ['declinations' => $payload]]
+            );
+        } catch (ClientException $exception) {
+            if (400 === $exception->getResponse()->getStatusCode()) {
+                throw new SomeParametersAreInvalid("Declination not available for quotes.", 400, $exception);
+            }
+
+            if (404 === $exception->getResponse()->getStatusCode()) {
+                throw new NotFound("Selection or declination not found.", $exception);
+            }
+
+            if (403 === $exception->getResponse()->getStatusCode()) {
+                throw new AccessDenied("Quote request feature not enabled.", 403, $exception);
+            }
+
+            throw $exception;
+        }
+
+        return $response;
+    }
+
 }
