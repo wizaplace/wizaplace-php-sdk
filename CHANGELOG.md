@@ -1,12 +1,6 @@
 
 # Changelog
 
-## 1.146.0
-
-### New features
-
-- Updated `\Wizaplace\SDK\Discussion\DiscussionService::getMessages` add 1 param `$markMessagesAsRead`
-
 ## New Release
 
 ### New features
@@ -17,6 +11,12 @@
 - Added `Wizaplace\SDK\Discussion\DiscussionService::startDiscussionOnOrderWithCompany`
 - Fixed some @param comments which were plurals
 - Added a default _Accept_ header set to _application/json_.
+
+## 1.146.0
+
+### New features
+
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::getMessages` add 1 param `$markMessagesAsRead`
 
 ## 1.144.0
 
