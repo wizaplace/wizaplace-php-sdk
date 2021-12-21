@@ -1751,4 +1751,51 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame("code_full_D", $product->getCode());
         static::assertSame(3, $product->getCompanyId());
     }
+
+    public function testCreateAndUpdateProductWithQuotesData(): void
+    {
+        $productService = $this->buildProductService();
+        $id = $productService->createProduct(
+            (new CreateProductCommand())
+                ->setCode("product_with_sub_update1")
+                ->setSupplierReference('product_with_sub_ref')
+                ->setName("Product with subscription")
+                ->setMainCategoryId(1)
+                ->setGreenTax(0.)
+                ->setTaxIds([1])
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([]))
+                            ->setCode('product_with_sub')
+                            ->setPrice(3.5)
+                            ->setQuantity(12)
+                            ->setInfiniteStock(false),
+                    ]
+                )
+                ->setStatus(ProductStatus::ENABLED())
+                ->setIsBrandNew(true)
+                ->setWeight(0.)
+                ->setFullDescription("Product with subscription full description")
+                ->setShortDescription("Product with subscription short description")
+                ->setQuoteRequestsMinQuantity(10)
+                ->setIsExclusiveToQuoteRequests(true)
+        );
+
+        static::assertTrue(\is_int($id));
+
+        $product = $productService->getProductById($id);
+
+        static::assertTrue($product->getQuoteRequestsMinQuantity());
+        static::assertTrue($product->isExclusiveToQuoteRequests());
+
+        /*$service->updateProduct(
+            (new UpdateProductCommand($id))
+                ->setIsSubscription(false)
+                ->setIsRenewable(false)
+        );
+        $product = $service->getProductById($id);
+
+        static::assertFalse($product->isSubscription());
+        static::assertFalse($product->isRenewable());*/
+    }
 }

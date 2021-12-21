@@ -78,6 +78,19 @@ final class ProductUpsertDataTest extends TestCase
         );
     }
 
+    public function testQuotesData(): void
+    {
+        $productUpsertData = $this->minimumValidData();
+        $productUpsertData
+            ->setQuoteRequestsMinQuantity(10)
+            ->setIsExclusiveToQuoteRequests(true);
+        $productUpsertData->validate();
+
+        $returnData = $productUpsertData->toArray();
+        static::assertEquals(10, $returnData['quoteRequestsMinQuantity']);
+        static::assertEquals(true, $returnData['isExclusiveToQuoteRequests']);
+    }
+
     private function minimumValidData(): ProductUpsertData
     {
         return (new CreateProductCommand())
