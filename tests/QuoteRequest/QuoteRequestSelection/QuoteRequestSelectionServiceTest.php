@@ -140,6 +140,19 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         $service->updateSelectionDeclinations(15, $declinationToAdd);
     }
 
+    public function testRemoveDeclinationFromSelection(): void
+    {
+        $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
+
+        static::assertSame(
+            [['declinationId' => '4_0']],
+            $service->removeDeclinationFromSelection(5, ['4_0'])
+        );
+
+        static::expectException(NotFound::class);
+        $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
+        $service->removeDeclinationFromSelection(15, ['4_0']);
+    }
 
     private function buildQuoteRequestSelectionService(string $email, string $password): QuoteRequestSelectionService
     {

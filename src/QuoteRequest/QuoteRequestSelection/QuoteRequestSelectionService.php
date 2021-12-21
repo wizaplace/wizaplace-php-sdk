@@ -64,10 +64,10 @@ class QuoteRequestSelectionService extends AbstractService
     }
 
     /**
-     * @param QuoteRequestSelectionDeclination[] $declinations
+     * @param QuoteRequestSelectionDeclination[] $declinationsQuantity
      * @return mixed[]
      */
-    public function addDeclinationToSelection(int $quoteRequestSelectionId, array $declinations): array
+    public function addDeclinationToSelection(int $quoteRequestSelectionId, array $declinationsQuantity): array
     {
         $this->client->mustBeAuthenticated();
         $payload = \array_map(function($declination) {
@@ -75,7 +75,7 @@ class QuoteRequestSelectionService extends AbstractService
                 'declinationId' => $declination->getDeclinationId(),
                 'quantity' => $declination->getQuantity()
             ];
-        }, $declinations);
+        }, $declinationsQuantity);
 
         try {
             $response = $this->client->put(
@@ -102,10 +102,10 @@ class QuoteRequestSelectionService extends AbstractService
     }
 
     /**
-     * @param QuoteRequestSelectionDeclination[] $declinations
+     * @param QuoteRequestSelectionDeclination[] $declinationsQuantity
      * @return mixed[]
      */
-    public function updateSelectionDeclinations(int $quoteRequestSelectionId, array $declinations): array
+    public function updateSelectionDeclinations(int $quoteRequestSelectionId, array $declinationsQuantity): array
     {
         $this->client->mustBeAuthenticated();
         $payload = \array_map(function($declination) {
@@ -113,7 +113,7 @@ class QuoteRequestSelectionService extends AbstractService
                 'declinationId' => $declination->getDeclinationId(),
                 'quantity' => $declination->getQuantity()
             ];
-        }, $declinations);
+        }, $declinationsQuantity);
 
         try {
             $response = $this->client->put(
@@ -139,4 +139,36 @@ class QuoteRequestSelectionService extends AbstractService
         return $response;
     }
 
+    /**
+     * @param string[] $declinationsIds Array of declinations ids (['1_0', '2_0', '3_0']) to remove
+     * @return mixed[]
+     */
+    public function removeDeclinationFromSelection(int $quoteRequestSelectionId, array $declinationsIds): array
+    {
+        $this->client->mustBeAuthenticated();
+        $payload = \array_map(function($declination) {
+            return [
+                'declinationId' => $declination
+            ];
+        }, $declinationsIds);
+
+        try {
+            $response = $this->client->put(
+                "quote-request-selections/{$quoteRequestSelectionId}/remove",
+                [RequestOptions::JSON => ['declinations' => $payload]]
+            );
+        } catch (ClientException $exception) {
+            if (404 === $exception->getResponse()->getStatusCode()) {
+                throw new NotFound("Selection or declination not found.", $exception);
+            }
+
+            if (403 === $exception->getResponse()->getStatusCode()) {
+                throw new AccessDenied("Quote request feature not enabled.", 403, $exception);
+            }
+
+            throw $exception;
+        }
+
+        return $response;
+    }
 }
