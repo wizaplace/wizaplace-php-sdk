@@ -233,6 +233,20 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame('Manuel de montage', $attachment->getLabel());
     }
 
+    public function testListProductWithQuotesData(): void
+    {
+        $filter = (new ProductListFilter())->byProductCode('product_with_quotes_data');
+        $products = $this
+            ->buildProductService('admin@wizaplace.com', ApiTestCase::VALID_PASSWORD)
+            ->listProducts($filter)
+            ->getProducts();
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
+
+        static::assertSame(5, $products[0]->getQuoteRequestsMinQuantity());
+        static::assertTrue($products[0]->isExclusiveToQuoteRequests());
+    }
+
     public function testListProductPagination(): void
     {
         $result1 = $this->buildProductService()->listProducts(null, 1, 1);
@@ -1754,19 +1768,21 @@ final class ProductServiceTest extends ApiTestCase
 
     public function testCreateAndUpdateProductWithQuotesData(): void
     {
-        $productService = $this->buildProductService();
+        $productService = $this
+            ->buildProductService('admin@wizaplace.com', ApiTestCase::VALID_PASSWORD);
         $id = $productService->createProduct(
             (new CreateProductCommand())
-                ->setCode("product_with_sub_update1")
-                ->setSupplierReference('product_with_sub_ref')
-                ->setName("Product with subscription")
+                ->setCode("product_with_quotes_data_2")
+                ->setSupplierReference('product_with_quotes_data_ref')
+                ->setName("Product with quotes data")
                 ->setMainCategoryId(1)
                 ->setGreenTax(0.)
+                ->setCompanyId(3)
                 ->setTaxIds([1])
                 ->setDeclinations(
                     [
                         (new ProductDeclinationUpsertData([]))
-                            ->setCode('product_with_sub')
+                            ->setCode('product_with_quotes_data')
                             ->setPrice(3.5)
                             ->setQuantity(12)
                             ->setInfiniteStock(false),
@@ -1775,8 +1791,8 @@ final class ProductServiceTest extends ApiTestCase
                 ->setStatus(ProductStatus::ENABLED())
                 ->setIsBrandNew(true)
                 ->setWeight(0.)
-                ->setFullDescription("Product with subscription full description")
-                ->setShortDescription("Product with subscription short description")
+                ->setFullDescription("Product with quotes data full description")
+                ->setShortDescription("Product with quotes data short description")
                 ->setQuoteRequestsMinQuantity(10)
                 ->setIsExclusiveToQuoteRequests(true)
         );
@@ -1785,17 +1801,17 @@ final class ProductServiceTest extends ApiTestCase
 
         $product = $productService->getProductById($id);
 
-        static::assertTrue($product->getQuoteRequestsMinQuantity());
+        static::assertSame(10, $product->getQuoteRequestsMinQuantity());
         static::assertTrue($product->isExclusiveToQuoteRequests());
 
-        /*$service->updateProduct(
+        $productService->updateProduct(
             (new UpdateProductCommand($id))
-                ->setIsSubscription(false)
-                ->setIsRenewable(false)
+                ->setQuoteRequestsMinQuantity(5)
+                ->setIsExclusiveToQuoteRequests(false)
         );
-        $product = $service->getProductById($id);
+        $product = $productService->getProductById($id);
 
-        static::assertFalse($product->isSubscription());
-        static::assertFalse($product->isRenewable());*/
+        static::assertSame(5, $product->getQuoteRequestsMinQuantity());
+        static::assertFalse($product->isExclusiveToQuoteRequests());
     }
 }

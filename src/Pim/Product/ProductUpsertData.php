@@ -810,11 +810,11 @@ abstract class ProductUpsertData
         }
 
         if (\is_integer($this->quoteRequestsMinQuantity) === true) {
-            $data['quoteRequestsMinQuantity'] = $this->quoteRequestsMinQuantity;
+            $data['quote_request_min_quantity'] = $this->quoteRequestsMinQuantity;
         }
 
         if (\is_bool($this->isExclusiveToQuoteRequests) === true) {
-            $data['isExclusiveToQuoteRequests'] = $this->isExclusiveToQuoteRequests;
+            $data['is_quote_request_exclusive'] = $this->isExclusiveToQuoteRequests;
         }
 
         return $data;

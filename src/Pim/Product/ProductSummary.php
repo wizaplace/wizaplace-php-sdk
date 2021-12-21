@@ -114,6 +114,12 @@ class ProductSummary
     /** @var RelatedProduct[] */
     private $related;
 
+    /** @var null|int */
+    private $quoteRequestsMinQuantity;
+
+    /** @var null|bool */
+    private $isExclusiveToQuoteRequests;
+
     /**
      * @internal
      *
@@ -168,6 +174,8 @@ class ProductSummary
         $this->shortDescription = $data['short_description'] ?? '';
         $this->taxIds = $data['tax_ids'] ?? [];
         $this->video = $data['video'] ?? null;
+        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
 
         $this->related = $this->denormalizeRelated($data['related'] ?? []);
     }
@@ -407,6 +415,22 @@ class ProductSummary
     public function getRelated(): array
     {
         return $this->related;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuoteRequestsMinQuantity(): ?int
+    {
+        return $this->quoteRequestsMinQuantity;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isExclusiveToQuoteRequests(): ?bool
+    {
+        return $this->isExclusiveToQuoteRequests;
     }
 
     /**

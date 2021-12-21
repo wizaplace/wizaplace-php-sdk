@@ -76,6 +76,8 @@ final class User
     private $apiKeyUpdatedAt;
     /** @var int|null */
     private $passwordExpiryTimeLeft;
+    /** @var int[]|null */
+    private $quoteRequestSelectionIds;
 
     /**
      * @internal
@@ -123,6 +125,7 @@ final class User
             $this->apiKeyUpdatedAt = null;
         }
         $this->passwordExpiryTimeLeft = \array_key_exists('passwordExpiryTimeLeft', $data) === true ? \intval($data['passwordExpiryTimeLeft']) : null;
+        $this->quoteRequestSelectionIds = $data['quoteRequestSelectionIds'] ?? null;
     }
 
     /**
@@ -357,5 +360,11 @@ final class User
     public function getPasswordExpiryTimeLeft(): ?int
     {
         return $this->passwordExpiryTimeLeft;
+    }
+
+    /** @return int[]|null */
+    public function getQuoteRequestSelectionIds(): ?array
+    {
+        return $this->quoteRequestSelectionIds;
     }
 }

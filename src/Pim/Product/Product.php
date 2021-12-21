@@ -100,7 +100,7 @@ final class Product extends ProductSummary
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
         $this->video = $data['video'] ?? null;
-        $this->quoteRequestsMinQuantity = $data['$quoteRequestsMinQuantity'] ?? null;
+        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
         $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
     }
 
@@ -217,6 +217,6 @@ final class Product extends ProductSummary
     /** @return null|bool */
     public function isExclusiveToQuoteRequests(): ?bool
     {
-        return $this->video;
+        return $this->isExclusiveToQuoteRequests;
     }
 }
