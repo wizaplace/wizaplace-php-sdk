@@ -1,0 +1,69 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=product_with_quotes_data'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: ''
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            VCR-index: '0'
+            Accept: ''
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 22 Dec 2021 09:40:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 4f43a5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/4f43a5'
+            X-Robots-Tag: noindex
+            X-Request-Id: 0eb0826620cc974af7f78f22f5bec514
+        body: '{"results":[{"productId":13,"name":"Product with quotes data","code":"product_with_quotes_data","productTemplateType":"product","slug":"product-with-quotes-data-2","minimumPrice":3.5,"maxPriceAdjustment":null,"crossedOutPrice":null,"isAvailable":true,"createdAt":1640097663,"updatedAt":1640165494,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"images":[],"declinationsImages":[],"url":"\/informatique\/casques\/product-with-quotes-data-2.html","subtitle":"Product with quotes data full description","shortDescription":"Product with quotes data short description","averageRating":0,"averageRatingFloat":0,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"},{"id":5,"name":"Casques","slug":"casques"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"geolocation":null,"geolocations":null,"mainDeclination":{"id":"13_0"},"offers":[{"productId":13,"companyId":3,"price":3.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":3.5,"excludingTaxes":3.5,"taxes":0}]}],"isSubscription":false,"isRenewable":false}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gories","values":{"3":{"label":"Informatique","count":1,"position":0},"5":{"label":"Casques","count":1,"position":0}},"isNumeric":false}]}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=product_with_quotes_data'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 235
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.195434
+            namelookup_time: 0.000459
+            connect_time: 0.000534
+            pretransfer_time: 0.000558
+            size_upload: !!float 0
+            size_download: !!float 1468
+            speed_download: !!float 7528
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.195391
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.9
+            local_port: 51732
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 534
+            namelookup_time_us: 459
+            pretransfer_time_us: 558
+            redirect_time_us: 0
+            starttransfer_time_us: 195391
+            total_time_us: 195434
