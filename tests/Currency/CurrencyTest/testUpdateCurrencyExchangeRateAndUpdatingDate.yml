@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -38,8 +38,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
             Authorization: 'token o8t/qrALmj8G2NMWntJwMM/KYy6E1aGBD43fPeMl'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -70,8 +70,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@9a42a47
             Authorization: 'token o8t/qrALmj8G2NMWntJwMM/KYy6E1aGBD43fPeMl'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: '{"enabled":true,"exchangeRate":14.02}'
     response:
         status:

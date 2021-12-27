@@ -62,7 +62,8 @@ final class ApiClientTest extends ApiTestCase
 
         $expectedRequestOptions = [
             'headers' => [
-                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION,
+                'Accept' => 'application/json'
             ],
         ];
 
@@ -143,7 +144,8 @@ final class ApiClientTest extends ApiTestCase
         $expectedRequestOptions = [
             'headers' => [
                 'Foo' => 'Bar',
-                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION,
+                'Accept' => 'application/json'
             ],
         ];
 
@@ -168,6 +170,36 @@ final class ApiClientTest extends ApiTestCase
         $dispatcherMock->expects(static::once())->method('dispatchRequestEnd')->with($uniqueEventId, $response);
 
         $apiClient = new ApiClient($guzzleMock, null, $dispatcherMock);
+        self::assertSame($response, $apiClient->rawRequest('GET', $uri, $expectedRequestOptions));
+    }
+
+    public function testContentTypeOverride(): void
+    {
+        $version = PrettyVersions::getVersion('wizaplace/sdk')->getPrettyVersion();
+        $this->assertNotEmpty($version);
+
+        $expectedRequestOptions = [
+            'headers' => [
+                'Foo' => 'Bar',
+                'User-Agent' => 'Wizaplace-PHP-SDK/' . $version . ' PHP/' . PHP_VERSION,
+                'Accept' => 'customType'
+            ],
+        ];
+
+        $response = new Response();
+        $guzzleMock = $this->createMock(Client::class);
+        $uri = 'test-uri';
+
+        $guzzleMock
+            ->expects($this->exactly(1))
+            ->method('request')
+            ->withConsecutive(
+                ['GET', $uri, $expectedRequestOptions]
+            )
+            ->willReturn($response)
+        ;
+
+        $apiClient = new ApiClient($guzzleMock);
         self::assertSame($response, $apiClient->rawRequest('GET', $uri, $expectedRequestOptions));
     }
 }

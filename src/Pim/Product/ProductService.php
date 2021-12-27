@@ -15,6 +15,7 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\UploadedFileInterface;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
+use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 
@@ -308,13 +309,14 @@ class ProductService extends AbstractService
     /**
      * @param string $ean
      * @param int    $stock
+     * @param int[]  $companyIds
      *
      * @return string Number of updated product
      * @throws NotFound
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
-    public function updateStock(string $ean, int $stock): ?string
+    public function updateStock(string $ean, int $stock, array $companyIds = []): ?string
     {
         $this->client->mustBeAuthenticated();
 
@@ -324,10 +326,14 @@ class ProductService extends AbstractService
                 [
                     RequestOptions::JSON => [
                         'stock' => $stock,
+                        'company_ids' => $companyIds
                     ],
                 ]
             );
         } catch (ClientException $e) {
+            if ($e->getCode() === 403) {
+                throw new AccessDenied("You are not allowed to perfom this action, please check all you fields.");
+            }
             if ($e->getCode() === 404) {
                 throw new NotFound("Product EAN #{$ean} not found", $e);
             }
