@@ -1,6 +1,11 @@
 
 # Changelog
 
+### New features
+
+- Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Order\OrderService`
+- Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Vendor\Order\OrderService`
+
 ## 1.146.0
 
 ### New features

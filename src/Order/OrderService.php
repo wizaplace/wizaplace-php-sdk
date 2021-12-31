@@ -289,7 +289,7 @@ class OrderService extends AbstractService
      * @throws AuthenticationRequired
      * @throws \GuzzleHttp\Exception\GuzzleException
      */
-    public function downloadPdfInvoice(int $orderId): StreamInterface
+    public function downloadPdfInvoice(int $orderId, bool $renderInvoiceOnly = false): StreamInterface
     {
         $this->client->mustBeAuthenticated();
         $options = [
@@ -297,8 +297,13 @@ class OrderService extends AbstractService
                 "Accept" => "application/pdf",
             ],
         ];
-        $response = $this->client->rawRequest("GET", "user/orders/{$orderId}/pdf-invoice", $options);
 
+        $url = "user/orders/{$orderId}/pdf-invoice";
+        if ($renderInvoiceOnly === true) {
+            $url .= "?renderInvoiceOnly={$renderInvoiceOnly}";
+        }
+
+        $response = $this->client->rawRequest("GET", $url, $options);
         return $response->getBody();
     }
 

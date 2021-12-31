@@ -1025,4 +1025,24 @@ final class OrderServiceTest extends ApiTestCase
         static::assertSame('Auto', $firstOrderAction->getUserName());
         static::assertInstanceOf(\DateTimeImmutable::class, $firstOrderAction->getDate());
     }
+
+    public function testDownloadPdfInvoice(): void
+    {
+        $orderService = $this->buildOrderService('admin@wizaplace.com', static::VALID_PASSWORD);
+        $pdfInvoice = $orderService->downloadPdfInvoice(1);
+
+        $pdfHeader = '%PDF-1.4';
+        $pdfContents = $pdfInvoice->getContents();
+        static::assertStringStartsWith($pdfHeader, $pdfContents);
+        static::assertGreaterThan(mb_strlen($pdfHeader), mb_strlen($pdfContents));
+    }
+
+    public function testDownloadPdfInvoiceOnlyInvoices(): void
+    {
+        static::expectException(ClientException::class);
+        static::expectExceptionCode(404);
+
+        $orderService = $this->buildOrderService('admin@wizaplace.com', static::VALID_PASSWORD);
+        $orderService->downloadPdfInvoice(1, true);
+    }
 }
