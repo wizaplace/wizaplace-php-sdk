@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: 'email=user400%40example.com&password=Windows.98&firstName=Jean&lastName=Paul'
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjQwMEBleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token VWDi79pVDWglwEYMrMqDvFLS8G39MyblRf0sxsD6'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -104,8 +104,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token VWDi79pVDWglwEYMrMqDvFLS8G39MyblRf0sxsD6'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: '{"email":"user423@example.com","title":"mr","firstName":"Jacques","lastName":"Jules","phone":"0102030405","lang":"en","birthday":"1963-02-17","currencyCode":"EUR","nationalities":[]}'
     response:
         status:
@@ -135,8 +135,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjQyM0BleGFtcGxlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -165,8 +165,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-7075-increase-password-complexity-api@80a65e8
             Authorization: 'token VWDi79pVDWglwEYMrMqDvFLS8G39MyblRf0sxsD6'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
     response:
         status:
             http_version: '1.1'

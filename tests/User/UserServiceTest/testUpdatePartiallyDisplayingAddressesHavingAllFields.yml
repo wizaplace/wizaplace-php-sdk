@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: 'email=user100%40example.com&password=password&firstName=John&lastName=Doe'
     response:
         status:
@@ -42,8 +42,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlcjEwMEBleGFtcGxlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,8 +74,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
             Authorization: 'token 2MbLy2OGDPAH8Dws0URM2vwfgaGfyqTf0wGhx8au'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: phone=0100000000
     response:
         status:
@@ -105,8 +105,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-56-missing-properties-in-api-documentation-get-basket@a379439
             Authorization: 'token 2MbLy2OGDPAH8Dws0URM2vwfgaGfyqTf0wGhx8au'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'

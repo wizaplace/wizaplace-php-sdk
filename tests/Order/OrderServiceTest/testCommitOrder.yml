@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-add-order-commitment-api@12822a5
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-add-order-commitment-api@12822a5
             Authorization: 'token MrGmQWWbE7LKZfUQVFaEueTdzVu79Ebqzx8MxgCl'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"date":"2018-01-01","number":"ABC123"}'
     response:
         status:

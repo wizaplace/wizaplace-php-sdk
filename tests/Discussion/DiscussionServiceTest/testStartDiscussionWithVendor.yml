@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             Authorization: 'token FW+mXmh6rO45ACluNgcCA8rjYjUnRuJXOibd4qk1'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"companyId":2}'
     response:
         status:
@@ -64,8 +64,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdpemFwbGFjZS5jb206cGFzc3dvcmQ='
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -90,8 +90,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-master@662f74b
             Authorization: 'token md5aWcx933WAf9VIKZXKN4AsakGi9g4qA1virQiG'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
