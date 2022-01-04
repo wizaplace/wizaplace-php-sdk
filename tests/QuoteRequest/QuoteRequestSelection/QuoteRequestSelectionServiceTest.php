@@ -114,16 +114,16 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         ];
         static::assertSame([
             'declinations' => [
-                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
-                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
+                ['declinationId' => '1_0', 'quantity' => 1, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 3, 'added' => 3]
             ]
         ], $service->addDeclinationToSelection($declinationToAdd, $selectionId));
 
         // Add to current active selection
         static::assertSame([
             'declinations' => [
-                ['declinationId' => '1_0', 'quantity' => 3, 'added' => 1],
-                ['declinationId' => '4_0', 'quantity' => 11, 'added' => 3]
+                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 6, 'added' => 3]
             ]
         ], $service->addDeclinationToSelection($declinationToAdd));
 
@@ -184,8 +184,8 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         ];
         static::assertSame([
             'declinations' => [
-                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
-                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
+                ['declinationId' => '1_0', 'quantity' => 1, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 3, 'added' => 3]
             ]
         ], $service->addDeclinationToSelection($declinationToAdd, $selectionId));
         static::assertSame(
@@ -194,15 +194,9 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         );
 
         // Add and remove from current active selection
-        static::assertSame([
-            'declinations' => [
-                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
-                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
-            ]
-        ], $service->addDeclinationToSelection($declinationToAdd));
         static::assertSame(
-            [['declinationId' => '4_0']],
-            $service->removeDeclinationFromSelection(['4_0']));
+            [['declinationId' => '1_0']],
+            $service->removeDeclinationFromSelection(['1_0']));
 
         // Declination already removed
         static::expectException(NotFound::class);
