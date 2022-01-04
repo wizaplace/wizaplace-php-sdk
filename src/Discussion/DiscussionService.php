@@ -10,13 +10,18 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Discussion;
 
 use GuzzleHttp\Exception\ClientException;
+use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\UploadedFileInterface;
+use Symfony\Component\HttpFoundation\Response;
 use Wizaplace\SDK\AbstractService;
 use Wizaplace\SDK\Authentication\AuthenticationRequired;
 use Wizaplace\SDK\Catalog\DeclinationId;
+use Wizaplace\SDK\Exception\JsonDecodingError;
+use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\ProductNotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Exception\UnauthorizedModerationAction;
 
 /**
  * Class DiscussionService
@@ -50,8 +55,8 @@ class DiscussionService extends AbstractService
      *
      * @return Discussion[]
      * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function getDiscussions(): array
     {
@@ -74,8 +79,8 @@ class DiscussionService extends AbstractService
      *
      * @return Discussion
      * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function getDiscussion(int $discussionId): Discussion
     {
@@ -91,8 +96,8 @@ class DiscussionService extends AbstractService
      *
      * @return Discussion
      * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function startDiscussion(int $productId): Discussion
     {
@@ -110,8 +115,8 @@ class DiscussionService extends AbstractService
      *
      * @return Discussion
      * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function startDiscussionWithVendor(int $companyId): Discussion
     {
@@ -130,8 +135,8 @@ class DiscussionService extends AbstractService
      * @return Discussion
      * @throws AuthenticationRequired
      * @throws ProductNotFound
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function startDiscussionFromDeclinationId(DeclinationId $declinationId): Discussion
     {
@@ -154,8 +159,8 @@ class DiscussionService extends AbstractService
      *
      * @return Message[]
      * @throws AuthenticationRequired
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function getMessages(int $discussionId): array
     {
@@ -184,8 +189,8 @@ class DiscussionService extends AbstractService
      * @return Message
      * @throws AuthenticationRequired
      * @throws SomeParametersAreInvalid
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function postMessage(int $discussionId, string $content, array $files = null): Message
     {
@@ -232,8 +237,8 @@ class DiscussionService extends AbstractService
      *
      * @return DiscussionService
      *
-     * @throws \GuzzleHttp\Exception\GuzzleException
-     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     * @throws GuzzleException
+     * @throws JsonDecodingError
      */
     public function submitContactRequest(
         string $senderEmail,
@@ -297,5 +302,127 @@ class DiscussionService extends AbstractService
         );
 
         return $this;
+    }
+
+    /**
+     * Vendor start a discussion with a Customer.
+     *
+     * @param int $userId
+     *
+     * @return Discussion
+     *
+     * @throws AuthenticationRequired
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws UnauthorizedModerationAction
+     * @throws GuzzleException
+     * @throws JsonDecodingError
+     */
+    public function startDiscussionWithCustomer(int $userId): Discussion
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $discussionData = $this->client->post(
+                'discussions',
+                [
+                    RequestOptions::JSON => [
+                        'userId' => $userId
+                    ]
+                ]
+            );
+
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            $this->clientException($e);
+        }
+    }
+
+
+    /**
+     * Vendor start a discussion with a Customer from an order.
+     *
+     * @param int $orderId
+     * @param int $userId
+     *
+     * @return Discussion
+     *
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws JsonDecodingError
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws UnauthorizedModerationAction
+     */
+    public function startDiscussionOnOrderWithCustomer(int $orderId, int $userId): Discussion
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $discussionData = $this->client->post(
+                'discussions',
+                [
+                    RequestOptions::JSON => [
+                        'userId' => $userId,
+                        'orderId' => $orderId
+                    ]
+                ]
+            );
+
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            $this->clientException($e);
+        }
+    }
+
+    /**
+     * Customer start a discussion with a Customer from an order.
+     *
+     * @param int $orderId
+     * @param int $companyId
+     *
+     * @return Discussion
+     *
+     * @throws AuthenticationRequired
+     * @throws GuzzleException
+     * @throws JsonDecodingError
+     * @throws NotFound
+     * @throws SomeParametersAreInvalid
+     * @throws UnauthorizedModerationAction
+     */
+    public function startDiscussionOnOrderWithCompany(int $orderId, int $companyId): Discussion
+    {
+        $this->client->mustBeAuthenticated();
+
+        try {
+            $discussionData = $this->client->post(
+                'discussions',
+                [
+                    RequestOptions::JSON => [
+                        'companyId' => $companyId,
+                        'orderId' => $orderId
+                    ]
+                ]
+            );
+
+            return new Discussion($discussionData);
+        } catch (ClientException $e) {
+            $this->clientException($e);
+        }
+    }
+
+    private function clientException(ClientException $e): void
+    {
+        switch ($e->getResponse()->getStatusCode()) {
+            case Response::HTTP_BAD_REQUEST:
+                throw new SomeParametersAreInvalid($e->getMessage());
+            case Response::HTTP_NOT_FOUND:
+                throw new NotFound($e->getMessage());
+            case Response::HTTP_UNAUTHORIZED:
+                throw new UnauthorizedModerationAction($e->getMessage());
+
+            default:
+                throw $e;
+        }
     }
 }

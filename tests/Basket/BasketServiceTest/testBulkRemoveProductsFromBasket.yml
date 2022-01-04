@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -39,8 +39,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -72,8 +72,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: 'declinationId=1_0&quantity=1'
     response:
         status:
@@ -105,8 +105,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
         body: 'declinationId=3_3_7&quantity=1'
     response:
         status:
@@ -138,8 +138,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
         body: 'declinationId=13_0&quantity=1'
     response:
         status:
@@ -171,8 +171,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
         body: '{"declinations":["{\"declinationId\":\"1_0\"}","{\"declinationId\":\"3_3_7\"}"]}'
     response:
         status:
@@ -200,8 +200,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-4573-remove-massive-product-from-basket@286132f
             Authorization: 'token tojefTlFjmnaI1A712ngyxNSW9/jJkB1wJvI+HaY'
+            Accept: 'application/json'
             VCR-index: '6'
-            Accept: null
     response:
         status:
             http_version: '1.1'

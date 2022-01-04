@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -64,8 +64,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: 'declinationId=1_0&quantity=1'
     response:
         status:
@@ -91,8 +91,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -118,8 +118,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -144,8 +144,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -170,8 +170,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '6'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -194,8 +194,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '7'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -221,8 +221,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '8'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -248,8 +248,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-49-basket-add-shipping-image@58c4286
             Authorization: 'token RxWcq9L8x5j/mwQQHdPf+2CxeQJBfi5nIk3nQn/r'
+            Accept: 'application/json'
             VCR-index: '9'
-            Accept: null
     response:
         status:
             http_version: '1.1'

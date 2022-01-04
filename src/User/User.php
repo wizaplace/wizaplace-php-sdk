@@ -74,6 +74,8 @@ final class User
     private $extra;
     /** @var \DateTimeImmutable|null */
     private $apiKeyUpdatedAt;
+    /** @var int|null */
+    private $passwordExpiryTimeLeft;
 
     /**
      * @internal
@@ -120,6 +122,7 @@ final class User
         } else {
             $this->apiKeyUpdatedAt = null;
         }
+        $this->passwordExpiryTimeLeft = \array_key_exists('passwordExpiryTimeLeft', $data) === true ? \intval($data['passwordExpiryTimeLeft']) : null;
     }
 
     /**
@@ -294,7 +297,7 @@ final class User
         return $this->nationalities;
     }
 
-    /** @params Nationality[] $nationalities */
+    /** @param Nationality[] $nationalities */
     public function setNationalities(array $nationalities): self
     {
         $this->nationalities = $nationalities;
@@ -322,7 +325,7 @@ final class User
         );
     }
 
-    /** @params string[] $codesA3 */
+    /** @param string[] $codesA3 */
     public function setNationalitiesFromCodesA3(array $codesA3): self
     {
         $this->nationalities = \array_map(
@@ -349,5 +352,10 @@ final class User
     public function getApiKeyUpdatedAt(): ?\DateTimeImmutable
     {
         return $this->apiKeyUpdatedAt;
+    }
+
+    public function getPasswordExpiryTimeLeft(): ?int
+    {
+        return $this->passwordExpiryTimeLeft;
     }
 }
