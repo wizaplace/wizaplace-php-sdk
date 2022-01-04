@@ -18,8 +18,6 @@ class PaymentService extends AbstractService
     /** @return Payment[] */
     public function getPaymentMethods(): array
     {
-        $this->client->mustBeAuthenticated();
-
         return \array_map(
             /** @param mixed[] $payment */
             function (array $payment): Payment {

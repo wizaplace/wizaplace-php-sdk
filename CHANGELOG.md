@@ -1,6 +1,12 @@
 
 # Changelog
 
+## New version
+
+### Changes
+
+- In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more require to be authenticated.
+
 ## 1.146.0
 
 ### New features
