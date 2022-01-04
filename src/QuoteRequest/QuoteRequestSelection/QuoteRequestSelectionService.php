@@ -67,7 +67,7 @@ class QuoteRequestSelectionService extends AbstractService
      * @param QuoteRequestSelectionDeclination[] $declinationsQuantity
      * @return mixed[]
      */
-    public function addDeclinationToSelection(int $quoteRequestSelectionId, array $declinationsQuantity): array
+    public function addDeclinationToSelection(array $declinationsQuantity, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
         $payload = \array_map(function($declination) {
@@ -77,9 +77,13 @@ class QuoteRequestSelectionService extends AbstractService
             ];
         }, $declinationsQuantity);
 
+        $url = \is_int($quoteRequestSelectionId) === true
+            ? "quote-request-selections/{$quoteRequestSelectionId}/add"
+            : "quote-request-selections/add";
+
         try {
             $response = $this->client->put(
-                "quote-request-selections/{$quoteRequestSelectionId}/add",
+                $url,
                 [RequestOptions::JSON => ['declinations' => $payload]]
             );
         } catch (ClientException $exception) {
@@ -105,7 +109,7 @@ class QuoteRequestSelectionService extends AbstractService
      * @param QuoteRequestSelectionDeclination[] $declinationsQuantity
      * @return mixed[]
      */
-    public function updateSelectionDeclinations(int $quoteRequestSelectionId, array $declinationsQuantity): array
+    public function updateSelectionDeclinations(array $declinationsQuantity, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
         $payload = \array_map(function($declination) {
@@ -115,9 +119,13 @@ class QuoteRequestSelectionService extends AbstractService
             ];
         }, $declinationsQuantity);
 
+        $url = \is_int($quoteRequestSelectionId) === true
+            ? "quote-request-selections/{$quoteRequestSelectionId}/update"
+            : "quote-request-selections/update";
+
         try {
             $response = $this->client->put(
-                "quote-request-selections/{$quoteRequestSelectionId}/update",
+                $url,
                 [RequestOptions::JSON => ['declinations' => $payload]]
             );
         } catch (ClientException $exception) {
@@ -143,7 +151,7 @@ class QuoteRequestSelectionService extends AbstractService
      * @param string[] $declinationsIds Array of declinations ids (['1_0', '2_0', '3_0']) to remove
      * @return mixed[]
      */
-    public function removeDeclinationFromSelection(int $quoteRequestSelectionId, array $declinationsIds): array
+    public function removeDeclinationFromSelection(array $declinationsIds, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
         $payload = \array_map(function($declination) {
@@ -152,9 +160,13 @@ class QuoteRequestSelectionService extends AbstractService
             ];
         }, $declinationsIds);
 
+        $url = \is_int($quoteRequestSelectionId) === true
+            ? "quote-request-selections/{$quoteRequestSelectionId}/remove"
+            : "quote-request-selections/remove";
+
         try {
             $response = $this->client->put(
-                "quote-request-selections/{$quoteRequestSelectionId}/remove",
+                $url,
                 [RequestOptions::JSON => ['declinations' => $payload]]
             );
         } catch (ClientException $exception) {

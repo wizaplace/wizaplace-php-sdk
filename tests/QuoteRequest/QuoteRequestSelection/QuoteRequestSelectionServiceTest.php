@@ -104,6 +104,10 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
     {
         $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
 
+        $selectionFilter = (new QuoteRequestSelectionFilter())->setActive(true);
+        $paginatedData = $service->listBy($selectionFilter);
+        $selectionId = $paginatedData->getItems()[0]->getId();
+
         $declinationToAdd = [
             new QuoteRequestSelectionDeclination('1_0', 1),
             new QuoteRequestSelectionDeclination('4_0', 3),
@@ -113,18 +117,31 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
                 ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
                 ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
             ]
-        ], $service->addDeclinationToSelection(5, $declinationToAdd));
+        ], $service->addDeclinationToSelection($declinationToAdd, $selectionId));
 
+        // Add to current active selection
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 3, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 11, 'added' => 3]
+            ]
+        ], $service->addDeclinationToSelection($declinationToAdd));
+
+        // Selection doesn't exist
         static::expectException(NotFound::class);
         $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
-        $service->addDeclinationToSelection(15, $declinationToAdd);
+        $service->addDeclinationToSelection($declinationToAdd, 15);
     }
 
     public function testUpdateSelectionDeclinations(): void
     {
         $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
 
-        $declinationToAdd = [
+        $selectionFilter = (new QuoteRequestSelectionFilter())->setActive(true);
+        $paginatedData = $service->listBy($selectionFilter);
+        $selectionId = $paginatedData->getItems()[0]->getId();
+
+        $declinationToUpdate = [
             new QuoteRequestSelectionDeclination('1_0', 1),
             new QuoteRequestSelectionDeclination('4_0', 3),
         ];
@@ -133,25 +150,63 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
                 ['declinationId' => '1_0', 'quantity' => 1],
                 ['declinationId' => '4_0', 'quantity' => 3]
             ]
-        ], $service->updateSelectionDeclinations(5, $declinationToAdd));
+        ], $service->updateSelectionDeclinations($declinationToUpdate, $selectionId));
 
+        // Update current active selection
+        $declinationToUpdate = [
+            new QuoteRequestSelectionDeclination('1_0', 2),
+            new QuoteRequestSelectionDeclination('4_0', 4),
+        ];
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 2],
+                ['declinationId' => '4_0', 'quantity' => 4]
+            ]
+        ], $service->updateSelectionDeclinations($declinationToUpdate));
+
+        // Selection doesn't exist
         static::expectException(NotFound::class);
-        $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
-        $service->updateSelectionDeclinations(15, $declinationToAdd);
+        $declinationToUpdate = [new QuoteRequestSelectionDeclination('4_0', 1)];
+        $service->updateSelectionDeclinations($declinationToUpdate, 15);
     }
 
     public function testRemoveDeclinationFromSelection(): void
     {
         $service = $this->buildQuoteRequestSelectionService('user@wizaplace.com', static::VALID_PASSWORD);
 
+        $selectionFilter = (new QuoteRequestSelectionFilter())->setActive(true);
+        $paginatedData = $service->listBy($selectionFilter);
+        $selectionId = $paginatedData->getItems()[0]->getId();
+
+        $declinationToAdd = [
+            new QuoteRequestSelectionDeclination('1_0', 1),
+            new QuoteRequestSelectionDeclination('4_0', 3),
+        ];
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
+            ]
+        ], $service->addDeclinationToSelection($declinationToAdd, $selectionId));
         static::assertSame(
             [['declinationId' => '4_0']],
-            $service->removeDeclinationFromSelection(5, ['4_0'])
+            $service->removeDeclinationFromSelection(['4_0'], $selectionId)
         );
 
+        // Add and remove from current active selection
+        static::assertSame([
+            'declinations' => [
+                ['declinationId' => '1_0', 'quantity' => 2, 'added' => 1],
+                ['declinationId' => '4_0', 'quantity' => 8, 'added' => 3]
+            ]
+        ], $service->addDeclinationToSelection($declinationToAdd));
+        static::assertSame(
+            [['declinationId' => '4_0']],
+            $service->removeDeclinationFromSelection(['4_0']));
+
+        // Declination already removed
         static::expectException(NotFound::class);
-        $declinationToAdd = [new QuoteRequestSelectionDeclination('4_0', 1)];
-        $service->removeDeclinationFromSelection(15, ['4_0']);
+        $service->removeDeclinationFromSelection(['4_0'], $selectionId);
     }
 
     private function buildQuoteRequestSelectionService(string $email, string $password): QuoteRequestSelectionService
