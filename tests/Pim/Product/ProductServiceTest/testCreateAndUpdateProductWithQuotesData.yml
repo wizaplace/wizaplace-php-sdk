@@ -5,11 +5,11 @@
         url: 'http://wizaplace.loc/api/v1/users/authenticate'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             VCR-index: '0'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,13 +74,13 @@
         url: 'http://wizaplace.loc/api/v1/products'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
             VCR-index: '1'
-            Accept: ''
+            Accept: null
         body: '{"product_code":"product_with_quotes_data_2","supplier_ref":"product_with_quotes_data_ref","product":"Product with quotes data","status":"A","main_category":1,"green_tax":0,"condition":"N","weight":0,"full_description":"Product with quotes data full description","short_description":"Product with quotes data short description","tax_ids":[1],"inventory":[{"amount":12,"price":3.5,"combination":[],"priceTiers":null,"combination_code":"product_with_quotes_data","infinite_stock":false}],"allowed_options_variants":[],"company_id":3,"quote_request_min_quantity":10,"is_quote_request_exclusive":true}'
     response:
         status:
@@ -147,11 +147,11 @@
         url: 'http://wizaplace.loc/api/v1/products/13'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
             VCR-index: '2'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -216,13 +216,13 @@
         url: 'http://wizaplace.loc/api/v1/products/13'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
             VCR-index: '3'
-            Accept: ''
+            Accept: null
         body: '{"quote_request_min_quantity":5,"is_quote_request_exclusive":false}'
     response:
         status:
@@ -288,11 +288,11 @@
         url: 'http://wizaplace.loc/api/v1/products/13'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
             VCR-index: '4'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'

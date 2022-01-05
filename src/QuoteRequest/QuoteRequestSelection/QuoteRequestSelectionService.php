@@ -17,12 +17,9 @@ use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
 use Wizaplace\SDK\PaginatedData;
-use Wizaplace\SDK\Traits\AssertRessourceForbiddenOrNotFoundTrait;
 
 class QuoteRequestSelectionService extends AbstractService
 {
-    use AssertRessourceForbiddenOrNotFoundTrait;
-
     public function listBy(QuoteRequestSelectionFilter $selectionFilter = null): PaginatedData
     {
         $this->client->mustBeAuthenticated();
@@ -70,7 +67,7 @@ class QuoteRequestSelectionService extends AbstractService
     public function addDeclinationToSelection(array $declinationsQuantity, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
-        $payload = \array_map(function($declination) {
+        $payload = \array_map(function ($declination) {
             return [
                 'declinationId' => $declination->getDeclinationId(),
                 'quantity' => $declination->getQuantity()
@@ -112,7 +109,7 @@ class QuoteRequestSelectionService extends AbstractService
     public function updateSelectionDeclinations(array $declinationsQuantity, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
-        $payload = \array_map(function($declination) {
+        $payload = \array_map(function ($declination) {
             return [
                 'declinationId' => $declination->getDeclinationId(),
                 'quantity' => $declination->getQuantity()
@@ -154,7 +151,7 @@ class QuoteRequestSelectionService extends AbstractService
     public function removeDeclinationFromSelection(array $declinationsIds, int $quoteRequestSelectionId = null): array
     {
         $this->client->mustBeAuthenticated();
-        $payload = \array_map(function($declination) {
+        $payload = \array_map(function ($declination) {
             return [
                 'declinationId' => $declination
             ];

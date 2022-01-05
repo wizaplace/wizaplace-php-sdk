@@ -5,11 +5,11 @@
         url: 'http://wizaplace.loc/api/v1/users/authenticate'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             VCR-index: '0'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,11 +74,11 @@
         url: 'http://wizaplace.loc/api/v1/quote-request-selections?active=1'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '1'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -143,13 +143,13 @@
         url: 'http://wizaplace.loc/api/v1/quote-request-selections/5/update'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '2'
-            Accept: ''
+            Accept: null
         body: '{"declinations":[{"declinationId":"1_0","quantity":1},{"declinationId":"4_0","quantity":3}]}'
     response:
         status:
@@ -215,13 +215,13 @@
         url: 'http://wizaplace.loc/api/v1/quote-request-selections/update'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '3'
-            Accept: ''
+            Accept: null
         body: '{"declinations":[{"declinationId":"1_0","quantity":2},{"declinationId":"4_0","quantity":4}]}'
     response:
         status:
@@ -287,13 +287,13 @@
         url: 'http://wizaplace.loc/api/v1/quote-request-selections/15/update'
         headers:
             Host: wizaplace.loc
-            Expect: ''
-            Accept-Encoding: ''
+            Expect: null
+            Accept-Encoding: null
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '4'
-            Accept: ''
+            Accept: null
         body: '{"declinations":[{"declinationId":"4_0","quantity":1}]}'
     response:
         status:

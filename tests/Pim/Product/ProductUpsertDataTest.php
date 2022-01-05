@@ -87,8 +87,8 @@ final class ProductUpsertDataTest extends TestCase
         $productUpsertData->validate();
 
         $returnData = $productUpsertData->toArray();
-        static::assertEquals(10, $returnData['quoteRequestsMinQuantity']);
-        static::assertEquals(true, $returnData['isExclusiveToQuoteRequests']);
+        static::assertEquals(10, $returnData['quote_request_min_quantity']);
+        static::assertEquals(true, $returnData['is_quote_request_exclusive']);
     }
 
     private function minimumValidData(): ProductUpsertData

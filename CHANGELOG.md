@@ -1,6 +1,24 @@
 
 # Changelog
 
+### New features
+
+- Added `\Wizaplace\SDK\Catalog\Product::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Catalog\Product::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\Product::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setIsExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\User\User::getQuoteRequestSelectionIds`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelection`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionDeclination`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService`
+
 ## 1.144.0
 
 ### New features

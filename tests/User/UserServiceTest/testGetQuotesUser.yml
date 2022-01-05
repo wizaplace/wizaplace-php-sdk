@@ -5,11 +5,11 @@
         url: 'http://wizaplace.loc/api/v1/users/authenticate'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             VCR-index: '0'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -74,11 +74,11 @@
         url: 'http://wizaplace.loc/api/v1/users/3'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '1'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'

@@ -196,7 +196,8 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         // Add and remove from current active selection
         static::assertSame(
             [['declinationId' => '1_0']],
-            $service->removeDeclinationFromSelection(['1_0']));
+            $service->removeDeclinationFromSelection(['1_0'])
+        );
 
         // Declination already removed
         static::expectException(NotFound::class);

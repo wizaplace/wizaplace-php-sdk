@@ -33,6 +33,7 @@ class QuoteRequestSelection
     /** @var \DateTime|null */
     private $updatedAt;
 
+    /** @param mixed[] $data */
     public function __construct(array $data)
     {
         $this->id = $data['id'];

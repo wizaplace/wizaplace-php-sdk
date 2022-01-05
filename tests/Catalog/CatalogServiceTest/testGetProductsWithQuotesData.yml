@@ -5,10 +5,10 @@
         url: 'http://wizaplace.loc/api/v1/catalog/products?code=product_with_quotes_data&allowMvp=1'
         headers:
             Host: wizaplace.loc
-            Accept-Encoding: ''
+            Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             VCR-index: '0'
-            Accept: ''
+            Accept: null
     response:
         status:
             http_version: '1.1'
