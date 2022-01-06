@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
-            VCR-index: '0'
             Accept: 'application/json'
+            VCR-index: '0'
     response:
         status:
             http_version: '1.1'
@@ -79,8 +79,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
-            VCR-index: '1'
             Accept: 'application/json'
+            VCR-index: '1'
         body: '{"product_code":"product_with_quotes_data_2","supplier_ref":"product_with_quotes_data_ref","product":"Product with quotes data","status":"A","main_category":1,"green_tax":0,"condition":"N","weight":0,"full_description":"Product with quotes data full description","short_description":"Product with quotes data short description","tax_ids":[1],"inventory":[{"amount":12,"price":3.5,"combination":[],"priceTiers":null,"combination_code":"product_with_quotes_data","infinite_stock":false}],"allowed_options_variants":[],"company_id":3,"quote_request_min_quantity":10,"is_quote_request_exclusive":true}'
     response:
         status:
@@ -150,8 +150,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
-            VCR-index: '2'
             Accept: 'application/json'
+            VCR-index: '2'
     response:
         status:
             http_version: '1.1'
@@ -221,8 +221,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
-            VCR-index: '3'
             Accept: 'application/json'
+            VCR-index: '3'
         body: '{"quote_request_min_quantity":5,"is_quote_request_exclusive":false}'
     response:
         status:
@@ -291,8 +291,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
-            VCR-index: '4'
             Accept: 'application/json'
+            VCR-index: '4'
     response:
         status:
             http_version: '1.1'

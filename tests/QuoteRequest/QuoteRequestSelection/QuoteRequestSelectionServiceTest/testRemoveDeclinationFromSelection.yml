@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
-            VCR-index: '0'
             Accept: 'application/json'
+            VCR-index: '0'
     response:
         status:
             http_version: '1.1'
@@ -77,8 +77,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '1'
             Accept: 'application/json'
+            VCR-index: '1'
     response:
         status:
             http_version: '1.1'
@@ -148,8 +148,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '2'
             Accept: 'application/json'
+            VCR-index: '2'
         body: '{"declinations":[{"declinationId":"1_0","quantity":1},{"declinationId":"4_0","quantity":3}]}'
     response:
         status:
@@ -221,8 +221,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '3'
             Accept: 'application/json'
+            VCR-index: '3'
         body: '{"declinations":[{"declinationId":"4_0"}]}'
     response:
         status:
@@ -293,8 +293,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '4'
             Accept: 'application/json'
+            VCR-index: '4'
         body: '{"declinations":[{"declinationId":"1_0"}]}'
     response:
         status:
@@ -365,8 +365,8 @@
             Content-Type: application/json
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '5'
             Accept: 'application/json'
+            VCR-index: '5'
         body: '{"declinations":[{"declinationId":"4_0"}]}'
     response:
         status:

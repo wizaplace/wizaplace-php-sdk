@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
-            VCR-index: '0'
             Accept: 'application/json'
+            VCR-index: '0'
     response:
         status:
             http_version: '1.1'
@@ -77,8 +77,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '1'
             Accept: 'application/json'
+            VCR-index: '1'
     response:
         status:
             http_version: '1.1'
@@ -146,8 +146,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '2'
             Accept: 'application/json'
+            VCR-index: '2'
     response:
         status:
             http_version: '1.1'
@@ -215,8 +215,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '3'
             Accept: 'application/json'
+            VCR-index: '3'
     response:
         status:
             http_version: '1.1'
@@ -284,8 +284,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '4'
             Accept: 'application/json'
+            VCR-index: '4'
     response:
         status:
             http_version: '1.1'
@@ -353,8 +353,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '5'
             Accept: 'application/json'
+            VCR-index: '5'
     response:
         status:
             http_version: '1.1'
@@ -422,8 +422,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '6'
             Accept: 'application/json'
+            VCR-index: '6'
     response:
         status:
             http_version: '1.1'
@@ -491,8 +491,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '7'
             Accept: 'application/json'
+            VCR-index: '7'
     response:
         status:
             http_version: '1.1'
@@ -560,8 +560,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
-            VCR-index: '8'
             Accept: 'application/json'
+            VCR-index: '8'
     response:
         status:
             http_version: '1.1'

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
-            VCR-index: '0'
             Accept: 'application/json'
+            VCR-index: '0'
     response:
         status:
             http_version: '1.1'
@@ -77,8 +77,8 @@
             Accept-Encoding: null
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
-            VCR-index: '1'
             Accept: 'application/json'
+            VCR-index: '1'
     response:
         status:
             http_version: '1.1'
