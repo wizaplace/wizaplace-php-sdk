@@ -1,10 +1,11 @@
 
 # Changelog
 
-## New Release
+## New version
 
 ### New features
 
+- Set Content-Language headers on API requests
 - Updated `\Wizaplace\SDK\Discussion\DiscussionService::getMessages` add 1 param `$markMessagesAsRead`
 
 ## 1.146.0
