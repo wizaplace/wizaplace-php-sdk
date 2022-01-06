@@ -1,0 +1,157 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.24'
+            Accept: application/json
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 15 Dec 2021 13:23:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 32a99f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/32a99f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 78339aff92a7fd6c68894963d25226ae
+        body: '{"id":7,"apiKey":"k0aktDORiTGsh\/iXWKe+Jcz0Erk1xUb6PN6DOcHA"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.24'
+            Authorization: 'token k0aktDORiTGsh/iXWKe+Jcz0Erk1xUb6PN6DOcHA'
+            Accept: application/json
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 15 Dec 2021 13:23:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '789235'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/789235'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4f11ed327823d9a59261142e081bf199
+        body: '{"id":4,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":null,"title":"Contact The World Company Inc.","unreadCount":0}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/4/messages/?markMessagesAsRead=false'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.24'
+            Authorization: 'token k0aktDORiTGsh/iXWKe+Jcz0Erk1xUb6PN6DOcHA'
+            Accept: application/json
+            VCR-index: '2'
+    response:
+        status:
+            http_version: '1.1'
+            code: '301'
+            message: 'Moved Permanently'
+        headers:
+            Server: nginx
+            Content-Type: 'text/html; charset=UTF-8'
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Date: 'Wed, 15 Dec 2021 13:23:25 GMT'
+            Location: 'http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 2b5fd6
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/2b5fd6'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%222b5fd6%22%2C%22route%22%3A%22api_discussion_get_messages%22%2C%22method%22%3A%22GET%22%2C%22controller%22%3A%7B%22class%22%3A%22Symfony%5C%5CBundle%5C%5CFrameworkBundle%5C%5CController%5C%5CRedirectController%22%2C%22method%22%3A%22urlRedirectAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fvendor%5C%2Fsymfony%5C%2Fsymfony%5C%2Fsrc%5C%2FSymfony%5C%2FBundle%5C%2FFrameworkBundle%5C%2FController%5C%2FRedirectController.php%22%2C%22line%22%3A109%7D%2C%22status_code%22%3A301%2C%22status_text%22%3A%22Moved%20Permanently%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: de9b0a08459bb2395c5808ce6cb17fa3
+        body: "<!DOCTYPE html>\n<html>\n    <head>\n        <meta charset=\"UTF-8\" />\n        <meta http-equiv=\"refresh\" content=\"0;url='http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false'\" />\n\n        <title>Redirecting to http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false</title>\n    </head>\n    <body>\n        Redirecting to <a href=\"http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false\">http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false</a>.\n    </body>\n</html>"
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/4/messages?markMessagesAsRead=false'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.24'
+            Authorization: 'token k0aktDORiTGsh/iXWKe+Jcz0Erk1xUb6PN6DOcHA'
+            Accept: application/json
+            VCR-index: '3'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 15 Dec 2021 13:23:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ad8956
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ad8956'
+            X-Robots-Tag: noindex
+            X-Request-Id: 8034b8f47eec0cc2ffb2222599f70507
+        body: '[{"content":"Test message","author":"Paul Martin","authorId":3,"date":"2021-12-14T16:40:26+01:00","attachments":[],"isCompany":false},{"content":"Test message 2","author":"Paul Martin","authorId":3,"date":"2021-12-14T16:41:43+01:00","attachments":[{"id":"56a45b4c-5cf4-11ec-947f-0242ac120008","name":"symfony.png","messageId":5,"publicUrl":"http:\/\/wizaplace.loc\/api\/v1\/discussions\/attachments\/56a45b4c-5cf4-11ec-947f-0242ac120008?messageId=5"}],"isCompany":false}]'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/discussions/4'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@a031dd0 PHP/7.4.24'
+            Authorization: 'token k0aktDORiTGsh/iXWKe+Jcz0Erk1xUb6PN6DOcHA'
+            Accept: application/json
+            VCR-index: '4'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Wed, 15 Dec 2021 13:23:25 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 749dd4
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/749dd4'
+            X-Robots-Tag: noindex
+            X-Request-Id: 55c3df5058b43bd4ebce28d80900af56
+        body: '{"id":4,"recipient":"The World Company Inc.","recipientId":6,"productId":null,"companyId":3,"orderId":null,"title":"Contact The World Company Inc.","unreadCount":0}'

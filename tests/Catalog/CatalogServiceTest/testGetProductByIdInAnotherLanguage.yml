@@ -8,6 +8,7 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-feature/WIZ-31-add-delivery-time@c12ea2b
             Accept-Language: en
+            Content-Language: en
             Accept: 'application/json'
             VCR-index: '0'
     response:

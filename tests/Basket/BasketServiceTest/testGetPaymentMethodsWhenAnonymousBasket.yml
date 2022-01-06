@@ -1,0 +1,63 @@
+
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/basket'
+        headers:
+            Host: wizaplace.loc
+            Content-Length: '0'
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-1487-api-allow-video-upload-by-file-in-a-pim-product@25e9939 PHP/7.1.33-40+ubuntu18.04.1+deb.sury.org+1'
+            Accept: application/json
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 23 Dec 2021 14:09:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a3cc5e
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a3cc5e'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a3cc5e%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A129%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 867160f09e4bfa100be3a1f016188cfc
+        body: '"d32abe70-2200-4f6c-a5ec-93c07107ed7e"'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/basket/d32abe70-2200-4f6c-a5ec-93c07107ed7e/payments'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-TMA-1487-api-allow-video-upload-by-file-in-a-pim-product@25e9939 PHP/7.1.33-40+ubuntu18.04.1+deb.sury.org+1'
+            Accept: application/json
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Thu, 23 Dec 2021 14:09:18 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: '6e2274'
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6e2274'
+            X-Robots-Tag: noindex
+            X-Request-Id: 72793389154e0e12f14acd6815f5cb4e
+        body: '[{"id":1,"name":"CB","description":"Carte Bleue","position":0,"image":{"id":3},"type":"manual","externalReference":null},{"id":2,"name":"Visa","description":"Carte Visa","position":1,"image":null,"type":"manual","externalReference":null},{"id":3,"name":"MasterCard","description":"Carte MasterCard","position":2,"image":null,"type":"manual","externalReference":null},{"id":4,"name":"Paiement \u00e0 \u00e9ch\u00e9ance","description":"","position":3,"image":null,"type":"payment-deferment","externalReference":null}]'
