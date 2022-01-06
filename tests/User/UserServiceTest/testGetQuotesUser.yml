@@ -9,7 +9,7 @@
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             VCR-index: '0'
-            Accept: null
+            Accept: 'application/json'
     response:
         status:
             http_version: '1.1'
@@ -78,7 +78,7 @@
             User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
             Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
             VCR-index: '1'
-            Accept: null
+            Accept: 'application/json'
     response:
         status:
             http_version: '1.1'
