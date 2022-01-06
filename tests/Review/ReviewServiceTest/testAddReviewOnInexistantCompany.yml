@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic Y3VzdG9tZXItMUB3b3JsZC1jb21wYW55LmNvbTpwYXNzd29yZC1jdXN0b21lci0x'
             User-Agent: Wizaplace-PHP-SDK/dev-error-code_company-not-found@1c2a80f
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -36,8 +36,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-error-code_company-not-found@1c2a80f
             Authorization: 'token zhqiZm2sxJSfgQxFEmzKlU4+6h9R9d9UeAQyUAlR'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"message":"test company review","rating":2}'
     response:
         status:

@@ -354,10 +354,17 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
         }
 
+        $this->addAuth($options);
+
+        // Default accepted content is JSON (most of the endpoints are working with this content type)
+        if (false === \in_array('accept', array_map('strtolower', array_keys($options[RequestOptions::HEADERS])))) {
+            $options[RequestOptions::HEADERS]['Accept'] = 'application/json';
+        }
+
         $eventId = $this->dispatchRequestStart($method, $uri, $options);
 
         try {
-            $result = $this->httpClient->request($method, $uri, $this->addAuth($options));
+            $result = $this->httpClient->request($method, $uri, $options);
         } catch (BadResponseException $e) {
             $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
@@ -479,21 +486,16 @@ final class ApiClient
         return $data;
     }
 
-    /**
-     * @param array $options
-     *
-     * @return array
-     */
-    private function addAuth(array $options): array
+    /** @param array $options */
+    private function addAuth(array &$options): void
     {
         if (!\is_null($this->apiKey)) {
             $options['headers']['Authorization'] = 'token ' . $this->apiKey->getKey();
         }
+
         if (!\is_null($this->applicationToken)) {
             $options['headers']['Application-Token'] = $this->applicationToken;
         }
-
-        return $options;
     }
 
     private function dispatchRequestStart(string $method, $uri, array &$params): string

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic dmVuZG9yQHdvcmxkLWNvbXBhbnkuY29tOnBhc3N3b3JkLXZlbmRvcg=='
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -40,8 +40,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
             Authorization: 'token +1JaSUNdSrGNNaicRyWAmGCrzZ8qfQqejSymQbil'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"approved":true}'
     response:
         status:
@@ -73,8 +73,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
             Authorization: 'token +1JaSUNdSrGNNaicRyWAmGCrzZ8qfQqejSymQbil'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: '{"invoice_number":"00072"}'
     response:
         status:
@@ -104,8 +104,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-fix-TMA-703-Add-SDK-pagination-on-api-orders@19f2267
             Authorization: 'token +1JaSUNdSrGNNaicRyWAmGCrzZ8qfQqejSymQbil'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
