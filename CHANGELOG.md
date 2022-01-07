@@ -5,7 +5,7 @@
 
 ### Changes
 
-- In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more require to be authenticated.
+- In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more required to be authenticated.
 
 ## 1.147.0
 
