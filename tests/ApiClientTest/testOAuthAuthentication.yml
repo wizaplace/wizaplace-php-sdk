@@ -9,8 +9,8 @@
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-master@c0ff65e
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
         body: token=4%2FAAAfMc0UWDe1LOXv93D0ZKM2f5VuazwpHl004ZPfjB1tpBQDIa95uYFPPPMcH2ePnJoPhgzcp6ZWGDbEGYS9-6Q%23
     response:
         status:
@@ -36,8 +36,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-master@c0ff65e
             Authorization: 'token 3995e72b15cb146c4bc413603b08a2a7bebbae9f'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'

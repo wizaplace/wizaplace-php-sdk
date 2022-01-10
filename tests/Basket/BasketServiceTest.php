@@ -934,6 +934,25 @@ final class BasketServiceTest extends ApiTestCase
         static::assertSame('Près de la poste', $basket->getShippingAddress()->getComment());
     }
 
+    public function testGetPaymentMethodsWhenAnonymousBasket(): void
+    {
+        $apiClient = $this->buildApiClient();
+        $basketService = new BasketService($apiClient);
+        $basket = $basketService->createEmptyBasket();
+        $result = $basketService->getPayments($basket->getId());
+
+        static::assertEquals(4, \count($result));
+
+        static::assertEquals(1, $result[0]->getId());
+        static::assertEquals('CB', $result[0]->getName());
+        static::assertEquals(2, $result[1]->getId());
+        static::assertEquals('Visa', $result[1]->getName());
+        static::assertEquals(3, $result[2]->getId());
+        static::assertEquals('MasterCard', $result[2]->getName());
+        static::assertEquals(4, $result[3]->getId());
+        static::assertEquals('Paiement à échéance', $result[3]->getName());
+    }
+
     public function basketProvider(): array
     {
         return [

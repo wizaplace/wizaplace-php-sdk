@@ -8,8 +8,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -33,8 +33,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'token VDQn0VwgFwtdvqtWnltQaDsFzoGPwBEDNXtrTJbX'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -59,8 +59,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'token VDQn0VwgFwtdvqtWnltQaDsFzoGPwBEDNXtrTJbX'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -84,8 +84,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'token VDQn0VwgFwtdvqtWnltQaDsFzoGPwBEDNXtrTJbX'
+            Accept: 'application/json'
             VCR-index: '3'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -109,8 +109,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'token VDQn0VwgFwtdvqtWnltQaDsFzoGPwBEDNXtrTJbX'
+            Accept: 'application/json'
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -133,8 +133,8 @@
             Accept-Encoding: null
             User-Agent: 'GuzzleHttp/6.2.1 curl/7.38.0 PHP/7.1.9'
             Authorization: 'token VDQn0VwgFwtdvqtWnltQaDsFzoGPwBEDNXtrTJbX'
+            Accept: 'application/json'
             VCR-index: '5'
-            Accept: null
     response:
         status:
             http_version: '1.1'

@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
             User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -35,8 +35,8 @@
             Accept-Encoding: null
             User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
             Authorization: 'token yuJ2uw6ZRDlLRO4TGotSmeDIEGz2GPmaVjn9Qbqr'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -63,8 +63,8 @@
             Content-Type: application/x-www-form-urlencoded
             User-Agent: Wizaplace-PHP-SDK/dev-error-code_basket-is-empty@f3c77a7
             Authorization: 'token yuJ2uw6ZRDlLRO4TGotSmeDIEGz2GPmaVjn9Qbqr'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: 'paymentId=1&acceptTermsAndConditions=1&redirectUrl=https%3A%2F%2Fdemo.loc%2Forder%2Fconfirm'
     response:
         status:

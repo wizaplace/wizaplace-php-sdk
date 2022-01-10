@@ -332,7 +332,14 @@ final class ApiClient
          . ' PHP/' . PHP_VERSION;
 
         if ($this->language !== null) {
-            $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+            // @see CatalogService: somehow we can override the language
+            if (false === $this->isHeaderSet('Accept-Language', $options)) {
+                $options[RequestOptions::HEADERS]['Accept-Language'] = $this->language;
+            }
+
+            if (false === $this->isHeaderSet('Content-Language', $options)) {
+                $options[RequestOptions::HEADERS]['Content-Language'] = $this->language;
+            }
         }
 
         if ($this->requestLogger !== null) {
@@ -354,10 +361,17 @@ final class ApiClient
             $options[RequestOptions::HEADERS]['X-Request-Id'] = $_SERVER['HTTP_X_REQUEST_ID'];
         }
 
+        $this->addAuth($options);
+
+        // Default accepted content is JSON (most of the endpoints are working with this content type)
+        if (false === $this->isHeaderSet('Accept', $options)) {
+            $options[RequestOptions::HEADERS]['Accept'] = 'application/json';
+        }
+
         $eventId = $this->dispatchRequestStart($method, $uri, $options);
 
         try {
-            $result = $this->httpClient->request($method, $uri, $this->addAuth($options));
+            $result = $this->httpClient->request($method, $uri, $options);
         } catch (BadResponseException $e) {
             $domainError = $this->extractDomainErrorFromGuzzleException($e);
             if ($domainError !== null) {
@@ -479,21 +493,16 @@ final class ApiClient
         return $data;
     }
 
-    /**
-     * @param array $options
-     *
-     * @return array
-     */
-    private function addAuth(array $options): array
+    /** @param array $options */
+    private function addAuth(array &$options): void
     {
         if (!\is_null($this->apiKey)) {
             $options['headers']['Authorization'] = 'token ' . $this->apiKey->getKey();
         }
+
         if (!\is_null($this->applicationToken)) {
             $options['headers']['Application-Token'] = $this->applicationToken;
         }
-
-        return $options;
     }
 
     private function dispatchRequestStart(string $method, $uri, array &$params): string
@@ -513,5 +522,14 @@ final class ApiClient
         if (null !== $this->eventDispatcher) {
             $this->eventDispatcher->dispatchRequestEnd($eventId, $response);
         }
+    }
+
+    // Checks if a given header has already been set
+    private function isHeaderSet(string $headerName, array $options): bool
+    {
+        return \in_array(
+            strtolower($headerName),
+            array_map('strtolower', array_keys($options[RequestOptions::HEADERS]))
+        );
     }
 }
