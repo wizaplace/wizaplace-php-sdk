@@ -8,8 +8,8 @@
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
             User-Agent: Wizaplace-PHP-SDK/dev-develop@cdc02f5
+            Accept: 'application/json'
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -79,8 +79,8 @@
             Content-Type: application/json
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@7b6c9c0
             Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
+            Accept: 'application/json'
             VCR-index: '1'
-            Accept: null
         body: '{"code":"XXX-xxx-XXX","name":"New Test MVP","supplierReference":"AZAZPMPKKD23","slug":"new-test-mvp","shortDescription":"Nihil est qui quibusdam exercitationem","description":"Nihil est qui quibusdam exercitationem consequatur doloribus sit velit. Ut temporibus est qui et molestiae facilis nisi","seoTitle":"New Test MVP","seoDescription":"New Test MVP Nihil est qui quibusdam exercitationem","seoKeywords":"MVP, PRODUCT, TEST","status":"A","categoryId":3,"attributes":[],"freeAttributes":{"Free attribute multiple":["Num 1","Num 2",51],"Free attribute simple":["Bla"]}}'
     response:
         status:
@@ -152,8 +152,8 @@
             Content-Type: 'multipart/form-data; boundary=351b977fb35173aa961c45f295785f4aa912cebd'
             User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-411-Adding-ALT-tag-on-product-images@7b6c9c0
             Authorization: 'token q+3UjIhl70nFF29sysP1xIyRiUK45FpFkHilt6Kp'
+            Accept: 'application/json'
             VCR-index: '2'
-            Accept: null
         body: !!binary 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
     response:
         status:

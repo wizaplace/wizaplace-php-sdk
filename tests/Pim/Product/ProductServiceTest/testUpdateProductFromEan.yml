@@ -110,7 +110,7 @@
       Authorization: 'token vTPA/aRx1tl86QYWjmwaYVC7eoX996B2KdfgWVIK'
       Accept: 'application/json'
       VCR-index: '3'
-    body: '{"stock":5}'
+    body: '{"stock":5,"company_ids":[]}'
   response:
     status:
       http_version: '1.1'
