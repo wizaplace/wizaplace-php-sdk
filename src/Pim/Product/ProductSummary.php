@@ -174,8 +174,8 @@ class ProductSummary
         $this->shortDescription = $data['short_description'] ?? '';
         $this->taxIds = $data['tax_ids'] ?? [];
         $this->video = $data['video'] ?? null;
-        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
-        $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
+        $this->quoteRequestsMinQuantity = $data['quote_requests_min_quantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['is_exclusive_to_quote_requests'] ?? null;
 
         $this->related = $this->denormalizeRelated($data['related'] ?? []);
     }

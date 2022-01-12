@@ -100,8 +100,8 @@ final class Product extends ProductSummary
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
         $this->video = $data['video'] ?? null;
-        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
-        $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
+        $this->quoteRequestsMinQuantity = $data['quote_requests_min_quantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['is_exclusive_to_quote_requests'] ?? null;
     }
 
     /**
