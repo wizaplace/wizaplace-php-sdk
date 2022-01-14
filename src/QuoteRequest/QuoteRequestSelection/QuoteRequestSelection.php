@@ -21,8 +21,8 @@ class QuoteRequestSelection
     /** @var bool */
     private $active;
 
-    /** @var string[] */
-    private $declinationIds;
+    /** @var mixed[] */
+    private $declinations;
 
     /** @var int[] */
     private $quoteRequestsIds;
@@ -39,7 +39,7 @@ class QuoteRequestSelection
         $this->id = $data['id'];
         $this->userId = $data['userId'];
         $this->active = $data['active'];
-        $this->declinationIds = $data['declinationIds'];
+        $this->declinations = $data['declinations'];
         $this->quoteRequestsIds = $data['quoteRequestsIds'];
         $this->createdAt = (new \DateTime())->setTimestamp($data['createdAt']);
         $this->updatedAt = $data['updatedAt'] === ""
@@ -62,10 +62,10 @@ class QuoteRequestSelection
         return $this->active;
     }
 
-    /** @return string[] */
-    public function getDeclinationIds(): array
+    /** @return mixed[] */
+    public function getDeclinations(): array
     {
-        return $this->declinationIds;
+        return $this->declinations;
     }
 
     /** @return int[] */
