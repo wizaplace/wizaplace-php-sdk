@@ -7,9 +7,9 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpwYXNzd29yZA=='
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Accept: application/json
             VCR-index: '0'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -22,14 +22,14 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:14 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c69ffb
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c69ffb'
+            X-Debug-Token: cbc80c
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/cbc80c'
             X-Robots-Tag: noindex
-            X-Request-Id: 2dd181a433a9fb81771f4f3348d0cafb
-        body: '{"id":2,"apiKey":"KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR\/Wy7"}'
+            X-Request-Id: 76b224f9a31dfb464767d22928834ae6
+        body: '{"id":2,"apiKey":"bMvCqDExd\/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX"}'
 -
     request:
         method: POST
@@ -38,10 +38,10 @@
             Host: wizaplace.loc
             Content-Length: '0'
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '1'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -54,28 +54,28 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:14 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 99a793
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/99a793'
+            X-Debug-Token: d5b206
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/d5b206'
             X-Robots-Tag: noindex
-            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%2299a793%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A119%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
-            X-Request-Id: 3e3fae04b89ec92f57351c3b89b86622
-        body: '"051c1378-b3e4-4729-84d4-f9d7cbeba858"'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22d5b206%22%2C%22route%22%3A%22api_basket_create%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CAppBundle%5C%5CController%5C%5CApi%5C%5CBasketController%22%2C%22method%22%3A%22createAction%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fsrc%5C%2FAppBundle%5C%2FController%5C%2FApi%5C%2FBasketController.php%22%2C%22line%22%3A164%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: b63eb7c9ca453b50d6d5d5c2c809bda6
+        body: '"5ccdb133-50d3-4410-ad78-e6f82a610283"'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858/add'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '2'
-            Accept: null
         body: 'declinationId=1&quantity=1'
     response:
         status:
@@ -89,27 +89,27 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:14 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: '399e24'
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/399e24'
+            X-Debug-Token: 77a1a3
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/77a1a3'
             X-Robots-Tag: noindex
-            X-Request-Id: 03597d1b5737f822f46612ca0ed09717
+            X-Request-Id: 608a791d17ce6ac6d5840dfa5a170571
         body: '{"quantity":1,"added":1}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858/add'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283/add'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/x-www-form-urlencoded
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '3'
-            Accept: null
         body: 'declinationId=2&quantity=1'
     response:
         status:
@@ -123,25 +123,25 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:14 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: dde0ec
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/dde0ec'
+            X-Debug-Token: 991c9f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/991c9f'
             X-Robots-Tag: noindex
-            X-Request-Id: f02ebeb06b8b762febd4f0af626197cd
+            X-Request-Id: ba74837fb7a590f49b0fce2f524ecf0d
         body: '{"quantity":1,"added":1}'
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '4'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -154,28 +154,28 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:14 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:43 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f8a890
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f8a890'
+            X-Debug-Token: 0a08e5
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0a08e5'
             X-Robots-Tag: noindex
-            X-Request-Id: efbd1366da8f4384b45fbfd521220145
-        body: '{"id":"051c1378-b3e4-4729-84d4-f9d7cbeba858","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":69.33,"productTaxes":1.43,"shippingTotalWithTaxes":5424,"shippingTaxes":904,"taxTotal":905.43,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":69.33,"individualTax":1.43,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":69.33,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43},"totalPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":4520,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"carriagePaidThreshold":4000000,"carriagePaid":false,"originalPrice":4520,"externalPrice":false,"selected":true}],"carriagePaid":false,"productTotalWithTaxes":69.33,"productTaxes":1.43,"shippingTotalWithTaxes":5424,"shippingTaxes":904,"taxTotal":905.43,"itemsPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43},"selectedShippingPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"totalPrice":{"priceWithoutVat":4587.9,"priceWithTaxes":5493.33,"vat":905.43},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]},{"company":{"id":1,"name":"Marchand de test","slug":"marchand-de-test"},"productTotalWithTaxes":11.23,"productTaxes":0.23,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.23,"shippingGroups":[{"id":2,"items":[{"declinationId":"2_1_1_2_5","productId":2,"productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productUrl":"https:\/\/wizaplace.loc\/informatique\/souris-sans-fil-avec-recepteur-nano-6-boutons.html","individualPrice":11.23,"individualTax":0.23,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":11.23,"options":{"1":{"optionId":1,"optionName":"color","optionCode":null,"variantId":1,"variantName":"white"},"2":{"optionId":2,"optionName":"connectivity","optionCode":null,"variantId":5,"variantName":"wireless"}},"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"totalPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":true}],"carriagePaid":false,"productTotalWithTaxes":11.23,"productTaxes":0.23,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.23,"itemsPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]}],"subtotal":80.56,"totalDiscount":0,"totalShipping":5424,"totalShippingTax":904,"totalTax":905.66,"total":5504.56,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":78.9,"priceWithTaxes":80.56,"vat":1.66},"totalShippingsPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"totalGlobalPrice":{"priceWithoutVat":4598.9,"priceWithTaxes":5504.56,"vat":905.66},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+            X-Request-Id: 4d5691a5dd48be7898dcc47841203bdf
+        body: '{"id":"5ccdb133-50d3-4410-ad78-e6f82a610283","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":67.9,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}},{"declinationId":"2_1_1_2_5","productId":2,"productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productUrl":"https:\/\/wizaplace.loc\/\/informatique\/souris-sans-fil-avec-recepteur-nano-6-boutons.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"1":{"optionId":1,"optionName":"color","optionCode":null,"variantId":1,"variantName":"white"},"2":{"optionId":2,"optionName":"connectivity","optionCode":null,"variantId":5,"variantName":"wireless"}},"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false},{"id":42,"name":"MondialRelay","type":"M","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false},{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false}],"carriagePaid":false,"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"itemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]}],"subtotal":83.4,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.72,"total":83.4,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"isEligibleToPickupPointsShipping":true,"isPickupPointsShipping":false}'
 -
     request:
         method: POST
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858/shipping-price'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283/shipping-price'
         headers:
             Host: wizaplace.loc
             Expect: null
             Accept-Encoding: null
             Content-Type: application/json
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '5'
-            Accept: null
-        body: '{"shippingGroups":[{"id":1,"shippings":[{"id":38,"price":10}]},{"id":2,"shippings":[{"id":1,"price":10}]}]}'
+        body: '{"shippingGroups":[{"id":1,"shippings":[{"id":38,"price":10},{"id":39,"price":10},{"id":42,"price":10},{"id":1,"price":10}]}]}'
     response:
         status:
             http_version: '1.1'
@@ -188,25 +188,25 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:15 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:44 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: a73617
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a73617'
+            X-Debug-Token: 0ad3ea
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/0ad3ea'
             X-Robots-Tag: noindex
-            X-Request-Id: 6c34036966c8b5ffde986ca823acf21d
-        body: '[{"shippingGroup":1,"shipping":38,"code":200,"message":"Price of shipping 38 for shipping group 1 was updated to 10"},{"shippingGroup":2,"shipping":1,"code":200,"message":"Price of shipping 1 for shipping group 2 was updated to 10"}]'
+            X-Request-Id: 56b6dc597f23004b899a2178a1f508b7
+        body: '[{"shippingGroup":1,"shipping":38,"code":200,"message":"Price of shipping 38 for shipping group 1 was updated to 10"},{"shippingGroup":1,"shipping":39,"code":200,"message":"Price of shipping 39 for shipping group 1 was updated to 10"},{"shippingGroup":1,"shipping":42,"code":200,"message":"Price of shipping 42 for shipping group 1 was updated to 10"},{"shippingGroup":1,"shipping":1,"code":200,"message":"Price of shipping 1 for shipping group 1 was updated to 10"}]'
 -
     request:
         method: DELETE
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858/shipping-price'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283/shipping-price'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '6'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -217,24 +217,24 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:15 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:44 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: c03879
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c03879'
+            X-Debug-Token: 47b632
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/47b632'
             X-Robots-Tag: noindex
-            X-Request-Id: 8fb074788db7f6569044213b6e306313
+            X-Request-Id: b0addaca9fbf20fab4b05978611ee8d4
 -
     request:
         method: GET
-        url: 'http://wizaplace.loc/api/v1/basket/051c1378-b3e4-4729-84d4-f9d7cbeba858'
+        url: 'http://wizaplace.loc/api/v1/basket/5ccdb133-50d3-4410-ad78-e6f82a610283'
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-WIZ-10027-shipping-custom-price@2abe39f
-            Authorization: 'token KawWCxOMZxh1nthqdPgxgJ0cIP0ofpg0rdaR/Wy7'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-epic-WIZ-10211-custom-shipping-price@d1c806c PHP/7.2.34-24+ubuntu20.04.1+deb.sury.org+1'
+            Authorization: 'token bMvCqDExd/qZ6V75e+m7VsQVrGvM0TChq6UAG9FX'
+            Accept: application/json
             VCR-index: '7'
-            Accept: null
     response:
         status:
             http_version: '1.1'
@@ -247,11 +247,11 @@
             Connection: keep-alive
             X-Powered-By: PHP/7.4.23
             Cache-Control: 'no-cache, private'
-            Date: 'Tue, 05 Oct 2021 14:16:15 GMT'
+            Date: 'Wed, 19 Jan 2022 14:38:44 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: f29fa6
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f29fa6'
+            X-Debug-Token: 5db323
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5db323'
             X-Robots-Tag: noindex
-            X-Request-Id: 4de8462032c5e21d27f725a6835270c6
-        body: '{"id":"051c1378-b3e4-4729-84d4-f9d7cbeba858","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":69.33,"productTaxes":1.43,"shippingTotalWithTaxes":5424,"shippingTaxes":904,"taxTotal":905.43,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/informatique\/test-product-slug.html","individualPrice":69.33,"individualTax":1.43,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":69.33,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43},"totalPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":4520,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"carriagePaidThreshold":4000000,"carriagePaid":false,"originalPrice":4520,"externalPrice":false,"selected":true}],"carriagePaid":false,"productTotalWithTaxes":69.33,"productTaxes":1.43,"shippingTotalWithTaxes":5424,"shippingTaxes":904,"taxTotal":905.43,"itemsPrice":{"priceWithoutVat":67.9,"priceWithTaxes":69.33,"vat":1.43},"selectedShippingPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"totalPrice":{"priceWithoutVat":4587.9,"priceWithTaxes":5493.33,"vat":905.43},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]},{"company":{"id":1,"name":"Marchand de test","slug":"marchand-de-test"},"productTotalWithTaxes":11.23,"productTaxes":0.23,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.23,"shippingGroups":[{"id":2,"items":[{"declinationId":"2_1_1_2_5","productId":2,"productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productUrl":"https:\/\/wizaplace.loc\/informatique\/souris-sans-fil-avec-recepteur-nano-6-boutons.html","individualPrice":11.23,"individualTax":0.23,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":11.23,"options":{"1":{"optionId":1,"optionName":"color","optionCode":null,"variantId":1,"variantName":"white"},"2":{"optionId":2,"optionName":"connectivity","optionCode":null,"variantId":5,"variantName":"wireless"}},"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"totalPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23}}],"shippings":[{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":true}],"carriagePaid":false,"productTotalWithTaxes":11.23,"productTaxes":0.23,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":0.23,"itemsPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":11,"priceWithTaxes":11.23,"vat":0.23},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]}],"subtotal":80.56,"totalDiscount":0,"totalShipping":5424,"totalShippingTax":904,"totalTax":905.66,"total":5504.56,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":78.9,"priceWithTaxes":80.56,"vat":1.66},"totalShippingsPrice":{"priceWithoutVat":4520,"priceWithTaxes":5424,"vat":904},"totalGlobalPrice":{"priceWithoutVat":4598.9,"priceWithTaxes":5504.56,"vat":905.66},"isEligibleToPickupPointsShipping":false,"isPickupPointsShipping":false}'
+            X-Request-Id: 8465d40e3383842254d8291913aecec9
+        body: '{"id":"5ccdb133-50d3-4410-ad78-e6f82a610283","comment":"","coupons":[],"billingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"shippingAddress":{"title":"","firstname":"","lastname":"","company":"","address":"","address2":"","zipcode":"","city":"","state":"","country":"","phone":"","email":"","division":"","pickupPointId":"","label":"","comment":""},"companyGroups":[{"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc"},"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"shippingGroups":[{"id":1,"items":[{"declinationId":"1_0","productId":1,"productName":"Z11 Plus Bo\u00eetier PC en Acier ATX","productCode":"978020137962","productUrl":"https:\/\/wizaplace.loc\/\/informatique\/test-product-slug.html","individualPrice":67.9,"individualTax":1.4,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":67.9,"options":[],"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4},"totalPrice":{"priceWithoutVat":66.5,"priceWithTaxes":67.9,"vat":1.4}},{"declinationId":"2_1_1_2_5","productId":2,"productName":"Souris sans fil avec r\u00e9cepteur nano 6 boutons","productCode":"color_white_connectivity_wireles","productUrl":"https:\/\/wizaplace.loc\/\/informatique\/souris-sans-fil-avec-recepteur-nano-6-boutons.html","individualPrice":15.5,"individualTax":0.32,"crossedOutPrice":null,"greenTax":0,"mainImage":null,"quantity":1,"total":15.5,"options":{"1":{"optionId":1,"optionName":"color","optionCode":null,"variantId":1,"variantName":"white"},"2":{"optionId":2,"optionName":"connectivity","optionCode":null,"variantId":5,"variantName":"wireless"}},"comment":"","divisions":[],"unitPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32},"totalPrice":{"priceWithoutVat":15.18,"priceWithTaxes":15.5,"vat":0.32}}],"shippings":[{"id":38,"name":"Lettre prioritaire","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":true},{"id":39,"name":"Colissmo","type":"S","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false},{"id":42,"name":"MondialRelay","type":"M","price":0,"deliveryTime":"","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false},{"id":1,"name":"TNT Express","type":"S","price":0,"deliveryTime":"24h","image":null,"shippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"carriagePaidThreshold":null,"carriagePaid":false,"originalPrice":0,"externalPrice":false,"selected":false}],"carriagePaid":false,"productTotalWithTaxes":83.4,"productTaxes":1.72,"shippingTotalWithTaxes":0,"shippingTaxes":0,"taxTotal":1.72,"itemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"selectedShippingPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"pickupPointId":null,"firstName":null,"lastName":null,"title":null}]}],"subtotal":83.4,"totalDiscount":0,"totalShipping":0,"totalShippingTax":0,"totalTax":1.72,"total":83.4,"totalMarketplaceDiscount":0,"totalQuantity":2,"totalItemsPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"totalShippingsPrice":{"priceWithoutVat":0,"priceWithTaxes":0,"vat":0},"totalGlobalPrice":{"priceWithoutVat":81.68,"priceWithTaxes":83.4,"vat":1.72},"isEligibleToPickupPointsShipping":true,"isPickupPointsShipping":false}'
