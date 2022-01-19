@@ -430,14 +430,12 @@ class BasketService extends AbstractService
      *
      * @return Payment[]
      *
-     * @throws AuthenticationRequired
      * @throws NotFound
      * @throws \GuzzleHttp\Exception\GuzzleException
      * @throws \Wizaplace\SDK\Exception\JsonDecodingError
      */
     public function getPayments(string $basketId): array
     {
-        $this->client->mustBeAuthenticated();
         try {
             $payments = $this->client->get("basket/{$basketId}/payments");
         } catch (ClientException $ex) {

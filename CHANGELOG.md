@@ -9,6 +9,16 @@
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
 
+## 1.147.0
+
+### New features
+
+- Set Content-Language headers on API requests
+- Updated `\Wizaplace\SDK\Discussion\DiscussionService::getMessages` add 1 param `$markMessagesAsRead`
+
+### Bugfix
+- Removed authentication required when asking to get all the available payment methods for a given basket.
+
 ## 1.146.0
 
 ### New features
