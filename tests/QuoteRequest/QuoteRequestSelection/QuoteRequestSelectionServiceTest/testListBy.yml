@@ -98,7 +98,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/993027'
             X-Robots-Tag: noindex
             X-Request-Id: 4cdc9540b82b6487fd39905e1f4ba162
-        body: '{"limit":100,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226},{"id":4,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740},{"id":3,"userId":3,"active":false,"declinationIds":["4_0"],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265},{"id":2,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1640084126,"updatedAt":""},{"id":1,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1639995740,"updatedAt":""}]}'
+        body: '{"limit":100,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226},{"id":4,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740},{"id":3,"userId":3,"active":false,"declinations":[{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265},{"id":2,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1640084126,"updatedAt":""},{"id":1,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1639995740,"updatedAt":""}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?limit=100&offset=0'
             content_type: application/json
@@ -167,7 +167,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b0fa58'
             X-Robots-Tag: noindex
             X-Request-Id: 7e7a2ab8dfe78fe48e24797ced382e88
-        body: '{"limit":100,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226},{"id":4,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740},{"id":3,"userId":3,"active":false,"declinationIds":["4_0"],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265},{"id":2,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1640084126,"updatedAt":""},{"id":1,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1639995740,"updatedAt":""}]}'
+        body: '{"limit":100,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226},{"id":4,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740},{"id":3,"userId":3,"active":false,"declinations":[{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265},{"id":2,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1640084126,"updatedAt":""},{"id":1,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1639995740,"updatedAt":""}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?ids%5B0%5D=1&ids%5B1%5D=2&ids%5B2%5D=3&ids%5B3%5D=4&ids%5B4%5D=5&userIds%5B0%5D=3&creationPeriod%5Bfrom%5D=2021-01-01T00%3A00%3A00%2B00%3A00&creationPeriod%5Bto%5D=2022-01-01T00%3A00%3A00%2B00%3A00'
             content_type: application/json
@@ -236,7 +236,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3295d7'
             X-Robots-Tag: noindex
             X-Request-Id: c5a975800c499ba98caa8cd4e58f3e28
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":3,"userId":3,"active":false,"declinationIds":["4_0"],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":3,"userId":3,"active":false,"declinations":[{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?ids%5B0%5D=3'
             content_type: application/json
@@ -305,7 +305,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e78aac'
             X-Robots-Tag: noindex
             X-Request-Id: bd1f962711531982b343b25e10490a16
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?active=1'
             content_type: application/json
@@ -374,7 +374,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/731775'
             X-Robots-Tag: noindex
             X-Request-Id: 110ed25fdbe508eabb3c6e8373cd3705
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?declinationIds%5B0%5D=1_0'
             content_type: application/json
@@ -443,7 +443,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/20fdbf'
             X-Robots-Tag: noindex
             X-Request-Id: b425212f6ebe8a5a042e885c10e73d0b
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":4,"userId":3,"active":false,"declinationIds":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":4,"userId":3,"active":false,"declinations":[],"quoteRequestsIds":[],"createdAt":1640254940,"updatedAt":1640265740}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?creationPeriod%5Bfrom%5D=2021-12-23T00%3A00%3A00%2B00%3A00&creationPeriod%5Bto%5D=2021-12-23T23%3A59%3A59%2B00%3A00'
             content_type: application/json
@@ -512,7 +512,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/276577'
             X-Robots-Tag: noindex
             X-Request-Id: 555200035b3f1826f31722956697c078
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":3,"userId":3,"active":false,"declinationIds":["4_0"],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":3,"userId":3,"active":false,"declinations":[{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640168540,"updatedAt":1640003265}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?creationPeriod%5Bfrom%5D=2021-12-22T00%3A00%3A00%2B00%3A00&creationPeriod%5Bto%5D=2021-12-22T23%3A59%3A59%2B00%3A00'
             content_type: application/json
@@ -581,7 +581,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/35f45e'
             X-Robots-Tag: noindex
             X-Request-Id: c0b2d4f299890d32fd5fe9306dd077bc
-        body: '{"limit":1,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
+        body: '{"limit":1,"offset":0,"total":5,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1640435226}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?limit=1'
             content_type: application/json

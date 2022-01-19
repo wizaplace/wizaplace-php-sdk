@@ -94,7 +94,10 @@ class QuoteRequestSelectionServiceTest extends ApiTestCase
         static::assertSame(5, $paginatedData->getItems()[0]->getId());
         static::assertSame(3, $paginatedData->getItems()[0]->getUserId());
         static::assertSame(true, $paginatedData->getItems()[0]->isActive());
-        static::assertSame(['1_0', '4_0'], $paginatedData->getItems()[0]->getDeclinationIds());
+        static::assertSame(
+            [['declinationId' => '1_0', 'quantity' => 8], ['declinationId' => '4_0', 'quantity' => 5]],
+            $paginatedData->getItems()[0]->getDeclinations()
+        );
         static::assertSame([], $paginatedData->getItems()[0]->getQuoteRequestsIds());
         static::assertEquals(new \DateTime('2021-12-24T10:22:20+00:00'), $paginatedData->getItems()[0]->getCreatedAt());
         static::assertEquals(new \DateTime('2021-12-25T12:27:06+00:00'), $paginatedData->getItems()[0]->getUpdatedAt());

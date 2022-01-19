@@ -98,7 +98,7 @@
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7ceef0'
             X-Robots-Tag: noindex
             X-Request-Id: d0af618ff918a9003048118009614598
-        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinationIds":["1_0","4_0"],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1641303310}]}'
+        body: '{"limit":100,"offset":0,"total":1,"items":[{"id":5,"userId":3,"active":true,"declinations":[{"declinationId":"1_0","quantity":8},{"declinationId":"4_0","quantity":5}],"quoteRequestsIds":[],"createdAt":1640341340,"updatedAt":1641303310}]}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections?active=1'
             content_type: application/json
