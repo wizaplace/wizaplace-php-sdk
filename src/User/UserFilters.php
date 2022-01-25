@@ -41,6 +41,12 @@ class UserFilters
     /** @var string[]|null */
     private $type;
 
+    /** @var mixed[]|null */
+    private $extra;
+
+    /** @var mixed[]|null */
+    private $extraStartWith;
+
     public function __construct(array $data)
     {
         $this->name = $data['name'] ?? null;
@@ -53,6 +59,8 @@ class UserFilters
         $this->elements = $data['elements'] ?? null;
         $this->page = $data['page'] ?? 0;
         $this->type = $data['type'] ?? null;
+        $this->extra = $data['extra'] ?? null;
+        $this->extraStartWith = $data['extraStartWith'] ?? null;
     }
 
     public function getName(): ?string
@@ -178,6 +186,34 @@ class UserFilters
         return $this;
     }
 
+    /** @return mixed[]|null */
+    public function getExtra(): ?array
+    {
+        return $this->extra;
+    }
+
+    /** @param mixed[]|null $extra */
+    public function setExtra(?array $extra): self
+    {
+        $this->extra = $extra;
+
+        return $this;
+    }
+
+    /** @return mixed[]|null */
+    public function getExtraStartWith(): ?array
+    {
+        return $this->extraStartWith;
+    }
+
+    /** @param mixed[]|null $extraStartWith */
+    public function setExtraStartWith(?array $extraStartWith): self
+    {
+        $this->extraStartWith = $extraStartWith;
+
+        return $this;
+    }
+
     /** @return mixed[] */
     public function serialize(): array
     {
@@ -191,7 +227,9 @@ class UserFilters
             'companyId' => $this->getCompanyId(),
             'elements' => $this->getElements(),
             'page' => $this->getPage(),
-            'type' => $this->getType()
+            'type' => $this->getType(),
+            'extra' => $this->getExtra(),
+            'extraStartWith' => $this->getExtraStartWith(),
         ];
     }
 }

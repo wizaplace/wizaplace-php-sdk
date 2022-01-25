@@ -7,8 +7,8 @@
             Host: wizaplace.loc
             Accept-Encoding: null
             Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-1186-api-find-user-ID-as-admin@52c1630
-            Accept: 'application/json'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Accept: application/json
             VCR-index: '0'
     response:
         status:
@@ -20,16 +20,16 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.4.13
+            X-Powered-By: PHP/7.4.27
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 14 Jul 2021 09:51:52 GMT'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: 646ea2
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/646ea2'
+            X-Debug-Token: 7742a8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/7742a8'
             X-Robots-Tag: noindex
-            X-Request-Id: 00e0b445ec0f50ed937579e6d8dee76e
-        body: '{"id":2,"apiKey":"gf19dhVemMHqEhWGa\/3Y5X3YLJgyX4t97AuNhpUs"}'
+            X-Request-Id: 83670cc8f8cc7dd13018308bc0af2929
+        body: '{"id":2,"apiKey":"OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF"}'
 -
     request:
         method: GET
@@ -37,9 +37,9 @@
         headers:
             Host: wizaplace.loc
             Accept-Encoding: null
-            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-1186-api-find-user-ID-as-admin@52c1630
-            Authorization: 'token gf19dhVemMHqEhWGa/3Y5X3YLJgyX4t97AuNhpUs'
-            Accept: 'application/json'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
             VCR-index: '1'
     response:
         status:
@@ -51,13 +51,214 @@
             Content-Type: application/json
             Transfer-Encoding: chunked
             Connection: keep-alive
-            X-Powered-By: PHP/7.4.13
+            X-Powered-By: PHP/7.4.27
             Cache-Control: 'no-cache, private'
-            Date: 'Wed, 14 Jul 2021 09:51:52 GMT'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
             Content-Language: fr
             Access-Control-Allow-Origin: '*'
-            X-Debug-Token: fb9c2b
-            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/fb9c2b'
+            X-Debug-Token: 5437f0
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/5437f0'
             X-Robots-Tag: noindex
-            X-Request-Id: 65504e375125aa9302a0a84d42617834
-        body: '{"results":[{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Martin","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-07-13T11:31:59+02:00","extra":[]},{"id":6,"title":"mr","email":"vendor@world-company.com","type":"V","lang":"fr","companyId":3,"pendingCompanyId":null,"firstName":"Noam","lastName":"Chomsky","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-07-13T11:31:59+02:00","extra":[]},{"id":7,"title":"mr","email":"customer-1@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Michael","lastName":"Jordan","phone":"01234567890","birthday":"1979-06-19","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-07-13T11:31:59+02:00","extra":[]},{"id":8,"title":"mr","email":"customer-2@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Dave","lastName":"Matthews","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-07-13T11:31:59+02:00","extra":[]},{"id":9,"title":"mrs","email":"customer-3@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jenna","lastName":"Jameson","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-07-13T11:31:59+02:00","extra":[]}],"page":0,"elements":5,"totalElements":9}'
+            X-Request-Id: 26f2fc2f96dc925ce00f73d8a1210a48
+        body: '{"results":[{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Martin","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T10:46:46+01:00","extra":[]},{"id":6,"title":"mr","email":"vendor@world-company.com","type":"V","lang":"fr","companyId":3,"pendingCompanyId":null,"firstName":"Noam","lastName":"Chomsky","phone":"","birthday":null,"currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Noam","lastname":"Chomsky","company":"","phone":"","address":"","address_2":"","zipcode":"","city":"","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T10:46:46+01:00","extra":[]},{"id":7,"title":"mr","email":"customer-1@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Michael","lastName":"Jordan","phone":"01234567890","birthday":"1979-06-19","currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T10:46:46+01:00","extra":[]},{"id":8,"title":"mr","email":"customer-2@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Dave","lastName":"Matthews","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T10:46:46+01:00","extra":[]},{"id":9,"title":"mrs","email":"customer-3@world-company.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jenna","lastName":"Jameson","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T10:46:46+01:00","extra":[]}],"page":0,"elements":5,"totalElements":9}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '2'
+        body: 'email=ABC%40extra.com&password=Windows.98&firstName=Jane&lastName=Doe&title=mrs&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France&extra%5Bkey+1%5D=value+1&extra%5Bkey+2%5D=foo'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: a03c16
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/a03c16'
+            X-Robots-Tag: noindex
+            Expires: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22a03c16%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: a4ec41c686b35ce99bfac47ed3f7b5d8
+        body: '{"id":39}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '3'
+        body: 'email=DEF%40extra.com&password=Windows.98&firstName=Jack&lastName=Harris&title=mr&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France&extra%5Bkey+1%5D=value+2&extra%5Bkey+2%5D=bar'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c47744
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c47744'
+            X-Robots-Tag: noindex
+            Expires: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22c47744%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: 8496ca69e224f41a93ed50faa73faae2
+        body: '{"id":40}'
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/users'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/x-www-form-urlencoded
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '4'
+        body: 'email=GHI%40extra.com&password=Windows.98&firstName=John&lastName=Cooper&title=mr&phone=0102030405&birthday=1998-07-12&billing%5Btitle%5D=mrs&billing%5Bfirstname%5D=Jane&billing%5Blastname%5D=Doe&billing%5Bcompany%5D=Wizaplace&billing%5Bphone%5D=0123456789&billing%5Baddress%5D=24+rue+de+la+gare&billing%5Bzipcode%5D=69009&billing%5Bcity%5D=Lyon&billing%5Bcountry%5D=France&shipping%5Btitle%5D=mrs&shipping%5Bfirstname%5D=Jane&shipping%5Blastname%5D=Doe&shipping%5Bcompany%5D=Wizaplace&shipping%5Bphone%5D=0123456789&shipping%5Baddress%5D=24+rue+de+la+gare&shipping%5Bzipcode%5D=69009&shipping%5Bcity%5D=Lyon&shipping%5Bcountry%5D=France&extra%5Bkey+1%5D=foo&extra%5Bkey+2%5D=bar'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'max-age=0, must-revalidate, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: ae5f72
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/ae5f72'
+            X-Robots-Tag: noindex
+            Expires: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%22ae5f72%22%2C%22route%22%3A%22api_user_register%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%22marketplace.user.api.usercontroller%3AregisterAction%22%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: eef9a02d702c142917154d95ac27fd53
+        body: '{"id":41}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users?page=0&extra%5Bkey%201%5D%5B0%5D=value%201&extra%5Bkey%201%5D%5B1%5D=foo'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '5'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: b34004
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/b34004'
+            X-Robots-Tag: noindex
+            X-Request-Id: 9e0ce9431b601bb75782ce9edda7327f
+        body: '{"results":[{"id":39,"title":"mrs","email":"ABC@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"value 1","key 2":"foo"}},{"id":41,"title":"mr","email":"GHI@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"John","lastName":"Cooper","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"foo","key 2":"bar"}}],"page":0,"elements":10,"totalElements":2}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users?page=0&extraStartWith%5Bkey%201%5D=value'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '6'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: e97884
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/e97884'
+            X-Robots-Tag: noindex
+            X-Request-Id: 52a01fa84521a360db65a0a58f73543e
+        body: '{"results":[{"id":39,"title":"mrs","email":"ABC@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"value 1","key 2":"foo"}},{"id":40,"title":"mr","email":"DEF@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jack","lastName":"Harris","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"value 2","key 2":"bar"}}],"page":0,"elements":10,"totalElements":2}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users?page=0&extraStartWith%5Bkey%201%5D%5B0%5D=value&extraStartWith%5Bkey%201%5D%5B1%5D=foo'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature-WIZ-8817-search-users-extra-field@e35a907 PHP/7.4.27'
+            Authorization: 'token OBG+tYN99WUJzjPXdKBkiqC7ryOx+00rAVTNIksF'
+            Accept: application/json
+            VCR-index: '7'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.27
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 25 Jan 2022 10:55:31 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: bb5e5f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/bb5e5f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 709f4b25102253dc0d2e67f7c2be6e87
+        body: '{"results":[{"id":39,"title":"mrs","email":"ABC@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jane","lastName":"Doe","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"value 1","key 2":"foo"}},{"id":40,"title":"mr","email":"DEF@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Jack","lastName":"Harris","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"value 2","key 2":"bar"}},{"id":41,"title":"mr","email":"GHI@extra.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"John","lastName":"Cooper","phone":"0102030405","birthday":"1998-07-12","currencyCode":null,"loyaltyIdentifier":null,"addresses":{"billing":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"},"shipping":{"label":"","address_id":"","title":"mrs","firstname":"Jane","lastname":"Doe","company":"Wizaplace","phone":"0123456789","address":"24 rue de la gare","address_2":"","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":3,"38":3,"40":"Wizaplace","39":"Wizaplace"}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2022-01-25T11:55:31+01:00","extra":{"key 1":"foo","key 2":"bar"}}],"page":0,"elements":10,"totalElements":3}'

@@ -2105,16 +2105,7 @@ final class UserServiceTest extends ApiTestCase
 
     public function testCreateUserWithExtraFields(): void
     {
-        $addressCommand = (new UpdateUserAddressCommand())
-            ->setTitle(UserTitle::MRS())
-            ->setFirstName('Jane')
-            ->setLastName('Doe')
-            ->setPhone('0123456789')
-            ->setAddress('24 rue de la gare')
-            ->setCompany('Wizaplace')
-            ->setZipCode('69009')
-            ->setCity('Lyon')
-            ->setCountry('France');
+        $addressCommand = $this->getAddressCommand();
 
         $userCommand = (new RegisterUserCommand())
             ->setEmail('user332@example.com')
@@ -2296,21 +2287,99 @@ final class UserServiceTest extends ApiTestCase
     {
         $this->client->authenticate('admin@wizaplace.com', 'Windows.98');
 
-        $productPaginatedFilters = new UserFilters(
+        $userFilters = new UserFilters(
             [
                 'name' => 'a',
                 'type' => [UserType::CLIENT()->getValue(), UserType::VENDOR()->getValue()],
-                'elements' => 5
+                'elements' => 5,
             ]
         );
 
-        $usersPaginatedResult = $this->userService->getUsersByFilters($productPaginatedFilters);
+        $usersPaginatedResult = $this->userService->getUsersByFilters($userFilters);
 
         static::assertCount(5, $usersPaginatedResult->getUsers());
         static::assertSame(0, $usersPaginatedResult->getPagination()->getPage());
         static::assertSame(9, $usersPaginatedResult->getPagination()->getNbResults());
         static::assertSame(2, $usersPaginatedResult->getPagination()->getNbPages());
         static::assertSame(5, $usersPaginatedResult->getPagination()->getResultsPerPage());
+
+        // Create new users with extra key/value
+        $addressCommand = $this->getAddressCommand();
+
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('ABC@extra.com')
+            ->setPassword(static::VALID_PASSWORD)
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MRS())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand)
+            ->setExtra([
+                "key 1" => "value 1",
+                "key 2" => "foo",
+            ]);
+
+        $this->userService->registerWithFullInfos($userCommand);
+
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('DEF@extra.com')
+            ->setPassword(static::VALID_PASSWORD)
+            ->setFirstName('Jack')
+            ->setLastName('Harris')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MR())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand)
+            ->setExtra([
+                "key 1" => "value 2",
+                "key 2" => "bar",
+            ]);
+
+        $this->userService->registerWithFullInfos($userCommand);
+
+        $userCommand = (new RegisterUserCommand())
+            ->setEmail('GHI@extra.com')
+            ->setPassword(static::VALID_PASSWORD)
+            ->setFirstName('John')
+            ->setLastName('Cooper')
+            ->setPhone('0102030405')
+            ->setBirthday(\DateTime::createFromFormat('Y-m-d', '1998-07-12'))
+            ->setTitle(UserTitle::MR())
+            ->setBilling($addressCommand)
+            ->setShipping($addressCommand)
+            ->setExtra([
+                "key 1" => "foo",
+                "key 2" => "bar",
+            ]);
+
+        $this->userService->registerWithFullInfos($userCommand);
+
+        $userFilters = new UserFilters([
+            'extra' => ['key 1' => ['value 1','foo']],
+        ]);
+
+        $usersPaginatedResult = $this->userService->getUsersByFilters($userFilters);
+
+        static::assertCount(2, $usersPaginatedResult->getUsers());
+
+        $userFilters = new UserFilters([
+            'extraStartWith' => ['key 1' => 'value'],
+        ]);
+
+        $usersPaginatedResult = $this->userService->getUsersByFilters($userFilters);
+
+        static::assertCount(2, $usersPaginatedResult->getUsers());
+
+        $userFilters = new UserFilters([
+            'extraStartWith' => ['key 1' => ['value','foo']],
+        ]);
+
+        $usersPaginatedResult = $this->userService->getUsersByFilters($userFilters);
+
+        static::assertCount(3, $usersPaginatedResult->getUsers());
     }
 
     public function testGetUserProfileDisplayingPasswordExpiryTimeLeft(): void
@@ -2320,5 +2389,19 @@ final class UserServiceTest extends ApiTestCase
         $user = $this->userService->getProfileFromId($userId);
 
         static::assertSame(1, $user->getPasswordExpiryTimeLeft());
+    }
+
+    public function getAddressCommand(): UpdateUserAddressCommand
+    {
+        return (new UpdateUserAddressCommand())
+            ->setTitle(UserTitle::MRS())
+            ->setFirstName('Jane')
+            ->setLastName('Doe')
+            ->setPhone('0123456789')
+            ->setAddress('24 rue de la gare')
+            ->setCompany('Wizaplace')
+            ->setZipCode('69009')
+            ->setCity('Lyon')
+            ->setCountry('France');
     }
 }

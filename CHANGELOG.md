@@ -1,6 +1,12 @@
 
 # Changelog
 
+## new version
+
+### New features
+
+- Updated `Wizaplace\SDK\User\UserFilters`, add `extra` and `extraStartWith` properties
+
 ## 1.147.0
 
 ### New features
