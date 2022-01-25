@@ -14,6 +14,8 @@ use Symfony\Component\Validator\Constraints\NotNull;
 use Symfony\Component\Validator\Mapping\ClassMetadata;
 use Symfony\Component\Validator\Validation;
 use Wizaplace\SDK\Exception\SomeParametersAreInvalid;
+use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 
 use function theodorejb\polycast\to_int;
 use function theodorejb\polycast\to_string;
@@ -24,6 +26,8 @@ use function theodorejb\polycast\to_string;
  */
 final class MultiVendorProduct
 {
+    use ImagesDataTrait;
+
     public const CONTEXT_CREATE = 'create';
     public const CONTEXT_UPDATE = 'update';
 
@@ -75,6 +79,9 @@ final class MultiVendorProduct
     /** @var array */
     private $imageIds;
 
+    /** @var Image[]|array */
+    private $images;
+
     /** @var null|MultiVendorProductVideo */
     private $video;
 
@@ -100,6 +107,7 @@ final class MultiVendorProduct
         $this->status = isset($data['status']) ? new MultiVendorProductStatus($data['status']) : null;
         $this->freeAttributes = $data['freeAttributes'] ?? null;
         $this->imageIds = $data['imageIds'] ?? null;
+        $this->images = $this->getImagesWithAltText($data);
         $this->attributes = $data['attributes'] ?? null;
         $this->video = isset($data['video']) ? new MultiVendorProductVideo($data['video']) : null;
     }
@@ -398,6 +406,12 @@ final class MultiVendorProduct
     public function getImageIds(): array
     {
         return $this->imageIds;
+    }
+
+    /** @return Image[]|array */
+    public function getImages(): array
+    {
+        return $this->images;
     }
 
     /**
