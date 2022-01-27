@@ -133,13 +133,13 @@ class GroupService extends AbstractService
         }
     }
 
-    public function addUser(string $groupId, int $userId): void
+    public function addUser(string $groupId, int $userId): int
     {
         $this->client->mustBeAuthenticated();
         $endpoint = "groups/{$groupId}/users/{$userId}";
 
         try {
-            $this->client->post($endpoint);
+            return $this->client->post($endpoint)['userId'];
         } catch (ClientException $exception) {
             switch ($exception->getResponse()->getStatusCode()) {
                 case 400:

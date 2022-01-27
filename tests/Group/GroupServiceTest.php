@@ -163,7 +163,8 @@ final class GroupServiceTest extends ApiTestCase
         $groupService = $this->buildAdminGroupService();
         $listUsers = $groupService->listUsers('4745118a-a762-11eb-a843-0242ac12000a');
         static::assertCount(2, $listUsers->getItems());
-        $groupService->addUser('4745118a-a762-11eb-a843-0242ac12000a', 3);
+        $result = $groupService->addUser('4745118a-a762-11eb-a843-0242ac12000a', 3);
+        static::assertSame(3, $result);
         $listUsers = $groupService->listUsers('4745118a-a762-11eb-a843-0242ac12000a');
         static::assertCount(3, $listUsers->getItems());
     }
