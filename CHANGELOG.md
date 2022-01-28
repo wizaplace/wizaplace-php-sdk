@@ -1,6 +1,8 @@
 
 # Changelog
 
+## New version
+
 ### New features
 
 - Added `\Wizaplace\SDK\Catalog\Product::getQuoteRequestsMinQuantity`
@@ -19,7 +21,7 @@
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter`
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService`
 
-## New version
+## 1.147.0
 
 ### New features
 
