@@ -8,7 +8,7 @@
 
 declare(strict_types=1);
 
-namespace Wizaplace\SDK\Tests\Subscription;
+namespace Wizaplace\SDK\Tests\Transaction;
 
 use Wizaplace\SDK\Exception\AccessDenied;
 use Wizaplace\SDK\Tests\ApiTestCase;
