@@ -313,7 +313,7 @@
             X-Debug-Token: f9c3ce
             X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f9c3ce'
             X-Robots-Tag: noindex
-        body: '{"message":"Quote request not found"}'
+        body: '{"message":"Quote request selection not found"}'
         curl_info:
             url: 'http://wizaplace.loc/api/v1/quote-request-selections/15/update'
             content_type: application/json
