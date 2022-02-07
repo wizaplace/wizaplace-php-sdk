@@ -3110,4 +3110,52 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertInternalType('array', $companies);
         static::assertCount($numberOfCompanyHasExtraKeyAndValue, $companies);
     }
+
+    public function testGetProductByCodesWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductsByCode('6403500679952');
+
+        static::assertSame('', $product[0]->getImages()[0]->getAltText());
+    }
+
+    public function testGetProductWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $product = $catalogService->getProductById('38');
+
+        static::assertSame('', $product->getImages()[0]->getAltText());
+    }
+
+    public function testSearchProductWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $result = $catalogService->search();
+        $products = $result->getProducts();
+
+        static::assertSame('alt text', $products[0]->getMainImage()->getAltText());
+    }
+
+    public function testGetDeclinationByIDWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $declination = $catalogService->getDeclinationById('3_5_40');
+
+        static::assertSame([], $declination->getImages());
+    }
+
+    public function testGetAllProductsWithImagesAlt(): void
+    {
+        $catalogService = $this->buildCatalogService();
+
+        $products = iterator_to_array($catalogService->getAllProducts());
+        $product = $products[24];
+
+        static::assertInstanceOf(Product::class, $product);
+        static::assertSame('', $product->getImages()[0]->getAltText());
+    }
 }
