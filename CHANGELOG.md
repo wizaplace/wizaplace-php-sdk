@@ -10,10 +10,10 @@
 - Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
 - Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
 - Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
-- Updated `Wizaplace\SDK\User\UserFilters`, add `extra` and `extraStartWith` properties
 
 ### Changes
 - In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more required to be authenticated.
+- Updated `Wizaplace\SDK\User\UserFilters`, add `extra` and `extraStartWith` properties
 
 ## 1.147.0
 
