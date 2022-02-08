@@ -35,8 +35,8 @@ final class ProductSummaryTest extends TestCase
                 'updatedAt' => (new \DateTime())->format("Ymd H:i:s"),
                 'declinationCount' => 2,
                 'affiliateLink' => 'http://affiliatelink.com',
-                'mainImage' => ['id' => 8],
                 'images' => [['id' => 8], ['id' => 9]],
+                'mainImage' => ['id' => 8],
                 'declinationsImages' => [
                     [
                         'declinationId' => '1_1_1',

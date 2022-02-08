@@ -1,6 +1,19 @@
 
 # Changelog
 
+## New version
+
+### New features
+
+- Added `Wizaplace\SDK\Image\Image::getAltText`
+- Added `Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
+- Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
+
+### Changes
+- In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more required to be authenticated.
+
 ## 1.147.0
 
 ### New features

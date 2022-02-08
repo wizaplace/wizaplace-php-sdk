@@ -18,6 +18,9 @@ final class Image
     /** @var int */
     private $id;
 
+    /** @var string */
+    private $altText;
+
     /**
      * @internal
      *
@@ -26,13 +29,18 @@ final class Image
     public function __construct(array $data)
     {
         $this->id = $data['id'];
+        $this->altText = \array_key_exists('altText', $data) === true
+            && $data['altText'] !== null
+            ? $data['altText'] : '';
     }
 
-    /**
-     * @return int
-     */
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getAltText(): string
+    {
+        return $this->altText;
     }
 }
