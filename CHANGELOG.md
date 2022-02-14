@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New version
+## 1.148.0
 
 ### New features
 
