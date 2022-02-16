@@ -32,10 +32,9 @@ final class PaymentServiceTest extends ApiTestCase
         static::assertNull($payments[0]->getExternalReference());
     }
 
-    private function buildPaymentService(string $email = 'user@wizaplace.com', string $password = 'password'): PaymentService
+    private function buildPaymentService(): PaymentService
     {
         $apiClient = $this->buildApiClient();
-        $apiClient->authenticate($email, $password);
 
         return new PaymentService($apiClient);
     }
