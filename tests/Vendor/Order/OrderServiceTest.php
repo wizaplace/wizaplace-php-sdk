@@ -778,6 +778,16 @@ class OrderServiceTest extends ApiTestCase
         }
     }
 
+    public function testVendorDownloadPdfInvoiceOnlyInvoices(): void
+    {
+        static::expectException(ClientException::class);
+        static::expectExceptionCode(404);
+
+        $this
+            ->buildVendorOrderService('vendor@world-company.com', static::VALID_PASSWORD)
+            ->downloadPdfInvoice(1, true);
+    }
+
     public function providerDownloadPdfInvoice(): array
     {
         return [

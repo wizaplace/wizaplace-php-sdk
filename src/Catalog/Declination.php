@@ -10,6 +10,7 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
 use Wizaplace\SDK\Pim\Product\PriceTier;
 
@@ -19,6 +20,8 @@ use Wizaplace\SDK\Pim\Product\PriceTier;
  */
 final class Declination
 {
+    use ImagesDataTrait;
+
     /** @var DeclinationId */
     private $id;
 
@@ -108,12 +111,18 @@ final class Declination
         $this->greenTax = $data['greenTax'] ?? 0;
         $this->amount = $data['amount'];
         $this->affiliateLink = $data['affiliateLink'];
-        $this->images = array_map(
-            static function (array $imageData): Image {
-                return new Image($imageData);
-            },
-            $data['images']
-        );
+        if (\array_key_exists('imagesData', $data) === true) {
+            $this->images = $this->getImagesWithAltText($data);
+        } elseif (\array_key_exists('images', $data) === true) {
+            $this->images = array_map(
+                static function (array $imageData): Image {
+                    return new Image($imageData);
+                },
+                $data['images']
+            );
+        } else {
+            $this->images = [];
+        }
         $this->isBrandNew = $data['isBrandNew'] ?? true;
         $this->options = array_map(
             static function (array $optionData): DeclinationOption {

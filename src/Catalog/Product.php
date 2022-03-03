@@ -12,6 +12,7 @@ namespace Wizaplace\SDK\Catalog;
 use Psr\Http\Message\UriInterface;
 use Wizaplace\SDK\Exception\NotFound;
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 use Wizaplace\SDK\Pim\Product\ExtendedPriceTier;
 use Wizaplace\SDK\Pim\Product\PriceTier;
 
@@ -24,6 +25,8 @@ use function theodorejb\polycast\to_string;
  */
 final class Product
 {
+    use ImagesDataTrait;
+
     /** @var string */
     private $id;
 
@@ -228,15 +231,10 @@ final class Product
         $this->availableSince = isset($data['availableSince']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['availableSince']) : null;
         $this->infiniteStock = $data['infiniteStock'];
 
-        if (!isset($data['images'])) {
-            $this->images = [];
+        if (\array_key_exists('images', $data) === true) {
+            $this->images = $this->getImagesWithAltText($data);
         } else {
-            $this->images = array_map(
-                static function (array $imageData): Image {
-                    return new Image($imageData);
-                },
-                $data['images']
-            );
+            $this->images = [];
         }
 
         if (isset($data['offers'])) {

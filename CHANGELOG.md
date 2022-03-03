@@ -1,13 +1,28 @@
 
 # Changelog
 
-## [Unreleased]
+## 1.150.0
 
 ### New features
 - Added support for the feature "Custom shipping price" price
 - Added new class `Wizaplace\SDK\Basket\ExternalShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
+- Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Order\OrderService`
+- Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Vendor\Order\OrderService`
+
+## 1.148.0
+
+### New features
+
+- Added `Wizaplace\SDK\Image\Image::getAltText`
+- Added `Wizaplace\SDK\Pim\MultiVendorProduct\MultiVendorProduct::getImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getMainImagesData`
+- Added `Wizaplace\SDK\PIM\Product::getAdditionalImagesData`
+- Added `Wizaplace\SDK\PIM\ProductImageUpload::setAltText`
+
+### Changes
+- In the `Wizaplace\SDK\Payment\PaymentService::getPaymentMethods`, it is no more required to be authenticated.
 
 ## 1.147.0
 
