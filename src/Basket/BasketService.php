@@ -659,16 +659,6 @@ class BasketService extends AbstractService
     }
 
     /**
-     * @param Comment $comment
-     *
-     * @return array
-     */
-    private static function serializeComment(Comment $comment): array
-    {
-        return $comment->toArray();
-    }
-
-    /**
      * set basket shippingAddress from AddressBook
      *
      * @param string $basketId
@@ -738,5 +728,98 @@ class BasketService extends AbstractService
                     throw $exception;
             }
         }
+    }
+
+    /**
+     * Update shipping price for shipping group.
+     *
+     * @param string $basketId
+     * @param ExternalShippingPrice[] $shippings
+     *
+     * @throws SomeParametersAreInvalid
+     * @throws BadCredentials
+     * @throws NotFound
+     */
+    public function updateShippingPrice(string $basketId, array $shippings): void
+    {
+        $body = ['shippingGroups' => []];
+
+        foreach ($shippings as $shipping) {
+            $key = \array_search(
+                $shipping->getShippingGroupId(),
+                \array_column($body['shippingGroups'], 'id'),
+                true
+            );
+            $shippingArray = [
+                'id' => $shipping->getShippingId(),
+                'price' => $shipping->getPrice(),
+            ];
+
+            if (false === $key) {
+                $body['shippingGroups'][] = [
+                    'id' => $shipping->getShippingGroupId(),
+                    'shippings' => [$shippingArray],
+                ];
+            } else {
+                $body['shippingGroups'][$key]['shippings'][] = $shippingArray;
+            }
+        }
+
+        try {
+            $this->client->post(
+                "basket/{$basketId}/shipping-price",
+                [
+                    RequestOptions::JSON => $body,
+                ]
+            );
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage(), 400);
+                case 403:
+                    throw new BadCredentials($exception);
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
+    /**
+     * Reset all shipping price to default
+     *
+     * @param string $basketId
+     *
+     * @throws SomeParametersAreInvalid
+     * @throws BadCredentials
+     * @throws NotFound
+     */
+    public function resetShippingPrice(string $basketId): void
+    {
+        try {
+            $this->client->delete("basket/{$basketId}/shipping-price");
+        } catch (ClientException $exception) {
+            switch ($exception->getResponse()->getStatusCode()) {
+                case 400:
+                    throw new SomeParametersAreInvalid($exception->getMessage(), 400);
+                case 403:
+                    throw new BadCredentials($exception);
+                case 404:
+                    throw new NotFound('Basket not found', $exception);
+                default:
+                    throw $exception;
+            }
+        }
+    }
+
+    /**
+     * @param Comment $comment
+     *
+     * @return array
+     */
+    private static function serializeComment(Comment $comment): array
+    {
+        return $comment->toArray();
     }
 }

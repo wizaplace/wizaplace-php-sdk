@@ -564,7 +564,7 @@ class OrderService extends AbstractService
      *
      * @return StreamInterface
      */
-    public function downloadPdfInvoice(int $orderId): StreamInterface
+    public function downloadPdfInvoice(int $orderId, bool $renderInvoiceOnly = false): StreamInterface
     {
         $this->client->mustBeAuthenticated();
 
@@ -574,8 +574,12 @@ class OrderService extends AbstractService
             ],
         ];
 
-        $response = $this->client->rawRequest("GET", "orders/{$orderId}/pdf-invoice", $options);
+        $url = "orders/{$orderId}/pdf-invoice";
+        if ($renderInvoiceOnly === true) {
+            $url .= "?renderInvoiceOnly={$renderInvoiceOnly}";
+        }
 
+        $response = $this->client->rawRequest("GET", $url, $options);
         return $response->getBody();
     }
 

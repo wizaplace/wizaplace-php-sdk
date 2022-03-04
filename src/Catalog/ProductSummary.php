@@ -104,7 +104,6 @@ final class ProductSummary
         $this->updatedAt = new \DateTimeImmutable("@{$data['updatedAt']}");
         $this->declinationCount = $data['declinationCount'];
         $this->affiliateLink = $data['affiliateLink'] ?? null;
-        $this->mainImage = $data['mainImage'] ? new Image($data['mainImage']) : null;
         $this->images = array_map(
             function (array $image): Image {
                 return new Image($image);
@@ -112,6 +111,7 @@ final class ProductSummary
             $data['images'] ?? []
         );
         $this->declinationsImages = $this->denormalizeDeclinationImages($data['declinationsImages'] ?? []);
+        $this->mainImage = \array_key_exists('mainImage', $data) === true && \is_array($data['mainImage']) === true ? new Image($data['mainImage']) : null;
         $this->averageRating = $data['averageRatingFloat'] ?? 0;
         $this->conditions = array_map(
             function (string $condition): Condition {

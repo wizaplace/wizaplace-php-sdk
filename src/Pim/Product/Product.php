@@ -57,6 +57,12 @@ final class Product extends ProductSummary
     /** @var null|string */
     private $video;
 
+    /** @var array|null */
+    private $mainImagesData;
+
+    /** @var array|null */
+    private $additionalImagesData;
+
     /** @var null|int */
     private $quoteRequestsMinQuantity;
 
@@ -83,7 +89,30 @@ final class Product extends ProductSummary
                 return $a['detailed']['position'] <=> $b['detailed']['position'];
             }
         );
+        if (\array_key_exists('detailed', $data['main_pair']) === true
+            && \array_key_exists('altText', $data['main_pair']['detailed']) === true
+        ) {
+            $this->mainImagesData = [
+                'image_path' => $data['main_pair']['detailed']['image_path'],
+                'altText' => $data['main_pair']['detailed']['altText']
+            ];
+        } else {
+            $this->mainImagesData = [];
+        }
         $this->additionalImages = array_map([self::class, 'unserializeImage'], $data['image_pairs'] ?? []);
+        if (\array_key_exists('image_pairs', $data) === true) {
+            $this->additionalImagesData = array_map(
+                static function (array $imageData): array {
+                    return [
+                        'image_path' => $imageData['detailed']['image_path'],
+                        'altText' => $imageData['detailed']['altText'] ?? ''
+                    ];
+                },
+                $data['image_pairs']
+            );
+        } else {
+            $this->additionalImagesData = [];
+        }
         $this->declinations = array_map(
             static function (array $declinationData): ProductDeclination {
                 return new ProductDeclination($declinationData);
@@ -110,6 +139,18 @@ final class Product extends ProductSummary
     public function getMainImage(): ?UriInterface
     {
         return $this->mainImage;
+    }
+
+    /** @return array|null */
+    public function getMainImagesData(): ?array
+    {
+        return $this->mainImagesData;
+    }
+
+    /** @return array|null */
+    public function getAdditionalImagesData(): ?array
+    {
+        return $this->additionalImagesData;
     }
 
     /**
