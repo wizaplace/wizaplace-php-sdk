@@ -140,6 +140,12 @@ final class Product
     /** @var null|bool */
     private $isRenewable;
 
+    /** @var null|int */
+    private $quoteRequestsMinQuantity;
+
+    /** @var null|bool */
+    private $isExclusiveToQuoteRequests;
+
     /** @var bool */
     private $isUpToDate;
 
@@ -230,6 +236,8 @@ final class Product
         $this->updatedAt = isset($data['updatedAt']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['updatedAt']) : null;
         $this->availableSince = isset($data['availableSince']) ? \DateTimeImmutable::createFromFormat(\DateTime::RFC3339, $data['availableSince']) : null;
         $this->infiniteStock = $data['infiniteStock'];
+        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
 
         if (\array_key_exists('images', $data) === true) {
             $this->images = $this->getImagesWithAltText($data);
@@ -629,6 +637,22 @@ final class Product
     public function isRenewable(): ?bool
     {
         return $this->isRenewable;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuoteRequestsMinQuantity(): ?int
+    {
+        return $this->quoteRequestsMinQuantity;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isExclusiveToQuoteRequests(): ?bool
+    {
+        return $this->isExclusiveToQuoteRequests;
     }
 
     /** @return bool */

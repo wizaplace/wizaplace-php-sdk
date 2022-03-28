@@ -1,8 +1,33 @@
 
 # Changelog
 
+## New version
+
 ### New features
 
+- Added `\Wizaplace\SDK\Catalog\Product::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Catalog\Product::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Catalog\ProductSummary::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\Product::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\Product::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::getQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\ProductSummary::isExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setQuoteRequestsMinQuantity`
+- Added `\Wizaplace\SDK\Pim\Product\ProductUpsertData::setIsExclusiveToQuoteRequests`
+- Added `\Wizaplace\SDK\User\User::getQuoteRequestSelectionIds`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelection`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionDeclination`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter`
+- Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService`
+
+## 1.150.0
+
+### New features
+- Added support for the feature "Custom shipping price" price
+- Added new class `Wizaplace\SDK\Basket\ExternalShippingPrice`
+- Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
+- Added `Wizaplace\SDK\Basket\BasketService::resetShippingPrice`
 - Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Order\OrderService`
 - Added $renderInvoiceOnly parameter to `Wizaplace\SDK\Vendor\Order\OrderService`
 

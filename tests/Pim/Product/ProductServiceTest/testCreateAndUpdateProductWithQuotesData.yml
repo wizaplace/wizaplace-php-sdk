@@ -1,0 +1,353 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Accept: 'application/json'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:41:03 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9152cd
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9152cd'
+            X-Robots-Tag: noindex
+            X-Request-Id: a01d2c37fa14c77d31c63367e3a86062
+        body: '{"id":2,"apiKey":"sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW"}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/users/authenticate'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 237
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.187825
+            namelookup_time: 0.000579
+            connect_time: 0.000647
+            pretransfer_time: 0.000674
+            size_upload: !!float 0
+            size_download: !!float 60
+            speed_download: !!float 320
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.1878
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 41622
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 647
+            namelookup_time_us: 579
+            pretransfer_time_us: 674
+            redirect_time_us: 0
+            starttransfer_time_us: 187800
+            total_time_us: 187825
+-
+    request:
+        method: POST
+        url: 'http://wizaplace.loc/api/v1/products'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
+            Accept: 'application/json'
+            VCR-index: '1'
+        body: '{"product_code":"product_with_quotes_data_2","supplier_ref":"product_with_quotes_data_ref","product":"Product with quotes data","status":"A","main_category":1,"green_tax":0,"condition":"N","weight":0,"full_description":"Product with quotes data full description","short_description":"Product with quotes data short description","tax_ids":[1],"inventory":[{"amount":12,"price":3.5,"combination":[],"priceTiers":null,"combination_code":"product_with_quotes_data","infinite_stock":false}],"allowed_options_variants":[],"company_id":3,"quote_requests_min_quantity":10,"is_exclusive_to_quote_requests":true}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '201'
+            message: Created
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:41:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8b7e83
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b7e83'
+            X-Robots-Tag: noindex
+            Set-Cookie: 'sf_redirect=%7B%22token%22%3A%228b7e83%22%2C%22route%22%3A%22products%22%2C%22method%22%3A%22POST%22%2C%22controller%22%3A%7B%22class%22%3A%22Wizacha%5C%5CBridge%5C%5CCsCart%5C%5CApi%22%2C%22method%22%3A%22handleRequest%22%2C%22file%22%3A%22%5C%2Fvar%5C%2Fwww%5C%2Fhtml%5C%2Fapp%5C%2FTygh%5C%2FApi.php%22%2C%22line%22%3A90%7D%2C%22status_code%22%3A201%2C%22status_text%22%3A%22Created%22%7D; path=/; httponly; samesite=lax'
+            X-Request-Id: dfab094745766ce177d66b3b940f8807
+        body: '{"product_id":13}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/products'
+            content_type: application/json
+            http_code: 201
+            header_size: 863
+            request_size: 878
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.45654
+            namelookup_time: 0.000346
+            connect_time: 0.000422
+            pretransfer_time: 0.000454
+            size_upload: !!float 597
+            size_download: !!float 17
+            speed_download: !!float 37
+            speed_upload: !!float 1309
+            download_content_length: !!float -1
+            upload_content_length: !!float 597
+            starttransfer_time: 0.456509
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 41640
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 422
+            namelookup_time_us: 346
+            pretransfer_time_us: 454
+            redirect_time_us: 0
+            starttransfer_time_us: 456509
+            total_time_us: 456540
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/13'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
+            Accept: 'application/json'
+            VCR-index: '2'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:41:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: c2ae73
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/c2ae73'
+            X-Robots-Tag: noindex
+            X-Request-Id: 907d845cadd300b6309b815c4d54e347
+        body: '{"product_id":13,"product_code":"product_with_quotes_data_2","status":"A","company_id":3,"approved":"Y","weight":0.0,"timestamp":1640097663,"updated_timestamp":1640097663,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Product with quotes data","short_description":"Product with quotes data short description","full_description":"Product with quotes data full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"crossed_out_price":0.0,"price":3.5,"priceTiers":[{"lowerLimit":0,"price":3.5}]}],"green_tax":0.0,"supplier_ref":"product_with_quotes_data_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"slug":"product-with-quotes-data-2","seoTitle":"","seoDescription":"","seoKeywords":"","related":[],"quote_requests_min_quantity":10,"is_exclusive_to_quote_requests":true}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/products/13'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 230
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.179195
+            namelookup_time: 0.000318
+            connect_time: 0.000381
+            pretransfer_time: 0.000403
+            size_upload: !!float 0
+            size_download: !!float 1175
+            speed_download: !!float 6564
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.179155
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 41780
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 381
+            namelookup_time_us: 318
+            pretransfer_time_us: 403
+            redirect_time_us: 0
+            starttransfer_time_us: 179155
+            total_time_us: 179195
+-
+    request:
+        method: PUT
+        url: 'http://wizaplace.loc/api/v1/products/13'
+        headers:
+            Host: wizaplace.loc
+            Expect: null
+            Accept-Encoding: null
+            Content-Type: application/json
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
+            Accept: 'application/json'
+            VCR-index: '3'
+        body: '{"quote_requests_min_quantity":5,"is_exclusive_to_quote_requests":false}'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:41:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 8b204f
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/8b204f'
+            X-Robots-Tag: noindex
+            X-Request-Id: 3162ca7ac02c8440509eb0cdd20a99e6
+        body: '{"product_id":13}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/products/13'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 349
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.400222
+            namelookup_time: 0.000384
+            connect_time: 0.000472
+            pretransfer_time: 0.000496
+            size_upload: !!float 67
+            size_download: !!float 17
+            speed_download: !!float 42
+            speed_upload: !!float 167
+            download_content_length: !!float -1
+            upload_content_length: !!float 67
+            starttransfer_time: 0.400199
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 41926
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 472
+            namelookup_time_us: 384
+            pretransfer_time_us: 496
+            redirect_time_us: 0
+            starttransfer_time_us: 400199
+            total_time_us: 400222
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products/13'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
+            Accept: 'application/json'
+            VCR-index: '4'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:41:04 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: f1e62d
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/f1e62d'
+            X-Robots-Tag: noindex
+            X-Request-Id: 856c67b1e34f8416f0e5100df00c8289
+        body: '{"product_id":13,"product_code":"product_with_quotes_data_2","status":"A","company_id":3,"approved":"Y","weight":0.0,"timestamp":1640097663,"updated_timestamp":1640097664,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Product with quotes data","short_description":"Product with quotes data short description","full_description":"Product with quotes data full description","category_ids":[1],"main_category":1,"main_pair":[],"image_pairs":[],"video":null,"attachments":[],"inventory":[{"combination":[],"amount":12,"crossed_out_price":0.0,"price":3.5,"priceTiers":[{"lowerLimit":0,"price":3.5}]}],"green_tax":0.0,"supplier_ref":"product_with_quotes_data_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"slug":"product-with-quotes-data-2","seoTitle":"","seoDescription":"","seoKeywords":"","related":[],"quote_requests_min_quantity":5,"is_exclusive_to_quote_requests":false}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/products/13'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 230
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.183866
+            namelookup_time: 0.000334
+            connect_time: 0.000402
+            pretransfer_time: 0.000437
+            size_upload: !!float 0
+            size_download: !!float 1175
+            speed_download: !!float 6420
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.183832
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 42066
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 402
+            namelookup_time_us: 334
+            pretransfer_time_us: 437
+            redirect_time_us: 0
+            starttransfer_time_us: 183832
+            total_time_us: 183866

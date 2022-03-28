@@ -1,0 +1,69 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=product_with_quotes_data'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Accept: 'application/json'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 Jan 2022 16:30:20 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 6ac9e8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/6ac9e8'
+            X-Robots-Tag: noindex
+            X-Request-Id: 61aeee7a459cf4fe6773856974790da8
+        body: '{"results":[{"productId":13,"name":"Product with quotes data","code":"product_with_quotes_data","productTemplateType":"product","slug":"product-with-quotes-data-2","minimumPrice":3.5,"maxPriceAdjustment":null,"crossedOutPrice":null,"isAvailable":true,"createdAt":1640097663,"updatedAt":1640165494,"transactionMode":"T","conditions":["N"],"declinationCount":1,"affiliateLink":null,"mainImage":null,"images":[],"declinationsImages":[],"url":"\/informatique\/casques\/product-with-quotes-data-2.html","subtitle":"Product with quotes data full description","shortDescription":"Product with quotes data short description","averageRating":0,"averageRatingFloat":0,"attributes":[],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"},{"id":5,"name":"Casques","slug":"casques"}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"geolocation":null,"geolocations":null,"mainDeclination":{"id":"13_0"},"offers":[{"productId":13,"companyId":3,"price":3.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":3.5,"excludingTaxes":3.5,"taxes":0}]}],"isSubscription":false,"isRenewable":false,"quoteRequestsMinQuantity":5,"isExclusiveToQuoteRequests":true}],"pagination":{"page":1,"nbResults":1,"nbPages":1,"resultsPerPage":12},"facets":[{"name":"categories","label":"Cat\u00e9gories","values":{"3":{"label":"Informatique","count":1,"position":0},"5":{"label":"Casques","count":1,"position":0}},"isNumeric":false},{"name":"1","label":"Couleur","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"2","label":"Taille","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"3","label":"Commentaire","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"5","label":"Couleur secondaire","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"6","label":"Pointure","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"7","label":"Compl\u00e9ment adresse","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false},{"name":"9","label":"Marque","values":{"\u2205":{"label":"\u2205","count":1,"position":0}},"isNumeric":false}]}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/catalog/search/products?resultsPerPage=12&page=1&query=product_with_quotes_data'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 235
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.151435
+            namelookup_time: 0.000511
+            connect_time: 0.000594
+            pretransfer_time: 0.000619
+            size_upload: !!float 0
+            size_download: !!float 2338
+            speed_download: !!float 15483
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.15139
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.7
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.12
+            local_port: 32928
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 594
+            namelookup_time_us: 511
+            pretransfer_time_us: 619
+            redirect_time_us: 0
+            starttransfer_time_us: 151390
+            total_time_us: 151435

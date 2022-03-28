@@ -39,6 +39,9 @@ final class Shipping
     /** @var null|float */
     private $carriagePaidThreshold;
 
+    /** @var bool */
+    private $isExternalPrice;
+
     /**
      * @internal
      *
@@ -54,6 +57,7 @@ final class Shipping
         $this->shippingPrice = new Price($data['shippingPrice']);
         $this->image = $data['image'];
         $this->carriagePaidThreshold = $data['carriagePaidThreshold'] ?? null;
+        $this->isExternalPrice = $data['externalPrice'] ?? false;
     }
 
     /**
@@ -115,5 +119,10 @@ final class Shipping
     public function getCarriagePaidThreshold(): ?float
     {
         return $this->carriagePaidThreshold;
+    }
+
+    public function isExternalPrice(): bool
+    {
+        return $this->isExternalPrice;
     }
 }

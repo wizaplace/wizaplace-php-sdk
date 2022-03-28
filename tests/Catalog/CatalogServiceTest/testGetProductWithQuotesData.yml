@@ -1,0 +1,69 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/catalog/products/13'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Accept: 'application/json'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 04 Jan 2022 15:41:39 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 1dda74
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/1dda74'
+            X-Robots-Tag: noindex
+            X-Request-Id: 62260342beabd10f8f167a917c67a7fd
+        body: '{"id":13,"code":"product_with_quotes_data","supplierReference":"product_with_quotes_data_ref","name":"Product with quotes data","url":"http:\/\/wizaplace.loc\/informatique\/casques\/product-with-quotes-data-2.html","shortDescription":"Product with quotes data short description","description":"Product with quotes data full description","slug":"product-with-quotes-data-2","minPrice":3.5,"maxPriceAdjustment":null,"greenTax":0,"isTransactional":true,"weight":0,"averageRating":0,"averageRatingFloat":0,"shippings":[{"shipping_id":38,"name":"Lettre prioritaire","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":39,"name":"Colissmo","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":42,"name":"MondialRelay","image":null,"firstRate":0,"nextRate":0,"position":0,"deliveryTime":"","carriagePaidThreshold":null},{"shipping_id":1,"name":"TNT Express","image":null,"firstRate":0,"nextRate":0,"position":40,"deliveryTime":"24h","carriagePaidThreshold":null}],"companies":[{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null}],"categoryPath":[{"id":3,"name":"Informatique","slug":"informatique"},{"id":5,"name":"Casques","slug":"casques"}],"geolocation":null,"createdAt":"2021-12-21T14:41:03+00:00","updatedAt":"2021-12-22T09:31:34+00:00","availableSince":null,"infiniteStock":false,"video":null,"seoData":{"title":"","description":"","keywords":""},"declinations":[{"id":"13_0","code":"product_with_quotes_data","isAvailable":true,"supplierReference":"product_with_quotes_data_ref","price":3.5,"maxPriceAdjustment":null,"originalPrice":3.5,"crossedOutPrice":null,"prices":{"priceWithTaxes":3.5,"priceWithoutVat":3.5,"vat":0},"greenTax":0,"amount":12,"infiniteStock":false,"affiliateLink":null,"images":[],"options":[],"isBrandNew":true,"company":{"id":3,"name":"The World Company Inc.","slug":"the-world-company-inc","isProfessional":true,"image":null,"averageRating":null},"priceTiers":[{"lowerLimit":0,"includingTaxes":3.5,"excludingTaxes":3.5,"taxes":0}]}],"offers":[{"productId":13,"companyId":3,"price":3.5,"status":"A","divisions":[],"priceTiers":[{"lowerLimit":0,"includingTaxes":3.5,"excludingTaxes":3.5,"taxes":0}]}],"attributes":[],"options":[],"attachments":[],"images":[],"productTemplateType":"product","features":[],"isSubscription":false,"isRenewable":false,"quoteRequestsMinQuantity":5,"isExclusiveToQuoteRequests":true,"relatedOffers":[],"isUpToDate":true}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/catalog/products/13'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 175
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.136919
+            namelookup_time: 0.000565
+            connect_time: 0.000658
+            pretransfer_time: 0.00069
+            size_upload: !!float 0
+            size_download: !!float 2573
+            speed_download: !!float 18919
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.136893
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.7
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.12
+            local_port: 53876
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 658
+            namelookup_time_us: 565
+            pretransfer_time_us: 690
+            redirect_time_us: 0
+            starttransfer_time_us: 136893
+            total_time_us: 136919

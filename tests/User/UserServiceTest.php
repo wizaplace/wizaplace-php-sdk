@@ -2391,6 +2391,14 @@ final class UserServiceTest extends ApiTestCase
         static::assertSame(1, $user->getPasswordExpiryTimeLeft());
     }
 
+    public function testGetQuotesUser(): void
+    {
+        $userId = ($this->client->authenticate('user@wizaplace.com', static::VALID_PASSWORD))->getId();
+
+        $user = $this->userService->getProfileFromId($userId);
+        static::assertSame([1, 2, 3, 4, 5], $user->getQuoteRequestSelectionIds());
+    }
+
     public function getAddressCommand(): UpdateUserAddressCommand
     {
         return (new UpdateUserAddressCommand())
