@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New version
+## 1.150.0
 
 ### New features
 
@@ -20,10 +20,6 @@
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionDeclination`
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter`
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService`
-
-## 1.150.0
-
-### New features
 - Added support for the feature "Custom shipping price" price
 - Added new class `Wizaplace\SDK\Basket\ExternalShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
