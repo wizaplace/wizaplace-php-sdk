@@ -1,0 +1,62 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOnBhc3N3b3Jk'
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Accept: application/json
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 26 Apr 2021 09:32:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 9e729a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/9e729a'
+            X-Robots-Tag: noindex
+            X-Request-Id: fdb3a56c62ab6e6a7d11e89821c99283
+        body: '{"id":3,"apiKey":"b+tnwCQVpQ\/1ziRXZBCmoRLXG4214EwZB8J+FCFP"}'
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/reports/transactions?page=1&resultPerPage=10'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: Wizaplace-PHP-SDK/dev-feature-TMA-688-Exchange-logs-on-subscriptions-v2@e3c316d
+            Authorization: 'token b+tnwCQVpQ/1ziRXZBCmoRLXG4214EwZB8J+FCFP'
+            Accept: application/json
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '403'
+            message: Forbidden
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.13
+            Cache-Control: 'no-cache, private'
+            Date: 'Mon, 26 Apr 2021 09:32:00 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 28bbf8
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/28bbf8'
+            X-Robots-Tag: noindex
+        body: '{"message":"Access Denied."}'

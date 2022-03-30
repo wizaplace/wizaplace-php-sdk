@@ -1,7 +1,7 @@
 
 # Changelog
 
-## New version
+## 1.150.0
 
 ### New features
 
@@ -20,10 +20,6 @@
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionDeclination`
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionFilter`
 - Added `\Wizaplace\SDK\QuoteRequest\QuoteRequestSelection\QuoteRequestSelectionService`
-
-## 1.150.0
-
-### New features
 - Added support for the feature "Custom shipping price" price
 - Added new class `Wizaplace\SDK\Basket\ExternalShippingPrice`
 - Added `Wizaplace\SDK\Basket\BasketService::updateShippingPrice`
@@ -93,6 +89,22 @@
 - Added an interface to enable event dispatching before and after each request to the API.
 
 ## 1.136.1
+
+### New features
+
+- Added `Wizaplace\SDK\Transaction\Transaction::getCreatedAt`
+- Added `Wizaplace\SDK\Transaction\Transaction::getOrigin`
+- Added `Wizaplace\SDK\Transaction\Transaction::getDestination`
+- Added `Wizaplace\SDK\Transaction\Transaction::getCurrency`
+- Added `Wizaplace\SDK\Transaction\Transaction::getOrderId`
+- Added `Wizaplace\SDK\Transaction\TransactionFilter`
+- Added `Wizaplace\SDK\Transaction\TransactionList`
+- Added `Wizaplace\SDK\Transaction\TransactionPeriod`
+- Added `Wizaplace\SDK\Transaction\TransactionService`
+- Added `Wizaplace\SDK\Company\CompanyService::getBalance`
+- Added `Wizaplace\SDK\Company\CompanyService::doPayout`
+
+## New version
 
 ### New features
 
