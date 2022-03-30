@@ -1,0 +1,139 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic dXNlckB3aXphcGxhY2UuY29tOldpbmRvd3MuOTg='
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Accept: 'application/json'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 15:00:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: df372a
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/df372a'
+            X-Robots-Tag: noindex
+            X-Request-Id: 4b1ec2638941bcc3c4d517f46bbe930d
+        body: '{"id":3,"apiKey":"im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr"}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/users/authenticate'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 237
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.206493
+            namelookup_time: 0.000525
+            connect_time: 0.000594
+            pretransfer_time: 0.000618
+            size_upload: !!float 0
+            size_download: !!float 60
+            speed_download: !!float 291
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.206427
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 43660
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 594
+            namelookup_time_us: 525
+            pretransfer_time_us: 618
+            redirect_time_us: 0
+            starttransfer_time_us: 206427
+            total_time_us: 206493
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/3'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token im2HeraCqnOAaK4vPCCyIVOGd28WaY+Dy7lPltzr'
+            Accept: 'application/json'
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 15:00:16 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 605b64
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/605b64'
+            X-Robots-Tag: noindex
+            X-Request-Id: e1bd736bbe539cd0c87b4dc1256098a1
+        body: '{"id":3,"title":"mr","email":"user@wizaplace.com","type":"C","lang":"fr","companyId":null,"pendingCompanyId":null,"firstName":"Paul","lastName":"Martin","phone":"01234567890","birthday":null,"currencyCode":null,"loyaltyIdentifier":"","addresses":{"billing":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","comment":"","37":4,"38":4,"40":"","39":""},"shipping":{"label":"","address_id":"","title":"mr","firstname":"Paul","lastname":"Martin","company":"","phone":"01234567890","address":"40 rue Laure Diebold","address_2":"3\u00e8me \u00e9tage","zipcode":"69009","city":"Lyon","country":"FR","state":"","address_type":"","comment":"","37":4,"38":4,"40":"","39":""}},"externalIdentifier":"","isProfessional":false,"intraEuropeanCommunityVAT":"","company":"","jobTitle":"","comment":"","legalIdentifier":"","nationalities":[],"registeredAt":"2021-12-20T11:19:32+01:00","extra":[],"quoteRequestSelectionIds":[1,2,3,4,5],"apiKeyUpdatedAt":""}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/users/3'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 226
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.150894
+            namelookup_time: 0.000433
+            connect_time: 0.000516
+            pretransfer_time: 0.000539
+            size_upload: !!float 0
+            size_download: !!float 1129
+            speed_download: !!float 7526
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.150876
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 43678
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 516
+            namelookup_time_us: 433
+            pretransfer_time_us: 539
+            redirect_time_us: 0
+            starttransfer_time_us: 150876
+            total_time_us: 150894

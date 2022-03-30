@@ -122,6 +122,12 @@ abstract class ProductUpsertData
     /** @var null|int */
     private $companyId;
 
+    /** @var null|int */
+    private $quoteRequestsMinQuantity;
+
+    /** @var null|bool */
+    private $isExclusiveToQuoteRequests;
+
     /**
      * @param string $code
      * @return $this
@@ -512,6 +518,30 @@ abstract class ProductUpsertData
     }
 
     /**
+     * @param int|null $quoteRequestsMinQuantity
+     *
+     * @return ProductUpsertData
+     */
+    public function setQuoteRequestsMinQuantity(?int $quoteRequestsMinQuantity): self
+    {
+        $this->quoteRequestsMinQuantity = $quoteRequestsMinQuantity;
+
+        return $this;
+    }
+
+    /**
+     * @param bool|null $isExclusiveToQuoteRequests
+     *
+     * @return ProductUpsertData
+     */
+    public function setIsExclusiveToQuoteRequests(?bool $isExclusiveToQuoteRequests): self
+    {
+        $this->isExclusiveToQuoteRequests = $isExclusiveToQuoteRequests;
+
+        return $this;
+    }
+
+    /**
      * @internal
      * @throws SomeParametersAreInvalid
      */
@@ -576,7 +606,9 @@ abstract class ProductUpsertData
             'seoTitle',
             'seoDescription',
             'seoKeywords',
-            'companyId'
+            'companyId',
+            'quoteRequestsMinQuantity',
+            'isExclusiveToQuoteRequests'
         ];
 
         foreach ($metadata->getReflectionClass()->getProperties() as $prop) {
@@ -775,6 +807,14 @@ abstract class ProductUpsertData
                 unset($data['is_edp']);
                 unset($data['is_returnable']);
             }
+        }
+
+        if (\is_integer($this->quoteRequestsMinQuantity) === true) {
+            $data['quote_requests_min_quantity'] = $this->quoteRequestsMinQuantity;
+        }
+
+        if (\is_bool($this->isExclusiveToQuoteRequests) === true) {
+            $data['is_exclusive_to_quote_requests'] = $this->isExclusiveToQuoteRequests;
         }
 
         return $data;

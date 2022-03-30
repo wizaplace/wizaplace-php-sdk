@@ -2815,6 +2815,32 @@ final class CatalogServiceTest extends ApiTestCase
         static::assertTrue($products[0]->isRenewable());
     }
 
+    public function testGetProductsWithQuotesData(): void
+    {
+        $products = $this->buildCatalogService()->getProductsByCode("product_with_quotes_data");
+
+        static::assertCount(1, $products);
+        static::assertSame(5, $products[0]->getQuoteRequestsMinQuantity());
+        static::assertTrue($products[0]->isExclusiveToQuoteRequests());
+    }
+
+    public function testGetProductWithQuotesData(): void
+    {
+        $product = $this->buildCatalogService()->getProductById((string) 13);
+
+        static::assertSame(5, $product->getQuoteRequestsMinQuantity());
+        static::assertTrue($product->isExclusiveToQuoteRequests());
+    }
+
+    public function testSearchProductWithQuotesData(): void
+    {
+        $products = $this->buildCatalogService()->search('product_with_quotes_data')->getProducts();
+
+        static::assertCount(1, $products);
+        static::assertSame(5, $products[0]->getQuoteRequestsMinQuantity());
+        static::assertTrue($products[0]->isExclusiveToQuoteRequests());
+    }
+
     public function testGetProductDeclinationWithSubscription(): void
     {
         $declination = $this->buildCatalogService()->getDeclinationById('36_0');

@@ -77,6 +77,10 @@ final class ProductSummary
     private $code;
     /** @var RelatedProduct[] */
     private $relatedOffers;
+    /** @var null|int */
+    private $quoteRequestsMinQuantity;
+    /** @var null|bool */
+    private $isExclusiveToQuoteRequests;
 
     /**
      * @internal
@@ -149,6 +153,8 @@ final class ProductSummary
         $this->isSubscription = $data['isSubscription'] ?? null;
         $this->isRenewable = $data['isRenewable'] ?? null;
         $this->maxPriceAdjustment = \array_key_exists('maxPriceAdjustment', $data) === true ? $data['maxPriceAdjustment'] : null;
+        $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
 
         $this->relatedOffers = $this->denormalizeRelatedOffers($data['relatedOffers'] ?? []);
     }
@@ -369,6 +375,22 @@ final class ProductSummary
     public function getRelatedOffers(): array
     {
         return $this->relatedOffers;
+    }
+
+    /**
+     * @return null|int
+     */
+    public function getQuoteRequestsMinQuantity(): ?int
+    {
+        return $this->quoteRequestsMinQuantity;
+    }
+
+    /**
+     * @return null|bool
+     */
+    public function isExclusiveToQuoteRequests(): ?bool
+    {
+        return $this->isExclusiveToQuoteRequests;
     }
 
     /**

@@ -235,6 +235,20 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame('Manuel de montage', $attachment->getLabel());
     }
 
+    public function testListProductWithQuotesData(): void
+    {
+        $filter = (new ProductListFilter())->byProductCode('product_with_quotes_data');
+        $products = $this
+            ->buildProductService('admin@wizaplace.com', ApiTestCase::VALID_PASSWORD)
+            ->listProducts($filter)
+            ->getProducts();
+        static::assertContainsOnly(ProductSummary::class, $products);
+        static::assertCount(1, $products);
+
+        static::assertSame(5, $products[0]->getQuoteRequestsMinQuantity());
+        static::assertTrue($products[0]->isExclusiveToQuoteRequests());
+    }
+
     public function testListProductPagination(): void
     {
         $result1 = $this->buildProductService()->listProducts(null, 1, 1);
@@ -2079,6 +2093,55 @@ final class ProductServiceTest extends ApiTestCase
         static::assertSame(4, $product->getMainCategoryId());
         static::assertSame("code_full_D", $product->getCode());
         static::assertSame(3, $product->getCompanyId());
+    }
+
+    public function testCreateAndUpdateProductWithQuotesData(): void
+    {
+        $productService = $this
+            ->buildProductService('admin@wizaplace.com', ApiTestCase::VALID_PASSWORD);
+        $id = $productService->createProduct(
+            (new CreateProductCommand())
+                ->setCode("product_with_quotes_data_2")
+                ->setSupplierReference('product_with_quotes_data_ref')
+                ->setName("Product with quotes data")
+                ->setMainCategoryId(1)
+                ->setGreenTax(0.)
+                ->setCompanyId(3)
+                ->setTaxIds([1])
+                ->setDeclinations(
+                    [
+                        (new ProductDeclinationUpsertData([]))
+                            ->setCode('product_with_quotes_data')
+                            ->setPrice(3.5)
+                            ->setQuantity(12)
+                            ->setInfiniteStock(false),
+                    ]
+                )
+                ->setStatus(ProductStatus::ENABLED())
+                ->setIsBrandNew(true)
+                ->setWeight(0.)
+                ->setFullDescription("Product with quotes data full description")
+                ->setShortDescription("Product with quotes data short description")
+                ->setQuoteRequestsMinQuantity(10)
+                ->setIsExclusiveToQuoteRequests(true)
+        );
+
+        static::assertTrue(\is_int($id));
+
+        $product = $productService->getProductById($id);
+
+        static::assertSame(10, $product->getQuoteRequestsMinQuantity());
+        static::assertTrue($product->isExclusiveToQuoteRequests());
+
+        $productService->updateProduct(
+            (new UpdateProductCommand($id))
+                ->setQuoteRequestsMinQuantity(5)
+                ->setIsExclusiveToQuoteRequests(false)
+        );
+        $product = $productService->getProductById($id);
+
+        static::assertSame(5, $product->getQuoteRequestsMinQuantity());
+        static::assertFalse($product->isExclusiveToQuoteRequests());
     }
 
     private function getSampleImage(): ProductImageUpload

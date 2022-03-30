@@ -1,0 +1,139 @@
+
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/users/authenticate'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            Authorization: 'Basic YWRtaW5Ad2l6YXBsYWNlLmNvbTpXaW5kb3dzLjk4'
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Accept: 'application/json'
+            VCR-index: '0'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:48:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 3ff235
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/3ff235'
+            X-Robots-Tag: noindex
+            X-Request-Id: 6d902e511df6c552741de1e8f2aeb662
+        body: '{"id":2,"apiKey":"sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW"}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/users/authenticate'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 237
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.176413
+            namelookup_time: 0.000554
+            connect_time: 0.000628
+            pretransfer_time: 0.00065
+            size_upload: !!float 0
+            size_download: !!float 60
+            speed_download: !!float 340
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.176357
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 42914
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 628
+            namelookup_time_us: 554
+            pretransfer_time_us: 650
+            redirect_time_us: 0
+            starttransfer_time_us: 176357
+            total_time_us: 176413
+-
+    request:
+        method: GET
+        url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&pcode=product_with_quotes_data'
+        headers:
+            Host: wizaplace.loc
+            Accept-Encoding: null
+            User-Agent: 'Wizaplace-PHP-SDK/dev-feature/WIZ-9507-add-php8-support-for-sdk@f2b5aad PHP/7.4.24'
+            Authorization: 'token sWZQEghnGrvHH5Foj1piYY5t1xQRHleUHX6nQtoW'
+            Accept: 'application/json'
+            VCR-index: '1'
+    response:
+        status:
+            http_version: '1.1'
+            code: '200'
+            message: OK
+        headers:
+            Server: nginx
+            Content-Type: application/json
+            Transfer-Encoding: chunked
+            Connection: keep-alive
+            X-Powered-By: PHP/7.4.24
+            Cache-Control: 'no-cache, private'
+            Date: 'Tue, 21 Dec 2021 14:48:48 GMT'
+            Content-Language: fr
+            Access-Control-Allow-Origin: '*'
+            X-Debug-Token: 094dc1
+            X-Debug-Token-Link: 'http://wizaplace.loc/_profiler/094dc1'
+            X-Robots-Tag: noindex
+            X-Request-Id: 91c7f41d7db8f1682ebbb2e3ca343994
+        body: '{"products":[{"product_id":13,"product_code":"product_with_quotes_data","status":"A","company_id":3,"approved":"Y","weight":0.0,"timestamp":1640097663,"updated_timestamp":1640097664,"is_edp":"N","unlimited_download":"N","free_shipping":"N","avail_since":0,"tax_ids":[1],"crossed_out_price":0.0,"affiliate_link":"","product_template_type":"product","infinite_stock":false,"max_price_adjustment":null,"is_subscription":false,"is_renewable":false,"product":"Product with quotes data","short_description":"Product with quotes data short description","full_description":"Product with quotes data full description","category_ids":[1],"main_category":1,"video":null,"inventory":[{"combination":[],"amount":12,"crossed_out_price":0.0,"price":3.5,"priceTiers":[{"lowerLimit":0,"price":3.5}]}],"green_tax":0.0,"supplier_ref":"product_with_quotes_data_ref","condition":"N","free_features":[],"geolocation":{"latitude":null,"longitude":null,"label":null,"zipcode":null},"divisions":[],"attachments":[],"slug":"product-with-quotes-data-2","seoTitle":"","seoDescription":"","seoKeywords":"","related":[],"quote_requests_min_quantity":5,"is_exclusive_to_quote_requests":true}],"params":{"pname":"","pshort":"","pfull":"","page":"1","match":"","sort_by":"null","items_per_page":"100","pcode":"product_with_quotes_data","sort_order":"asc","total_items":"1"}}'
+        curl_info:
+            url: 'http://wizaplace.loc/api/v1/products?page=1&items_per_page=100&pcode=product_with_quotes_data'
+            content_type: application/json
+            http_code: 200
+            header_size: 422
+            request_size: 284
+            filetime: -1
+            ssl_verify_result: 0
+            redirect_count: 0
+            total_time: 0.173377
+            namelookup_time: 0.000442
+            connect_time: 0.000511
+            pretransfer_time: 0.000533
+            size_upload: !!float 0
+            size_download: !!float 1334
+            speed_download: !!float 7710
+            speed_upload: !!float 0
+            download_content_length: !!float -1
+            upload_content_length: !!float -1
+            starttransfer_time: 0.173315
+            redirect_time: !!float 0
+            redirect_url: ''
+            primary_ip: 172.17.3.13
+            certinfo: {  }
+            primary_port: 80
+            local_ip: 172.17.3.11
+            local_port: 42932
+            http_version: 2
+            protocol: 1
+            ssl_verifyresult: 0
+            scheme: HTTP
+            appconnect_time_us: 0
+            connect_time_us: 511
+            namelookup_time_us: 442
+            pretransfer_time_us: 533
+            redirect_time_us: 0
+            starttransfer_time_us: 173315
+            total_time_us: 173377

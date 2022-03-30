@@ -63,6 +63,12 @@ final class Product extends ProductSummary
     /** @var array|null */
     private $additionalImagesData;
 
+    /** @var null|int */
+    private $quoteRequestsMinQuantity;
+
+    /** @var null|bool */
+    private $isExclusiveToQuoteRequests;
+
     /**
      * @internal
      *
@@ -123,6 +129,8 @@ final class Product extends ProductSummary
         $this->seoDescription = $data['seoDescription'] ?? null;
         $this->seoKeywords = $data['seoKeywords'] ?? null;
         $this->video = $data['video'] ?? null;
+        $this->quoteRequestsMinQuantity = $data['quote_requests_min_quantity'] ?? null;
+        $this->isExclusiveToQuoteRequests = $data['is_exclusive_to_quote_requests'] ?? null;
     }
 
     /**
@@ -239,5 +247,17 @@ final class Product extends ProductSummary
     public function getVideo(): ?string
     {
         return $this->video;
+    }
+
+    /** @return null|int */
+    public function getQuoteRequestsMinQuantity(): ?int
+    {
+        return $this->quoteRequestsMinQuantity;
+    }
+
+    /** @return null|bool */
+    public function isExclusiveToQuoteRequests(): ?bool
+    {
+        return $this->isExclusiveToQuoteRequests;
     }
 }
