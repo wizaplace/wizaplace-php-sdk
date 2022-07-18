@@ -149,6 +149,9 @@ final class Product
     /** @var bool */
     private $isUpToDate;
 
+    /** @var RelatedProduct[] */
+    private $relatedOffers;
+
     /**
      * @internal
      *
@@ -238,6 +241,7 @@ final class Product
         $this->infiniteStock = $data['infiniteStock'];
         $this->quoteRequestsMinQuantity = $data['quoteRequestsMinQuantity'] ?? null;
         $this->isExclusiveToQuoteRequests = $data['isExclusiveToQuoteRequests'] ?? null;
+        $this->relatedOffers = $this->denormalizeRelatedOffers($data['relatedOffers'] ?? []);
 
         if (\array_key_exists('images', $data) === true) {
             $this->images = $this->getImagesWithAltText($data);
@@ -655,9 +659,42 @@ final class Product
         return $this->isExclusiveToQuoteRequests;
     }
 
+    /** @return RelatedProduct[] */
+    public function getRelatedOffers(): array
+    {
+        return $this->relatedOffers;
+    }
+
     /** @return bool */
     public function isUpToDate(): bool
     {
         return $this->isUpToDate;
+    }
+
+    /**
+     * @param mixed[] $data
+     * @return RelatedProduct[]
+     */
+    private function denormalizeRelatedOffers(array $data): array
+    {
+        return array_map(
+            function (array $relatedProduct): RelatedProduct {
+                return new RelatedProduct([
+                    'type' => $relatedProduct['type'],
+                    'productId' => $relatedProduct['productId'],
+                    'description' => $relatedProduct['description'],
+                    'extra' => $relatedProduct['extra'],
+                    'name' => $relatedProduct['name'],
+                    'status' => $relatedProduct['status'],
+                    'url' => $relatedProduct['url'],
+                    'minPrice' => $relatedProduct['minPrice'],
+                    'code' => $relatedProduct['code'],
+                    'supplierReference' => $relatedProduct['supplierReference'],
+                    'images' => $relatedProduct['images'],
+                    'company' => $relatedProduct['company']
+                ]);
+            },
+            $data
+        );
     }
 }
