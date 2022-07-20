@@ -11,9 +11,12 @@ declare(strict_types=1);
 namespace Wizaplace\SDK\Catalog;
 
 use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 
 class RelatedProduct
 {
+    use ImagesDataTrait;
+    
     /** @var int */
     private $parentProductId;
 
@@ -66,7 +69,11 @@ class RelatedProduct
         $this->minPrice = $data['minPrice'] ?? null;
         $this->code = $data['code'] ?? null;
         $this->supplierReference = $data['supplierReference'] ?? null;
-        $this->images = $data['images'] ?? null;
+        if (\array_key_exists('images', $data) === true) {
+            $this->images = $this->getImagesWithAltText($data);
+        } else {
+            $this->images = [];
+        }
         $this->company = $data['company'] ?? null;
     }
 
