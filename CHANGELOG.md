@@ -5,6 +5,7 @@
 ### New features
 
 - Added `\Wizaplace\SDK\Catalog\Product::getRelatedOffers`
+
 ## 1.150.0
 
 ### New features
