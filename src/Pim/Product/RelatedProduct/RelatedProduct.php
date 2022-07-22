@@ -9,13 +9,16 @@ declare(strict_types=1);
 
 namespace Wizaplace\SDK\Pim\Product\RelatedProduct;
 
-use Nette\Utils\Image;
+use Wizaplace\SDK\Image\Image;
+use Wizaplace\SDK\Image\ImagesDataTrait;
 use Wizacha\Marketplace\Catalog\Company\Company;
 use Wizacha\Marketplace\Catalog\Company\CompanySummary;
 use Wizacha\Marketplace\Company\Company as CompanyCompany;
 
 class RelatedProduct
 {
+    use ImagesDataTrait;
+    
     /** @var string */
     private $type;
 
@@ -66,7 +69,11 @@ class RelatedProduct
         $this->minPrice = $data['minPrice'];
         $this->code = $data['code'];
         $this->supplierReference = $data['supplierReference'];
-        $this->images = $data['images'];
+        if (\array_key_exists('images', $data) === true) {
+            $this->images = $this->getImagesWithAltText($data);
+        } else {
+            $this->images = [];
+        }
         $this->company = $data['company'];
     }
 
