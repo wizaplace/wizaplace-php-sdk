@@ -510,4 +510,34 @@ final class UserService extends AbstractService
             }
         );
     }
+
+    /**
+     * Get user profile by email
+     *
+     * @author Vadim Bulochnik <vadim.bulochnik@gmail.com>
+     *
+     * @param string $email
+     *
+     * @return User
+     * @throws AuthenticationRequired
+     * @throws \GuzzleHttp\Exception\GuzzleException
+     * @throws \Wizaplace\SDK\Exception\JsonDecodingError
+     */
+    public function getProfileByEmail(string $email): ?User
+    {
+        $this->client->mustBeAuthenticated();
+
+        $list = $this->client->get("users?email=" . $email, []);
+
+        $user = null;
+        foreach ($list['results'] as $userData) {
+            if ($userData['email'] == $email) {
+                $user = new User($userData);
+
+                break;
+            }
+        }
+
+        return $user;
+    }
 }
