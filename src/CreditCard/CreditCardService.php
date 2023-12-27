@@ -81,7 +81,7 @@ final class CreditCardService extends AbstractService
      *
      * @return string
      */
-    public function getRegistrationUrl(int $userId, string $redirectUrl, int $paymentId, string $cssUrl = null): string
+    public function getRegistrationUrl(int $userId, string $redirectUrl, int $paymentId, string $cssUrl = null, array $subscriptionIDs = []): string
     {
         $this->client->mustBeAuthenticated();
 
@@ -92,6 +92,10 @@ final class CreditCardService extends AbstractService
 
         if (\is_string($cssUrl)) {
             $params['cssUrl'] = $cssUrl;
+        }
+
+        if ($subscriptionIDs) {
+            $params['subscriptionIDs'] = json_encode($subscriptionIDs);
         }
 
         return $this->assertRessourceNotFound(
