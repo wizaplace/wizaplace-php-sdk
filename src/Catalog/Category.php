@@ -26,6 +26,8 @@ final class Category
     /** @var string */
     private $description;
     /** @var string */
+    private $long_description;
+    /** @var string */
     private $slug;
     /** @var null|Image */
     private $image;
@@ -55,6 +57,7 @@ final class Category
         $this->parentId = $data['parentId'];
         $this->name = $data['name'];
         $this->description = $data['description'];
+        $this->long_description = $data['long_description'] ?? '';
         $this->slug = $data['slug'];
         $this->image = isset($data['image']) ? new Image($data['image']) : null;
         $this->position = $data['position'];
@@ -101,6 +104,14 @@ final class Category
     public function getDescription(): string
     {
         return $this->description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongDescription(): string
+    {
+        return $this->long_description;
     }
 
     /**
