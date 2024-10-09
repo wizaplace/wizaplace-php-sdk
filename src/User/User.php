@@ -66,6 +66,8 @@ final class User
     private $loyaltyIdentifier;
     /** @var string|null */
     private $lang;
+    /** @var string|null */
+    private $apiKey;
 
     /**
      * @internal
@@ -97,6 +99,7 @@ final class User
         $this->comment = $data['comment'] ?? null;
         $this->legalIdentifier = $data['legalIdentifier'] ?? null;
         $this->loyaltyIdentifier = $data['loyaltyIdentifier'] ?? null;
+        $this->apiKey = $data['apiKey'] ?? null;
     }
 
     /**
@@ -263,5 +266,10 @@ final class User
     public function getLanguage(): ?string
     {
         return $this->lang;
+    }
+
+    public function getApiKey(): ?string
+    {
+        return $this->apiKey;
     }
 }
